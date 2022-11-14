@@ -1,47 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdExpandImageView;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.wu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vu8 {
+public class vu8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundPreviewActivity a;
-    public View b;
-    public BdExpandImageView c;
-    public TbImageView d;
-    public TbImageView e;
-    public TextView f;
-    public ImageView g;
-    public TextView h;
-    public final rg<hn> i;
+    public AvatarPendantActivity a;
+    public List<DressItemData> b;
+    public wu8.a c;
 
     /* loaded from: classes6.dex */
-    public class a extends rg<hn> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vu8 a;
+    }
 
-        public a(vu8 vu8Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AvatarPendantPerItemView a;
+
+        public b(vu8 vu8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,44 +58,21 @@ public class vu8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = vu8Var;
         }
 
-        @Override // com.baidu.tieba.rg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.onCancelled(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.rg
-        public void onProgressUpdate(Object... objArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
-                super.onProgressUpdate(objArr);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hnVar, str, i) == null) && hnVar != null) {
-                hnVar.h(this.a.c);
-            }
+        public /* synthetic */ b(vu8 vu8Var, a aVar) {
+            this(vu8Var);
         }
     }
 
-    public vu8(BackgroundPreviewActivity backgroundPreviewActivity) {
+    public vu8(AvatarPendantActivity avatarPendantActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundPreviewActivity};
+            Object[] objArr = {avatarPendantActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,90 +82,92 @@ public class vu8 {
                 return;
             }
         }
-        this.i = new a(this);
-        this.a = backgroundPreviewActivity;
-        View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0134, (ViewGroup) null);
-        this.b = inflate;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c6)));
-        c();
+        this.a = avatarPendantActivity;
     }
 
-    public View b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public DressItemData getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<DressItemData> list = this.b;
+            if (list != null && list.size() > 0 && this.b.size() > i) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return (DressItemData) invokeI.objValue;
+    }
+
+    public final void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            int skinType = TbadkApplication.getInst().getSkinType();
+            if (view2 != null) {
+                rq4 layoutMode = this.a.getLayoutMode();
+                boolean z = true;
+                if (skinType != 1) {
+                    z = false;
+                }
+                layoutMode.l(z);
+                this.a.getLayoutMode().k(view2);
+            }
+        }
+    }
+
+    public void c(wu8.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    public void d(List<DressItemData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<DressItemData> list = this.b;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getPageContext() == null) {
-            return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d012b, viewGroup, false);
+                bVar = new b(this, null);
+                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
+                bVar.a = avatarPendantPerItemView;
+                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
+                view2.setTag(bVar);
+            }
+            DressItemData item = getItem(i);
+            if (item != null) {
+                bVar.a.c(item);
+            }
+            b(view2);
+            return view2;
         }
-        if5.a(this.a.getPageContext(), this.b);
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090970);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924df);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09262d);
-            this.e = tbImageView;
-            tbImageView.setAutoChangeStyle(false);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924f6);
-            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09250f);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924cc);
-            this.d.setDefaultResource(R.drawable.icon_default_avatar100);
-        }
-    }
-
-    public void e(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
-            return;
-        }
-        sg.h().k(dressItemData.getExampleImgUrl(), 10, this.i, 0, 0, null, new Object[0]);
-        if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
-            this.h.setText("0");
-        } else {
-            this.h.setText(dressItemData.getPropsStateImg());
-        }
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo == null) {
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0331, 1);
-            this.f.setText(R.string.obfuscated_res_0x7f0f04ac);
-            this.g.setImageResource(R.drawable.icon_pop_boy);
-            this.e.setVisibility(8);
-            return;
-        }
-        String avatar = currentAccountInfo.getAvatar();
-        int memberType = currentAccountInfo.getMemberType();
-        if (!TextUtils.isEmpty(avatar)) {
-            this.d.K(avatar, 25, false);
-        }
-        String memberIconUrl = currentAccountInfo.getMemberIconUrl();
-        if (StringUtils.isNull(memberIconUrl)) {
-            this.e.setVisibility(8);
-        } else {
-            this.e.K(memberIconUrl, 10, false);
-            this.e.setVisibility(0);
-        }
-        if (memberType > 0) {
-            this.f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0331));
-        } else {
-            this.f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0622));
-        }
-        this.f.setText(currentAccountInfo.getAccountNameShow());
-        int sex = currentAccountInfo.getSex();
-        if (sex == 1) {
-            this.g.setImageResource(R.drawable.icon_pop_boy);
-        } else if (sex == 2) {
-            this.g.setImageResource(R.drawable.icon_pop_girl);
-        } else {
-            this.g.setVisibility(8);
-        }
+        return (View) invokeILL.objValue;
     }
 }

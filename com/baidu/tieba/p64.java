@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class p64 {
+public class p64 implements jl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o64 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized o64 a() {
-        InterceptResult invokeV;
-        o64 o64Var;
+    public p64() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (p64.class) {
-                if (a == null) {
-                    a = new o64();
-                }
-                o64Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return o64Var;
         }
-        return (o64) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jl1
+    public Class<? extends l32> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c04.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

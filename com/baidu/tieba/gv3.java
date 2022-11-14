@@ -1,18 +1,5 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,192 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gv3 extends kw3 {
+public class gv3 extends lw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static ExecutorService d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ih2 c;
-
-        public a(gv3 gv3Var, String str, String str2, ih2 ih2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv3Var, str, str2, ih2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = ih2Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                if (gv3.c) {
-                    Log.d("appManagerAction", "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.a + ",result:" + delegateResult.mResult);
-                }
-                String string = delegateResult.mResult.getString("packageName");
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.equals(this.a, string)) {
-                    if (tv3.h(AppRuntime.getAppContext(), this.a)) {
-                        if (!TextUtils.isEmpty(this.b)) {
-                            fw3.a(this.a, this.b, "success", "", null);
-                        }
-                        this.c.a(new JSONObject());
-                        return;
-                    }
-                    if (!TextUtils.isEmpty(this.b)) {
-                        fw3.a(this.a, this.b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
-                    }
-                    this.c.onFail(31003, "apk install cancel");
-                } else if (!delegateResult.isOk()) {
-                    if (!TextUtils.isEmpty(this.b)) {
-                        fw3.a(this.a, this.b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
-                    }
-                    this.c.onFail(31003, "apk install cancel");
-                } else {
-                    dv3.n().t(this.a);
-                    gv3.g(delegateResult.mResult, this.c);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends l03 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String c;
-        public String d;
-        public ih2 e;
-
-        @Override // com.baidu.tieba.j03
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.tieba.j03
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public b(String str, String str2, ih2 ih2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, ih2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = str;
-            this.c = str2;
-            this.e = ih2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l03, com.baidu.tieba.j03
-        public void onEvent(@NonNull h03 h03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, h03Var) == null) {
-                Bundle a = h03Var.a();
-                ih2 ih2Var = this.e;
-                if (ih2Var == null) {
-                    return;
-                }
-                if (a != null) {
-                    gv3.g(a, ih2Var);
-                } else {
-                    ih2Var.onFail(1001, "");
-                }
-            }
-        }
-
-        public final void e() {
-            ih2 ih2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ih2Var = this.e) != null) {
-                ih2Var.onFail(31018, "download process is killed");
-                gv3.e(this.d, this.c, 31018);
-                this.e = null;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<b> a;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(bVar);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (gv3.c) {
-                    Log.d("appManagerAction", "onConnectionDown");
-                }
-                if (this.a.get() != null) {
-                    this.a.get().e();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -220,13 +26,12 @@ public class gv3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
-        d = Executors.newSingleThreadExecutor();
+        boolean z = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gv3() {
-        super("appDownloadManager");
+        super("getDownloadConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,107 +47,30 @@ public class gv3 extends kw3 {
         }
     }
 
-    public static void e(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
-            fw3.a(str, str2, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(i), null);
-        }
-    }
-
-    public static void g(@NonNull Bundle bundle, @NonNull ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, bundle, ih2Var) == null) {
-            String string = bundle.getString("functionType");
-            if (string == null) {
-                ih2Var.onFail(1001, "");
-                return;
-            }
-            String string2 = bundle.getString("resultData", "");
-            int i = bundle.getInt("resultStatus", 1001);
-            if (c) {
-                Log.d("appManagerAction", "handleResult:function = " + string + ",result = " + string2);
-            }
-            char c2 = 65535;
-            int hashCode = string.hashCode();
-            if (hashCode != -1013362275) {
-                if (hashCode == -530890460 && string.equals("onSuccess")) {
-                    c2 = 0;
-                }
-            } else if (string.equals("onFail")) {
-                c2 = 1;
-            }
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    ih2Var.onFail(i, string2);
-                    return;
-                }
-                return;
-            }
-            ih2Var.a(eh3.d(string2));
-        }
-    }
-
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+    @Override // com.baidu.tieba.lw3
+    public fw1 a(JSONObject jSONObject, jh2 jh2Var) {
         InterceptResult invokeLL;
-        String str;
-        String str2;
-        String jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (c) {
-                Log.d("appManagerAction", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("packageName");
-                str2 = optJSONObject.optString("installSource");
-            } else {
-                str = null;
-                str2 = null;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, optString);
-            if (optJSONObject == null) {
-                jSONObject2 = "";
-            } else {
-                jSONObject2 = optJSONObject.toString();
-            }
-            bundle.putString("data", jSONObject2);
-            bundle.putString("ubc_params", new dw3().a());
-            if (TextUtils.equals(optString, "installApp")) {
-                if (!TextUtils.isEmpty(str2)) {
-                    fw3.a(str, str2, "start", "", null);
-                }
-                f(bundle, str, str2, ih2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jh2Var)) == null) {
+            if (jSONObject == null) {
+                jh2Var.onFail(202, "params may be error");
                 return null;
             }
-            z03 y = d43.K().y();
-            if (y != null) {
-                b bVar = new b(str, optString, ih2Var);
-                y.X(bundle, rv3.class, bVar);
-                y.V(new c(bVar));
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                pv3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
             }
+            if (jSONObject.has("install_guide_switch")) {
+                uv3.r(jSONObject.optBoolean("install_guide_switch"));
+            }
+            if (jSONObject.has("install_guide_count")) {
+                uv3.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                uv3.s(jSONObject.optBoolean("get_install_result"));
+            }
+            jh2Var.a(null);
             return null;
         }
-        return (ew1) invokeLL.objValue;
-    }
-
-    public final void f(@NonNull Bundle bundle, @Nullable String str, String str2, @NonNull ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, str, str2, ih2Var) == null) {
-            SwanAppActivity w = d43.K().w();
-            if (w == null) {
-                ih2Var.onFail(1001, "");
-            } else if (tv3.h(AppRuntime.getAppContext(), str)) {
-                ih2Var.a(new JSONObject());
-            } else {
-                if (c) {
-                    Log.d("appManagerAction", "InstallAppDelegation handleInstall");
-                }
-                DelegateUtils.callOnMainWithActivity(w, InstallPluginDelegateActivity.class, uv3.class, bundle, new a(this, str, str2, ih2Var));
-            }
-        }
+        return (fw1) invokeLL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.GroupsByUidMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,8 +63,8 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = false;
-        this.mImageWidth = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = yi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = yi.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
     }
 
@@ -87,8 +87,8 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = false;
-        this.mImageWidth = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = yi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = yi.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
     }
 

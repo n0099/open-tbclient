@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.o86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class f86 implements d86 {
+public abstract class f86 implements h86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d86 a;
-    public final Map<Integer, d86> b;
+    public final o86 a;
+    public final o86.a b;
 
-    public f86(d86 defaultRenderer, Pair<Integer, ? extends d86>... renderers) {
+    public f86(o86 retainer, o86.a locator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultRenderer, renderers};
+            Object[] objArr = {retainer, locator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,52 +30,59 @@ public class f86 implements d86 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
-        Intrinsics.checkNotNullParameter(renderers, "renderers");
-        this.a = defaultRenderer;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
+        Intrinsics.checkNotNullParameter(retainer, "retainer");
+        Intrinsics.checkNotNullParameter(locator, "locator");
+        this.a = retainer;
+        this.b = locator;
     }
 
-    @Override // com.baidu.tieba.d86
-    public p86 a(h66 item, h86 displayer, b66 config) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.h86
+    public void a(t66 item, long j, t86 displayer, n66 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            d86 d86Var = this.b.get(Integer.valueOf(c(item)));
-            if (d86Var == null) {
-                d86Var = this.a;
-            }
-            return d86Var.a(item, displayer, config);
+            this.b.a(item, j, displayer, config);
         }
-        return (p86) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d86
-    public void b(h66 item, Canvas canvas, h86 displayer, b66 config) {
+    @Override // com.baidu.tieba.h86
+    public void b(t66 item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            this.a.b(item);
+        }
+    }
+
+    @Override // com.baidu.tieba.h86
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.update(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.h86
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.h86
+    public boolean d(t66 item, long j, t86 displayer, n66 config) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            d86 d86Var = this.b.get(Integer.valueOf(c(item)));
-            if (d86Var == null) {
-                d86Var = this.a;
-            }
-            d86Var.b(item, canvas, displayer, config);
+            item.f().B(this.a.a(item, j, displayer, config));
+            return item.f().p();
         }
-    }
-
-    public int c(h66 item) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().g();
-        }
-        return invokeL.intValue;
+        return invokeCommon.booleanValue;
     }
 }

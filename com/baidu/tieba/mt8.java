@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,16 +16,16 @@ public class mt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final or8 b;
+    public final zr8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mt8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(2001304);
+    public mt8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +37,25 @@ public class mt8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = or8Var;
+        this.b = zr8Var;
+        setPriority(1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        or8 or8Var;
-        boolean z;
+        zr8 zr8Var;
+        MainTabActivity mainTabActivity;
+        gu8 Y0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (or8Var = this.b) != null && or8Var.B() != null) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-            boolean z2 = false;
-            if (intValue != 2 && oldSkinType != 2) {
-                z = true;
-            } else {
-                z = false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && (zr8Var = this.b) != null && zr8Var.B() != null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            BdUniqueId bdUniqueId = null;
+            if (currentActivity instanceof BdBaseFragmentActivity) {
+                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
             }
-            if (z) {
-                return;
-            }
-            if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                z2 = true;
-            }
-            if (z2) {
-                this.b.B().d(1);
-            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.b.B().d(2);
-            } else {
-                this.b.B().d(1);
+            if (getTag() == bdUniqueId && (mainTabActivity = this.a) != null && (Y0 = mainTabActivity.Y0()) != null) {
+                Y0.a();
             }
         }
     }

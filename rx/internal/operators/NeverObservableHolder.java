@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.gz9;
-import com.baidu.tieba.mz9;
+import com.baidu.tieba.rz9;
+import com.baidu.tieba.xz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class NeverObservableHolder implements gz9.a<Object> {
+public final class NeverObservableHolder implements rz9.a<Object> {
     public static final /* synthetic */ NeverObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final NeverObservableHolder INSTANCE;
-    public static final gz9<Object> NEVER;
+    public static final rz9<Object> NEVER;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
-    public void call(mz9<? super Object> mz9Var) {
+    @Override // com.baidu.tieba.rz9.a, com.baidu.tieba.f0a
+    public void call(xz9<? super Object> xz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mz9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, xz9Var) == null) {
         }
     }
 
@@ -43,7 +43,7 @@ public final class NeverObservableHolder implements gz9.a<Object> {
         NeverObservableHolder neverObservableHolder = new NeverObservableHolder("INSTANCE", 0);
         INSTANCE = neverObservableHolder;
         $VALUES = new NeverObservableHolder[]{neverObservableHolder};
-        NEVER = gz9.a(neverObservableHolder);
+        NEVER = rz9.a(neverObservableHolder);
     }
 
     public NeverObservableHolder(String str, int i) {
@@ -65,13 +65,13 @@ public final class NeverObservableHolder implements gz9.a<Object> {
         }
     }
 
-    public static <T> gz9<T> instance() {
+    public static <T> rz9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (gz9<T>) NEVER;
+            return (rz9<T>) NEVER;
         }
-        return (gz9) invokeV.objValue;
+        return (rz9) invokeV.objValue;
     }
 
     public static NeverObservableHolder[] values() {

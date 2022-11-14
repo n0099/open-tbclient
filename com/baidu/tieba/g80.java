@@ -3,9 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
-import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,93 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g80 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile g80 c;
-    public static AtomicBoolean d;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
-    public d80 a;
-    public i80 b;
+    public int a;
+    public int b;
+    public final long c;
+    public long d;
+    public Context e;
+    public Map<String, String> f;
 
-    /* loaded from: classes4.dex */
-    public class b implements IMPushUploadResponseListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ g80 e;
-
-        /* loaded from: classes4.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.e.g(bVar.a, bVar.b, bVar.c, bVar.d);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947747658, "Lcom/baidu/tieba/g80;")) == null) {
+            return;
         }
-
-        public b(g80 g80Var, Context context, String str, List list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g80Var, context, str, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = g80Var;
-            this.a = context;
-            this.b = str;
-            this.c = list;
-            this.d = i;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-        public void uploadResponse(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                g80.d.set(false);
-                if (i == 0) {
-                    this.e.a.f().execute(new a(this));
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947747658, "Lcom/baidu/tieba/g80;");
         }
     }
 
@@ -107,167 +45,135 @@ public class g80 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ g80 d;
+        public String a;
+        public String b;
+        public final /* synthetic */ g80 c;
 
-        public a(g80 g80Var, Context context, String str, int i) {
+        public a(g80 g80Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g80Var, context, str, Integer.valueOf(i)};
+                Object[] objArr = {g80Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = g80Var;
-            this.a = context;
-            this.b = str;
-            this.c = i;
+            this.c = g80Var;
+            this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.d.j(this.a, this.b, this.c);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747658, "Lcom/baidu/tieba/g80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947747658, "Lcom/baidu/tieba/g80;");
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.f.put(this.a, this.b);
             }
         }
-        d = new AtomicBoolean(false);
     }
 
-    public static Boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return Boolean.valueOf(d.get());
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public void f() {
-        d80 d80Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (d80Var = this.a) != null) {
-            d80Var.c();
-        }
-    }
-
-    public g80(Context context) {
+    public g80(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = d80.h(context);
-        this.b = new i80();
+        this.d = 0L;
+        this.e = context;
+        this.a = i;
+        this.b = i2;
+        this.c = System.currentTimeMillis();
+        this.f = new ConcurrentHashMap();
     }
 
-    public static g80 h(Context context) {
-        InterceptResult invokeL;
+    public g80 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (c == null) {
-                synchronized (g80.class) {
-                    if (c == null) {
-                        c = new g80(context);
-                    }
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                e80.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
             }
-            return c;
+            String str2 = g;
+            m90.a(str2, "flow addEvent id:" + str + ",value:" + i);
+            return this;
         }
-        return (g80) invokeL.objValue;
+        return (g80) invokeLI.objValue;
     }
 
-    public synchronized void e(Context context, String str, int i) {
+    public g80 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, str, i) == null) {
-            synchronized (this) {
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && j80.f(context) && j80.e(context, Integer.parseInt(str))) {
-                    if (this.a != null) {
-                        this.a.f().execute(new a(this, context, str, i));
-                    }
-                    return;
-                }
-                l90.a("FlowTrackManager", "flow 无网、参数不对、未命中小流量不上报");
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                e80.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
             }
+            String str2 = g;
+            m90.a(str2, "flow addEvent id:" + str + ",value:" + j);
+            return this;
         }
+        return (g80) invokeLJ.objValue;
     }
 
-    public final void j(Context context, String str, int i) {
+    public g80 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i) == null) {
-            l90.a("FlowTrackManager", "flow begin uplodFlow~~~");
-            d.set(true);
-            ArrayList arrayList = new ArrayList();
-            i80 i80Var = this.b;
-            if (i80Var != null) {
-                byte[] c2 = i80Var.c(context, str, arrayList, i);
-                if (c2 != null && arrayList.size() > 0) {
-                    if (c2.length >= 307200) {
-                        l90.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                        d.set(false);
-                        return;
-                    }
-                    IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, context, str, arrayList, i));
-                    return;
-                }
-                l90.a("FlowTrackManager", "flow 上报数据为空");
-                d.set(false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                e80.h(this.e).f().execute(new a(this, str, str2));
             }
+            String str3 = g;
+            m90.a(str3, "flow addEvent id:" + str + ",value:" + str2);
+            return this;
+        }
+        return (g80) invokeLL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = System.currentTimeMillis();
+            e80.h(this.e).e(this);
         }
     }
 
-    public final void g(Context context, String str, List<k80> list, int i) {
+    public Map<String, String> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, list, i) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (k80 k80Var : list) {
-                if (k80Var != null) {
-                    arrayList.add(k80Var.b());
-                }
-            }
-            l90.a("FlowTrackManager", "flow clear上报成功的数据");
-            w80.j(context).e(str, arrayList);
-            if (w80.j(context).i(str) > 0) {
-                j(context, str, i);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
+        return (Map) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : this.f.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

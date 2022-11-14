@@ -84,13 +84,13 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
                     this.mProtocolType = revenueConfig.getProtoType();
                     RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
                     initLogConfig(revenueConfig);
-                    RLog.info(TAG, "initConfig versionName:4.3.30-bdpay-fix.2-SNAPSHOT config:" + revenueConfig.toString());
+                    RLog.info(TAG, "initConfig versionName:4.3.36-bdpay config:" + revenueConfig.toString());
                     this.iAppPayService = new AppPayServiceImpl(this.mAppId, this.mUsedChannel, false, this, this.mPayMetricsStatistics, this.mPayEventStatistics, this.mProtocolType);
                     return;
                 }
                 throw new IllegalArgumentException("Data Sender == null,Revenue init fail!");
             }
-            RLog.error(TAG, "initConfig versionName:4.3.30-bdpay-fix.2-SNAPSHOT config null", new Object[0]);
+            RLog.error(TAG, "initConfig versionName:4.3.36-bdpay config null", new Object[0]);
             throw new IllegalArgumentException("init Revenue config == null!");
         }
     }
@@ -142,6 +142,15 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
         return (IPayServiceStatistics) invokeV.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return TAG + hashCode();
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
     public void onRequestError(int i, int i2, String str, int i3, int i4, String str2) {
         Interceptable interceptable = $ic;
@@ -188,7 +197,7 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, revenueConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, revenueConfig) == null) {
             if (revenueConfig != null) {
                 RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
                 if (revenueConfig.getDataSender() != null) {

@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.pb9;
-import com.baidu.tieba.tb9;
+import com.baidu.tieba.ac9;
+import com.baidu.tieba.ec9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,9 +123,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 str = option.optString("version_asc");
             }
             boolean z = !"0".equals(str);
-            tb9 tb9Var = new tb9("", serviceData);
-            if (tb9Var.l()) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(tb9Var, z, new pb9(this, iCloudControlUBCCallBack, tb9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+            ec9 ec9Var = new ec9("", serviceData);
+            if (ec9Var.l()) {
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(ec9Var, z, new ac9(this, iCloudControlUBCCallBack, ec9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -152,7 +152,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                         this.val$step = r8;
                     }
 
-                    @Override // com.baidu.tieba.pb9
+                    @Override // com.baidu.tieba.ac9
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         Interceptable interceptable2 = $ic;

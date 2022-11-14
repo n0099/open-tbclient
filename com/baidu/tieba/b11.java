@@ -1,85 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class b11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
 
-    public b11(ClogBuilder.LogType logType, String str, String str2, boolean z) {
+    /* loaded from: classes3.dex */
+    public static class a extends er0<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c11 a;
+
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(c11 c11Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c11Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c11Var;
+        }
+
+        @Override // com.baidu.tieba.cr0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                a11.b(this.a.a(i, exc.getMessage()));
+            }
+        }
+
+        @Override // com.baidu.tieba.dr0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dr0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                a11.b(this.a.a(i, "success"));
+            }
+        }
+    }
+
+    public static void a(@Nullable c11 c11Var) {
+        b31 b31Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65536, null, c11Var) == null) && c11Var != null && !TextUtils.isEmpty(c11Var.d())) {
+            if (!c11Var.c()) {
+                b(c11Var.d());
                 return;
             }
-        }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-    }
-
-    public g11 a(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return b(i, str, "normal");
-        }
-        return (g11) invokeIL.objValue;
-    }
-
-    public g11 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            g11 g11Var = new g11();
-            try {
-                g11Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            lr0 lr0Var = new lr0();
+            lr0Var.l(c11Var.d());
+            lr0Var.g(3000);
+            lr0Var.d("User-Agent", aj0.e());
+            lr0Var.c();
+            sq0.b().a().a(lr0Var, new a(c11Var));
+            if (v21.a && (b31Var = (b31) u21.a().a(b31.class)) != null) {
+                b31Var.b(new w21("计费", "", "并行计费"));
             }
-            return g11Var;
         }
-        return (g11) invokeILL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static void b(@Nullable String str) {
+        b31 b31Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        lr0 lr0Var = new lr0();
+        lr0Var.l(str);
+        lr0Var.g(3000);
+        lr0Var.d("User-Agent", aj0.e());
+        lr0Var.c();
+        sq0.b().a().a(lr0Var, null);
+        if (v21.a && (b31Var = (b31) u21.a().a(b31.class)) != null) {
+            b31Var.b(new w21("计费", "", "并行计费"));
         }
-        return (String) invokeV.objValue;
     }
 }

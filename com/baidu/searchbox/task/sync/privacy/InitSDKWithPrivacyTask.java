@@ -21,13 +21,13 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.lk7;
-import com.baidu.tieba.mk7;
-import com.baidu.tieba.ok7;
-import com.baidu.tieba.p65;
-import com.baidu.tieba.pk7;
-import com.baidu.tieba.sf;
+import com.baidu.tieba.al7;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.tf;
+import com.baidu.tieba.v65;
+import com.baidu.tieba.wk7;
+import com.baidu.tieba.xk7;
+import com.baidu.tieba.zk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                aj0.c();
+                bj0.c();
             }
         }
     }
@@ -91,13 +91,13 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initBaiduMap() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            sf.n().r(mk7.t());
+            tf.n().r(xk7.t());
             boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
             if (Build.VERSION.SDK_INT <= 4) {
                 loadBoolean = false;
             }
             if (loadBoolean) {
-                sf.n().r(lk7.j());
+                tf.n().r(wk7.j());
             }
             MessageManager.getInstance().registerListener(new CustomMessageListener(this, 2010044) { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.1
                 public static /* synthetic */ Interceptable $ic;
@@ -133,9 +133,9 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                         EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                         if (editorTools.getCollectTools().indexOf(8) != -1) {
                             if (editorTools.t()) {
-                                editorTools.d(new ok7(editorTools.getContext(), true));
+                                editorTools.d(new zk7(editorTools.getContext(), true));
                             } else {
-                                editorTools.d(new ok7(editorTools.getContext()));
+                                editorTools.d(new zk7(editorTools.getContext()));
                             }
                         }
                     }
@@ -165,11 +165,11 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<p65> run(CustomMessage<Context> customMessage) {
+                public CustomResponsedMessage<v65> run(CustomMessage<Context> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        return new CustomResponsedMessage<>(2016556, new pk7(customMessage.getData(), 0));
+                        return new CustomResponsedMessage<>(2016556, new al7(customMessage.getData(), 0));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }

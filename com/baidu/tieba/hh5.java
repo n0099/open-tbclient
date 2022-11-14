@@ -1,29 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.template.state.ViewType;
 /* loaded from: classes4.dex */
-public class hh5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hh5 {
+    void a(ViewType viewType, String str);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return TbadkCoreApplication.getInst().isDebugMode();
-        }
-        return invokeV.booleanValue;
-    }
+    void b(ViewType viewType);
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || !a()) {
-            return;
-        }
-        Log.d("TemplatePageLoader", str);
-    }
+    void c(ViewType viewType, jh5 jh5Var);
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
 }

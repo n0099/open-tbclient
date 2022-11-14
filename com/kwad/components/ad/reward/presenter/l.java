@@ -229,7 +229,7 @@ public final class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091165)).setVisibility(4);
+            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09116a)).setVisibility(4);
         }
     }
 

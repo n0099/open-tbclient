@@ -1,129 +1,178 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class hg9 {
+public class hg9 extends bg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
-    public int g;
-    public String h;
+    public gg9 B;
+    public Thread C;
 
-    public hg9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hg9(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.f = "";
-        this.g = 0;
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.bg9
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            M(j * 1000, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.bg9
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.C;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.C = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public final void K() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i = 4;
+            } else {
+                i();
+                i = 12;
+            }
+            int i2 = this.q;
+            if (i2 != 1 && i2 != 2) {
+                this.q = 2;
+            }
+            this.B = new gg9(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
+        }
+    }
+
+    public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            gg9 gg9Var = this.B;
+            return gg9Var != null && gg9Var.getState() == 1;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    public final void M(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.optString("name");
-                this.b = jSONObject.optString("id");
-                this.c = jSONObject.optString("image");
-                this.d = jSONObject.optString("url");
-                this.e = jSONObject.optInt("progress");
-                this.f = jSONObject.optString("downloadPerSize");
-                this.g = jSONObject.optInt("status");
-                this.h = jSONObject.optString("savePath");
-                return true;
-            } catch (JSONException unused) {
-                return false;
+            if (this.e != null && j > this.e.getDuration()) {
+                j = this.e.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.B.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
+                }
+                synchronized (this.b) {
+                    if (L()) {
+                        this.B.flush();
+                    }
+                    this.d = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.c) {
+                if (this.e != null) {
+                    this.e.seek(j);
+                }
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public void c(String str) {
+    public void N(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            synchronized (this.b) {
+                if (L()) {
+                    this.B.setStereoVolume(f, f2);
+                }
+            }
         }
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public JSONObject g() {
+    @Override // com.baidu.tieba.bg9
+    public fg9 p() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.a);
-                jSONObject.put("id", this.b);
-                jSONObject.put("image", this.c);
-                jSONObject.put("url", this.d);
-                jSONObject.put("progress", this.e);
-                jSONObject.put("downloadPerSize", this.f);
-                jSONObject.put("status", this.g);
-                jSONObject.put("savePath", this.h);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+            K();
+            return this.B;
         }
-        return (JSONObject) invokeV.objValue;
+        return (fg9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg9
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 2) {
+                    this.B.pause();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bg9
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 3) {
+                    this.B.play();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bg9
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+            return;
+        }
+        this.C = null;
     }
 }

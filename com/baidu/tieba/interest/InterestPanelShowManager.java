@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.fh7;
-import com.baidu.tieba.gh7;
-import com.baidu.tieba.h25;
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.m25;
+import com.baidu.tieba.ph7;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.qh7;
+import com.baidu.tieba.rh7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gh7 a;
+    public rh7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -132,13 +132,13 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            h25 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            m25 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long m = ky4.k().m("key_app_launch_time", 0L);
+            long m = py4.k().m("key_app_launch_time", 0L);
             int i = (int) (((((j - m) / 1000) / 60) / 60) / 24);
-            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(ky4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
+            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(py4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
             if (m == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
                 return false;
             }
@@ -147,10 +147,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(gh7 gh7Var) {
+    public void c(rh7 rh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gh7Var) == null) {
-            this.a = gh7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rh7Var) == null) {
+            this.a = rh7Var;
         }
     }
 
@@ -174,7 +174,7 @@ public class InterestPanelShowManager {
         if (this.b) {
             interestGuideActivityConfig.setScene(8);
         } else {
-            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0941), context.getResources().getString(R.string.obfuscated_res_0x7f0f0942), context.getResources().getString(R.string.obfuscated_res_0x7f0f093d)});
+            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0943), context.getResources().getString(R.string.obfuscated_res_0x7f0f0944), context.getResources().getString(R.string.obfuscated_res_0x7f0f093f)});
             interestGuideActivityConfig.setScene(9);
         }
         if (z) {
@@ -186,14 +186,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        gh7 gh7Var;
+        rh7 rh7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(ky4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (gh7Var = this.a) != null && gh7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(py4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (rh7Var = this.a) != null && rh7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                eh7 a = this.a.a();
-                List<fh7> b = a.b();
+                ph7 a = this.a.a();
+                List<qh7> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

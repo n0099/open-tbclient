@@ -2,157 +2,27 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.view.ImageOverlayView;
-import com.baidu.tieba.view.IrregularImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.TiebaFieldsInfo;
-import tbclient.User;
+import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes4.dex */
 public class ib6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final long b;
-    public int c;
-    public View d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public ImageView h;
-    public ImageView i;
-    public ImageView j;
-    public ImageView k;
-    public ImageView l;
-    public IrregularImageView m;
-    public TextView n;
-    public RelativeLayout o;
-    public ImageView p;
-    public TextView q;
-    public ImageOverlayView r;
-    public ImageView s;
-    public ImageView t;
-    public String u;
-    public View v;
-    public kb6 w;
-    public View.OnClickListener x;
+    public ArrayList<gb6> a;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ib6 a;
-
-        public a(ib6 ib6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ib6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ib6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b > 0) {
-                    StatisticItem statisticItem = new StatisticItem("c13671");
-                    statisticItem.param("fid", this.a.b);
-                    TiebaStatic.log(statisticItem);
-                }
-                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.d.getContext());
-                hotUserRankActivityConfig.setCategory(this.a.u);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ib6 a;
-
-        public b(ib6 ib6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ib6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ib6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == this.a.v.getId() && this.a.w != null && this.a.w.c != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.d.getContext(), this.a.w.c.getUserId(), this.a.w.c.getName_show())));
-                if (!TextUtils.isEmpty(this.a.a)) {
-                    StatisticItem statisticItem = new StatisticItem("c13659");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.a.w.a);
-                    statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.a.w.c.rankNum);
-                    TiebaStatic.log(statisticItem);
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13683");
-                statisticItem2.param("uid", this.a.w.c.getUserId());
-                statisticItem2.param("fid", this.a.b);
-                TiebaStatic.log(statisticItem2);
-            }
-        }
-    }
-
-    public ib6(View view2, String str, long j) {
+    public ib6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -162,155 +32,55 @@ public class ib6 {
                 return;
             }
         }
-        this.c = 3;
-        this.x = new b(this);
-        this.d = view2;
-        this.a = str;
-        this.b = j;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0922d6);
-        this.v = findViewById;
-        findViewById.setOnClickListener(this.x);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b92);
-        this.e = textView;
-        textView.getPaint().setFakeBoldText(true);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f5);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8c);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f18);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f17);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f00);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f30);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
-        IrregularImageView irregularImageView = (IrregularImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
-        this.m = irregularImageView;
-        irregularImageView.setErrorRes(R.drawable.obfuscated_res_0x7f080f87);
-        this.h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081155, 1, false));
-        this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081151, 1, false));
-        this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081153, 1, false));
-        this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081152, 1, false));
-        this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081154, 1, false));
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092165);
-        this.n = textView2;
-        textView2.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f08cb));
-        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090df6);
-        this.o = relativeLayout;
-        relativeLayout.setOnClickListener(new a(this));
-        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090df8);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090df9);
-        this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dfa);
-        this.r = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f090dfb);
-        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds82);
-        this.r.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0618, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds25));
-        this.r.setStrokeStyle(1);
-        this.r.setFirstImageStrokeColor(R.color.CAM_X0314);
-        this.r.setLoadImageType(12);
-        this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090df7);
-        j(TbadkCoreApplication.getInst().getSkinType());
+        this.a = new ArrayList<>();
     }
 
-    public final void g(List<String> list) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            int count = ListUtils.getCount(list);
-            if (count == 0) {
-                this.t.setVisibility(8);
-                return;
-            }
-            this.t.setVisibility(0);
-            int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds267);
-            if (count < 3) {
-                int i = 3 - count;
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.t.getLayoutParams();
-                layoutParams.rightMargin = dimensionPixelOffset - (i * TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57));
-                this.t.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<gb6> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().L(0);
             }
         }
     }
 
-    public void j(int i) {
+    public ArrayList<gb6> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.c != i) {
-            this.c = i;
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.p, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.obfuscated_res_0x7f08114c, SvgManager.SvgResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.s, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
-            this.r.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public BdUniqueId h(Context context) {
-        InterceptResult invokeL;
+    public void c(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (context instanceof BaseActivity) {
-                return ((BaseActivity) context).getPageContext().getUniqueId();
-            }
-            if (context instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) context).getPageContext().getUniqueId();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
         }
-        return (BdUniqueId) invokeL.objValue;
+        d(list, null);
     }
 
-    public final List<String> i(List<User> list) {
-        InterceptResult invokeL;
+    public void d(List<?> list, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (User user : list) {
-                if (user != null) {
-                    arrayList.add(user.portrait);
-                }
-            }
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
+            return;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public void k(kb6 kb6Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, kb6Var, z) == null) {
-            this.w = kb6Var;
-            if (kb6Var == null) {
-                return;
-            }
-            this.e.setText(kb6Var.a);
-            if (kb6Var.c != null) {
-                String str = kb6Var.b;
-                if (mj5.d(str) > 10) {
-                    str = mj5.l(kb6Var.b, 10) + StringHelper.STRING_MORE;
-                }
-                this.f.setText(String.format(this.d.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08ce), str));
-            }
-            if (kb6Var.d == 0) {
-                this.g.setVisibility(8);
-            } else {
-                this.g.setVisibility(0);
-                this.g.setText(String.format(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f08ca), StringHelper.getDateStringMdChinease(kb6Var.d * 1000)));
-            }
-            this.m.setImage(kb6Var.e, h(this.d.getContext()), R.drawable.obfuscated_res_0x7f080d7e);
-            TiebaFieldsInfo tiebaFieldsInfo = kb6Var.f;
-            if (tiebaFieldsInfo != null && !z && !TextUtils.isEmpty(tiebaFieldsInfo.tieba_name)) {
-                this.o.setVisibility(0);
-                this.q.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f038f), kb6Var.f.tieba_name));
-                List<String> i = i(kb6Var.f.user_rank);
-                this.r.setData(i);
-                g(i);
-                this.u = kb6Var.f.tieba_name;
-                if (this.b > 0) {
-                    StatisticItem statisticItem = new StatisticItem("c13670");
-                    statisticItem.param("fid", this.b);
-                    TiebaStatic.log(statisticItem);
+        try {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
                     return;
                 }
-                return;
+                gb6 gb6Var = new gb6();
+                gb6Var.I((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(gb6Var.r())) {
+                    this.a.add(gb6Var);
+                }
             }
-            this.o.setVisibility(8);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

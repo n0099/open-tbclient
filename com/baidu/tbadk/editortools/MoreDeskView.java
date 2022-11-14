@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.l65;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.r65;
+import com.baidu.tieba.s65;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ import java.util.LinkedList;
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<l65> m;
+    public LinkedList<r65> m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -136,18 +136,18 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void q(e65 e65Var) {
+    public final void q(k65 k65Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e65Var) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(e65Var.b));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k65Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(k65Var.b));
             int i2 = 0;
             if (valueOf != null) {
                 i = valueOf.intValue();
             } else {
                 i = 0;
             }
-            Object obj = e65Var.c;
+            Object obj = k65Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -155,19 +155,19 @@ public class MoreDeskView extends CommonTabHost {
                         if (TextUtils.isEmpty(str.trim())) {
                             i = 1;
                         } else {
-                            i = wg.e(str, 1);
+                            i = xg.e(str, 1);
                         }
                     }
                 }
                 if (i >= 0) {
                     i2 = i;
                 }
-                this.n.put(e65Var.b, i2);
+                this.n.put(k65Var.b, i2);
             }
             i = 0;
             if (i >= 0) {
             }
-            this.n.put(e65Var.b, i2);
+            this.n.put(k65Var.b, i2);
         }
     }
 
@@ -196,19 +196,19 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.f65
-    public void B(e65 e65Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.l65
+    public void B(k65 k65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e65Var) == null) {
-            super.B(e65Var);
-            if (e65Var != null && e65Var.a == 2 && e65Var.b != 5) {
-                q(e65Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
+            super.B(k65Var);
+            if (k65Var != null && k65Var.a == 2 && k65Var.b != 5) {
+                q(k65Var);
                 o();
             }
         }
     }
 
-    public void n(LinkedList<l65> linkedList) {
+    public void n(LinkedList<r65> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
             this.m = linkedList;
@@ -223,7 +223,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.q65
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.w65
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -231,14 +231,14 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.q65
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.w65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setShowDelete(false);
-            m65 m65Var = new m65();
-            m65Var.C(this.m);
-            h(m65Var);
+            s65 s65Var = new s65();
+            s65Var.C(this.m);
+            h(s65Var);
             r();
         }
     }
@@ -272,9 +272,9 @@ public class MoreDeskView extends CommonTabHost {
                 i += this.n.valueAt(i2);
             }
             if (i > 0) {
-                K(new e65(2, 2, " "));
+                K(new k65(2, 2, " "));
             } else {
-                K(new e65(2, 2, null));
+                K(new k65(2, 2, null));
             }
         }
     }
@@ -290,14 +290,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                K(new e65(2, 2, " "));
-                K(new e65(2, 16, " "));
+                K(new k65(2, 2, " "));
+                K(new k65(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    K(new e65(2, 12, " "));
-                    K(new e65(2, 2, " "));
+                    K(new k65(2, 12, " "));
+                    K(new k65(2, 2, " "));
                 } else {
-                    K(new e65(2, 2, null));
+                    K(new k65(2, 2, null));
                 }
                 z = false;
             }

@@ -141,8 +141,8 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0483, this);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09118f);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0484, this);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091194);
         }
     }
 

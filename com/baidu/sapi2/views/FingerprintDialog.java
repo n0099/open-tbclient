@@ -127,13 +127,13 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
             }
         }
         this.g = context;
-        setContentView(R.layout.obfuscated_res_0x7f0d0504);
+        setContentView(R.layout.obfuscated_res_0x7f0d0505);
         this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090395);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d79);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d78);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d76);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d77);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d75);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d85);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d84);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d82);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d83);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d81);
         a();
         ViewUtility.setViewClickAlpha(this.d, 0.2f);
         ViewUtility.setViewClickAlpha(this.e, 0.2f);
@@ -145,14 +145,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f08108c);
-                this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
-                this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f060a1e));
-                this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
-                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081090));
-                this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
-                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081092));
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109e);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f08109c);
+                this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
+                this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f060a1f));
+                this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
+                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a0));
+                this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
+                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a2));
             }
         }
     }
@@ -187,7 +187,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090e43).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f090e46).setVisibility(8);
             return this;
         }
         return (FingerprintDialogInterface) invokeV.objValue;

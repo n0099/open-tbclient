@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kz4;
+import com.baidu.tieba.pz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -100,17 +100,17 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020b, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ac0);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076d);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091aca);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076f);
             this.b.setTextSize(R.dimen.tbds34);
-            kz4 kz4Var = new kz4();
-            kz4Var.r(R.color.CAM_X0105);
-            this.b.setConfig(kz4Var);
+            pz4 pz4Var = new pz4();
+            pz4Var.r(R.color.CAM_X0105);
+            this.b.setConfig(pz4Var);
             this.c.setTextSize(R.dimen.tbds34);
-            kz4 kz4Var2 = new kz4();
-            kz4Var2.p(R.color.CAM_X0302);
-            this.c.setConfig(kz4Var2);
+            pz4 pz4Var2 = new pz4();
+            pz4Var2.p(R.color.CAM_X0302);
+            this.c.setConfig(pz4Var2);
         }
     }
 

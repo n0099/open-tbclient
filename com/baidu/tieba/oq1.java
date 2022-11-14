@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.lq1;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.mq1;
 /* loaded from: classes5.dex */
-public interface oq1<T extends lq1> extends mq1<T> {
-    void H();
-
-    boolean c();
-
-    void g(boolean z);
-
-    void i(View.OnClickListener onClickListener);
-
-    void removeFromParent();
+public interface oq1<T extends mq1> extends lq1<T> {
+    @Nullable
+    d83 getParams();
 }

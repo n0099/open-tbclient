@@ -1,30 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
+import rx.subjects.ReplaySubject$ReplayProducer;
 /* loaded from: classes4.dex */
-public abstract class h4a<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface h4a<T> {
+    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
 
-    public abstract void a(Request request, boolean z, Exception exc);
+    void complete();
 
-    public abstract void b(T t);
+    void error(Throwable th);
 
-    public h4a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void next(T t);
 }

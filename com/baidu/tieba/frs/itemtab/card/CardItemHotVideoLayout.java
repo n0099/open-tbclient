@@ -42,14 +42,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er6;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.rz4;
-import com.baidu.tieba.sx;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.qr6;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.uy4;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.wz4;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CardItemHotVideoLayout extends LinearLayout implements sx {
+public class CardItemHotVideoLayout extends LinearLayout implements tx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -108,9 +108,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    rz4 rz4Var = new rz4(12, this.a + 1);
-                    rz4Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, rz4Var));
+                    wz4 wz4Var = new wz4(12, this.a + 1);
+                    wz4Var.p(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wz4Var));
                 }
             }
         }
@@ -142,7 +142,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
                 dVar.a((ThreadData) ListUtils.getItem(this.a.d, i), i);
                 dVar.itemView.setOnClickListener(new a(this, i));
                 if (TbSingleton.getInstance().isItemTabVisible) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new rz4(11, i + 1)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wz4(11, i + 1)));
                 }
             }
         }
@@ -155,7 +155,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032d, (ViewGroup) null));
+                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null));
                 dVar.b(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -224,9 +224,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.h.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    rz4 rz4Var = new rz4(12, this.a + 1);
-                    rz4Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, rz4Var));
+                    wz4 wz4Var = new wz4(12, this.a + 1);
+                    wz4Var.p(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wz4Var));
                 }
             }
         }
@@ -336,19 +336,19 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
                 }
             }
             this.h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b8d);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b8e);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
-            this.a.setPageId(w9.a(view2.getContext()).getUniqueId());
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b8e);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b8f);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b90);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b91);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8c);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b92);
+            this.a.setPageId(x9.a(view2.getContext()).getUniqueId());
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b8f);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b90);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b91);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b92);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8d);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b93);
         }
 
         @SuppressLint({"ClickableViewAccessibility"})
@@ -373,15 +373,15 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b30);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b35);
                 SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080824);
-                kw4 d = kw4.d(this.f);
+                pw4 d = pw4.d(this.f);
                 d.z(R.dimen.T_X12);
                 d.v(R.color.CAM_X0105);
-                kw4 d2 = kw4.d(this.e);
+                pw4 d2 = pw4.d(this.e);
                 d2.z(R.dimen.T_X09);
                 d2.v(R.color.CAM_X0101);
-                kw4 d3 = kw4.d(this.d);
+                pw4 d3 = pw4.d(this.d);
                 d3.z(R.dimen.T_X09);
                 d3.v(R.color.CAM_X0101);
                 SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08028f);
@@ -393,21 +393,21 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) != null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0738);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0739);
             spannableStringBuilder.insert(0, (CharSequence) string);
-            int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int g2 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int g3 = xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int g4 = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int g5 = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            py4 py4Var = new py4(g, -1, R.color.CAM_X0319, g3, R.color.CAM_X0101, g4, xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40));
-            py4Var.b(g2);
-            py4Var.i(g5);
-            py4Var.f(true);
+            int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int g2 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int g3 = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int g4 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int g5 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            uy4 uy4Var = new uy4(g, -1, R.color.CAM_X0319, g3, R.color.CAM_X0101, g4, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40));
+            uy4Var.b(g2);
+            uy4Var.i(g5);
+            uy4Var.f(true);
             if (WorkIntroSwitch.isOn()) {
                 spannableStringBuilder.setSpan(new c(this), 0, string.length(), 33);
             }
-            spannableStringBuilder.setSpan(py4Var, 0, string.length(), 33);
+            spannableStringBuilder.setSpan(uy4Var, 0, string.length(), 33);
         }
     }
 
@@ -440,11 +440,11 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 if (i == 0) {
-                    rect.set(xi.g(this.a.getContext(), R.dimen.M_W_X005), 0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                    rect.set(yi.g(this.a.getContext(), R.dimen.M_W_X005), 0, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
                 } else if (i == this.a.d.size() - 1) {
-                    rect.set(0, 0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                    rect.set(0, 0, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
                 } else {
-                    rect.set(0, 0, xi.g(this.a.getContext(), R.dimen.M_W_X005), 0);
+                    rect.set(0, 0, yi.g(this.a.getContext(), R.dimen.M_W_X005), 0);
                 }
             }
         }
@@ -483,9 +483,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
                 VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                 videoPlayActivityConfig.setVideoShowIndex(i);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                rz4 rz4Var = new rz4(12, i + 1);
-                rz4Var.p(videoItemData.post_id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, rz4Var));
+                wz4 wz4Var = new wz4(12, i + 1);
+                wz4Var.p(videoItemData.post_id);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wz4Var));
             }
         }
     }
@@ -558,21 +558,21 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
         c();
     }
 
-    public void setData(er6 er6Var) {
+    public void setData(qr6 qr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, er6Var) == null) {
-            this.d = er6Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, qr6Var) == null) {
+            this.d = qr6Var.c();
             this.c.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            kw4.d(this.a).v(R.color.CAM_X0105);
-            kw4 d2 = kw4.d(this);
+            pw4.d(this.a).v(R.color.CAM_X0105);
+            pw4 d2 = pw4.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -585,10 +585,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0739);
+            this.a.setText(R.string.obfuscated_res_0x7f0f073a);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(xi.g(getContext(), R.dimen.M_W_X005), xi.g(getContext(), R.dimen.tbds32), 0, 0);
-            kw4 d2 = kw4.d(this.a);
+            layoutParams.setMargins(yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.tbds32), 0, 0);
+            pw4 d2 = pw4.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             addView(this.a, layoutParams);
@@ -598,7 +598,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements sx {
             this.b.addItemDecoration(new a(this));
             this.b.setOnItemClickListener(new b(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, xi.g(getContext(), R.dimen.tbds36), 0, 0);
+            layoutParams2.setMargins(0, yi.g(getContext(), R.dimen.tbds36), 0, 0);
             addView(this.b, layoutParams2);
             c cVar = new c(this);
             this.c = cVar;

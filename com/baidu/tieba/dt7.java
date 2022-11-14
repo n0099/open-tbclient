@@ -1,127 +1,48 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.oy;
+import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 /* loaded from: classes3.dex */
-public class dt7 {
+public class dt7 extends ws7<wu4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId c;
+    public TbPageContext<?> d;
+    public Cdo e;
+    public l46<wu4> f;
 
     /* loaded from: classes3.dex */
-    public static class a implements z55 {
+    public class a extends l46<wu4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ht7 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ it7 c;
+        public final /* synthetic */ dt7 b;
 
-        @Override // com.baidu.tieba.z55
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.z55
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.dt7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0243a extends BdAsyncTask<Void, Void, Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadData a;
-            public final /* synthetic */ a b;
-
-            public C0243a(a aVar, DownloadData downloadData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = downloadData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.b.b));
-                    if (dt7.g(this.a.getPath(), this.b.c)) {
-                        a aVar = this.b;
-                        return Boolean.valueOf(dt7.f(aVar.c, aVar.b));
-                    }
-                    return Boolean.FALSE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                    if (bool.booleanValue()) {
-                        a aVar = this.b;
-                        aVar.a.onSuccess(aVar.b);
-                        return;
-                    }
-                    this.b.a.onFail("fail to download");
-                }
-            }
-        }
-
-        public a(ht7 ht7Var, String str, it7 it7Var) {
+        public a(dt7 dt7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ht7Var, str, it7Var};
+                Object[] objArr = {dt7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,190 +52,199 @@ public class dt7 {
                     return;
                 }
             }
-            this.a = ht7Var;
-            this.b = str;
-            this.c = it7Var;
+            this.b = dt7Var;
         }
 
-        @Override // com.baidu.tieba.z55
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l46
+        /* renamed from: d */
+        public void a(View view2, wu4 wu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                ct7.a("【表情下载】 onFileDownloadFailed = " + str);
-                if (this.a != null) {
-                    String str2 = "faile to download:";
-                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
-                        str2 = "faile to download:" + downloadData.getUrl();
-                    }
-                    this.a.onFail(str2);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z55
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                ct7.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0243a(this, downloadData).execute(new Void[0]);
-            }
-        }
-
-        @Override // com.baidu.tieba.z55
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-                ht7 ht7Var = this.a;
-                if (ht7Var != null) {
-                    ht7Var.onProgress(downloadData.getProcess());
-                }
-                ct7.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
-            }
-        }
-    }
-
-    public static void c(it7 it7Var, ht7 ht7Var) {
-        List<jt7> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, it7Var, ht7Var) == null) {
-            if (it7Var != null && (list = it7Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(it7Var.d)) {
-                ct7.a("【表情下载】 url = " + it7Var.d);
-                a aVar = new a(ht7Var, et7.c + it7Var.a + "/", it7Var);
-                new File(et7.c).mkdirs();
-                d(it7Var, et7.c, aVar);
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, wu4Var) != null) || wu4Var == null) {
                 return;
             }
-            if (ht7Var != null) {
-                ht7Var.onFail("group data null");
-            }
-            ct7.a("【表情下载】 fail = 参数异常");
+            e46.b().d(true);
+            this.b.z(view2, wu4Var.t);
         }
     }
 
-    public static void d(it7 it7Var, String str, z55 z55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, it7Var, str, z55Var) == null) {
-            if (it7Var != null && !TextUtils.isEmpty(it7Var.d)) {
-                String str2 = it7Var.a + ".zip";
-                DownloadData downloadData = new DownloadData(it7Var.a, str2, Uri.encode(it7Var.d, "-![.:/,%?&=]"), z55Var);
-                downloadData.setPath(str + str2);
-                a65.k().l(downloadData);
-            } else if (z55Var != null) {
-                z55Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
-            }
-        }
-    }
+    /* loaded from: classes3.dex */
+    public class b implements ho {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dt7 a;
 
-    public static String e(String str, String str2, Bitmap bitmap, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
-            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str + str2);
-                try {
-                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
-                        return null;
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return file.getPath();
-                } catch (Exception unused) {
+        public b(dt7 dt7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dt7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = dt7Var;
+        }
+
+        @Override // com.baidu.tieba.ho
+        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (xnVar instanceof wu4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                wu4 wu4Var = (wu4) xnVar;
+                ThreadData threadData = wu4Var.t;
+                threadData.objType = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), wu4Var);
+                }
+                Rect a = ex.a((Cdo) viewGroup, view2, i);
+                Context context = view2.getContext();
+                String z1 = this.a.b.getOrignalPage().z1();
+                if (this.a.s()) {
+                    str = "3";
+                } else {
+                    str = "2";
+                }
+                ThreadCardUtils.jumpToPB(threadData, context, 17, false, a, z1, str);
+                threadCardViewHolder.a().o(new zy.a(1));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(dt7 dt7Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dt7Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.k
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(ex.a((Cdo) this.a, this.b, this.c));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dt7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.d = tbPageContext;
+        this.c = bdUniqueId2;
+    }
+
+    public void A(Cdo cdo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cdo) == null) {
+            this.e = cdo;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: x */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            oy.b bVar = new oy.b(this.d.getPageActivity(), false);
+            qy qyVar = new qy(this.d.getPageActivity());
+            yr4 yr4Var = new yr4();
+            yr4Var.b = 22;
+            yr4Var.h = 19;
+            qyVar.z(yr4Var);
+            qyVar.B(18);
+            qyVar.H("personalize_page");
+            qyVar.G(18);
+            qyVar.C(17);
+            qyVar.f(32);
+            qyVar.A(false);
+            bVar.m(qyVar);
+            oy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.e);
+            k.r(17);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.c);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wu4 wu4Var, ThreadCardViewHolder threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wu4Var, threadCardViewHolder})) == null) {
+            if (wu4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = wu4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().q(i);
+                if (threadCardViewHolder.a().f() instanceof qy) {
+                    ((qy) threadCardViewHolder.a().f()).F(new c(this, viewGroup, view2, i));
+                }
+                threadCardViewHolder.e(wu4Var);
+                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().p(this.f);
+                ts7.c(this, wu4Var);
+                return threadCardViewHolder.getView();
             }
             return null;
         }
-        return (String) invokeLLLI.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static boolean f(it7 it7Var, String str) {
-        InterceptResult invokeLL;
+    public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, it7Var, str)) == null) {
-            File file = new File(str + "panel.png");
-            File file2 = new File(str + "panel_momo.png");
-            if (file.exists() && file2.exists()) {
-                ct7.a("【表情下载】 savePanelImage");
-                return true;
-            }
-            if (!new File(str + it7Var.c).exists()) {
-                return false;
-            }
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeFile(str + it7Var.c);
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
-                return false;
-            }
-            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
-                return false;
-            }
-            ct7.a("【表情下载】 savePanelImage = " + it7Var.c);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, it7 it7Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, it7Var)) == null) {
-            ZipInputStream zipInputStream = null;
-            try {
-                try {
-                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
-                    while (true) {
-                        try {
-                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                            if (nextEntry != null) {
-                                if (!nextEntry.isDirectory()) {
-                                    String str2 = ".emotions/" + it7Var.a;
-                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
-                                    FileHelper.saveFileByStream(str3, zipInputStream2);
-                                    ct7.a("【表情下载】 unZipEmotion = " + str3);
-                                }
-                            } else {
-                                zipInputStream2.close();
-                                FileHelper.deleteFile(new File(str));
-                                yi.e(zipInputStream2);
-                                return true;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            yi.e(zipInputStream);
-                            return false;
-                        } catch (IOException e2) {
-                            e = e2;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            yi.e(zipInputStream);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            zipInputStream = zipInputStream2;
-                            yi.e(zipInputStream);
-                            throw th;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-            } catch (IOException e4) {
-                e = e4;
-            }
-        } else {
-            return invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
+            ts7.b(this, threadData);
         }
     }
 }

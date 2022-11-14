@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.audioprocesswrapper.DuAudioProcess;
 import com.baidu.audioprocesswrapper.DuDelayProcess;
-import com.baidu.tieba.ff9;
-import com.baidu.tieba.ri9;
+import com.baidu.tieba.cj9;
+import com.baidu.tieba.qf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class AudioChangeOperator implements ff9 {
+public class AudioChangeOperator implements qf9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
     public static final int DU_AUDIO_EFFECT_SHIFT_AIR = 20;
@@ -77,7 +77,7 @@ public class AudioChangeOperator implements ff9 {
         this.mCurrentReverbParams = null;
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,8 +113,8 @@ public class AudioChangeOperator implements ff9 {
                 i2 = 1;
             }
             duAudioProcess.j(i2);
-            ri9.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
-            ri9.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
+            cj9.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
+            cj9.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
         }
     }
 
@@ -189,7 +189,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -206,7 +206,7 @@ public class AudioChangeOperator implements ff9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void clearQueues() {
         DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -231,7 +231,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -306,14 +306,14 @@ public class AudioChangeOperator implements ff9 {
             if (i3 > 300) {
                 j |= (i3 - 300) << 4;
             }
-            ri9.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
+            cj9.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
             this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j);
             audioSwitch();
-            ri9.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
-            ri9.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
+            cj9.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+            cj9.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
             this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
             setDelayConfig();
-            ri9.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
+            cj9.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
         }
     }
 
@@ -353,7 +353,7 @@ public class AudioChangeOperator implements ff9 {
             duDelayProcess3.h(2);
             this.mDelayProcess.i(newPosition);
         }
-        ri9.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
+        cj9.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
     }
 
     private boolean shouldClose(DelayConfig delayConfig) {
@@ -380,7 +380,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public int getBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -397,7 +397,7 @@ public class AudioChangeOperator implements ff9 {
         return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -416,7 +416,7 @@ public class AudioChangeOperator implements ff9 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void initVoiceChanger(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
@@ -426,7 +426,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void setVoiceChangeType(int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, iArr) != null) || checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
@@ -455,7 +455,7 @@ public class AudioChangeOperator implements ff9 {
         }
     }
 
-    @Override // com.baidu.tieba.ff9
+    @Override // com.baidu.tieba.qf9
     public void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, iArr, iArr2, dArr) == null) {

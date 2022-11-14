@@ -210,10 +210,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09115e);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091163);
         this.nC = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060783));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09115f);
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091164);
         this.pV.setOnClickListener(this);
     }
 
@@ -281,8 +281,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             if (this.pV == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091164);
-                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091163));
+                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091169);
+                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091168));
                 initView();
             }
             if (!this.nM.fy()) {

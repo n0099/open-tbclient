@@ -1,272 +1,261 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes5.dex */
 public class ok5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int o;
-    public static final int p;
-    public static final int q;
-    public static final int r;
-    public static final int s;
-    public static final int t;
-    public static final int u;
-    public static final int v;
-    public static final int w;
-    public static final int x;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public final Paint a;
+    public final Paint b;
+    public final Paint c;
+    public final View d;
     public int e;
     public int f;
     public int g;
     public int h;
-    public long i;
-    public long j;
-    public long k;
-    public long l;
-    public long m;
-    public long n;
+    public int i;
+    public int j;
+    public int k;
+    public float l;
+    public final Paint m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public float[] u;
+    public int v;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ok5 a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ok5(null);
-        }
-
-        public ok5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ok5) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035152, "Lcom/baidu/tieba/ok5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948035152, "Lcom/baidu/tieba/ok5;");
-                return;
-            }
-        }
-        o = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-        p = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-        q = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47);
-        r = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds224);
-        s = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds280);
-        t = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds280);
-        u = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds228);
-        v = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds128);
-        w = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-        x = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-    }
-
-    public ok5() {
+    public ok5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = r;
-        this.e = s;
-        this.f = t;
-        this.g = w;
-        this.h = x;
-        this.i = 300L;
-        this.j = 400L;
-        this.k = 200L;
-        this.l = 720L;
-        this.m = 4000L;
-        this.n = 1000L;
+        this.a = new Paint();
+        this.b = new Paint();
+        this.c = new Paint();
+        this.e = 16;
+        this.f = 16;
+        this.g = -1;
+        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
+        this.i = 20;
+        this.j = 20;
+        this.k = 36;
+        this.l = 0.0f;
+        this.m = new Paint();
+        this.n = 3;
+        this.o = R.color.CAM_X0101;
+        this.p = R.color.CAM_X0305;
+        this.q = 20;
+        this.r = 20;
+        this.s = 36;
+        this.t = 0;
+        this.v = 0;
+        this.d = view2;
+        int color = getContext().getResources().getColor(R.color.black_alpha40);
+        this.h = color;
+        this.b.setColor(color);
+        this.b.setAntiAlias(true);
+        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
+        this.g = color2;
+        this.a.setColor(color2);
+        this.a.setTextSize(this.i);
+        this.a.setAntiAlias(true);
+        this.a.setTypeface(nw4.I(nw4.F(R.string.F_X02)));
+        this.e = yi.g(getContext(), R.dimen.tbds16);
+        this.f = yi.g(getContext(), R.dimen.tbds16);
+        this.j = yi.g(getContext(), R.dimen.tbds22);
+        this.k = yi.g(getContext(), R.dimen.tbds40);
+        this.l = nw4.z(R.string.J_X01)[0];
+        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        this.q = dimension;
+        this.c.setTextSize(dimension);
+        this.a.setAntiAlias(true);
+        this.m.setAntiAlias(true);
+        this.r = yi.g(getContext(), R.dimen.tbds16);
+        this.s = yi.g(getContext(), R.dimen.tbds22);
+        this.t = yi.g(getContext(), R.dimen.tbds5);
+        this.v = yi.g(getContext(), R.dimen.M_W_X006);
+        yi.g(getContext(), R.dimen.M_H_X004);
+        i(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public /* synthetic */ ok5(a aVar) {
-        this();
-    }
-
-    public static ok5 a() {
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new b().a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            View view2 = this.d;
+            if (view2 != null && view2.getContext() != null) {
+                return this.d.getContext();
+            }
+            return TbadkCoreApplication.getInst().getContext();
         }
-        return (ok5) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public final void e() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view2 = this.d) != null) {
+            view2.invalidate();
         }
-        return invokeV.longValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void a(Canvas canvas, String str, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
+            int save = canvas.save();
+            this.d.getPaddingLeft();
+            int paddingRight = this.d.getPaddingRight();
+            this.d.getPaddingTop();
+            int paddingBottom = this.d.getPaddingBottom();
+            int left = this.d.getLeft();
+            int right = this.d.getRight();
+            int top = this.d.getTop();
+            int bottom = this.d.getBottom();
+            float measureText = this.a.measureText(str);
+            Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
+            if (z) {
+                if (this.u == null) {
+                    this.u = nw4.C(R.array.S_O_X001);
+                }
+                float[] fArr = this.u;
+                if (fArr != null && fArr.length >= 4) {
+                    i = save;
+                    this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
+                } else {
+                    i = save;
+                }
+                int i2 = this.v;
+                canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
+            } else {
+                i = save;
+                float f = this.k + measureText;
+                float f2 = this.i + this.j;
+                canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
+                RectF rectF = new RectF(0.0f, 0.0f, f, f2);
+                float f3 = this.l;
+                if (f3 < 1.0f) {
+                    this.l = f3 * f2;
+                }
+                float f4 = this.l;
+                canvas.drawRoundRect(rectF, f4, f4, this.b);
+                this.a.clearShadowLayer();
+                canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
+            }
+            int i3 = i;
+            if (i3 >= 1 && i3 <= canvas.getSaveCount()) {
+                canvas.restoreToCount(i3);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public void b(Canvas canvas, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
+            if (i != 0) {
+                this.p = i;
+                this.m.setColor(SkinManager.getColor(i));
+            }
+            int save = canvas.save();
+            int paddingLeft = this.d.getPaddingLeft();
+            this.d.getPaddingRight();
+            int paddingTop = this.d.getPaddingTop();
+            this.d.getPaddingBottom();
+            float measureText = this.c.measureText(str);
+            canvas.translate(paddingLeft, paddingTop);
+            RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
+            int i2 = this.t;
+            canvas.drawRoundRect(rectF, i2, i2, this.m);
+            Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
+            if (save >= 1 && save <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save);
+            }
         }
-        return invokeV.longValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public float c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return yi.G(this.a, str).height() + this.j;
         }
-        return invokeV.intValue;
+        return invokeL.floatValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public float d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return yi.H(this.a, str) + this.k;
         }
-        return invokeV.intValue;
+        return invokeL.floatValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            this.a.setColor(i);
+            e();
         }
-        return invokeV.intValue;
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            this.a.setTextSize(i);
+            e();
         }
-        return invokeV.longValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.n == i) {
+            return;
         }
-        return invokeV.intValue;
+        this.n = i;
+        this.c.setColor(SkinManager.getColor(i, this.o));
+        this.m.setColor(SkinManager.getColor(i, this.p));
     }
 
-    public int j() {
-        InterceptResult invokeV;
+    public void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.f = i;
+            this.e = i2;
+            e();
         }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.n;
-        }
-        return invokeV.longValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return invokeV.longValue;
-    }
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.k;
-        }
-        return invokeV.longValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
     }
 }

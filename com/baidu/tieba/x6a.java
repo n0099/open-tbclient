@@ -1,67 +1,38 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
 public class x6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static n6a a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
+    public static void a(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new n6a(productInfo, 4);
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                q7a.b(i, i2, PayUIEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                q7a.b(i, i2, PayUIEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
             }
-            productInfo.destAmount = i;
-            return new n6a(productInfo);
         }
-        return (n6a) invokeIL.objValue;
     }
 
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
+    public static void b(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
-                return null;
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                q7a.b(i, i2, PayUIEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                q7a.b(i, i2, PayUIEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
             }
-            return revenue.getAppPayService();
         }
-        return (IAppPayService) invokeII.objValue;
-    }
-
-    public static IMiddlePayService c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(i, i2);
-            if (middleRevenue == null) {
-                RLog.error("CommonUtils", "getMiddlePayService null iRevenue", new Object[0]);
-                return null;
-            }
-            return middleRevenue.getMiddlePayService();
-        }
-        return (IMiddlePayService) invokeII.objValue;
     }
 }

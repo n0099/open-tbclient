@@ -12,7 +12,7 @@ public class g24 extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g24() {
-        super("appMount");
+        super("appLoad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

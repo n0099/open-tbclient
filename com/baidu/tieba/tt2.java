@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tt2 extends rt2 {
+public class tt2 extends st2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +30,7 @@ public class tt2 extends rt2 {
                 return;
             }
         }
-        boolean z = ok1.a;
+        boolean z = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,23 +53,29 @@ public class tt2 extends rt2 {
         }
     }
 
-    private void update(mt2 mt2Var, ot2 ot2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, mt2Var, ot2Var, unitedSchemeEntity, callbackHandler) == null) {
-            mt2Var.h(ot2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    @Override // com.baidu.tieba.rt2
-    public boolean a(mt2 mt2Var, ot2 ot2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+    @Override // com.baidu.tieba.st2
+    public boolean a(nt2 nt2Var, pt2 pt2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mt2Var, ot2Var, context, unitedSchemeEntity, callbackHandler, e43Var})) == null) {
-            e12.b("vrvideo", "update, video id:" + ot2Var.j + " slave id: " + ot2Var.c);
-            update(mt2Var, ot2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{nt2Var, pt2Var, context, unitedSchemeEntity, callbackHandler, f43Var})) == null) {
+            f12.i("vrvideo", "remove, video id:" + pt2Var.j + " slave id: " + pt2Var.c);
+            d(nt2Var, pt2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public final void d(nt2 nt2Var, pt2 pt2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nt2Var, pt2Var, unitedSchemeEntity, callbackHandler) == null) {
+            uz1 a = s02.a(pt2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                y02.a("VrVideoRemoveAction", "remove with a null component");
+            }
+            nt2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

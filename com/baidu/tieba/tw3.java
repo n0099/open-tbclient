@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tieba.s93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +10,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tw3 extends kw3 {
+public class tw3 extends lw3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements s93.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jh2 a;
+
+        public a(tw3 tw3Var, jh2 jh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var, jh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jh2Var;
+        }
+
+        @Override // com.baidu.tieba.s93.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == -1) {
+                    tw3.c(this.a, "202");
+                } else if (i == 1) {
+                    tw3.c(this.a, BasicPushStatus.SUCCESS_CODE);
+                } else {
+                    this.a.onFail(101, "noPermission");
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,12 +71,12 @@ public class tw3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
+        c = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tw3() {
-        super("GetAppUseDuration");
+        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,76 +92,42 @@ public class tw3 extends kw3 {
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+    public static void c(jh2 jh2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, jh2Var, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            jh2Var.a(jSONObject);
+        }
+    }
+
+    @Override // com.baidu.tieba.lw3
+    public fw1 a(JSONObject jSONObject, jh2 jh2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (jSONObject == null) {
-                ih2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jh2Var)) == null) {
+            f43 b0 = f43.b0();
+            if (b0 != null && b0.w() != null && b0.W() != null) {
+                if (s93.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
+                    c(jh2Var, Info.kBaiduPIDValue);
+                    return null;
+                }
+                s93.j(b0.w(), b0.W(), 1, new a(this, jh2Var));
                 return null;
             }
+            jh2Var.onFail(100, "swan or activity is null");
             if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ih2Var.onFail(202, "params may be error");
-            } else {
-                b(optString, ih2Var);
+                Log.d("AddShortcutToDesktop", "swan or activity is null");
+                return null;
             }
             return null;
         }
-        return (ew1) invokeLL.objValue;
-    }
-
-    public final void b(String str, @NonNull ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ih2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            ih2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                ih2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        ih2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    ih2Var.onFail(31016, "no package info");
-                    return;
-                }
-                ih2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                ih2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (fw1) invokeLL.objValue;
     }
 }

@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im;
-import com.baidu.tieba.j56;
+import com.baidu.tieba.fx8;
+import com.baidu.tieba.fy8;
 import com.baidu.tieba.jm;
-import com.baidu.tieba.uw8;
-import com.baidu.tieba.ux8;
+import com.baidu.tieba.km;
+import com.baidu.tieba.v56;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +76,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a0f);
+                    yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a11);
                 }
             }
 
@@ -85,7 +85,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a0f);
+                    yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a11);
                 }
             }
 
@@ -150,9 +150,9 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(jm.a);
+            requestParams.setRunType(km.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new im(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new jm(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -177,12 +177,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<j56> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<v56> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof uw8)) {
-                    return new CustomResponsedMessage<>(2921466, new ux8((uw8) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof fx8)) {
+                    return new CustomResponsedMessage<>(2921466, new fy8((fx8) customMessage.getData()));
                 }
                 return null;
             }

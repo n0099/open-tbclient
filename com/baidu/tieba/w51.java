@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,74 +11,176 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface w51 {
-    public static final w51 a = new a();
+public class w51 {
+    public static /* synthetic */ Interceptable $ic;
+    public static z51 a;
+    public static c61 b;
+    public static d61 c;
+    public static g51 d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(Intent intent);
-
-    /* loaded from: classes6.dex */
-    public static class a implements w51 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.w51
-        public boolean a(Intent intent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221462, "Lcom/baidu/tieba/w51;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948221462, "Lcom/baidu/tieba/w51;");
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public w51() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static w51 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return aj0.b();
+        }
+        return (Context) invokeV.objValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-364935080, "Lcom/baidu/tieba/w51$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-364935080, "Lcom/baidu/tieba/w51$b;");
-                    return;
+    public static a61 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a61.a;
+        }
+        return (a61) invokeV.objValue;
+    }
+
+    public static x51 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return x51.a;
+        }
+        return (x51) invokeV.objValue;
+    }
+
+    public static y51 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return y51.a;
+        }
+        return (y51) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (rm0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (rm0.b().a().a("nad_web_view_type_switch", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static z51 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (w51.class) {
+                    if (a == null) {
+                        a = (z51) ServiceManager.getService(z51.a);
+                    }
+                    if (a == null) {
+                        a = z51.b;
+                    }
                 }
             }
-            a = v51.d();
+            return a;
         }
+        return (z51) invokeV.objValue;
+    }
 
-        @NonNull
-        public static w51 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a == null) {
-                    a = w51.a;
+    public static g51 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (d == null) {
+                synchronized (w51.class) {
+                    if (d == null) {
+                        d = (g51) ServiceManager.getService(g51.a);
+                    }
+                    if (d == null) {
+                        d = g51.b;
+                    }
                 }
-                return a;
             }
-            return (w51) invokeV.objValue;
+            return d;
         }
+        return (g51) invokeV.objValue;
+    }
+
+    public static c61 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (b == null) {
+                synchronized (w51.class) {
+                    if (b == null) {
+                        b = (c61) ServiceManager.getService(c61.a);
+                    }
+                    if (b == null) {
+                        b = c61.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (c61) invokeV.objValue;
+    }
+
+    public static d61 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (c == null) {
+                synchronized (w51.class) {
+                    if (c == null) {
+                        c = (d61) ServiceManager.getService(d61.a);
+                    }
+                    if (c == null) {
+                        c = d61.b;
+                    }
+                }
+            }
+            return c;
+        }
+        return (d61) invokeV.objValue;
     }
 }

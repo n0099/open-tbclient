@@ -47,9 +47,9 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.oy4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.ty4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +83,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public View j;
     public Button k;
     public Button l;
-    public oy4 m;
+    public ty4 m;
     public k n;
     public j o;
     public RadioButton p;
@@ -120,7 +120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public final /* synthetic */ EditHeadActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements g95.d {
+        public class a implements m95.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -143,7 +143,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.g95.d
+            @Override // com.baidu.tieba.m95.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -151,7 +151,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f152b, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1532, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -248,13 +248,13 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.a.closeActivity();
                     return;
                 }
-                g95 g95Var = new g95(FileHelper.getFileDireciory(str), "head");
-                g95Var.j();
-                g95Var.l(new a(this));
-                g95Var.n(this.a.z);
-                g95Var.g(false);
+                m95 m95Var = new m95(FileHelper.getFileDireciory(str), "head");
+                m95Var.j();
+                m95Var.l(new a(this));
+                m95Var.n(this.a.z);
+                m95Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f152d));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1534));
             }
         }
     }
@@ -871,7 +871,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1529));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1530));
             }
         }
 
@@ -1095,23 +1095,23 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public final void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.D = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
-            oy4 oy4Var = new oy4(getPageContext());
-            this.m = oy4Var;
-            oy4Var.e(new a(this));
+            this.D = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09168f);
+            ty4 ty4Var = new ty4(getPageContext());
+            this.m = ty4Var;
+            ty4Var.e(new a(this));
             this.m.h(false);
-            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f090ed8);
+            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f090edb);
             if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {
                 float f2 = this.a;
                 if (f2 != 1.0f) {
                     this.d.setmCutHeightScale(f2);
                 }
             }
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091aaf);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ab0);
-            int[] s = xi.s(getPageContext().getPageActivity());
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ab9);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091aba);
+            int[] s = yi.s(getPageContext().getPageActivity());
             this.f.setY((int) (((s[1] - s[0]) * 0.4d) + s[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc)));
-            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f090eb7);
+            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f090eba);
             this.c = editHeadsImageView;
             editHeadsImageView.setCutImageHeightScale(this.a);
             Bitmap bitmap = this.g;
@@ -1121,38 +1121,38 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091f10);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091f1c);
             this.l = button;
             button.setOnClickListener(new e(this));
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090d9b);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090d9d);
             this.k = button2;
             button2.setVisibility(0);
             this.k.setOnClickListener(new f(this));
-            View addCustomView = this.D.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03cb, (View.OnClickListener) null);
+            View addCustomView = this.D.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03cc, (View.OnClickListener) null);
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091df2);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091dfe);
             this.E = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f050f);
+            textView.setText(R.string.obfuscated_res_0x7f0f0510);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
                 this.u = this.D.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0309));
             }
             if ("from_photo_live".equals(this.b)) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f03d7);
+                this.u.setText(R.string.obfuscated_res_0x7f0f03d8);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090385);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cca);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cd6);
             this.p = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090384);
-            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091ccb);
+            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091cd7);
             h hVar = new h(this);
             this.p.setOnCheckedChangeListener(hVar);
             this.q.setOnCheckedChangeListener(hVar);
             this.p.setChecked(true);
-            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091ccd);
-            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091ccf);
-            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091cce);
-            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091cd0);
+            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091cd9);
+            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091cdb);
+            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091cda);
+            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091cdc);
             button3.setTag(0);
             button4.setTag(1);
             button5.setTag(2);
@@ -1281,7 +1281,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d0247);
+            setContentView(R.layout.obfuscated_res_0x7f0d0248);
             Intent intent = getIntent();
             this.h = intent.getIntExtra(EditHeadActivityConfig.EDITTYPE, 0);
             this.A = intent.getIntExtra("request", 0);

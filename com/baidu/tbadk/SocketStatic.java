@@ -9,8 +9,8 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.gc;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.hc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +68,7 @@ public class SocketStatic {
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof NetWorkChangedMessage) || !PermissionUtil.isAgreePrivacyPolicy() || Build.VERSION.SDK_INT < 24 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
                     return;
                 }
-                gc.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
+                hc.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnonymousClass1 this$0;
@@ -95,7 +95,7 @@ public class SocketStatic {
                     public void run() {
                         Interceptable interceptable3 = $ic;
                         if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && BdSocketLinkService.isClose()) {
-                            v95.b(0, 0, 0, 1, 6);
+                            ba5.b(0, 0, 0, 1, 6);
                             BdSocketLinkService.setAvailable(true);
                             BdSocketLinkService.startService(false, "net succ");
                         }

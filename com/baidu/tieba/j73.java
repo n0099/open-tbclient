@@ -2,32 +2,28 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class j73 extends b63 {
+public class j73 extends c63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j73(b53 b53Var) {
-        super(b53Var, "/swanAPI/prefetchAppData");
+    public j73(c53 c53Var) {
+        super(c53Var, "/swanAPI/showNavigationBarLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b53Var};
+            Object[] objArr = {c53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,42 +37,40 @@ public class j73 extends b63 {
         }
     }
 
-    public final PrefetchEvent j(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            PrefetchEvent.b bVar = new PrefetchEvent.b();
-            bVar.e(jSONObject.optString("state"));
-            bVar.d(jSONObject.optString("schema"));
-            bVar.c(jSONObject.optString("scene"));
-            bVar.a(jSONObject.optString("appKey"));
-            return bVar.b();
-        }
-        return (PrefetchEvent) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.b63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+    @Override // com.baidu.tieba.c63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
-            if (b63.b) {
-                Log.d("PrefetchAppData", "handle entity: " + unitedSchemeEntity.getUri().toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
+            if (c63.b) {
+                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String param = unitedSchemeEntity.getParam("params");
-            JSONObject d = eh3.d(param);
-            PrefetchEvent j = j(d);
-            if (j != null && j.isValid()) {
-                if (!u22.c(d.optString("netconf", "1"))) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
-                    return false;
+            if (f43Var != null && f43Var.n0()) {
+                if (c63.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                d82.g().f(j);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            }
+            o32 V = sp2.U().V();
+            if (V == null) {
+                f12.c("navigationLoading", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            l32 m = V.m();
+            if (m == null) {
+                f12.c("navigationLoading", "swanAppFragment is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!m.N2()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                f12.c("navigationLoading", "show navigation loading progressbar fail");
+                return false;
+            } else {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
-            return false;
         }
         return invokeLLLL.booleanValue;
     }

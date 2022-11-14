@@ -426,9 +426,9 @@ public final class j extends e implements View.OnClickListener, com.kwad.compone
             if (context != null) {
                 this.eO = (Vibrator) context.getSystemService("vibrator");
             }
-            this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091212)).inflate();
-            this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09120b);
-            KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f091215);
+            this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091217)).inflate();
+            this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091210);
+            KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f09121a);
             this.yY = ksShakeView;
             ksShakeView.setOnClickListener(this);
         }

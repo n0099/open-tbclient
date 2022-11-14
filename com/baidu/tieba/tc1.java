@@ -1,70 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class tc1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile tc1 f;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public int c;
-    public int d;
-    public Runnable e;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public a(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176295, "Lcom/baidu/tieba/tc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = tc1Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948176295, "Lcom/baidu/tieba/tc1;");
+                return;
+            }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dd1.g("开始重试");
-                if (uc1.n()) {
-                    dd1.g("重试成功");
-                    this.a.c = 0;
-                    this.a.a.quitSafely();
-                    this.a.b.removeCallbacks(this);
-                    return;
-                }
-                tc1.c(this.a);
-                if (this.a.c < 3) {
-                    dd1.g("重试失败继续重试");
-                    this.a.b.postDelayed(this, this.a.d);
-                    return;
-                }
-                this.a.c = 0;
-                dd1.g("重试三次结束重试");
-                this.a.a.quitSafely();
-                this.a.b.removeCallbacks(this);
-            }
+        if (tb1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
@@ -72,51 +41,69 @@ public class tc1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = 10000;
-        this.e = new a(this);
     }
 
-    public static tc1 g() {
-        InterceptResult invokeV;
+    public void a(ob1 ob1Var, nb1 nb1Var, mb1 mb1Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f == null) {
-                synchronized (tc1.class) {
-                    if (f == null) {
-                        f = new tc1();
-                    }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ob1Var, nb1Var, mb1Var) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+                for (Map.Entry<String, String> entry : ob1Var.c().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setReadTimeout(5000);
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry<String, String> entry2 : nb1Var.c().entrySet()) {
+                    String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
+                    sb.append(entry2.getKey());
+                    sb.append("=");
+                    sb.append(encode);
+                    sb.append("&");
+                }
+                byte[] bytes = sb.toString().getBytes();
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+                httpURLConnection.connect();
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.write(bytes);
+                    dataOutputStream.flush();
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (mb1Var != null) {
+                        if (responseCode >= 200 && responseCode <= 299) {
+                            mb1Var.c(null);
+                        } else {
+                            mb1Var.a(null, 119501, null);
+                        }
+                    }
+                    cd1.a(dataOutputStream);
+                } catch (Throwable unused) {
+                    if (mb1Var != null) {
+                        try {
+                            mb1Var.a(null, 119501, null);
+                        } catch (Throwable th) {
+                            cd1.a(dataOutputStream);
+                            throw th;
+                        }
+                    }
+                    cd1.a(dataOutputStream);
+                }
+            } catch (Throwable unused2) {
+                dataOutputStream = null;
             }
-            return f;
-        }
-        return (tc1) invokeV.objValue;
-    }
-
-    public static /* synthetic */ int c(tc1 tc1Var) {
-        int i = tc1Var.c;
-        tc1Var.c = i + 1;
-        return i;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dd1.g("触发重试");
-            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
-            this.a = handlerThread;
-            handlerThread.start();
-            Handler handler = new Handler(this.a.getLooper());
-            this.b = handler;
-            handler.postDelayed(this.e, this.d);
         }
     }
 }

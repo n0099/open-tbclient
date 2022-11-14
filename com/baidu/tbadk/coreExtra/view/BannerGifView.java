@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fq4;
 import com.baidu.tieba.gq4;
-import com.baidu.tieba.w9;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public fq4 h;
-    public gq4 i;
-    public final gq4 j;
+    public gq4 h;
+    public hq4 i;
+    public final hq4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements gq4 {
+    public class a implements hq4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.gq4
+        @Override // com.baidu.tieba.hq4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -200,10 +200,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(fq4 fq4Var) {
+    public void setIWindowChangedListener(gq4 gq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, fq4Var) == null) {
-            this.h = fq4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, gq4Var) == null) {
+            this.h = gq4Var;
         }
     }
 
@@ -215,10 +215,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(gq4 gq4Var) {
+    public void setOnClickEventListener(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, gq4Var) == null) {
-            this.i = gq4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, hq4Var) == null) {
+            this.i = hq4Var;
         }
     }
 
@@ -235,7 +235,7 @@ public class BannerGifView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (!TextUtils.isEmpty(this.f)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(getContext()), new String[]{this.f});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(getContext()), new String[]{this.f});
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -246,10 +246,10 @@ public class BannerGifView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037f, this);
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090445);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090ec6);
-            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090ec0);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0380, this);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090446);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090ec9);
+            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090ec3);
             this.a = gifView;
             gifView.setShowStaticDrawable(false);
             this.a.setSupportNoImage(false);

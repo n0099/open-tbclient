@@ -2,18 +2,18 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.tieba.jf;
+import com.baidu.tieba.kf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class PerformanceSwitch extends jf {
+public class PerformanceSwitch extends kf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -23,7 +23,7 @@ public class PerformanceSwitch extends jf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class PerformanceSwitch extends jf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class PerformanceSwitch extends jf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "log_stat_smallflow" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class PerformanceSwitch extends jf {
         }
     }
 
-    @Override // com.baidu.tieba.jf
+    @Override // com.baidu.tieba.kf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

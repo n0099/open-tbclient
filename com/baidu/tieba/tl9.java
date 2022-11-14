@@ -1,25 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yunjiasu.tornadosdk.Pinger;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class tl9 implements Handler.Callback {
+public class tl9 implements jf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ tl9 a = new tl9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ tl9() {
+    public tl9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    @Override // android.os.Handler.Callback
-    public final boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jf1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m72pingHandler$lambda0(message) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new am9() : invokeV.objValue;
     }
 }

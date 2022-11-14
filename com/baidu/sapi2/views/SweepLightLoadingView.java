@@ -97,16 +97,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0513, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0514, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d9e);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091dc9);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091dca);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091daa);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091dd5);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091dd6);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0810c6);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0810c4);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091dc8).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a3a));
+                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f3));
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0810d6);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0810d4);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091dd4).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a3b));
             }
         }
     }

@@ -1,213 +1,218 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class lu8 extends p9<AvatarPendantActivity> {
+public class lu8 extends cw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mu8 a;
-    public BdListView b;
-    public NoNetworkView c;
-    public MemberRecommendView d;
-    public NavigationBar e;
-    public int f;
-    public TextView g;
-    public TextView h;
-    public AvatarPendantActivity i;
-    public View j;
-    public TextView k;
+    public final MainTabActivity f;
+    public final zr8 g;
+    public LevePopData h;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void Q0(DressItemData dressItemData);
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lu8 a;
+
+        public a(lu8 lu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lu8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LevePopData a;
+        public final /* synthetic */ lu8 b;
+
+        public b(lu8 lu8Var, LevePopData levePopData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lu8Var, levePopData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lu8Var;
+            this.a = levePopData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, this.a.getBtn_scheme(), true)));
+                this.b.c();
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lu8(AvatarPendantActivity avatarPendantActivity) {
-        super(avatarPendantActivity.getPageContext());
+    public lu8(@NonNull MainTabActivity mainTabActivity, @NonNull zr8 zr8Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = 0;
-        this.i = avatarPendantActivity;
-        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d012a);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091cc8);
-        this.f = xi.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
-        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031d);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f092606);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f092604);
-        this.e = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setTitleText(R.string.obfuscated_res_0x7f0f02ca);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031f);
-        this.d = memberRecommendView;
-        memberRecommendView.setFromType(8);
-        this.d.getButton().setOnClickListener(avatarPendantActivity);
-        TextView textView = new TextView(avatarPendantActivity.getActivity());
-        this.g = textView;
-        textView.setHeight(xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        this.k = new TextView(avatarPendantActivity.getActivity());
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
-        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
-        this.h = textView2;
-        textView2.setHeight(xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0702d2));
-        this.k.setLayoutParams(layoutParams);
-        this.b.x(this.k, 0);
-        this.b.addFooterView(this.h);
-        mu8 mu8Var = new mu8(avatarPendantActivity);
-        this.a = mu8Var;
-        this.b.setAdapter((ListAdapter) mu8Var);
+        this.f = mainTabActivity;
+        this.g = zr8Var;
     }
 
-    public void j(NoNetworkView.b bVar) {
+    @Override // com.baidu.tieba.zv4
+    public void d(zv4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.c.a(bVar);
-        }
-    }
-
-    public void p(List<ju8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.b.setVisibility(0);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (gw4.k() && aVar != null) {
+                aVar.a(false);
                 return;
             }
-            this.b.setVisibility(8);
-        }
-    }
-
-    public void r(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.a.b(aVar);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.hideNetRefreshView(this.j);
-            this.b.setVisibility(0);
-        }
-    }
-
-    public MemberRecommendView l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (MemberRecommendView) invokeV.objValue;
-    }
-
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if5.a(this.i.getPageContext(), this.j);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.a.notifyDataSetChanged();
-            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.c.d(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.d.d();
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-        }
-    }
-
-    public final boolean q(lv8 lv8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, lv8Var)) == null) {
-            if (lv8Var != null && !StringUtils.isNull(lv8Var.c())) {
-                this.d.setVisibility(0);
-                this.d.e(lv8Var);
-                return true;
-            }
-            this.d.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c9b);
-            this.i.setNetRefreshViewTopMargin(this.f);
-            this.i.showNetRefreshView(this.j, string, false);
-        }
-    }
-
-    public void t(lv8 lv8Var, List<ju8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, lv8Var, list) == null) {
-            if ((lv8Var != null && !StringUtils.isNull(lv8Var.c())) || (list != null && list.size() > 0)) {
-                k();
-                if (q(lv8Var)) {
-                    this.b.removeHeaderView(this.g);
-                    this.b.addHeaderView(this.g);
-                } else {
-                    this.b.removeHeaderView(this.g);
-                }
-                p(list);
+            zr8 zr8Var = this.g;
+            if ((zr8Var == null || zr8Var.B() == null || (this.g.B().getCurrentTabType() != 2 && this.g.B().getCurrentTabType() != 1 && this.g.B().getCurrentTabType() != 3)) && aVar != null) {
+                aVar.a(false);
                 return;
             }
-            s();
+            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            this.h = levePopData;
+            if (!levePopData.isHadShow() && !StringUtils.isNull(this.h.getTitle()) && !StringUtils.isNull(this.h.getDesc()) && !StringUtils.isNull(this.h.getBtn_scheme()) && this.h.getLevel() > 0 && this.h.getLevel() <= 10 && this.f.f1() && this.f.D && this.h.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
+                aVar.a(true);
+            } else if (aVar != null) {
+                aVar.a(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cw4
+    public void g(TBAlertBuilder tBAlertBuilder) {
+        String cancel_btn_text;
+        String btn_text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            if (this.h == null) {
+                this.h = TbSingleton.getInstance().getLevePopData();
+            }
+            LevePopData levePopData = this.h;
+            if (levePopData != null && levePopData.isHadShow()) {
+                c();
+                return;
+            }
+            RelativeLayout relativeLayout = new RelativeLayout(this.f);
+            View view2 = new View(this.f);
+            pw4 d = pw4.d(view2);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.f);
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08084a, WebPManager.ResourceStateType.NORMAL));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            LevePopData levePopData2 = this.h;
+            tBAlertBuilder.u(levePopData2.getTitle());
+            tBAlertBuilder.o(this.h.getDesc());
+            tBAlertBuilder.m(true);
+            tBAlertBuilder.j(relativeLayout);
+            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
+            if (StringUtils.isNull(this.h.getCancel_btn_text())) {
+                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083c);
+            } else {
+                cancel_btn_text = this.h.getCancel_btn_text();
+            }
+            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new a(this));
+            if (StringUtils.isNull(this.h.getBtn_text())) {
+                btn_text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03b8);
+            } else {
+                btn_text = this.h.getBtn_text();
+            }
+            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, levePopData2));
+            tBAlertBuilder.r(aVarArr);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.g();
+            tBAlertBuilder.w();
+            PollingModel.c0(this.h, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.cw4
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gw4.r("userGrowth");
+        }
+    }
+
+    @Override // com.baidu.tieba.cw4
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            gw4.m("userGrowth");
         }
     }
 }

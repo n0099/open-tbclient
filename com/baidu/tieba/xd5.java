@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +13,30 @@ public class xd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(List<String> list) {
+    public static String a(ArrayList<String> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                arrayList2.addAll(arrayList);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                arrayList2.add(str);
+            }
+            List<String> c = c(arrayList2, i);
+            if (!ListUtils.isEmpty(c)) {
+                return b(c);
+            }
+            return null;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static String b(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             if (ListUtils.getCount(list) <= 0) {
                 return null;
             }
@@ -37,13 +58,13 @@ public class xd5 {
         return (String) invokeL.objValue;
     }
 
-    public static List<String> b(List<String> list, int i) {
+    public static List<String> c(List<String> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
             int count = ListUtils.getCount(list);
             if (count > 0 && i >= 0 && count > i) {
-                return new ArrayList(ListUtils.subList(list, count - i, count));
+                return ListUtils.subList(list, count - i, count);
             }
             return list;
         }

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.px3;
 /* loaded from: classes5.dex */
 public interface m14 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(px3.d dVar);
 }

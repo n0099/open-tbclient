@@ -2,10 +2,10 @@ package com.baidu.tieba.h5power;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.rp8;
-import com.baidu.tieba.tp8;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.aq8;
+import com.baidu.tieba.cq8;
+import com.baidu.tieba.eq8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class SearchJsBridge_Proxy extends pp8 {
+public class SearchJsBridge_Proxy extends aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SearchJsBridge mJsBridge;
@@ -43,78 +43,78 @@ public class SearchJsBridge_Proxy extends pp8 {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.pp8
-    public rp8 dispatch(tp8 tp8Var, rp8 rp8Var) {
+    @Override // com.baidu.tieba.aq8
+    public cq8 dispatch(eq8 eq8Var, cq8 cq8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tp8Var, rp8Var)) == null) {
-            if (rp8Var == null) {
-                rp8Var = new rp8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eq8Var, cq8Var)) == null) {
+            if (cq8Var == null) {
+                cq8Var = new cq8();
             }
-            String b = tp8Var.b();
-            JSONObject e = tp8Var.e();
+            String b = eq8Var.b();
+            JSONObject e = eq8Var.e();
             if (b.equals("hybrid/deleteSearchHistory")) {
-                rp8Var.r(true);
-                rp8 deleteSearchHistory = this.mJsBridge.deleteSearchHistory(e.optString("query"));
+                cq8Var.r(true);
+                cq8 deleteSearchHistory = this.mJsBridge.deleteSearchHistory(e.optString("query"));
                 if (deleteSearchHistory != null) {
-                    rp8Var.x(deleteSearchHistory.f());
-                    rp8Var.t(deleteSearchHistory.b());
-                    rp8Var.o(deleteSearchHistory.a());
-                    rp8Var.w(deleteSearchHistory.e());
+                    cq8Var.x(deleteSearchHistory.f());
+                    cq8Var.t(deleteSearchHistory.b());
+                    cq8Var.o(deleteSearchHistory.a());
+                    cq8Var.w(deleteSearchHistory.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("hybrid/deleteAllSearchHistory")) {
-                rp8Var.r(true);
-                rp8 deleteAllSearchHistory = this.mJsBridge.deleteAllSearchHistory();
+                cq8Var.r(true);
+                cq8 deleteAllSearchHistory = this.mJsBridge.deleteAllSearchHistory();
                 if (deleteAllSearchHistory != null) {
-                    rp8Var.x(deleteAllSearchHistory.f());
-                    rp8Var.t(deleteAllSearchHistory.b());
-                    rp8Var.o(deleteAllSearchHistory.a());
-                    rp8Var.w(deleteAllSearchHistory.e());
+                    cq8Var.x(deleteAllSearchHistory.f());
+                    cq8Var.t(deleteAllSearchHistory.b());
+                    cq8Var.o(deleteAllSearchHistory.a());
+                    cq8Var.w(deleteAllSearchHistory.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("hybrid/openSearchPage")) {
-                rp8Var.r(true);
-                rp8 openSearchPage = this.mJsBridge.openSearchPage(e.optString("query"), e.optInt("subType"));
+                cq8Var.r(true);
+                cq8 openSearchPage = this.mJsBridge.openSearchPage(e.optString("query"), e.optInt("subType"));
                 if (openSearchPage != null) {
-                    rp8Var.x(openSearchPage.f());
-                    rp8Var.t(openSearchPage.b());
-                    rp8Var.o(openSearchPage.a());
-                    rp8Var.w(openSearchPage.e());
+                    cq8Var.x(openSearchPage.f());
+                    cq8Var.t(openSearchPage.b());
+                    cq8Var.o(openSearchPage.a());
+                    cq8Var.w(openSearchPage.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("hybrid/getSearchHistory")) {
-                rp8Var.r(true);
-                rp8 searchHistoryJson = this.mJsBridge.getSearchHistoryJson();
+                cq8Var.r(true);
+                cq8 searchHistoryJson = this.mJsBridge.getSearchHistoryJson();
                 if (searchHistoryJson != null) {
-                    rp8Var.x(searchHistoryJson.f());
-                    rp8Var.t(searchHistoryJson.b());
-                    rp8Var.o(searchHistoryJson.a());
-                    rp8Var.w(searchHistoryJson.e());
+                    cq8Var.x(searchHistoryJson.f());
+                    cq8Var.t(searchHistoryJson.b());
+                    cq8Var.o(searchHistoryJson.a());
+                    cq8Var.w(searchHistoryJson.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("hybrid/getSearchAdCookie")) {
-                rp8Var.r(true);
-                rp8 searchAdCookie = this.mJsBridge.getSearchAdCookie();
+                cq8Var.r(true);
+                cq8 searchAdCookie = this.mJsBridge.getSearchAdCookie();
                 if (searchAdCookie != null) {
-                    rp8Var.x(searchAdCookie.f());
-                    rp8Var.t(searchAdCookie.b());
-                    rp8Var.o(searchAdCookie.a());
-                    rp8Var.w(searchAdCookie.e());
+                    cq8Var.x(searchAdCookie.f());
+                    cq8Var.t(searchAdCookie.b());
+                    cq8Var.o(searchAdCookie.a());
+                    cq8Var.w(searchAdCookie.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             }
-            return rp8Var;
+            return cq8Var;
         }
-        return (rp8) invokeLL.objValue;
+        return (cq8) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.pp8
-    public List<rp8> processNotification(String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.aq8
+    public List<cq8> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
-            if (!wi.isEmpty(str) && this.mNotificationNameList.contains(str)) {
+            if (!xi.isEmpty(str) && this.mNotificationNameList.contains(str)) {
                 ArrayList arrayList = new ArrayList();
                 this.mAsyncCallBackMethodList.get(str);
                 return arrayList;

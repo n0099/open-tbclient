@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.pm8;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.an8;
+import com.baidu.tieba.en8;
+import com.baidu.tieba.in;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.stamp.model.msg.GetStampResponseMessage;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,9 +28,9 @@ public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public tm8 b;
+    public en8 b;
     public int c;
-    public rg<hn> d;
+    public sg<in> d;
     public String e;
     public HttpMessageListener f;
 
@@ -67,7 +67,7 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<pm8> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<an8> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() != 0) {
                     return;
                 }
@@ -77,18 +77,18 @@ public class FetchStampModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends rg<hn> {
+    public class b extends sg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pm8 a;
+        public final /* synthetic */ an8 a;
         public final /* synthetic */ FetchStampModel b;
 
-        public b(FetchStampModel fetchStampModel, pm8 pm8Var) {
+        public b(FetchStampModel fetchStampModel, an8 an8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, pm8Var};
+                Object[] objArr = {fetchStampModel, an8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,28 +99,28 @@ public class FetchStampModel extends BdBaseModel {
                 }
             }
             this.b = fetchStampModel;
-            this.a = pm8Var;
+            this.a = an8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((b) hnVar, str, i);
-                if (hnVar != null && hnVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((b) inVar, str, i);
+                if (inVar != null && inVar.w()) {
                     this.b.b.a(this.a);
                 }
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, tm8 tm8Var) {
+    public FetchStampModel(TbPageContext tbPageContext, en8 en8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tm8Var};
+            Object[] objArr = {tbPageContext, en8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,7 +133,7 @@ public class FetchStampModel extends BdBaseModel {
         this.c = 10;
         this.f = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
         this.a = tbPageContext;
-        this.b = tm8Var;
+        this.b = en8Var;
         B();
         registerListener();
     }
@@ -153,7 +153,7 @@ public class FetchStampModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!StringUtils.isNull(this.e) && this.d != null) {
-                sg.h().d(this.e, this.c, this.d);
+                tg.h().d(this.e, this.c, this.d);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
             MessageManager.getInstance().unRegisterListener(this.f);
@@ -162,25 +162,25 @@ public class FetchStampModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void C(List<pm8> list) {
-        pm8 pm8Var;
+    public final void C(List<an8> list) {
+        an8 an8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (pm8Var = list.get(0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (an8Var = list.get(0)) == null) {
             return;
         }
-        String a2 = pm8Var.a();
+        String a2 = an8Var.a();
         this.e = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
         if (this.d == null) {
-            this.d = new b(this, pm8Var);
+            this.d = new b(this, an8Var);
         }
-        hn hnVar = (hn) sg.h().n(this.e, this.c, new Object[0]);
-        if (hnVar != null && hnVar.w()) {
-            this.b.a(pm8Var);
+        in inVar = (in) tg.h().n(this.e, this.c, new Object[0]);
+        if (inVar != null && inVar.w()) {
+            this.b.a(an8Var);
         } else if (this.a != null) {
-            sg.h().m(this.e, this.c, this.d, this.a.getUniqueId());
+            tg.h().m(this.e, this.c, this.d, this.a.getUniqueId());
         }
     }
 

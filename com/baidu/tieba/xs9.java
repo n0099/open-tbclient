@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class xs9 {
+public abstract class xs9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<Long, StackTraceElement[]> a;
-    public int b;
+    public T a;
 
     public xs9() {
         Interceptable interceptable = $ic;
@@ -25,32 +20,9 @@ public class xs9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedHashMap<>();
-        this.b = 100;
     }
 
-    public LinkedHashMap<Long, StackTraceElement[]> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (LinkedHashMap) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int size = this.a.size();
-            int i = this.b;
-            if (size == i && i > 0) {
-                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
-                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
-            }
-            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
-        }
-    }
+    public abstract T a();
 }

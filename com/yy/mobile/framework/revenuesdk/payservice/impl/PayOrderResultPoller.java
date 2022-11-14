@@ -181,6 +181,7 @@ public class PayOrderResultPoller {
             if (list != null && list.size() > 0) {
                 currencyChargeMessage.giftBagsInfo = getChargeOrderStatusResult.giftbags.get(0);
             }
+            currencyChargeMessage.splitRecordItemList = getChargeOrderStatusResult.splitRecordItemList;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 this.payServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);
             } else {

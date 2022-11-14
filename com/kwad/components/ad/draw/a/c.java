@@ -327,12 +327,12 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091084);
-            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f091088);
-            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091086);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091087);
-            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f091085);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091083);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091089);
+            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
+            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f09108b);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09108c);
+            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f09108a);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091088);
             this.bl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
         }

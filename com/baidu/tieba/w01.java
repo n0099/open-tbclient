@@ -1,76 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class w01 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w01 b;
+    public static t01 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, t01> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216657, "Lcom/baidu/tieba/w01;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948216657, "Lcom/baidu/tieba/w01;");
+        }
+    }
 
     public w01() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap<>();
     }
 
-    public static w01 a() {
+    public static t01 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
                 synchronized (w01.class) {
-                    if (b == null) {
-                        b = new w01();
+                    if (a == null) {
+                        a = (t01) ServiceManager.getService(t01.a);
+                    }
+                    if (a == null) {
+                        a = t01.b;
                     }
                 }
             }
-            return b;
+            return a;
         }
-        return (w01) invokeV.objValue;
-    }
-
-    @NonNull
-    public t01 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            t01 t01Var = (t01) q01.b(this.a, str);
-            if (t01Var == null) {
-                synchronized (w01.class) {
-                    t01Var = (t01) q01.b(this.a, str);
-                    if (t01Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            t01Var = v01.a().a();
-                        } else {
-                            t01Var = v01.a().b(str);
-                        }
-                        q01.e(this.a, str, t01Var);
-                    }
-                }
-            }
-            return t01Var;
-        }
-        return (t01) invokeL.objValue;
+        return (t01) invokeV.objValue;
     }
 }

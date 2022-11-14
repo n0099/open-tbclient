@@ -1,179 +1,148 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vm5 {
+public class vm5 extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public kn5 b;
+    public int a;
+    public Context b;
+    public Rect c;
+    public String d;
+    public Matrix e;
+    public int f;
+    public int g;
+    public float h;
+    public float i;
 
-    /* loaded from: classes6.dex */
-    public class a implements an5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vm5 a;
-
-        /* renamed from: com.baidu.tieba.vm5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0449a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public View$OnClickListenerC0449a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.b != null) {
-                    this.a.a.b.f();
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.b != null) {
-                    this.a.a.b.A();
-                    this.a.a.b.f();
-                }
-            }
-        }
-
-        public a(vm5 vm5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vm5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vm5Var;
-        }
-
-        @Override // com.baidu.tieba.an5
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091955);
-                textView.setOnClickListener(new View$OnClickListenerC0449a(this));
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091954);
-                SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
-                textView2.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    public vm5(Activity activity) {
+    public vm5(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activity;
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0.9f;
+        this.i = 0.75f;
+        this.b = context;
+        this.a = i;
+        this.d = String.valueOf(i);
     }
 
-    public final an5 b() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        in inVar;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (an5) invokeV.objValue;
-    }
-
-    public void c(fn5 fn5Var) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fn5Var) == null) && (activity = this.a) != null && !activity.isFinishing()) {
-            if (this.b == null) {
-                ym5 ym5Var = new ym5(this.a, fn5Var);
-                ym5Var.k(R.layout.obfuscated_res_0x7f0d0708, b());
-                ym5Var.p(new boolean[]{true, true, true, false, false, false});
-                ym5Var.j(this.a.getString(R.string.obfuscated_res_0x7f0f0ecd), this.a.getString(R.string.obfuscated_res_0x7f0f0eca), this.a.getString(R.string.obfuscated_res_0x7f0f0ec7), this.a.getString(R.string.obfuscated_res_0x7f0f0ec8), this.a.getString(R.string.obfuscated_res_0x7f0f0ec9), this.a.getString(R.string.obfuscated_res_0x7f0f0ecb));
-                ym5Var.l(2.0f);
-                ym5Var.b(false);
-                ym5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                ym5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                ym5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                ym5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                ym5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                ym5Var.c(false);
-                ym5Var.h((ViewGroup) this.a.findViewById(16908290));
-                this.b = ym5Var.a();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.a > 0 && this.b != null) {
+            Paint paint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            k95 k = k95.k();
+            if (k != null && (str2 = this.d) != null) {
+                inVar = k.m(str2);
+            } else {
+                inVar = null;
             }
-            this.b.u();
+            if (inVar == null) {
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
+                if (resBitmap != null) {
+                    inVar = new in(resBitmap, false, (String) null);
+                }
+                if (k != null && inVar != null && (str = this.d) != null) {
+                    k.d(str, inVar);
+                }
+            }
+            if (inVar != null) {
+                int r = inVar.r();
+                int m = inVar.m();
+                if (r > 0 && m > 0 && this.c != null) {
+                    canvas.save();
+                    canvas.clipRect(super.getBounds());
+                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
+                        inVar.e(canvas, 0.0f, 0.0f, null);
+                    } else {
+                        if (this.e == null) {
+                            Matrix matrix = new Matrix();
+                            this.e = matrix;
+                            matrix.postTranslate(this.f, this.g);
+                            Rect rect = this.c;
+                            float f = (rect.right - rect.left) / r;
+                            float f2 = (rect.bottom - rect.top) / m;
+                            if (f >= f2) {
+                                f = f2;
+                            }
+                            if (f < 1.0f) {
+                                this.e.postScale(f, f);
+                            }
+                        }
+                        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                            float f3 = this.i;
+                            colorMatrix.setScale(f3, f3, f3, 1.0f);
+                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                            inVar.f(canvas, this.e, paint);
+                        } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                            float f4 = this.h;
+                            colorMatrix.setScale(f4, f4, f4, 1.0f);
+                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                            inVar.f(canvas, this.e, paint);
+                        } else {
+                            inVar.f(canvas, this.e, null);
+                        }
+                    }
+                    canvas.restore();
+                }
+            }
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            this.c = new Rect(i, i2, i3, i4);
+            this.e = null;
+            super.setBounds(i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
+            this.c = new Rect(rect);
+            this.e = null;
+            super.setBounds(rect);
         }
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,8 +56,8 @@ public class p2 {
                 jSONObject.put("2", j0Var.e());
                 jSONObject.put("3", j0Var.g());
                 jSONObject.put("24", j0Var.h());
-                jSONObject.put("35", c0.a() ? 1 : 0);
-                jSONObject.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, c0.a(this.a) ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK, c0.a() ? 1 : 0);
+                jSONObject.put("36", c0.a(this.a) ? 1 : 0);
                 Object a2 = i0.a(this.a);
                 if (a2 != null) {
                     jSONObject.put("4", a2);
@@ -71,7 +70,7 @@ public class p2 {
                 boolean d = d0Var.d(this.a);
                 jSONObject.put("8", d ? 1 : 0);
                 if (d) {
-                    jSONObject.put("61", d0Var.c(this.a));
+                    jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_SHOW, d0Var.c(this.a));
                 }
                 jSONObject.put("10", d0Var.f(this.a));
                 jSONObject.put("11", d0Var.b(this.a));
@@ -79,11 +78,11 @@ public class p2 {
                 jSONObject.put("26", f0Var.a("cpuinfo") ? 1 : 0);
                 jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, f0Var.a("meminfo") ? 1 : 0);
                 o0 o0Var = new o0();
-                jSONObject.put("65", o0Var.f() ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, o0Var.f() ? 1 : 0);
                 boolean e = o0Var.e();
-                jSONObject.put("66", e ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, e ? 1 : 0);
                 if (e) {
-                    jSONObject.put("67", o0Var.g() ? 1 : 0);
+                    jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, o0Var.g() ? 1 : 0);
                 }
                 jSONObject.put("68", o0Var.c() ? 1 : 0);
                 jSONObject.put("69", o0Var.b());
@@ -95,9 +94,9 @@ public class p2 {
                 jSONObject2.put("03014", h1.B(this.a));
                 jSONObject2.put("03020", v1.a(this.a));
                 jSONObject2.put("03030", g1.f(this.a));
-                jSONObject.put("51", jSONObject2);
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, jSONObject2);
                 jSONObject.put(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, new p0().b());
-                jSONObject.put("60", c0.b(this.a) ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, c0.b(this.a) ? 1 : 0);
                 try {
                     jSONObject.put("11028", WeaponHI.sKSSdkver);
                     jSONObject.put("11301", h1.c(com.kwad.sdk.c.b.xm().xl()));

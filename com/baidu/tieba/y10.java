@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.DeviceUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +13,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.backends.okhttp3.OkHttpNetworkFetcher;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class y10 {
     public static /* synthetic */ Interceptable $ic;
+    public static y10 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
+    public String a;
+    public Map<String, String> b;
+    public String c;
+    public String d;
+    public String e;
+    public z10 f;
 
     public y10() {
         Interceptable interceptable = $ic;
@@ -29,38 +44,183 @@ public class y10 {
                 return;
             }
         }
-        this.a = false;
-        this.b = "";
+        this.a = " ";
+        this.c = null;
+        this.d = null;
+        this.b = new ConcurrentHashMap();
     }
 
-    public String a() {
+    public static y10 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.a) {
-                StringBuilder sb = new StringBuilder();
-                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
-                    sb.append("BDOS/1.0");
-                    sb.append(" ");
-                    sb.append("(");
-                    sb.append("HarmonyOS");
-                    sb.append(" ");
-                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
-                    if (TextUtils.isEmpty(harmonyVersion)) {
-                        harmonyVersion = "0.0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (g == null) {
+                synchronized (y10.class) {
+                    if (g == null) {
+                        g = new y10();
                     }
-                    sb.append(harmonyVersion);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 }
-                String sb2 = sb.toString();
-                this.b = sb2;
-                if (!TextUtils.isEmpty(sb2)) {
-                    this.b = a20.a(this.b);
-                }
-                this.a = true;
             }
-            return this.b;
+            return g;
+        }
+        return (y10) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (o10.d().d()) {
+                if (this.f == null) {
+                    this.f = new z10();
+                }
+                return this.f.a();
+            }
+            return null;
         }
         return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                return OkHttpNetworkFetcher.DEFAULT_USER_AGENT;
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str3 = "";
+            } else {
+                str3 = str + "/";
+            }
+            return str3 + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String c(String str, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, strArr)) == null) {
+            if (str == null) {
+                return str;
+            }
+            j(str);
+            String str2 = str + strArr;
+            String str3 = this.b.get(str2);
+            if (str3 == null) {
+                str3 = d(AppRuntime.getAppContext(), str, strArr);
+            }
+            this.b.put(str2, str3);
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            try {
+                str2 = URLEncoder.encode(str2, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return a(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String d(Context context, String str, String... strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, strArr)) == null) {
+            a20 d = o10.d();
+            String b = d.b();
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(this.c)) {
+                this.c = h(context);
+            }
+            sb.append(str);
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                sb.append(this.a);
+                sb.append(e);
+            }
+            if (strArr != null && strArr.length > 0) {
+                for (String str2 : strArr) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        sb.append(this.a);
+                        sb.append(str2);
+                    }
+                }
+            }
+            if (!TextUtils.isEmpty(b)) {
+                sb.append(this.a);
+                sb.append(b);
+            }
+            if (d.c()) {
+                if (TextUtils.isEmpty(this.d)) {
+                    this.d = i();
+                }
+                sb.append(this.a);
+                sb.append(this.d);
+            }
+            String replaceFirst = sb.toString().replaceFirst("(^.*$)", "$1 " + this.c);
+            d.a(replaceFirst, strArr);
+            return replaceFirst;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public final String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            String b = b(null, AppIdentityManager.getInstance().getUserAgentIdentity());
+            String c = new w10().c(context);
+            String e = new q10().e();
+            return a(b, c + " (Baidu; P1 " + e + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String appName = AppIdentityManager.getInstance().getAppName();
+            String schemeHeader = o10.d().getSchemeHeader();
+            StringBuilder sb = new StringBuilder();
+            sb.append("bdapp/1.0");
+            sb.append(this.a);
+            sb.append("(");
+            sb.append(appName);
+            if (!TextUtils.isEmpty(schemeHeader)) {
+                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(this.a);
+                sb.append(schemeHeader);
+            }
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(str)) {
+            this.e = str;
+        }
     }
 }

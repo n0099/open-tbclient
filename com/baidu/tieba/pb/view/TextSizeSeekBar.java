@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey7;
+import com.baidu.tieba.py7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -213,7 +213,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        ey7.a(Math.abs(i - 3));
+                        py7.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -239,7 +239,7 @@ public class TextSizeSeekBar extends View {
             this.d = dimensionPixelSize;
             this.e = dimensionPixelSize;
             this.h = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
-            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f066a), context.getString(R.string.obfuscated_res_0x7f0f0669), context.getString(R.string.obfuscated_res_0x7f0f0668), context.getString(R.string.obfuscated_res_0x7f0f066b)};
+            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f066b), context.getString(R.string.obfuscated_res_0x7f0f066a), context.getString(R.string.obfuscated_res_0x7f0f0669), context.getString(R.string.obfuscated_res_0x7f0f066c)};
             this.l = SkinManager.getColor(R.color.CAM_X0105);
             this.m = SkinManager.getColor(R.color.CAM_X0109);
             this.n = SkinManager.getColor(R.color.CAM_X0111);

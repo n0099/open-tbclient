@@ -12,9 +12,9 @@ import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.qf;
+import com.baidu.tieba.kn;
 import com.baidu.tieba.rf;
+import com.baidu.tieba.sf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends kn<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> a;
-    public qf b;
-    public rf c;
+    public rf b;
+    public sf c;
     public long d;
     public boolean e;
     public boolean f;
@@ -103,10 +103,10 @@ public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHol
         this.a = tbPageContext;
     }
 
-    public void A(rf rfVar) {
+    public void A(sf sfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rfVar) == null) {
-            this.c = rfVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sfVar) == null) {
+            this.c = sfVar;
         }
     }
 
@@ -152,10 +152,10 @@ public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHol
         }
     }
 
-    public void z(qf qfVar) {
+    public void z(rf rfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, qfVar) == null) {
-            this.b = qfVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, rfVar) == null) {
+            this.b = rfVar;
         }
     }
 
@@ -185,7 +185,7 @@ public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: v */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

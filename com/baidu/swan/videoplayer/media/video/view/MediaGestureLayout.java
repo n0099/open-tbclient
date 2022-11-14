@@ -12,25 +12,25 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rl4;
 import com.baidu.tieba.sl4;
 import com.baidu.tieba.tl4;
+import com.baidu.tieba.ul4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class MediaGestureLayout extends FrameLayout implements sl4 {
+public final class MediaGestureLayout extends FrameLayout implements tl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rl4 a;
+    public sl4 a;
     public b b;
     public MediaVolume c;
     public MediaBrightness d;
     public MediaFastForward e;
     public SwanVideoView f;
-    public tl4 g;
+    public ul4 g;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -198,7 +198,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         i(context);
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -213,10 +213,10 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         return invokeL.booleanValue;
     }
 
-    public void g(@NonNull tl4 tl4Var) {
+    public void g(@NonNull ul4 ul4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tl4Var) == null) {
-            this.g = tl4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ul4Var) == null) {
+            this.g = ul4Var;
         }
     }
 
@@ -230,15 +230,15 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            rl4 rl4Var = new rl4(context);
-            this.a = rl4Var;
-            rl4Var.d(this);
-            this.g = new tl4.b().f();
+            sl4 sl4Var = new sl4(context);
+            this.a = sl4Var;
+            sl4Var.d(this);
+            this.g = new ul4.b().f();
             setOnTouchListener(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean onDoubleTap(MotionEvent motionEvent) {
         InterceptResult invokeL;
         b bVar;
@@ -260,7 +260,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         }
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -281,14 +281,14 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-                this.c.g(R.drawable.obfuscated_res_0x7f081212);
+                this.c.g(R.drawable.obfuscated_res_0x7f081222);
                 this.c.h(b2);
                 this.c.f();
                 return true;
@@ -298,7 +298,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         int i;
@@ -309,9 +309,9 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
                 this.e.h((int) (this.e.b() + ((this.e.c() * x) / (getWidth() * 0.8f))));
                 MediaFastForward mediaFastForward = this.e;
                 if (x > 0.0f) {
-                    i = R.drawable.obfuscated_res_0x7f08120e;
+                    i = R.drawable.obfuscated_res_0x7f08121e;
                 } else {
-                    i = R.drawable.obfuscated_res_0x7f08120f;
+                    i = R.drawable.obfuscated_res_0x7f08121f;
                 }
                 mediaFastForward.g(i);
                 this.e.f();
@@ -322,7 +322,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -330,7 +330,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
                 this.d.f(a2);
-                this.d.g(R.drawable.obfuscated_res_0x7f081200);
+                this.d.g(R.drawable.obfuscated_res_0x7f081210);
                 this.d.h((int) ((a2 / this.d.b()) * 100.0f));
                 this.d.e();
                 return true;
@@ -340,7 +340,7 @@ public final class MediaGestureLayout extends FrameLayout implements sl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sl4
+    @Override // com.baidu.tieba.tl4
     public boolean onDown(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

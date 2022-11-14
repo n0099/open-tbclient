@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oj6 {
+public class oj6 implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static oj6 b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<pj6> a;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +29,7 @@ public class oj6 {
                 return;
             }
         }
-        b = new oj6();
+        b = BdUniqueId.gen();
     }
 
     public oj6() {
@@ -41,27 +42,33 @@ public class oj6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static oj6 a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (oj6) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public pj6 b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
-        return (pj6) invokeI.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
     }
 }

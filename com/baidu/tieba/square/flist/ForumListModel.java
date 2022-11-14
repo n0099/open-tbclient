@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.df;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -215,8 +215,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
             if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                hv4.f();
-                cf<String> g = hv4.g("tb.my_posts");
+                iv4.f();
+                df<String> g = iv4.g("tb.my_posts");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
                 }

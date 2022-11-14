@@ -101,7 +101,7 @@ public final class R {
         public static final int crius_swipe_indicator_default = 0x7f0606f7;
         public static final int crius_swipe_indicator_selected = 0x7f0606f8;
         public static final int crius_white = 0x7f0606f9;
-        public static final int transparent = 0x7f060b31;
+        public static final int transparent = 0x7f060b32;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -184,47 +184,47 @@ public final class R {
 
         /* renamed from: btn */
         public static final int obfuscated = 0x7f090431;
-        public static final int center = 0x7f0905eb;
+        public static final int center = 0x7f0905ec;
 
         /* renamed from: column */
-        public static final int obfuscated = 0x7f090690;
-        public static final int column_reverse = 0x7f090691;
+        public static final int obfuscated = 0x7f090691;
+        public static final int column_reverse = 0x7f090692;
 
         /* renamed from: flex */
-        public static final int obfuscated = 0x7f090a04;
-        public static final int flex_end = 0x7f090a05;
-        public static final int flex_start = 0x7f090a06;
+        public static final int obfuscated = 0x7f090a05;
+        public static final int flex_end = 0x7f090a06;
+        public static final int flex_start = 0x7f090a07;
 
         /* renamed from: hidden */
-        public static final int obfuscated = 0x7f090d9a;
+        public static final int obfuscated = 0x7f090d9c;
 
         /* renamed from: inherit */
-        public static final int obfuscated = 0x7f090f57;
+        public static final int obfuscated = 0x7f090f5b;
 
         /* renamed from: ltr */
-        public static final int obfuscated = 0x7f09149a;
-        public static final int no_wrap = 0x7f091719;
-        public static final int none = 0x7f09171c;
+        public static final int obfuscated = 0x7f0914a1;
+        public static final int no_wrap = 0x7f091720;
+        public static final int none = 0x7f091723;
 
         /* renamed from: relative */
-        public static final int obfuscated = 0x7f091c0f;
-        public static final int root = 0x7f091cb1;
+        public static final int obfuscated = 0x7f091c19;
+        public static final int root = 0x7f091cbd;
 
         /* renamed from: row */
-        public static final int obfuscated = 0x7f091cd7;
-        public static final int row_reverse = 0x7f091cd9;
+        public static final int obfuscated = 0x7f091ce3;
+        public static final int row_reverse = 0x7f091ce5;
 
         /* renamed from: rtl */
-        public static final int obfuscated = 0x7f091cda;
+        public static final int obfuscated = 0x7f091ce6;
 
         /* renamed from: scroll */
-        public static final int obfuscated = 0x7f091e0f;
-        public static final int space_around = 0x7f091f6a;
-        public static final int space_between = 0x7f091f6b;
-        public static final int stretch = 0x7f091fdb;
-        public static final int text = 0x7f092152;
-        public static final int visible = 0x7f09264b;
-        public static final int wrap = 0x7f0926ea;
+        public static final int obfuscated = 0x7f091e1b;
+        public static final int space_around = 0x7f091f76;
+        public static final int space_between = 0x7f091f77;
+        public static final int stretch = 0x7f091fe7;
+        public static final int text = 0x7f09215f;
+        public static final int visible = 0x7f09265a;
+        public static final int wrap = 0x7f0926fa;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -272,12 +272,12 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
         public static final int bm_child_6_text = 0x7f0f032c;
-        public static final int child_1_text = 0x7f0f03c7;
-        public static final int child_2_text = 0x7f0f03c8;
-        public static final int child_3_text = 0x7f0f03c9;
-        public static final int child_4_text = 0x7f0f03ca;
-        public static final int child_5_text = 0x7f0f03cb;
-        public static final int run_benchmark = 0x7f0f1067;
+        public static final int child_1_text = 0x7f0f03c8;
+        public static final int child_2_text = 0x7f0f03c9;
+        public static final int child_3_text = 0x7f0f03ca;
+        public static final int child_4_text = 0x7f0f03cb;
+        public static final int child_5_text = 0x7f0f03cc;
+        public static final int run_benchmark = 0x7f0f106d;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

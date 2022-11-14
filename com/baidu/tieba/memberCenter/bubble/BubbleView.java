@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.qq4;
+import com.baidu.tieba.rq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,7 +120,7 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            qq4 layoutMode = tbPageContext.getLayoutMode();
+            rq4 layoutMode = tbPageContext.getLayoutMode();
             boolean z = true;
             if (skinType != 1) {
                 z = false;
@@ -141,20 +141,20 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(getXmlLayoutResId(), this);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09048c);
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09048a);
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090489);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4f);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090796);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09048e);
-            this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090492);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090491);
-            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f090487);
-            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090485);
-            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d4e);
-            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4c);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048d);
-            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091704);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09048d);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09048b);
+            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09048a);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e52);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090797);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09048f);
+            this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090493);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090492);
+            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f090488);
+            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090486);
+            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d50);
+            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4f);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048e);
+            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09170b);
         }
     }
 
@@ -220,9 +220,9 @@ public class BubbleView extends RelativeLayout {
             this.e.setVisibility(0);
             ImageView imageView3 = this.e;
             if (!TextUtils.isEmpty(bubbleData.getDynamicUrl())) {
-                i = R.drawable.obfuscated_res_0x7f08085c;
+                i = R.drawable.obfuscated_res_0x7f08085e;
             } else {
-                i = R.drawable.obfuscated_res_0x7f08085b;
+                i = R.drawable.obfuscated_res_0x7f08085d;
             }
             imageView3.setBackgroundResource(i);
         }

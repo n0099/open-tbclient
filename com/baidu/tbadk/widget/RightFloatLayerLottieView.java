@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j15;
+import com.baidu.tieba.o15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -506,14 +506,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView F(j15 j15Var, @NonNull Context context) {
+    public static RightFloatLayerView F(o15 o15Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, j15Var, context)) == null) {
-            if (j15Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, o15Var, context)) == null) {
+            if (o15Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (j15Var.c()) {
+            if (o15Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -604,22 +604,22 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f090a17);
-            this.y = findViewById(R.id.obfuscated_res_0x7f090a0b);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a11);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09129c);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a12);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a13);
+            this.w = findViewById(R.id.obfuscated_res_0x7f090a18);
+            this.y = findViewById(R.id.obfuscated_res_0x7f090a0c);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a12);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a1);
+            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a13);
+            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a14);
             SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080606);
             this.x.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(j15 j15Var) {
+    public void setData(o15 o15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, j15Var) == null) && j15Var != null && !this.s && !j15Var.a()) {
-            if (l(j15Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, o15Var) == null) && o15Var != null && !this.s && !o15Var.a()) {
+            if (l(o15Var)) {
                 this.v.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
@@ -627,9 +627,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             }
             this.w.setVisibility(0);
             this.y.setVisibility(8);
-            G(j15Var.d, this.x);
-            G(j15Var.c, this.z);
-            w(j15Var);
+            G(o15Var.d, this.x);
+            G(o15Var.c, this.z);
+            w(o15Var);
             this.s = true;
         }
     }

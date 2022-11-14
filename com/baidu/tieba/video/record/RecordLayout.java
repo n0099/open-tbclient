@@ -8,7 +8,7 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,7 +102,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = xi.g(getContext(), R.dimen.obfuscated_res_0x7f07024d);
+            this.d = yi.g(getContext(), R.dimen.obfuscated_res_0x7f07024d);
         }
     }
 
@@ -127,7 +127,7 @@ public class RecordLayout extends RelativeLayout {
                         } else {
                             this.f.C0();
                         }
-                    } else if (Math.abs(rawX) > xi.l(getContext()) * 0.5d) {
+                    } else if (Math.abs(rawX) > yi.l(getContext()) * 0.5d) {
                         if (rawX > 0) {
                             this.f.r1();
                         } else {

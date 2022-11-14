@@ -118,7 +118,7 @@ public class ViewGroupUtilsApi14 {
                         cancelLayoutTransition(layoutTransition3);
                     }
                     if (layoutTransition3 != sEmptyLayoutTransition) {
-                        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a, layoutTransition3);
+                        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092377, layoutTransition3);
                     }
                 }
                 viewGroup.setLayoutTransition(sEmptyLayoutTransition);
@@ -147,7 +147,7 @@ public class ViewGroupUtilsApi14 {
                             Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
                             if (z2) {
                             }
-                            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a);
+                            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092377);
                             if (layoutTransition == null) {
                             }
                         }
@@ -159,9 +159,9 @@ public class ViewGroupUtilsApi14 {
             if (z2) {
                 viewGroup.requestLayout();
             }
-            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a);
+            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092377);
             if (layoutTransition == null) {
-                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a, null);
+                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092377, null);
                 viewGroup.setLayoutTransition(layoutTransition);
             }
         }

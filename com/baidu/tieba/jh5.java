@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.ca5;
+import com.baidu.tieba.nh5;
+import com.baidu.tieba.nh5.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class jh5 implements oh5 {
+public abstract class jh5<T extends ca5, D extends nh5.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
+    public ViewType b;
+    public T c;
+    public D d;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public abstract void d(ViewType viewType, T t, D d);
 
-    public abstract View getView();
+    public abstract T f(ViewType viewType, ViewGroup viewGroup);
 
     public jh5() {
         Interceptable interceptable = $ic;
@@ -34,26 +38,60 @@ public abstract class jh5 implements oh5 {
                 return;
             }
         }
-        this.a = false;
-        new SparseArray();
+        this.a = 3;
     }
 
-    public void b(View view2) {
+    public final void a(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            c(view2, false);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (t = this.c) != null) {
+            t.attachView(view2);
         }
     }
 
-    public void c(View view2, boolean z) {
+    public final void b(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
-            View view3 = getView();
-            if (view3.getParent() != null) {
-                return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (t = this.c) != null) {
+            t.dettachView(view2);
+        }
+    }
+
+    public void e(int i) {
+        ViewType viewType;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
+                d(viewType, t, this.d);
             }
-            aa5.a(view2, this.a).a(view2, view3, z);
-            d();
+            this.a = i;
         }
+    }
+
+    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
+            this.b = viewType;
+            this.d = d;
+            if (this.c == null) {
+                this.c = f(viewType, viewGroup);
+            }
+            View view2 = this.c.getView();
+            if (viewGroup.indexOfChild(view2) < 0) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
+                }
+                a(viewGroup);
+            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
+                view2.bringToFront();
+            }
+            d(viewType, this.c, d);
+            return view2;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

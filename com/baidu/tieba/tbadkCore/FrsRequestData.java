@@ -5,15 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.eh8;
-import com.baidu.tieba.hh8;
-import com.baidu.tieba.qc5;
-import com.baidu.tieba.sw6;
-import com.baidu.tieba.tc5;
-import com.baidu.tieba.th5;
-import com.baidu.tieba.vi5;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.ad5;
+import com.baidu.tieba.ai5;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.dx6;
+import com.baidu.tieba.fi5;
+import com.baidu.tieba.ph8;
+import com.baidu.tieba.sh8;
+import com.baidu.tieba.xc5;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes6.dex */
-public class FrsRequestData extends OrmObject implements tc5, qc5 {
+public class FrsRequestData extends OrmObject implements ad5, xc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -41,21 +42,22 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public static final int THREAD_NUM_PAGE = 90;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public String B;
+    public int B;
     public String C;
-    public int D;
+    public String D;
     public int E;
-    public HashMap<String, String> F;
-    public long G;
-    public int H;
-    public String I;
-    public int J;
-    public String K;
-    public long L;
+    public int F;
+    public HashMap<String, String> G;
+    public long H;
+    public int I;
+    public String J;
+    public int K;
+    public String L;
+    public long M;
     public int a;
     public boolean b;
     public String c;
-    public int d;
+    public String d;
     public int e;
     public int f;
     public int g;
@@ -63,23 +65,23 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public int i;
     public int j;
     public int k;
-    public double l;
-    public int m;
-    public String n;
+    public int l;
+    public double m;
+    public int n;
     public String o;
-    public int p;
+    public String p;
     public int q;
-    public String r;
-    public int s;
+    public int r;
+    public String s;
     public int t;
     public int u;
     public int v;
-    public long w;
-    public int x;
+    public int w;
+    public long x;
     public int y;
     public int z;
 
-    @Override // com.baidu.tieba.pc5
+    @Override // com.baidu.tieba.wc5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +91,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc5
+    @Override // com.baidu.tieba.xc5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +101,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qc5
+    @Override // com.baidu.tieba.xc5
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +111,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sc5
+    @Override // com.baidu.tieba.zc5
     public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,7 +121,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc5
+    @Override // com.baidu.tieba.xc5
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,26 +144,26 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
                 return;
             }
         }
-        this.e = 90;
-        this.f = 30;
-        this.r = "";
-        this.x = -1;
-        this.y = 1;
-        this.D = 0;
+        this.f = 90;
+        this.g = 30;
+        this.s = "";
+        this.y = -1;
+        this.z = 1;
         this.E = 0;
-        this.F = null;
-        this.G = 0L;
-        this.H = 0;
-        this.I = "";
-        this.J = -1;
-        this.K = "";
+        this.F = 0;
+        this.G = null;
+        this.H = 0L;
+        this.I = 0;
+        this.J = "";
+        this.K = -1;
+        this.L = "";
     }
 
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.p;
+            return this.q;
         }
         return invokeV.intValue;
     }
@@ -170,7 +172,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
+            return this.j;
         }
         return invokeV.intValue;
     }
@@ -179,7 +181,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+            return this.i;
         }
         return invokeV.intValue;
     }
@@ -197,7 +199,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.y;
+            return this.z;
         }
         return invokeV.intValue;
     }
@@ -206,7 +208,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.x;
+            return this.y;
         }
         return invokeV.intValue;
     }
@@ -215,7 +217,7 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.d;
+            return this.e;
         }
         return invokeV.intValue;
     }
@@ -238,12 +240,12 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sc5
+    @Override // com.baidu.tieba.zc5
     public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return this.F;
+            return this.G;
         }
         return (HashMap) invokeV.objValue;
     }
@@ -251,70 +253,70 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public void G(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.K = str;
+            this.L = str;
         }
     }
 
     public void H(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.p = i;
+            this.q = i;
         }
     }
 
     public void I(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.i = i;
+            this.j = i;
         }
     }
 
     public void J(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.t = i;
+            this.u = i;
         }
     }
 
     public void K(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.u = i;
+            this.v = i;
         }
     }
 
     public void L(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.J = i;
+            this.K = i;
         }
     }
 
     public void M(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.G = j;
+            this.H = j;
         }
     }
 
     public void N(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.H = i;
+            this.I = i;
         }
     }
 
     public void O(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.h = i;
+            this.i = i;
         }
     }
 
     public void P(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.D = i;
+            this.E = i;
         }
     }
 
@@ -322,125 +324,126 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.c = str;
+            this.d = xi.getUrlEncode(str);
         }
     }
 
     public void R(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.w = j;
+            this.x = j;
         }
     }
 
     public void S(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.o = str;
+            this.p = str;
         }
     }
 
     public void T(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.z = i;
+            this.A = i;
         }
     }
 
     public void U(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.y = i;
+            this.z = i;
         }
     }
 
     public void V(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.v = i;
+            this.w = i;
         }
     }
 
     public void W(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.B = str;
+            this.C = str;
         }
     }
 
     public void X(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.C = str;
+            this.D = str;
         }
     }
 
     public void Y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.A = i;
+            this.B = i;
         }
     }
 
     public void Z(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.q = i;
+            this.r = i;
         }
     }
 
     public void a0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.I = str;
+            this.J = str;
         }
     }
 
     public void b0(double d) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.l = d;
+            this.m = d;
         }
     }
 
     public void c0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.k = i;
+            this.l = i;
         }
     }
 
     public void d0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            this.j = i;
+            this.k = i;
         }
     }
 
     public void e0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.g = i;
+            this.h = i;
         }
     }
 
     public void f0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.r = str;
+            this.s = str;
         }
     }
 
     public void g0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.m = i;
+            this.n = i;
         }
     }
 
     public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            this.E = i;
+            this.F = i;
         }
     }
 
@@ -454,28 +457,28 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public void setPn(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
-            this.d = i;
+            this.e = i;
         }
     }
 
     public void setPushTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.L = wg.g(str, 0L);
+            this.M = xg.g(str, 0L);
         }
     }
 
     public void setSortType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
-            this.x = i;
+            this.y = i;
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            this.n = str;
+            this.o = str;
         }
     }
 
@@ -486,65 +489,65 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
         }
     }
 
-    @Override // com.baidu.tieba.vc5
+    @Override // com.baidu.tieba.cd5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.kw = this.c;
-            builder.pn = Integer.valueOf(this.d);
-            builder.rn = Integer.valueOf(this.e);
-            builder.rn_need = Integer.valueOf(this.f);
-            builder.with_group = Integer.valueOf(this.g);
-            builder.is_good = Integer.valueOf(this.h);
-            builder.cid = Integer.valueOf(this.i);
-            builder.scr_w = Integer.valueOf(this.j);
-            builder.scr_h = Integer.valueOf(this.k);
-            builder.scr_dip = Double.valueOf(this.l);
-            builder.st_type = this.n;
-            builder.q_type = Integer.valueOf(this.m);
-            builder.st_param = Integer.valueOf(this.s);
-            builder.ctime = Integer.valueOf(this.t);
-            builder.data_size = Integer.valueOf(this.u);
-            builder.net_error = Integer.valueOf(this.v);
-            builder.lastids = this.o;
-            builder.category_id = Integer.valueOf(this.p);
-            builder.request_times = Integer.valueOf(this.q);
-            builder.yuelaou_locate = this.r;
-            builder.sort_type = Integer.valueOf(this.x);
-            builder.last_click_tid = Long.valueOf(this.w);
-            builder.app_pos = eh8.e().a();
-            builder.load_type = Integer.valueOf(this.y);
-            builder.obj_locate = this.B;
-            builder.obj_source = this.C;
-            builder.is_selection = Integer.valueOf(this.D);
-            builder.call_from = Integer.valueOf(this.E);
-            builder.hot_thread_id = Long.valueOf(this.G);
-            String d = sw6.e().d("frs_feed");
+            builder.kw = this.d;
+            builder.pn = Integer.valueOf(this.e);
+            builder.rn = Integer.valueOf(this.f);
+            builder.rn_need = Integer.valueOf(this.g);
+            builder.with_group = Integer.valueOf(this.h);
+            builder.is_good = Integer.valueOf(this.i);
+            builder.cid = Integer.valueOf(this.j);
+            builder.scr_w = Integer.valueOf(this.k);
+            builder.scr_h = Integer.valueOf(this.l);
+            builder.scr_dip = Double.valueOf(this.m);
+            builder.st_type = this.o;
+            builder.q_type = Integer.valueOf(this.n);
+            builder.st_param = Integer.valueOf(this.t);
+            builder.ctime = Integer.valueOf(this.u);
+            builder.data_size = Integer.valueOf(this.v);
+            builder.net_error = Integer.valueOf(this.w);
+            builder.lastids = this.p;
+            builder.category_id = Integer.valueOf(this.q);
+            builder.request_times = Integer.valueOf(this.r);
+            builder.yuelaou_locate = this.s;
+            builder.sort_type = Integer.valueOf(this.y);
+            builder.last_click_tid = Long.valueOf(this.x);
+            builder.app_pos = ph8.e().a();
+            builder.load_type = Integer.valueOf(this.z);
+            builder.obj_locate = this.C;
+            builder.obj_source = this.D;
+            builder.is_selection = Integer.valueOf(this.E);
+            builder.call_from = Integer.valueOf(this.F);
+            builder.hot_thread_id = Long.valueOf(this.H);
+            String d = dx6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = th5.g(d, th5.f());
-            builder.ad_bear_sid_price = Double.valueOf(th5.i());
-            builder.has_ad_bear = Integer.valueOf(th5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = ai5.g(d, ai5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ai5.i());
+            builder.has_ad_bear = Integer.valueOf(ai5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
-            builder2.refresh_count = Integer.valueOf(this.A);
-            builder2.load_count = Integer.valueOf(this.z);
+            builder2.refresh_count = Integer.valueOf(this.B);
+            builder2.load_count = Integer.valueOf(this.A);
             String str = "";
             builder2.yoga_lib_version = "";
             builder.ad_param = builder2.build(false);
-            builder.is_default_navtab = Integer.valueOf(this.H);
-            if (this.y != 1) {
-                str = hh8.f().d("FRS");
+            builder.is_default_navtab = Integer.valueOf(this.I);
+            if (this.z != 1) {
+                str = sh8.f().d("FRS");
             }
             builder.ad_context_list = str;
-            builder.up_schema = this.I;
-            builder.default_sort_type = Integer.valueOf(this.J);
+            builder.up_schema = this.J;
+            builder.default_sort_type = Integer.valueOf(this.K);
             AdExtParam.a b = AdExtParam.a.b();
-            b.e(this.K);
+            b.e(this.L);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = yh5.b();
-            builder.push_tid = Long.valueOf(this.L);
-            vi5.c(builder, true, false, true);
+            builder.app_transmit_data = fi5.b();
+            builder.push_tid = Long.valueOf(this.M);
+            cj5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
@@ -555,11 +558,11 @@ public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public void z(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048626, this, str, str2) == null) {
-            if (this.F == null) {
-                this.F = new HashMap<>();
+            if (this.G == null) {
+                this.G = new HashMap<>();
             }
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.F.put(str, str2);
+                this.G.put(str, str2);
             }
         }
     }

@@ -1,65 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(16)
 /* loaded from: classes4.dex */
-public class gf5 extends gb {
+public class gf5 implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gf5(int i) {
-        super(i);
+    public gf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0L;
+        this.d = 0;
+        this.e = -1;
+        this.f = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
-                return httpResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.c = currentTimeMillis;
+            this.b = currentTimeMillis + 1000;
+            this.a = 0L;
+            this.d = 0;
+            this.e = -1;
+            this.f = false;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.d = 0;
+            this.c = 0L;
+        }
+    }
+
+    public final void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.c;
+            if (j2 <= 0) {
+                return;
             }
-            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
-                    }
-                    return null;
+            long j3 = j - j2;
+            if (j3 > 0 && this.e <= 0) {
+                this.e = (int) (60 - ((this.d * 1000) / j3));
+            }
+        }
+    }
+
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.a;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.d = (int) (this.d + (j3 / 16));
                 }
             }
-            return httpResponsedMessage;
+            this.a = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.b && !this.f) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
+            }
+            a(currentTimeMillis);
+            this.d = 0;
+            this.c = 0L;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

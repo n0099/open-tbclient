@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.view.View;
 /* loaded from: classes5.dex */
-public interface pw6 {
-    jn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public interface pw6<T> {
+    void a(View view2, T t, int i);
 
-    jn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
-
-    jn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
-
-    jn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str);
+    void b(View view2, T t, int i);
 }

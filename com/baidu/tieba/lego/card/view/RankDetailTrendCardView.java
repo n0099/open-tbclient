@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di7;
-import com.baidu.tieba.if5;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.oi7;
+import com.baidu.tieba.pf5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public final int u;
     public final int v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,13 +71,13 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            di7 a = di7.a();
+            oi7 a = oi7.a();
             RankDetailTrendCard rankDetailTrendCard = this.a;
             a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 return;
             }
         }
-        this.u = xi.l(tbPageContext.getPageActivity());
+        this.u = yi.l(tbPageContext.getPageActivity());
         this.v = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
@@ -147,7 +147,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void t(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            if5.a(this.i, getRootView());
+            pf5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -271,13 +271,13 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b7, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0912f3);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090fbb);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092376);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092374);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092375);
-            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046c);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d51);
+            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0912f8);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090fbf);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092383);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092381);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092382);
+            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046d);
+            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d53);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

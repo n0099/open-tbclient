@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -111,7 +111,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getThreadVideoInfo() != null) {
             this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e40);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e45);
             this.d.setText(threadData.getTitle());
             this.f.setProgress(0);
         }
@@ -227,7 +227,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             } else {
                 i = R.dimen.tbds156;
             }
-            layoutParams.height = xi.g(context, i);
+            layoutParams.height = yi.g(context, i);
             ViewGroup.LayoutParams layoutParams2 = this.b.getLayoutParams();
             Context context2 = getContext();
             if (z2 && !z) {
@@ -235,7 +235,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             } else {
                 i2 = R.dimen.tbds276;
             }
-            layoutParams2.width = xi.g(context2, i2);
+            layoutParams2.width = yi.g(context2, i2);
             TextView textView = this.d;
             Context context3 = getContext();
             int i6 = R.dimen.tbds52;
@@ -245,7 +245,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             } else {
                 i3 = R.dimen.tbds42;
             }
-            textView.setTextSize(0, xi.g(context3, i3));
+            textView.setTextSize(0, yi.g(context3, i3));
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             Context context4 = getContext();
             if (z2 && !z) {
@@ -253,19 +253,19 @@ public class PbNextVideoLayout extends RelativeLayout {
             } else {
                 i4 = R.dimen.tbds8;
             }
-            layoutParams3.topMargin = xi.g(context4, i4);
+            layoutParams3.topMargin = yi.g(context4, i4);
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
             Context context5 = getContext();
             if (!z2 || z) {
                 i7 = R.dimen.tbds20;
             }
-            layoutParams4.topMargin = xi.g(context5, i7);
+            layoutParams4.topMargin = yi.g(context5, i7);
             RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
             Context context6 = getContext();
             if (!z2 || z) {
                 i6 = R.dimen.tbds44;
             }
-            layoutParams5.rightMargin = xi.g(context6, i6);
+            layoutParams5.rightMargin = yi.g(context6, i6);
             if (z2 && !z) {
                 i5 = 25;
             } else {
@@ -278,13 +278,13 @@ public class PbNextVideoLayout extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ee, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091895);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091898);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091897);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091894);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091896);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080953, R.color.CAM_X0622, null);
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06f2, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09189f);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09189c);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09189e);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0622, null);
         }
     }
 
@@ -292,7 +292,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e40);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e45);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -311,7 +311,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e41);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e46);
             this.f.setProgress(0);
         }
     }

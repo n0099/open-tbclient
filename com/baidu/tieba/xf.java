@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.network.http.BdHttpCancelException;
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,50 +19,247 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.ConnectException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import javax.net.ssl.SSLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 /* loaded from: classes6.dex */
 public class xf {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean e = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag a;
-    public wf b;
-    public int c;
+    public bg a;
+    public HttpURLConnection b;
+    public long c;
     public long d;
+    public long e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public int j;
+    public TimerTask k;
+    public TimerTask l;
+    public Timer m;
+
+    /* loaded from: classes6.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xf a;
+
+        public a(xf xfVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xfVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xfVar;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.b();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xf a;
+
+        public b(xf xfVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xfVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xfVar;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    wg.f(this.a.b);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HttpsURLConnection a;
+
+        public c(xf xfVar, HttpsURLConnection httpsURLConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xfVar, httpsURLConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = httpsURLConnection;
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                String requestProperty = this.a.getRequestProperty("Host");
+                if (requestProperty == null) {
+                    requestProperty = this.a.getURL().getHost();
+                }
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify(requestProperty, sSLSession);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321663, "Lcom/baidu/tieba/xf;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321663, "Lcom/baidu/tieba/xf;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321663, "Lcom/baidu/tieba/xf;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448321663, "Lcom/baidu/tieba/xf;");
-        }
+        System.setProperty("http.keepAlive", "false");
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? (i == 502 || i == 503 || i == 504 || i == 404) ? false : true : invokeI.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bg bgVar = this.a;
+            if (bgVar != null && bgVar.c() != null) {
+                this.a.c().a = true;
+            }
+            wg.f(this.b);
+        }
     }
 
-    public xf(ag agVar) {
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a.c().b != 200 && this.a.c().b != 206) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public xf(bg bgVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {agVar};
+            Object[] objArr = {bgVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,1568 +269,706 @@ public class xf {
                 return;
             }
         }
-        this.c = 0;
+        this.c = 0L;
         this.d = 0L;
-        this.a = agVar;
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            try {
-                if (this.a != null && i > 0) {
-                    this.a.b().a("Retry-Count", String.valueOf(i));
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-            }
-        }
-    }
-
-    public void b() {
-        wf wfVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wfVar = this.b) != null) {
-            wfVar.b();
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            wf wfVar = this.b;
-            if (wfVar == null) {
-                return -1L;
-            }
-            return wfVar.e();
-        }
-        return invokeV.longValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            wf wfVar = this.b;
-            if (wfVar == null) {
-                return -1L;
-            }
-            return wfVar.h();
-        }
-        return invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = this.d;
-            if (j > 0) {
-                return j;
-            }
-            wf wfVar = this.b;
-            if (wfVar == null) {
-                return -1L;
-            }
-            return wfVar.i();
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            wf wfVar = this.b;
-            if (wfVar == null) {
-                return -1L;
-            }
-            return wfVar.l();
-        }
-        return invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            wf wfVar = this.b;
-            if (wfVar == null) {
-                return -1L;
-            }
-            return wfVar.j();
-        }
-        return invokeV.longValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ag agVar = this.a;
-            if (agVar == null) {
-                return false;
-            }
-            return agVar.c().a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        ag agVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || (agVar = this.a) == null) {
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = false;
+        this.i = true;
+        this.j = 0;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new Timer();
+        if (bgVar != null) {
+            this.a = bgVar;
             return;
         }
-        agVar.c().a = true;
+        throw new NullPointerException("init HttpImpl's args context is null");
     }
 
-    public boolean c(String str, eg egVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        int i5;
-        int i6;
-        int i7;
-        zf zfVar;
-        int i8;
-        int i9;
-        String str2;
-        int i10;
-        zf zfVar2;
-        String str3;
-        StringBuilder sb;
-        StringBuilder sb2;
-        zf zfVar3;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, egVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            String str4 = "responseCode:";
-            if (i3 <= 0) {
-                i5 = yb.d().b().b();
-            } else {
-                i5 = i3;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public final byte[] c(String str, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr)) == null) {
+            if (str != null && str.toLowerCase().contains("gzip")) {
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                ui.c(byteArrayInputStream, byteArrayOutputStream);
+                this.g = System.currentTimeMillis();
+                return byteArrayOutputStream.toByteArray();
             }
-            if (i <= 0) {
-                i6 = yb.d().a();
-            } else {
-                i6 = i;
+            if (this.g == 0) {
+                this.g = System.currentTimeMillis();
             }
-            if (i4 <= 0) {
-                i7 = yb.d().c().b();
+            return bArr;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r15v1 */
+    public boolean d(String str, fg fgVar, int i, int i2, boolean z, ag agVar, boolean z2) throws Exception {
+        InterceptResult invokeCommon;
+        ag agVar2;
+        FileOutputStream fileOutputStream;
+        String k;
+        URL m;
+        File i3;
+        InputStream inputStream;
+        InputStream inputStream2;
+        boolean z3;
+        URL url;
+        int i4;
+        int i5;
+        boolean z4;
+        String headerField;
+        int indexOf;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, fgVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), agVar, Boolean.valueOf(z2)})) == null) {
+            if (agVar == null) {
+                agVar2 = new ag();
             } else {
-                i7 = i4;
+                agVar2 = agVar;
             }
-            wf wfVar = new wf(this.a);
-            this.b = wfVar;
-            wfVar.r(e);
-            int i11 = 0;
-            boolean z3 = false;
-            while (i11 < i6) {
-                zf zfVar4 = new zf();
-                this.a.c().c = -1;
-                this.b.q(i11);
-                int i12 = i11 + 1;
+            InputStream inputStream3 = null;
+            try {
+                k = this.a.b().k(true);
+                agVar2.s = k;
+                m = m(k, false, agVar2, null);
+                this.b = g(m, i2, i);
+            } catch (Throwable th) {
+                th = th;
+            }
+            if (this.a.c().a) {
+                this.f = System.currentTimeMillis();
+                wg.c(null);
+                wg.f(this.b);
+                wg.d(null);
+                return false;
+            }
+            if (z2) {
                 try {
-                    try {
-                        zfVar4.e = i12;
-                        try {
-                            this.c = i11;
-                            a(i11);
-                            str2 = str4;
-                            i10 = i12;
-                            i8 = i11;
-                            i9 = i6;
-                        } catch (IllegalStateException e2) {
-                            e = e2;
-                            str2 = str4;
-                            i10 = i12;
-                            zfVar2 = zfVar4;
-                            i8 = i11;
-                            i9 = i6;
-                        } catch (ConnectException e3) {
-                            e = e3;
-                            str2 = str4;
-                            i10 = i12;
-                            zfVar2 = zfVar4;
-                            i8 = i11;
-                            i9 = i6;
-                        } catch (SocketException e4) {
-                            e = e4;
-                            str2 = str4;
-                            i10 = i12;
-                            zfVar2 = zfVar4;
-                            i8 = i11;
-                            i9 = i6;
-                        } catch (SocketTimeoutException e5) {
-                            e = e5;
-                            str2 = str4;
-                            i10 = i12;
-                            zfVar2 = zfVar4;
-                            i8 = i11;
-                            i9 = i6;
-                        }
-                    } catch (IllegalStateException e6) {
-                        e = e6;
-                        str3 = str4;
-                        i10 = i12;
-                        zfVar2 = zfVar4;
-                        i8 = i11;
-                        i9 = i6;
-                    } catch (ConnectException e7) {
-                        e = e7;
-                        str3 = str4;
-                        i10 = i12;
-                        zfVar2 = zfVar4;
-                        i8 = i11;
-                        i9 = i6;
-                    } catch (SocketException e8) {
-                        e = e8;
-                        str3 = str4;
-                        i10 = i12;
-                        zfVar2 = zfVar4;
-                        i8 = i11;
-                        i9 = i6;
-                    } catch (SocketTimeoutException e9) {
-                        e = e9;
-                        str3 = str4;
-                        i10 = i12;
-                        zfVar2 = zfVar4;
-                        i8 = i11;
-                        i9 = i6;
-                    }
-                } catch (FileNotFoundException e10) {
-                    e = e10;
-                    str2 = str4;
-                    i10 = i12;
-                    zfVar2 = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                } catch (UnknownHostException e11) {
-                    e = e11;
-                    str2 = str4;
-                    i10 = i12;
-                    zfVar = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                } catch (SSLException e12) {
-                    e = e12;
-                    str2 = str4;
-                    i10 = i12;
-                    zfVar = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                } catch (IOException e13) {
-                    e = e13;
-                    str2 = str4;
-                    i10 = i12;
-                    zfVar = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                } catch (Exception e14) {
-                    e = e14;
-                    str2 = str4;
-                    i10 = i12;
-                    zfVar = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                } catch (Throwable th) {
-                    th = th;
-                    zfVar = zfVar4;
-                    i8 = i11;
-                    i9 = i6;
-                }
-                try {
-                    z3 = this.b.d(str, egVar, i5, i7, z, zfVar4, z2);
-                    if (!z3 && this.a.c().a) {
-                        this.a.c().c = -14;
-                    }
-                    if (!z3 && i8 == i9 - 1) {
-                        StringBuilder sb3 = new StringBuilder();
-                        zfVar3 = zfVar4;
-                        sb3.append(zfVar3.h);
-                        sb3.append("|netAvailable:");
-                        sb3.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar3.h = sb3.toString();
-                    } else {
-                        zfVar3 = zfVar4;
-                    }
-                    this.a.e(zfVar3);
-                    return z3;
-                } catch (FileNotFoundException e15) {
-                    e = e15;
-                    zfVar2 = zfVar4;
-                    StringBuilder sb4 = new StringBuilder();
-                    str3 = str2;
-                    sb4.append(str3);
-                    sb4.append(String.valueOf(this.a.c().b));
-                    sb4.append("|retryCount:");
-                    sb4.append(i8);
-                    sb4.append("|");
-                    sb4.append(e.getClass().getName());
-                    sb4.append("|");
-                    sb4.append(e.getMessage());
-                    zfVar2.h = sb4.toString();
-                    this.a.c().c = -100;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(zfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar2.h = sb2.toString();
-                    }
-                    this.a.e(zfVar2);
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (IllegalStateException e16) {
-                    e = e16;
-                    zfVar2 = zfVar4;
-                    str3 = str2;
-                    zfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                    this.a.c().c = -19;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(zfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar2.h = sb2.toString();
-                    }
-                    this.a.e(zfVar2);
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (ConnectException e17) {
-                    e = e17;
-                    zfVar2 = zfVar4;
-                    str3 = str2;
-                    zfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -22;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(zfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar2.h = sb2.toString();
-                    }
-                    this.a.e(zfVar2);
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (SocketException e18) {
-                    e = e18;
-                    zfVar2 = zfVar4;
-                    str3 = str2;
-                    zfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -12;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(zfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar2.h = sb2.toString();
-                    }
-                    this.a.e(zfVar2);
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (SocketTimeoutException e19) {
-                    e = e19;
-                    zfVar2 = zfVar4;
-                    str3 = str2;
-                    zfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -13;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(zfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar2.h = sb2.toString();
-                    }
-                    this.a.e(zfVar2);
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (UnknownHostException e20) {
-                    e = e20;
-                    zfVar = zfVar4;
-                    zfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -21;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(zfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar.h = sb.toString();
-                    }
-                    this.a.e(zfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (SSLException e21) {
-                    e = e21;
-                    zfVar = zfVar4;
-                    if (this.a.b().e() && i8 < i9 - 1) {
-                        BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
-                    } else {
-                        zfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().c = -20;
-                    }
-                    if (!z3 && i8 == i9 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(zfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar.h = sb.toString();
-                    }
-                    this.a.e(zfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (IOException e22) {
-                    e = e22;
-                    zfVar = zfVar4;
-                    zfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -19;
-                    if (!z3 && i8 == i9 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(zfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                        zfVar.h = sb.toString();
-                    }
-                    this.a.e(zfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i11 = i10;
-                    i6 = i9;
-                } catch (Exception e23) {
-                    e = e23;
-                    zfVar = zfVar4;
-                    try {
-                        zfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().c = -10;
-                        BdLog.e(e.getMessage());
-                        if (!z3 && i8 == i9 - 1) {
-                            sb = new StringBuilder();
-                            sb.append(zfVar.h);
-                            sb.append("|netAvailable:");
-                            sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
-                            zfVar.h = sb.toString();
-                        }
-                        this.a.e(zfVar);
-                        str3 = str2;
-                        str4 = str3;
-                        i11 = i10;
-                        i6 = i9;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (!z3 && i8 == i9 - 1) {
-                            zfVar.h += "|netAvailable:" + BdNetTypeUtil.isNetworkAvailableForImmediately();
-                        }
-                        this.a.e(zfVar);
-                        throw th;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                    zfVar = zfVar4;
-                    if (!z3) {
-                        zfVar.h += "|netAvailable:" + BdNetTypeUtil.isNetworkAvailableForImmediately();
-                    }
-                    this.a.e(zfVar);
-                    throw th;
+                    ti.k(str);
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
-            return z3;
+            if (z) {
+                i3 = new File(str);
+            } else {
+                i3 = ti.i(str);
+            }
+            if (i3 != null) {
+                try {
+                    long length = i3.length();
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(i3, true);
+                    try {
+                        this.a.b().t(this.b);
+                        this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.b.connect();
+                        if (this.c <= 0) {
+                            try {
+                                this.c = System.currentTimeMillis();
+                            } catch (Throwable th3) {
+                                th = th3;
+                                inputStream3 = null;
+                                fileOutputStream = fileOutputStream2;
+                            }
+                        }
+                        this.d = System.currentTimeMillis();
+                        int responseCode = this.b.getResponseCode();
+                        this.e = System.currentTimeMillis();
+                        if (responseCode == 302) {
+                            url = this.b.getURL();
+                            if (url != null) {
+                                agVar2.r = url.toString();
+                            }
+                            if (url != null) {
+                                i6 = responseCode;
+                                if (!TextUtils.equals(url.getProtocol(), m.getProtocol())) {
+                                    wg.f(this.b);
+                                    this.b = g(new URL(url.toString()), i2, i);
+                                    this.a.b().t(this.b);
+                                    this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.b.connect();
+                                    responseCode = this.b.getResponseCode();
+                                    z3 = true;
+                                }
+                            } else {
+                                i6 = responseCode;
+                            }
+                            responseCode = i6;
+                            z3 = false;
+                        } else {
+                            z3 = false;
+                            url = null;
+                        }
+                        this.a.c().b = responseCode;
+                        String headerField2 = this.b.getHeaderField("Content-Range");
+                        if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
+                            i4 = xg.e(headerField2.substring(indexOf + 1), 0);
+                        } else {
+                            i4 = 0;
+                        }
+                        if (i4 == 0 && this.a.c().b == 200 && (headerField = this.b.getHeaderField("Content-Length")) != null) {
+                            i4 = xg.e(headerField, 0);
+                        }
+                        this.a.c().f = String.valueOf(i4);
+                        if (!n()) {
+                            String str2 = "";
+                            if (responseCode == 302) {
+                                if (z3) {
+                                    str2 = "isReConn ";
+                                }
+                                str2 = str2 + "url=" + m + "-newUrl=" + url;
+                            } else if (responseCode == 416) {
+                                if (i4 > 0 && i4 == length) {
+                                    this.f = System.currentTimeMillis();
+                                    wg.c(null);
+                                    wg.f(this.b);
+                                    wg.d(fileOutputStream2);
+                                    return false;
+                                }
+                                str2 = "fileLen=" + length + "-contentLen=" + i4;
+                            }
+                            throw new UnsupportedOperationException(str2);
+                        } else if (this.b.getContentType() != null && this.b.getContentType().contains("text/vnd.wap.wml")) {
+                            this.b.disconnect();
+                            this.a.c().b = 0;
+                            boolean d = d(str, fgVar, i, i2, z, agVar2, z2);
+                            this.f = System.currentTimeMillis();
+                            wg.c(null);
+                            wg.f(this.b);
+                            wg.d(fileOutputStream2);
+                            return d;
+                        } else {
+                            agVar2.a = k.getBytes().length;
+                            long length2 = this.b.getHeaderFields().toString().getBytes().length;
+                            agVar2.b = length2;
+                            long j = i4;
+                            agVar2.b = length2 + j;
+                            if (i4 != 0 && length >= j) {
+                                this.f = System.currentTimeMillis();
+                                this.f = System.currentTimeMillis();
+                                wg.c(null);
+                                wg.f(this.b);
+                                wg.d(fileOutputStream2);
+                                return true;
+                            }
+                            inputStream2 = null;
+                            try {
+                                inputStream2 = this.b.getInputStream();
+                                byte[] bArr = new byte[1024];
+                                if (i4 > 0) {
+                                    i5 = i4 / 50;
+                                } else {
+                                    i5 = 0;
+                                }
+                                if (fgVar != null && length > 0) {
+                                    fgVar.onProgress((int) length, i4);
+                                }
+                                int i7 = 0;
+                                loop0: while (true) {
+                                    int i8 = 0;
+                                    while (!this.a.c().a) {
+                                        int read = inputStream2.read(bArr);
+                                        if (read == -1) {
+                                            break loop0;
+                                        }
+                                        try {
+                                            fileOutputStream2.write(bArr, 0, read);
+                                            i7 += read;
+                                            int i9 = i8 + read;
+                                            if (fgVar != null && (i9 > i5 || i7 == i4)) {
+                                                long j2 = j;
+                                                fgVar.onProgress((int) (i7 + length), i4);
+                                                j = j2;
+                                            } else {
+                                                i8 = i9;
+                                                j = j;
+                                            }
+                                        } catch (Exception unused) {
+                                            throw new FileNotFoundException();
+                                        }
+                                    }
+                                    break loop0;
+                                }
+                                long j3 = j;
+                                try {
+                                    fileOutputStream2.flush();
+                                    long j4 = i7;
+                                    agVar2.w = j4;
+                                    agVar2.x = length;
+                                    agVar2.y = j3;
+                                    if (j4 + length >= j3) {
+                                        z4 = true;
+                                    } else {
+                                        z4 = false;
+                                    }
+                                    this.f = System.currentTimeMillis();
+                                    wg.c(inputStream2);
+                                    wg.f(this.b);
+                                    wg.d(fileOutputStream2);
+                                    return z4;
+                                } catch (Exception unused2) {
+                                    throw new FileNotFoundException();
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                inputStream3 = inputStream2;
+                                fileOutputStream = fileOutputStream2;
+                                this.f = System.currentTimeMillis();
+                                wg.c(inputStream3);
+                                wg.f(this.b);
+                                wg.d(fileOutputStream);
+                                throw th;
+                            }
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        inputStream2 = null;
+                    }
+                } catch (Throwable th6) {
+                    th = th6;
+                    inputStream = null;
+                }
+            } else {
+                inputStream = null;
+                try {
+                    throw new FileNotFoundException();
+                } catch (Throwable th7) {
+                    th = th7;
+                }
+            }
+            inputStream3 = inputStream;
+            fileOutputStream = inputStream3;
+            this.f = System.currentTimeMillis();
+            wg.c(inputStream3);
+            wg.f(this.b);
+            wg.d(fileOutputStream);
+            throw th;
         }
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0224, code lost:
-        if (r0 != null) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:130:0x02e8, code lost:
-        if (r0 != null) goto L81;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x0340, code lost:
-        if (r0 != null) goto L81;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x0342, code lost:
-        r22.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x0176, code lost:
-        if (r0 != null) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0178, code lost:
-        r22.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x033e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void d(int i, int i2, int i3) {
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        boolean z;
-        boolean z2;
-        hg hgVar;
-        zf zfVar;
-        int i9;
-        wf wfVar;
-        wf wfVar2;
-        wf wfVar3;
-        wf wfVar4;
-        boolean z3;
-        boolean z4;
-        wf wfVar5;
+    public final HttpURLConnection f(URL url) {
+        InterceptResult invokeL;
+        String curMobileProxyHost;
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
-            if (i2 <= 0) {
-                i4 = yb.d().b().b();
-            } else {
-                i4 = i2;
-            }
-            if (i <= 0) {
-                i5 = yb.d().a();
-            } else {
-                i5 = i;
-            }
-            if (i3 <= 0) {
-                i6 = yb.d().c().b();
-            } else {
-                i6 = i3;
-            }
-            if (((uf) ServiceManager.getService(uf.a)).isSwitchOn()) {
-                i7 = 2;
-            } else {
-                i7 = 0;
-            }
-            if (((vf) ServiceManager.getService(vf.a)).qaHttpsTest()) {
-                i8 = 0;
-            } else {
-                i8 = i7;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i10 = 1;
-            int i11 = 0;
-            boolean z5 = true;
-            while (!this.a.c().a && z5 && i11 < i5 + i8) {
-                zf zfVar2 = new zf();
-                this.a.e(zfVar2);
-                hg hgVar2 = new hg();
-                bg b = this.a.b();
-                if (i11 < i8) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, url)) == null) {
+            HttpsURLConnection httpsURLConnection = null;
+            try {
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    return null;
                 }
-                hgVar2.a = b.k(z);
-                if (i11 < i8) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                hgVar2.d = z2;
-                try {
-                    this.c = i11;
-                    zfVar2.e = i11 + 1;
-                    zfVar2.v = i10;
-                    a(i11);
-                    wf wfVar6 = new wf(this.a);
-                    this.b = wfVar6;
-                    wfVar6.q(i11);
-                    this.b.r(e);
-                    wf wfVar7 = this.b;
-                    if (i11 < i8) {
-                        z3 = true;
+                if (BdNetTypeUtil.isMobileNet() && (curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost()) != null && curMobileProxyHost.length() > 0) {
+                    if (BdNetTypeUtil.isWap(curMobileProxyHost) && BdNetTypeUtil.isSupportWap()) {
+                        StringBuilder sb = new StringBuilder(80);
+                        sb.append("http://");
+                        sb.append(curMobileProxyHost);
+                        String file = url.getFile();
+                        if (file != null && file.startsWith("?")) {
+                            sb.append("/");
+                        }
+                        sb.append(file);
+                        httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                        try {
+                            this.a.b().a("X-Online-Host", url.getHost());
+                        } catch (Exception e) {
+                            e = e;
+                            httpsURLConnection = httpURLConnection;
+                            e.printStackTrace();
+                            return httpsURLConnection;
+                        }
                     } else {
-                        z3 = false;
+                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(curMobileProxyHost, BdNetTypeUtil.curMobileProxyPort())));
                     }
-                    if (i11 < i10) {
-                        z4 = true;
+                    httpsURLConnection = httpURLConnection;
+                }
+                if (httpsURLConnection == null) {
+                    httpsURLConnection = (HttpURLConnection) url.openConnection();
+                }
+                if (this.h && url.getProtocol().equals("https")) {
+                    HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
+                    httpsURLConnection2.setSSLSocketFactory(new gg(httpsURLConnection2));
+                    httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
+                    return httpsURLConnection2;
+                }
+                return httpsURLConnection;
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } else {
+            return (HttpURLConnection) invokeL.objValue;
+        }
+    }
+
+    public final HttpURLConnection g(URL url, int i, int i2) throws SocketException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, url, i, i2)) == null) {
+            HttpURLConnection f = f(url);
+            if (f != null) {
+                f.setConnectTimeout(i);
+                f.setReadTimeout(i2);
+                return f;
+            }
+            throw new SocketException();
+        }
+        return (HttpURLConnection) invokeLII.objValue;
+    }
+
+    public void k(boolean z, boolean z2, int i, int i2, ag agVar, ig igVar) throws Exception {
+        IHttpNet hgVar;
+        URL d;
+        Map<String, List<String>> map;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), agVar, igVar}) == null) {
+            agVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                if (!this.a.c().a) {
+                    String f = this.a.b().f(z, agVar);
+                    agVar.s = f;
+                    URL m = m(f, z2, agVar, igVar);
+                    if (!this.a.c().a) {
+                        agVar.j = -2;
+                        if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                            hgVar = new zf(this.a, IHttpNet.HttpNetType.GET);
+                        } else {
+                            hgVar = new hg(this.a, IHttpNet.HttpNetType.GET);
+                        }
+                        IHttpNet iHttpNet2 = hgVar;
+                        iHttpNet2.e(m);
+                        iHttpNet2.g(m, this.h);
+                        agVar.j = -3;
+                        long currentTimeMillis = System.currentTimeMillis();
+                        iHttpNet2.a(m, i2, i);
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            agVar.g = new Date().getTime() - currentTimeMillis;
+                            agVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
+                            }
+                            this.d = System.currentTimeMillis();
+                            agVar.j = -5;
+                            agVar.c = (new Date().getTime() - currentTimeMillis) - agVar.g;
+                            if (!this.a.c().a) {
+                                byte[] execute = iHttpNet2.execute();
+                                this.a.c().a(iHttpNet2);
+                                if (this.a.b().m() && this.m != null && this.j >= 0 && this.j < 3) {
+                                    this.m.schedule(this.l, (this.j + 1) * 3000);
+                                }
+                                this.e = System.currentTimeMillis();
+                                iHttpNet2.h();
+                                agVar.j = -8;
+                                if (f.contains("tiebac.baidu.com") && (map = this.a.c().h) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                    agVar.t = list.get(0);
+                                    agVar.u = list.get(1);
+                                }
+                                if (this.a.c().b == 302 && (d = iHttpNet2.d()) != null) {
+                                    agVar.r = d.toString();
+                                }
+                                agVar.i = this.a.c().b;
+                                agVar.b = iHttpNet2.b().toString().getBytes().length;
+                                if (this.m != null) {
+                                    this.m.cancel();
+                                }
+                                if (execute != null) {
+                                    agVar.b += execute.length;
+                                    this.a.c().i = c(this.a.c().d, execute);
+                                }
+                                agVar.j = -9;
+                                agVar.d = new Date().getTime() - currentTimeMillis;
+                                Timer timer = this.m;
+                                if (timer != null) {
+                                    timer.cancel();
+                                }
+                                iHttpNet2.disconnect();
+                                return;
+                            }
+                            throw new BdHttpCancelException();
+                        }
+                        throw new BdHttpCancelException();
+                    }
+                    throw new BdHttpCancelException();
+                }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                Timer timer2 = this.m;
+                if (timer2 != null) {
+                    timer2.cancel();
+                }
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
+            }
+        }
+    }
+
+    public void o(boolean z, boolean z2, int i, int i2, ag agVar, ig igVar) throws Exception {
+        IHttpNet hgVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), agVar, igVar}) == null) {
+            agVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                String k = this.a.b().k(z);
+                agVar.s = k;
+                URL m = m(k, z2, agVar, igVar);
+                if (!this.a.c().a) {
+                    agVar.j = -2;
+                    if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                        hgVar = new zf(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     } else {
-                        z4 = false;
+                        hgVar = new hg(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     }
-                    i9 = i11;
-                    try {
-                        wfVar7.k(z3, z4, i4, i6, zfVar2, hgVar2);
-                    } catch (SocketException e2) {
-                        e = e2;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                    } catch (SocketTimeoutException e3) {
-                        e = e3;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                    } catch (IOException e4) {
-                        e = e4;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                    } catch (Exception e5) {
-                        e = e5;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                    } catch (Throwable th) {
-                        th = th;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                    }
-                } catch (SocketException e6) {
-                    e = e6;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i9 = i11;
-                } catch (SocketTimeoutException e7) {
-                    e = e7;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i9 = i11;
-                } catch (IOException e8) {
-                    e = e8;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i9 = i11;
-                } catch (Exception e9) {
-                    e = e9;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i9 = i11;
-                } catch (Throwable th2) {
-                    th = th2;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                }
-                if (this.a.c().b != 200) {
-                    zfVar = zfVar2;
-                    try {
-                        zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9;
-                        z5 = l(this.a.c().b);
-                        hgVar = hgVar2;
-                        try {
-                            try {
-                                try {
-                                    hgVar.b = this.a.c().b;
-                                    hgVar.c = "faild";
-                                    if (this.d <= 0 && (wfVar5 = this.b) != null) {
-                                        this.d = wfVar5.i();
+                    IHttpNet iHttpNet2 = hgVar;
+                    iHttpNet2.e(m);
+                    iHttpNet2.g(m, this.h);
+                    agVar.j = -3;
+                    System.currentTimeMillis();
+                    iHttpNet2.a(m, i2, i);
+                    if (!this.a.c().a) {
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            long time = new Date().getTime();
+                            agVar.g = new Date().getTime() - time;
+                            agVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
+                            }
+                            this.d = System.currentTimeMillis();
+                            agVar.j = -5;
+                            agVar.c = (new Date().getTime() - time) - agVar.g;
+                            if (!this.a.c().a) {
+                                if (this.m != null) {
+                                    this.m.schedule(this.k, 45000L);
+                                }
+                                agVar.j = -6;
+                                iHttpNet2.c();
+                                agVar.j = -7;
+                                byte[] execute = iHttpNet2.execute();
+                                this.a.c().a(iHttpNet2);
+                                iHttpNet2.h();
+                                this.e = System.currentTimeMillis();
+                                if (!this.a.c().a) {
+                                    agVar.j = -8;
+                                    agVar.i = this.a.c().b;
+                                    long length = iHttpNet2.b().toString().getBytes().length;
+                                    agVar.b = length;
+                                    if (execute != null) {
+                                        agVar.b = length + execute.length;
+                                        this.a.c().j = execute.length;
+                                        this.a.c().i = c(this.a.c().d, execute);
                                     }
-                                    zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.f(zfVar);
-                                    hgVar.a();
-                                } catch (Exception e10) {
-                                    e = e10;
+                                    agVar.d = new Date().getTime() - time;
+                                    agVar.j = -9;
+                                    Timer timer = this.m;
+                                    if (timer != null) {
+                                        timer.cancel();
+                                    }
+                                    iHttpNet2.disconnect();
+                                    return;
                                 }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (this.d <= 0 && (wfVar3 = this.b) != null) {
-                                    this.d = wfVar3.i();
-                                }
-                                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.f(zfVar);
-                                hgVar.a();
-                                throw th;
+                                throw new BdHttpCancelException();
                             }
-                        } catch (SocketException e11) {
-                            e = e11;
-                            zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9 + "|" + e.getClass() + "|" + e.getMessage();
-                            this.a.c().c = -12;
-                            hgVar.b = -12;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                            }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(zfVar);
-                            hgVar.a();
-                            z5 = true;
-                            i11 = i9 + 1;
-                            i10 = 1;
-                        } catch (SocketTimeoutException e12) {
-                            e = e12;
-                            zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9 + "|" + e.getClass() + "|" + e.getMessage();
-                            this.a.c().c = -13;
-                            hgVar.b = -13;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                            }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(zfVar);
-                            hgVar.a();
-                            z5 = true;
-                            i11 = i9 + 1;
-                            i10 = 1;
-                        } catch (IOException e13) {
-                            e = e13;
-                            this.a.c().c = -19;
-                            zfVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                            hgVar.b = -19;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                this.d = wfVar.i();
-                            }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(zfVar);
-                            hgVar.a();
-                            i11 = i9 + 1;
-                            i10 = 1;
+                            throw new BdHttpCancelException();
                         }
-                    } catch (SocketException e14) {
-                        e = e14;
-                        hgVar = hgVar2;
-                    } catch (SocketTimeoutException e15) {
-                        e = e15;
-                        hgVar = hgVar2;
-                    } catch (IOException e16) {
-                        e = e16;
-                        hgVar = hgVar2;
-                    } catch (Exception e17) {
-                        e = e17;
-                        hgVar = hgVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        hgVar = hgVar2;
-                        if (this.d <= 0) {
-                            this.d = wfVar3.i();
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(zfVar);
-                        hgVar.a();
-                        throw th;
+                        throw new BdHttpCancelException();
                     }
-                    i11 = i9 + 1;
-                    i10 = 1;
-                } else {
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    this.a.f(zfVar);
-                    try {
-                        hgVar.b = 0;
-                        hgVar.c = "ok";
-                        if (this.d <= 0) {
-                            wfVar4 = this.b;
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(zfVar);
-                        hgVar.a();
-                        return;
-                    } catch (SocketException e18) {
-                        e = e18;
-                        zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.a.c().c = -12;
-                        hgVar.b = -12;
-                        hgVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                            wfVar2 = this.b;
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(zfVar);
-                        hgVar.a();
-                        z5 = true;
-                        i11 = i9 + 1;
-                        i10 = 1;
-                    } catch (SocketTimeoutException e19) {
-                        e = e19;
-                        zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.a.c().c = -13;
-                        hgVar.b = -13;
-                        hgVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                            wfVar2 = this.b;
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(zfVar);
-                        hgVar.a();
-                        z5 = true;
-                        i11 = i9 + 1;
-                        i10 = 1;
-                    } catch (IOException e20) {
-                        e = e20;
-                        this.a.c().c = -19;
-                        zfVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                        hgVar.b = -19;
-                        hgVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0 && (wfVar = this.b) != null) {
-                            this.d = wfVar.i();
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(zfVar);
-                        hgVar.a();
-                        i11 = i9 + 1;
-                        i10 = 1;
-                    }
+                    throw new BdHttpCancelException();
                 }
-                e = e10;
-                zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i9 + "|" + e.getClass() + "|" + e.getMessage();
-                this.a.c().c = -10;
-                BdLog.e(e.getMessage());
-                hgVar.b = -10;
-                hgVar.c = Log.getStackTraceString(e);
-                if (this.d <= 0) {
-                    wfVar4 = this.b;
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                Timer timer2 = this.m;
+                if (timer2 != null) {
+                    timer2.cancel();
                 }
-                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                this.a.f(zfVar);
-                hgVar.a();
-                return;
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void n(int i, int i2, int i3) {
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        boolean z;
+    public final URL m(String str, boolean z, ag agVar, ig igVar) throws Exception {
+        InterceptResult invokeCommon;
         boolean z2;
-        int i9;
-        hg hgVar;
-        zf zfVar;
-        int i10;
-        int i11;
-        int i12;
-        int i13;
-        wf wfVar;
-        wf wfVar2;
-        boolean z3;
-        wf wfVar3;
-        boolean z4;
-        boolean z5;
-        wf wfVar4;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
-            if (i2 <= 0) {
-                i4 = yb.d().b().b();
-            } else {
-                i4 = i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), agVar, igVar})) == null) {
+            String str3 = "hiphotos.baidu.com";
+            boolean netABTest = ((wf) ServiceManager.getService(wf.a)).netABTest();
+            URL url = new URL(str);
+            if (netABTest && url.getProtocol().equals("https")) {
+                return url;
             }
-            if (i <= 0) {
-                i5 = yb.d().a();
-            } else {
-                i5 = i;
-            }
-            if (i3 <= 0) {
-                i6 = yb.d().c().b();
-            } else {
-                i6 = i3;
-            }
-            if (((uf) ServiceManager.getService(uf.a)).isSwitchOn()) {
-                i7 = 2;
-            } else {
-                i7 = 0;
-            }
-            if (((vf) ServiceManager.getService(vf.a)).qaHttpsTest()) {
-                i8 = 0;
-            } else {
-                i8 = i7;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i14 = 1;
-            boolean z6 = true;
-            int i15 = 0;
-            while (!this.a.c().a && z6 && i15 < i5 + i8) {
-                zf zfVar2 = new zf();
-                hg hgVar2 = new hg();
-                bg b = this.a.b();
-                if (i15 < i8) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                hgVar2.a = b.k(z);
-                if (i15 < i8) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                hgVar2.d = z2;
-                this.c = i15;
-                int i16 = i15 + 1;
-                zfVar2.e = i16;
-                a(i15);
+            if (!TextUtils.isEmpty(str) && this.i) {
                 try {
-                    try {
-                        try {
-                            wf wfVar5 = new wf(this.a);
-                            this.b = wfVar5;
-                            wfVar5.q(i15);
-                            this.b.r(e);
-                            wf wfVar6 = this.b;
-                            if (i15 < i8) {
-                                z4 = true;
-                            } else {
-                                z4 = false;
-                            }
-                            if (i15 < i14) {
-                                z5 = true;
-                            } else {
-                                z5 = false;
-                            }
-                            i9 = i16;
-                            i12 = i15;
-                            try {
-                                wfVar6.p(z4, z5, i4, i6, zfVar2, hgVar2);
-                            } catch (UnsupportedOperationException e2) {
-                                e = e2;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (SocketException e3) {
-                                e = e3;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (SocketTimeoutException e4) {
-                                e = e4;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (Throwable th) {
-                                th = th;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            }
-                        } catch (UnsupportedOperationException e5) {
-                            e = e5;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
-                            i12 = i15;
-                        } catch (SocketException e6) {
-                            e = e6;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
-                        } catch (SocketTimeoutException e7) {
-                            e = e7;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
+                    String host = url.getHost();
+                    if (!TextUtils.isEmpty(host)) {
+                        if (!host.contains("hiphotos.baidu.com")) {
+                            str3 = host;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        i9 = i16;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                        i12 = i15;
-                    }
-                } catch (UnsupportedOperationException e8) {
-                    e = e8;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                } catch (SocketException e9) {
-                    e = e9;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0c7f;
-                } catch (SocketTimeoutException e10) {
-                    e = e10;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0c7f;
-                }
-                if (this.a.c().b != 200) {
-                    zfVar = zfVar2;
-                    try {
-                        zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i12;
-                        z6 = l(this.a.c().b);
-                        this.a.e(zfVar);
-                        hgVar = hgVar2;
-                        try {
-                            try {
-                                hgVar.b = this.a.c().b;
-                                hgVar.c = "faild";
-                                if (this.d <= 0 && (wfVar4 = this.b) != null) {
-                                    this.d = wfVar4.i();
-                                }
-                                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(zfVar);
-                                hgVar.a();
-                            } catch (UnsupportedOperationException e11) {
-                                e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                                if (i12 >= i8) {
-                                    z3 = true;
-                                } else {
-                                    z3 = false;
-                                }
-                                this.a.c().c = -14;
-                                cg c = this.a.c();
-                                c.g = e.getMessage() + Log.getStackTraceString(e);
-                                zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i13);
-                                this.a.e(zfVar);
-                                hgVar.b = -14;
-                                hgVar.c = Log.getStackTraceString(e);
-                                if (this.d <= 0) {
-                                    wfVar3 = this.b;
-                                }
-                                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(zfVar);
-                                hgVar.a();
-                                z6 = z3;
-                                i15 = i9;
-                                i14 = 1;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                try {
-                                    this.a.c().c = -10;
-                                    cg c2 = this.a.c();
-                                    c2.g = th.getMessage() + Log.getStackTraceString(th);
-                                    if (i12 >= i8) {
-                                        z3 = true;
-                                    } else {
-                                        z3 = false;
+                        BDHttpDnsResult r = BDHttpDns.h(BdBaseApplication.getInst().getApplicationContext()).r(str3, true);
+                        if (r != null) {
+                            agVar.m = r.d();
+                            agVar.o = r.c();
+                            ArrayList<String> b2 = r.b();
+                            if (((vf) ServiceManager.getService(vf.a)).isIpv6() && z && b2 != null && b2.size() != 0) {
+                                z2 = true;
+                                if (b2 != null && b2.size() > 0) {
+                                    agVar.p = b2.toString();
+                                    int size = this.j % b2.size();
+                                    str2 = b2.get(size);
+                                    if (!TextUtils.isEmpty(str2)) {
+                                        if (z2) {
+                                            str2 = PreferencesUtil.LEFT_MOUNT + str2 + PreferencesUtil.RIGHT_MOUNT;
+                                            if (igVar != null) {
+                                                igVar.e = true;
+                                            }
+                                        }
+                                        if (!str2.startsWith("10.") || !url.getProtocol().equals("https")) {
+                                            this.a.b().a("Host", str3);
+                                            URL url2 = new URL(str.replaceFirst("://(.*)" + str3, "://" + str2));
+                                            try {
+                                                this.h = true;
+                                                agVar.q = size;
+                                                agVar.l = str2;
+                                                agVar.n = true;
+                                                return url2;
+                                            } catch (Exception e) {
+                                                e = e;
+                                                url = url2;
+                                                BdLog.e(e);
+                                                return url;
+                                            }
+                                        }
                                     }
-                                    zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
-                                    BdLog.e(th.getMessage());
-                                    this.a.e(zfVar);
-                                    hgVar.b = -10;
-                                    hgVar.c = Log.getStackTraceString(th);
-                                    if (this.d <= 0) {
-                                        wfVar3 = this.b;
-                                    }
-                                    zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(zfVar);
-                                    hgVar.a();
-                                    z6 = z3;
-                                    i15 = i9;
-                                    i14 = 1;
-                                } finally {
-                                    if (this.d <= 0 && (wfVar2 = this.b) != null) {
-                                        this.d = wfVar2.i();
-                                    }
-                                    zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(zfVar);
-                                    hgVar.a();
                                 }
                             }
-                        } catch (SocketException e12) {
-                            e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0c7f;
-                            this.a.c().c = -12;
-                            cg c3 = this.a.c();
-                            c3.g = e.getMessage() + Log.getStackTraceString(e);
-                            zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i11);
-                            BdLog.e(e.getMessage());
-                            this.a.e(zfVar);
-                            hgVar.b = -12;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                wfVar = this.b;
+                            z2 = false;
+                            b2 = r.a();
+                            if (b2 != null) {
+                                agVar.p = b2.toString();
+                                int size2 = this.j % b2.size();
+                                str2 = b2.get(size2);
+                                if (!TextUtils.isEmpty(str2)) {
+                                }
                             }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(zfVar);
-                            hgVar.a();
-                            z6 = true;
-                            i15 = i9;
-                            i14 = 1;
-                        } catch (SocketTimeoutException e13) {
-                            e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0c7f;
-                            this.a.c().c = -13;
-                            cg c4 = this.a.c();
-                            c4.g = e.getMessage() + Log.getStackTraceString(e);
-                            zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i10);
-                            BdLog.e(e.getMessage());
-                            this.a.e(zfVar);
-                            hgVar.b = -13;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                wfVar = this.b;
-                            }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(zfVar);
-                            hgVar.a();
-                            z6 = true;
-                            i15 = i9;
-                            i14 = 1;
                         }
-                    } catch (UnsupportedOperationException e14) {
-                        e = e14;
-                        hgVar = hgVar2;
-                    } catch (SocketException e15) {
-                        e = e15;
-                        hgVar = hgVar2;
-                    } catch (SocketTimeoutException e16) {
-                        e = e16;
-                        hgVar = hgVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        hgVar = hgVar2;
                     }
-                    i15 = i9;
-                    i14 = 1;
-                } else {
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    try {
-                        hgVar.b = 0;
-                        hgVar.c = "ok";
-                        return;
-                    } catch (UnsupportedOperationException e17) {
-                        e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                        if (i12 >= i8) {
-                        }
-                        this.a.c().c = -14;
-                        cg c5 = this.a.c();
-                        c5.g = e.getMessage() + Log.getStackTraceString(e);
-                        zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i13);
-                        this.a.e(zfVar);
-                        hgVar.b = -14;
-                        hgVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(zfVar);
-                        hgVar.a();
-                        z6 = z3;
-                        i15 = i9;
-                        i14 = 1;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        this.a.c().c = -10;
-                        cg c22 = this.a.c();
-                        c22.g = th.getMessage() + Log.getStackTraceString(th);
-                        if (i12 >= i8) {
-                        }
-                        zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
-                        BdLog.e(th.getMessage());
-                        this.a.e(zfVar);
-                        hgVar.b = -10;
-                        hgVar.c = Log.getStackTraceString(th);
-                        if (this.d <= 0) {
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(zfVar);
-                        hgVar.a();
-                        z6 = z3;
-                        i15 = i9;
-                        i14 = 1;
-                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
             }
+            return url;
         }
+        return (URL) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void o(int i, int i2, int i3) {
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        boolean z;
-        boolean z2;
-        int i9;
-        hg hgVar;
-        zf zfVar;
-        int i10;
-        int i11;
-        int i12;
-        int i13;
-        wf wfVar;
-        wf wfVar2;
-        boolean z3;
-        wf wfVar3;
-        boolean z4;
-        boolean z5;
-        wf wfVar4;
+    public void p(boolean z, boolean z2, int i, int i2, ag agVar, ig igVar) throws Exception {
+        IHttpNet hgVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048590, this, i, i2, i3) == null) {
-            if (i2 <= 0) {
-                i4 = yb.d().b().b();
-            } else {
-                i4 = i2;
-            }
-            if (i <= 0) {
-                i5 = yb.d().a();
-            } else {
-                i5 = i;
-            }
-            if (i3 <= 0) {
-                i6 = yb.d().c().b();
-            } else {
-                i6 = i3;
-            }
-            if (((uf) ServiceManager.getService(uf.a)).isSwitchOn()) {
-                i7 = 2;
-            } else {
-                i7 = 0;
-            }
-            if (((vf) ServiceManager.getService(vf.a)).qaHttpsTest()) {
-                i8 = 0;
-            } else {
-                i8 = i7;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i14 = 1;
-            boolean z6 = true;
-            int i15 = 0;
-            while (!this.a.c().a && z6 && i15 < i5 + i8) {
-                zf zfVar2 = new zf();
-                hg hgVar2 = new hg();
-                bg b = this.a.b();
-                if (i15 < i8) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                hgVar2.a = b.k(z);
-                if (i15 < i8) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                hgVar2.d = z2;
-                int i16 = i15 + 1;
-                zfVar2.e = i16;
-                this.c = i15;
-                a(i15);
-                try {
-                    try {
-                        try {
-                            wf wfVar5 = new wf(this.a);
-                            this.b = wfVar5;
-                            wfVar5.q(i15);
-                            this.b.r(e);
-                            wf wfVar6 = this.b;
-                            if (i15 < i8) {
-                                z4 = true;
-                            } else {
-                                z4 = false;
-                            }
-                            if (i15 < i14) {
-                                z5 = true;
-                            } else {
-                                z5 = false;
-                            }
-                            i9 = i16;
-                            i12 = i15;
-                            try {
-                                wfVar6.o(z4, z5, i4, i6, zfVar2, hgVar2);
-                            } catch (UnsupportedOperationException e2) {
-                                e = e2;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (SocketException e3) {
-                                e = e3;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (SocketTimeoutException e4) {
-                                e = e4;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            } catch (Throwable th) {
-                                th = th;
-                                hgVar = hgVar2;
-                                zfVar = zfVar2;
-                            }
-                        } catch (UnsupportedOperationException e5) {
-                            e = e5;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
-                            i12 = i15;
-                        } catch (SocketException e6) {
-                            e = e6;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
-                        } catch (SocketTimeoutException e7) {
-                            e = e7;
-                            i9 = i16;
-                            hgVar = hgVar2;
-                            zfVar = zfVar2;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        i9 = i16;
-                        hgVar = hgVar2;
-                        zfVar = zfVar2;
-                        i12 = i15;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), agVar, igVar}) == null) {
+            agVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                String k = this.a.b().k(z);
+                agVar.s = k;
+                URL m = m(k, z2, agVar, igVar);
+                if (!this.a.c().a) {
+                    agVar.j = -2;
+                    if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                        hgVar = new zf(this.a, IHttpNet.HttpNetType.POST_FORM);
+                    } else {
+                        hgVar = new hg(this.a, IHttpNet.HttpNetType.POST_FORM);
                     }
-                } catch (UnsupportedOperationException e8) {
-                    e = e8;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                } catch (SocketException e9) {
-                    e = e9;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0c7f;
-                } catch (SocketTimeoutException e10) {
-                    e = e10;
-                    i9 = i16;
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0c7f;
-                }
-                if (this.a.c().b != 200) {
-                    zfVar = zfVar2;
-                    try {
-                        zfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i12;
-                        z6 = l(this.a.c().b);
-                        this.a.e(zfVar);
-                        hgVar = hgVar2;
-                        try {
-                            try {
-                                hgVar.b = this.a.c().b;
-                                hgVar.c = "faild";
-                                if (this.d <= 0 && (wfVar4 = this.b) != null) {
-                                    this.d = wfVar4.i();
-                                }
-                                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(zfVar);
-                                hgVar.a();
-                            } catch (UnsupportedOperationException e11) {
-                                e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                                if (i12 >= i8) {
-                                    z3 = true;
-                                } else {
-                                    z3 = false;
-                                }
-                                this.a.c().c = -14;
-                                cg c = this.a.c();
-                                c.g = e.getMessage() + Log.getStackTraceString(e);
-                                zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i13);
-                                this.a.e(zfVar);
-                                hgVar.b = -14;
-                                hgVar.c = Log.getStackTraceString(e);
-                                if (this.d <= 0) {
-                                    wfVar3 = this.b;
-                                }
-                                zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(zfVar);
-                                hgVar.a();
-                                z6 = z3;
-                                i15 = i9;
-                                i14 = 1;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                try {
-                                    this.a.c().c = -10;
-                                    cg c2 = this.a.c();
-                                    c2.g = th.getMessage() + Log.getStackTraceString(th);
-                                    if (i12 >= i8) {
-                                        z3 = true;
-                                    } else {
-                                        z3 = false;
-                                    }
-                                    zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
-                                    BdLog.e(th.getMessage());
-                                    this.a.e(zfVar);
-                                    hgVar.b = -10;
-                                    hgVar.c = Log.getStackTraceString(th);
-                                    if (this.d <= 0) {
-                                        wfVar3 = this.b;
-                                    }
-                                    zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(zfVar);
-                                    hgVar.a();
-                                    z6 = z3;
-                                    i15 = i9;
-                                    i14 = 1;
-                                } finally {
-                                    if (this.d <= 0 && (wfVar2 = this.b) != null) {
-                                        this.d = wfVar2.i();
-                                    }
-                                    zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(zfVar);
-                                    hgVar.a();
-                                }
+                    IHttpNet iHttpNet2 = hgVar;
+                    iHttpNet2.e(m);
+                    iHttpNet2.g(m, this.h);
+                    iHttpNet2.a(m, i2, i);
+                    agVar.j = -3;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (!this.a.c().a) {
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            agVar.g = System.currentTimeMillis() - currentTimeMillis;
+                            agVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
                             }
-                        } catch (SocketException e12) {
-                            e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0c7f;
-                            this.a.c().c = -12;
-                            cg c3 = this.a.c();
-                            c3.g = e.getMessage() + Log.getStackTraceString(e);
-                            zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i11);
-                            BdLog.e(e.getMessage());
-                            this.a.e(zfVar);
-                            hgVar.b = -12;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                wfVar = this.b;
+                            this.d = System.currentTimeMillis();
+                            agVar.j = -5;
+                            agVar.c = (System.currentTimeMillis() - currentTimeMillis) - agVar.g;
+                            if (!this.a.c().a) {
+                                agVar.j = -6;
+                                agVar.a = iHttpNet2.c();
+                                agVar.j = -7;
+                                if (!this.a.c().a) {
+                                    iHttpNet2.h();
+                                    this.e = System.currentTimeMillis();
+                                    agVar.j = -8;
+                                    byte[] execute = iHttpNet2.execute();
+                                    this.f = System.currentTimeMillis();
+                                    this.a.c().a(iHttpNet2);
+                                    agVar.i = this.a.c().b;
+                                    long length = this.a.c().h.toString().getBytes().length;
+                                    agVar.b = length;
+                                    if (execute != null) {
+                                        agVar.b = length + execute.length;
+                                        this.a.c().j = execute.length;
+                                        this.a.c().i = c(this.a.c().d, execute);
+                                    }
+                                    agVar.d = new Date().getTime() - currentTimeMillis;
+                                    agVar.j = -9;
+                                    iHttpNet2.disconnect();
+                                    return;
+                                }
+                                throw new BdHttpCancelException();
                             }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(zfVar);
-                            hgVar.a();
-                            z6 = true;
-                            i15 = i9;
-                            i14 = 1;
-                        } catch (SocketTimeoutException e13) {
-                            e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0c7f;
-                            this.a.c().c = -13;
-                            cg c4 = this.a.c();
-                            c4.g = e.getMessage() + Log.getStackTraceString(e);
-                            zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i10);
-                            BdLog.e(e.getMessage());
-                            this.a.e(zfVar);
-                            hgVar.b = -13;
-                            hgVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                wfVar = this.b;
-                            }
-                            zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(zfVar);
-                            hgVar.a();
-                            z6 = true;
-                            i15 = i9;
-                            i14 = 1;
+                            throw new BdHttpCancelException();
                         }
-                    } catch (UnsupportedOperationException e14) {
-                        e = e14;
-                        hgVar = hgVar2;
-                    } catch (SocketException e15) {
-                        e = e15;
-                        hgVar = hgVar2;
-                    } catch (SocketTimeoutException e16) {
-                        e = e16;
-                        hgVar = hgVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        hgVar = hgVar2;
+                        throw new BdHttpCancelException();
                     }
-                    i15 = i9;
-                    i14 = 1;
-                } else {
-                    hgVar = hgVar2;
-                    zfVar = zfVar2;
-                    try {
-                        hgVar.b = 0;
-                        hgVar.c = "ok";
-                        return;
-                    } catch (UnsupportedOperationException e17) {
-                        e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0c7f;
-                        if (i12 >= i8) {
-                        }
-                        this.a.c().c = -14;
-                        cg c5 = this.a.c();
-                        c5.g = e.getMessage() + Log.getStackTraceString(e);
-                        zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i13);
-                        this.a.e(zfVar);
-                        hgVar.b = -14;
-                        hgVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(zfVar);
-                        hgVar.a();
-                        z6 = z3;
-                        i15 = i9;
-                        i14 = 1;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        this.a.c().c = -10;
-                        cg c22 = this.a.c();
-                        c22.g = th.getMessage() + Log.getStackTraceString(th);
-                        if (i12 >= i8) {
-                        }
-                        zfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
-                        BdLog.e(th.getMessage());
-                        this.a.e(zfVar);
-                        hgVar.b = -10;
-                        hgVar.c = Log.getStackTraceString(th);
-                        if (this.d <= 0) {
-                        }
-                        zfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(zfVar);
-                        hgVar.a();
-                        z6 = z3;
-                        i15 = i9;
-                        i14 = 1;
-                    }
+                    throw new BdHttpCancelException();
                 }
-            }
-        }
-    }
-
-    public void m(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
-            if (this.a.b().l()) {
-                o(i, i2, i3);
-            } else {
-                n(i, i2, i3);
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
             }
         }
     }

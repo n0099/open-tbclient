@@ -1,80 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class cv5 extends BaseCardInfo {
+public class cv5 implements io2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public ThreadData d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688231, "Lcom/baidu/tieba/cv5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947688231, "Lcom/baidu/tieba/cv5;");
-                return;
-            }
-        }
-        i = BdUniqueId.gen();
-    }
 
     public cv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.f = false;
-        this.g = false;
-        this.h = false;
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.io2
+    public boolean a(Context context, String str, yf3 yf3Var) {
+        InterceptResult invokeLLL;
+        String p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, yf3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            if (rt5.l().p() == null) {
+                p = "";
+            } else {
+                p = rt5.l().p();
+            }
+            statisticItem.param("uid", p);
+            statisticItem.param("obj_param1", yf3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, yf3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (yf3Var.j() == 10 && yf3Var.h() == 1013) {
+                b(context, yf3Var);
+                return true;
+            }
+            return false;
         }
-        return (ThreadData) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void b(Context context, yf3 yf3Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return i;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yf3Var) == null) {
+            f43 b0 = f43.b0();
+            if (context != null && b0 != null) {
+                String i = kd3.i(sp2.U().M(), b0.Y().G());
+                long h = yf3Var.h();
+                String r = yf3Var.r();
+                if (1020 == h && !TextUtils.isEmpty(r)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    r = dg4.b().a(h);
+                }
+                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + zh3.D() + "/" + i + "/" + yf3Var.a());
+                forbiddenInfo.enableSlidingFlag = -1;
+                zo2.l(context, "type_need_update_sdk", yf3Var, forbiddenInfo, b0.Y().D());
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

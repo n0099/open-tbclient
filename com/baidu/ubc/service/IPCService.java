@@ -8,9 +8,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.nc9;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.jc9;
+import com.baidu.tieba.of1;
+import com.baidu.tieba.yc9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class IPCService implements nc9 {
+public class IPCService implements yc9 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements nc9 {
                 return;
             }
         }
-        a = yb9.m();
+        a = jc9.m();
     }
 
     public IPCService() {
@@ -60,7 +60,7 @@ public class IPCService implements nc9 {
         }
     }
 
-    @Override // com.baidu.tieba.nc9
+    @Override // com.baidu.tieba.yc9
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -131,7 +131,7 @@ public class IPCService implements nc9 {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + nf1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + of1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -218,7 +218,7 @@ public class IPCService implements nc9 {
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + nf1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + of1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -253,7 +253,7 @@ public class IPCService implements nc9 {
         }
     }
 
-    @Override // com.baidu.tieba.nc9
+    @Override // com.baidu.tieba.yc9
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

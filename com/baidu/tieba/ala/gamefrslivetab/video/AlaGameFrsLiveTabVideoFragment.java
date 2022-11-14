@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.az5;
-import com.baidu.tieba.ck6;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.mz5;
+import com.baidu.tieba.ok6;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ok6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
     public boolean c;
-    public az5 d;
+    public mz5 d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,11 +86,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 
                 if (split.length != 2) {
                     return;
                 }
-                if ("FrsGameLive".equals(split[0]) && 8 == wg.e(split[1], 0)) {
+                if ("FrsGameLive".equals(split[0]) && 8 == xg.e(split[1], 0)) {
                     if (this.a.d != null) {
                         this.a.d.i();
                     }
-                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == wg.e(split[1], 0) && this.a.d != null) {
+                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == xg.e(split[1], 0) && this.a.d != null) {
                     this.a.d.i();
                 }
             }
@@ -189,7 +189,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 
         }
     }
 
-    @Override // com.baidu.tieba.ck6
+    @Override // com.baidu.tieba.ok6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,9 +204,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            az5 az5Var = this.d;
-            if (az5Var != null) {
-                az5Var.C();
+            mz5 mz5Var = this.d;
+            if (mz5Var != null) {
+                mz5Var.C();
             }
         }
     }
@@ -249,9 +249,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            az5 az5Var = new az5(this.a);
-            this.d = az5Var;
-            return az5Var.B(layoutInflater, viewGroup);
+            mz5 mz5Var = new mz5(this.a);
+            this.d = mz5Var;
+            return mz5Var.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }
@@ -276,7 +276,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ck6 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String q = ky4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String q = py4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (q != null) {
                 StringBuilder sb = new StringBuilder(q);
                 if (q.endsWith("?")) {

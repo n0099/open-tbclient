@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jh7;
-import com.baidu.tieba.vi5;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.uh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1056common;
     public int from;
-    public jh7 mLabelDataSet;
+    public uh7 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -52,7 +52,7 @@ public class RequestGetLabelMessage extends NetMessage {
             builder.f1251common = this.f1056common;
             builder.from = Integer.valueOf(this.from);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                vi5.a(builder, true);
+                cj5.a(builder, true);
             }
             GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -61,13 +61,13 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public jh7 getLabelDataSet() {
+    public uh7 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLabelDataSet;
         }
-        return (jh7) invokeV.objValue;
+        return (uh7) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -84,10 +84,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(jh7 jh7Var) {
+    public void setLabelDataSet(uh7 uh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jh7Var) == null) {
-            this.mLabelDataSet = jh7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uh7Var) == null) {
+            this.mLabelDataSet = uh7Var;
         }
     }
 }

@@ -160,10 +160,10 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091206)).inflate();
-            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091207);
-            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f091205);
-            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f091208);
+            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09120b)).inflate();
+            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f09120d);
         }
     }
 
@@ -282,7 +282,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void kl() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091205), -1, 60, -1, -1);
+            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09120a), -1, 60, -1, -1);
         }
     }
 

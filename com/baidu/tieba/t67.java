@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class t67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public i77 e;
-    public x67 f;
+    public final List<ThreadData> a;
 
     public t67() {
         Interceptable interceptable = $ic;
@@ -29,40 +26,60 @@ public class t67 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public void a(TopicDetail topicDetail) {
+    public List<ThreadData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        return (List) invokeV.objValue;
     }
 
-    public void b(PkModule pkModule) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            i77 i77Var = new i77();
-            this.e = i77Var;
-            i77Var.a = this.a;
-            i77Var.f = 2;
-            i77Var.a(pkModule);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(list);
         }
+        return invokeV.booleanValue;
     }
 
-    public void c(TimeLine timeLine) {
+    public s67 a(boolean z, q67 q67Var) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
-            return;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, q67Var)) == null) {
+            s67 s67Var = new s67();
+            s67Var.c = q67Var.i();
+            s67Var.e = q67Var.a();
+            s67Var.f = q67Var.c();
+            ArrayList<ThreadData> h = q67Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
+                }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            p57.h(true, arrayList, q67Var.e());
+            p57.h(true, arrayList, q67Var.f());
+            p57.h(true, arrayList, q67Var.d());
+            p57.h(true, arrayList, q67Var.g());
+            s67Var.a = p57.c(arrayList);
+            return s67Var;
         }
-        x67 x67Var = new x67();
-        this.f = x67Var;
-        x67Var.a(this.a, timeLine);
+        return (s67) invokeZL.objValue;
     }
 }

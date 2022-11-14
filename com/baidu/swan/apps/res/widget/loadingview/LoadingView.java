@@ -11,18 +11,18 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fy2;
-import com.baidu.tieba.ln2;
-import com.baidu.tieba.n33;
-import com.baidu.tieba.oy2;
-import com.baidu.tieba.s93;
+import com.baidu.tieba.gy2;
+import com.baidu.tieba.mn2;
+import com.baidu.tieba.o33;
+import com.baidu.tieba.py2;
+import com.baidu.tieba.t93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LoadingView extends FrameLayout implements n33<LoadingView> {
+public class LoadingView extends FrameLayout implements o33<LoadingView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -30,7 +30,7 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n33
+    @Override // com.baidu.tieba.o33
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements s93 {
+    public class a implements t93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -131,8 +131,8 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (fy2.e()) {
-                view2 = oy2.a().d(R.layout.obfuscated_res_0x7f0d00ba);
+            if (gy2.e()) {
+                view2 = py2.a().d(R.layout.obfuscated_res_0x7f0d00ba);
             } else {
                 view2 = null;
             }
@@ -141,9 +141,9 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
             } else {
                 LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ba, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091cb9);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091447);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091546);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091cc5);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f09144e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09154d);
             setPageResources();
         }
     }
@@ -153,7 +153,7 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            ln2.M().f(this, new a(this));
+            mn2.M().f(this, new a(this));
         }
     }
 
@@ -162,7 +162,7 @@ public class LoadingView extends FrameLayout implements n33<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            ln2.M().g(this);
+            mn2.M().g(this);
         }
     }
 

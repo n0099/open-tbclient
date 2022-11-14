@@ -1,282 +1,315 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes6.dex */
 public class yx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yx4 g;
-    public static int h;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-245711529, "Lcom/baidu/tieba/yx4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-245711529, "Lcom/baidu/tieba/yx4$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LiveRemindConfig.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[LiveRemindConfig.Scene.LIVE_BUBBLE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LiveRemindConfig.Scene.LIVE_FLOAT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948345524, "Lcom/baidu/tieba/yx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948345524, "Lcom/baidu/tieba/yx4;");
-                return;
-            }
-        }
-        new Date();
-        new Date();
-    }
-
-    public yx4() {
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
+        ZipFile zipFile;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        h();
-    }
-
-    public static yx4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (yx4.class) {
-                    if (g == null) {
-                        g = new yx4();
-                    }
-                }
-            }
-            return g;
-        }
-        return (yx4) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ky4.k().l(c(LiveRemindConfig.Scene.LIVE_BUBBLE), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i = 0;
-            h = 0;
-            if (TbadkCoreApplication.isLogin()) {
-                h();
-            }
-        }
-    }
-
-    public final String c(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.a;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.d;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.c;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.f;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String e(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.b;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.e;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void g(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scene) == null) {
-            ky4.k().w(c(scene), ky4.k().l(c(scene), 0) + 1);
-        }
-    }
-
-    public void m(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, scene) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i = 0;
-            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                h = 0;
-            }
-            ky4.k().w(c(scene), 0);
-        }
-    }
-
-    public void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            ky4.k().w(c(LiveRemindConfig.Scene.LIVE_BUBBLE), i2);
-        }
-    }
-
-    public void f(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, scene) == null) {
-            int i2 = a.a[scene.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2) {
-                    ky4.k().x(d(scene), System.currentTimeMillis());
-                    h++;
-                    g(LiveRemindConfig.Scene.LIVE_FLOAT);
-                    return;
-                }
-                return;
-            }
-            ky4.k().x(d(scene), System.currentTimeMillis());
-            i++;
-            g(LiveRemindConfig.Scene.LIVE_BUBBLE);
-        }
-    }
-
-    public boolean j(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!StringHelper.isTaday(ky4.k().m(e(scene), 0L))) {
-                ky4.k().x(e(scene), System.currentTimeMillis());
-                m(scene);
-            }
-            if (i(scene) && k(scene)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = "key_live_bubble_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.b = "key_live_bubble_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.c = "key_live_bubble_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.d = "key_live_top_float_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.e = "key_live_top_float_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.f = "key_live_top_float_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-        }
-    }
-
-    public final boolean i(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i2 = i;
-            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                i2 = h;
-            } else {
-                i2 = 0;
-            }
-            if (ky4.k().l(c(scene), 0) >= LiveRemindConfig.c().b() || i2 >= LiveRemindConfig.c().a()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            File file2 = new File(str);
+            if (!file2.exists() && !file2.mkdirs()) {
                 return false;
             }
-            return true;
+            boolean z = true;
+            ZipFile zipFile2 = null;
+            InputStream inputStream2 = null;
+            zipFile2 = null;
+            try {
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    try {
+                        ZipEntry nextElement = entries.nextElement();
+                        String name = nextElement.getName();
+                        if (name == null || !name.contains("__MACOSX/")) {
+                            File file3 = new File(str, name);
+                            if (nextElement.isDirectory()) {
+                                file3.mkdirs();
+                            } else {
+                                inputStream = zipFile.getInputStream(nextElement);
+                                try {
+                                    fileOutputStream = new FileOutputStream(file3);
+                                    try {
+                                        try {
+                                            byte[] bArr = new byte[1024];
+                                            while (true) {
+                                                int read = inputStream.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                }
+                                            }
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            inputStream2 = inputStream;
+                                            if (inputStream2 != null) {
+                                                try {
+                                                    inputStream2.close();
+                                                } catch (IOException e4) {
+                                                    e4.printStackTrace();
+                                                }
+                                            }
+                                            if (fileOutputStream != null) {
+                                                try {
+                                                    fileOutputStream.close();
+                                                } catch (IOException e5) {
+                                                    e5.printStackTrace();
+                                                }
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e6) {
+                                        e = e6;
+                                        e.printStackTrace();
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e7) {
+                                                e7.printStackTrace();
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e8) {
+                                                e8.printStackTrace();
+                                            }
+                                        }
+                                        z = false;
+                                    }
+                                } catch (Exception e9) {
+                                    e = e9;
+                                    fileOutputStream = null;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    fileOutputStream = null;
+                                }
+                            }
+                        }
+                    } catch (Exception e10) {
+                        e = e10;
+                        inputStream = null;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException e11) {
+                    e11.printStackTrace();
+                }
+                return z;
+            } catch (Exception e12) {
+                e = e12;
+                zipFile2 = zipFile;
+                e.printStackTrace();
+                if (zipFile2 == null) {
+                    return false;
+                }
+                try {
+                    zipFile2.close();
+                    return false;
+                } catch (IOException e13) {
+                    e13.printStackTrace();
+                    return false;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException e14) {
+                        e14.printStackTrace();
+                    }
+                }
+                throw th;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public final boolean k(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long m = ky4.k().m(d(scene), currentTimeMillis);
-            if (currentTimeMillis == m || (currentTimeMillis - m) / 1000 >= LiveRemindConfig.c().d()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return a(new File(str), str2);
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static void c(File file, String str) throws ZipException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
+            File file2 = new File(str);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(str + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
+                }
+            }
+        }
+    }
+
+    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
+            return;
+        }
+        File file = new File(str, str2);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isFile()) {
+            ZipEntry zipEntry = new ZipEntry(str2);
+            FileInputStream fileInputStream = new FileInputStream(file);
+            zipOutputStream.putNextEntry(zipEntry);
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read != -1) {
+                    zipOutputStream.write(bArr, 0, read);
+                } else {
+                    zipOutputStream.closeEntry();
+                    return;
+                }
+            }
+        } else if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list.length <= 0) {
+                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
+                zipOutputStream.closeEntry();
+            }
+            for (int i = 0; i < list.length; i++) {
+                d(str, str2 + File.separator + list[i], zipOutputStream);
+            }
+        }
+    }
+
+    public static boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        ZipOutputStream zipOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                try {
+                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Exception e3) {
+                e = e3;
+            }
+            try {
+                File file = new File(str);
+                if (!file.exists()) {
+                    zi.f(zipOutputStream);
+                    return false;
+                }
+                d(file.getParent(), file.getName(), zipOutputStream);
+                zipOutputStream.finish();
+                zipOutputStream.close();
+                zi.f(zipOutputStream);
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                zi.f(zipOutputStream2);
+                return false;
+            } catch (IOException e5) {
+                e = e5;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                zi.f(zipOutputStream2);
+                return false;
+            } catch (Exception e6) {
+                e = e6;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                zi.f(zipOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                zi.f(zipOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 /* loaded from: classes5.dex */
 public interface qv0 {
-    void a(mu0 mu0Var);
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
-    int getExpectOrder();
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

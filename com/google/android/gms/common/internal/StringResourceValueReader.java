@@ -38,7 +38,7 @@ public class StringResourceValueReader {
         Preconditions.checkNotNull(context);
         Resources resources = context.getResources();
         this.zza = resources;
-        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0424);
+        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0425);
     }
 
     @Nullable

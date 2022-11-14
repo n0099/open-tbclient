@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
 import androidx.webkit.WebViewAssetLoader;
-import com.baidu.tieba.d43;
+import com.baidu.tieba.e43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public final class WebCompatImpl$internalStorageFilesPathHandler$2 extends Lambd
         FilePathInfo l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d43 K = d43.K();
+            e43 K = e43.K();
             l = this.this$0.l();
             return new WebViewAssetLoader.InternalStoragePathHandler(K, l.c());
         }

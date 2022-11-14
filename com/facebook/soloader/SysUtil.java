@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.facebook.soloader.MinElf;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -60,7 +59,7 @@ public final class SysUtil {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return Os.readlink("/proc/self/exe").contains(WebKitFactory.OS_64);
+                return Os.readlink("/proc/self/exe").contains("64");
             }
             return invokeV.booleanValue;
         }

@@ -14,6 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xy4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xy4(Drawable drawable, int i) {
@@ -34,23 +36,15 @@ public class xy4 extends ImageSpan {
                 return;
             }
         }
+        this.a = 0;
+        this.b = 2;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            if (((ImageSpan) this).mVerticalAlignment == -100) {
-                Drawable drawable = getDrawable();
-                canvas.save();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                int i6 = fontMetricsInt.top;
-                canvas.translate(f, i4 + i6 + (((fontMetricsInt.bottom - i6) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-                return;
-            }
-            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
         }
     }
 
@@ -59,7 +53,7 @@ public class xy4 extends ImageSpan {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.a + this.b;
         }
         return invokeCommon.intValue;
     }

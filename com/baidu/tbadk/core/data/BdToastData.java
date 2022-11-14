@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -24,6 +25,8 @@ public class BdToastData implements Serializable {
     public List<ContentBean> content;
     @SerializedName("icon_type")
     public int iconType;
+    @SerializedName("url")
+    public String url;
 
     /* loaded from: classes3.dex */
     public static class ContentBean implements Serializable {
@@ -113,10 +116,19 @@ public class BdToastData implements Serializable {
         return invokeV.intValue;
     }
 
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
                 return new JSONObject(new Gson().toJson(this));
             } catch (JSONException e) {
@@ -129,7 +141,7 @@ public class BdToastData implements Serializable {
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
             return;
         }
         try {
@@ -141,21 +153,28 @@ public class BdToastData implements Serializable {
 
     public void setContent(List<ContentBean> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.content = list;
         }
     }
 
     public void setIconType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.iconType = i;
+        }
+    }
+
+    public void setUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.url = str;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -173,6 +192,7 @@ public class BdToastData implements Serializable {
                     }
                 }
             }
+            this.url = jSONObject.optString("url");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

@@ -1,4 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface tc5 extends sc5, vc5 {
+public interface tc5 {
 }

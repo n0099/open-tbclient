@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rp4;
+import com.baidu.tieba.sp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f1), TbConfig.URL_BAIDU_SINGKIL);
+                sp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f2), TbConfig.URL_BAIDU_SINGKIL);
                 if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }
@@ -154,12 +154,12 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0523, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092468);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092467);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09242b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0524, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092477);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092476);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09243a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923de);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -187,13 +187,13 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i > 0) {
-                this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e3c), StringHelper.stringForVideoTime(i * 1000)));
+                this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e41), StringHelper.stringForVideoTime(i * 1000)));
             } else {
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             }
             if (i2 > 0) {
-                this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e38), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+                this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e3d), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
             } else {
                 this.b.setVisibility(8);
                 this.d.setVisibility(8);

@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.File;
@@ -283,7 +282,7 @@ public class CpuInfo implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String property = System.getProperty("os.arch");
-            if (TextUtils.isEmpty(property) || !property.endsWith(WebKitFactory.OS_64)) {
+            if (TextUtils.isEmpty(property) || !property.endsWith("64")) {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
                     String str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");

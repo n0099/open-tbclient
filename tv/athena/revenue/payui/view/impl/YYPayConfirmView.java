@@ -16,11 +16,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g7a;
-import com.baidu.tieba.l7a;
+import com.baidu.tieba.d8a;
+import com.baidu.tieba.l8a;
 import com.baidu.tieba.q7a;
-import com.baidu.tieba.s7a;
-import com.baidu.tieba.u6a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.u8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,37 +34,37 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayConfirmView extends LinearLayout implements q7a {
+public class YYPayConfirmView extends LinearLayout implements q8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public q7a.a c;
+    public q8a.a c;
     public GridView d;
     public TextView e;
     public View f;
     public Button g;
     public TextView h;
     public PayUIKitConfig i;
-    public s7a j;
+    public u8a j;
     public GiftBagsInfo k;
     public List<GiftBagItemInfo> l;
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, windowParams) == null) {
@@ -101,7 +101,7 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.d();
+            this.a.f();
         }
     }
 
@@ -127,19 +127,19 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
         this.a = i;
         this.b = i2;
         this.i = payUIKitConfig;
-        c(context);
-        u6a.d(this.a, this.b, "15", "", "", "");
+        e(context);
+        q7a.d(this.a, this.b, "15", "", "", "");
     }
 
-    @Override // com.baidu.tieba.q7a
-    public void setCallback(q7a.a aVar) {
+    @Override // com.baidu.tieba.q8a
+    public void setCallback(q8a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.c = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.q7a
+    @Override // com.baidu.tieba.q8a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, giftBagsInfo) == null) {
@@ -148,7 +148,7 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
         }
     }
 
-    public final boolean b() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -161,28 +161,28 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
         return invokeV.booleanValue;
     }
 
-    public final void d() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             RLog.info("YYPayConfirmView", "onContinueBtnClick");
-            q7a.a aVar = this.c;
+            q8a.a aVar = this.c;
             if (aVar != null) {
                 aVar.a();
             }
-            u6a.d(this.a, this.b, "16", "", "", "");
+            q7a.d(this.a, this.b, "16", "", "", "");
         }
     }
 
-    public final void e() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !TextUtils.isEmpty(this.k.giveupButtonMsg)) {
             this.g.setText(this.k.giveupButtonMsg);
         }
     }
 
-    public final void f() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (TextUtils.isEmpty(this.k.giveupSubtitle)) {
                 this.e.setVisibility(4);
                 return;
@@ -192,9 +192,9 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
         }
     }
 
-    public final void g() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (TextUtils.isEmpty(this.k.giveupTitle)) {
                 this.h.setVisibility(4);
                 return;
@@ -204,37 +204,37 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
         }
     }
 
-    public final void c(Context context) {
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, l7a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06c2, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090448);
+            LayoutInflater.from(new ContextThemeWrapper(context, l8a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06c4, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090449);
             this.g = button;
             button.setOnClickListener(new a(this));
-            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090d20);
+            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090d21);
             this.d = gridView;
             int i = 0;
             gridView.setSelector(new ColorDrawable(0));
-            s7a s7aVar = new s7a(context, this.l, this.i);
-            this.j = s7aVar;
-            this.d.setAdapter((ListAdapter) s7aVar);
+            u8a u8aVar = new u8a(context, this.l, this.i);
+            this.j = u8aVar;
+            this.d.setAdapter((ListAdapter) u8aVar);
             GridView gridView2 = this.d;
-            if (!b()) {
+            if (!c()) {
                 i = 8;
             }
             gridView2.setVisibility(i);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c9);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091c99);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d8);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091ca4);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             RLog.info("YYPayConfirmView", "refreshView mGiftBagsInfo:" + this.k);
-            if (!b()) {
+            if (!c()) {
                 RLog.error("YYPayConfirmView", "refreshView error imageLoaderSupplierValid false", new Object[0]);
                 return;
             }
@@ -248,10 +248,10 @@ public class YYPayConfirmView extends LinearLayout implements q7a {
                 this.l.clear();
                 this.l.addAll(this.k.giftbag);
                 this.j.notifyDataSetChanged();
-                g7a.a(this.l.size(), this.f, this.d);
+                d8a.a(this.l.size(), this.f, this.d);
+                i();
+                h();
                 g();
-                f();
-                e();
                 return;
             }
             RLog.error("YYPayConfirmView", "refreshView error giftbag empty", new Object[0]);

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface bb1 {
-    void onError(String str);
-
-    void onSuccess(String str);
+    void a(JSONObject jSONObject);
 }

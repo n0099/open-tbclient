@@ -1,34 +1,100 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.u50;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.v50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class x50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, u50.a aVar) {
-        String str;
+    /* loaded from: classes6.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class[] a;
+        public final /* synthetic */ v50.a b;
+        public final /* synthetic */ Context c;
+
+        public a(Class[] clsArr, v50.a aVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {clsArr, aVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = clsArr;
+            this.b = aVar;
+            this.c = context;
+        }
+
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE] complete} */
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+                return;
+            }
+            try {
+                try {
+                    Object invoke = this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder);
+                    this.b.a(true, (String) invoke.getClass().getMethod("getOAID", new Class[0]).invoke(invoke, new Object[0]));
+                } finally {
+                    try {
+                        this.c.unbindService(this);
+                    } catch (Throwable unused) {
+                    }
+                }
+            } catch (Throwable unused2) {
+                this.b.a(false, null);
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+    }
+
+    public static void a(Context context, v50.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
             if (context == null) {
                 aVar.a(false, null);
                 return;
             }
+            Intent intent = new Intent();
+            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
+            Class[] clsArr = new Class[1];
             try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
-                if (query != null) {
-                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                    query.close();
-                } else {
-                    str = null;
-                }
-                aVar.a(true, str);
+                clsArr[0] = Class.forName("com.samsung.android.deviceidservice.IDeviceIdService$Stub");
             } catch (Throwable unused) {
+            }
+            if (clsArr[0] == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                context.bindService(intent, new a(clsArr, aVar, context), 1);
+            } catch (Throwable unused2) {
                 aVar.a(false, null);
             }
         }

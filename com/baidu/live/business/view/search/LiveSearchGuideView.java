@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qc0;
+import com.baidu.tieba.rc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,16 +68,16 @@ public class LiveSearchGuideView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2b);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d29);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d30);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2e);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d28);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2f);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2d);
                 this.b.setTextColor(-1);
             } else if ("night".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2b);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d29);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d30);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2e);
                 this.b.setTextColor(-1);
             }
         }
@@ -108,9 +108,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0559, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091394);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091395);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055a, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091399);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09139a);
             c();
         }
     }
@@ -119,7 +119,7 @@ public class LiveSearchGuideView extends FrameLayout {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.b) != null) {
-            qc0.h(textView, 1, 12.0f);
+            rc0.h(textView, 1, 12.0f);
         }
     }
 }

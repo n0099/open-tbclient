@@ -1,100 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class ky0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ky0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
+    public static final void a(ry0 mpdModel, JSONArray clarityUrlList) {
+        ArrayList<ny0> a;
+        int i;
+        boolean z;
+        ny0 ny0Var;
+        ArrayList<Object> d;
+        ArrayList<ny0> a2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929287, "Lcom/baidu/tieba/ky0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947929287, "Lcom/baidu/tieba/ky0;");
-                return;
-            }
-        }
-        a = new ky0();
-    }
-
-    public ky0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final JSONArray b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            qy0 c = a.c(str);
-            if (c != null) {
-                JSONArray jSONArray = new JSONArray();
-                ly0.a(c, jSONArray);
-                jy0.a(c, jSONArray);
-                return jSONArray;
-            }
-            return null;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public final qy0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("version", -1);
-                if (!a.a(optInt)) {
-                    return null;
+        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
+            py0 a3 = mpdModel.a();
+            if (a3 != null && (a = a3.a()) != null) {
+                py0 a4 = mpdModel.a();
+                if (a4 != null && (a2 = a4.a()) != null) {
+                    i = a2.size();
+                } else {
+                    i = 0;
                 }
-                qy0 qy0Var = new qy0();
-                qy0Var.e(optInt);
-                qy0Var.d(jSONObject.optString("mode"));
-                ly0.b(qy0Var, jSONObject);
-                jy0.b(qy0Var, jSONObject);
-                Unit unit = Unit.INSTANCE;
-                return qy0Var;
-            } catch (Exception unused) {
-                return null;
+                if (i > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    a = null;
+                }
+                if (a != null && (ny0Var = a.get(0)) != null && (d = ny0Var.d()) != null) {
+                    int length = clarityUrlList.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        Object obj = clarityUrlList.get(i2);
+                        if (!(obj instanceof JSONObject)) {
+                            obj = null;
+                        }
+                        JSONObject jSONObject = (JSONObject) obj;
+                        if (jSONObject != null) {
+                            Object obj2 = d.get(0);
+                            if (!(obj2 instanceof qy0)) {
+                                obj2 = null;
+                            }
+                            qy0 qy0Var = (qy0) obj2;
+                            if (qy0Var != null) {
+                                jSONObject.put("interact_url", qy0Var.a());
+                            }
+                        }
+                    }
+                }
             }
         }
-        return (qy0) invokeL.objValue;
+    }
+
+    public static final void b(ry0 mpdModel, JSONObject mpdJson) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
+            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
+            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int length2 = optJSONArray2.length();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                            if (optJSONObject3 != null) {
+                                arrayList2.add(new qy0(optJSONObject3.optString("url")));
+                            }
+                        }
+                        arrayList.add(new ny0(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
+                    }
+                }
+                mpdModel.c(new py0(arrayList));
+            }
+        }
     }
 }

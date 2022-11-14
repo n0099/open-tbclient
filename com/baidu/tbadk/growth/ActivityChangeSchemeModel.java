@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.b95;
-import com.baidu.tieba.fy4;
+import com.baidu.tieba.h95;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,14 +99,14 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    b95.c(scheme);
+                    h95.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.B();
                 } else {
-                    int a = fy4.a();
+                    int a = ky4.a();
                     if (a == 2) {
                         UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                        b95.c(scheme);
+                        h95.c(scheme);
                         return;
                     }
                     this.a.C(a);
@@ -145,7 +145,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                b95.b(str);
+                h95.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -171,13 +171,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                b95.b("a025");
+                h95.b("a025");
             } else if (i == 22) {
-                b95.b("a088");
+                h95.b("a088");
             } else if (i == 3) {
-                b95.b("a079");
+                h95.b("a079");
             } else if (i == 8) {
-                b95.b("a011");
+                h95.b("a011");
             }
         }
     }

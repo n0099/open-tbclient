@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface yz9<T, R> {
-    R call(T t);
+public interface yz9 {
+    boolean isUnsubscribed();
+
+    void unsubscribe();
 }

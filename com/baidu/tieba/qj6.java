@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qj6 extends SparseArray<ak6> {
+public class qj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public int a;
+    public boolean b;
 
     public qj6() {
         Interceptable interceptable = $ic;
@@ -24,67 +21,6 @@ public class qj6 extends SparseArray<ak6> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ak6 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.w(null);
-                    valueAt.j();
-                }
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ak6 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-            }
-        }
-    }
-
-    public void a(int i, ak6 ak6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, ak6Var) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            put(i, ak6Var);
-        }
-    }
-
-    public ak6 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return get(i);
-        }
-        return (ak6) invokeI.objValue;
-    }
-
-    public void e(ek6 ek6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ek6Var) == null) {
-            for (int i = 0; i < size(); i++) {
-                ak6 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.w(ek6Var);
-                }
             }
         }
     }

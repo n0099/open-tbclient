@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,17 +124,17 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         if ((interceptable != null && interceptable.invokeCommon(65538, this, new Object[]{fragment, Integer.valueOf(i), str, Boolean.valueOf(z)}) != null) || fragment == null) {
             return;
         }
-        FragmentTabHost.b bVar = new FragmentTabHost.b();
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.c = fragment;
-        bVar.a = i;
+        cVar.c = fragment;
+        cVar.a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.b = fragmentTabIndicator;
-        this.mTabHost.a(bVar);
+        cVar.b = fragmentTabIndicator;
+        this.mTabHost.b(cVar);
     }
 
     private void initTabSpec() {
@@ -152,13 +152,13 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 createAndAddTabSpec(item, pageType, tabTitle, false);
             }
         }
-        this.mTabHost.l();
+        this.mTabHost.m();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09165b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091662);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (!this.isSupportNight) {
@@ -167,7 +167,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 this.mNavigationBar.onCenterTextOnChangeSkin(0);
             }
             setNavigationBar(this.mNavigationBar);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092060);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09206c);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setVisibility(0);
             this.mTabHost.setup(getSupportFragmentManager());
@@ -219,12 +219,12 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                     }
                 }
             });
-            this.mTabHost.setOnTabSelectionListener(new FragmentTabHost.a(this) { // from class: com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.2
+            this.mTabHost.setOnTabSelectionListener(new FragmentTabHost.b(this) { // from class: com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AbsTabActivity this$0;
 
-                @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.a
+                @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
                 public boolean onPreTabSelectionChange(int i, boolean z) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
@@ -234,7 +234,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                     return invokeCommon.booleanValue;
                 }
 
-                @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.a
+                @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
                 public void onTabSelectionChanged(int i, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -260,11 +260,11 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 }
             });
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.mTabHost.q();
+            this.mTabHost.t();
             this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
             this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(xi.g(getActivity(), R.dimen.obfuscated_res_0x7f070258));
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(xi.g(getActivity(), R.dimen.obfuscated_res_0x7f070224));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070258));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
             initTabSpec();
             this.mTabHost.setCurrentTab(getCurrentIndex());
@@ -290,7 +290,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                     i2 = R.color.CAM_X0105;
                 }
                 fragmentTabWidget.setDiverColor(resources.getColor(i2));
-                this.mTabHost.p(i);
+                this.mTabHost.s(i);
             }
         }
     }

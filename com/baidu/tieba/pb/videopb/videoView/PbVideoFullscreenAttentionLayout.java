@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e18;
-import com.baidu.tieba.iz4;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.p18;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.wi;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public e18 c;
+    public p18 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
                 return 0;
             }
             if (threadData.isMutiForumThread()) {
-                if (wi.isEmpty(threadData.getForum_name())) {
+                if (xi.isEmpty(threadData.getForum_name())) {
                     return 0;
                 }
                 return 2;
@@ -130,8 +130,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e18 e18Var = this.c;
-            if (e18Var != null && e18Var.j() != null && this.c.j().getIsLike()) {
+            p18 p18Var = this.c;
+            if (p18Var != null && p18Var.j() != null && this.c.j().getIsLike()) {
                 return true;
             }
             return false;
@@ -142,14 +142,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ff, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0703, this);
             this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902eb);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906db);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906dc);
             this.a.setIsRound(true);
-            this.a.setBorderWidth(xi.g(context, R.dimen.tbds3));
+            this.a.setBorderWidth(yi.g(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new iz4());
+            this.b.setConfig(new nz4());
         }
     }
 
@@ -176,9 +176,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             int a = a(threadData);
             if (this.c == null) {
                 if (getContext() instanceof AbsPbActivity) {
-                    e18 e18Var = new e18(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-                    this.c = e18Var;
-                    e18Var.m("11");
+                    p18 p18Var = new p18(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = p18Var;
+                    p18Var.m("11");
                     this.c.l(this.d);
                 } else {
                     return;
@@ -187,9 +187,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.c.n(threadData.getAuthor());
             this.c.x(str);
             this.c.v(threadData);
-            e18 e18Var2 = this.c;
-            e18Var2.p = true;
-            e18Var2.w(a);
+            p18 p18Var2 = this.c;
+            p18Var2.p = true;
+            p18Var2.w(a);
         }
     }
 }

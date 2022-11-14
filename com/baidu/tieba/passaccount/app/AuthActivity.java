@@ -21,8 +21,8 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ew7;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.tv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -256,13 +256,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                tv7.f().b(z, str);
+                ew7.f().b(z, str);
             } else if (i == 1) {
-                tv7.f().e(z);
+                ew7.f().e(z);
             } else if (i == 2) {
-                tv7.f().c(z);
+                ew7.f().c(z);
             } else {
-                tv7.f().a(null);
+                ew7.f().a(null);
             }
             finish();
         }
@@ -365,7 +365,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0515);
+                setContentView(R.layout.obfuscated_res_0x7f0d0516);
                 PassManagerStatic.A();
                 init();
                 setupViews();
@@ -392,7 +392,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(j());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f0b16);
+                setTitleText(R.string.obfuscated_res_0x7f0f0b18);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.w);
                 this.sapiWebView.loadUrl(m(), k());
                 this.sapiWebView.setChangePwdCallback(new d(this));

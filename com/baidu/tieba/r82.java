@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.listener.RequestListener;
 /* loaded from: classes5.dex */
 public interface r82 {
-    void a(ImageRequest imageRequest);
-
-    void b(ImageRequest imageRequest);
-
-    void c(ImageRequest imageRequest, Throwable th);
-
-    void onCancel(String str);
+    RequestListener a(s82 s82Var);
 }

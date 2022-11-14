@@ -1,81 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class yj7 extends io4 {
+public class yj7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, yj7> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
-    @Override // com.baidu.tieba.io4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948332163, "Lcom/baidu/tieba/yj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948332163, "Lcom/baidu/tieba/yj7;");
+                return;
+            }
+        }
+        f = new HashMap<>();
     }
 
     public yj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
     }
 
-    @Override // com.baidu.tieba.io4, com.baidu.tieba.lo4
-    public no4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
-        Map.Entry<String, String> next;
+    public static yj7 a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
-            no4 no4Var = new no4();
-            if (obj instanceof si7) {
-                si7 si7Var = (si7) obj;
-                Intent intent = new Intent(baseContext, AlarmReceiver.class);
-                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-                boolean z = false;
-                int i = 0;
-                while (it.hasNext() && (next = it.next()) != null) {
-                    intent.putExtra(next.getKey(), next.getValue());
-                    if ("task_id".equals(next.getKey())) {
-                        i = Integer.parseInt(next.getValue());
-                    }
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                intent.setData(Uri.parse(currentAccount));
-                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
-                    z = true;
-                }
-                no4Var.a = z;
-                si7Var.m(true);
-                si7Var.l(no4Var.a);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            return no4Var;
+            sb.append(str);
+            return f.get(sb.toString());
         }
-        return (no4) invokeLLL.objValue;
+        return (yj7) invokeJL.objValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            if (TextUtils.isEmpty(this.b)) {
+                str = "";
+            } else {
+                str = this.b;
+            }
+            sb.append(str);
+            f.put(sb.toString(), this);
+        }
     }
 }

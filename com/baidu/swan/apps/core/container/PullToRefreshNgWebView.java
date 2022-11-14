@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.container;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.q23;
+import com.baidu.tieba.r23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,19 +15,19 @@ public class PullToRefreshNgWebView extends PullToRefreshBaseWebView<NgWebView> 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshNgWebView(Context context, q23<NgWebView> q23Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, q23Var, headertype);
+    public PullToRefreshNgWebView(Context context, r23<NgWebView> r23Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, r23Var, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, q23Var, headertype};
+            Object[] objArr = {context, r23Var, headertype};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (q23) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (r23) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

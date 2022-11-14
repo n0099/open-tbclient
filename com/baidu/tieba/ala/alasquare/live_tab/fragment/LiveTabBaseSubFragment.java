@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
+import com.baidu.tieba.ja5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public da5 c;
+    public ja5 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -90,9 +90,9 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            da5 da5Var = this.c;
-            if (da5Var != null) {
-                da5Var.onChangeSkinType();
+            ja5 ja5Var = this.c;
+            if (ja5Var != null) {
+                ja5Var.onChangeSkinType();
             }
         }
     }
@@ -125,11 +125,11 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new da5(this.a, null);
+                this.c = new ja5(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c9a));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c9c));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() != null && this.c.b().getParent() == null) {

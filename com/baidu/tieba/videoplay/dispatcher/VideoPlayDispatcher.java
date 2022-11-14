@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ri5;
-import com.baidu.tieba.th8;
+import com.baidu.tieba.ei8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements th8 {
+public class VideoPlayDispatcher implements ei8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public class VideoPlayDispatcher implements th8 {
         }
     }
 
-    @Override // com.baidu.tieba.th8
+    @Override // com.baidu.tieba.ei8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class VideoPlayDispatcher implements th8 {
             videoItemData.video_url = jSONObject.optString("videoUrl");
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
-            videoItemData.video_duration = wg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-            if (wg.g(jSONObject.optString("videoHeight"), 0L) > wg.g(jSONObject.optString("videoWidth"), 0L)) {
+            videoItemData.video_duration = xg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+            if (xg.g(jSONObject.optString("videoHeight"), 0L) > xg.g(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
             } else {
                 z = false;
@@ -67,7 +67,7 @@ public class VideoPlayDispatcher implements th8 {
             videoItemData.forum_name = jSONObject.optString("forumName");
             boolean equals = "1".equals(jSONObject.optString("showComment"));
             arrayList.add(videoItemData);
-            ri5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", equals, false, wg.g(videoItemData.forum_id, 0L));
+            yi5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", equals, false, xg.g(videoItemData.forum_id, 0L));
         }
     }
 }

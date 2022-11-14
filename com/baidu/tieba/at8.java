@@ -11,16 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class at8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public final MainTabActivity a;
+    public final zr8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at8(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public at8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,20 +33,19 @@ public class at8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = zr8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zr8 zr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            j75 j75Var = null;
-            if (customResponsedMessage.getData() instanceof j75) {
-                j75Var = (j75) customResponsedMessage.getData();
-            }
-            if (j75Var != null && j75Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new i75(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092060), j75Var).m();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (zr8Var = this.b) != null && zr8Var.B() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.B().getTabWrapper().animate().translationY(this.b.B().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.B().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
             }
         }
     }

@@ -1,142 +1,104 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.novel.NovelMemberCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.wc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kd5 {
+public class kd5<T extends wc5> extends hd5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static kd5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909261, "Lcom/baidu/tieba/kd5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947909261, "Lcom/baidu/tieba/kd5;");
-        }
-    }
-
-    public kd5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kd5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.a = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = xi.j(TbadkCoreApplication.getInst());
     }
 
-    public static kd5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (kd5.class) {
-                    if (f == null) {
-                        f = new kd5();
-                    }
-                }
-            }
-            return f;
-        }
-        return (kd5) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-        }
-    }
-
-    public boolean b(View view2) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
+                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
+                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                wc5 wc5Var = (wc5) a();
+                if (wc5Var != null) {
+                    if (wc5Var instanceof vc5) {
+                        iv4.f();
+                        df<byte[]> e = iv4.e(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            wc5 wc5Var2 = (wc5) writeCacheMessage.getData();
+                            if (wc5Var2 == null) {
+                                BdCacheService.k().j(e);
+                            } else {
+                                e.remove(wc5Var2.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            wc5 wc5Var3 = (wc5) writeCacheMessage.getData();
+                            if (wc5Var3 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            e.g(wc5Var3.getCacheKey(), ((vc5) wc5Var3).toCacheByteArray());
+                            writeCacheRespMsg.setSuccess(true);
+                        }
+                    } else if (wc5Var instanceof yc5) {
+                        iv4.f();
+                        df<String> h = iv4.h(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            wc5 wc5Var4 = (wc5) writeCacheMessage.getData();
+                            if (wc5Var4 == null) {
+                                BdCacheService.k().j(h);
+                            } else {
+                                h.remove(wc5Var4.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            wc5 wc5Var5 = (wc5) writeCacheMessage.getData();
+                            if (wc5Var5 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            String k = ((yc5) wc5Var5).k();
+                            if (k != null) {
+                                h.g(wc5Var5.getCacheKey(), k);
+                                writeCacheRespMsg.setSuccess(true);
+                            }
+                        }
+                    }
+                }
+                return writeCacheRespMsg;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            if (i <= 0 || i >= this.b - this.a) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str, String str2, l55 l55Var, NovelMemberCardView novelMemberCardView, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, l55Var, novelMemberCardView, Integer.valueOf(i)}) == null) && l55Var != null && novelMemberCardView != null && novelMemberCardView.getVisibility() == 0) {
-            String valueOf = String.valueOf(l55Var.f());
-            if (l55Var.h()) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            if (b(novelMemberCardView.getNovelReadMoreButton()) && !l55Var.h()) {
-                if (this.c) {
-                    this.c = false;
-                    md5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
-                }
-            } else {
-                this.c = true;
-            }
-            if (b(novelMemberCardView.getNovelPaidButton()) && l55Var.h()) {
-                if (this.d) {
-                    this.d = false;
-                    md5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
-                }
-            } else {
-                this.d = true;
-            }
-            if (b(novelMemberCardView.getNovelCoverPage()) && !l55Var.h()) {
-                if (this.e) {
-                    this.e = false;
-                    md5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2, i);
-                    return;
-                }
-                return;
-            }
-            this.e = true;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

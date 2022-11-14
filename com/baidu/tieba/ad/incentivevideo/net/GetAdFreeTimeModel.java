@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fr5;
-import com.baidu.tieba.hi5;
-import com.baidu.tieba.ir5;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.zq5;
+import com.baidu.tieba.lr5;
+import com.baidu.tieba.oi5;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.ur5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,13 +65,13 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            fr5 adIncentiveVideoTaskData;
+            rr5 adIncentiveVideoTaskData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || hi5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || oi5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
                 return;
             }
-            long g = wg.g(adIncentiveVideoTaskData.a(), 0L) * 1000;
-            long g2 = wg.g(adIncentiveVideoTaskData.b(), 0L) * 1000;
+            long g = xg.g(adIncentiveVideoTaskData.a(), 0L) * 1000;
+            long g2 = xg.g(adIncentiveVideoTaskData.b(), 0L) * 1000;
             this.a.G(g);
             this.a.C(g2);
             this.a.F(g, g2);
@@ -139,7 +139,7 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_AD_FREE_TIME);
-            httpMessage.addParam("request_key", zq5.i().k());
+            httpMessage.addParam("request_key", lr5.i().k());
             sendMessage(httpMessage);
             return false;
         }
@@ -157,12 +157,12 @@ public class GetAdFreeTimeModel extends BdBaseModel {
     public final void F(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            if (ir5.J().N()) {
-                ir5.J().L(j);
+            if (ur5.K().P()) {
+                ur5.K().M(j);
             } else if (j2 > 0) {
-                ir5.J().Y(j2);
-                ir5.J().R(j2);
-                ir5.J().Z();
+                ur5.K().a0(j2);
+                ur5.K().T(j2);
+                ur5.K().b0();
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_FLOAT_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
@@ -171,7 +171,7 @@ public class GetAdFreeTimeModel extends BdBaseModel {
     public final void G(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0) {
-            CustomToast.newInstance().showToast(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f090f), String.valueOf((int) ((j / 1000) / 60))));
+            CustomToast.newInstance().showToast(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0911), String.valueOf((int) ((j / 1000) / 60))));
         }
     }
 }

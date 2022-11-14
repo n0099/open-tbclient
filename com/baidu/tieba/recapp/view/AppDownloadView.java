@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg8;
+import com.baidu.tieba.vg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class AppDownloadView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) {
-            return kg8.p(downloadData);
+            return vg8.p(downloadData);
         }
         return invokeL.intValue;
     }
@@ -163,9 +163,9 @@ public class AppDownloadView extends LinearLayout {
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0123, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902b4);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090b11);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b0f);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b10);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090b12);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b10);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b11);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -197,7 +197,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
         }
-        int j = kg8.n().j(downloadData.getId(), downloadData.getName());
+        int j = vg8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

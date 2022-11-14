@@ -1,45 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
-import com.baidu.tieba.dt;
-import com.baidu.tieba.et;
+import com.baidu.bdtask.component.toast.TaskToastViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class eq<VD extends ToastViewData, VM extends dt<VD>, View extends et<VM>> {
+public class eq extends et<TaskToastViewData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final VM b;
-    public final VD c;
 
-    public eq(View view2, VM vm, VD vd) {
+    public eq() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = view2;
-        this.b = vm;
-        this.c = vd;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.b);
-            this.b.b(this.c);
         }
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.pu4;
+import com.baidu.tieba.pw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageProgressItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ou4 a;
+    public pu4 a;
     public TbImageView b;
     public RoundTbImageView c;
     public TbImageView d;
@@ -51,15 +51,15 @@ public class ImageProgressItemView extends FrameLayout {
         }
     }
 
-    public void b(ou4 ou4Var) {
+    public void b(pu4 pu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ou4Var) == null) {
-            this.a = ou4Var;
-            if (ou4Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var) == null) {
+            this.a = pu4Var;
+            if (pu4Var == null) {
                 return;
             }
-            this.c.K(ou4Var.a(), 10, false);
-            this.e.setText(String.format("%s人", ou4Var.b()));
+            this.c.K(pu4Var.a(), 10, false);
+            this.e.setText(String.format("%s人", pu4Var.b()));
             d();
         }
     }
@@ -110,20 +110,20 @@ public class ImageProgressItemView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03cd, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ce, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed3);
             this.b = tbImageView;
-            tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0808fd);
-            RoundTbImageView roundTbImageView = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f090ed2);
+            tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f080902);
+            RoundTbImageView roundTbImageView = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f090ed5);
             this.c = roundTbImageView;
             roundTbImageView.setDrawBorder(true);
             this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
             this.c.setBorderColor(SkinManager.getColor(R.color.black_alpha10));
             this.c.setBorderSurroundContent(true);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed3);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed6);
             this.d = tbImageView2;
-            tbImageView2.setImageResource(R.drawable.obfuscated_res_0x7f0808e8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ed4);
+            tbImageView2.setImageResource(R.drawable.obfuscated_res_0x7f0808ed);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ed7);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -131,17 +131,17 @@ public class ImageProgressItemView extends FrameLayout {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            kw4.d(this.e).v(R.color.CAM_X0105);
+            pw4.d(this.e).v(R.color.CAM_X0105);
         }
     }
 
     public final void d() {
-        ou4 ou4Var;
+        pu4 pu4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ou4Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (pu4Var = this.a) == null) {
             return;
         }
-        if (ou4Var.c()) {
+        if (pu4Var.c()) {
             setAlpha(1.0f);
         } else {
             setAlpha(0.4f);

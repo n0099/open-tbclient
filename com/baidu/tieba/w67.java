@@ -2,19 +2,16 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TimeLineInfo;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public String a;
+    public String b;
 
     public w67() {
         Interceptable interceptable = $ic;
@@ -30,20 +27,18 @@ public class w67 {
         }
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
-        String str;
+    public static w67 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            w67 w67Var = new w67();
+            w67Var.a = jSONObject.optString("content");
+            w67Var.b = jSONObject.optString("tid");
+            return w67Var;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        if (wi.isEmpty(timeLineInfo.small_title)) {
-            str = timeLineInfo.show_time;
-        } else {
-            str = timeLineInfo.small_title;
-        }
-        this.d = str;
-        this.e = timeLineInfo.bg_color;
+        return (w67) invokeL.objValue;
     }
 }

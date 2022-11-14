@@ -1,38 +1,37 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.l56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public iv4 b;
-    public iv4 c;
-    public iv4 d;
-    public int e;
-    public View.OnClickListener f;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements n56 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m56 a;
+        public final /* synthetic */ l56.a a;
 
-        public a(m56 m56Var) {
+        public a(l56.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m56Var};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,110 +41,197 @@ public class m56 {
                     return;
                 }
             }
-            this.a = m56Var;
+            this.a = aVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.n56
+        public void onFailed(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id != R.id.obfuscated_res_0x7f091ad3 && id != R.id.obfuscated_res_0x7f092715) {
-                    if (id == R.id.obfuscated_res_0x7f091ace) {
-                        if (this.a.b.isShowing()) {
-                            pl8.b("1");
-                            this.a.b.dismiss();
-                            pl8.a("1", "2");
-                        }
-                        if (this.a.c == null) {
-                            m56 m56Var = this.a;
-                            m56Var.c = mp5.a(m56Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f4a, R.string.obfuscated_res_0x7f0f112b);
-                        }
-                        this.a.c.show();
-                        pl8.b("2");
-                        return;
-                    } else if (id == R.id.obfuscated_res_0x7f090426) {
-                        m56.h(this.a);
-                        if (this.a.c.isShowing()) {
-                            this.a.c.dismiss();
-                            pl8.a("2", "2");
-                            if (this.a.d == null) {
-                                m56 m56Var2 = this.a;
-                                m56Var2.d = mp5.a(m56Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f4b, R.string.obfuscated_res_0x7f0f1120);
-                                this.a.d.show();
-                                pl8.b("3");
-                            }
-                        }
-                        if (this.a.d.isShowing() && this.a.e == 2) {
-                            this.a.d.dismiss();
-                            pl8.a("3", "2");
-                            this.a.a.finish();
-                            return;
-                        }
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                if (this.a.b != null && this.a.b.isShowing()) {
-                    pl8.b("1");
-                    this.a.b.dismiss();
-                    SmartLaunchStats.onConfirmPrivacy();
-                    pl8.a("1", "1");
-                    zw4.l("logoController", false);
-                }
-                if (this.a.c != null && this.a.c.isShowing()) {
-                    this.a.c.dismiss();
-                    pl8.a("2", "1");
-                    zw4.l("logoController", false);
-                }
-                if (this.a.d != null && this.a.d.isShowing()) {
-                    this.a.d.dismiss();
-                    pl8.a("3", "1");
-                    zw4.l("logoController", false);
-                }
-                ky4.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
-                PermissionUtil.setIsAgreePrivacyPolicy(true);
-                PermissionUtil.starMainTabActivity(this.a.a, 2);
-                this.a.a.finish();
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.a(2, i);
             }
         }
     }
 
-    public m56(@NonNull BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class b implements n56 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l56.a a;
+
+        public b(l56.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.n56
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.a(2, i);
             }
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
     }
 
-    public static /* synthetic */ int h(m56 m56Var) {
-        int i = m56Var.e;
-        m56Var.e = i + 1;
-        return i;
-    }
-
-    public void i() {
+    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iv4 b = mp5.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) {
+            return b(context, uri, null, bundle, z);
         }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean b(Context context, Uri uri, l56 l56Var, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, l56Var, bundle, Boolean.valueOf(z)})) == null) {
+            l56.a aVar = new l56.a();
+            if (uri == null) {
+                if (l56Var != null) {
+                    l56Var.b(1, "Uri is empty.", aVar);
+                }
+                return false;
+            } else if (!"deeplink".equals(uri.getHost())) {
+                if (l56Var != null) {
+                    l56Var.b(2, "Uri host is not deeplink.", aVar);
+                }
+                return false;
+            } else {
+                String queryParameter = uri.getQueryParameter(DeepLinkItem.DEEPLINK_APPURL_KEY);
+                String queryParameter2 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
+                String queryParameter3 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                String queryParameter4 = uri.getQueryParameter("pkgName");
+                String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
+                boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
+                if (e(context, queryParameter, queryParameter4, l56Var, booleanQueryParameter, aVar) || f(context, queryParameter2, queryParameter5, l56Var, booleanQueryParameter, aVar)) {
+                    return true;
+                }
+                return g(context, queryParameter3, bundle, l56Var, aVar, z);
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean c(Context context, String str, String str2, boolean z, n56 n56Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), n56Var})) == null) {
+            try {
+                Intent b2 = o56.b(context, str, str2, z, n56Var);
+                if (b2 == null) {
+                    return false;
+                }
+                context.startActivity(b2);
+                return true;
+            } catch (Exception unused) {
+                if (n56Var != null) {
+                    n56Var.onFailed(-101);
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
+            String[] strArr = {str};
+            UrlManager urlManager = UrlManager.getInstance();
+            if (urlManager == null || (tbPageContext = (TbPageContext) x9.a(context)) == null) {
+                return false;
+            }
+            if (urlManager.UrlValidated(str)) {
+                urlManager.dealOneLink(tbPageContext, strArr, true);
+                return true;
+            }
+            return urlManager.dealOneLink(tbPageContext, strArr);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean e(Context context, String str, String str2, l56 l56Var, boolean z, l56.a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, l56Var, Boolean.valueOf(z), aVar})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(1, -4);
+                return false;
+            } else if (!c(context, str, str2, z, new a(aVar))) {
+                return false;
+            } else {
+                aVar.b(1);
+                if (l56Var != null) {
+                    l56Var.a(1, aVar);
+                }
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean f(Context context, String str, String str2, l56 l56Var, boolean z, l56.a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, l56Var, Boolean.valueOf(z), aVar})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(2, -5);
+                return false;
+            } else if (!c(context, str, str2, z, new b(aVar))) {
+                return false;
+            } else {
+                aVar.b(2);
+                if (l56Var != null) {
+                    l56Var.a(2, aVar);
+                    return true;
+                }
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean g(Context context, String str, Bundle bundle, l56 l56Var, l56.a aVar, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, l56Var, aVar, Boolean.valueOf(z)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(3, -6);
+                if (l56Var != null) {
+                    l56Var.b(-6, "Uri web url is empty", aVar);
+                }
+                return false;
+            } else if (d(context, str, bundle, z)) {
+                aVar.b(3);
+                if (l56Var != null) {
+                    l56Var.a(3, aVar);
+                    return true;
+                }
+                return true;
+            } else {
+                aVar.a(3, -7);
+                if (l56Var != null) {
+                    l56Var.b(-7, "Uri web url open failed", aVar);
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

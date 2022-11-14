@@ -215,7 +215,7 @@ public final class c extends b {
                 }
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d043e, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d043f, this);
         this.mContext = context;
         initView();
     }
@@ -483,10 +483,10 @@ public final class c extends b {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091134);
-            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091135);
-            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09111e);
-            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091203);
+            this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091139);
+            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09113a);
+            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091123);
+            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091208);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
         }
     }

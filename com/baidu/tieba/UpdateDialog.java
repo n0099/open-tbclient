@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.qp5;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public qp5 j;
+    public cq5 j;
     public f k;
     public PermissionJudgePolicy l;
 
@@ -88,7 +88,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
-                    fy4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    ky4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -228,7 +228,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements qp5.f {
+    public class e implements cq5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -255,7 +255,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this(updateDialog);
         }
 
-        @Override // com.baidu.tieba.qp5.f
+        @Override // com.baidu.tieba.cq5.f
         public void a(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -263,7 +263,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (z && tp5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && fq5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -272,7 +272,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 this.a.j.t(false);
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0515);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0516);
                 if (!this.a.f) {
                     this.a.j.dismiss();
                     this.a.finish();
@@ -280,7 +280,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.qp5.f
+        @Override // com.baidu.tieba.cq5.f
         public void b(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -291,7 +291,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                if (z && tp5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && fq5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -304,7 +304,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.qp5.f
+        @Override // com.baidu.tieba.cq5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -313,7 +313,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.qp5.f
+        @Override // com.baidu.tieba.cq5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -323,7 +323,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.qp5.f
+        @Override // com.baidu.tieba.cq5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -375,7 +375,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.j.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f151c));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f1523));
                     this.this$0.finish();
                     this.this$0.P1();
                 } else {
@@ -442,9 +442,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            qp5 qp5Var = this.j;
-            if (qp5Var != null) {
-                qp5Var.dismiss();
+            cq5 cq5Var = this.j;
+            if (cq5Var != null) {
+                cq5Var.dismiss();
             }
             f fVar = this.k;
             if (fVar != null) {
@@ -458,9 +458,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            qp5 qp5Var = this.j;
-            if (qp5Var != null) {
-                qp5Var.m(getPageContext(), i);
+            cq5 cq5Var = this.j;
+            if (cq5Var != null) {
+                cq5Var.m(getPageContext(), i);
             }
         }
     }
@@ -564,16 +564,16 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            qp5 qp5Var = new qp5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
-            this.j = qp5Var;
-            qp5Var.setCancelable(false);
+            cq5 cq5Var = new cq5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+            this.j = cq5Var;
+            cq5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));
             this.j.p(new c(this));
             this.j.u(new d(this));
             if (!isFinishing()) {
-                bh.j(this.j, getPageContext());
+                ch.j(this.j, getPageContext());
             }
         }
     }

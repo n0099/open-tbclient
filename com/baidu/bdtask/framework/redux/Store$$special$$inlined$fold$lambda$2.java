@@ -1,6 +1,6 @@
 package com.baidu.bdtask.framework.redux;
 
-import com.baidu.tieba.hr;
+import com.baidu.tieba.ir;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,12 +40,12 @@ public final class Store$$special$$inlined$fold$lambda$2 extends Lambda implemen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Incorrect return type in method signature: ()TState; */
     @Override // kotlin.jvm.functions.Function0
-    public final hr invoke() {
+    public final ir invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.this$0.a();
         }
-        return (hr) invokeV.objValue;
+        return (ir) invokeV.objValue;
     }
 }

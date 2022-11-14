@@ -1,93 +1,103 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.PayFlowType;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import java.util.List;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes4.dex */
-public class h6a {
+public class h6a implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Dialog c;
+    public IYYPayAmountView.ViewParams d;
+    public Activity e;
+    public IPayCallback<CurrencyChargeMessage> f;
+    public s5a g;
 
-    public static void a(String str, int i, int i2, PayFlowType payFlowType) {
+    public h6a(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, s5a s5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, s5aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            l5a viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.c(str, payFlowType);
-            }
+        }
+        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = dialog;
+        this.d = viewParams;
+        this.e = activity;
+        this.f = iPayCallback;
+        this.g = s5aVar;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onRefreshViewFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            PayFinishInfo a = b8a.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
+            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
+            this.g.j(a);
+            a8a.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
     }
 
-    public static void b(String str, int i, int i2, PayFlowType payFlowType) {
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            l5a viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.a(str, payFlowType);
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
+            a8a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.l(activity, list, str, this.d, this.f);
         }
     }
 
-    public static void c(int i, int i2, PayFlowType payFlowType, PayDialogType payDialogType) {
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toPayWayDialog(k7a k7aVar, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, payDialogType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
-                return;
-            }
-            l5a viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.d(payFlowType, payDialogType);
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, k7aVar, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
+            a8a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.t(this.e, k7aVar, list, str, this.d, this.f);
+            q7a.b(this.a, this.b, PayUIEventType.purchasegotopay);
         }
     }
 
-    public static void d(int i, int i2, PayFlowType payFlowType) {
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toBannerConfigWebPage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65539, null, i, i2, payFlowType) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            l5a viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.b(payFlowType);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.g.o(this.e, str);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.u(this.e);
         }
     }
 }

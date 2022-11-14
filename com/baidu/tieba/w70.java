@@ -1,41 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
 public final class w70 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            if (bArr != null) {
-                try {
-                    if (bArr.length > 0) {
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                        gZIPOutputStream.write(bArr);
-                        gZIPOutputStream.finish();
-                        gZIPOutputStream.close();
-                        bArr2 = byteArrayOutputStream.toByteArray();
-                        byteArrayOutputStream.close();
-                        return bArr2;
-                    }
-                    return null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return bArr2;
-                }
-            }
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948223353, "Lcom/baidu/tieba/w70;")) == null) {
+            return;
         }
-        return (byte[]) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948223353, "Lcom/baidu/tieba/w70;");
+        }
     }
 }

@@ -21,6 +21,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderSt
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.PayOrderResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.RequestParams;
 import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
@@ -86,9 +87,27 @@ public class PayRespDispatcher {
         }
     }
 
+    private void onGetSplitOrderConfig(IResponse iResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, iResponse) == null) {
+            IRequest request = iResponse.getRequest();
+            SplitOrderConfigResult splitOrderConfigResult = (SplitOrderConfigResult) getResponseData(SplitOrderConfigResult.class, iResponse);
+            if (request != null) {
+                RequestParams requestParams = (RequestParams) request.getExtParam();
+                if (iResponse.isSuccess() && splitOrderConfigResult != null) {
+                    onSuccess(requestParams, splitOrderConfigResult, null);
+                    RLog.info(TAG, "onGetSplitOrderConfig success");
+                    return;
+                }
+                RLog.error(TAG, "onGetSplitOrderConfig fail code = %d, errMsg = %s", Integer.valueOf(iResponse.getResponseCode()), iResponse.getMessage());
+                onFail("", iResponse.getResponseCode(), iResponse.getMessage(), requestParams.getCallback(), null);
+            }
+        }
+    }
+
     private void onQueryUserAccount(IResponse iResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, iResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, iResponse) == null) {
             IRequest request = iResponse.getRequest();
             MyBalanceResult myBalanceResult = (MyBalanceResult) getResponseData(MyBalanceResult.class, iResponse);
             if (request != null) {
@@ -199,7 +218,7 @@ public class PayRespDispatcher {
 
     private void onQueryProductList(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, this, iResponse, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, this, iResponse, i) == null) {
             IRequest request = iResponse.getRequest();
             ProductListResult productListResult = (ProductListResult) getResponseData(ProductListResult.class, iResponse);
             HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -235,7 +254,7 @@ public class PayRespDispatcher {
 
     private void onOrderProduct(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, this, iResponse, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, this, iResponse, i) == null) {
             IRequest request = iResponse.getRequest();
             PayOrderResult payOrderResult = (PayOrderResult) getResponseData(PayOrderResult.class, iResponse);
             if (request != null) {
@@ -327,20 +346,24 @@ public class PayRespDispatcher {
             if (i != 1005) {
                 if (i != 1061) {
                     if (i != 1071) {
-                        if (i != 40423898) {
-                            if (i != 1021) {
-                                if (i != 1022) {
-                                    onErrorRespone(iResponse);
-                                    return;
-                                } else {
-                                    onOrderProduct(iResponse, 1022);
-                                    return;
+                        if (i != 1079) {
+                            if (i != 40423898) {
+                                if (i != 1021) {
+                                    if (i != 1022) {
+                                        onErrorRespone(iResponse);
+                                        return;
+                                    } else {
+                                        onOrderProduct(iResponse, 1022);
+                                        return;
+                                    }
                                 }
+                                onQueryProductList(iResponse, 1021);
+                                return;
                             }
-                            onQueryProductList(iResponse, 1021);
+                            onCurrencyChargeMessage(iResponse);
                             return;
                         }
-                        onCurrencyChargeMessage(iResponse);
+                        onGetSplitOrderConfig(iResponse);
                         return;
                     }
                     onBannerConfig(iResponse);

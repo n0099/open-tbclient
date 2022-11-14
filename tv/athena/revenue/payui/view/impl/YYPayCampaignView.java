@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.p7a;
+import com.baidu.tieba.l8a;
+import com.baidu.tieba.p8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements p7a {
+public class YYPayCampaignView extends LinearLayout implements p8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
@@ -42,21 +42,21 @@ public class YYPayCampaignView extends LinearLayout implements p7a {
     public PayAmountCampaignListAdapter g;
     public LinearLayoutManager h;
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, windowParams) == null) {
@@ -84,15 +84,15 @@ public class YYPayCampaignView extends LinearLayout implements p7a {
         this.f = new ArrayList();
         this.a = activity;
         this.e = payUIKitConfig;
-        a(activity);
+        b(activity);
     }
 
-    public final void a(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, l7a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d06c0, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091ce2);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c9a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(new ContextThemeWrapper(context, l8a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d06c2, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091cee);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ca5);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);
@@ -101,7 +101,7 @@ public class YYPayCampaignView extends LinearLayout implements p7a {
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -121,7 +121,7 @@ public class YYPayCampaignView extends LinearLayout implements p7a {
         }
     }
 
-    @Override // com.baidu.tieba.p7a
+    @Override // com.baidu.tieba.p8a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {

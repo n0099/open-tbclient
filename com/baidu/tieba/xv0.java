@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class xv0 implements xm0 {
+public class xv0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile wv0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xv0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xm0
-    public ty0 create() {
+    public static synchronized wv0 a() {
         InterceptResult invokeV;
+        wv0 wv0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new aw0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (xv0.class) {
+                if (a == null) {
+                    a = new wv0();
+                }
+                wv0Var = a;
+            }
+            return wv0Var;
         }
-        return (ty0) invokeV.objValue;
+        return (wv0) invokeV.objValue;
     }
 }

@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.FeedbackEditActivity;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes6.dex */
 public class n0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -52,11 +52,11 @@ public class n0 implements View.OnClickListener {
             FeedbackEditActivity feedbackEditActivity2 = this.a;
             if (!feedbackEditActivity2.x) {
                 if (feedbackEditActivity2.m.getText().toString().trim().length() > 30) {
-                    Toast.makeText(feedbackEditActivity2, t1.a("32"), 0).show();
+                    Toast.makeText(feedbackEditActivity2, t1.a(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK), 0).show();
                 } else if (!feedbackEditActivity2.O) {
                     Toast.makeText(feedbackEditActivity2, "请勾选投诉须知", 0).show();
                 } else if (feedbackEditActivity2.l.getText().toString().trim().length() < 8) {
-                    Toast.makeText(feedbackEditActivity2, t1.a(PayConfig.PAYMENT_POS_KEY_MANGA), 0).show();
+                    Toast.makeText(feedbackEditActivity2, t1.a("37"), 0).show();
                 } else if (feedbackEditActivity2.l.getText().toString().trim().length() > 200) {
                     Toast.makeText(feedbackEditActivity2, t1.a("16"), 0).show();
                 } else if (!p1.e(feedbackEditActivity2)) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.au4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt4 data;
+    public au4 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonFollowMessage() {
@@ -33,7 +33,7 @@ public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Obj
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.zt4' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.au4' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
@@ -42,13 +42,13 @@ public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Obj
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.data;
         }
-        return (zt4) invokeV.objValue;
+        return (au4) invokeV.objValue;
     }
 
-    public void setData(zt4 zt4Var) {
+    public void setData(au4 au4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zt4Var) == null) {
-            this.data = zt4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, au4Var) == null) {
+            this.data = au4Var;
         }
     }
 }

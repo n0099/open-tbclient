@@ -26,17 +26,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c95;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.fk5;
-import com.baidu.tieba.lm5;
-import com.baidu.tieba.mm5;
-import com.baidu.tieba.nm5;
-import com.baidu.tieba.om5;
-import com.baidu.tieba.pm5;
-import com.baidu.tieba.q55;
-import com.baidu.tieba.rm5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.i95;
+import com.baidu.tieba.nk5;
+import com.baidu.tieba.pk5;
+import com.baidu.tieba.v55;
+import com.baidu.tieba.vm5;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.xm5;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.ym5;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,16 +57,16 @@ public class TbRichTextItem extends OrmObject {
     public TbRichTextImageInfo c;
     public TbRichTextVoiceInfo d;
     public TbRichTextEmotionInfo e;
-    public rm5 f;
+    public bn5 f;
     public TbRichTextLinkButtonInfo g;
     public TbRichTextLinkImageInfo h;
     public TbRichTextMemeInfo i;
     public TbRichTextTiebaPlusInfo j;
-    public om5 k;
+    public ym5 k;
     public boolean l;
 
     /* loaded from: classes3.dex */
-    public class a extends nm5 {
+    public class a extends xm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String h;
@@ -95,18 +95,18 @@ public class TbRichTextItem extends OrmObject {
             this.h = str2;
         }
 
-        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.xm5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(R.id.obfuscated_res_0x7f0920d4, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f0920e1, Boolean.TRUE);
                 this.i.d0(this.h);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends nm5 {
+    public class b extends xm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String h;
@@ -135,18 +135,18 @@ public class TbRichTextItem extends OrmObject {
             this.h = str2;
         }
 
-        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.xm5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(R.id.obfuscated_res_0x7f0920d4, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f0920e1, Boolean.TRUE);
                 this.i.d0(this.h);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends nm5 {
+    public class c extends xm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String h;
@@ -175,7 +175,7 @@ public class TbRichTextItem extends OrmObject {
             this.h = str2;
         }
 
-        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.xm5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.i.b == null) {
@@ -228,12 +228,12 @@ public class TbRichTextItem extends OrmObject {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
-            return mm5.f(num);
+            return wm5.f(num);
         }
         return invokeL.intValue;
     }
 
-    public final CharSequence D(ArrayList<lm5> arrayList) {
+    public final CharSequence D(ArrayList<vm5> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
@@ -325,7 +325,7 @@ public class TbRichTextItem extends OrmObject {
         return (TbRichTextImageInfo) invokeV.objValue;
     }
 
-    public om5 J() {
+    public ym5 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -334,7 +334,7 @@ public class TbRichTextItem extends OrmObject {
             }
             return null;
         }
-        return (om5) invokeV.objValue;
+        return (ym5) invokeV.objValue;
     }
 
     public TbRichTextLinkButtonInfo K() {
@@ -400,7 +400,7 @@ public class TbRichTextItem extends OrmObject {
         return (TiebaPlusInfo) invokeV.objValue;
     }
 
-    public rm5 V() {
+    public bn5 V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -409,7 +409,7 @@ public class TbRichTextItem extends OrmObject {
             }
             return this.f;
         }
-        return (rm5) invokeV.objValue;
+        return (bn5) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo Y() {
@@ -434,11 +434,11 @@ public class TbRichTextItem extends OrmObject {
         return invokeV.intValue;
     }
 
-    public final SpannableString H(ArrayList<lm5> arrayList) {
+    public final SpannableString H(ArrayList<vm5> arrayList) {
         InterceptResult invokeL;
         TbRichTextCommInfo tbRichTextCommInfo;
         String str;
-        c95.a f;
+        i95.a f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, arrayList)) == null) {
             if (this.a == 4 && (tbRichTextCommInfo = this.b) != null && tbRichTextCommInfo.getText() != null && this.b.getLink() != null) {
@@ -451,7 +451,7 @@ public class TbRichTextItem extends OrmObject {
                         str = SmallTailInfo.EMOTION_PREFIX + j + SmallTailInfo.EMOTION_SUFFIX;
                     }
                     SpannableString spannableString = new SpannableString(str + " ");
-                    lm5 c2 = TbFaceManager.i().c(text);
+                    vm5 c2 = TbFaceManager.i().c(text);
                     if (arrayList != null) {
                         arrayList.add(c2);
                     }
@@ -461,7 +461,7 @@ public class TbRichTextItem extends OrmObject {
                     } else {
                         c2.setBounds(new Rect(0, 0, 0, 0));
                     }
-                    spannableString.setSpan(new dk5(c2, 1), 0, str.length(), 33);
+                    spannableString.setSpan(new nk5(c2, 1), 0, str.length(), 33);
                     return spannableString;
                 }
             }
@@ -476,12 +476,12 @@ public class TbRichTextItem extends OrmObject {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.a == 1024 && this.g != null) {
                 SpannableString spannableString = new SpannableString("a");
-                Drawable a2 = pm5.a(this.g.btn_type);
+                Drawable a2 = zm5.a(this.g.btn_type);
                 a2.setBounds(0, 0, a2.getIntrinsicWidth(), a2.getIntrinsicHeight());
-                fk5 fk5Var = new fk5(a2);
-                fk5Var.d(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070224));
-                spannableString.setSpan(fk5Var, 0, 1, 33);
-                spannableString.setSpan(new nm5(1024, this.g.link), spannableString.length() - 1, 1, 33);
+                pk5 pk5Var = new pk5(a2);
+                pk5Var.d(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070224));
+                spannableString.setSpan(pk5Var, 0, 1, 33);
+                spannableString.setSpan(new xm5(1024, this.g.link), spannableString.length() - 1, 1, 33);
                 return spannableString;
             }
             return null;
@@ -519,9 +519,9 @@ public class TbRichTextItem extends OrmObject {
                 text = text + " ";
             }
             SpannableString spannableString = new SpannableString(text);
-            nm5 nm5Var = new nm5(this.a, text);
-            nm5Var.i(this.b.getLink());
-            spannableString.setSpan(nm5Var, 0, text.length() - 1, 33);
+            xm5 xm5Var = new xm5(this.a, text);
+            xm5Var.i(this.b.getLink());
+            spannableString.setSpan(xm5Var, 0, text.length() - 1, 33);
             return spannableString;
         }
         return (SpannableString) invokeV.objValue;
@@ -549,7 +549,7 @@ public class TbRichTextItem extends OrmObject {
         return (SpannableString) invokeV.objValue;
     }
 
-    public CharSequence Q(ArrayList<lm5> arrayList, String str) {
+    public CharSequence Q(ArrayList<vm5> arrayList, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, arrayList, str)) == null) {
@@ -594,11 +594,11 @@ public class TbRichTextItem extends OrmObject {
         boolean z;
         boolean z2;
         SpannableString spannableString;
-        nm5 nm5Var;
+        xm5 xm5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), str3})) == null) {
             if (str != null) {
-                if (i == 2 && mm5.x(str, str2)) {
+                if (i == 2 && wm5.x(str, str2)) {
                     z = true;
                 } else {
                     z = false;
@@ -620,32 +620,32 @@ public class TbRichTextItem extends OrmObject {
                 }
                 int i3 = this.a;
                 if (i3 == 18) {
-                    nm5Var = new a(this, i, str2, str2);
+                    xm5Var = new a(this, i, str2, str2);
                 } else if (i3 == 1282) {
-                    nm5Var = new b(this, i, str2, str2);
+                    xm5Var = new b(this, i, str2, str2);
                 } else if (i3 == 39) {
-                    nm5Var = new c(this, i, str2, str3);
+                    xm5Var = new c(this, i, str2, str3);
                 } else {
-                    nm5Var = new nm5(i, str2);
+                    xm5Var = new xm5(i, str2);
                 }
-                nm5Var.k(i2);
+                xm5Var.k(i2);
                 if (i2 == 1) {
-                    nm5Var.j(R.color.CAM_X0109);
+                    xm5Var.j(R.color.CAM_X0109);
                 } else {
-                    nm5Var.j(-1);
+                    xm5Var.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809de, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-                    spannableString.setSpan(nm5Var, 1, (str.length() + 1) - 1, 33);
+                    spannableString.setSpan(xm5Var, 1, (str.length() + 1) - 1, 33);
                     return spannableString;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080b27, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080b2c, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     eMRichTextAnyIconSpan2.h(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
-                    spannableString.setSpan(nm5Var, 0, str.length() - 1, 33);
+                    spannableString.setSpan(xm5Var, 0, str.length() - 1, 33);
                     if (!TextUtils.isEmpty(str3) && !TextUtils.equals("0", str3)) {
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
                         statisticItem.param("tid", str3);
@@ -655,7 +655,7 @@ public class TbRichTextItem extends OrmObject {
                     }
                     return spannableString;
                 } else {
-                    spannableString.setSpan(nm5Var, 0, str.length() - 1, 33);
+                    spannableString.setSpan(xm5Var, 0, str.length() - 1, 33);
                     return spannableString;
                 }
             }
@@ -664,7 +664,7 @@ public class TbRichTextItem extends OrmObject {
         return (SpannableString) invokeCommon.objValue;
     }
 
-    public final CharSequence W(ArrayList<lm5> arrayList) {
+    public final CharSequence W(ArrayList<vm5> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, arrayList)) == null) {
@@ -687,22 +687,22 @@ public class TbRichTextItem extends OrmObject {
     public final void d0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && !TextUtils.isEmpty(str)) {
-            q55 q55Var = new q55();
-            q55Var.a = str;
-            q55Var.b = 0;
-            q55Var.c = "1";
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, q55Var));
+            v55 v55Var = new v55();
+            v55Var.a = str;
+            v55Var.b = 0;
+            v55Var.c = "1";
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, v55Var));
         }
     }
 
-    public final CharSequence X(ArrayList<lm5> arrayList) {
+    public final CharSequence X(ArrayList<vm5> arrayList) {
         InterceptResult invokeL;
         SpannableString R;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (this.a == 32 && this.b != null) {
-                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1596));
+                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159d));
                 CharSequence D = D(arrayList);
                 if (D != null) {
                     spannableStringBuilder.append(D);
@@ -741,13 +741,13 @@ public class TbRichTextItem extends OrmObject {
                                                     this.j = new TbRichTextTiebaPlusInfo(C, pbContent.tiebaplus_info);
                                                     break;
                                                 case 37:
-                                                    this.k = new om5(pbContent.item);
+                                                    this.k = new ym5(pbContent.item);
                                                     break;
                                                 default:
                                                     if (C == 32) {
-                                                        rm5 rm5Var = new rm5();
-                                                        this.f = rm5Var;
-                                                        rm5Var.g(pbContent);
+                                                        bn5 bn5Var = new bn5();
+                                                        this.f = bn5Var;
+                                                        bn5Var.g(pbContent);
                                                         if (this.f.f()) {
                                                             break;
                                                         }
@@ -758,7 +758,7 @@ public class TbRichTextItem extends OrmObject {
                                                         if (!TbFaceManager.i().o(this.b.getText())) {
                                                             this.a = 1;
                                                             if (StringUtils.isNull(pbContent.c)) {
-                                                                str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054b) + PreferencesUtil.RIGHT_MOUNT;
+                                                                str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054c) + PreferencesUtil.RIGHT_MOUNT;
                                                             } else {
                                                                 str = PreferencesUtil.LEFT_MOUNT + pbContent.c + PreferencesUtil.RIGHT_MOUNT;
                                                             }
@@ -866,7 +866,7 @@ public class TbRichTextItem extends OrmObject {
                             if (!TbFaceManager.i().o(this.b.getText())) {
                                 this.a = 1;
                                 if (StringUtils.isNull(optString)) {
-                                    str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054b) + PreferencesUtil.RIGHT_MOUNT;
+                                    str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054c) + PreferencesUtil.RIGHT_MOUNT;
                                 } else {
                                     str = PreferencesUtil.LEFT_MOUNT + optString + PreferencesUtil.RIGHT_MOUNT;
                                 }

@@ -6,88 +6,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.RevenueConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public final class l4a implements IMiddleRevenue {
+public final class l4a implements yz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k4a a;
-    public final IRevenue b;
+    public Set<yz9> a;
+    public volatile boolean b;
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatistics getPayEventStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (IPayEventStatistics) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatistics getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (IPayServiceStatistics) invokeV.objValue;
-    }
-
-    public l4a(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
+    public l4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = iRevenue;
-        IAppPayService appPayService = this.b.getAppPayService();
-        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.a = new k4a(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IAppPayService getAppPayService() {
+    @Override // com.baidu.tieba.yz9
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (IAppPayService) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.api.IMiddleRevenue
-    public IMiddlePayService getMiddlePayService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yz9
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            synchronized (this) {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                Set<yz9> set = this.a;
+                this.a = null;
+                c(set);
+            }
         }
-        return (IMiddlePayService) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public void updateConfig(RevenueConfig revenueConfig) {
+    public static void c(Collection<yz9> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
-            this.b.updateConfig(revenueConfig);
+        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
+            return;
+        }
+        ArrayList arrayList = null;
+        for (yz9 yz9Var : collection) {
+            try {
+                yz9Var.unsubscribe();
+            } catch (Throwable th) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(th);
+            }
+        }
+        d0a.d(arrayList);
+    }
+
+    public void a(yz9 yz9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, yz9Var) != null) || yz9Var.isUnsubscribed()) {
+            return;
+        }
+        if (!this.b) {
+            synchronized (this) {
+                if (!this.b) {
+                    if (this.a == null) {
+                        this.a = new HashSet(4);
+                    }
+                    this.a.add(yz9Var);
+                    return;
+                }
+            }
+        }
+        yz9Var.unsubscribe();
+    }
+
+    public void b(yz9 yz9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz9Var) == null) && !this.b) {
+            synchronized (this) {
+                if (!this.b && this.a != null) {
+                    boolean remove = this.a.remove(yz9Var);
+                    if (remove) {
+                        yz9Var.unsubscribe();
+                    }
+                }
+            }
         }
     }
 }

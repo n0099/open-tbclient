@@ -786,7 +786,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc8)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cd4)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -910,7 +910,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10cf, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10d5, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");
@@ -1357,7 +1357,7 @@ public class BaseActivity extends TitleActivity {
             Log.e(k, "子activity重写了webview布局");
         }
         this.sapiWebView.setHadMakeBarHide(true);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc8);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cd4);
         if (this.mTitleLayout == null) {
             this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
         }
@@ -1451,7 +1451,7 @@ public class BaseActivity extends TitleActivity {
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
+                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
             }
             if (getWebDTO() != null && getWebDTO().loadingView != null) {
                 b.a(this, this.sapiWebView, getWebDTO().loadingView);
@@ -1491,8 +1491,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f109b);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f109a);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f10a1);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f10a0);
                         if (string.equals(str)) {
                             str = string2;
                         }

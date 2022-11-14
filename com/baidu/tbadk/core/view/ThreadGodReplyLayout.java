@@ -34,16 +34,16 @@ import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.gj;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.nm5;
-import com.baidu.tieba.s36;
+import com.baidu.tieba.br4;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.hj;
+import com.baidu.tieba.j19;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.y09;
+import com.baidu.tieba.w36;
+import com.baidu.tieba.xm5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +85,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public View.OnClickListener w;
 
     /* loaded from: classes3.dex */
-    public class a extends nm5 {
+    public class a extends xm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder h;
@@ -149,11 +149,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.h = spannableStringBuilder;
         }
 
-        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.xm5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                s36.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
+                e46.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
                 this.i.a.setMaxLines(15);
                 this.i.a.setEllipsize(TextUtils.TruncateAt.END);
                 this.i.a.setText(this.h.toString());
@@ -190,7 +190,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int width = ((this.a.q - this.a.d.getWidth()) / 2) + xi.g(this.a.getContext(), R.dimen.tbds26);
+                int width = ((this.a.q - this.a.d.getWidth()) / 2) + yi.g(this.a.getContext(), R.dimen.tbds26);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.d.getLayoutParams();
                 layoutParams.setMargins(0, width, width, 0);
                 this.a.d.setLayoutParams(layoutParams);
@@ -282,7 +282,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        x = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+        x = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
     }
 
     public TextView getGodReplyContent() {
@@ -304,7 +304,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             } else {
                 tid = threadData.getTid();
             }
-            k36.l(this.a, tid, R.color.CAM_X0105, R.color.CAM_X0109);
+            w36.l(this.a, tid, R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -328,7 +328,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
         this.h = null;
         this.t = 3;
-        this.u = xi.l(getContext()) - (xi.g(getContext(), R.dimen.tbds70) * 2);
+        this.u = yi.l(getContext()) - (yi.g(getContext(), R.dimen.tbds70) * 2);
         this.v = new c(this);
         this.w = new d(this);
         i(context);
@@ -346,7 +346,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         if (this.h != null) {
             postData.q().threadId = this.h.getTid();
         }
-        postData.q().threadId = String.valueOf(postData.g0());
+        postData.q().threadId = String.valueOf(postData.h0());
         postData.q().objType = 3;
         this.g.setData(postData.q());
     }
@@ -364,9 +364,9 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 p(postData);
                 List<TbRichTextImageInfo> list = this.m;
                 if ((list != null && list.size() > 0) || ((tbRichTextVoiceInfo = this.n) != null && tbRichTextVoiceInfo.B() != null)) {
-                    this.l.setPadding(0, 0, 0, xi.g(getContext(), R.dimen.M_H_X003));
+                    this.l.setPadding(0, 0, 0, yi.g(getContext(), R.dimen.M_H_X003));
                 } else {
-                    this.l.setPadding(0, 0, 0, xi.g(getContext(), R.dimen.tbds0));
+                    this.l.setPadding(0, 0, 0, yi.g(getContext(), R.dimen.tbds0));
                 }
                 if (!j(this.a) && !j(this.c) && !j(this.b)) {
                     setVisibility(8);
@@ -399,7 +399,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
         this.h = null;
         this.t = 3;
-        this.u = xi.l(getContext()) - (xi.g(getContext(), R.dimen.tbds70) * 2);
+        this.u = yi.l(getContext()) - (yi.g(getContext(), R.dimen.tbds70) * 2);
         this.v = new c(this);
         this.w = new d(this);
         i(context);
@@ -426,7 +426,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
         this.h = null;
         this.t = 3;
-        this.u = xi.l(getContext()) - (xi.g(getContext(), R.dimen.tbds70) * 2);
+        this.u = yi.l(getContext()) - (yi.g(getContext(), R.dimen.tbds70) * 2);
         this.v = new c(this);
         this.w = new d(this);
         i(context);
@@ -447,9 +447,9 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public void p(PostData postData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, postData) == null) {
-            TbRichTextVoiceInfo n0 = postData.n0();
-            this.n = n0;
-            if (n0 == null) {
+            TbRichTextVoiceInfo o0 = postData.o0();
+            this.n = o0;
+            if (o0 == null) {
                 this.b.setVisibility(8);
                 return;
             }
@@ -537,8 +537,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
             }
             if (spannableStringBuilder.length() > 0) {
-                for (nm5 nm5Var : (nm5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, nm5.class)) {
-                    spannableStringBuilder.removeSpan(nm5Var);
+                for (xm5 xm5Var : (xm5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, xm5.class)) {
+                    spannableStringBuilder.removeSpan(xm5Var);
                 }
                 for (ForegroundColorSpan foregroundColorSpan : (ForegroundColorSpan[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, ForegroundColorSpan.class)) {
                     spannableStringBuilder.removeSpan(foregroundColorSpan);
@@ -553,30 +553,30 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.j = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089b, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089f, (ViewGroup) this, true);
             this.k = inflate;
-            this.l = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090cf8);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) this.k.findViewById(R.id.obfuscated_res_0x7f090d00);
+            this.l = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090cf9);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) this.k.findViewById(R.id.obfuscated_res_0x7f090d01);
             this.e = clickableHeaderImageView;
             clickableHeaderImageView.setIsRound(true);
             this.e.setClickable(true);
-            TextView textView = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090d01);
+            TextView textView = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090d02);
             this.f = textView;
             textView.setOnClickListener(this.v);
-            AgreeView agreeView = (AgreeView) this.k.findViewById(R.id.obfuscated_res_0x7f090cfc);
+            AgreeView agreeView = (AgreeView) this.k.findViewById(R.id.obfuscated_res_0x7f090cfd);
             this.g = agreeView;
             agreeView.setAfterClickListener(this.w);
             this.g.setAgreeAlone(true);
             this.g.s();
             this.g.setAgreeAnimationResource();
-            this.a = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090cfd);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.k.findViewById(R.id.obfuscated_res_0x7f090d02);
+            this.a = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090cfe);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.k.findViewById(R.id.obfuscated_res_0x7f090d03);
             this.b = playVoiceBntNew;
             playVoiceBntNew.setVisibility(8);
-            this.c = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090cfe);
-            int l = xi.l(getContext());
-            this.r = xi.g(getContext(), R.dimen.tbds10);
-            this.q = (((l - (xi.g(getContext(), R.dimen.tbds44) * 2)) - (xi.g(getContext(), R.dimen.tbds26) * 2)) - (this.r * 4)) / 5;
+            this.c = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090cff);
+            int l = yi.l(getContext());
+            this.r = yi.g(getContext(), R.dimen.tbds10);
+            this.q = (((l - (yi.g(getContext(), R.dimen.tbds44) * 2)) - (yi.g(getContext(), R.dimen.tbds26) * 2)) - (this.r * 4)) / 5;
             for (int i = 0; i < 5; i++) {
                 TbImageView tbImageView = new TbImageView(getContext());
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -588,14 +588,14 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
                 tbImageView.setBorderSurroundContent(true);
                 tbImageView.setDrawBorder(true);
-                tbImageView.setTag(R.id.obfuscated_res_0x7f090cfe, Integer.valueOf(i));
+                tbImageView.setTag(R.id.obfuscated_res_0x7f090cff, Integer.valueOf(i));
                 tbImageView.setTagTextSize((int) getResources().getDimension(R.dimen.tbfontsize26));
-                tbImageView.setTagPaddingDis(xi.g(getContext(), R.dimen.tbds6), xi.g(getContext(), R.dimen.tbds6));
+                tbImageView.setTagPaddingDis(yi.g(getContext(), R.dimen.tbds6), yi.g(getContext(), R.dimen.tbds6));
                 tbImageView.setOnClickListener(this);
                 tbImageView.setPlaceHolder(2);
             }
             this.c.setVisibility(8);
-            this.d = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090cff);
+            this.d = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090d00);
         }
     }
 
@@ -609,7 +609,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             } else {
                 list.clear();
             }
-            if (!ar4.c().g()) {
+            if (!br4.c().g()) {
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
                 return;
@@ -633,7 +633,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     return;
                 }
                 this.c.setVisibility(0);
-                int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                 int i3 = 0;
                 for (int i4 = 0; i4 < this.c.getChildCount(); i4++) {
                     View childAt = this.c.getChildAt(i4);
@@ -669,7 +669,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i5, i5);
                     layoutParams.leftMargin = (this.q + this.r) * 4;
                     this.c.addView(imageView, -1, layoutParams);
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081110);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081120);
                     this.d.setVisibility(0);
                     this.d.setText(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + (this.m.size() - 5));
                     this.d.post(new b(this));
@@ -688,7 +688,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.t != TbadkCoreApplication.getInst().getSkinType()) {
             this.t = TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            kw4 d2 = kw4.d(this.l);
+            pw4 d2 = pw4.d(this.l);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
             l();
@@ -703,11 +703,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeL(1048583, this, spannableStringBuilder) == null) {
             if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
                 this.a.setVisibility(0);
-                if (!gj.b(this.u, this.a.getPaint(), spannableStringBuilder.toString(), 5)) {
+                if (!hj.b(this.u, this.a.getPaint(), spannableStringBuilder.toString(), 5)) {
                     this.a.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 } else {
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder);
-                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.obfuscated_res_0x7f0f1404));
+                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.obfuscated_res_0x7f0f140b));
                     if (spannableStringBuilder3.length() < 3) {
                         return;
                     }
@@ -732,8 +732,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                         spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder3);
                     }
                     this.a.setText(spannableStringBuilder);
-                    this.a.setOnTouchListener(new y09(spannableStringBuilder));
-                    s36.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
+                    this.a.setOnTouchListener(new j19(spannableStringBuilder));
+                    e46.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
                 }
                 l();
                 return;
@@ -747,8 +747,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         List<TbRichTextImageInfo> list;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && (view2 instanceof TbImageView) && (list = this.m) != null && list.size() != 0 && view2.getTag(R.id.obfuscated_res_0x7f090cfe) != null && (view2.getTag(R.id.obfuscated_res_0x7f090cfe) instanceof Integer)) {
-            int intValue = ((Integer) view2.getTag(R.id.obfuscated_res_0x7f090cfe)).intValue();
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && (view2 instanceof TbImageView) && (list = this.m) != null && list.size() != 0 && view2.getTag(R.id.obfuscated_res_0x7f090cff) != null && (view2.getTag(R.id.obfuscated_res_0x7f090cff) instanceof Integer)) {
+            int intValue = ((Integer) view2.getTag(R.id.obfuscated_res_0x7f090cff)).intValue();
             ArrayList<String> arrayList = new ArrayList<>();
             for (TbRichTextImageInfo tbRichTextImageInfo : this.m) {
                 arrayList.add(tbRichTextImageInfo.z());

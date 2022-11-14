@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.bdtask.utils.UniqueId;
 /* loaded from: classes4.dex */
-public interface iu {
-    void a(String str);
+public interface iu extends jr {
+    ju d();
 
-    void b(String str, UniqueId uniqueId);
-
-    void c(String str, String str2);
+    ru f();
 }

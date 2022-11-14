@@ -1,43 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ew5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public ArrayList<SdkLiveInfoData> b;
 
-    public static boolean a(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public ew5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        this.a = false;
     }
 
-    public static void b(TbPageContext tbPageContext) {
+    public void a(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, tbPageContext) == null) {
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                intent.putExtra("android.provider.extra.APP_PACKAGE", tbPageContext.getPageActivity().getPackageName());
-                intent.putExtra("android.provider.extra.CHANNEL_ID", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                intent.putExtra("app_package", tbPageContext.getPageActivity().getPackageName());
-                intent.putExtra("app_uid", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                tbPageContext.getPageActivity().startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Intent intent2 = new Intent();
-                intent2.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent2.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
-                tbPageContext.getPageActivity().startActivity(intent2);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z = true;
+        if (jSONObject.optInt("has_more") != 1) {
+            z = false;
+        }
+        this.a = z;
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.b = new ArrayList<>(optJSONArray.length());
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+                    sdkLiveInfoData.fromJson(optJSONObject, str);
+                    this.b.add(sdkLiveInfoData);
+                }
             }
         }
     }

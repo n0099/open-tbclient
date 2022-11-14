@@ -1052,7 +1052,7 @@ public final class WebKitFactory {
                     return false;
                 }
                 String property = System.getProperty("os.arch");
-                boolean z2 = !TextUtils.isEmpty(property) && property.endsWith(OS_64);
+                boolean z2 = !TextUtils.isEmpty(property) && property.endsWith("64");
                 if (!TextUtils.isEmpty(property) && property.toLowerCase().contains("armv")) {
                     try {
                     } catch (NumberFormatException e) {

@@ -1,18 +1,39 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.DigestException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes5.dex */
 public final class p00 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
+    public static final Map<String, byte[]> h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public SecureRandom c;
+    public final int d;
+    public MessageDigest e;
+    public MessageDigest f;
+    public byte[] g;
 
     static {
         InterceptResult invokeClinit;
@@ -27,143 +48,351 @@ public final class p00 {
                 return;
             }
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        h = Collections.synchronizedMap(new HashMap());
     }
 
-    public static String a(byte[] bArr, String str) throws UnsupportedEncodingException {
+    public p00(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+        this.c = secureRandom;
+        if (i2 < 64) {
+            throw new InvalidKeyException("Padded size must be at least 64");
+        }
+        if (i == 1 || i == 2) {
+            i2 -= 11;
+        } else if (i != 3) {
+            if (i != 4) {
+                throw new InvalidKeyException("Invalid padding: " + i);
+            }
+            byte[] bArr = null;
+            String str2 = "SHA-1";
+            if (oAEPParameterSpec != null) {
+                try {
+                    String digestAlgorithm = oAEPParameterSpec.getDigestAlgorithm();
+                    String mGFAlgorithm = oAEPParameterSpec.getMGFAlgorithm();
+                    if (!mGFAlgorithm.equalsIgnoreCase("MGF1")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported MGF algo: " + mGFAlgorithm);
+                    }
+                    String digestAlgorithm2 = ((MGF1ParameterSpec) oAEPParameterSpec.getMGFParameters()).getDigestAlgorithm();
+                    PSource pSource = oAEPParameterSpec.getPSource();
+                    String algorithm = pSource.getAlgorithm();
+                    if (!algorithm.equalsIgnoreCase("PSpecified")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported pSource algo: " + algorithm);
+                    }
+                    str2 = digestAlgorithm2;
+                    bArr = ((PSource.PSpecified) pSource).getValue();
+                    str = digestAlgorithm;
+                } catch (NoSuchAlgorithmException e) {
+                    e = e;
+                    throw new InvalidKeyException("Digest " + str2 + " not available", e);
+                }
+            } else {
+                str = "SHA-1";
+            }
+            try {
+                this.e = MessageDigest.getInstance(str);
+                this.f = MessageDigest.getInstance(str2);
+                byte[] e2 = e(this.e, bArr);
+                this.g = e2;
+                int length = (i2 - 2) - (e2.length * 2);
+                this.d = length;
+                if (length > 0) {
+                    return;
+                }
+                throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
+            } catch (NoSuchAlgorithmException e3) {
+                e = e3;
+                str2 = str;
+                throw new InvalidKeyException("Digest " + str2 + " not available", e);
+            }
+        }
+        this.d = i2;
+    }
+
+    public static p00 b(int i, int i2, SecureRandom secureRandom) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, secureRandom)) == null) ? new p00(i, i2, secureRandom, null) : (p00) invokeIIL.objValue;
+    }
+
+    public static p00 c(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec})) == null) ? new p00(i, i2, secureRandom, oAEPParameterSpec) : (p00) invokeCommon.objValue;
+    }
+
+    public static byte[] e(MessageDigest messageDigest, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = a;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, bArr)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                String algorithm = messageDigest.getAlgorithm();
+                byte[] bArr2 = h.get(algorithm);
+                if (bArr2 == null) {
+                    byte[] digest = messageDigest.digest();
+                    h.put(algorithm, digest);
+                    return digest;
                 }
+                return bArr2;
             }
-            int length3 = bArr.length % 3;
-            if (length3 == 1) {
-                int i9 = i + 1;
-                byte[] bArr4 = a;
-                bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                int i10 = i9 + 1;
-                bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
-                int i11 = i10 + 1;
-                bArr2[i10] = BaseNCodec.PAD_DEFAULT;
-                i = i11 + 1;
-                bArr2[i11] = BaseNCodec.PAD_DEFAULT;
-            } else if (length3 == 2) {
-                int i12 = i + 1;
-                byte[] bArr5 = a;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i13 = i12 + 1;
-                int i14 = length2 + 1;
-                bArr2[i12] = bArr5[((bArr[i14] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                int i15 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[i14] & 15) << 2];
-                i = i15 + 1;
-                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
-            }
-            return new String(bArr2, 0, i, str);
+            return messageDigest.digest(bArr);
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public final void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) throws BadPaddingException {
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            byte[] bArr3 = new byte[4];
+            byte[] bArr4 = new byte[20];
+            while (i4 > 0) {
+                this.f.update(bArr, i, i2);
+                this.f.update(bArr3);
+                try {
+                    this.f.digest(bArr4, 0, 20);
+                    for (int i6 = 0; i6 < 20 && i4 > 0; i6++) {
+                        bArr2[i3] = (byte) (bArr4[i6] ^ bArr2[i3]);
+                        i4--;
+                        i3++;
+                    }
+                    if (i4 > 0) {
+                        while (true) {
+                            byte b = (byte) (bArr3[i5] + 1);
+                            bArr3[i5] = b;
+                            i5 = (b == 0 && i5 > 0) ? i5 - 1 : 3;
+                        }
+                    }
+                } catch (DigestException e) {
+                    throw new BadPaddingException(e.toString());
+                }
+            }
+        }
+    }
+
+    public byte[] f(byte[] bArr) throws BadPaddingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c(bArr, bArr.length) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr.length > this.d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.d + 1) + " bytes");
+            }
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return i(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return h(bArr);
+                }
+                throw new AssertionError();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        byte b;
-        int i2;
+    public byte[] g(byte[] bArr, int i, int i2) throws BadPaddingException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
-            int i3 = (i / 4) * 3;
-            if (i3 == 0) {
-                return new byte[0];
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) ? f(l00.d(bArr, i, i2)) : (byte[]) invokeLII.objValue;
+    }
+
+    public final byte[] h(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            if (this.c == null) {
+                this.c = l00.a;
             }
-            byte[] bArr2 = new byte[i3];
-            int i4 = i;
-            int i5 = 0;
-            while (true) {
-                byte b2 = bArr[i4 - 1];
-                b = 10;
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
-                        break;
-                    }
-                    i5++;
-                }
-                i4--;
-            }
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            while (i6 < i4) {
-                byte b3 = bArr[i6];
-                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
-                        i2 = 62;
-                    } else if (b3 != 47) {
-                        return null;
-                    } else {
-                        i2 = 63;
-                    }
-                    i8 = ((byte) i2) | (i8 << 6);
-                    if (i9 % 4 == 3) {
-                        int i10 = i7 + 1;
-                        bArr2[i7] = (byte) ((16711680 & i8) >> 16);
-                        int i11 = i10 + 1;
-                        bArr2[i10] = (byte) ((65280 & i8) >> 8);
-                        bArr2[i11] = (byte) (i8 & 255);
-                        i7 = i11 + 1;
-                    }
-                    i9++;
-                }
-                i6++;
-                b = 10;
-            }
-            if (i5 > 0) {
-                int i12 = i8 << (i5 * 6);
-                int i13 = i7 + 1;
-                bArr2[i7] = (byte) ((i12 & 16711680) >> 16);
-                if (i5 == 1) {
-                    i7 = i13 + 1;
-                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
-                } else {
-                    i7 = i13;
-                }
-            }
-            byte[] bArr3 = new byte[i7];
-            System.arraycopy(bArr2, 0, bArr3, 0, i7);
+            int length = this.g.length;
+            byte[] bArr2 = new byte[length];
+            this.c.nextBytes(bArr2);
+            int i = this.b;
+            byte[] bArr3 = new byte[i];
+            System.arraycopy(bArr2, 0, bArr3, 1, length);
+            int i2 = length + 1;
+            int i3 = i - i2;
+            int length2 = this.b - bArr.length;
+            System.arraycopy(this.g, 0, bArr3, i2, length);
+            bArr3[length2 - 1] = 1;
+            System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
+            d(bArr3, 1, length, bArr3, i2, i3);
+            d(bArr3, i2, i3, bArr3, 1, length);
             return bArr3;
         }
-        return (byte[]) invokeLI.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] i(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int i3 = this.b;
+            byte[] bArr2 = new byte[i3];
+            System.arraycopy(bArr, 0, bArr2, i3 - bArr.length, bArr.length);
+            int length = (this.b - 3) - bArr.length;
+            bArr2[0] = 0;
+            int i4 = this.a;
+            bArr2[1] = (byte) i4;
+            int i5 = -1;
+            int i6 = 2;
+            if (i4 != 1) {
+                if (this.c == null) {
+                    this.c = l00.a;
+                }
+                byte[] bArr3 = new byte[64];
+                while (true) {
+                    int i7 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    while (true) {
+                        if (i5 < 0) {
+                            this.c.nextBytes(bArr3);
+                            i5 = 63;
+                        }
+                        i = i5 - 1;
+                        i2 = bArr3[i5] & 255;
+                        if (i2 != 0) {
+                            break;
+                        }
+                        i5 = i;
+                    }
+                    bArr2[i6] = (byte) i2;
+                    i5 = i;
+                    length = i7;
+                    i6++;
+                }
+            } else {
+                while (true) {
+                    int i8 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    bArr2[i6] = -1;
+                    i6++;
+                    length = i8;
+                }
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] j(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            if (bArr.length != this.b) {
+                throw new BadPaddingException("Padded length must be " + this.b);
+            }
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return l(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return k(bArr);
+                }
+                throw new AssertionError();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] k(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            int length = this.g.length;
+            if (bArr[0] == 0) {
+                int i = length + 1;
+                int length2 = bArr.length - i;
+                d(bArr, i, length2, bArr, 1, length);
+                d(bArr, 1, length, bArr, i, length2);
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (this.g[i2] != bArr[i + i2]) {
+                        throw new BadPaddingException("lHash mismatch");
+                    }
+                }
+                int i3 = i + length;
+                while (bArr[i3] == 0) {
+                    i3++;
+                    if (i3 >= bArr.length) {
+                        throw new BadPaddingException("Padding string not terminated");
+                    }
+                }
+                int i4 = i3 + 1;
+                if (bArr[i3] == 1) {
+                    int length3 = bArr.length - i4;
+                    byte[] bArr2 = new byte[length3];
+                    System.arraycopy(bArr, i4, bArr2, 0, length3);
+                    return bArr2;
+                }
+                throw new BadPaddingException("Padding string not terminated by 0x01 byte");
+            }
+            throw new BadPaddingException("Data must start with zero");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] l(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        if (bArr[0] != 0) {
+            throw new BadPaddingException("Data must start with zero");
+        }
+        int i = 2;
+        if (bArr[1] != this.a) {
+            throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
+        }
+        while (true) {
+            int i2 = i + 1;
+            int i3 = bArr[i] & 255;
+            if (i3 == 0) {
+                int length = bArr.length - i2;
+                if (length <= this.d) {
+                    byte[] bArr2 = new byte[length];
+                    System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
+                    return bArr2;
+                }
+                throw new BadPaddingException("Padding string too short");
+            } else if (i2 == bArr.length) {
+                throw new BadPaddingException("Padding string not terminated");
+            } else {
+                if (this.a == 1 && i3 != 255) {
+                    throw new BadPaddingException("Padding byte not 0xff: " + i3);
+                }
+                i = i2;
+            }
+        }
     }
 }

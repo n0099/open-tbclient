@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xt6;
+import com.baidu.tieba.ju6;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +70,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.a = threadData;
             if (threadData != null) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f072b);
+                String string = getResources().getString(R.string.obfuscated_res_0x7f0f072c);
                 if (StringUtils.isNull(string)) {
                     setVisibility(8);
                     return;
@@ -144,9 +144,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0198, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aac);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aad);
             this.e = textView;
-            kw4 d = kw4.d(textView);
+            pw4 d = pw4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -154,7 +154,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d.n(R.string.J_X01);
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0305);
-            this.e.setCompoundDrawablePadding(xi.g(this.b, R.dimen.M_W_X002));
+            this.e.setCompoundDrawablePadding(yi.g(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -167,10 +167,10 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080975, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097a, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
-            this.f.setBounds(0, 0, xi.g(this.b, R.dimen.T_X09), xi.g(this.b, R.dimen.T_X09));
+            this.f.setBounds(0, 0, yi.g(this.b, R.dimen.T_X09), yi.g(this.b, R.dimen.T_X09));
         }
         f();
     }
@@ -194,9 +194,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            xt6 xt6Var = new xt6();
-            xt6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, xt6Var));
+            ju6 ju6Var = new ju6();
+            ju6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, ju6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

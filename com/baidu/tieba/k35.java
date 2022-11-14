@@ -3,180 +3,25 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.app.Dialog;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k35 {
-    public static /* synthetic */ Interceptable $ic;
-    public static k35 c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public f35 a;
-    public String b;
+public interface k35 {
+    boolean a();
 
-    public k35() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = b();
-    }
+    int b();
 
-    public static k35 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (k35.class) {
-                    if (c == null) {
-                        c = new k35();
-                    }
-                }
-            }
-            return c;
-        }
-        return (k35) invokeV.objValue;
-    }
+    void c();
 
-    public final f35 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, f35.class);
-            if (runTask != null) {
-                return (f35) runTask.getData();
-            }
-            return null;
-        }
-        return (f35) invokeV.objValue;
-    }
+    Dialog d(int i, TbPageContext tbPageContext, pn5 pn5Var, boolean z);
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f35 f35Var = this.a;
-            if (f35Var != null) {
-                return f35Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
 
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            f35 f35Var = this.a;
-            if (f35Var != null) {
-                return f35Var.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
+    int g();
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            f35 f35Var = this.a;
-            if (f35Var != null) {
-                return f35Var.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void h(boolean z, long j);
 
-    public void l() {
-        f35 f35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (f35Var = this.a) != null) {
-            f35Var.c();
-        }
-    }
-
-    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
-        f35 f35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (f35Var = this.a) != null) {
-            f35Var.f(i, tbPageContext, viewGroup, z);
-        }
-    }
-
-    public void h(boolean z, int i, int i2) {
-        f35 f35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (f35Var = this.a) != null) {
-            f35Var.i(z, i, i2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
-            f35 f35Var = this.a;
-            if (f35Var != null) {
-                return f35Var.e(activity, viewGroup);
-            }
-            return null;
-        }
-        return (NavigationBarCoverTip) invokeLL.objValue;
-    }
-
-    public void m(boolean z, long j) {
-        f35 f35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (f35Var = this.a) != null) {
-            f35Var.h(z, j);
-        }
-    }
-
-    public Dialog k(int i, TbPageContext tbPageContext, fn5 fn5Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, fn5Var, Boolean.valueOf(z)})) == null) {
-            f35 f35Var = this.a;
-            if (f35Var != null) {
-                return f35Var.d(i, tbPageContext, fn5Var, z);
-            }
-            return null;
-        }
-        return (Dialog) invokeCommon.objValue;
-    }
+    void i(boolean z, int i, int i2);
 }

@@ -5,9 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n5a implements k5a {
+public abstract class n5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void cancelAllRequest();
+
+    public abstract a6a getCurPayController();
+
+    public abstract void releaseAllPayFlowView();
+
+    public abstract void releasePayController();
 
     public n5a() {
         Interceptable interceptable = $ic;

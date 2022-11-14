@@ -1,127 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class vh8 {
+public class vh8 extends zh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static vh8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public HeadImageView h;
+    public TextView i;
+    public TextView j;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(HashMap<String, String> hashMap);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends gj5<Object> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vh8 a;
-
-        public a(vh8 vh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vh8Var;
-        }
-
-        @Override // com.baidu.tieba.gj5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Reader reader;
-            Throwable th;
-            InputStream inputStream;
-            BufferedReader bufferedReader;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    try {
-                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                String[] split = readLine.split(",");
-                                if (split.length == 2 && split[0] != null && split[1] != null) {
-                                    this.a.a.put(split[0], split[1]);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                vg.c(inputStream);
-                                vg.e(bufferedReader);
-                                return null;
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        reader = null;
-                        th = th3;
-                        vg.c(inputStream);
-                        vg.e(reader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream = null;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    reader = null;
-                    th = th4;
-                    inputStream = null;
-                }
-                vg.c(inputStream);
-                vg.e(bufferedReader);
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements li5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ jh8 a;
         public final /* synthetic */ vh8 b;
 
-        public b(vh8 vh8Var, c cVar) {
+        public a(vh8 vh8Var, jh8 jh8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vh8Var, cVar};
+                Object[] objArr = {vh8Var, jh8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,59 +44,92 @@ public class vh8 {
                 }
             }
             this.b = vh8Var;
-            this.a = cVar;
+            this.a = jh8Var;
         }
 
-        @Override // com.baidu.tieba.li5
-        public void onReturnDataInUI(Object obj) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.a(this.b.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.b.b.getContext();
+                jh8 jh8Var = this.a;
+                String str2 = jh8Var.d;
+                String str3 = jh8Var.f;
+                AdvertAppInfo advertAppInfo = this.b.c;
+                if (advertAppInfo != null) {
+                    str = advertAppInfo.g;
+                } else {
+                    str = "";
+                }
+                hg8.a(context, str2, str3, str, this.a.j);
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
+                a11.b(clogBuilder);
+                vh8 vh8Var = this.b;
+                if (vh8Var.d != null) {
+                    bj7.c(vh8Var.c);
+                }
             }
         }
     }
 
-    public vh8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vh8(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        new HashMap();
+        k();
     }
 
-    public static vh8 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zh8
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (vh8.class) {
-                    if (b == null) {
-                        b = new vh8();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f081240, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (vh8) invokeV.objValue;
     }
 
-    public void b(c cVar) {
+    @Override // com.baidu.tieba.zh8
+    public void c(jh8 jh8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (!this.a.isEmpty()) {
-                cVar.a(this.a);
-            } else {
-                kj5.b(new a(this), new b(this, cVar));
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jh8Var) == null) {
+            super.c(jh8Var);
+            this.h.K(jh8Var.c, 10, false);
+            this.i.setText(jh8Var.b);
+            this.j.setText(jh8Var.e);
+            this.b.setOnClickListener(new a(this, jh8Var));
+            b();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092512);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f092505);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f090059);
         }
     }
 }

@@ -1,131 +1,262 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextUtils;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class ri5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return false;
         }
-        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+        return invokeCommon.booleanValue;
     }
 
-    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
-            return;
-        }
-        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
-    }
-
-    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
-        BaijiahaoData baijiahaoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) && threadData != null) {
-            ArrayList arrayList = new ArrayList();
-            VideoItemData videoItemData = new VideoItemData();
-            if (z) {
-                videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
-            } else {
-                videoItemData.buildWithThreadData(threadData);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948122603, "Lcom/baidu/tieba/ri5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            arrayList.add(videoItemData);
-            OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-            boolean z3 = true;
-            if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
-                z3 = false;
-            }
-            String str6 = null;
-            OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
-            if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
-                str6 = baijiahaoData.oriUgcNid;
-            }
-            e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true, threadData.getFid());
-        }
-    }
-
-    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(j)}) == null) {
-            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false, j);
-        }
-    }
-
-    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4, long j) {
-        String str7;
-        String str8;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j)}) == null) {
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
-            if (z4) {
-                videoPlayActivityConfig.setForceUseBigDataList(list);
-            }
-            videoPlayActivityConfig.setParamIsVertail(z);
-            videoPlayActivityConfig.setFid(String.valueOf(j));
-            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
-            if (str != null) {
-                videoPlayActivityConfig.setNid(str);
-            }
-            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
-            }
-            if (z3) {
-                if (ListUtils.getCount(list) > 0 && list.get(0) != null && !TextUtils.isEmpty(list.get(0).thread_id)) {
-                    String str9 = list.get(0).thread_id;
-                    str7 = list.get(0).forum_id;
-                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
-                    int size = videoTabListByFid.size();
-                    for (int i3 = 0; i3 < size; i3++) {
-                        if (videoTabListByFid.get(i3) != null && str9.equals(videoTabListByFid.get(i3).thread_id)) {
-                            str8 = str7;
-                            i2 = i3;
-                            break;
-                        }
-                    }
-                } else {
-                    str7 = "";
-                }
-                str8 = str7;
-                i2 = 0;
-                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
-                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
-                frsVideoTabPlayActivityConfig.setFid(str8);
-                if ("frs".equals(str5)) {
-                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948122603, "Lcom/baidu/tieba/ri5;");
                 return;
             }
-            if ("frs".equals(str5)) {
-                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
-            } else if ("index".equals(str5)) {
-                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
+        }
+        a = Pattern.compile("#([^#(]+)#", 2);
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
+            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str.length() + 2);
+            sb.append("#");
+            sb.append(str);
+            sb.append("#");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(TbConfig.TIEBA_ADDRESS + "n/video/opersquare?tab=hot&topic_name=");
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '#') {
+                int i = length - 1;
+                if (str.charAt(i) == '#') {
+                    str2 = str.substring(1, i);
+                    stringBuffer.append(str2);
+                    return stringBuffer.toString();
+                }
+            }
+            str2 = null;
+            stringBuffer.append(str2);
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static SpannableString i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            Matcher matcher = a.matcher(str);
+            SpannableString spannableString = new SpannableString(str);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (!e(str.substring(start, end))) {
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static void j(Spannable spannable) {
+        ImageSpan[] imageSpanArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, spannable) != null) || spannable == null) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
+        }
+        Matcher matcher = a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            }
+        }
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            return c(tbPageContext, true, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if ("#".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(v55 v55Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, v55Var) == null) {
+            int i = v55Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                str = "";
+                            } else {
+                                str = "1";
+                            }
+                        } else {
+                            str = TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM;
+                        }
+                    } else {
+                        str = "pb";
+                    }
+                } else {
+                    str = "frs";
+                }
+            } else {
+                str = "index";
+            }
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", str));
+        }
+    }
+
+    public static boolean g(Spannable spannable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, spannable, i)) == null) {
+            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
+                Matcher matcher = a.matcher(spannable.toString());
+                while (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (i > start && end > i) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void k(SpanGroupEditText spanGroupEditText) {
+        int i;
+        int i2;
+        ImageSpan[] imageSpanArr;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, spanGroupEditText) == null) && spanGroupEditText != null && spanGroupEditText.getText() != null && spanGroupEditText.getSpanGroupManager() != null) {
+            SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
+            if (spanGroupManager.G().size() > 0) {
+                n05 n05Var = spanGroupManager.G().get(0);
+                i2 = n05Var.f();
+                i = n05Var.c();
+            } else {
+                i = 0;
+                i2 = 0;
+            }
+            Editable text = spanGroupEditText.getText();
+            String obj = text.toString();
+            if (StringUtils.isNull(obj)) {
+                return;
+            }
+            Matcher matcher = a.matcher(obj);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (end > i2 && i > end) {
+                    for (Object obj2 : text.getSpans(i2, text.length(), Object.class)) {
+                        if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
+                            text.removeSpan(obj2);
+                        }
+                    }
+                    spanGroupManager.delete(i2, i, true);
+                    i = -1;
+                    i2 = 0;
+                }
+                if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
         }
     }
 }

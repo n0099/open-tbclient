@@ -1,369 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mg7 {
+public class mg7 extends kn<lg7, CardViewHolder<qg7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public TbPageContext<?> a;
+    public l46 b;
     public String c;
-    public String d;
-    public int e;
-    public int f;
-    public String g;
-    public long h;
-    public int i;
-    public String j;
-    public int k;
-    public long l;
-    public String m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public AgreeData v;
-    public JSONArray w;
-    public FaceGroupInfoData x;
 
-    public mg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.e = 0;
-        this.f = 0;
-        this.g = null;
-        this.h = 0L;
-        this.i = 0;
-        this.j = "";
-        this.k = -1;
-        this.l = 0L;
-        this.m = null;
-        this.u = null;
-        this.w = null;
+        this.a = tbPageContext;
     }
 
-    public AgreeData a() {
+    @Override // com.baidu.tieba.kn
+    public ho getOnAdapterItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.v;
+            return super.getOnAdapterItemClickListener();
         }
-        return (AgreeData) invokeV.objValue;
+        return (ho) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public CardViewHolder<qg7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            qg7 qg7Var = new qg7(this.a, viewGroup);
+            l46 l46Var = this.b;
+            if (l46Var != null) {
+                qg7Var.n(l46Var);
+            }
+            return new CardViewHolder<>(qg7Var);
         }
-        return (String) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
-        return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void v(l46 l46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.u;
+        if (interceptable == null || interceptable.invokeL(1048582, this, l46Var) == null) {
+            this.b = l46Var;
         }
-        return (String) invokeV.objValue;
     }
 
-    public FaceGroupInfoData e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.x;
-        }
-        return (FaceGroupInfoData) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return invokeV.longValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public JSONArray o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.w;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.r;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.s;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.t;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.q;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void y(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lg7 lg7Var, CardViewHolder<qg7> cardViewHolder) {
+        InterceptResult invokeCommon;
         boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, jSONObject) == null) {
-            try {
-                this.l = jSONObject.optLong("overall_index", 0L);
-                this.m = jSONObject.optString("post_id");
-                this.r = jSONObject.optString("user_id");
-                this.s = jSONObject.optString("user_name");
-                this.t = jSONObject.optString("nickname");
-                boolean z5 = true;
-                if (jSONObject.optInt("show_original_btn") == 1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lg7Var, cardViewHolder})) == null) {
+            if (lg7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().x(this.c);
+                qg7 a = cardViewHolder.a();
+                if (i == 0) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.o = z;
-                if (jSONObject.optInt("is_blocked_pic") == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                this.p = z2;
-                if (jSONObject.optInt("is_long_pic") == 1) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                this.q = z3;
-                this.k = jSONObject.optInt("index", -1);
-                if (jSONObject.optInt("is_first_post") == 1) {
-                    z4 = true;
-                } else {
-                    z4 = false;
-                }
-                this.n = z4;
-                this.u = jSONObject.optString("comment_num");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("agree");
-                if (optJSONObject2 != null) {
-                    int optInt = optJSONObject2.optInt("agree_num");
-                    optJSONObject2.optInt("disagree_num");
-                    int optInt2 = optJSONObject2.optInt("agree_type");
-                    if (optJSONObject2.optInt("has_agree") != 1) {
-                        z5 = false;
-                    }
-                    if (this.v == null) {
-                        this.v = new AgreeData();
-                    }
-                    this.v.agreeType = optInt2;
-                    this.v.hasAgree = z5;
-                    this.v.agreeNum = optInt;
-                }
-                this.w = jSONObject.optJSONArray(TiebaStatic.Params.POST_CONTENT);
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
-                if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                    this.a = optJSONObject.optString("id");
-                    this.b = optJSONObject.optString("url");
-                    this.d = optJSONObject.optString("pid");
-                    this.e = optJSONObject.optInt("width", 0);
-                    this.f = optJSONObject.optInt("height", 0);
-                    this.c = optJSONObject.optString("big_cdn_src", null);
-                    this.g = optJSONObject.optString("original_src");
-                    this.h = optJSONObject.optInt("size");
-                }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
-                if (optJSONObject4 != null) {
-                    this.i = optJSONObject4.optInt("pic_type", 0);
-                    this.j = optJSONObject4.optString("tag_name");
-                }
-                this.x = FaceGroupInfoData.parserJson(jSONObject.optJSONObject("face_group_info"));
-            } catch (Exception e) {
-                BdLog.detailException(e);
+                a.y(z);
+                cardViewHolder.a().l(lg7Var);
+                return cardViewHolder.getView();
             }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

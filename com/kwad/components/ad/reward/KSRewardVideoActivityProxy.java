@@ -471,9 +471,9 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091209);
             this.mRootContainer = adBaseFrameLayout;
-            this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09125f);
             boolean z = !ag.cB(this.mContext);
             if ((this.mModel.gL() || this.mModel.gM()) && z) {
                 this.mDetailVideoView.setForce(true);
@@ -743,7 +743,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
             com.kwad.components.core.m.d.oy().a(this);
             this.mContext = Wrapper.wrapContextIfNeed(getActivity());
             initWithModel(this.mModel);
-            setContentView(R.layout.obfuscated_res_0x7f0d0410);
+            setContentView(R.layout.obfuscated_res_0x7f0d0411);
             initView();
             onActivityCreated(this.mRootContainer);
             c.eZ().a(this.mRewardVerifyListener);
@@ -831,7 +831,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
             }
             kVar.mz = true;
             if (com.kwad.sdk.core.response.a.a.aY(by)) {
-                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091165));
+                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09116a));
             }
             kVar.mO = 0L;
             if (this.mModel.by() != null) {

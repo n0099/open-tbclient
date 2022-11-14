@@ -1248,12 +1248,12 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09126c);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091271);
             this.mAdWebView = ksAdWebView;
             ksAdWebView.setVisibility(4);
-            this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b6);
-            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091243);
-            this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091253);
+            this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910bb);
+            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091248);
+            this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091258);
         }
     }
 
@@ -1311,7 +1311,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0434 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0435 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

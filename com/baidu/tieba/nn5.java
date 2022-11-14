@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface nn5<T> {
-    int a();
-
-    T getItem(int i);
+public interface nn5 {
+    void a(int i, int i2, int i3);
 }

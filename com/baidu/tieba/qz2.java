@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fe2 a;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    public qz2(String str, String str2, String str3) {
+    public qz2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,19 +34,60 @@ public class qz2 {
                 return;
             }
         }
-        TreeMap treeMap = new TreeMap();
-        treeMap.put("functionPagePath", str);
-        treeMap.put("paymentArgs", str2);
-        treeMap.put("slaveId", str3);
-        this.a = new fe2("beforeRequestPayment", treeMap);
+        this.d = false;
+        this.b = str;
     }
 
-    public fe2 a() {
+    public static String a(pz2 pz2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pz2Var)) == null) {
+            if (pz2Var == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("componentId", pz2Var.f);
+                jSONObject.put("pluginProvider", pz2Var.b);
+                jSONObject.put("args", pz2Var.g);
+                jSONObject.put("slaveId", pz2Var.e);
+            } catch (JSONException e) {
+                xz2.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            le2 le2Var = new le2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
+                }
+            } catch (JSONException e) {
+                xz2.b(Log.getStackTraceString(e));
+            }
+            le2Var.c = jSONObject;
+            sp2.U().m(this.a, le2Var);
+            xz2.b("finish event, isSuccess = " + this.d);
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
         }
-        return (fe2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

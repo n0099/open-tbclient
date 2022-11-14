@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class it2 extends gt2 {
+public class it2 extends ht2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class it2 extends gt2 {
                 return;
             }
         }
-        boolean z = ok1.a;
+        boolean z = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,22 +53,28 @@ public class it2 extends gt2 {
         }
     }
 
-    @Override // com.baidu.tieba.gt2
-    public boolean a(ws2 ws2Var, ys2 ys2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+    @Override // com.baidu.tieba.ht2
+    public boolean a(xs2 xs2Var, zs2 zs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ws2Var, ys2Var, context, unitedSchemeEntity, callbackHandler, e43Var})) == null) {
-            e12.i("video", "seek, video id:" + ys2Var.j + " slave id: " + ys2Var.c);
-            d(ws2Var, ys2Var.r, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{xs2Var, zs2Var, context, unitedSchemeEntity, callbackHandler, f43Var})) == null) {
+            f12.i("video", "remove, video id:" + zs2Var.j + " slave id: " + zs2Var.c);
+            d(xs2Var, zs2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(ws2 ws2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final void d(xs2 xs2Var, zs2 zs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ws2Var, i, unitedSchemeEntity, callbackHandler) == null) {
-            ws2Var.t(i * 1000);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xs2Var, zs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            uz1 a = s02.a(zs2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                y02.a("VideoPlayerAction", "remove with a null component");
+            }
+            xs2Var.onDestroy();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

@@ -1,128 +1,97 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.util.concurrent.Executor;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class rg9 implements lg9 {
+public class rg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public String a;
+    public File b;
+    public CharSequence c;
 
     /* loaded from: classes5.dex */
-    public class a implements Executor {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Handler a;
+    }
 
-        public a(rg9 rg9Var, Handler handler) {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public File b;
+        public CharSequence c;
+        public CharSequence d;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rg9Var, handler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = handler;
         }
 
-        @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
+        public rg9 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.a.post(runnable);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new rg9(this.a, this.b, this.c, this.d, null);
             }
+            return (rg9) invokeV.objValue;
+        }
+
+        public b b(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+                this.b = file;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b c(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
+                this.c = charSequence;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final kg9 a;
-        public final ig9 b;
-
-        public b(kg9 kg9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kg9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kg9Var;
-            this.b = kg9Var.a();
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.a.h()) {
-                    case 102:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
-                        this.b.c();
-                        return;
-                    case 103:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
-                        this.b.b(this.a.e(), this.a.i());
-                        return;
-                    case 104:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
-                        this.b.g(this.a.d(), this.a.e(), this.a.f());
-                        return;
-                    case 105:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
-                        if (!this.a.b()) {
-                            this.a.l(true);
-                            this.b.a(this.a.g());
-                            return;
-                        }
-                        return;
-                    case 106:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
-                        this.b.e();
-                        return;
-                    case 107:
-                        xi9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
-                        this.b.d();
-                        return;
-                    case 108:
-                        xi9.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
-                        this.b.f((DownloadException) this.a.c());
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    public rg9(Handler handler) {
+    public rg9(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler};
+            Object[] objArr = {str, file, charSequence, charSequence2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,14 +101,42 @@ public class rg9 implements lg9 {
                 return;
             }
         }
-        this.a = new a(this, handler);
+        this.a = str;
+        this.b = file;
+        this.c = charSequence;
     }
 
-    @Override // com.baidu.tieba.lg9
-    public void a(kg9 kg9Var) {
+    public /* synthetic */ rg9(String str, File file, CharSequence charSequence, CharSequence charSequence2, a aVar) {
+        this(str, file, charSequence, charSequence2);
+    }
+
+    public File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kg9Var) == null) {
-            this.a.execute(new b(kg9Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (File) invokeV.objValue;
+    }
+
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                this.c = FileUtils.getFileFullName(c());
+            }
+            return this.c;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

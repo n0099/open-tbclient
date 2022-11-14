@@ -1,22 +1,50 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetBgByCategory.ThemeBgInMain;
-import tbclient.ThemeBgProp;
 /* loaded from: classes5.dex */
 public class ou8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ou8 mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public a mICrabSdk;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Application application);
+
+        void b(Exception exc);
+
+        void c(String str);
+
+        void d(String str);
+
+        void e(String str);
+
+        void f(MotionEvent motionEvent, Activity activity);
+
+        void onPause(Activity activity);
+
+        void onResume(Activity activity);
+    }
+
+    private boolean isCrabSdkSwitchOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public ou8() {
         Interceptable interceptable = $ic;
@@ -28,37 +56,102 @@ public class ou8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mICrabSdk = getCrabSdk();
     }
 
-    public List<DressItemData> a() {
+    private a getCrabSdk() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (isCrabSdkSwitchOn() && (runTask = MessageManager.getInstance().runTask(2016565, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public static ou8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (mInstance == null) {
+                synchronized (ou8.class) {
+                    if (mInstance == null) {
+                        mInstance = new ou8();
+                    }
+                }
+            }
+            return mInstance;
         }
-        return (List) invokeV.objValue;
+        return (ou8) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.f(motionEvent, activity);
         }
-        return (String) invokeV.objValue;
     }
 
-    public void c(ThemeBgInMain themeBgInMain) {
+    public void initSdk(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) != null) || themeBgInMain == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.a(application);
         }
-        this.a = themeBgInMain.bg_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+    }
+
+    public void onPause(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.onPause(activity);
+        }
+    }
+
+    public void onResume(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.onResume(activity);
+        }
+    }
+
+    public void setFlutterPath(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.c(str);
+        }
+    }
+
+    public void setLastFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.e(str);
+        }
+    }
+
+    public void setOpenFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.d(str);
+        }
+    }
+
+    public void uploadException(Exception exc) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, exc) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.b(exc);
         }
     }
 }

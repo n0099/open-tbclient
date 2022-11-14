@@ -11,12 +11,12 @@ import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.dd5;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.pc5;
-import com.baidu.tieba.qc5;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.kd5;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.wc5;
+import com.baidu.tieba.xc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class CacheModel<T extends pc5, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends wc5, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageListener<CustomResponsedMessage<?>> a;
@@ -198,13 +198,13 @@ public abstract class CacheModel<T extends pc5, ActivityType> extends BdBaseMode
         this.g = false;
     }
 
-    public final void P(qc5 qc5Var) {
+    public final void P(xc5 xc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, qc5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, xc5Var) == null) {
             E();
             ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(L());
             readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setRequestData(qc5Var);
+            readCacheMessage.setRequestData(xc5Var);
             readCacheMessage.setNeedUid(N());
             Q(readCacheMessage);
             F();
@@ -254,7 +254,7 @@ public abstract class CacheModel<T extends pc5, ActivityType> extends BdBaseMode
     public final void F() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.d && MessageManager.getInstance().findTask(L()) == null) {
-            MessageManager.getInstance().registerTask(new nf5(L(), new cd5(L(), y(), K())));
+            MessageManager.getInstance().registerTask(new uf5(L(), new jd5(L(), y(), K())));
             this.d = true;
         }
     }
@@ -276,7 +276,7 @@ public abstract class CacheModel<T extends pc5, ActivityType> extends BdBaseMode
     public final void H() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && MessageManager.getInstance().findTask(M()) == null) {
-            MessageManager.getInstance().registerTask(new nf5(M(), new dd5(M(), y(), K())));
+            MessageManager.getInstance().registerTask(new uf5(M(), new kd5(M(), y(), K())));
             this.e = true;
         }
     }

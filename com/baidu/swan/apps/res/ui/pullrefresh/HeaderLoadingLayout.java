@@ -155,12 +155,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b40);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b3e);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b41);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b42);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b44);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b46);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b4a);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b48);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4b);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b4c);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4e);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

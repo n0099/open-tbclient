@@ -509,7 +509,7 @@ public abstract class Visibility extends Transition {
             } else {
                 view2 = null;
             }
-            View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8);
+            View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091e04);
             if (view6 != null) {
                 view4 = null;
                 z2 = true;
@@ -590,7 +590,7 @@ public abstract class Visibility extends Transition {
                     if (onDisappear == null) {
                         ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                     } else {
-                        view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8, view6);
+                        view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091e04, view6);
                         addListener(new TransitionListenerAdapter(this, viewGroup, view6, view5) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -624,7 +624,7 @@ public abstract class Visibility extends Transition {
                             public void onTransitionEnd(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8, null);
+                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091e04, null);
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
                                     transition.removeListener(this);
                                 }

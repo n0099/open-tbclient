@@ -1,44 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public class ug8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+public interface ug8 extends IAdBaseAsyncController {
 
-    public ug8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static ug8 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            ug8 ug8Var = new ug8();
-            ug8Var.a = jSONObject.optString("lottie");
-            ug8Var.b = jSONObject.optString("text");
-            ug8Var.c = jSONObject.optString("cmd");
-            return ug8Var;
-        }
-        return (ug8) invokeL.objValue;
-    }
+    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+
+    void c(AdvertAppInfo advertAppInfo, boolean z);
+
+    @Nullable
+    vf8 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

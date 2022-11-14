@@ -3,18 +3,21 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.SingleLinkCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ky extends gx {
+public class ky extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SmartAppBottomLayout h;
+    public SingleLinkCardView h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ky(Context context) {
@@ -34,21 +37,27 @@ public class ky extends gx {
                 return;
             }
         }
-        this.h = new SmartAppBottomLayout(context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rx
-    /* renamed from: w */
-    public void a(rr4 rr4Var) {
-        SmartAppBottomLayout smartAppBottomLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, rr4Var) == null) && (smartAppBottomLayout = this.h) != null) {
-            smartAppBottomLayout.a(rr4Var);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
+            this.h = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
+        } else {
+            this.h = new SingleLinkCardView(context);
         }
+        v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    @Override // com.baidu.tieba.zw
+    public final boolean w(sr4 sr4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sr4Var)) == null) {
+            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().isVideoThreadType() && sr4Var.getThreadData().getThreadVideoInfo() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ax
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,12 +67,42 @@ public class ky extends gx {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (smartAppBottomLayout = this.h) != null) {
-            smartAppBottomLayout.d();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.h.b();
+        }
+    }
+
+    public final boolean x(sr4 sr4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sr4Var)) == null) {
+            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getPollData() != null && sr4Var.getThreadData().getPollData().getOptions() != null && sr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sx
+    /* renamed from: y */
+    public void a(sr4 sr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
+            if (!x(sr4Var) && sr4Var != null && sr4Var.getThreadData() != null && !w(sr4Var) && ((!ListUtils.isEmpty(sr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) == 1) && ((!ListUtils.isEmpty(sr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) == 1) && ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) == 1))) {
+                if (sr4Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((t46) ListUtils.getItem(sr4Var.getThreadData().getLinkDataList(), 0));
+                } else if (sr4Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((t46) ListUtils.getItem(sr4Var.getThreadData().getGoodsDataList(), 0));
+                }
+                this.h.setVisibility(0);
+                return;
+            }
+            this.h.setVisibility(8);
         }
     }
 }

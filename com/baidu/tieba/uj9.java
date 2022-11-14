@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uj9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDFactory";
-    public static boolean c;
+public class uj9 extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public static final uj9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public yj9 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,49 +28,33 @@ public class uj9 {
                 return;
             }
         }
-        c = rj9.e();
+        a = new uj9();
     }
 
-    public yj9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (yj9) invokeV.objValue;
-    }
-
-    public uj9(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uj9() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int a = sj9.a();
-        if (c) {
-            String str = b;
-            Log.e(str, "UnionIDFactory manufacturer:" + a);
+    }
+
+    public static final uj9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        if (a != 10001) {
-            if (a != 10002) {
-                this.a = new bk9(context);
-                return;
-            }
-            if (c) {
-                Log.e(b, "UnionIDFactory XMUnionID");
-            }
-            this.a = new ck9(context);
-            return;
-        }
-        this.a = new ak9(context);
+        return (uj9) invokeV.objValue;
     }
 }

@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -117,7 +118,7 @@ public class v {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
                 ArrayList<Pair> arrayList = new ArrayList();
-                arrayList.add(new Pair("dynamicVersion", "35"));
+                arrayList.add(new Pair("dynamicVersion", "" + PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK));
                 arrayList.add(new Pair("packageName", bw.r(context)));
                 arrayList.add(new Pair("appVersion", bw.g(context)));
                 arrayList.add(new Pair("cuid", bw.a(context)));
@@ -125,7 +126,7 @@ public class v {
                 arrayList.add(new Pair("m", android.os.Build.MODEL));
                 arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
                 arrayList.add(new Pair("o", Build.VERSION.RELEASE));
-                arrayList.add(new Pair("i", "35"));
+                arrayList.add(new Pair("i", PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK));
                 StringBuilder sb = new StringBuilder();
                 for (Pair pair : arrayList) {
                     try {

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.NativeEmotionManagerActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ot7;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.ku7;
+import com.baidu.tieba.yi;
 import com.baidu.tieba.zt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt7 a;
+    public ku7 a;
     public CustomMessageListener b;
 
     /* loaded from: classes5.dex */
@@ -72,7 +72,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f060f)).i();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0610)).i();
                             if (this.a.a != null) {
                                 this.a.a.i();
                             }
@@ -80,9 +80,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         } else if (this.a.a != null) {
                             String str = (String) hashMap.get("upload_msg");
                             if (!TextUtils.isEmpty(str)) {
-                                xi.M(this.a.getActivity(), str);
+                                yi.M(this.a.getActivity(), str);
                             } else {
-                                xi.M(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f056f));
+                                yi.M(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0570));
                             }
                             this.a.a.l();
                         }
@@ -117,9 +117,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            zt7 zt7Var = this.a;
-            if (zt7Var != null) {
-                zt7Var.h();
+            ku7 ku7Var = this.a;
+            if (ku7Var != null) {
+                ku7Var.h();
             }
         }
     }
@@ -151,9 +151,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            zt7 zt7Var = this.a;
-            if (zt7Var != null) {
-                zt7Var.g(i);
+            ku7 ku7Var = this.a;
+            if (ku7Var != null) {
+                ku7Var.g(i);
             }
         }
     }
@@ -164,9 +164,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            zt7 zt7Var = new zt7(getPageContext(), s1());
-            this.a = zt7Var;
-            return zt7Var.f();
+            ku7 ku7Var = new ku7(getPageContext(), s1());
+            this.a = ku7Var;
+            return ku7Var.f();
         }
         return (View) invokeLLL.objValue;
     }
@@ -176,12 +176,12 @@ public class CreateNewEmotionFragment extends BaseFragment {
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
             return;
         }
-        if (ot7.l().r()) {
+        if (zt7.l().r()) {
             this.a.j();
-        } else if (ot7.l().k() == null) {
+        } else if (zt7.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0568));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f0569));
         }
     }
 }

@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ag4 extends mf4 {
+public class ag4 extends of4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,69 +26,66 @@ public class ag4 extends mf4 {
         }
     }
 
-    @Override // com.baidu.tieba.mf4, com.baidu.tieba.pf4
-    public void b(JSONObject jSONObject, zb4 zb4Var, @Nullable zb4 zb4Var2, @Nullable zb4 zb4Var3) {
+    @Override // com.baidu.tieba.of4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, zb4Var, zb4Var2, zb4Var3) != null) || jSONObject == null) {
-            return;
-        }
-        cg4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        gg4.f().k(jSONObject.optJSONObject("page_tips"));
-        yf4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        ig4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        qg4.f(jSONObject.optJSONObject("app_inner_preload"));
-        bg4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        ng4.b().d(jSONObject.optJSONObject("tts"));
-        jg4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        og4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (kg4.a) {
-            c(jSONObject);
-        }
-        mg4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        dg4.a().c(jSONObject.optJSONObject("local_debug"));
-        pb4.a().b(jSONObject.optJSONObject(pb4.a().c()));
-        if (lg4.b()) {
-            fg4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        eg4.a().e(jSONObject.optJSONObject("no_history_apps"));
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
-            return;
-        }
-        nb4 b = pb4.b();
-        gk4 gk4Var = null;
-        if (b != null) {
-            gk4Var = b.i();
-        }
-        String optString = optJSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString)) {
-            kg4.b = optString;
-            if (gk4Var != null) {
-                gk4Var.putString("key_h2_heart_beat_version", optString);
-            }
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
-                int optInt = optJSONObject2.optInt("timespan");
-                int optInt2 = optJSONObject2.optInt("timeout");
-                if (gk4Var != null) {
-                    if (optInt > 0) {
-                        gk4Var.putInt("key_h2_heart_beat_timespan", optInt);
-                    }
-                    if (optInt2 > 0) {
-                        gk4Var.putInt("key_h2_heart_beat_timeout", optInt2);
-                        return;
-                    }
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", dg4.b().d());
+                jSONObject.put("tipmsgs", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                ng4.b();
+                jSONObject3.put("version", ng4.c());
+                jSONObject.put("web_degrade_strategy", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("version", jg4.a().b());
+                jSONObject.put("pkg_preload", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("version", zf4.b().c());
+                jSONObject.put("pkg_clean_strategy", jSONObject5);
+                JSONObject jSONObject6 = new JSONObject();
+                jSONObject6.put("version", cg4.a().b());
+                jSONObject.put("getpkg_retry_switch", jSONObject6);
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put("version", pg4.d());
+                jSONObject.put("update_expire_time", jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("version", hg4.f().h());
+                jSONObject.put("page_tips", jSONObject8);
+                if (lg4.a) {
+                    JSONObject jSONObject9 = new JSONObject();
+                    jSONObject9.put("version", lg4.b);
+                    jSONObject.put("heartbeat", jSONObject9);
                 }
-                return;
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("version", eg4.a().b());
+                jSONObject.put("local_debug", jSONObject10);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("version", qb4.a().a());
+                jSONObject.put(qb4.a().c(), jSONObject11);
+                if (mg4.b()) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("version", mg4.a());
+                    jSONObject.put("api_description", jSONObject12);
+                }
+                JSONObject jSONObject13 = new JSONObject();
+                jSONObject13.put("version", og4.b().c());
+                jSONObject.put("tts", jSONObject13);
+                new JSONObject().put("version", fg4.a().c());
+                jSONObject.put("no_history_apps", jSONObject13);
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("version", rg4.d());
+                jSONObject.put("app_inner_preload", jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("version", kg4.a().b());
+                jSONObject.put("simple_control_item", jSONObject15);
+            } catch (JSONException unused) {
             }
-            kg4.a = false;
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o01;
+import com.baidu.tieba.p01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -195,7 +195,7 @@ public class AlignTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, paint, str) == null) {
             if (str.length() == 0) {
-                o01.b(this.d, "\n");
+                p01.b(this.d, "\n");
                 return;
             }
             this.s = 0;
@@ -211,7 +211,7 @@ public class AlignTextView extends TextView {
                     break;
                 } else if (paint.measureText(str.substring(this.s, i2 + 1)) > this.c) {
                     this.s = i2;
-                    o01.b(this.d, this.r.toString());
+                    p01.b(this.d, this.r.toString());
                     this.r = new StringBuilder();
                     int length = str.length();
                     int i3 = this.s;
@@ -221,7 +221,7 @@ public class AlignTextView extends TextView {
                         this.r.append(str.substring(i3, i5 + i3));
                         i2 = (i2 + this.u) - 1;
                     } else {
-                        o01.b(this.d, str.substring(i3));
+                        p01.b(this.d, str.substring(i3));
                         break;
                     }
                 } else {
@@ -229,9 +229,9 @@ public class AlignTextView extends TextView {
                 }
             }
             if (this.r.length() > 0) {
-                o01.b(this.d, this.r.toString());
+                p01.b(this.d, this.r.toString());
             }
-            o01.b(this.e, Integer.valueOf(this.d.size() - 1));
+            p01.b(this.e, Integer.valueOf(this.d.size() - 1));
         }
     }
 
@@ -269,7 +269,7 @@ public class AlignTextView extends TextView {
             for (int i = 0; i < this.d.size(); i++) {
                 float f2 = i;
                 this.y = (this.a * f2) + this.x;
-                this.z = (String) o01.d(this.d, i);
+                this.z = (String) p01.d(this.d, i);
                 this.A = getPaddingLeft();
                 float measureText = this.c - this.n.measureText(this.z);
                 this.B = measureText;

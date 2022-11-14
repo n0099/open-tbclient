@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bp2;
-import com.baidu.tieba.xf3;
+import com.baidu.tieba.cp2;
+import com.baidu.tieba.yf3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public xf3 errCode;
+    public yf3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
@@ -158,12 +158,12 @@ public class ForbiddenInfo implements Parcelable {
         this(parcel);
     }
 
-    public ForbiddenInfo(bp2 bp2Var, String str, String str2) {
+    public ForbiddenInfo(cp2 cp2Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp2Var, str, str2};
+            Object[] objArr = {cp2Var, str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -174,21 +174,21 @@ public class ForbiddenInfo implements Parcelable {
             }
         }
         this.enableSlidingFlag = 0;
-        convertToForbiddenModel(bp2Var);
+        convertToForbiddenModel(cp2Var);
         this.forbiddenReason = str;
         this.forbiddenDetail = str2;
     }
 
-    private void convertToForbiddenModel(bp2 bp2Var) {
+    private void convertToForbiddenModel(cp2 cp2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, this, bp2Var) != null) || bp2Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, this, cp2Var) != null) || cp2Var == null) {
             return;
         }
-        this.appId = bp2Var.H();
-        this.appKey = bp2Var.I();
-        this.appTitle = bp2Var.K();
-        this.launchPath = bp2Var.e0();
-        this.launchSource = bp2Var.T();
+        this.appId = cp2Var.H();
+        this.appKey = cp2Var.I();
+        this.appTitle = cp2Var.K();
+        this.launchPath = cp2Var.e0();
+        this.launchSource = cp2Var.T();
     }
 
     public String toString() {

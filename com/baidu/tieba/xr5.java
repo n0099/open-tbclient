@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,17 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes6.dex */
-public class xr5 {
+public class xr5 extends ob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<t35> b;
+    public boolean a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xr5() {
+        super(304001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,62 +27,45 @@ public class xr5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public List<t35> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.lb
+    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        c(socketResponsedMessage2);
+        return socketResponsedMessage2;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
-            this.a = listdata.key;
-            if (listdata.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : listdata.friend_list) {
-                    t35 t35Var = new t35();
-                    t35Var.i(friendlist);
-                    t35Var.j(this.a);
-                    this.b.add(t35Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                fs5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                if (addressListData != null) {
+                    for (js5 js5Var : addressListData.a()) {
+                        List<y35> a = js5Var.a();
+                        ArrayList arrayList = new ArrayList();
+                        for (y35 y35Var : a) {
+                            if (!this.a && y35Var.h() == 1) {
+                                arrayList.add(y35Var);
+                            }
+                        }
+                        a.removeAll(arrayList);
+                    }
                 }
             }
+            return socketResponsedMessage;
         }
-    }
-
-    public void d(robotsList robotslist) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
-            this.a = robotslist.key;
-            if (robotslist.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : robotslist.friend_list) {
-                    t35 t35Var = new t35();
-                    t35Var.i(friendlist);
-                    t35Var.j(this.a);
-                    this.b.add(t35Var);
-                }
-            }
-        }
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

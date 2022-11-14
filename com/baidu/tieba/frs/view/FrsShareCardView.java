@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return wi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f067a);
+            return xi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f067b);
         }
         return (String) invokeL.objValue;
     }
@@ -129,7 +129,7 @@ public class FrsShareCardView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return wi.charSequence2String(editText.getText(), null);
+            return xi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -137,14 +137,14 @@ public class FrsShareCardView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034b, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ec8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b26);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f09061f);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b22);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090b24);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b27);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b27);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090620);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b23);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090b25);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b28);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 2);
             this.c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));

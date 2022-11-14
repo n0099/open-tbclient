@@ -1,155 +1,106 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
 /* loaded from: classes5.dex */
-public class r3a {
+public final class r3a implements qz9, yz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final r3a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qz9 a;
+    public yz9 b;
+    public boolean c;
 
-    public jz9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public jz9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public jz9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    @Deprecated
-    public tz9 k(tz9 tz9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tz9Var)) == null) ? tz9Var : (tz9) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072073, "Lcom/baidu/tieba/r3a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948072073, "Lcom/baidu/tieba/r3a;");
-                return;
-            }
-        }
-        a = new r3a();
-    }
-
-    public r3a() {
+    public r3a(qz9 qz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qz9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = qz9Var;
+    }
+
+    @Override // com.baidu.tieba.qz9
+    public void onSubscribe(yz9 yz9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yz9Var) == null) {
+            this.b = yz9Var;
+            try {
+                this.a.onSubscribe(this);
+            } catch (Throwable th) {
+                d0a.e(th);
+                yz9Var.unsubscribe();
+                onError(th);
             }
         }
     }
 
-    public static jz9 a() {
+    @Override // com.baidu.tieba.yz9
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public static jz9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public static jz9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public static r3a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return a;
-        }
-        return (r3a) invokeV.objValue;
-    }
-
-    public static jz9 b(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new b1a(threadFactory);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c && !this.b.isUnsubscribed()) {
+                return false;
             }
-            throw new NullPointerException("threadFactory == null");
+            return true;
         }
-        return (jz9) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static jz9 d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qz9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new a1a(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
         }
-        return (jz9) invokeL.objValue;
+        this.c = true;
+        try {
+            this.a.onCompleted();
+        } catch (Throwable th) {
+            d0a.e(th);
+            throw new OnCompletedFailedException(th);
+        }
     }
 
-    public static jz9 f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yz9
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new f1a(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
         }
-        return (jz9) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.qz9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            y3a.j(th);
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            try {
+                this.a.onError(th);
+            } catch (Throwable th2) {
+                d0a.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
+            }
+        }
     }
 }

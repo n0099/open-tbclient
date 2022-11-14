@@ -1,7 +1,7 @@
 package com.baidu.searchbox.block.ioc;
 
 import com.baidu.searchbox.block.ubc.UbcBlockRegister;
-import com.baidu.tieba.if1;
+import com.baidu.tieba.jf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class IBlockRegister_BlockRuntime_ListProvider implements if1 {
+public class IBlockRegister_BlockRuntime_ListProvider implements jf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class IBlockRegister_BlockRuntime_ListProvider implements if1 {
         }
     }
 
-    @Override // com.baidu.tieba.if1
+    @Override // com.baidu.tieba.jf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

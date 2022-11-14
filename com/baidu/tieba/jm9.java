@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ObjectInput;
-/* compiled from: lambda */
 /* loaded from: classes4.dex */
-public final /* synthetic */ class jm9 implements is9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ jm9 a = new jm9();
+public final class jm9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] SVGImageView;
+    public static final int SVGImageView_css = 0;
+    public static final int SVGImageView_svg = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ jm9() {
-    }
-
-    @Override // com.baidu.tieba.is9
-    public final Object a(ObjectInput objectInput) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? mn9.c(objectInput) : invokeL.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888243, "Lcom/baidu/tieba/jm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947888243, "Lcom/baidu/tieba/jm9;");
+                return;
+            }
+        }
+        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f04066d};
     }
 }

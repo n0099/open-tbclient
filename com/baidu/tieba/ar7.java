@@ -1,27 +1,40 @@
 package com.baidu.tieba;
+
+import android.graphics.Color;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface ar7 {
-    void a(String str);
+public class ar7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, int i, int i2, String str2);
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Color.parseColor(b(str));
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
 
-    void c(String str, int i, String str2);
-
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040f) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b8) + str;
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040f) + str;
+        }
+        return (String) invokeL.objValue;
+    }
 }

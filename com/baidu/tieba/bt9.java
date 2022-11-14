@@ -1,7 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes3.dex */
 public interface bt9 {
-    void onBlock(Context context, ht9 ht9Var);
+    void onAdClicked(Ssp.Pid pid);
+
+    void onAdClose(Ssp.Pid pid);
+
+    void onAdLoad(Ssp.Pid pid);
+
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
+
+    void onAdLoaded(Ssp.Pid pid);
+
+    void onAdShow(Ssp.Pid pid);
+
+    void onAdShowError(Ssp.Pid pid, int i, String str);
+
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.th8;
+import com.baidu.tieba.ei8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PersonPolymericDispatcher implements th8 {
+public class PersonPolymericDispatcher implements ei8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URI_PREFIX = "com.baidu.tieba://unidispatch/usercenter?";
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class PersonPolymericDispatcher implements th8 {
         }
     }
 
-    @Override // com.baidu.tieba.th8
+    @Override // com.baidu.tieba.ei8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

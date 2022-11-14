@@ -405,11 +405,11 @@ public final class c {
         imageView.setImageDrawable(new BitmapDrawable(this.mContext.getResources(), this.xv.mBitmap));
         AdTemplate adTemplate = this.xv.getAdTemplate();
         com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(adTemplate);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d047c, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d047d, (ViewGroup) null);
         this.uL = viewGroup;
-        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091226);
-        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f091230);
-        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f091224);
+        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09122b);
+        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f091235);
+        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f091229);
         this.xx.setOnClickListener(new View.OnClickListener(this, adTemplate, cVar) { // from class: com.kwad.components.ad.splashscreen.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -1,35 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
+import android.util.Pair;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class qy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public Context b;
-    public View c;
-    public TextView d;
-    public ImageView e;
-    public Toast f;
-    public Handler g;
-    public Runnable h;
+    public int a;
+    public FragmentTabHost b;
+    public final sg<in> c;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a extends sg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qy4 a;
@@ -52,85 +49,101 @@ public class qy4 {
             this.a = qy4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f != null) {
-                    this.a.f.cancel();
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((a) inVar, str, i);
+                if (this.a.b == null || inVar == null || !inVar.w()) {
+                    this.a.f();
+                    return;
                 }
-                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
+                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
+                ViewGroup tabWrapper = this.a.b.getTabWrapper();
+                if (fragmentTabWidget != null && fragmentViewPager != null) {
+                    this.a.b.setNeedShowThemeStyle(false);
+                    fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
+                    SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                    SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
+                    layoutParams.bottomMargin = yi.g(this.a.b.getContext(), R.dimen.tbds100);
+                    fragmentViewPager.setLayoutParams(layoutParams);
+                    fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(inVar.p()));
                 }
             }
         }
     }
 
-    public qy4() {
+    public qy4(FragmentTabHost fragmentTabHost, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.h = new a(this);
-        this.b = TbadkCoreApplication.getInst().getContext();
-        this.g = new Handler();
+        this.a = 0;
+        this.c = new a(this);
+        this.b = fragmentTabHost;
+        this.a = i;
     }
 
-    public void c(CharSequence charSequence) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09224e);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092241);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080af4);
-            e(this.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            tg.h().m(str, 10, this.c, c());
         }
     }
 
-    public void d(CharSequence charSequence) {
+    public final BdUniqueId c() {
+        InterceptResult invokeV;
+        r9<?> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09224e);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092241);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080af5);
-            e(this.c);
-        }
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.g.removeCallbacks(this.h);
-            if (this.f == null) {
-                this.f = new Toast(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FragmentTabHost fragmentTabHost = this.b;
+            if (fragmentTabHost != null && fragmentTabHost.getContext() != null && (a2 = x9.a(this.b.getContext())) != null) {
+                return a2.getUniqueId();
             }
-            this.g.postDelayed(this.h, this.a);
-            this.f.setView(view2);
-            this.f.setDuration(1);
-            this.f.setGravity(17, 0, 0);
-            this.f.show();
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(Pair<String, String> pair) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) && pair != null) {
+            String str = (String) pair.first;
+            String str2 = (String) pair.second;
+            boolean z = true;
+            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
+                z = false;
+            }
+            if (z && !TextUtils.isEmpty(str2)) {
+                d(str2);
+            } else if (!TextUtils.isEmpty(str)) {
+                d(str);
+            } else {
+                f();
+            }
+        }
+    }
+
+    public final void f() {
+        FragmentTabHost fragmentTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fragmentTabHost = this.b) != null && fragmentTabHost.getFragmentTabWidget() != null) {
+            this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
+            SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
+            SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
         }
     }
 }

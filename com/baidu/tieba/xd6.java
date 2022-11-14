@@ -1,30 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.external.music.data.MusicData;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface xd6 {
-    void a(float f);
+public class xd6 implements ee6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public zd6 a;
+    public boolean b;
+    public boolean c;
+    public wd6 d;
+    public boolean e;
 
-    String b();
+    public xd6(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = false;
+        this.e = false;
+        this.a = new zd6();
+        this.e = z;
+    }
 
-    void c(MusicData musicData, Object obj);
+    @Override // com.baidu.tieba.ee6
+    public void a(String str, fe6 fe6Var) {
+        wd6 wd6Var;
+        wd6 wd6Var2;
+        float f;
+        float f2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, fe6Var) != null) || fe6Var == null) {
+            return;
+        }
+        if (this.b) {
+            File file = new File(fe6Var.a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(fe6Var.a);
+            if (file.exists() && decodeFile != null) {
+                float height = decodeFile.getHeight();
+                float width = decodeFile.getWidth();
+                float f3 = height * 1.0f;
+                float f4 = f3 / width;
+                if (f4 > 1.0f) {
+                    f = 1.7777778f;
+                } else {
+                    f = 0.75f;
+                }
+                float f5 = 0.0f;
+                if (f4 > f) {
+                    float f6 = f * width;
+                    f2 = (height - f6) * 0.5f;
+                    height = f6;
+                } else {
+                    float f7 = f3 / f;
+                    f5 = (width - f7) * 0.5f;
+                    width = f7;
+                    f2 = 0.0f;
+                }
+                fe6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+            }
+        }
+        if ("default".equals(str)) {
+            if (!this.c && (wd6Var2 = this.d) != null) {
+                wd6Var2.g0(fe6Var.a);
+            }
+        } else if ("manual".equals(str) && (wd6Var = this.d) != null) {
+            wd6Var.g0(fe6Var.a);
+        }
+    }
 
-    void d();
+    public void b(ge6 ge6Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ge6Var, str) == null) {
+            this.a.a(str, this.e).a(ge6Var, this);
+        }
+    }
 
-    void e(TbMusicData tbMusicData);
+    @Override // com.baidu.tieba.ee6
+    public void onError(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        }
+    }
 
-    void f(String str, String str2);
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
+    }
 
-    boolean g();
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
 
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void releasePlayer();
-
-    void reset();
+    public void e(wd6 wd6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wd6Var) == null) {
+            this.d = wd6Var;
+        }
+    }
 }

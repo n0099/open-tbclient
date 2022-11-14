@@ -610,10 +610,10 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091d63) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d6f) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("close");
                 cancel();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d54) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d60) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("back");
                 onChange2LoginPage();
             }
@@ -684,7 +684,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec9));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ece));
             this.e.setTextColor(Color.parseColor("#FFFFFF"));
             this.h.a();
         }
@@ -742,7 +742,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e2);
             Window window = getWindow();
             window.setGravity(83);
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -753,12 +753,12 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
             window.setAttributes(attributes);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d98);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d54);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d63);
-            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091da6);
-            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091dab);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091da4);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d60);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091df2);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d6f);
+            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091db2);
+            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091db7);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             c();

@@ -1,62 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.setting.SecretSettingActivityConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.hottopicselect.HotTopicSelectActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class r97 extends o9<MsglistActivity<?>> {
+public class r97 extends BaseExpandableListAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public LinearLayout c;
-    public TextView d;
-    public TextView e;
+    public TbPageContext<HotTopicSelectActivity> a;
+    public LayoutInflater b;
+    public ExpandableListView c;
+    public final List<p97> d;
+
+    @Override // android.widget.ExpandableListAdapter
+    public long getChildId(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) ? i2 : invokeII.longValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public long getGroupId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean isChildSelectable(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ r97 d;
+        public int a;
+        public TextView b;
+        public TextView c;
+        public View d;
+        public View e;
 
-        public a(r97 r97Var, long j, String str, String str2) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r97Var, Long.valueOf(j), str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,34 +86,27 @@ public class r97 extends o9<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.d = r97Var;
-            this.a = j;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.mContext.getPageActivity(), String.valueOf(this.a), this.b, this.c, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
-            }
+            this.a = 3;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends oi5 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatMessage a;
-        public final /* synthetic */ r97 b;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
 
-        public b(r97 r97Var, ChatMessage chatMessage) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r97Var, chatMessage};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -103,77 +116,11 @@ public class r97 extends o9<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.b = r97Var;
-            this.a = chatMessage;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b.mContext == null) {
-                return;
-            }
-            k38 k38Var = new k38(TbadkCoreApplication.getInst());
-            k38Var.b(this.b.mContext.getUniqueId());
-            k38Var.c(String.valueOf(this.a.getUserId()));
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1));
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
-                textPaint.setUnderlineText(false);
-            }
+            this.a = 3;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends oi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(r97 r97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(TbadkCoreApplication.getInst())));
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 2));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r97(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05ad);
+    public r97(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,123 +130,232 @@ public class r97 extends o9<MsglistActivity<?>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((r9) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        o();
+        this.d = new ArrayList();
+        this.a = tbPageContext;
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void r(ChatMessage chatMessage) {
+    public final void a(a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) {
-            this.c.setVisibility(8);
-            if (chatMessage == null) {
-                this.b.setText("");
-            } else if (!p(chatMessage) && !q(chatMessage)) {
-                this.b.setVisibility(0);
-                String B = le7.B(chatMessage);
-                if (!TextUtils.isEmpty(B)) {
-                    this.b.setText(B);
-                } else {
-                    this.b.setText("");
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, aVar, view2, i) == null) && aVar != null && aVar.a != i) {
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundResource(aVar.c, R.drawable.hot_select_tag_bg);
+            SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(aVar.e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(aVar.c, R.color.CAM_X0302, 1);
+            SkinManager.setViewTextColor(aVar.b, R.color.CAM_X0105, 1);
+            aVar.a = i;
+        }
+    }
+
+    public final void b(b bVar, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, view2, i) == null) && bVar != null && bVar.a != i) {
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0109, 1);
+            bVar.a = i;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    public List<p97> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getGroupCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: d */
+    public q97 getChild(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (getGroup(i) != null && getGroup(i).b() != null) {
+                return getGroup(i).b().get(i2);
+            }
+            return null;
+        }
+        return (q97) invokeII.objValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildType(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            if (getChildTypeCount() == 2) {
+                if (i != 0 && i == 1) {
+                    return 2;
                 }
+            } else if (getChildTypeCount() == 1 && getGroup(i).getType() != 0 && getGroup(i).getType() == 1) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeII.intValue;
+    }
+
+    public final void h(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048593, this, textView, i) != null) || textView == null) {
+            return;
+        }
+        if (i == 10) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14a7));
+        } else if (i == 11) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14a6));
+        } else {
+            textView.setVisibility(8);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: e */
+    public p97 getGroup(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.d.get(i);
+        }
+        return (p97) invokeI.objValue;
+    }
+
+    public void g(p97 p97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, p97Var) == null) {
+            this.d.add(p97Var);
+        }
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getChildrenCount(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            if (getGroup(i) != null && getGroup(i).b() != null) {
+                return getGroup(i).b().size();
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
+    public void onGroupCollapsed(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048596, this, i) != null) || this.c == null) {
+            return;
+        }
+        int groupCount = getGroupCount();
+        for (int i2 = 0; i2 < groupCount; i2++) {
+            if (i2 != i) {
+                this.c.collapseGroup(i);
             }
         }
     }
 
-    public final void o() {
+    @Override // android.widget.ExpandableListAdapter
+    public View getChildView(int i, int i2, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) j(R.id.obfuscated_res_0x7f09214c);
-            this.b = textView;
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            this.c = (LinearLayout) j(R.id.obfuscated_res_0x7f09128c);
-            this.d = (TextView) j(R.id.obfuscated_res_0x7f09043e);
-            this.e = (TextView) j(R.id.obfuscated_res_0x7f09215a);
-            this.c.setVisibility(8);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            q97 child = getChild(i, i2);
+            if (view2 != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) null);
+                aVar = new a();
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e2b);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090831);
+                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f09082b);
+                view2.setTag(aVar);
+            }
+            if (child == null) {
+                return view2;
+            }
+            aVar.b.setText(ri5.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            h(aVar.c, child.a().intValue());
+            a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final boolean p(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        UserData toUserInfo;
+    @Override // android.widget.ExpandableListAdapter
+    public View getGroupView(int i, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMessage)) == null) {
-            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(chatMessage.getContent());
-                    String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                    if (optString != null && optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
-                        this.c.setVisibility(0);
-                        this.b.setVisibility(8);
-                        String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                        JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                        if (optJSONObject == null) {
-                            return false;
-                        }
-                        int optInt = optJSONObject.optInt("button_type");
-                        String optString3 = optJSONObject.optString("name");
-                        long optLong = optJSONObject.optLong("userId");
-                        if (chatMessage.getUserId() == optLong) {
-                            toUserInfo = chatMessage.getUserInfo();
-                        } else {
-                            toUserInfo = chatMessage.getToUserInfo();
-                        }
-                        String userName = toUserInfo.getUserName();
-                        String portrait = toUserInfo.getPortrait();
-                        this.e.setText(optString2);
-                        if (optInt == 1) {
-                            this.d.setVisibility(0);
-                            this.d.setText(optString3);
-                            this.d.setOnClickListener(new a(this, optLong, userName, portrait));
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03a2, (ViewGroup) null);
+                bVar = new b();
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d81);
+                bVar.c = view2.findViewById(R.id.divider_line);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090d28);
+                view2.setTag(bVar);
+                view2.setClickable(false);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean q(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage)) == null) {
-            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
-                try {
-                    String optString = new JSONObject(chatMessage.getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                    if (!TextUtils.isEmpty(optString) && optString.equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
-                        this.c.setVisibility(8);
-                        this.b.setVisibility(0);
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e1);
-                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e5));
-                        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e2);
-                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e4));
-                        String string3 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e3);
-                        b bVar = new b(this, chatMessage);
-                        c cVar = new c(this);
-                        spannableString.setSpan(bVar, 0, spannableString.length(), 33);
-                        spannableString2.setSpan(cVar, 0, spannableString2.length(), 33);
-                        spannableStringBuilder.append((CharSequence) string).append((CharSequence) spannableString).append((CharSequence) string2).append((CharSequence) spannableString2).append((CharSequence) string3);
-                        this.b.setText(spannableStringBuilder);
-                        this.b.setMovementMethod(LinkMovementMethod.getInstance());
-                        return true;
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+            p97 group = getGroup(i);
+            if (group == null) {
+                return view2;
             }
-            return false;
+            bVar.b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+            if (i == 0) {
+                bVar.c.setVisibility(0);
+                bVar.d.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(8);
+                bVar.d.setVisibility(0);
+            }
+            b(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
-        return invokeL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

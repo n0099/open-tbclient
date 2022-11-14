@@ -1,40 +1,45 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.ip4;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
+import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class iw6 {
+public class iw6 extends m36<uj6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VoiceRoomListNetModel a;
+    public HListView t;
+    public p87 u;
+    public FrsSchoolRecommendItemView v;
+    public List<q87> w;
+    public View.OnClickListener x;
 
     /* loaded from: classes4.dex */
-    public static final class a implements NetModel.k<gw6, hw6> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hp4<List<VoiceRoomWrapper>> a;
+        public final /* synthetic */ iw6 a;
 
-        public a(hp4<List<VoiceRoomWrapper>> hp4Var) {
+        public a(iw6 iw6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hp4Var};
+                Object[] objArr = {iw6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,67 +49,106 @@ public final class iw6 {
                     return;
                 }
             }
-            this.a = hp4Var;
+            this.a = iw6Var;
         }
 
-        @Override // com.baidu.tbadk.mvc.model.NetModel.m
-        public void n(MvcSocketResponsedMessage<hw6, ?> mvcSocketResponsedMessage, MvcSocketMessage<gw6, hw6> mvcSocketMessage, MvcNetMessage<gw6, hw6> mvcNetMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                if (mvcSocketResponsedMessage.getError() == 0) {
-                    this.a.a(new ip4.c(mvcSocketResponsedMessage.getData().a()));
-                    return;
-                }
-                hp4<List<VoiceRoomWrapper>> hp4Var = this.a;
-                String errorString = mvcSocketResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                hp4Var.a(new ip4.a(errorString, null, 2, null));
-            }
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.NetModel.l
-        public void s(MvcHttpResponsedMessage<hw6> mvcHttpResponsedMessage, MvcHttpMessage<gw6, hw6> mvcHttpMessage, MvcNetMessage<gw6, hw6> mvcNetMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                if (mvcHttpResponsedMessage.getError() == 0) {
-                    this.a.a(new ip4.c(mvcHttpResponsedMessage.getData().a()));
-                    return;
-                }
-                hp4<List<VoiceRoomWrapper>> hp4Var = this.a;
-                String errorString = mvcHttpResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                hp4Var.a(new ip4.a(errorString, null, 2, null));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
+                this.a.e().a(view2, null);
             }
         }
     }
 
-    public iw6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iw6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new VoiceRoomListNetModel();
+        this.x = new a(this);
+        HListView hListView = new HListView(getContext());
+        this.t = hListView;
+        hListView.setHeaderDividersEnabled(false);
+        this.t.setFooterDividersEnabled(false);
+        this.t.setSelector(R.drawable.obfuscated_res_0x7f080d14);
+        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d034a, (ViewGroup) null), tbPageContext, bdUniqueId);
+        p87 p87Var = new p87(getContext(), R.layout.obfuscated_res_0x7f0d034a, this.v);
+        this.u = p87Var;
+        p87Var.d(this.x);
+        this.t.setAdapter((ListAdapter) this.u);
+        this.q.addView(this.t);
+        this.p.setVisibility(8);
+        this.j.setTextSize(0, yi.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
     }
 
-    public final void a(TbPageContext<?> tbPageContext, long j, long j2, hp4<List<VoiceRoomWrapper>> callback) {
+    @Override // com.baidu.tieba.m36, com.baidu.tieba.l36
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            gw6 gw6Var = new gw6(j, j2);
-            this.a.setUniqueId(tbPageContext.getUniqueId());
-            this.a.c0(gw6Var);
-            this.a.b0(new a(callback));
-            this.a.loadData();
-            callback.a(new ip4.b(null, 1, null));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            super.m(tbPageContext, i);
+            if (this.t != null && this.u != null) {
+                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+                this.u.b(i);
+            }
+        }
+    }
+
+    public final boolean u(List<q87> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
+                return true;
+            }
+            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
+                q87 q87Var = (q87) ListUtils.getItem(this.w, i);
+                q87 q87Var2 = (q87) ListUtils.getItem(list, i);
+                if ((q87Var instanceof zk6) && (q87Var2 instanceof zk6) && !((zk6) q87Var).a.getUserId().equals(((zk6) q87Var2).a.getUserId())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.m36
+    /* renamed from: v */
+    public void t(uj6 uj6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uj6Var) == null) {
+            super.l(uj6Var);
+            if (uj6Var != null && !ListUtils.isEmpty(uj6Var.getDataList())) {
+                if (StringUtils.isNull(uj6Var.mGroupTitle)) {
+                    this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ef));
+                } else {
+                    this.j.setText(uj6Var.mGroupTitle);
+                }
+                if (u(uj6Var.getDataList())) {
+                    List<q87> dataList = uj6Var.getDataList();
+                    this.w = dataList;
+                    this.u.c(dataList);
+                    this.u.notifyDataSetChanged();
+                }
+            }
         }
     }
 }

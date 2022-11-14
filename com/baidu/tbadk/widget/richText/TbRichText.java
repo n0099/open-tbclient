@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mm5;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.en5;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.um5;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.wm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -232,9 +232,9 @@ public class TbRichText extends OrmObject {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ec4);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15d6);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1596);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15dd);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f159d);
         }
     }
 
@@ -257,7 +257,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo F;
-        Pair<CharSequence, um5> p;
+        Pair<CharSequence, en5> p;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) != null) || this.b == null) {
             return;
@@ -363,23 +363,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.U(true);
                         }
-                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = mm5.p(type, threadData, next.U())) != null) {
+                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = wm5.p(type, threadData, next.U())) != null) {
                             charSequence = p.first;
-                            um5 um5Var = p.second;
-                            um5Var.a(postData);
-                            um5Var.b(i);
+                            en5 en5Var = p.second;
+                            en5Var.a(postData);
+                            en5Var.b(i);
                             tbRichTextData.U(true);
-                            tbRichTextData.z(um5Var);
+                            tbRichTextData.z(en5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (F = next.F()) != null) {
                             PbContent C = F.C();
                             if (threadData != null && C != null) {
-                                xa5 f = xa5.f(threadData, C);
+                                eb5 f = eb5.f(threadData, C);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = mm5.o(f);
+                                charSequence = wm5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

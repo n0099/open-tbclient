@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.ey5;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.ov5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.tx5;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<wn> n;
+    public List<xn> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -171,7 +171,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         u = new HashMap<>();
     }
 
-    public List<wn> N() {
+    public List<xn> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    sx5 sx5Var = new sx5();
-                    cv5 cv5Var = new cv5();
-                    cv5Var.e = this.i;
-                    cv5Var.b = this.e;
-                    cv5Var.c = this.d;
-                    cv5Var.d = list.get(i);
-                    sx5Var.a = cv5Var;
+                    ey5 ey5Var = new ey5();
+                    ov5 ov5Var = new ov5();
+                    ov5Var.e = this.i;
+                    ov5Var.b = this.e;
+                    ov5Var.c = this.d;
+                    ov5Var.d = list.get(i);
+                    ey5Var.a = ov5Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        cv5 cv5Var2 = new cv5();
-                        cv5Var2.e = this.i;
-                        cv5Var2.b = this.e;
-                        cv5Var2.c = this.d;
-                        cv5Var2.d = list.get(i2);
-                        sx5Var.b = cv5Var2;
+                        ov5 ov5Var2 = new ov5();
+                        ov5Var2.e = this.i;
+                        ov5Var2.b = this.e;
+                        ov5Var2.c = this.d;
+                        ov5Var2.d = list.get(i2);
+                        ey5Var.b = ov5Var2;
                     }
-                    this.n.add(sx5Var);
+                    this.n.add(ey5Var);
                 } else {
-                    tx5 tx5Var = new tx5();
-                    cv5 cv5Var3 = new cv5();
-                    cv5Var3.e = this.i;
-                    cv5Var3.b = this.e;
-                    cv5Var3.c = this.d;
-                    cv5Var3.d = list.get(i);
-                    tx5Var.a = cv5Var3;
+                    fy5 fy5Var = new fy5();
+                    ov5 ov5Var3 = new ov5();
+                    ov5Var3.e = this.i;
+                    ov5Var3.b = this.e;
+                    ov5Var3.c = this.d;
+                    ov5Var3.d = list.get(i);
+                    fy5Var.a = ov5Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        cv5 cv5Var4 = new cv5();
-                        cv5Var4.e = this.i;
-                        cv5Var4.b = this.e;
-                        cv5Var4.c = this.d;
-                        cv5Var4.d = list.get(i3);
-                        tx5Var.b = cv5Var4;
+                        ov5 ov5Var4 = new ov5();
+                        ov5Var4.e = this.i;
+                        ov5Var4.b = this.e;
+                        ov5Var4.c = this.d;
+                        ov5Var4.d = list.get(i3);
+                        fy5Var.b = ov5Var4;
                     }
-                    this.n.add(tx5Var);
+                    this.n.add(fy5Var);
                 }
             }
         }

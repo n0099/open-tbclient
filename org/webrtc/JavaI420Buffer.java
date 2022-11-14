@@ -72,7 +72,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i7);
-            return new JavaI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.baidu.tieba.ey9
+            return new JavaI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.baidu.tieba.py9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,7 +118,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
                 ByteBuffer slice3 = dataV.slice();
                 int strideV = i420Buffer.getStrideV();
                 i420Buffer.getClass();
-                return wrap(i5, i6, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: com.baidu.tieba.vy9
+                return wrap(i5, i6, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: com.baidu.tieba.gz9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

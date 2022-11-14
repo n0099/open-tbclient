@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class jm1 implements no1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.no1
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
 
     public jm1() {
         Interceptable interceptable = $ic;
@@ -36,12 +28,28 @@ public class jm1 implements no1 {
     }
 
     @Override // com.baidu.tieba.no1
-    public String processUrl(String str) {
+    public long a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return a12.w(str, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return a12.b().a;
         }
-        return (String) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.no1
+    public void b(Context context, String str, yi3<String> yi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yi3Var) == null) {
+            fr1.d(str, yi3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.no1
+    public void c(Context context, JSONArray jSONArray, yi3<String> yi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, yi3Var) == null) {
+            fr1.e(jSONArray, yi3Var);
+        }
     }
 }

@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public class ee implements ud {
+import java.util.Queue;
+/* loaded from: classes3.dex */
+public class ee implements vd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Object> a;
+    public Queue<Object> a;
 
-    public ee(Set<Object> set) {
+    public ee(Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {set};
+            Object[] objArr = {queue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +27,15 @@ public class ee implements ud {
                 return;
             }
         }
-        this.a = set;
+        this.a = queue;
     }
 
-    @Override // com.baidu.tieba.ud
-    public Object a(ke keVar) {
+    @Override // com.baidu.tieba.vd
+    public Object a(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keVar)) == null) {
-            return je.e(this.a, keVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, leVar)) == null) {
+            return ke.d(this.a, leVar);
         }
         return invokeL.objValue;
     }

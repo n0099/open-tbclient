@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,9 +122,9 @@ public class MaxSignItemView extends FrameLayout {
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091008);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e82);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdf);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09100c);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e8e);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -183,8 +183,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -208,8 +208,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -233,8 +233,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -249,7 +249,7 @@ public class MaxSignItemView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0587, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0588, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
             this.a.addView(inflate, layoutParams);
@@ -263,11 +263,11 @@ public class MaxSignItemView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f1e);
-            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f091348);
-            this.e = xi.g(getContext(), R.dimen.tbds3);
-            this.f = xi.g(getContext(), R.dimen.tbds0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0587, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f2a);
+            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09134d);
+            this.e = yi.g(getContext(), R.dimen.tbds3);
+            this.f = yi.g(getContext(), R.dimen.tbds0);
         }
     }
 

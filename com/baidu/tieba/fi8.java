@@ -1,149 +1,127 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.gi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<b> b;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public static class a implements gi8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ TbPageContext b;
 
-        public a() {
+        public a(String str, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = tbPageContext;
         }
 
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        /* JADX WARN: Removed duplicated region for block: B:38:0x0080 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.gi8.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optLong("forum_id");
-                aVar.b = jSONObject.optString("forum_name");
-                aVar.c = jSONObject.optInt("member_count");
-                aVar.d = jSONObject.optInt("thread_count");
-                aVar.e = jSONObject.optString("avatar");
-                aVar.f = jSONObject.optString("slogan");
-                return aVar;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
+                return;
             }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public List<a> b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        a a = a.a(optJSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.a);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject("pageParams");
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
                         }
                     }
-                    bVar.b = arrayList;
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
                 }
-                return bVar;
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
             }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public fi8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static fi8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                return null;
-            }
-            fi8 fi8Var = new fi8();
-            fi8Var.a = jSONObject.optInt("showLocate");
-            JSONArray optJSONArray = jSONObject.optJSONArray("tabList");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    b a2 = b.a(optJSONArray.optJSONObject(i));
-                    if (a2 != null) {
-                        arrayList.add(a2);
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
+                    return;
+                }
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(ei8.class)) {
+                        try {
+                            ((ei8) cls.newInstance()).dispatch(jSONObject, this.b.getPageActivity());
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
                     }
                 }
-                fi8Var.b = arrayList;
             }
-            return fi8Var;
         }
-        return (fi8) invokeL.objValue;
+    }
+
+    public static int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext == null || strArr == null || strArr.length == 0 || (str = strArr[0]) == null || !str.startsWith("tiebaapp://router/portal")) {
+                return 3;
+            }
+            try {
+                gi8.c().b(new a(Uri.parse(str).getQueryParameter("params"), tbPageContext));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+        return invokeLL.intValue;
     }
 }

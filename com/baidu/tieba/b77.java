@@ -1,53 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
-import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class b77 extends p65 {
+public class b77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public TbPageContext a;
+    public List<kn> b;
+    public Cdo c;
+    public c77 d;
+    public a77 e;
+    public r77 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b77(Context context) {
-        super(context, (String) null, 29);
+    public b77(TbPageContext tbPageContext, Cdo cdo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, cdo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        TopicDetaiInputContainer topicDetaiInputContainer = new TopicDetaiInputContainer(context);
-        this.m = topicDetaiInputContainer;
-        this.t = topicDetaiInputContainer.getInputView();
-        ((TopicDetaiInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10e1));
-        this.p = new int[]{4, 13, 24, 3, 9, 6, 12};
+        this.a = tbPageContext;
+        this.c = cdo;
+        a();
+        this.c.a(this.b);
     }
 
-    public EditText g() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            this.d = new c77(this.a);
+            this.e = new a77(this.a);
+            this.f = new r77(this.a);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
         }
-        return (EditText) invokeV.objValue;
+    }
+
+    public void b() {
+        Cdo cdo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cdo = this.c) != null) {
+            cdo.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 }

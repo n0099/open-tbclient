@@ -126,16 +126,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0422, this);
-            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a2);
-            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
-            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a8);
-            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910aa);
-            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910a9);
-            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a6);
-            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a4);
-            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ae);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910a5);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0423, this);
+            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
+            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ac);
+            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ad);
+            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910af);
+            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910ae);
+            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ab);
+            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a9);
+            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910b3);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910aa);
             this.cl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
             this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);

@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.nu4;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,39 +98,39 @@ public class HeadlinesItemInfoView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d92);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d94);
             this.b = tbImageView;
             tbImageView.setRadiusById(R.string.J_X04);
             this.b.r(15);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d8f);
-            this.d = (HeadlinesItemCountDownView) findViewById(R.id.obfuscated_res_0x7f090d8e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d91);
+            this.d = (HeadlinesItemCountDownView) findViewById(R.id.obfuscated_res_0x7f090d90);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d96);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void b(nu4 nu4Var) {
+    public void b(ou4 ou4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nu4Var) != null) || nu4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ou4Var) != null) || ou4Var == null) {
             return;
         }
-        this.b.K(nu4Var.e(), 10, false);
-        this.c.setText(nu4Var.j());
-        this.e.setText(nu4Var.b());
-        this.d.setData(wg.g(nu4Var.c(), 0L), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0868));
+        this.b.K(ou4Var.e(), 10, false);
+        this.c.setText(ou4Var.j());
+        this.e.setText(ou4Var.b());
+        this.d.setData(xg.g(ou4Var.c(), 0L), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0869));
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            kw4 d = kw4.d(this);
+            pw4 d = pw4.d(this);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            kw4.d(this.c).v(R.color.CAM_X0107);
+            pw4.d(this.c).v(R.color.CAM_X0107);
             this.d.i(i);
-            kw4 d2 = kw4.d(this.e);
+            pw4 d2 = pw4.d(this.e);
             d2.v(R.color.CAM_X0304);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);

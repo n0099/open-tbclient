@@ -29,15 +29,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.e95;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.rx;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z36;
+import com.baidu.tieba.br4;
+import com.baidu.tieba.in;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.l46;
+import com.baidu.tieba.sr4;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
+public class InterviewLiveLayout extends FrameLayout implements sx<sr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public z36<rr4> c;
-    public rr4 d;
+    public l46<sr4> c;
+    public sr4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -93,7 +93,7 @@ public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ListUtils.getCount(this.a.i) > 0) {
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                    xi.O(this.a.getContext(), R.string.obfuscated_res_0x7f0f0eeb);
+                    yi.O(this.a.getContext(), R.string.obfuscated_res_0x7f0f0ef0);
                     return;
                 }
                 String str = (String) this.a.i.get(0);
@@ -187,7 +187,7 @@ public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
                 } else {
                     i = 14;
                 }
-                hn m = e95.k().m(sg.h().g(tbImageView.getUrl(), i));
+                in m = k95.k().m(tg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
                 if (m != null) {
                     i3 = m.r();
@@ -305,40 +305,40 @@ public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
         }
     }
 
-    public void setSubClickListener(z36<rr4> z36Var) {
+    public void setSubClickListener(l46<sr4> l46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, z36Var) == null) {
-            this.c = z36Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, l46Var) == null) {
+            this.c = l46Var;
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ec, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ed, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f15);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f18);
             this.e = tbImageView;
             tbImageView.r(15);
             this.e.setPlaceHolder(3);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f9d);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f9e);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090f9c);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fa1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa2);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090fa0);
             l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.sx
     /* renamed from: k */
-    public void a(rr4 rr4Var) {
+    public void a(sr4 sr4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rr4Var) == null) {
-            this.d = rr4Var;
-            if (rr4Var != null && this.e != null) {
-                ThreadData threadData = rr4Var.getThreadData();
-                tu4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var) == null) {
+            this.d = sr4Var;
+            if (sr4Var != null && this.e != null) {
+                ThreadData threadData = sr4Var.getThreadData();
+                uu4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -346,7 +346,7 @@ public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.g();
-                if (ar4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                if (br4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
                     this.i.clear();
                     this.i.add(taskInfoData.k());
                     setVisibility(0);
@@ -362,7 +362,7 @@ public class InterviewLiveLayout extends FrameLayout implements rx<rr4> {
                     }
                     tbImageView.K(k, i, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-                    int l = xi.l(getContext()) - xi.g(getContext(), R.dimen.tbds88);
+                    int l = yi.l(getContext()) - yi.g(getContext(), R.dimen.tbds88);
                     layoutParams.width = l;
                     layoutParams.height = (int) ((l * 428.0f) / 760.0f);
                     setLayoutParams(layoutParams);

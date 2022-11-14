@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cp2;
+import com.baidu.tieba.k93;
+import com.baidu.tieba.s93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,30 +19,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jv1 extends dv1 {
+public class jv1 extends ev1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hs1
+    @Override // com.baidu.tieba.is1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "DesktopShortcutApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public class a implements yi3<i93<k93.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ jv1 b;
+        public final /* synthetic */ f43 b;
+        public final /* synthetic */ jv1 c;
 
-        public a(jv1 jv1Var, String str) {
+        public a(jv1 jv1Var, String str, f43 f43Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jv1Var, str};
+                Object[] objArr = {jv1Var, str, f43Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,16 +54,59 @@ public class jv1 extends dv1 {
                     return;
                 }
             }
-            this.b = jv1Var;
+            this.c = jv1Var;
             this.a = str;
+            this.b = f43Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yi3
+        /* renamed from: b */
+        public void a(i93<k93.e> i93Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new ew1(0, this.b.y()));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i93Var) == null) {
+                if (!d93.h(i93Var)) {
+                    int b = i93Var.b();
+                    this.c.d(this.a, new fw1(b, d93.f(b)));
+                    return;
+                }
+                if (jv1.f) {
+                    Log.d("DesktopShortcutApi", "start add to desktop");
+                }
+                this.c.A(this.b.w(), this.b);
+                this.c.d(this.a, new fw1(0));
             }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements s93.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(jv1 jv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jv1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s93.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
+            }
+            jv1.C(i);
         }
     }
 
@@ -72,22 +123,22 @@ public class jv1 extends dv1 {
                 return;
             }
         }
-        boolean z = ok1.a;
+        f = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jv1(@NonNull fs1 fs1Var) {
-        super(fs1Var);
+    public jv1(@NonNull gs1 gs1Var) {
+        super(gs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fs1Var};
+            Object[] objArr = {gs1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fs1) newInitContext.callArgs[0]);
+                super((gs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,35 +146,61 @@ public class jv1 extends dv1 {
         }
     }
 
-    public ew1 x(String str) {
+    public static void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            ib3 ib3Var = new ib3();
+            e43 K = e43.K();
+            String appId = K.getAppId();
+            String n = ya3.n(K.k());
+            ib3Var.f = appId;
+            ib3Var.b = "api";
+            ib3Var.a = n;
+            ib3Var.e = "addshortcut";
+            cp2.a W = K.q().W();
+            if (W != null) {
+                ib3Var.c = W.T();
+            }
+            ib3Var.a("appid", appId);
+            ib3Var.a("resultstate", Integer.valueOf(i));
+            oa3.b(ib3Var);
+        }
+    }
+
+    public final void A(@NonNull Context context, @NonNull f43 f43Var) {
+        cp2.a Y;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, f43Var) != null) || (Y = f43Var.Y()) == null) {
+            return;
+        }
+        s93.k(context, Y, new b(this));
+    }
+
+    public fw1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getPerformanceLevel", false);
-            Pair<ew1, JSONObject> s = s(str);
-            if (!((ew1) s.first).isSuccess()) {
-                return (ew1) s.first;
+            q("#addToDesktop", false);
+            if (f) {
+                Log.d("DesktopShortcutApi", "#addToDesktop params = " + str);
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new ew1(202, "cb is empty");
+            Pair<fw1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((fw1) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new fw1(202, "cb is empty");
+                }
+                f43 b0 = f43.b0();
+                Context context = getContext();
+                if (!(context instanceof Activity) && (context = b0.w()) == null) {
+                    return new fw1(1001, "the context is not an activity");
+                }
+                b0.e0().g(context, "scope_add_to_desktop", new a(this, optString, b0));
+                return fw1.f();
             }
-            yg3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
-            return new ew1(0);
+            return (fw1) s.first;
         }
-        return (ew1) invokeL.objValue;
-    }
-
-    public JSONObject y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b = ln2.u0().b();
-            e12.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
-            JSONObject jSONObject = new JSONObject();
-            eh3.f(jSONObject, "performanceLevel", b);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (fw1) invokeL.objValue;
     }
 }

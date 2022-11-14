@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public final class de9 implements Application.ActivityLifecycleCallbacks {
+public final class de9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wd9 a;
+    public SQLiteDatabase a;
 
-    public de9(wd9 wd9Var) {
+    public de9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wd9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,93 +29,62 @@ public final class de9 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = wd9Var;
+        this.a = yd9.a().c();
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStarted(Activity activity) {
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wd9.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStopped(Activity activity) {
+    public final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wd9.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+            int count = rawQuery.getCount();
+            rawQuery.close();
+            if (count > 0) {
+                return true;
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityCreated(Activity activity, Bundle bundle) {
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                for (wd9.a aVar : this.a.b()) {
-                    aVar.a(activity);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityDestroyed(Activity activity) {
+    public final List<com.baidu.ubs.analytics.a.n> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wd9.a aVar : this.a.b()) {
-                    aVar.onActivityDestroyed(activity);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
+                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                arrayList.add(nVar);
             }
+            rawQuery.close();
+            return arrayList;
         }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wd9.a aVar : this.a.b()) {
-                    aVar.U();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wd9.a aVar : this.a.b()) {
-                    aVar.b();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wd9.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
-        }
+        return (List) invokeV.objValue;
     }
 }

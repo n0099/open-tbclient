@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.io8;
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.iq8;
+import com.baidu.tieba.py4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.sf;
+import com.baidu.tieba.sb;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.xp8;
+import com.baidu.tieba.tf;
+import com.baidu.tieba.to8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class LocationModel extends BdBaseModel {
     public c a;
     public d b;
     public r9 c;
-    public rb d;
+    public sb d;
     public CustomMessageListener e;
 
     /* loaded from: classes6.dex */
@@ -61,7 +61,7 @@ public class LocationModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocationModel a;
@@ -170,13 +170,13 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
         }
-        sf.n().g(LocationModel.class);
+        tf.n().g(LocationModel.class);
     }
 
     public static void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            io8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            to8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -223,7 +223,7 @@ public class LocationModel extends BdBaseModel {
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = xp8.a().b();
+            LocationData b2 = iq8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -235,8 +235,8 @@ public class LocationModel extends BdBaseModel {
     public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            xp8.a().e(z);
-            ky4.k().u("no_longer_show_address", xp8.a().c());
+            iq8.a().e(z);
+            py4.k().u("no_longer_show_address", iq8.a().c());
         }
     }
 
@@ -294,8 +294,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             C(locationData);
-            xp8.a().f(System.currentTimeMillis());
-            xp8.a().d(locationData);
+            iq8.a().f(System.currentTimeMillis());
+            iq8.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

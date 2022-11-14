@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.gs5;
-import com.baidu.tieba.vs5;
-import com.baidu.tieba.zs5;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,22 +45,22 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         this.errno = -1;
     }
 
-    private vs5 searchTask(String str) {
+    private ht5 searchTask(String str) {
         InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof vs5)) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof ht5)) {
                 return null;
             }
             try {
-                return (vs5) searchTask;
+                return (ht5) searchTask;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;
             }
         }
-        return (vs5) invokeL.objValue;
+        return (ht5) invokeL.objValue;
     }
 
     private void dealVideoAd() {
@@ -68,23 +68,23 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !FileHelper.checkSD()) {
             return;
         }
-        gs5 b = gs5.b(zs5.f());
+        ss5 b = ss5.b(lt5.f());
         if (!this.adInfo.shouldDownloadVideo()) {
             AdInfo adInfo = this.adInfo;
             adInfo.videoLocalPath = b.d;
-            zs5.i(adInfo);
+            lt5.i(adInfo);
         } else if (BdNetTypeUtil.isNetWorkAvailable() && BdNetTypeUtil.isWifiNet()) {
-            vs5 searchTask = searchTask(this.adInfo.adVideoUrl);
+            ht5 searchTask = searchTask(this.adInfo.adVideoUrl);
             if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                 return;
             }
-            zs5.i(this.adInfo);
-            vs5 vs5Var = new vs5();
-            vs5Var.c(this.adInfo);
-            vs5Var.setKey(this.adInfo.adVideoUrl);
-            vs5Var.execute(new Void[0]);
+            lt5.i(this.adInfo);
+            ht5 ht5Var = new ht5();
+            ht5Var.c(this.adInfo);
+            ht5Var.setKey(this.adInfo.adVideoUrl);
+            ht5Var.execute(new Void[0]);
         } else {
-            zs5.i(this.adInfo);
+            lt5.i(this.adInfo);
         }
     }
 
@@ -110,7 +110,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
         AdInfo adInfo2 = this.adInfo;
         adInfo2.videoLocalPath = "";
-        zs5.i(adInfo2);
+        lt5.i(adInfo2);
     }
 
     public int getErrno() {

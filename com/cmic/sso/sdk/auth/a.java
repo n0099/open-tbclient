@@ -19,6 +19,7 @@ import com.cmic.sso.sdk.e.h;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.l;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -232,7 +233,7 @@ public class a {
             if (aVar.c("logintype") == 1) {
                 aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
             } else if (aVar.c("logintype") == 0) {
-                aVar.a("userCapaid", "50");
+                aVar.a("userCapaid", PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK);
             }
             this.a.a(aVar, new com.cmic.sso.sdk.c.c.d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
                 public static /* synthetic */ Interceptable $ic;

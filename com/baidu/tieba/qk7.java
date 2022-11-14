@@ -1,52 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
+import com.baidu.tieba.pk7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qk7 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class qk7 implements IConnectListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String e = "imlog";
     public transient /* synthetic */ FieldHolder $fh;
-    public nk7 a;
-    public SearchLocationActivity b;
-    public boolean c;
-    public NoDataView d;
+    public boolean a;
+    public c b;
+    public CustomMessageListener c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948094796, "Lcom/baidu/tieba/qk7;")) == null) {
+            return;
         }
-        return invokeI.longValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948094796, "Lcom/baidu/tieba/qk7;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
+        public final /* synthetic */ qk7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qk7 qk7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qk7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qk7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements pk7.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qk7 a;
 
         public b(qk7 qk7Var) {
             Interceptable interceptable = $ic;
@@ -60,129 +103,169 @@ public class qk7 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qk7Var;
+        }
+
+        @Override // com.baidu.tieba.pk7.b
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i + ", errMsg=" + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append(qk7.e);
+                sb.append("LiveIMManager");
+                String sb2 = sb.toString();
+                LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + this.a.a);
+                if (i == 0 && !this.a.a) {
+                    this.a.onResult(0);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean mIsDestroy;
+        public boolean mIsInit;
+        public final /* synthetic */ qk7 this$0;
+
+        public c(qk7 qk7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = qk7Var;
+        }
+
+        public /* synthetic */ c(qk7 qk7Var, a aVar) {
+            this(qk7Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                if (this.mIsInit) {
+                    this.mIsInit = false;
+                } else if (BdNetTypeUtil.isNetWorkAvailable() && !this.mIsDestroy) {
+                    BIMManager.tryConnection(context);
                 }
             }
         }
 
-        public /* synthetic */ b(qk7 qk7Var, a aVar) {
-            this(qk7Var);
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+                this.mIsDestroy = true;
+                try {
+                    TbadkCoreApplication.getInst().unregisterReceiver(this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        private void init() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+                this.mIsInit = true;
+                this.mIsDestroy = false;
+            }
+        }
+
+        public void register() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                init();
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                TbadkCoreApplication.getInst().registerReceiver(this, intentFilter);
+            }
         }
     }
 
-    public qk7(SearchLocationActivity searchLocationActivity) {
+    public qk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {searchLocationActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.b = searchLocationActivity;
+        this.a = false;
+        this.c = new a(this, 2005016);
+        this.d = false;
     }
 
-    public b b(View view2) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091466);
-            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091467);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public void d(nk7 nk7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nk7Var) == null) {
-            this.a = nk7Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            pk7.a().d(new b(this));
         }
     }
 
-    public View a(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1409), null);
-            this.d = a2;
-            a2.f(this.b.getPageContext(), skinType);
-            this.d.setVisibility(0);
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogUtils.d(e + "LiveIMManager", "registerIMConnectListener");
+            this.a = false;
+            BIMManager.unregisterConnectListener();
+            BIMManager.registerConnectListener(this);
         }
-        return (View) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            nk7 nk7Var = this.a;
-            if (nk7Var != null && nk7Var.a() != null && !this.a.a().isEmpty()) {
-                this.c = true;
-                return this.a.a().size();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
+            if (this.d) {
+                return;
             }
-            this.c = false;
-            return 1;
+            this.d = true;
+            pk7.a().b(TbadkCoreApplication.getInst());
+            d();
+            c();
+            if (this.b == null) {
+                this.b = new c(this, null);
+            }
+            this.b.register();
+            MessageManager.getInstance().registerListener(this.c);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.android.imsdk.account.IConnectListener
+    public void onResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            nk7 nk7Var = this.a;
-            if (nk7Var != null && nk7Var.a() != null && !this.a.a().isEmpty()) {
-                return this.a.a().get(i);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i);
+            LogUtils.d(e + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+            this.a = true;
+            if (i == 0) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net connect");
+            } else if (i == 1) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net disconnect");
             }
-            return null;
         }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (!this.c) {
-                return a(viewGroup);
-            }
-            b bVar = null;
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            }
-            if (bVar == null) {
-                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0577, viewGroup, false);
-                bVar = b(view2);
-                view2.setTag(bVar);
-            }
-            bVar.a.setText(this.a.a().get(i).a());
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

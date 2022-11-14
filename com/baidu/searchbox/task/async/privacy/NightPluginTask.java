@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,8 +105,8 @@ public class NightPluginTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mNightInstallListener.setTag(this.tag);
             MessageManager.getInstance().registerListener(this.mNightInstallListener);
-            if (FixNpsAnrSwitch.getIsOn() && xi.q() > 1) {
-                zg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
+            if (FixNpsAnrSwitch.getIsOn() && yi.q() > 1) {
+                ah.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NightPluginTask this$0;

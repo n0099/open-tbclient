@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mk6;
-import com.baidu.tieba.nj6;
+import com.baidu.tieba.yk6;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import tbclient.FrsTabInfo;
 public class FrsTabSortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nj6> A;
+    public List<zj6> A;
     public List<Float> B;
     public GestureDetector C;
     public GestureDetector.SimpleOnGestureListener D;
@@ -371,7 +371,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     public final void A(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mk6.FrsTabSortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, yk6.FrsTabSortSwitchButton);
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -431,11 +431,11 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            nj6 nj6Var = (nj6) ListUtils.getItem(this.A, i);
-            if (nj6Var == null) {
+            zj6 zj6Var = (zj6) ListUtils.getItem(this.A, i);
+            if (zj6Var == null) {
                 return -1;
             }
-            return nj6Var.b;
+            return zj6Var.b;
         }
         return invokeI.intValue;
     }
@@ -473,24 +473,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
                 return true;
             }
             for (int i = 0; i < size; i++) {
-                nj6 nj6Var = this.A.get(i);
+                zj6 zj6Var = this.A.get(i);
                 FrsTabInfo frsTabInfo = list.get(i);
-                if (frsTabInfo.tab_id.intValue() != nj6Var.b) {
+                if (frsTabInfo.tab_id.intValue() != zj6Var.b) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 2 && !nj6Var.a.equals(this.l)) {
+                if (frsTabInfo.tab_id.intValue() == 2 && !zj6Var.a.equals(this.l)) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 3 && !nj6Var.a.equals(this.m)) {
+                if (frsTabInfo.tab_id.intValue() == 3 && !zj6Var.a.equals(this.m)) {
                     return true;
                 }
                 if (frsTabInfo.tab_id.intValue() != 2 && frsTabInfo.tab_id.intValue() != 3) {
                     String str = frsTabInfo.tab_name;
                     if (str != null && str.length() > 5) {
-                        if (!nj6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
+                        if (!zj6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
                             return true;
                         }
-                    } else if (!nj6Var.a.equals(frsTabInfo.tab_name)) {
+                    } else if (!zj6Var.a.equals(frsTabInfo.tab_name)) {
                         return true;
                     }
                 }
@@ -512,30 +512,30 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         }
         setVisibility(0);
         for (int i = 0; i < list.size(); i++) {
-            nj6 nj6Var = new nj6();
-            nj6Var.b = list.get(i).tab_id.intValue();
+            zj6 zj6Var = new zj6();
+            zj6Var.b = list.get(i).tab_id.intValue();
             if (list.get(i).tab_id.intValue() == 2) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    nj6Var.a = "最热";
+                    zj6Var.a = "最热";
                 } else {
-                    nj6Var.a = this.l;
+                    zj6Var.a = this.l;
                 }
             } else if (list.get(i).tab_id.intValue() == 3) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    nj6Var.a = "最新";
+                    zj6Var.a = "最新";
                 } else {
-                    nj6Var.a = this.m;
+                    zj6Var.a = this.m;
                 }
             } else {
                 String str = list.get(i).tab_name;
-                nj6Var.a = str;
+                zj6Var.a = str;
                 if (str == null) {
-                    nj6Var.a = "";
+                    zj6Var.a = "";
                 } else if (str.length() > 5) {
-                    nj6Var.a = nj6Var.a.substring(0, 5);
+                    zj6Var.a = zj6Var.a.substring(0, 5);
                 }
             }
-            this.A.add(nj6Var);
+            this.A.add(zj6Var);
         }
         requestLayout();
     }
@@ -606,10 +606,10 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    nj6 nj6Var = (nj6) ListUtils.getItem(this.A, i3);
-                    if (nj6Var != null) {
+                    zj6 zj6Var = (zj6) ListUtils.getItem(this.A, i3);
+                    if (zj6Var != null) {
                         Paint paint = this.p;
-                        String str = nj6Var.a;
+                        String str = zj6Var.a;
                         if (str == null) {
                             str = "";
                         }
@@ -830,8 +830,8 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             this.B = new ArrayList();
             this.u = 0;
             this.C = new GestureDetector(context, this.D);
-            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f1035);
-            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f115b);
+            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f103b);
+            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f1161);
             z();
         }
     }

@@ -30,16 +30,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
+import com.baidu.tieba.az4;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.oc7;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.uy4;
-import com.baidu.tieba.vy4;
+import com.baidu.tieba.sb;
+import com.baidu.tieba.zc7;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,20 +53,20 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public vy4 b;
-    public oc7 c;
+    public az4 b;
+    public zc7 c;
     public NoDataView d;
     public View e;
     public boolean f;
     public int g;
-    public final rb h;
-    public final rb i;
-    public final rb j;
+    public final sb h;
+    public final sb i;
+    public final sb j;
     public final CustomMessageListener k;
     public final CustomMessageListener l;
 
     /* loaded from: classes4.dex */
-    public class a extends rb {
+    public class a extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -103,7 +103,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes4.dex */
-    public class b implements uy4.g {
+    public class b implements zy4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -126,7 +126,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a = personalGroupFragment;
         }
 
-        @Override // com.baidu.tieba.uy4.g
+        @Override // com.baidu.tieba.zy4.g
         public void e(boolean z) {
             PersonGroupActivity u1;
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes4.dex */
-    public class c extends rb {
+    public class c extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -188,7 +188,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes4.dex */
-    public class d extends rb {
+    public class d extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -229,7 +229,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                     if (responseGroupsByUidMessage.getError() != 0) {
                         if (responseGroupsByUidMessage.getError() != 0) {
                             if (StringUtils.isNull(responseGroupsByUidMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
                             } else {
                                 errorString = responseGroupsByUidMessage.getErrorString();
                             }
@@ -440,9 +440,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            oc7 oc7Var = this.c;
-            if (oc7Var != null) {
-                oc7Var.notifyDataSetChanged();
+            zc7 zc7Var = this.c;
+            if (zc7Var != null) {
+                zc7Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.d;
             if (noDataView != null) {
@@ -474,7 +474,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f090660) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090661) {
                 GroupInfoData groupInfoData = null;
                 if (view2.getTag() instanceof GroupInfoData) {
                     groupInfoData = (GroupInfoData) view2.getTag();
@@ -495,30 +495,30 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             this.g = getArguments().getInt("page_type", 0);
             getArguments().getInt(SuggestAddrField.KEY_PAGE_SIZE, 1);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0724, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0728, viewGroup, false);
             PersonGroupActivity u1 = u1();
             if (u1 != null && !u1.Z0()) {
                 if (this.g == 0) {
-                    eVar = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e90), u1.b1()));
+                    eVar = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e95), u1.b1()));
                 } else {
-                    eVar = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e8f));
+                    eVar = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e94));
                 }
             } else if (u1 != null && u1.Z0()) {
-                eVar = NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f082c), getString(R.string.obfuscated_res_0x7f0f082d));
+                eVar = NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f082d), getString(R.string.obfuscated_res_0x7f0f082e));
             } else {
                 eVar = null;
             }
             this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231)), eVar, null);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091977);
-            this.b = new vy4(getPageContext());
-            this.c = new oc7(this);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091980);
+            this.b = new az4(getPageContext());
+            this.c = new zc7(this);
             this.b.f(new b(this));
             this.a.setPullRefresh(this.b);
             this.a.setAdapter((ListAdapter) this.c);
             this.a.setOnItemClickListener(this);
             this.d.setVisibility(8);
             this.a.removeHeaderView(this.d);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090d27);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090d29);
             if (u1() != null && this.g == u1().Y0()) {
                 this.a.F();
             }

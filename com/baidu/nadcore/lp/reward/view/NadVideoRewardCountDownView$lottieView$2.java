@@ -47,7 +47,7 @@ public final class NadVideoRewardCountDownView$lottieView$2 extends Lambda imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f09148b);
+            View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f091492);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.lottie_view)");
             return (LottieAnimationView) findViewById;
         }

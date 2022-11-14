@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +37,8 @@ public class FrsTabTestHelper {
                 return;
             }
         }
-        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0732);
-        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0752);
+        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0733);
+        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0753);
     }
 
     public static int getDefaultShowTabId() {
@@ -95,7 +95,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return ky4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
+            return py4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
         }
         return invokeV.intValue;
     }
@@ -104,7 +104,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return ky4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME);
+            return py4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME);
         }
         return (String) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public class FrsTabTestHelper {
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            ky4.k().w(generateFrsNewAreaTabSortKey(), i);
+            py4.k().w(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -120,7 +120,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                ky4.k().y(generateUserLastAccessKey(), str);
+                py4.k().y(generateUserLastAccessKey(), str);
             }
         }
     }

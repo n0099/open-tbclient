@@ -1,115 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
+import android.os.Process;
 import android.util.Log;
-import com.baidu.searchbox.live.frame.IntentData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public class qt9 implements ArCoreApk.a {
+public class qt9 extends jt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ rt9 a;
+    public StringBuffer d;
+    public int e;
+    public long f;
+    public long g;
 
-    public qt9(rt9 rt9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qt9(long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rt9Var};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = rt9Var;
+        this.d = new StringBuffer();
+        this.e = 0;
+        this.f = 0L;
+        this.g = 0L;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jt9
+    public void b() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        String readLine;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setLength(0);
+            BufferedReader bufferedReader3 = null;
             try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                rt9.c(this.a, availability);
-                rt9.f(this.a, false);
-            }
-        }
-    }
-
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable(IntentData.KEY);
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
+                try {
+                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
+                    try {
+                        readLine = bufferedReader2.readLine();
+                        str = "";
+                        if (readLine == null) {
+                            readLine = "";
                         }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+                        if (this.e == 0) {
+                            this.e = Process.myPid();
+                        }
+                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = null;
                     }
-                    throw new UnavailableUserDeclinedInstallationException();
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader = null;
                 }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
+                try {
+                    String readLine2 = bufferedReader.readLine();
+                    if (readLine2 != null) {
+                        str = readLine2;
+                    }
+                    f(readLine, str);
+                    bufferedReader2.close();
+                    bufferedReader.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader3 = bufferedReader2;
+                    try {
+                        Log.e("SampleCpuSampler", "doSample: ", th);
+                        if (bufferedReader3 != null) {
+                            bufferedReader3.close();
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                    } catch (Throwable th4) {
+                        if (bufferedReader3 != null) {
+                            try {
+                                bufferedReader3.close();
+                            } catch (IOException e) {
+                                Log.e("SampleCpuSampler", "doSample: ", e);
+                                throw th4;
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th4;
+                    }
+                }
+            } catch (IOException e2) {
+                Log.e("SampleCpuSampler", "doSample: ", e2);
             }
         }
-        return (PendingIntent) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jt9
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.c();
+            g();
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = 0L;
+            this.g = 0L;
+        }
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            String[] split = str.split(" ");
+            if (split.length < 9) {
+                return;
+            }
+            long parseLong = Long.parseLong(split[2]);
+            long parseLong2 = Long.parseLong(split[3]);
+            long parseLong3 = Long.parseLong(split[4]);
+            long parseLong4 = Long.parseLong(split[5]);
+            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
+            if (str2.split(" ").length < 17) {
+                return;
+            }
+            if (parseLong5 != 0) {
+                long j = parseLong5 - this.g;
+                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
+            }
+            this.f = parseLong4;
+            this.g = parseLong5;
+        }
     }
 }

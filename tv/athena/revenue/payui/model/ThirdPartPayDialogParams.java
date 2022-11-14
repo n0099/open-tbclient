@@ -2,13 +2,15 @@ package tv.athena.revenue.payui.model;
 
 import android.app.Activity;
 import androidx.annotation.Keep;
-import com.baidu.tieba.h5a;
+import com.baidu.tieba.x5a;
+import com.baidu.tieba.z5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 @Keep
@@ -19,9 +21,11 @@ public class ThirdPartPayDialogParams {
     public Activity act;
     public Map<String, String> appClientExpand;
     public PayType defaultType;
+    public List<Object> payDiscountList;
     public String payWayDialogTitle;
     public double targetAmount;
-    public h5a thirdPartOrderRequest;
+    public x5a thirdPartOrderRequest;
+    public z5a thirdPartToYYPayRequest;
     public AbsViewEventHandler viewEventListener;
 
     public ThirdPartPayDialogParams() {
@@ -42,7 +46,7 @@ public class ThirdPartPayDialogParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ThirdPartPayDialogParams{act=" + this.act + "defaultType=" + this.defaultType + "appClientExpand=" + this.appClientExpand + ", payWayDialogTitle=" + this.payWayDialogTitle + ", targetAmount=" + this.targetAmount + ", thirdPartOrderRequest='" + this.thirdPartOrderRequest + "'}";
+            return "ThirdPartPayDialogParams{act=" + this.act + "defaultType=" + this.defaultType + "appClientExpand=" + this.appClientExpand + ", payWayDialogTitle=" + this.payWayDialogTitle + ", targetAmount=" + this.targetAmount + ", thirdPartPayToYYPayRequest=" + this.thirdPartToYYPayRequest + ", payDiscountList=" + this.payDiscountList + ", thirdPartOrderRequest='" + this.thirdPartOrderRequest + "'}";
         }
         return (String) invokeV.objValue;
     }

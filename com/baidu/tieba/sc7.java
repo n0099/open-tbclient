@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class sc7 extends nb {
+public class sc7 extends fb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sc7() {
-        super(202009);
+        super(2016007);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,35 +34,41 @@ public class sc7 extends nb {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
+    @Override // com.baidu.tieba.lb
     /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         InterceptResult invokeL;
+        List<ImMessageCenterPojo> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo = null;
+            if (customResponsedMessage == null) {
                 return null;
             }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(pushResponseMessage.getNotificationData());
-                MessageManager.getInstance().sendMessage(customMessage);
-                return null;
-            }
-            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
+                    ImMessageCenterPojo imMessageCenterPojo2 = null;
+                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
+                            imMessageCenterPojo = imMessageCenterPojo3;
+                        }
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
+                            imMessageCenterPojo2 = imMessageCenterPojo3;
+                        }
+                    }
+                    if (imMessageCenterPojo != null) {
+                        data.remove(imMessageCenterPojo);
+                        data.add(w97.a(imMessageCenterPojo));
+                    }
+                    if (imMessageCenterPojo2 != null) {
+                        data.remove(imMessageCenterPojo2);
+                        data.add(x97.a(imMessageCenterPojo2));
                     }
                 }
             }
-            return socketResponsedMessage;
+            return customResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

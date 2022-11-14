@@ -1,394 +1,176 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tbadk.editortools.view.CommonTabContentView;
+import com.baidu.tieba.w85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class s65 extends v65 {
+public class s65 extends w85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<r65> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103383, "Lcom/baidu/tieba/s65;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.l65
+    public void B(k65 k65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements w85.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s65 a;
+
+        public a(s65 s65Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s65Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948103383, "Lcom/baidu/tieba/s65;");
-                return;
+            this.a = s65Var;
+        }
+
+        @Override // com.baidu.tieba.w85.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) != null) {
+                return (View) invokeILL.objValue;
+            }
+            DLauncher D = this.a.D(i);
+            if (D.getLayoutParams() == null) {
+                D.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+            }
+            return D;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements CommonTabContentView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s65 a;
+
+        public b(s65 s65Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s65Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s65Var;
+        }
+
+        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
+        public void a(View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
+                this.a.j.x(view2);
             }
         }
-        v65.d.put("image_emoticon", "呵呵");
-        v65.d.put("image_emoticon2", "哈哈");
-        v65.d.put("image_emoticon3", "吐舌");
-        v65.d.put("image_emoticon4", "啊");
-        v65.d.put("image_emoticon5", "酷");
-        v65.d.put("image_emoticon6", "怒");
-        v65.d.put("image_emoticon7", "开心");
-        v65.d.put("image_emoticon8", "汗");
-        v65.d.put("image_emoticon9", "泪");
-        v65.d.put("image_emoticon10", "黑线");
-        v65.d.put("image_emoticon11", "鄙视");
-        v65.d.put("image_emoticon12", "不高兴");
-        v65.d.put("image_emoticon13", "真棒");
-        v65.d.put("image_emoticon14", "钱");
-        v65.d.put("image_emoticon15", "疑问");
-        v65.d.put("image_emoticon16", "阴险");
-        v65.d.put("image_emoticon17", "吐");
-        v65.d.put("image_emoticon18", "咦");
-        v65.d.put("image_emoticon19", "委屈");
-        v65.d.put("image_emoticon20", "花心");
-        v65.d.put("image_emoticon21", "呼~");
-        v65.d.put("image_emoticon22", "笑眼");
-        v65.d.put("image_emoticon23", "冷");
-        v65.d.put("image_emoticon24", "太开心");
-        v65.d.put("image_emoticon25", "滑稽");
-        v65.d.put("image_emoticon26", "勉强");
-        v65.d.put("image_emoticon27", "狂汗");
-        v65.d.put("image_emoticon28", "乖");
-        v65.d.put("image_emoticon29", "睡觉");
-        v65.d.put("image_emoticon30", "惊哭");
-        v65.d.put("image_emoticon31", "生气");
-        v65.d.put("image_emoticon32", "惊讶");
-        v65.d.put("image_emoticon33", "喷");
-        v65.d.put("image_emoticon34", "爱心");
-        v65.d.put("image_emoticon35", "心碎");
-        v65.d.put("image_emoticon36", "玫瑰");
-        v65.d.put("image_emoticon37", "礼物");
-        v65.d.put("image_emoticon38", "彩虹");
-        v65.d.put("image_emoticon39", "星星月亮");
-        v65.d.put("image_emoticon40", "太阳");
-        v65.d.put("image_emoticon41", "钱币");
-        v65.d.put("image_emoticon42", "灯泡");
-        v65.d.put("image_emoticon43", "茶杯");
-        v65.d.put("image_emoticon44", "蛋糕");
-        v65.d.put("image_emoticon45", "音乐");
-        v65.d.put("image_emoticon46", "haha");
-        v65.d.put("image_emoticon47", "胜利");
-        v65.d.put("image_emoticon48", "大拇指");
-        v65.d.put("image_emoticon49", "弱");
-        v65.d.put("image_emoticon50", "OK");
-        v65.d.put("image_emoticon61", "哼");
-        v65.d.put("image_emoticon62", "吃瓜");
-        v65.d.put("image_emoticon63", "扔便便");
-        v65.d.put("image_emoticon64", "惊恐");
-        v65.d.put("image_emoticon65", "哎呦");
-        v65.d.put("image_emoticon66", "小乖");
-        v65.d.put("image_emoticon67", "捂嘴笑");
-        v65.d.put("image_emoticon68", "你懂的");
-        v65.d.put("image_emoticon69", "what");
-        v65.d.put("image_emoticon70", "酸爽");
-        v65.d.put("image_emoticon71", "呀咩爹");
-        v65.d.put("image_emoticon72", "笑尿");
-        v65.d.put("image_emoticon73", "挖鼻");
-        v65.d.put("image_emoticon74", "犀利");
-        v65.d.put("image_emoticon75", "小红脸");
-        v65.d.put("image_emoticon76", "懒得理");
-        v65.d.put("image_emoticon77", "沙发");
-        v65.d.put("image_emoticon78", "手纸");
-        v65.d.put("image_emoticon79", "香蕉");
-        v65.d.put("image_emoticon80", "便便");
-        v65.d.put("image_emoticon81", "药丸");
-        v65.d.put("image_emoticon82", "红领巾");
-        v65.d.put("image_emoticon83", "蜡烛");
-        v65.d.put("image_emoticon84", "三道杠");
-        v65.d.put("image_emoticon85", "暗中观察");
-        v65.d.put("image_emoticon86", "吃瓜");
-        v65.d.put("image_emoticon87", "喝酒");
-        v65.d.put("image_emoticon88", "嘿嘿嘿");
-        v65.d.put("image_emoticon89", "噗");
-        v65.d.put("image_emoticon90", "困成狗");
-        v65.d.put("image_emoticon91", "微微一笑");
-        v65.d.put("image_emoticon92", "托腮");
-        v65.d.put("image_emoticon93", "摊手");
-        v65.d.put("image_emoticon94", "柯基暗中观察");
-        v65.d.put("image_emoticon95", "欢呼");
-        v65.d.put("image_emoticon96", "炸药");
-        v65.d.put("image_emoticon97", "突然兴奋");
-        v65.d.put("image_emoticon98", "紧张");
-        v65.d.put("image_emoticon99", "黑头瞪眼");
-        v65.d.put("image_emoticon100", "黑头高兴");
-        v65.d.put("image_emoticon125", "奥特曼");
-        v65.d.put("image_emoticon126", "不听");
-        v65.d.put("image_emoticon127", "干饭");
-        v65.d.put("image_emoticon128", "望远镜");
-        v65.d.put("image_emoticon129", "菜狗");
-        v65.d.put("image_emoticon130", "老虎");
-        v65.d.put("image_emoticon131", "嗷呜");
-        v65.d.put("image_emoticon132", "烟花");
-        v65.d.put("image_emoticon133", "香槟");
-        v65.d.put("image_emoticon134", "文字啊");
-        v65.d.put("image_emoticon135", "文字对");
-        v65.d.put("image_emoticon136", "鼠1");
-        v65.d.put("image_emoticon137", "鼠2");
-        v65.d.put("image_emoticon101", "不跟丑人说话");
-        v65.d.put("image_emoticon102", "么么哒");
-        v65.d.put("image_emoticon103", "亲亲才能起来");
-        v65.d.put("image_emoticon104", "伦家只是宝宝");
-        v65.d.put("image_emoticon105", "你是我的人");
-        v65.d.put("image_emoticon106", "假装看不见");
-        v65.d.put("image_emoticon107", "单身等撩");
-        v65.d.put("image_emoticon108", "吓到宝宝了");
-        v65.d.put("image_emoticon109", "哈哈哈");
-        v65.d.put("image_emoticon110", "嗯嗯");
-        v65.d.put("image_emoticon111", "好幸福");
-        v65.d.put("image_emoticon112", "宝宝不开心");
-        v65.d.put("image_emoticon113", "小姐姐别走");
-        v65.d.put("image_emoticon114", "小姐姐在吗");
-        v65.d.put("image_emoticon115", "小姐姐来啦");
-        v65.d.put("image_emoticon116", "小姐姐来玩呀");
-        v65.d.put("image_emoticon117", "我养你");
-        v65.d.put("image_emoticon118", "我是不会骗你的");
-        v65.d.put("image_emoticon119", "扎心了");
-        v65.d.put("image_emoticon120", "无聊");
-        v65.d.put("image_emoticon121", "月亮代表我的心");
-        v65.d.put("image_emoticon122", "来追我呀");
-        v65.d.put("image_emoticon123", "爱你的形状");
-        v65.d.put("image_emoticon124", "白眼");
-        v65.d.put("ali_001", "赖皮");
-        v65.d.put("ali_002", "感动");
-        v65.d.put("ali_003", "十分惊讶");
-        v65.d.put("ali_004", "怒气");
-        v65.d.put("ali_005", "哭泣");
-        v65.d.put("ali_006", "吃惊");
-        v65.d.put("ali_007", "嘲弄");
-        v65.d.put("ali_008", "飘过");
-        v65.d.put("ali_009", "转圈哭");
-        v65.d.put("ali_010", "神经病");
-        v65.d.put("ali_011", "揪耳朵");
-        v65.d.put("ali_012", "惊汗");
-        v65.d.put("ali_013", "隐身");
-        v65.d.put("ali_014", "不要嘛");
-        v65.d.put("ali_015", "遁");
-        v65.d.put("ali_016", "不公平");
-        v65.d.put("ali_017", "爬来了");
-        v65.d.put("ali_018", "蛋花哭");
-        v65.d.put("ali_019", "温暖");
-        v65.d.put("ali_020", "点头");
-        v65.d.put("ali_021", "撒钱");
-        v65.d.put("ali_022", "献花");
-        v65.d.put("ali_023", "寒");
-        v65.d.put("ali_024", "傻笑");
-        v65.d.put("ali_025", "扭扭");
-        v65.d.put("ali_026", "疯");
-        v65.d.put("ali_027", "抓狂");
-        v65.d.put("ali_028", "抓");
-        v65.d.put("ali_029", "蜷");
-        v65.d.put("ali_030", "挠墙");
-        v65.d.put("ali_031", "狂笑");
-        v65.d.put("ali_032", "抱枕");
-        v65.d.put("ali_033", "吼叫");
-        v65.d.put("ali_034", "嚷");
-        v65.d.put("ali_035", "唠叨");
-        v65.d.put("ali_036", "捏脸");
-        v65.d.put("ali_037", "爆笑");
-        v65.d.put("ali_038", "郁闷");
-        v65.d.put("ali_039", "潜水");
-        v65.d.put("ali_040", "十分开心");
-        v65.d.put("ali_041", "冷笑话");
-        v65.d.put("ali_042", "顶！");
-        v65.d.put("ali_043", "潜");
-        v65.d.put("ali_044", "画圈圈");
-        v65.d.put("ali_045", "玩电脑");
-        v65.d.put("ali_046", "狂吐");
-        v65.d.put("ali_047", "哭着跑");
-        v65.d.put("ali_048", "阿狸侠");
-        v65.d.put("ali_049", "冷死了");
-        v65.d.put("ali_050", "惆怅~");
-        v65.d.put("ali_051", "摸头");
-        v65.d.put("ali_052", "蹭");
-        v65.d.put("ali_053", "打滚");
-        v65.d.put("ali_054", "叩拜");
-        v65.d.put("ali_055", "摸");
-        v65.d.put("ali_056", "数钱");
-        v65.d.put("ali_057", "拖走");
-        v65.d.put("ali_058", "热");
-        v65.d.put("ali_059", "加1");
-        v65.d.put("ali_060", "压力");
-        v65.d.put("ali_061", "表逼我");
-        v65.d.put("ali_062", "人呢");
-        v65.d.put("ali_063", "摇晃");
-        v65.d.put("ali_064", "打地鼠");
-        v65.d.put("ali_065", "这个屌");
-        v65.d.put("ali_066", "恐慌");
-        v65.d.put("ali_067", "晕乎乎");
-        v65.d.put("ali_068", "浮云");
-        v65.d.put("ali_069", "给力");
-        v65.d.put("ali_070", "杯具了");
-        v65.d.put("b01", "微笑");
-        v65.d.put("b02", "帅哥");
-        v65.d.put("b03", "美女");
-        v65.d.put("b04", "老大");
-        v65.d.put("b05", "哈哈哈");
-        v65.d.put("b06", "奸笑");
-        v65.d.put("b07", "傻乐");
-        v65.d.put("b08", "飞吻");
-        v65.d.put("b09", "害羞");
-        v65.d.put("b10", "花痴");
-        v65.d.put("b11", "憧憬");
-        v65.d.put("b12", "你牛");
-        v65.d.put("b13", "鼓掌");
-        v65.d.put("b14", "可爱");
-        v65.d.put("b15", "太委屈");
-        v65.d.put("b16", "大哭");
-        v65.d.put("b17", "泪奔");
-        v65.d.put("b18", "寻死");
-        v65.d.put("b19", "非常惊讶");
-        v65.d.put("b20", "表示疑问");
-        v65.d.put("yz_001", "焦糖舞");
-        v65.d.put("yz_002", "翻滚");
-        v65.d.put("yz_003", "拍屁股做鬼脸");
-        v65.d.put("yz_004", "不");
-        v65.d.put("yz_005", "河蟹掉啦");
-        v65.d.put("yz_006", "哦耶");
-        v65.d.put("yz_007", "我倒");
-        v65.d.put("yz_008", "投降");
-        v65.d.put("shoubai_emoji_face_01", "微笑");
-        v65.d.put("shoubai_emoji_face_02", "开心");
-        v65.d.put("shoubai_emoji_face_03", "期待");
-        v65.d.put("shoubai_emoji_face_04", "大笑");
-        v65.d.put("shoubai_emoji_face_05", "鼓掌");
-        v65.d.put("shoubai_emoji_face_06", "悠闲");
-        v65.d.put("shoubai_emoji_face_07", "笑哭");
-        v65.d.put("shoubai_emoji_face_08", "不要啊");
-        v65.d.put("shoubai_emoji_face_09", "啊");
-        v65.d.put("shoubai_emoji_face_10", "哟");
-        v65.d.put("shoubai_emoji_face_11", "汗");
-        v65.d.put("shoubai_emoji_face_12", "抠鼻");
-        v65.d.put("shoubai_emoji_face_13", "哼");
-        v65.d.put("shoubai_emoji_face_14", "发怒");
-        v65.d.put("shoubai_emoji_face_15", "委屈");
-        v65.d.put("shoubai_emoji_face_16", "不高兴");
-        v65.d.put("shoubai_emoji_face_17", "囧");
-        v65.d.put("shoubai_emoji_face_18", "惊哭");
-        v65.d.put("shoubai_emoji_face_19", "大哭");
-        v65.d.put("shoubai_emoji_face_20", "流泪");
-        v65.d.put("shoubai_emoji_face_21", "害羞");
-        v65.d.put("shoubai_emoji_face_22", "亲亲");
-        v65.d.put("shoubai_emoji_face_23", "色");
-        v65.d.put("shoubai_emoji_face_24", "舔屏");
-        v65.d.put("shoubai_emoji_face_25", "得意");
-        v65.d.put("shoubai_emoji_face_26", "疑问");
-        v65.d.put("shoubai_emoji_face_27", "晕");
-        v65.d.put("shoubai_emoji_face_28", "大哈");
-        v65.d.put("shoubai_emoji_face_29", "二哈");
-        v65.d.put("shoubai_emoji_face_30", "三哈");
-        v65.d.put("shoubai_emoji_face_31", "白眼");
-        v65.d.put("shoubai_emoji_face_32", "阴险");
-        v65.d.put("shoubai_emoji_face_33", "你懂的");
-        v65.d.put("shoubai_emoji_face_34", "偷笑");
-        v65.d.put("shoubai_emoji_face_35", "睡觉");
-        v65.d.put("shoubai_emoji_face_36", "哈欠");
-        v65.d.put("shoubai_emoji_face_37", "再见");
-        v65.d.put("shoubai_emoji_face_38", "鄙视");
-        v65.d.put("shoubai_emoji_face_39", "抓狂");
-        v65.d.put("shoubai_emoji_face_40", "咒骂");
-        v65.d.put("shoubai_emoji_face_41", "衰");
-        v65.d.put("shoubai_emoji_face_42", "骷髅");
-        v65.d.put("shoubai_emoji_face_43", "嘘");
-        v65.d.put("shoubai_emoji_face_44", "闭嘴");
-        v65.d.put("shoubai_emoji_face_45", "呆");
-        v65.d.put("shoubai_emoji_face_46", "什么鬼");
-        v65.d.put("shoubai_emoji_face_47", "吐");
-        v65.d.put("shoubai_emoji_face_48", "已阅");
-        v65.d.put("shoubai_emoji_face_49", "同上");
-        v65.d.put("shoubai_emoji_face_50", "友军");
-        v65.d.put("shoubai_emoji_face_51", "爱钱");
-        v65.d.put("shoubai_emoji_face_52", "Freestyle");
-        v65.d.put("shoubai_emoji_face_53", "国宝");
-        v65.d.put("shoubai_emoji_face_54", "羊驼");
-        v65.d.put("shoubai_emoji_face_55", "鲜花");
-        v65.d.put("shoubai_emoji_face_56", "中国加油");
-        v65.d.put("shoubai_emoji_face_57", "庆祝");
-        v65.d.put("shoubai_emoji_face_58", "生日蛋糕");
-        v65.d.put("shoubai_emoji_face_59", "MicDrop");
-        v65.d.put("shoubai_emoji_face_60", "赞同");
-        v65.d.put("shoubai_emoji_face_61", "药丸");
-        v65.d.put("shoubai_emoji_face_62", "蜡烛");
-        v65.d.put("shoubai_emoji_face_63", "鸡蛋");
-        v65.d.put("shoubai_emoji_face_64", "浪");
-        v65.d.put("shoubai_emoji_face_65", "打call");
-        v65.d.put("shoubai_emoji_face_66", "尬笑");
-        v65.d.put("shoubai_emoji_face_67", "坏笑");
-        v65.d.put("shoubai_emoji_face_68", "没眼看");
-        v65.d.put("shoubai_emoji_face_69", "嘿哈");
-        v65.d.put("shoubai_emoji_face_70", "前面的别走");
-        v65.d.put("shoubai_emoji_face_71", "滑稽");
-        v65.d.put("shoubai_emoji_face_72", "捂脸");
-        v65.d.put("shoubai_emoji_face_73", "左捂脸");
-        v65.d.put("shoubai_emoji_face_74", "666");
-        v65.d.put("shoubai_emoji_face_75", "2018");
-        v65.d.put("shoubai_emoji_face_76", "福");
-        v65.d.put("shoubai_emoji_face_77", "红包");
-        v65.d.put("shoubai_emoji_face_78", "鞭炮");
-        v65.d.put("shoubai_emoji_face_79", "财神");
-        v65.d.put("shoubai_emoji_face_80", "饺子");
-        v65.d.put("shoubai_emoji_face_81", "车票");
-        v65.d.put("shoubai_emoji_face_82", "火车");
-        v65.d.put("shoubai_emoji_face_83", "飞机");
-        v65.d.put("shoubai_emoji_face_84", "射门");
-        v65.d.put("shoubai_emoji_face_85", "红牌");
-        v65.d.put("shoubai_emoji_face_86", "黄牌");
-        v65.d.put("shoubai_emoji_face_87", "哨子");
-        v65.d.put("shoubai_emoji_face_88", "比分");
-        v65.d.put("shoubai_emoji_face_89", "啤酒");
-        v65.d.put("shoubai_emoji_face_90", "足球");
-        v65.d.put("shoubai_emoji_face_91", "大力神杯");
-        v65.d.put("shoubai_emoji_face_92", "锦鲤");
-        v65.d.put("shoubai_emoji_face_93", "2019");
-        v65.d.put("shoubai_emoji_face_94", "猪年");
-        v65.d.put("shoubai_emoji_face_95", "双手鼓掌");
-        v65.d.put("shoubai_emoji_face_96", "火焰");
-        v65.d.put("shoubai_emoji_face_97", "祈福");
-        v65.d.put("shoubai_emoji_face_98", "亲吻");
-        v65.d.put("shoubai_emoji_face_99", "天使");
-        v65.d.put("shoubai_emoji_face_100", "樱花");
-        v65.d.put("shoubai_emoji_face_101", "加油");
-        v65.d.put("shoubai_emoji_face_102", "泡泡枪");
-        v65.d.put("shoubai_emoji_face_103", "气球");
-        v65.d.put("shoubai_emoji_face_104", "棒棒糖");
-        v65.d.put("shoubai_emoji_face_105", "小黄鸭");
-        v65.d.put("shoubai_emoji_face_106", "粽子");
-        v65.d.put("bearchildren_01", "熊-88");
-        v65.d.put("bearchildren_02", "熊-HI");
-        v65.d.put("bearchildren_03", "熊-人艰不拆");
-        v65.d.put("bearchildren_04", "熊-啥");
-        v65.d.put("bearchildren_05", "熊-大哭");
-        v65.d.put("bearchildren_06", "熊-失落");
-        v65.d.put("bearchildren_07", "熊-怒赞");
-        v65.d.put("bearchildren_08", "熊-惊呆了");
-        v65.d.put("bearchildren_09", "熊-李菊福");
-        v65.d.put("bearchildren_10", "熊-来信砍");
-        v65.d.put("bearchildren_11", "熊-欢迎入群");
-        v65.d.put("bearchildren_12", "熊-牛闪闪");
-        v65.d.put("bearchildren_13", "熊-生日快乐");
-        v65.d.put("bearchildren_14", "熊-石化");
-        v65.d.put("bearchildren_15", "熊-羞羞哒");
-        v65.d.put("bearchildren_16", "熊-肥皂必杀");
-        v65.d.put("bearchildren_17", "熊-谢谢你");
-        v65.d.put("bearchildren_18", "熊-跳舞");
-        v65.d.put("bearchildren_19", "熊-霹雳舞");
-        v65.d.put("bearchildren_20", "熊-鼓掌");
     }
 
     public s65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.w85
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinkedList<r65> linkedList = this.m;
+            if (linkedList != null) {
+                linkedList.clear();
+            }
+            this.m = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.w85
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<r65> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void C(LinkedList<r65> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    public final DLauncher D(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
+            }
+            return null;
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.w85
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            o(4);
+            v(2);
+            x(new a(this));
+            h().b(this);
+            s(new b(this));
         }
     }
 }

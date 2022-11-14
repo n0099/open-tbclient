@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.lp0;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.o01;
-import com.baidu.tieba.xp0;
+import com.baidu.tieba.dq0;
+import com.baidu.tieba.mp0;
+import com.baidu.tieba.n31;
+import com.baidu.tieba.p01;
+import com.baidu.tieba.yp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,7 +99,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (dq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -108,19 +108,19 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, cq0 cq0Var) {
-        super(context, attributeSet, i, cq0Var);
+    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, dq0 dq0Var) {
+        super(context, attributeSet, i, dq0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), cq0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), dq0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (dq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -133,15 +133,15 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, cq0 cq0Var) {
+    public void j(LayoutInflater layoutInflater, dq0 dq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, cq0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d062b;
-            if (cq0Var != null) {
-                if (cq0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                    i = cq0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, dq0Var) == null) {
+            int i = R.layout.obfuscated_res_0x7f0d062c;
+            if (dq0Var != null) {
+                if (dq0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                    i = dq0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
                 }
-                cq0.a aVar = cq0Var.j;
+                dq0.a aVar = dq0Var.j;
                 if (aVar != null) {
                     this.m = aVar.a;
                     this.n = aVar.b;
@@ -157,11 +157,11 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091629);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09162b);
-            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09162a);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091630);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091632);
+            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091631);
             Resources resources = context.getResources();
-            this.t = (((((m31.c.e(context) - m31.c.a(getContext(), this.m)) - m31.c.a(getContext(), this.n)) - m31.c.a(getContext(), this.o)) - m31.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
+            this.t = (((((n31.c.e(context) - n31.c.a(getContext(), this.m)) - n31.c.a(getContext(), this.n)) - n31.c.a(getContext(), this.o)) - n31.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
             this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070586))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070585)));
             AdImageView adImageView = this.q;
             if (adImageView != null) {
@@ -193,22 +193,22 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         AdImageView adImageView2;
         AdImageView adImageView3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || !(adBaseModel instanceof xp0)) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || !(adBaseModel instanceof yp0)) {
             return;
         }
-        List<lp0> list = ((xp0) adBaseModel).f.k;
-        if (!o01.g(list) && o01.l(list) >= 3) {
-            lp0 lp0Var = (lp0) o01.d(list, 0);
-            lp0 lp0Var2 = (lp0) o01.d(list, 1);
-            lp0 lp0Var3 = (lp0) o01.d(list, 2);
-            if (lp0Var != null && (adImageView3 = this.q) != null) {
-                adImageView3.g(lp0Var.a);
+        List<mp0> list = ((yp0) adBaseModel).f.k;
+        if (!p01.g(list) && p01.l(list) >= 3) {
+            mp0 mp0Var = (mp0) p01.d(list, 0);
+            mp0 mp0Var2 = (mp0) p01.d(list, 1);
+            mp0 mp0Var3 = (mp0) p01.d(list, 2);
+            if (mp0Var != null && (adImageView3 = this.q) != null) {
+                adImageView3.g(mp0Var.a);
             }
-            if (lp0Var2 != null && (adImageView2 = this.r) != null) {
-                adImageView2.g(lp0Var2.a);
+            if (mp0Var2 != null && (adImageView2 = this.r) != null) {
+                adImageView2.g(mp0Var2.a);
             }
-            if (lp0Var3 != null && (adImageView = this.s) != null) {
-                adImageView.g(lp0Var3.a);
+            if (mp0Var3 != null && (adImageView = this.s) != null) {
+                adImageView.g(mp0Var3.a);
             }
         }
     }

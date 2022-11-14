@@ -1,145 +1,128 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.widget.RemoteViews;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final RemoteViews a;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends sg<in> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zg8 a;
 
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static lk0 d(@NonNull AdCard adCard) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
-            if (ck0.b().query(adCard.getDownloadKey()) != null) {
-                return ck0.b().query(adCard.getDownloadKey());
-            }
-            lk0 lk0Var = new lk0();
-            lk0Var.h(adCard.getDownloadKey());
-            if (adCard.downloadInfo != null) {
-                if (TextUtils.isEmpty(lk0Var.e())) {
-                    lk0Var.h(adCard.downloadInfo.b);
+        public a(zg8 zg8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zg8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                sg8 sg8Var = adCard.downloadInfo;
-                lk0Var.g = sg8Var.b;
-                lk0Var.d = sg8Var.a;
             }
-            if (TextUtils.isEmpty(lk0Var.e())) {
-                lk0Var.h(adCard.adId);
-            }
-            pk0 pk0Var = new pk0();
-            pk0Var.j = adCard.adId;
-            pk0Var.a = adCard.getExtInfo();
-            tr4 tr4Var = adCard.appInfoModel;
-            if (tr4Var != null) {
-                pk0Var.g = tr4Var.b;
-                pk0Var.h = tr4Var.c;
-            }
-            if (wi0.n(adCard.cmdScheme)) {
-                pk0Var.c = adCard.cmdScheme;
-            }
-            lk0Var.p = pk0Var;
-            mk0 mk0Var = new mk0();
-            mk0Var.a = adCard.getAdvertAppInfo().j;
-            mk0Var.t = yn5.a().b();
-            mk0Var.s = yn5.a().h();
-            lk0Var.q = mk0Var;
-            return lk0Var;
+            this.a = zg8Var;
         }
-        return (lk0) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) && this.a.a != null && inVar != null && inVar.p() != null) {
+                this.a.a.setImageViewBitmap(R.id.obfuscated_res_0x7f0902ab, inVar.p());
+            }
+        }
     }
 
-    public static String e(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
+    public zg8(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadData, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
         }
-        return (String) invokeCommon.objValue;
+        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d023d);
+        c(i);
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f09085b, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0d28));
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f090849, R.drawable.obfuscated_res_0x7f080eac);
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f09084c, R.drawable.obfuscated_res_0x7f080eaa);
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f090847, downloadData.getUser_name());
+        tg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
+        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f090849, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
+        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
+        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09084c, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public static Drawable f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public RemoteViews b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
-            return iw4.E(iw4.l(jw4.y(), i), i2, i3, i4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Drawable) invokeIIII.objValue;
+        return (RemoteViews) invokeV.objValue;
     }
 
-    public static int g(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
-            }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int green = Color.green(i);
-            int blue = Color.blue(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f09085b, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f052e));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f090849, R.drawable.obfuscated_res_0x7f080ead);
         }
-        return invokeCommon.intValue;
     }
 
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return i;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f09085b, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0d28));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f090849, R.drawable.obfuscated_res_0x7f080eac);
         }
-        return invokeLI.intValue;
+    }
+
+    public void c(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i > 0) {
+                str = i + "%";
+            } else {
+                str = "0%";
+            }
+            this.a.setProgressBar(R.id.obfuscated_res_0x7f090859, 100, i, false);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f09085a, str);
+        }
     }
 }

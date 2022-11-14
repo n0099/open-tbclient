@@ -1,57 +1,187 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class aq0 extends AdBaseModel {
+public class aq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final String c;
+    public String d;
+    public boolean e;
+    public String f;
+    @Nullable
+    public final cq0 g;
+    @NonNull
+    public String h;
+    @NonNull
+    public final HashMap<String, String> i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq0(@NonNull sp0 sp0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(sp0Var, jSONObject);
+    public aq0(@NonNull JSONObject jSONObject, boolean z) {
+        Object opt;
+        Object opt2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sp0Var, jSONObject};
+            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sp0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = new HashMap<>();
+        this.h = jSONObject.toString();
+        this.e = TextUtils.equals(jSONObject.optString("video_stretch_switch"), "1");
+        if (z) {
+            this.a = jSONObject.optString(TiebaStatic.Params.VID);
+            jSONObject.optString("video_id");
+            jSONObject.optString("video_url");
+            this.d = jSONObject.optString("title");
+            this.b = jSONObject.optInt("duration");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+            jSONObject.optDouble("whRatio", 0.0d);
+            this.c = jSONObject.optString("poster_image");
+            this.g = cq0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && (opt2 = jSONObject.opt(next)) != null && !(opt2 instanceof JSONObject) && !(opt2 instanceof JSONArray)) {
+                    this.i.put(next, jSONObject.optString(next));
+                }
+            }
+            return;
+        }
+        this.a = jSONObject.optString(TiebaStatic.Params.VID);
+        jSONObject.optString("videoId");
+        jSONObject.optString("videoUrl");
+        this.d = jSONObject.optString("title");
+        this.b = jSONObject.optInt("duration");
+        jSONObject.optInt("width");
+        jSONObject.optInt("height");
+        this.c = jSONObject.optString("posterImage");
+        jSONObject.optDouble("whRatio", 0.0d);
+        this.g = cq0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
+        Iterator<String> keys2 = jSONObject.keys();
+        while (keys2.hasNext()) {
+            String next2 = keys2.next();
+            if (!TextUtils.isEmpty(next2) && (opt = jSONObject.opt(next2)) != null && !(opt instanceof JSONObject) && !(opt instanceof JSONArray)) {
+                this.i.put(next2, jSONObject.optString(next2));
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq0(@NonNull sp0 sp0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
-        super(sp0Var, jSONObject, z);
+    @Nullable
+    public static aq0 b(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sp0Var, jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sp0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, jSONObject, z)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            return new aq0(jSONObject, z);
+        }
+        return (aq0) invokeLZ.objValue;
+    }
+
+    @Nullable
+    public static aq0 c(HashMap hashMap) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            if (hashMap == null || (obj = hashMap.get(WriteActivityConfig.VIDEO_INFO)) == null) {
+                return null;
+            }
+            aq0 aq0Var = new aq0(q01.c(obj.toString()), true);
+            if (hashMap.get("ext_info") != null) {
+                aq0Var.f = hashMap.get("ext_info").toString();
+            }
+            aq0Var.a();
+            return aq0Var;
+        }
+        return (aq0) invokeL.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.h)) {
+            JSONObject c = q01.c(this.h);
+            q01.f(c, "videoId", c.optString("video_id"));
+            q01.f(c, PrefetchEvent.EVENT_KEY_PAGE_URL, c.optString("page_url"));
+            q01.f(c, "videoUrl", c.optString("video_url"));
+            q01.f(c, "posterImage", c.optString("poster_image"));
+            this.h = c.toString();
+        }
+    }
+
+    public void d(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            if (TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(adBaseModel.f.g)) {
+                String str = adBaseModel.f.g;
+                this.d = str;
+                this.i.put("title", str);
+            }
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = adBaseModel.f.d;
+            }
+            e();
+            cq0 cq0Var = this.g;
+            if (cq0Var != null) {
+                cq0Var.d(adBaseModel);
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !TextUtils.isEmpty(this.h)) {
+            JSONObject c = q01.c(this.h);
+            if (!TextUtils.isEmpty(this.d) && TextUtils.isEmpty(c.optString("title"))) {
+                q01.f(c, "title", this.d);
+            }
+            JSONObject optJSONObject = c.optJSONObject("ext_log");
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+            }
+            if (TextUtils.isEmpty(optJSONObject.optString("curVid"))) {
+                q01.f(optJSONObject, "curVid", this.a);
+            }
+            if (!optJSONObject.has("mt")) {
+                q01.d(optJSONObject, "mt", 2);
+            }
+            if (!optJSONObject.has("vType")) {
+                q01.d(optJSONObject, "vType", 2);
+            }
+            if (!TextUtils.isEmpty(this.f) && TextUtils.isEmpty(optJSONObject.optString("ad_extra_param"))) {
+                q01.f(optJSONObject, "ad_extra_param", this.f);
+            }
+            q01.f(c, "ext_log", optJSONObject);
+            this.h = c.toString();
         }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,17 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final or8 b;
+    public MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lt8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(2001374);
+    public lt8(MainTabActivity mainTabActivity) {
+        super(2921654);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,16 +32,21 @@ public class lt8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = or8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            p75 p75Var = null;
+            if (customResponsedMessage.getData() instanceof p75) {
+                p75Var = (p75) customResponsedMessage.getData();
+            }
+            if (p75Var != null && p75Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new o75(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09206c), p75Var).m();
+            }
         }
-        this.b.T((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

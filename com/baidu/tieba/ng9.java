@@ -1,17 +1,11 @@
 package com.baidu.tieba;
+
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public interface ng9 {
+    String a(Object obj);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, ng9 ng9Var);
-    }
+    <T> T b(String str, Class<T> cls);
 
-    void cancel();
-
-    boolean isRunning();
-
-    void pause();
-
-    void start();
+    <T> T c(String str, Type type);
 }

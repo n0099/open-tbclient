@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a84;
-import com.baidu.tieba.n74;
-import com.baidu.tieba.p74;
+import com.baidu.tieba.b84;
+import com.baidu.tieba.o74;
+import com.baidu.tieba.q74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public List<RecommendItemModel> b;
-    public n74 c;
+    public o74 c;
 
     /* loaded from: classes3.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -57,8 +57,8 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09087c);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240f);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09087d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241e);
         }
     }
 
@@ -79,7 +79,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         }
         this.a = context;
         this.b = list;
-        this.c = new n74();
+        this.c = new o74();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -104,9 +104,9 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0852, (ViewGroup) null));
+            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0856, (ViewGroup) null));
             aVar.itemView.setOnClickListener(this);
-            a84.a(aVar.itemView);
+            b84.a(aVar.itemView);
             return aVar;
         }
         return (a) invokeLI.objValue;
@@ -132,7 +132,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         RecommendItemModel recommendItemModel = this.b.get(intValue);
         if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
             SchemeRouter.invokeSchemeForInner(this.a, Uri.parse(recommendItemModel.getScheme()));
-            p74.d(4, recommendItemModel.getAppKey());
+            q74.d(4, recommendItemModel.getAppKey());
             this.c.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
         }
     }

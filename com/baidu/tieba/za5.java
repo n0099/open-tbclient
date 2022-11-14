@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: SecondFloorService.java */
 /* loaded from: classes6.dex */
-public interface za5 extends qa5 {
-    public static final String a = "com.baidu.tieba.za5";
+public final /* synthetic */ class za5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    ya5 b(@NonNull TbPageContext tbPageContext);
+    public static ab5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (ab5) ServiceManager.getService(ab5.a);
+        }
+        return (ab5) invokeV.objValue;
+    }
 }

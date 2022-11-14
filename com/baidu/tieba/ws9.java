@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ws9.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,164 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.github.anrwatchdog.ANRError;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.SidSessionMeta;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ws9 extends Thread {
+public abstract class ws9<S extends a> implements FunAdLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final f o;
-    public static final e p;
-    public static final g q;
+    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public e b;
-    public g c;
-    public final Handler d;
-    public final int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public xs9 k;
-    public volatile long l;
-    public volatile boolean m;
-    public final Runnable n;
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        long a(long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void onAppNotResponding(ANRError aNRError);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface g {
-        void a(InterruptedException interruptedException);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ws9.f
-        public void onAppNotResponding(ANRError aNRError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
-                throw aNRError;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ws9.e
-        public long a(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return 0L;
-            }
-            return invokeJ.longValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ws9.g
-        public void a(InterruptedException interruptedException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
-                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ws9 a;
-
-        public d(ws9 ws9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ws9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ws9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.l = 0L;
-            this.a.m = false;
-        }
-    }
+    public final Object a;
+    public S b;
 
     static {
         InterceptResult invokeClinit;
@@ -184,138 +45,250 @@ public class ws9 extends Thread {
                 return;
             }
         }
-        o = new a();
-        p = new b();
-        q = new c();
+        c = !ws9.class.desiredAssertionStatus();
     }
 
-    public ws9(int i) {
+    public ws9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = "";
-        this.g = false;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = new d(this);
-        this.e = i;
+        this.a = new Object();
     }
 
-    public ws9 c(f fVar) {
+    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
+        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
+    }
+
+    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
+            if (pidLoader == null && pidLoader2 == null) {
+                return null;
+            }
+            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
+        }
+        return (PidLoader) invokeLL.objValue;
+    }
+
+    public final S b() {
+        InterceptResult invokeV;
+        S s;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                s = this.b;
+                if (s == null) {
+                    s = f();
+                    if (!c && s == null) {
+                        throw new AssertionError();
+                    }
+                    this.b = s;
+                }
+            }
+            return s;
+        }
+        return (S) invokeV.objValue;
+    }
+
+    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, in9<N> in9Var, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, in9Var, str)) != null) {
+            return (N) invokeLLLL.objValue;
+        }
+        LinkedList<PidLoader> d = d(list);
+        Collections.sort(d, pm9.a);
+        LinkedList<PidLoader> d2 = d(list2);
+        PidLoader poll = d.poll();
+        PidLoader poll2 = d2.poll();
+        while (true) {
+            if (poll == null && poll2 == null) {
+                return null;
+            }
+            PidLoader a2 = a(poll, poll2);
+            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
+            if (a2 == poll) {
+                poll = d.poll();
+            } else {
+                poll2 = d2.poll();
+            }
+            PidLoader pidLoader = poll;
+            PidLoader pidLoader2 = poll2;
+            PidLoader a3 = a(pidLoader, pidLoader2);
+            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
+            N a4 = in9Var.a(a2, str);
+            if (a4 != null) {
+                return a4;
+            }
+            poll = pidLoader;
+            poll2 = pidLoader2;
+        }
+    }
+
+    public final LinkedList<PidLoader> d(List<PidLoader> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            if (fVar == null) {
-                this.a = o;
-            } else {
-                this.a = fVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            LinkedList<PidLoader> linkedList = new LinkedList<>();
+            for (PidLoader pidLoader : list) {
+                if (pidLoader.isLoaded()) {
+                    linkedList.add(pidLoader);
+                }
             }
-            return this;
+            return linkedList;
         }
-        return (ws9) invokeL.objValue;
+        return (LinkedList) invokeL.objValue;
     }
 
-    public ws9 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (ws9) invokeZ.objValue;
-    }
+    public abstract S f();
 
-    public ws9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f = null;
-            return this;
-        }
-        return (ws9) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final SidSessionMeta a;
+        public final com.fun.h0 b;
+        public FunAdLoadListener c;
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setName("|ANR-WatchDog|");
-            long j = this.e;
-            long j2 = 0;
-            while (!isInterrupted()) {
-                if (this.l == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.l += j;
-                if (z) {
-                    this.d.post(this.n);
-                }
-                try {
-                    Thread.sleep(j);
-                    if (this.i && this.j) {
-                        if (this.k == null) {
-                            this.k = new xs9();
-                        }
-                        if (this.l == 0 && !this.m) {
-                            this.j = false;
-                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
-                            if (NewMainAllStackTrace != null) {
-                                this.a.onAppNotResponding(NewMainAllStackTrace);
-                            }
-                        } else {
-                            j2 = this.l;
-                            this.k.a();
-                        }
-                    }
-                    if (this.l != 0 && !this.m) {
-                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
-                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                            this.m = true;
-                        } else {
-                            j = this.b.a(this.l);
-                            if (j <= 0) {
-                                if (this.f != null) {
-                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
-                                } else if (this.i) {
-                                    this.j = true;
-                                    xs9 xs9Var = new xs9();
-                                    this.k = xs9Var;
-                                    xs9Var.a();
-                                } else {
-                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
-                                }
-                                j = this.e;
-                                this.m = true;
-                            }
-                        }
-                    }
-                } catch (InterruptedException e2) {
-                    this.c.a(e2);
+        public a(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
+            this.a = sidSessionMeta;
+            this.b = new com.fun.h0(sidSessionMeta, str2);
         }
+
+        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
+        }
+
+        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public abstract void g();
+
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                com.fun.h0 h0Var = this.b;
+                h0Var.getClass();
+                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
+                this.c.onError(this.a.sid);
+                g();
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.b.b("ldr_ld_succeed", new Object[0]);
+                this.c.onAdLoaded(this.a.sid);
+                g();
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
+                this.b = null;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void recycleListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null && !s.c()) {
+                    com.fun.h0 h0Var = s.b;
+                    h0Var.getClass();
+                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
+                    s.g();
+                }
+                this.b = null;
+            }
+            S b = b();
+            b.getClass();
+            if (funAdLoadListener != null) {
+                b.b.b("ldr_ld_start", new Object[0]);
+                b.c = funAdLoadListener;
+                b.a(context, funAdSlot, funAdLoadListener);
+                return;
+            }
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.d(activity, t, funAdInteractionListener);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.e(activity, t, funAdInteractionListener);
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

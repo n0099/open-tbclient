@@ -2,86 +2,23 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.an2;
-import com.baidu.tieba.qa2;
+import com.baidu.tieba.bn2;
+import com.baidu.tieba.cp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class pa2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final boolean b;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void d(@NonNull PMSAppInfo pMSAppInfo, @Nullable qa2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pMSAppInfo, aVar) == null) {
-        }
-    }
-
-    public static qa2.a e(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            return null;
-        }
-        return (qa2.a) invokeL.objValue;
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kq1 a;
-
-        public a(kq1 kq1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kq1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kq1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pa2.i(this.a);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -96,183 +33,150 @@ public class pa2 {
                 return;
             }
         }
-        a = ok1.a;
-        ln2.g0().getSwitch("swan_next_page_res_load", 0);
-        b = false;
-        e12.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + b);
-        l();
+        a = pk1.a;
+        mn2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public static boolean a(@NonNull kq1<?> kq1Var, @NonNull eu2 eu2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, kq1Var, eu2Var)) == null) {
-            t43 f = rp2.U().f(eu2Var.d);
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "page path - " + eu2Var.a);
-                Log.d("SwanAppSlaveTopPages", "page route path - " + eu2Var.d);
-            }
-            return yh3.S(kq1Var, f.r);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static qa2.a b(@NonNull e43 e43Var, @NonNull kq1<?> kq1Var, @NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, e43Var, kq1Var, pMSAppInfo)) == null) {
-            Set<String> m = m(pMSAppInfo);
-            if (m != null && m.size() > 0) {
-                String str = pMSAppInfo.appId;
-                String valueOf = String.valueOf(pMSAppInfo.versionCode);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                    String str2 = an2.e.i(str, valueOf).getPath() + File.separator;
-                    qa2 qa2Var = new qa2();
-                    for (String str3 : m) {
-                        if (h(str2, str3)) {
-                            eu2 d = eu2.d(wh3.g(str3), str2);
-                            if (yh3.b(e43Var.Q(), d, true) && a(kq1Var, d)) {
-                                qa2Var.a(f(kq1Var, d));
-                            }
-                        }
-                    }
-                    return qa2Var.b();
-                }
-            }
-            return null;
-        }
-        return (qa2.a) invokeLLL.objValue;
-    }
-
-    public static eu2 c() {
+    public static boolean d() {
         InterceptResult invokeV;
-        SwanAppActivity w;
-        m32 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            e43 b0 = e43.b0();
-            if (b0 == null || (w = b0.w()) == null || w.isFinishing() || w.isDestroyed() || (H = rp2.U().H()) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
             }
-            return H.m3();
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
         }
-        return (eu2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static fe2 f(kq1<?> kq1Var, eu2 eu2Var) {
-        InterceptResult invokeLL;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, kq1Var, eu2Var)) == null) {
-            return va2.a(n73.a(kq1Var, eu2Var, ""));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
         }
-        return (fe2) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean h(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            return an2.C(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject g(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pMSAppInfo)) == null) {
-            return ju2.g().k(pMSAppInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void i(kq1<?> kq1Var) {
-        long j;
-        PMSAppInfo f0;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, kq1Var) != null) || !b || kq1Var == null) {
-            return;
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        e43 b0 = e43.b0();
-        if (b0 == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        qa2.a e = e(f0);
-        if (e == null) {
-            e = b(b0, kq1Var, f0);
-            d(f0, e);
-        }
-        if (e != null) {
-            ya2.U().V0(kq1Var.a(), e);
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void j(kq1<?> kq1Var) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, kq1Var) == null) && b && kq1Var != null) {
-            if (a) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!za2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!mn2.F0().j(1)) {
+                return false;
             } else {
-                j = 0;
-            }
-            ExecutorUtilsExt.postOnElastic(new a(kq1Var), "SwanAppSlaveTopPages", 2);
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg async cost - " + (currentTimeMillis - j) + "ms");
-            }
-        }
-    }
-
-    public static Set<String> k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            if (jSONObject.length() <= 0) {
-                return null;
-            }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    linkedHashSet.add(next);
+                String c0 = za2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && e03.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
                 }
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
-            }
-            return linkedHashSet;
         }
-        return (Set) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static Set<String> m(@NonNull PMSAppInfo pMSAppInfo) {
+    public static int b(@Nullable u43 u43Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
-            if (a) {
-                eu2 c = c();
-                Log.d("SwanAppSlaveTopPages", "current page - " + c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, u43Var)) == null) {
+            if (u43Var == null || !d()) {
+                return 0;
             }
-            JSONObject g = g(pMSAppInfo);
-            if (g != null && g.length() > 0) {
-                if (a) {
-                    Log.d("SwanAppSlaveTopPages", "pages info - " + g);
-                }
-                return k(g);
-            }
-            return null;
+            return "na".equals(u43Var.r) ? 1 : 0;
         }
-        return (Set) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(sp2.U().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(f43 f43Var) {
+        InterceptResult invokeL;
+        cp2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, f43Var)) == null) {
+            if (f43Var == null || !f43Var.E()) {
+                return false;
+            }
+            if (e03.B(f43Var.W())) {
+                str = bn2.b.g().getPath() + File.separator;
+            } else {
+                str = bn2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            sp2.U().K(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

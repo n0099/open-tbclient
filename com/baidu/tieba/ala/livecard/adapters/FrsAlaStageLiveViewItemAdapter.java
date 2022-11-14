@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.jz5;
-import com.baidu.tieba.nz5;
+import com.baidu.tieba.vz5;
+import com.baidu.tieba.zz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<jz5> b;
+    public ArrayList<vz5> b;
     public List<ThreadData> c;
     public String d;
     public BdUniqueId e;
@@ -55,13 +55,13 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         this.e = bdUniqueId;
     }
 
-    public final jz5 b() {
+    public final vz5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new jz5(this.a, this.e);
+            return new vz5(this.a, this.e);
         }
-        return (jz5) invokeV.objValue;
+        return (vz5) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -74,10 +74,10 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void c(List<ThreadData> list, nz5 nz5Var) {
-        jz5 jz5Var;
+    public void c(List<ThreadData> list, zz5 zz5Var) {
+        vz5 vz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, nz5Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, zz5Var) == null) && list != null && !list.isEmpty()) {
             this.c.clear();
             this.c.addAll(list);
             int size = this.b.size();
@@ -88,25 +88,25 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                     arrayList.add(this.b.get(i));
                 }
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    jz5 jz5Var2 = (jz5) arrayList.get(i2);
-                    if (jz5Var2.c() != null && jz5Var2.c().getParent() != null) {
-                        ((ViewGroup) jz5Var2.c().getParent()).removeView(jz5Var2.c());
+                    vz5 vz5Var2 = (vz5) arrayList.get(i2);
+                    if (vz5Var2.c() != null && vz5Var2.c().getParent() != null) {
+                        ((ViewGroup) vz5Var2.c().getParent()).removeView(vz5Var2.c());
                     }
-                    this.b.remove(jz5Var2);
+                    this.b.remove(vz5Var2);
                 }
                 arrayList.clear();
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    jz5Var = b();
-                    jz5Var.g(this.a.getUniqueId());
-                    jz5Var.h(nz5Var);
-                    this.b.add(jz5Var);
+                    vz5Var = b();
+                    vz5Var.g(this.a.getUniqueId());
+                    vz5Var.h(zz5Var);
+                    this.b.add(vz5Var);
                 } else {
-                    jz5Var = this.b.get(i3);
+                    vz5Var = this.b.get(i3);
                 }
-                if (this.c.get(i3) != null && jz5Var != null) {
-                    jz5Var.f(this.c.get(i3), this.d);
+                if (this.c.get(i3) != null && vz5Var != null) {
+                    vz5Var.f(this.c.get(i3), this.d);
                 }
             }
             notifyDataSetChanged();
@@ -133,20 +133,20 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            ArrayList<jz5> arrayList = this.b;
+            ArrayList<vz5> arrayList = this.b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            jz5 jz5Var = (jz5) ListUtils.getItem(arrayList, i);
-            if (jz5Var == null) {
+            vz5 vz5Var = (vz5) ListUtils.getItem(arrayList, i);
+            if (vz5Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (jz5Var.c().getParent() == null) {
-                viewGroup.addView(jz5Var.c(), new ViewGroup.LayoutParams(-2, -2));
+            if (vz5Var.c().getParent() == null) {
+                viewGroup.addView(vz5Var.c(), new ViewGroup.LayoutParams(-2, -2));
             }
-            jz5Var.e();
-            jz5Var.c().setTag(Integer.valueOf(i));
-            return jz5Var.c();
+            vz5Var.e();
+            vz5Var.c().setTag(Integer.valueOf(i));
+            return vz5Var.c();
         }
         return invokeLI.objValue;
     }

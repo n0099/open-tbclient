@@ -1,97 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HorizontalListView;
+import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.BufferUnderflowException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 /* loaded from: classes6.dex */
-public class y49 extends w49 {
+public class y49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View c;
-    public HorizontalListView d;
-    public e59 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y49(r9 r9Var) {
-        super(r9Var);
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PhotoType a(String str) {
+        InterceptResult invokeL;
+        RandomAccessFile randomAccessFile;
+        RandomAccessFile randomAccessFile2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            PhotoType photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            RandomAccessFile randomAccessFile3 = null;
+            try {
+                try {
+                    try {
+                        randomAccessFile = new RandomAccessFile(str, "r");
+                        try {
+                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
+                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
+                                photoType = PhotoType.APNG;
+                            }
+                            randomAccessFile.close();
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (BufferUnderflowException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        randomAccessFile3 = randomAccessFile2;
+                        if (randomAccessFile3 != null) {
+                            try {
+                                randomAccessFile3.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    randomAccessFile = null;
+                } catch (IOException e6) {
+                    e = e6;
+                    randomAccessFile = null;
+                } catch (BufferUnderflowException e7) {
+                    e = e7;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (randomAccessFile3 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException e8) {
+                e8.printStackTrace();
             }
+            return photoType;
         }
-    }
-
-    @Override // com.baidu.tieba.w49
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090de2);
-            e59 e59Var = new e59();
-            this.e = e59Var;
-            this.d.setAdapter((ListAdapter) e59Var);
-        }
-    }
-
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.notifyDataSetChanged();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            l();
-        }
-    }
-
-    public void m(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.e.c(list);
-        this.e.notifyDataSetChanged();
-    }
-
-    public void o(d59 d59Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d59Var) == null) {
-            this.e.d(d59Var);
-        }
+        return (PhotoType) invokeL.objValue;
     }
 }

@@ -1,67 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.afx.TbAlphaVideo;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.lo8;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class r59 extends p59<s69> implements j69 {
+public class r59 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public SpanGroupEditText t;
-    @Nullable
-    public TextView u;
-    @Nullable
-    public TextView v;
+    public List<ImageFileInfo> a;
+    public Context b;
+    public n95 c;
+    public w65 d;
+    public f e;
+    public LayoutInflater f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public boolean j;
 
-    @Override // com.baidu.tieba.n69
-    public int f() {
-        InterceptResult invokeV;
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a();
+
+        void b(int i);
+
+        void c(int i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r59 a;
@@ -84,466 +86,363 @@ public class r59 extends p59<s69> implements j69 {
             this.a = r59Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t.setPadding(this.a.t.getPaddingLeft(), this.a.t.getPaddingTop(), this.a.t.getPaddingRight(), this.a.t.getPaddingBottom() + this.a.u.getHeight());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 13));
+                this.a.e.a();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r59(TbPageContext<?> tbPageContext, @NonNull b59 b59Var, @NonNull t79 t79Var) {
-        super(tbPageContext, s69.class, b59Var, t79Var);
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ r59 b;
+
+        public b(r59 r59Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r59Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = r59Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (i = this.a) >= 0) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) this.b.getItem(i);
+                if (imageFileInfo.isFromMoreForum) {
+                    return;
+                }
+                boolean z = true;
+                if (imageFileInfo == null || (imageFileInfo.getImageType() != 1 && !new File(imageFileInfo.getFilePath()).exists())) {
+                    z = false;
+                }
+                if (!z) {
+                    yi.L(this.b.b, R.string.obfuscated_res_0x7f0f0554);
+                    return;
+                }
+                if (this.b.d != null) {
+                    this.b.d.K(new k65(15, 0, Integer.valueOf(this.a)));
+                }
+                if (this.b.e != null) {
+                    this.b.e.b(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ r59 b;
+
+        public c(r59 r59Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r59Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = r59Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.e != null) {
+                this.b.e.c(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements j95 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+
+        public d(r59 r59Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r59Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+        }
+
+        @Override // com.baidu.tieba.j95
+        public void a(in inVar, String str, boolean z) {
+            TbImageView tbImageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, inVar, str, z) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(str)) != null && inVar != null) {
+                tbImageView.invalidate();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends sg<in> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ String b;
+
+        public e(r59 r59Var, ViewGroup viewGroup, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r59Var, viewGroup, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
+            TbImageView tbImageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(this.b)) != null && inVar != null) {
+                tbImageView.invalidate();
+            }
+        }
+    }
+
+    public r59(Context context, n95 n95Var, w65 w65Var, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, b59Var, t79Var};
+            Object[] objArr = {context, n95Var, w65Var, fVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1], (b59) objArr2[2], (t79) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.g = false;
+        this.h = false;
+        this.j = false;
+        this.d = w65Var;
+        this.b = context;
+        this.f = LayoutInflater.from(context);
+        this.c = n95Var;
+        this.e = fVar;
     }
 
-    @Override // com.baidu.tieba.p59, com.baidu.tieba.h69, com.baidu.tieba.m69
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Editable text;
+    public final String d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048598, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 != -1 || i != 25049 || intent == null || this.t == null) {
-                return;
-            }
-            String str = intent.getStringExtra(AddLinkActivityConfig.NEW_LINK_CONTENT) + " ";
-            int selectionStart = this.t.getSelectionStart();
-            int selectionEnd = this.t.getSelectionEnd();
-            if (selectionStart < 0 || (text = this.t.getText()) == null) {
-                return;
-            }
-            if (selectionEnd > selectionStart) {
-                text.replace(selectionStart, selectionEnd, str);
-            } else {
-                text.insert(selectionStart, str);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.b.getResources().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.j = z;
         }
     }
 
-    @Override // com.baidu.tieba.p59
-    public void K(ArrayList<AtSelectData> arrayList) {
-        SpanGroupEditText spanGroupEditText;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getVisibility() == 0) {
-            this.t.b(arrayList);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
         }
     }
 
-    @Override // com.baidu.tieba.p59
-    public void L(ArrayList<AtSelectData> arrayList) {
-        SpanGroupEditText spanGroupEditText;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getVisibility() == 0) {
-            this.t.e(arrayList);
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.g = true;
+            this.h = z;
         }
     }
 
-    public void T(i69 i69Var) {
+    public final void e(ImageFileInfo imageFileInfo, View view2, ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i69Var) == null) {
-            this.k = i69Var;
-        }
-    }
-
-    public void Z(lo8.f fVar) {
-        q79 q79Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) && (q79Var = this.l) != null) {
-            q79Var.p(fVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.n69
-    public void b(boolean z) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && !z && (spanGroupEditText = this.t) != null) {
-            spanGroupEditText.clearFocus();
-        }
-    }
-
-    @Override // com.baidu.tieba.m69
-    public void e(@NonNull WriteData writeData) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, writeData) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getText() != null) {
-            writeData.setContent(this.t.getText().toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.p59, com.baidu.tieba.h69, com.baidu.tieba.m69
-    public void j(@NonNull o69 o69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, o69Var) == null) {
-            super.j(o69Var);
-            i69 i69Var = this.k;
-            if (i69Var != null) {
-                i69Var.l(this);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p59
-    public void H(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            super.H(editable);
-            WriteData writeData = this.e;
-            if (writeData != null && editable != null) {
-                if (12 == writeData.getType()) {
-                    U(editable);
-                    o69 o69Var = this.b;
-                    if (o69Var != null) {
-                        o69Var.i();
-                    }
-                } else if (14 == this.e.getType()) {
-                    Y(editable);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageFileInfo, view2, viewGroup, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && imageFileInfo != null && i > 0 && i2 > 0) {
+            ImageOperation g = w95.g(i, i2);
+            imageFileInfo.clearPageActions();
+            imageFileInfo.addPageAction(g);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09101b);
+            ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091000)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080e81));
+            if (imageFileInfo.getImageType() == 0) {
+                in c2 = this.c.c(imageFileInfo, true);
+                tbImageView.setTag(imageFileInfo.toCachedKey(true));
+                if (c2 != null) {
+                    tbImageView.invalidate();
+                } else {
+                    this.c.d(imageFileInfo, new d(this, viewGroup), true);
                 }
+                tbImageView.setTagStr(this.b.getString(R.string.obfuscated_res_0x7f0f0540));
+            } else if (imageFileInfo.getImageType() == 1) {
+                String filePath = imageFileInfo.getFilePath();
+                if (!xi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                    String g2 = tg.h().g(filePath, 20);
+                    tbImageView.setTag(g2);
+                    tg.h().k(filePath, 20, new e(this, viewGroup, g2), 0, 0, null, null, filePath, Boolean.FALSE, null);
+                }
+                tbImageView.setTagStr("");
             }
         }
     }
 
-    public final void U(Editable editable) {
+    public void g(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, editable) != null) || this.v == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, writeImagesInfo) != null) || writeImagesInfo == null) {
             return;
         }
-        if (editable.length() > 500) {
-            this.v.setText((500 - editable.length()) + "/500");
-            this.v.setVisibility(0);
-            return;
+        this.i = writeImagesInfo.getMaxImagesAllowed();
+        int count = ListUtils.getCount(writeImagesInfo.getChosedFiles());
+        this.a.clear();
+        if (count > 0) {
+            this.a.addAll(writeImagesInfo.getChosedFiles());
         }
-        this.v.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.m69
-    public void c(WriteData writeData) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, writeData) == null) && (spanGroupEditText = this.t) != null && spanGroupEditText.getText() != null) {
-            writeData.setContent(this.t.getText().toString().replaceAll("\u0000\n", "").replaceAll("\u0000", ""));
-        }
-    }
-
-    @Override // com.baidu.tieba.p59, com.baidu.tieba.m69
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            super.onChangeSkinType(i);
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0105);
+        if (count < this.i && this.g) {
+            if (this.j || (this.h && count > 0)) {
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath("FLAG_ADD_ICON");
+                this.a.add(imageFileInfo);
             }
-            TextView textView = this.u;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0110);
-                Y(this.u.getEditableText());
-            }
-            SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0301);
         }
     }
 
-    @Override // com.baidu.tieba.p59
-    @Nullable
-    public ArrayList<AtSelectData> N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0) {
-                return this.t.getAtDataInText();
-            }
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p59
-    @Nullable
-    public EditText O() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0) {
-                return this.t;
-            }
-            return null;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    public int V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0 && this.t.getSpanGroupManager() != null) {
-                return this.t.getSpanGroupManager().x();
-            }
-            return 0;
+            return this.a.size();
         }
         return invokeV.intValue;
     }
 
-    public boolean X() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        AbsListView.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.h()) {
-                return true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.a, i);
+            if (imageFileInfo == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n69
-    public void l() {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (spanGroupEditText = this.t) != null) {
-            spanGroupEditText.requestFocus();
-        }
-    }
-
-    @Override // com.baidu.tieba.n69
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.n.f(this.t, false);
-            this.n.a(this.t);
-        }
-    }
-
-    @Override // com.baidu.tieba.n69
-    public EditText p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.t;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h69, com.baidu.tieba.m69
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getText() != null && this.t.getText().length() > 0) {
-                return true;
+            if (view2 == null) {
+                view2 = this.f.inflate(R.layout.obfuscated_res_0x7f0d0651, (ViewGroup) null);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public LinkedList<d05> W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null && spanGroupEditText.getVisibility() == 0 && this.t.getSpanGroupManager() != null) {
-                return this.t.getSpanGroupManager().D();
-            }
-            return null;
-        }
-        return (LinkedList) invokeV.objValue;
-    }
-
-    public final void Y(Editable editable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, editable) == null) && this.u != null && this.a.getPageActivity() != null) {
-            if (!TextUtils.isEmpty(editable)) {
-                SpannableString spannableString = new SpannableString(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0926, new Object[]{Integer.valueOf(editable.length()), 500}));
-                if (editable.length() > 500) {
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, String.valueOf(editable.length()).length(), 17);
-                }
-                this.u.setText(spannableString);
-                return;
-            }
-            this.u.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0926, new Object[]{0, 500}));
-        }
-    }
-
-    @Override // com.baidu.tieba.m69
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, writeData) != null) || TextUtils.isEmpty(writeData.getContent()) || this.t == null) {
-            return;
-        }
-        WriteData writeData2 = this.e;
-        if (writeData2 != null) {
-            writeData2.setContent(writeData.getContent());
-        }
-        SpannableString t = TbFaceManager.i().t(this.a.getPageActivity(), writeData.getContent(), this.q);
-        InputFilter[] filters = this.t.getFilters();
-        this.t.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50000)});
-        this.t.setText(t);
-        if (this.t.getSpanGroupManager() != null) {
-            this.t.i();
-            this.t.getSpanGroupManager().r();
-            this.t.c();
-            o69 o69Var = this.b;
-            if (o69Var != null) {
-                o69Var.e(-1, true);
-            }
-        }
-        this.t.setFilters(filters);
-        if (this.t.getText() != null) {
-            SpanGroupEditText spanGroupEditText = this.t;
-            spanGroupEditText.setSelection(spanGroupEditText.getText().length());
-        }
-    }
-
-    @Override // com.baidu.tieba.h69, com.baidu.tieba.m69
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048593, this, str, writeData) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            writeData.setContent(new JSONObject(str).optString("c"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // com.baidu.tieba.h69, com.baidu.tieba.m69
-    public boolean o() {
-        InterceptResult invokeV;
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.e == null || (spanGroupEditText = this.t) == null || spanGroupEditText.getText() == null) {
-                return true;
-            }
-            if (14 == this.e.getType() && this.t.getText().toString().length() > 500) {
-                o69 o69Var = this.b;
-                if (o69Var != null) {
-                    o69Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0fbb));
-                }
-                return false;
-            } else if (this.t.getText().toString().length() > 1000) {
-                TbPageContext<?> tbPageContext = this.a;
-                tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f1b));
-                return false;
-            } else if (!this.t.getText().toString().contains("ܷ") && !this.t.getText().toString().contains("ܶ")) {
-                return true;
+            int l = (yi.l(this.b) - ((yi.g(this.b, R.dimen.tbds44) * 2) + (yi.g(this.b, R.dimen.tbds10) * 2))) / 3;
+            if (view2.getLayoutParams() instanceof AbsListView.LayoutParams) {
+                layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
+                layoutParams.width = l;
+                layoutParams.height = l;
             } else {
-                TbPageContext<?> tbPageContext2 = this.a;
-                tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0f1a));
-                return false;
+                layoutParams = new AbsListView.LayoutParams(l, l);
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j69
-    public void onUpdate(Object obj) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, obj) == null) {
-            if (obj instanceof SelectForumData) {
-                SpanGroupEditText spanGroupEditText2 = this.t;
-                if (spanGroupEditText2 != null) {
-                    spanGroupEditText2.setForumId(wg.g(((SelectForumData) obj).forumId, 0L));
-                }
-            } else if (!(obj instanceof r69) || (spanGroupEditText = this.t) == null) {
+            view2.setLayoutParams(layoutParams);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09101b);
+            tbImageView.setTagTextSize(yi.g(this.b, R.dimen.T_X10));
+            tbImageView.setDrawBorder(true);
+            tbImageView.setDrawCorner(true);
+            tbImageView.setAutoChangeStyle(true);
+            tbImageView.setConrers(15);
+            tbImageView.setRadiusById(R.string.J_X05);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907a8);
+            ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907a1)).setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082c, WebPManager.ResourceStateType.NORMAL));
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091000);
+            if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
+                tbImageView.setVisibility(8);
+                linearLayout.setVisibility(8);
+                view2.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809d0, WebPManager.ResourceStateType.NORMAL_PRESS));
+                view2.invalidate();
+                frameLayout.setForeground(null);
+                view2.setOnClickListener(new a(this));
             } else {
-                r69 r69Var = (r69) obj;
-                int i = r69Var.a;
-                if (i == 1) {
-                    if (!ListUtils.isEmpty(r69Var.b) && !ListUtils.isEmpty(r69Var.c)) {
-                        this.t.g(r69Var.b, r69Var.c);
-                    }
-                } else if (i == 2) {
-                    spanGroupEditText.f(r69Var.d);
+                tbImageView.setVisibility(0);
+                linearLayout.setVisibility(0);
+                view2.setBackgroundResource(0);
+                tbImageView.setGifIconSupport(true);
+                tbImageView.setLongIconSupport(true);
+                tbImageView.setIsLongPic(imageFileInfo.isLong());
+                tbImageView.setTagStr(d(R.string.obfuscated_res_0x7f0f0540));
+                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                    tbImageView.setTagColor(this.b.getResources().getColor(R.color.CAM_X0101));
+                } else {
+                    tbImageView.setTagColor(this.b.getResources().getColor(R.color.CAM_X0101));
                 }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m69
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04a2, viewGroup, false);
-            this.c = inflate;
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091a7e);
-            this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f090156);
-            this.t = (SpanGroupEditText) this.c.findViewById(R.id.obfuscated_res_0x7f091a7d);
-            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091b73);
-            this.v = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091a80);
-            SpanGroupEditText spanGroupEditText = this.t;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.setOnClickListener(this.o);
-                this.t.setOnSpanGroupChangedListener(this.p);
-                this.t.addTextChangedListener(this.r);
-                this.t.setOnFocusChangeListener(this.s);
-                this.t.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
-                this.t.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    this.t.setForumId(wg.g(writeData.getForumId(), 0L));
-                    this.e.setSpanGroupManager(this.t.getSpanGroupManager());
-                    if (!TextUtils.isEmpty(this.e.getContent())) {
-                        this.t.setText(TbFaceManager.i().r(this.a.getPageActivity(), this.e.getContent()));
-                        if (this.t.getText() != null) {
-                            SpanGroupEditText spanGroupEditText2 = this.t;
-                            spanGroupEditText2.setSelection(spanGroupEditText2.getText().length());
-                        }
-                    }
-                    if (12 == this.e.getType()) {
-                        SpannableString spannableString = new SpannableString(" " + this.a.getString(R.string.obfuscated_res_0x7f0f162a));
-                        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e6, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
-                        if (pureDrawable != null && this.a.getPageActivity() != null) {
-                            pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
-                            spannableString.setSpan(new he6(pureDrawable, 1, xi.g(this.a.getPageActivity(), R.dimen.tbds4)), 0, 1, 17);
-                        }
-                        this.t.setHint(spannableString);
-                    } else if (14 == this.e.getType()) {
-                        this.t.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0fba));
-                        TextView textView = this.u;
-                        if (textView != null) {
-                            textView.setVisibility(0);
-                            this.u.post(new a(this));
-                        }
-                    } else {
-                        this.t.setHint(R.string.obfuscated_res_0x7f0f0ab1);
-                    }
-                    if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.e.getFrom())) {
-                        String str = this.e.getMoreForumTitle() + " " + this.e.getMoreForumUrl();
-                        if (!StringUtils.isNull(str)) {
-                            this.t.setText(str);
-                        }
-                    }
+                e(imageFileInfo, view2, viewGroup, l, l);
+                if (imageFileInfo.isFromMoreForum) {
+                    linearLayout.setVisibility(8);
+                    tbImageView.setTagStr("");
                 }
+                view2.setOnClickListener(new b(this, i));
+                linearLayout.setOnClickListener(new c(this, i));
             }
-            return this.c;
+            return view2;
         }
-        return (View) invokeL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

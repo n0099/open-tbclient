@@ -11,15 +11,15 @@ import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.a31;
-import com.baidu.tieba.e11;
+import com.baidu.tieba.b31;
 import com.baidu.tieba.f11;
-import com.baidu.tieba.fj0;
-import com.baidu.tieba.p01;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.g11;
+import com.baidu.tieba.gj0;
+import com.baidu.tieba.q01;
 import com.baidu.tieba.u21;
-import com.baidu.tieba.w21;
-import com.baidu.tieba.y21;
+import com.baidu.tieba.v21;
+import com.baidu.tieba.x21;
+import com.baidu.tieba.z21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends e11 {
+public class ClogBuilder extends f11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -291,19 +292,19 @@ public class ClogBuilder extends e11 {
             OPEN_APP = new LogType("OPEN_APP", 24, "713");
             AD_CALL = new LogType("AD_CALL", 25, "777");
             VISIBLE_TWO_SEC = new LogType("VISIBLE_TWO_SEC", 26, "213");
-            TAIL_FRAME_SHOW_TIME = new LogType("TAIL_FRAME_SHOW_TIME", 27, "52");
+            TAIL_FRAME_SHOW_TIME = new LogType("TAIL_FRAME_SHOW_TIME", 27, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK);
             DURATION = new LogType("DURATION", 28, "331");
             TRUE_VIEW = new LogType("TRUE_VIEW", 29, "332");
-            DAZZLE_IN = new LogType("DAZZLE_IN", 30, "51");
-            DAZZLE_OUT = new LogType("DAZZLE_OUT", 31, "52");
-            DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 32, "54");
+            DAZZLE_IN = new LogType("DAZZLE_IN", 30, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK);
+            DAZZLE_OUT = new LogType("DAZZLE_OUT", 31, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK);
+            DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 32, PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK);
             DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 33, "102");
             DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 34, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-            PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 35, "30");
-            VIDEO_START = new LogType("VIDEO_START", 36, "31");
-            VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 37, "32");
-            VIDEO_RESUME = new LogType("VIDEO_RESUME", 38, "33");
-            VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 39, "34");
+            PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 35, PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK);
+            VIDEO_START = new LogType("VIDEO_START", 36, PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW);
+            VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 37, PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK);
+            VIDEO_RESUME = new LogType("VIDEO_RESUME", 38, PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK);
+            VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 39, PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK);
             EXCEPTION = new LogType("EXCEPTION", 40, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT);
             CHECK = new LogType("CHECK", 41, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
             TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 42, "801");
@@ -393,6 +394,7 @@ public class ClogBuilder extends e11 {
         public static final Page INVALID;
         public static final Page MINI_PROGRAM;
         public static final Page NAVIDEO_POP;
+        public static final Page NAVIDEO_POP_WEB_PANEL;
         public static final Page NA_SPLASH;
         public static final Page PAGE_NA;
         public static final Page PAGE_SEARCHBOX;
@@ -444,9 +446,10 @@ public class ClogBuilder extends e11 {
             NAVIDEO_POP = new Page("NAVIDEO_POP", 19, "NAVIDEO_POP");
             AD_DIALOG = new Page("AD_DIALOG", 20, "AD_DIALOG");
             MINI_PROGRAM = new Page("MINI_PROGRAM", 21, "WXMnProgram");
-            Page page = new Page("INVALID", 22, "INVALID");
+            NAVIDEO_POP_WEB_PANEL = new Page("NAVIDEO_POP_WEB_PANEL", 22, "NAVIDEO_POP_WEB_PANEL");
+            Page page = new Page("INVALID", 23, "INVALID");
             INVALID = page;
-            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, MINI_PROGRAM, page};
+            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, MINI_PROGRAM, NAVIDEO_POP_WEB_PANEL, page};
         }
 
         public Page(String str, int i, String str2) {
@@ -502,7 +505,7 @@ public class ClogBuilder extends e11 {
                 return;
             }
         }
-        this.c = p01.c(null);
+        this.c = q01.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -696,14 +699,14 @@ public class ClogBuilder extends e11 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.d11, com.baidu.tieba.g11
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            fj0 fj0Var = (fj0) ServiceManager.getService(fj0.a);
-            if (fj0Var != null) {
-                A(fj0Var.a(this.c.optString("extra_param")));
+            gj0 gj0Var = (gj0) ServiceManager.getService(gj0.a);
+            if (gj0Var != null) {
+                A(gj0Var.a(this.c.optString("extra_param")));
             }
         }
     }
@@ -718,7 +721,7 @@ public class ClogBuilder extends e11 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.f11, com.baidu.tieba.g11
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -731,8 +734,8 @@ public class ClogBuilder extends e11 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
-    public <T extends f11> T b(String str, String str2) {
+    @Override // com.baidu.tieba.d11, com.baidu.tieba.g11
+    public <T extends g11> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -742,15 +745,15 @@ public class ClogBuilder extends e11 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.c11
-    public <T extends f11> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.d11
+    public <T extends g11> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            p01.f(this.c, str, obj);
+            q01.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -758,24 +761,24 @@ public class ClogBuilder extends e11 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !u21.a) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !v21.a) {
             return;
         }
-        a31 a31Var = (a31) t21.a().a(a31.class);
-        if (a31Var != null) {
-            a31Var.a(h());
+        b31 b31Var = (b31) u21.a().a(b31.class);
+        if (b31Var != null) {
+            b31Var.a(h());
         }
-        w21 w21Var = (w21) t21.a().a(w21.class);
-        if (w21Var != null) {
-            w21Var.a(h());
+        x21 x21Var = (x21) u21.a().a(x21.class);
+        if (x21Var != null) {
+            x21Var.a(h());
         }
-        y21 y21Var = (y21) t21.a().a(y21.class);
-        if (y21Var != null) {
-            y21Var.a(h());
+        z21 z21Var = (z21) u21.a().a(z21.class);
+        if (z21Var != null) {
+            z21Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.e11, com.baidu.tieba.c11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.f11, com.baidu.tieba.d11, com.baidu.tieba.g11
     @NonNull
     public String toString() {
         InterceptResult invokeV;

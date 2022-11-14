@@ -3,10 +3,10 @@ package com.baidu.sso.h;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.bj1;
-import com.baidu.tieba.ei1;
-import com.baidu.tieba.oj1;
-import com.baidu.tieba.pi1;
+import com.baidu.tieba.cj1;
+import com.baidu.tieba.fi1;
+import com.baidu.tieba.pj1;
+import com.baidu.tieba.qi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,12 +48,12 @@ public class h extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if ("sso_action_t_m".equals(this.a)) {
-                        oj1.l(this.b);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && oj1.j(this.b) != 0 && ei1.a(this.b).d()) {
-                        pi1.j().g(this.b.getApplicationContext(), false);
+                        pj1.l(this.b);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && pj1.j(this.b) != 0 && fi1.a(this.b).d()) {
+                        qi1.j().g(this.b.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
-                    oj1.d(th);
+                    pj1.d(th);
                 }
             }
         }
@@ -79,6 +79,6 @@ public class h extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
             return;
         }
-        bj1.a().post(new a(this, intent.getAction(), context));
+        cj1.a().post(new a(this, intent.getAction(), context));
     }
 }

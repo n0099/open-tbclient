@@ -2,7 +2,7 @@ package com.baidu.nadcore.max.uicomponent;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.tieba.zo0;
+import com.baidu.tieba.ap0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public final class WebViewComponent$webviewService$2 extends Lambda implements F
     }
 
     /* loaded from: classes2.dex */
-    public static final class a implements zo0 {
+    public static final class a implements ap0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebViewComponent$webviewService$2 a;
@@ -64,7 +64,7 @@ public final class WebViewComponent$webviewService$2 extends Lambda implements F
             this.a = webViewComponent$webviewService$2;
         }
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.ap0
         public void e(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
@@ -73,7 +73,7 @@ public final class WebViewComponent$webviewService$2 extends Lambda implements F
             this.a.this$0.t(i);
         }
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.ap0
         public AbsContainer b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

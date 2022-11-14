@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ec7;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pc7;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,10 +103,10 @@ public class ValidateModel {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, validateItemData, str) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && !xi.E()) {
+            if (BdBaseApplication.getInst().isDebugMode() && !yi.E()) {
                 return;
             }
-            ImMessageCenterPojo i = ec7.o().i(str, 1);
+            ImMessageCenterPojo i = pc7.o().i(str, 1);
             if (i != null) {
                 str2 = i.getGroup_name();
             } else {

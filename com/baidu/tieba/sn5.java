@@ -1,53 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class sn5 extends Handler {
+public class sn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
 
-    public sn5(WheelView wheelView) {
+    public static int a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != 80) {
+                return -1;
             }
+            return z ? R.anim.obfuscated_res_0x7f0100ef : R.anim.obfuscated_res_0x7f0100f0;
         }
-        this.a = wheelView;
-    }
-
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i != 1000) {
-                if (i != 2000) {
-                    if (i == 3000) {
-                        this.a.n();
-                        return;
-                    }
-                    return;
-                }
-                this.a.r(WheelView.ACTION.FLING);
-                return;
-            }
-            this.a.invalidate();
-        }
+        return invokeCommon.intValue;
     }
 }

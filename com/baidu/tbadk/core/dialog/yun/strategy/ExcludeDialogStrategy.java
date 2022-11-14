@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.gw4;
+import com.baidu.tieba.iw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class ExcludeDialogStrategy implements gw4 {
+public class ExcludeDialogStrategy implements iw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class ExcludeDialogStrategy implements gw4 {
     public static class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Set<String> currentShowingDialogList;
+        public Set<String> alreadyShownDialogs;
         @SerializedName("dialogName")
         public List<String> dialogNameList;
 
@@ -59,7 +59,7 @@ public class ExcludeDialogStrategy implements gw4 {
         }
     }
 
-    @Override // com.baidu.tieba.gw4
+    @Override // com.baidu.tieba.iw4
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -72,14 +72,14 @@ public class ExcludeDialogStrategy implements gw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.gw4
+    @Override // com.baidu.tieba.iw4
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Data data = (Data) DataExt.toEntity(map, Data.class);
             for (String str : data.dialogNameList) {
-                if (data.currentShowingDialogList.contains(str)) {
+                if (data.alreadyShownDialogs.contains(str)) {
                     return false;
                 }
             }

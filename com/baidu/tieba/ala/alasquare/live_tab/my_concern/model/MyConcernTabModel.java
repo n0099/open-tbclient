@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.fw5;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.rw5;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public fw5 d;
+    public rw5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(List<wn> list, boolean z, boolean z2);
+        void a(List<xn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -112,16 +112,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     bVar.b(z3);
                     return;
                 }
-                fw5 fw5Var = this.a.d;
+                rw5 rw5Var = this.a.d;
                 if (this.a.a == 1) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                fw5Var.e(alaLiveTabMyConcernResponse, z2);
+                rw5Var.e(alaLiveTabMyConcernResponse, z2);
                 if (this.a.c != null) {
                     b bVar2 = this.a.c;
-                    List<wn> h = this.a.d.h();
+                    List<xn> h = this.a.d.h();
                     boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                     if (this.a.a == 1) {
                         z3 = true;
@@ -151,7 +151,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new fw5(this.b);
+        this.d = new rw5(this.b);
         G();
         MessageManager.getInstance().registerListener(this.e);
     }

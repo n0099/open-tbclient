@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public class qp9 implements GdtHelper.GdtNativeContainerCreator {
+public class qp9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qp9 b;
+    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<WeakReference<NativeAdContainer>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,34 +26,6 @@ public class qp9 implements GdtHelper.GdtNativeContainerCreator {
                 return;
             }
         }
-        b = new qp9();
-    }
-
-    public qp9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference<>(nativeAdContainer));
-            return nativeAdContainer;
-        }
-        return (ViewGroup) invokeL.objValue;
+        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
     }
 }

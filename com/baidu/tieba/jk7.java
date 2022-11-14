@@ -1,40 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class jk7 {
+public class jk7 extends jo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Map<String, String> map) {
+    @Override // com.baidu.tieba.jo4
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, map) != null) || wi.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
-            }
-        }
-        TiebaStatic.log(statisticItem);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
     }
 
-    public static void b(Map<String, String> map) {
+    public jk7() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, map) != null) || map == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        HashMap hashMap = new HashMap();
-        String remove = map.remove("key");
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str));
+    }
+
+    @Override // com.baidu.tieba.jo4, com.baidu.tieba.mo4
+    public oo4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
+            oo4 oo4Var = new oo4();
+            if (obj instanceof dj7) {
+                dj7 dj7Var = (dj7) obj;
+                Intent intent = new Intent(baseContext, AlarmReceiver.class);
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                boolean z = false;
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    }
+                }
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.setData(Uri.parse(currentAccount));
+                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
+                    z = true;
+                }
+                oo4Var.a = z;
+                dj7Var.m(true);
+                dj7Var.l(oo4Var.a);
+            }
+            return oo4Var;
         }
-        a(remove, hashMap);
+        return (oo4) invokeLLL.objValue;
     }
 }

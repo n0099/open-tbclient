@@ -285,9 +285,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = z;
             ImageView imageView = this.d;
             if (z) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109b);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ab);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109c);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ac);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -346,9 +346,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = booleanValue;
             ImageView imageView = this.d;
             if (booleanValue) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109b);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ab);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109c);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ac);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -357,10 +357,10 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e2, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e3, this);
             setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091de0);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d89);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dec);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d95);
             this.d = imageView;
             imageView.setOnClickListener(this);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01011a);

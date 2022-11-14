@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eg0;
+import com.baidu.tieba.fg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,12 +59,12 @@ public class ResolutionRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(eg0 eg0Var, int i, float[] fArr) {
+    public void onDrawFrame(fg0 fg0Var, int i, float[] fArr) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, eg0Var, i, fArr) != null) || this.mRatio == 0.0f) {
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, fg0Var, i, fArr) != null) || this.mRatio == 0.0f) {
             return;
         }
         if ((this.mResolutionWidth == this.mSurfaceViewWidth && this.mResolutionHeight == this.mSurfaceViewHeight) || (i2 = (this.mSurfaceViewHeight - this.mResolutionHeight) / 2) <= 1) {

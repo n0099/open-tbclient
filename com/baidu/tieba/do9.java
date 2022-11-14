@@ -1,263 +1,146 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class do9 extends jo9<qo9> {
+public class do9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<qo9, TTNativeAd.AdInteractionListener> f;
-
-    /* loaded from: classes3.dex */
-    public class a implements TTAdNative.NativeAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do9 a;
-
-        public a(do9 do9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = do9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
-        public void onNativeAdLoad(List<TTNativeAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d("onNativeAdLoad", new Object[0]);
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTNativeAd tTNativeAd : list) {
-                    arrayList.add(new qo9(tTNativeAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public do9(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid, true);
+    public do9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new FunNativeAdListenerHelper<>(this);
     }
 
-    public void h(FunAdSlot funAdSlot) {
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00bf A[Catch: Exception -> 0x0124, TryCatch #0 {Exception -> 0x0124, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0056, B:26:0x006b, B:28:0x007b, B:34:0x008c, B:36:0x0094, B:42:0x00bf, B:44:0x00c7, B:45:0x00cf, B:37:0x00a6, B:39:0x00ae), top: B:54:0x0005 }] */
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String optString;
+        String str6;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements TTNativeAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final qo9 a;
-        public final /* synthetic */ do9 b;
-
-        public b(do9 do9Var, qo9 qo9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do9Var, qo9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                A a = ((wo9) obj).a;
+                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
+                Object obj2 = null;
+                for (int i = 0; i < 2; i++) {
+                    obj2 = ReflectionUtils.findField(strArr[i], a);
+                    if (obj2 != null) {
+                        break;
+                    }
                 }
+                String[] strArr2 = {"bY", "ce", "ca"};
+                JSONObject jSONObject = null;
+                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0])) == null; i2++) {
+                }
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
+                if (optJSONObject3 != null) {
+                    str = optJSONObject3.optString("url");
+                } else {
+                    str = null;
+                }
+                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), bo9.a);
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
+                if (optJSONObject4 != null) {
+                    str3 = optJSONObject4.optString("video_url");
+                    str2 = optJSONObject4.optString("cover_url");
+                } else {
+                    str2 = null;
+                    str3 = null;
+                }
+                int optInt = jSONObject.optInt("interaction_type", -1);
+                if (optInt != 3) {
+                    if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
+                        String optString2 = optJSONObject2.optString("app_name");
+                        String optString3 = optJSONObject2.optString("package_name");
+                        str6 = optJSONObject2.optString("download_url");
+                        str5 = optString3;
+                        str4 = optString2;
+                        optString = null;
+                        if (str4 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
+                            str4 = optJSONObject.optString("app_name");
+                            str5 = optJSONObject.optString("package_name");
+                        }
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                        return builder.build();
+                    }
+                    str6 = null;
+                    optString = null;
+                    str4 = null;
+                    str5 = null;
+                    if (str4 == null) {
+                        str4 = optJSONObject.optString("app_name");
+                        str5 = optJSONObject.optString("package_name");
+                    }
+                    RippedAd.Builder builder2 = new RippedAd.Builder();
+                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder2.build();
+                }
+                JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
+                if (optJSONObject5 != null) {
+                    str4 = null;
+                    str5 = null;
+                    optString = optJSONObject5.optString("deeplink_url");
+                    str6 = null;
+                    if (str4 == null) {
+                    }
+                    RippedAd.Builder builder22 = new RippedAd.Builder();
+                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder22.build();
+                }
+                str6 = null;
+                optString = null;
+                str4 = null;
+                str5 = null;
+                if (str4 == null) {
+                }
+                RippedAd.Builder builder222 = new RippedAd.Builder();
+                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                return builder222.build();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            this.b = do9Var;
-            this.a = qo9Var;
         }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdShow(TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdShow(this.a);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.f.destroy((qo9) obj);
-        }
-    }
-
-    public void f(Activity activity, qo9 qo9Var, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, qo9Var, viewGroup, g0Var, adInteractionListener) == null) {
-            ((TTNativeAd) qo9Var.a).setActivityForDownloadApp(activity);
-            ((TTNativeAd) qo9Var.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
-            ((TTNativeAd) qo9Var.a).setDownloadListener(g0Var.getDownloadListener());
-        }
-    }
-
-    public final void g(Context context, qo9 qo9Var, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, qo9Var, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
-            if (viewGroup instanceof FunNativeView) {
-                viewGroup = ((FunNativeView) viewGroup).getRoot();
-            }
-            this.f.startShow(qo9Var, str, this.mPid, adInteractionListener, funAdInteractionListener);
-            if (context instanceof Activity) {
-                ((TTNativeAd) qo9Var.a).setActivityForDownloadApp((Activity) context);
-            }
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            ((TTNativeAd) qo9Var.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
-            return new go9((qo9) obj, str, this.mPid, this);
-        }
-        return (FunNativeAd) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
-            qo9 qo9Var = (qo9) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, qo9Var, new go9(qo9Var, str, this.mPid, this), new ho9(this, this, qo9Var));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    /* renamed from: l */
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, qo9 qo9Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, qo9Var)) == null) {
-            onShowStart(qo9Var);
-            com.fun.module.csj.g0 a2 = eo9.a((TTNativeAd) qo9Var.a);
-            if (a2 == null) {
-                onAdError(qo9Var, 0, "AdView present failed");
-                return false;
-            }
-            viewGroup.removeAllViews();
-            viewGroup.addView(a2);
-            f(activity, qo9Var, viewGroup, a2, new fo9(this, qo9Var, null, str));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            onLoadStart(funAdSlot);
-            h(funAdSlot);
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

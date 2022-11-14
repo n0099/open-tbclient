@@ -1,111 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes4.dex */
-public class h85 extends p65 {
+public class h85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h85(Context context, boolean z, boolean z2, int i) {
-        super(context, (String) null, 27);
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 16) {
+                return false;
             }
+            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
-        this.o = false;
-        this.n = 3;
-        PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
-        this.m = pbNewInputContainer;
-        pbNewInputContainer.setTransLink(!z);
-        ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
-        this.t = ((PbNewInputContainer) this.m).getInputView();
-        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10e1));
-        ((PbNewInputContainer) this.m).L(z2);
-        this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
+        return invokeL.booleanValue;
     }
 
-    public void g(TextWatcher textWatcher) {
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
-            this.t.addTextChangedListener(textWatcher);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void h(int i) {
-        q65 q65Var;
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (q65Var = this.m) != null) {
-            ((PbNewInputContainer) q65Var).x(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void k(TextWatcher textWatcher) {
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
-            this.t.removeTextChangedListener(textWatcher);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == g85.a(view2.getContext())) {
+                return false;
+            }
+            int h = f85.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
         }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.m).setDefaultHint(str);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.m).setHint(str);
-        }
-    }
-
-    public void n(int i) {
-        q65 q65Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (q65Var = this.m) != null) {
-            ((PbNewInputContainer) q65Var).setType(i);
-        }
-    }
-
-    public EditText i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.t;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    public void j() {
-        q65 q65Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (q65Var = this.m) != null) {
-            ((PbNewInputContainer) q65Var).H();
-        }
+        return invokeLI.booleanValue;
     }
 }

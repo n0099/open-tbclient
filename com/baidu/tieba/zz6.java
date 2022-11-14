@@ -1,26 +1,65 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface zz6 {
-    void a();
+public class zz6 implements xn {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
+    public static final BdUniqueId g;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public BdUniqueId e;
 
-    void b(ScrollFragmentTabHost.u uVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948377299, "Lcom/baidu/tieba/zz6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948377299, "Lcom/baidu/tieba/zz6;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen();
+        g = BdUniqueId.gen();
+    }
 
-    void c();
+    public zz6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = g;
+    }
 
-    int d(int i);
-
-    void e(ScrollFragmentTabHost.u uVar);
-
-    void f(boolean z);
-
-    int getCurrentTabType();
-
-    FrameLayout getFrameLayout();
-
-    void setCurrentTab(int i);
-
-    void setOnTabSelectedListener(ScrollFragmentTabHost.v vVar);
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 }

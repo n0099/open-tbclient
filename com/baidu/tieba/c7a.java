@@ -1,134 +1,140 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.WindowParams;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes3.dex */
-public class c7a {
+public class c7a implements v5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public t5a a;
+    public PayFlowType b;
+    public m7a c;
+    public s5a d;
+    public PayUIKitConfig e;
+    public int f;
+    public int g;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
+    public c7a(t5a t5aVar, PayFlowType payFlowType, s5a s5aVar, int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 > 1.0d && d3 <= 10.0d) {
-                    d4 = Math.ceil(d3);
-                } else {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
-                    }
-                    d4 = d3;
-                }
-            }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<n6a> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).b() == i) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static n6a c(List<n6a> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list != null && !list.isEmpty()) {
-                int a = a(d, d2);
-                RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-                int b = b(list, a);
-                RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-                if (b >= 0) {
-                    d(list, b);
-                } else {
-                    f(list, payUIKitConfig, a);
-                }
-                return list.get(0);
-            }
-            return null;
-        }
-        return (n6a) invokeCommon.objValue;
-    }
-
-    public static void d(List<n6a> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t5aVar, payFlowType, s5aVar, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
         }
+        this.a = t5aVar;
+        this.b = payFlowType;
+        this.d = s5aVar;
+        this.f = i;
+        this.g = i2;
+        this.e = payUIKitConfig;
     }
 
-    public static boolean e(n6a n6aVar) {
-        InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
+    @Override // com.baidu.tieba.v5a
+    public void a(Activity activity, k7a k7aVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        WindowParams windowParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, n6aVar)) == null) {
-            if (n6aVar != null && (productInfo = n6aVar.a) != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, k7aVar, list, str, paySplitOrderViewSource, viewParams, iPayCallback}) == null) {
+            if (u7a.b(this.f, this.g) == null) {
+                RLog.error("PaySplitOrderManager", "prepareShowSplitOrderDialog error appPayService null", new Object[0]);
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(List<n6a> list, PayUIKitConfig payUIKitConfig, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
-            }
-            n6a a = x6a.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
+            t8a.b bVar = new t8a.b();
+            bVar.a = k7aVar;
+            bVar.h = paySplitOrderViewSource;
+            bVar.c = this.b;
+            AbsViewEventHandler absViewEventHandler = null;
+            if (viewParams != null) {
+                windowParams = viewParams.windowParams;
             } else {
-                list.remove(0);
+                windowParams = null;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
+            bVar.b = windowParams;
+            bVar.d = list;
+            bVar.e = str;
+            bVar.f = viewParams;
+            if (viewParams != null) {
+                absViewEventHandler = viewParams.viewEventListener;
+            }
+            bVar.g = absViewEventHandler;
+            e(activity, bVar, iPayCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.v5a
+    public m7a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (m7a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v5a
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            RLog.info("PaySplitOrderManager", "release mPaySplitOrderInfo:" + this.c);
+            this.c = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.v5a
+    public void c(m7a m7aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m7aVar) == null) {
+            RLog.info("PaySplitOrderManager", "setPaySplitOrderInfo info:" + m7aVar);
+            this.c = m7aVar;
+        }
+    }
+
+    public Dialog d(Activity activity, t8a t8aVar, AbsViewEventHandler absViewEventHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, activity, t8aVar, absViewEventHandler)) == null) {
+            RLog.info("PaySplitOrderManager", "createSplitOrderDialog");
+            this.d.k(absViewEventHandler, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
+            return a9a.b.e(activity, activity.getString(R.string.obfuscated_res_0x7f0f0dbf), t8aVar.getContentView(), new r6a(this.f, this.g, activity, absViewEventHandler, this.d, t8aVar), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.b, this.e, true);
+        }
+        return (Dialog) invokeLLL.objValue;
+    }
+
+    public final void e(Activity activity, t8a.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bVar, iPayCallback) == null) {
+            RLog.info("PaySplitOrderManager", "pay_dialog_show_flow:showSplitOrderDialog splitOrderViewParams:" + bVar);
+            t8a h = this.a.h(activity, this.e, bVar, this);
+            h.refreshView();
+            Dialog d = d(activity, h, bVar.g);
+            h.setCallback(new s6a(activity, d, bVar, iPayCallback, this.d));
+            this.d.q(h, d);
         }
     }
 }

@@ -33,7 +33,7 @@ public class ik3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString(TiebaStatic.LogFields.RESULT, fk3.k(getAgent().getContext()));
+            bundle2.putString(TiebaStatic.LogFields.RESULT, gk3.h(getAgent().getContext()));
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

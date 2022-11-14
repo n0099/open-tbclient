@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.yg5;
+import com.baidu.tieba.zg5;
 /* loaded from: classes3.dex */
-public interface ah5 {
-    void a(ViewType viewType, String str);
+public interface ah5<Q extends yg5, P extends zg5> {
+    int a();
 
-    void b(ViewType viewType);
+    Q b();
 
-    void c(ViewType viewType, ch5 ch5Var);
+    String c();
 
-    void onChangeSkinType(int i);
+    P d();
 
-    void onDestroy();
+    int e();
 }

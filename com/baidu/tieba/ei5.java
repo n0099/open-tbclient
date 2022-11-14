@@ -1,246 +1,399 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
+/* loaded from: classes3.dex */
 public class ei5 {
     public static /* synthetic */ Interceptable $ic;
+    public static JSONObject a;
+    public static ArrayList<Long> b;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
-        int width;
-        int height;
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int i2 = i;
-            if (z) {
-                width = bitmap.getWidth() / 2;
-                height = bitmap.getHeight() / 4;
-            } else {
-                width = bitmap.getWidth();
-                height = bitmap.getHeight();
-            }
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
-            if (i2 < 1) {
-                return null;
-            }
-            int i3 = width * height;
-            int[] iArr2 = new int[i3];
-            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
-            int i4 = width - 1;
-            int i5 = height - 1;
-            int i6 = i2 + i2 + 1;
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[i3];
-            int[] iArr5 = new int[i3];
-            int[] iArr6 = new int[Math.max(width, height)];
-            int i7 = (i6 + 1) >> 1;
-            int i8 = i7 * i7;
-            int i9 = i8 * 256;
-            int[] iArr7 = new int[i9];
-            for (int i10 = 0; i10 < i9; i10++) {
-                iArr7[i10] = i10 / i8;
-            }
-            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
-            int i11 = i2 + 1;
-            int i12 = 0;
-            int i13 = 0;
-            int i14 = 0;
-            while (i12 < height) {
-                Bitmap bitmap2 = createBitmap;
-                int i15 = 0;
-                int i16 = 0;
-                int i17 = 0;
-                int i18 = 0;
-                int i19 = 0;
-                int i20 = 0;
-                int i21 = 0;
-                int i22 = 0;
-                int i23 = -i2;
-                int i24 = 0;
-                while (i23 <= i2) {
-                    int i25 = height;
-                    int i26 = i5;
-                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
-                    int[] iArr9 = iArr8[i23 + i2];
-                    iArr9[0] = (i27 & 16711680) >> 16;
-                    iArr9[1] = (i27 & 65280) >> 8;
-                    iArr9[2] = i27 & 255;
-                    int abs = i11 - Math.abs(i23);
-                    i24 += iArr9[0] * abs;
-                    i15 += iArr9[1] * abs;
-                    i16 += iArr9[2] * abs;
-                    if (i23 > 0) {
-                        i20 += iArr9[0];
-                        i21 += iArr9[1];
-                        i22 += iArr9[2];
-                    } else {
-                        i17 += iArr9[0];
-                        i18 += iArr9[1];
-                        i19 += iArr9[2];
-                    }
-                    i23++;
-                    height = i25;
-                    i5 = i26;
+    /* loaded from: classes3.dex */
+    public static class a implements f0a<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                int i28 = height;
-                int i29 = i5;
-                int i30 = i2;
-                int i31 = i24;
-                int i32 = 0;
-                while (i32 < width) {
-                    iArr3[i13] = iArr7[i31];
-                    iArr4[i13] = iArr7[i15];
-                    iArr5[i13] = iArr7[i16];
-                    int i33 = i31 - i17;
-                    int i34 = i15 - i18;
-                    int i35 = i16 - i19;
-                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
-                    int i36 = i17 - iArr10[0];
-                    int i37 = i18 - iArr10[1];
-                    int i38 = i19 - iArr10[2];
-                    if (i12 == 0) {
-                        iArr = iArr7;
-                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
-                    } else {
-                        iArr = iArr7;
-                    }
-                    int i39 = iArr2[i14 + iArr6[i32]];
-                    iArr10[0] = (i39 & 16711680) >> 16;
-                    iArr10[1] = (i39 & 65280) >> 8;
-                    iArr10[2] = i39 & 255;
-                    int i40 = i20 + iArr10[0];
-                    int i41 = i21 + iArr10[1];
-                    int i42 = i22 + iArr10[2];
-                    i31 = i33 + i40;
-                    i15 = i34 + i41;
-                    i16 = i35 + i42;
-                    i30 = (i30 + 1) % i6;
-                    int[] iArr11 = iArr8[i30 % i6];
-                    i17 = i36 + iArr11[0];
-                    i18 = i37 + iArr11[1];
-                    i19 = i38 + iArr11[2];
-                    i20 = i40 - iArr11[0];
-                    i21 = i41 - iArr11[1];
-                    i22 = i42 - iArr11[2];
-                    i13++;
-                    i32++;
-                    iArr7 = iArr;
-                }
-                i14 += width;
-                i12++;
-                createBitmap = bitmap2;
-                height = i28;
-                i5 = i29;
             }
-            int i43 = height;
-            int i44 = i5;
-            int[] iArr12 = iArr7;
-            Bitmap bitmap3 = createBitmap;
-            int i45 = 0;
-            while (i45 < width) {
-                int i46 = -i2;
-                int i47 = i6;
-                int[] iArr13 = iArr6;
-                int i48 = 0;
-                int i49 = 0;
-                int i50 = 0;
-                int i51 = 0;
-                int i52 = 0;
-                int i53 = 0;
-                int i54 = 0;
-                int i55 = i46;
-                int i56 = i46 * width;
-                int i57 = 0;
-                int i58 = 0;
-                while (i55 <= i2) {
-                    int i59 = width;
-                    int max = Math.max(0, i56) + i45;
-                    int[] iArr14 = iArr8[i55 + i2];
-                    iArr14[0] = iArr3[max];
-                    iArr14[1] = iArr4[max];
-                    iArr14[2] = iArr5[max];
-                    int abs2 = i11 - Math.abs(i55);
-                    i57 += iArr3[max] * abs2;
-                    i58 += iArr4[max] * abs2;
-                    i48 += iArr5[max] * abs2;
-                    if (i55 > 0) {
-                        i52 += iArr14[0];
-                        i53 += iArr14[1];
-                        i54 += iArr14[2];
-                    } else {
-                        i49 += iArr14[0];
-                        i50 += iArr14[1];
-                        i51 += iArr14[2];
-                    }
-                    int i60 = i44;
-                    if (i55 < i60) {
-                        i56 += i59;
-                    }
-                    i55++;
-                    i44 = i60;
-                    width = i59;
-                }
-                int i61 = width;
-                int i62 = i44;
-                int i63 = i2;
-                int i64 = i45;
-                int i65 = i43;
-                int i66 = 0;
-                while (i66 < i65) {
-                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
-                    int i67 = i57 - i49;
-                    int i68 = i58 - i50;
-                    int i69 = i48 - i51;
-                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
-                    int i70 = i49 - iArr15[0];
-                    int i71 = i50 - iArr15[1];
-                    int i72 = i51 - iArr15[2];
-                    if (i45 == 0) {
-                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
-                    }
-                    int i73 = iArr13[i66] + i45;
-                    iArr15[0] = iArr3[i73];
-                    iArr15[1] = iArr4[i73];
-                    iArr15[2] = iArr5[i73];
-                    int i74 = i52 + iArr15[0];
-                    int i75 = i53 + iArr15[1];
-                    int i76 = i54 + iArr15[2];
-                    i57 = i67 + i74;
-                    i58 = i68 + i75;
-                    i48 = i69 + i76;
-                    i63 = (i63 + 1) % i47;
-                    int[] iArr16 = iArr8[i63];
-                    i49 = i70 + iArr16[0];
-                    i50 = i71 + iArr16[1];
-                    i51 = i72 + iArr16[2];
-                    i52 = i74 - iArr16[0];
-                    i53 = i75 - iArr16[1];
-                    i54 = i76 - iArr16[2];
-                    i64 += i61;
-                    i66++;
-                    i2 = i;
-                }
-                i45++;
-                i2 = i;
-                i44 = i62;
-                i43 = i65;
-                iArr6 = iArr13;
-                i6 = i47;
-                width = i61;
-            }
-            int i77 = width;
-            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
-            return bitmap3;
+            this.a = str;
         }
-        return (Bitmap) invokeCommon.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.f0a
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                String q = py4.k().q("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.a) || this.a.equals(q)) {
+                    ei5.p(false);
+                    return;
+                }
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                if (ai5.j().b(new File(file, "sniff.json"), this.a) > 0) {
+                    py4.k().y("old_sniff_url", "");
+                }
+                ei5.p(true);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements f0a<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+
+        public b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.f0a
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (ei5.a == null || this.a) {
+                    ei5.g();
+                }
+                ei5.o();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c<X, Y> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final X a;
+        public final Y b;
+
+        public c(X x, Y y) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x, y};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x;
+            this.b = y;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735320, "Lcom/baidu/tieba/ei5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947735320, "Lcom/baidu/tieba/ei5;");
+                return;
+            }
+        }
+        b = new ArrayList<>();
+        c = new Hashtable<>();
+        d = true;
+    }
+
+    public ei5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return fh0.e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            rz9.f("").k(Schedulers.io()).w(new a(str));
+        }
+    }
+
+    public static void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            k(i, 0);
+        }
+    }
+
+    public static void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            j(i, 0);
+        }
+    }
+
+    public static void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            rz9.f("").k(Schedulers.io()).w(new b(z));
+        }
+    }
+
+    public static void f(PackageManager packageManager, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i, i2) == null) {
+            try {
+                packageManager.getApplicationInfo(str, 0);
+                j(i, i2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                k(i, i2);
+            }
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+            if (!file.exists()) {
+                return;
+            }
+            File file2 = new File(file, "sniff.json");
+            if (!file2.exists()) {
+                return;
+            }
+            String readFileData = FileUtils.readFileData(file2);
+            if (!TextUtils.isEmpty(readFileData)) {
+                synchronized (ei5.class) {
+                    try {
+                        a = new JSONObject(readFileData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            ArrayList<Long> arrayList = b;
+            if (arrayList != null && arrayList.size() != 0) {
+                ArrayList arrayList2 = new ArrayList();
+                Iterator<Long> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    arrayList2.add(String.valueOf(it.next()));
+                }
+                return TextUtils.join(",", arrayList2);
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
+            }
+        }
+    }
+
+    public static void k(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
+            }
+        }
+    }
+
+    public static void n(int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65551, null, i, jSONArray) == null) {
+            if (i >= b.size()) {
+                Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
+                return;
+            }
+            PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+            l(i);
+            int i2 = 0;
+            while (i2 < jSONArray.length()) {
+                String optString = jSONArray.optString(i2);
+                i2++;
+                c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
+                ArrayList<c<Integer, Integer>> arrayList = c.get(optString);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                }
+                arrayList.add(cVar);
+                c.put(optString, arrayList);
+                f(packageManager, optString, i, i2);
+            }
+            m(i);
+            py4.k().y("AD_SNIFF_RESULT_KEY", i());
+        }
+    }
+
+    public static void o() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65552, null) != null) || (jSONObject = a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        int size = b.size();
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (int i = 0; i < length; i++) {
+            if (i < size) {
+                arrayList.add(b.get(i));
+            } else {
+                arrayList.add(0L);
+            }
+        }
+        b = arrayList;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            if (optJSONObject == null) {
+                return;
+            }
+            q(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), d);
+        }
+        if (d) {
+            d = false;
+        }
+    }
+
+    public static void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
+            long time = new Date().getTime();
+            String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
+            long m = py4.k().m(str2, 0L);
+            long millis = TimeUnit.MINUTES.toMillis(i2);
+            boolean z3 = true;
+            int i3 = (m > 0L ? 1 : (m == 0L ? 0 : -1));
+            if (i3 == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            z3 = (i3 <= 0 || time - m <= millis) ? false : false;
+            if (z || z2 || z3) {
+                py4.k().x(str2, time);
+                n(i, jSONArray);
+            }
+        }
+    }
+
+    public static void r(Intent intent) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65555, null, intent) != null) || TextUtils.isEmpty(intent.getDataString())) {
+            return;
+        }
+        if (intent.getDataString().length() > 8) {
+            str = intent.getDataString().substring(8);
+        } else {
+            str = "";
+        }
+        String action = intent.getAction();
+        ArrayList<c<Integer, Integer>> arrayList = c.get(str);
+        if (arrayList != null && arrayList.size() != 0) {
+            Iterator<c<Integer, Integer>> it = arrayList.iterator();
+            while (it.hasNext()) {
+                c<Integer, Integer> next = it.next();
+                if (next != null) {
+                    int intValue = next.a.intValue();
+                    int intValue2 = next.b.intValue();
+                    if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
+                        j(intValue, intValue2);
+                    } else {
+                        k(intValue, intValue2);
+                    }
+                }
+            }
+        }
     }
 }

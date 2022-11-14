@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes3.dex */
 public interface cq1 {
-    dh4 a();
+    void a(Context context, yi3<Boolean> yi3Var);
 
-    void b(ia2 ia2Var, ga2 ga2Var);
+    void b(boolean z, yi3<String> yi3Var);
 
-    boolean c();
+    void c(Context context, yi3<String> yi3Var);
 
-    boolean d();
+    void d(yi3<Integer> yi3Var);
 }

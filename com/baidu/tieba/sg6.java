@@ -3,8 +3,7 @@ package com.baidu.tieba;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cf;
+import com.baidu.tieba.df;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class sg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cf<byte[]> a;
+    public df<byte[]> a;
 
     public sg6() {
         Interceptable interceptable = $ic;
@@ -35,24 +34,20 @@ public class sg6 {
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            hv4.f();
-            this.a = hv4.d("tb.forum_member_info");
+            iv4.f();
+            this.a = iv4.d("tb.bawu_team_info");
         }
     }
 
     public byte[] a(String str) {
         InterceptResult invokeL;
-        cf.b<byte[]> bVar;
+        df.b<byte[]> bVar;
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            cf<byte[]> cfVar = this.a;
-            if (cfVar != null) {
-                bVar = cfVar.h(str2);
+            df<byte[]> dfVar = this.a;
+            if (dfVar != null && str != null) {
+                bVar = dfVar.h(str);
             } else {
                 bVar = null;
             }
@@ -66,14 +61,9 @@ public class sg6 {
 
     public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
             b();
-            cf<byte[]> cfVar = this.a;
-            cfVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

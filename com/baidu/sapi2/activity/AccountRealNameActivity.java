@@ -179,7 +179,7 @@ public class AccountRealNameActivity extends BaseActivity {
                 }, this.t, arrayList);
                 return;
             }
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f1099), 1).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f109f), 1).show();
             finishActivity();
         }
     }
@@ -220,7 +220,7 @@ public class AccountRealNameActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10cb);
+            setTitleText(R.string.obfuscated_res_0x7f0f10d1);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -335,7 +335,7 @@ public class AccountRealNameActivity extends BaseActivity {
             try {
                 this.z = CoreViewRouter.getInstance().getAccountRealNameCallback();
                 CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d0515);
+                setContentView(R.layout.obfuscated_res_0x7f0d0516);
                 init();
                 setupViews();
             } catch (Throwable th) {

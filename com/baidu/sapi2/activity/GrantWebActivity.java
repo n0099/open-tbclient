@@ -487,7 +487,7 @@ public class GrantWebActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0515);
+                setContentView(R.layout.obfuscated_res_0x7f0d0516);
                 if (d() && c()) {
                     init();
                     setupViews();

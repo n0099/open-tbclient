@@ -1,221 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ElectionInfo.Basic;
-import tbclient.ElectionInfo.NoticeContent;
 /* loaded from: classes3.dex */
-public class d26 {
+public class d26 extends l36<y06> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
-    public boolean h;
-    public NoticeContent i;
+    public TextView i;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
 
-    public d26() {
+    @Override // com.baidu.tieba.l36
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0106 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.l36
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d26(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
+        r(k());
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090219);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091321);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091322);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090230);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09021a);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091325);
+            k().setOnClickListener(this);
         }
-        return invokeV.longValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l36
+    /* renamed from: s */
+    public void l(y06 y06Var) {
+        v06 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public NoticeContent f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (NoticeContent) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static d26 j(Basic basic) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
-            if (basic == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, y06Var) == null) && (c = y06Var.c()) != null && c.b() != null) {
+            String str = "LV." + c.b().yy_level_id;
+            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+                str = c.b().yy_level_name + str;
+                this.m.setText(c.b().yy_level_name);
             }
-            d26 d26Var = new d26();
-            d26Var.r(k(basic.remind_time));
-            d26Var.s(basic.status.intValue());
-            d26Var.n(basic.candidate_num.intValue());
-            d26Var.o(k(basic.begin_apply_time));
-            d26Var.l(k(basic.begin_audit_time));
-            d26Var.t(k(basic.begin_vote_time));
-            d26Var.p(k(basic.begin_public_time));
-            d26Var.m(basic.is_voted.booleanValue());
-            d26Var.q(basic.notice);
-            return d26Var;
-        }
-        return (d26) invokeL.objValue;
-    }
-
-    public static long k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+            this.i.setText(str);
+            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+                this.m.setVisibility(8);
+                this.n.setVisibility(8);
+                this.l.setVisibility(8);
+                this.j.setVisibility(8);
+                return;
             }
-        }
-        return invokeL.longValue;
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void q(NoticeContent noticeContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, noticeContent) == null) {
-            this.i = noticeContent;
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.c = j;
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+                this.n.setText(c.b().yy_level_next_name);
+            }
+            long j = c.b().yy_levelup_exp;
+            long j2 = c.b().yy_level_exp;
+            this.j.setMax((int) j);
+            this.j.setProgress((int) j2);
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
+                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0224);
+                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+                if (i <= 0) {
+                    i = 1;
+                }
+                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
+            }
         }
     }
 }

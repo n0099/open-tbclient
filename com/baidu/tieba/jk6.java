@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
 public interface jk6 {
-    void a(ThreadData threadData);
+    void K0(ItemInfo itemInfo);
+
+    ItemInfo j0();
+
+    boolean v();
 }

@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.webview;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.m7a;
+import com.baidu.tieba.m8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +15,12 @@ public class UrlPageParams {
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("pageType")
     public int pageType;
+    @SerializedName("rightIcon")
+    public String rightIcon;
+    @SerializedName("rightIconTitle")
+    public String rightIconTitle;
+    @SerializedName("rightIconUrl")
+    public String rightIconUrl;
     @SerializedName("rightTitle")
     public String rightTitle;
     @SerializedName("rightUrl")
@@ -42,7 +48,7 @@ public class UrlPageParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UrlPageParams{title='" + this.title + "', url='" + m7a.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + m7a.a(this.rightUrl) + "', pageType='" + this.pageType + "'}";
+            return "UrlPageParams{title='" + this.title + "', url='" + m8a.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + m8a.a(this.rightUrl) + "', rightIcon='" + m8a.a(this.rightIcon) + "', rightIconTitle='" + this.rightIconTitle + "', rightIconUrl='" + m8a.a(this.rightIconUrl) + "', pageType='" + this.pageType + "'}";
         }
         return (String) invokeV.objValue;
     }

@@ -4,84 +4,115 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbVideoDetailBrowseModeEmotionHolder;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class g18 extends uz7<sx7, PbVideoDetailBrowseModeEmotionHolder> {
+public class g18 extends f08<xt4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public ox7 g;
+    public PbRecommendNovelHolder.b h;
+
+    /* loaded from: classes4.dex */
+    public class a implements PbRecommendNovelHolder.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g18 a;
+
+        public a(g18 g18Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g18Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g18Var;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(xt4 xt4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, xt4Var) == null) && xt4Var != null) {
+                p48.a(this.a.g, xt4Var, xt4Var.d0, 6);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g18(o48 activity, BdUniqueId mType) {
-        super(activity, mType);
+    public g18(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, mType};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((o48) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((z48) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(mType, "mType");
+        this.h = new a(this);
+    }
+
+    public void r(ox7 ox7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ox7Var) == null) {
+            this.g = ox7Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: v */
-    public PbVideoDetailBrowseModeEmotionHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d08e2, viewGroup, false);
-            Intrinsics.checkNotNullExpressionValue(view2, "view");
-            return new PbVideoDetailBrowseModeEmotionHolder(view2);
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fa, viewGroup, false), this.h);
         }
-        return (PbVideoDetailBrowseModeEmotionHolder) invokeL.objValue;
+        return (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    public final void x(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
+    @Override // com.baidu.tieba.f08, com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        w(i, view2, viewGroup, (xt4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
     }
 
-    public final View.OnClickListener u() {
-        InterceptResult invokeV;
+    public View w(int i, View view2, ViewGroup viewGroup, xt4 xt4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: w */
-    public void onFillViewHolder(int i, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, sx7 sx7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), viewGroup, pbVideoDetailBrowseModeEmotionHolder, sx7Var}) == null) {
-            super.onFillViewHolder(i, viewGroup, pbVideoDetailBrowseModeEmotionHolder, sx7Var);
-            if (pbVideoDetailBrowseModeEmotionHolder != null) {
-                pbVideoDetailBrowseModeEmotionHolder.a();
-                pbVideoDetailBrowseModeEmotionHolder.b(u());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xt4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, xt4Var, pbRecommendNovelHolder);
+            if (xt4Var == null) {
+                return view2;
             }
+            xt4Var.d0 = i + 1;
+            p48.d(this.b.getUniqueId(), this.g, xt4Var, xt4Var.d0, 6);
+            pbRecommendNovelHolder.d(xt4Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

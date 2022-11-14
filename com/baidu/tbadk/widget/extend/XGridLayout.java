@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gr8;
-import com.baidu.tieba.mk5;
+import com.baidu.tieba.rr8;
+import com.baidu.tieba.wk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -87,7 +87,7 @@ public class XGridLayout extends AdapterLayout {
         this.e = 0;
         this.f = 0;
         this.g = 9;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.XGridLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rr8.XGridLayout);
         this.d = obtainStyledAttributes.getInteger(3, this.d);
         this.e = (int) obtainStyledAttributes.getDimension(0, this.e);
         this.f = (int) obtainStyledAttributes.getDimension(4, this.f);
@@ -109,10 +109,10 @@ public class XGridLayout extends AdapterLayout {
     }
 
     public void e() {
-        mk5 mk5Var;
+        wk5 wk5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mk5Var = this.a) != null) {
-            mk5Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wk5Var = this.a) != null) {
+            wk5Var.c();
         }
     }
 

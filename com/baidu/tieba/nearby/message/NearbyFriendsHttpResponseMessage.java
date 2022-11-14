@@ -3,7 +3,7 @@ package com.baidu.tieba.nearby.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.cs7;
+import com.baidu.tieba.ns7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cs7 nearbyFriendData;
+    public ns7 nearbyFriendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NearbyFriendsHttpResponseMessage() {
@@ -34,13 +34,13 @@ public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public cs7 getNearbyFriendData() {
+    public ns7 getNearbyFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.nearbyFriendData;
         }
-        return (cs7) invokeV.objValue;
+        return (ns7) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -49,9 +49,9 @@ public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                cs7 cs7Var = new cs7();
-                this.nearbyFriendData = cs7Var;
-                cs7Var.a(jSONObject);
+                ns7 ns7Var = new ns7();
+                this.nearbyFriendData = ns7Var;
+                ns7Var.a(jSONObject);
             }
         }
     }

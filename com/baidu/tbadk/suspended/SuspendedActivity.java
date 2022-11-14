@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kf5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,11 +32,11 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public TextView e;
     public LinearLayout f;
     public LinearLayout g;
-    public kf5 h;
+    public rf5 h;
     public boolean i;
     public NoNetworkView.b j;
 
-    public abstract kf5 N0(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract rf5 N0(LinearLayout linearLayout, NavigationBar navigationBar);
 
     public View.OnClickListener R0() {
         InterceptResult invokeV;
@@ -134,8 +134,8 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kf5 kf5Var = this.h;
-            if (kf5Var != null && !kf5Var.G0()) {
+            rf5 rf5Var = this.h;
+            if (rf5Var != null && !rf5Var.G0()) {
                 return;
             }
             if (this.b != null) {
@@ -150,7 +150,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
+            return yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -158,9 +158,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070c);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
             this.g = linearLayout;
-            kf5 N0 = N0(linearLayout, this.c);
+            rf5 N0 = N0(linearLayout, this.c);
             this.h = N0;
             if (N0 != null) {
                 this.a.setContentViewTop(N0);
@@ -171,7 +171,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void X0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092606);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092615);
             this.d = noNetworkView;
             noNetworkView.a(this.j);
         }
@@ -218,7 +218,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091cd4);
             Y0();
             U0();
             X0();
@@ -238,9 +238,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                 super.finish();
                 return;
             }
-            kf5 kf5Var = this.h;
-            if (kf5Var != null) {
-                Intent resultIntent = kf5Var.getResultIntent();
+            rf5 rf5Var = this.h;
+            if (rf5Var != null) {
+                Intent resultIntent = rf5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -259,16 +259,16 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
             this.c = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, xi.g(getPageContext().getPageActivity(), R.dimen.tbds44));
+            navigationBar.mCenterText.setTextSize(0, yi.g(getPageContext().getPageActivity(), R.dimen.tbds44));
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new b(this));
             this.e = addTextButton;
-            addTextButton.setTextSize(0, xi.g(getPageContext().getPageActivity(), R.dimen.tbds44));
+            addTextButton.setTextSize(0, yi.g(getPageContext().getPageActivity(), R.dimen.tbds44));
             this.c.setIsCorner(true);
             this.c.setStatusBarVisibility(8);
             this.c.hideBottomLine();
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09168b);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091692);
             this.f.addView(this.b, 0, new LinearLayout.LayoutParams(-1, O0()));
         }
     }
@@ -309,9 +309,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-            kf5 kf5Var = this.h;
-            if (kf5Var != null) {
-                kf5Var.n(i);
+            rf5 rf5Var = this.h;
+            if (rf5Var != null) {
+                rf5Var.n(i);
             }
         }
     }

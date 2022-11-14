@@ -27,9 +27,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im;
 import com.baidu.tieba.jm;
-import com.baidu.tieba.nm;
+import com.baidu.tieba.km;
+import com.baidu.tieba.om;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                File file = new File(nm.b(this.a));
+                File file = new File(om.b(this.a));
                 if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
                     this.b.setSourceFile(file);
                     this.b.i();
@@ -479,14 +479,14 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0878, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d087c, (ViewGroup) this, true);
             if (context instanceof BaseFragmentActivity) {
                 ((BaseFragmentActivity) context).startAnimatable(this);
             } else if (context instanceof BaseActivity) {
                 ((BaseActivity) context).startAnimatable(this);
             }
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090795);
-            setDefaultImage(R.drawable.obfuscated_res_0x7f080c0d);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090796);
+            setDefaultImage(R.drawable.obfuscated_res_0x7f080c12);
             setOnVideoErrorListener(null);
             AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.obfuscated_res_0x7f090281);
             this.b = alphaVideo;
@@ -497,16 +497,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            File file = new File(nm.b(str));
+            File file = new File(om.b(str));
             if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
                 setSourceFile(file);
                 i();
                 return;
             }
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(jm.a);
+            requestParams.setRunType(km.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new im("com.baidu.tieba.resloader." + str, new a(this, str)));
+            requestParams.addChannel(new jm("com.baidu.tieba.resloader." + str, new a(this, str)));
             PmsManager.getInstance().execute(requestParams);
         }
     }

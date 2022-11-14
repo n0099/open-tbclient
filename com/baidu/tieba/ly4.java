@@ -1,149 +1,166 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.CustomViewPager;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ly4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public FragmentTabHost b;
-    public final rg<hn> c;
 
-    /* loaded from: classes5.dex */
-    public class a extends rg<hn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ly4 a;
-
-        public a(ly4 ly4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ly4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ly4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((a) hnVar, str, i);
-                if (this.a.b == null || hnVar == null || !hnVar.w()) {
-                    this.a.f();
-                    return;
-                }
-                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.a.b.getTabWrapper();
-                if (fragmentTabWidget != null && fragmentViewPager != null) {
-                    this.a.b.setNeedShowThemeStyle(false);
-                    fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                    SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                    SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                    layoutParams.bottomMargin = xi.g(this.a.b.getContext(), R.dimen.tbds100);
-                    fragmentViewPager.setLayoutParams(layoutParams);
-                    fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(hnVar.p()));
-                }
-            }
-        }
-    }
-
-    public ly4(FragmentTabHost fragmentTabHost, int i) {
+    public ly4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(AgreeData agreeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            tb5.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, yr4 yr4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yr4Var, agreeData, threadData) == null) && yr4Var != null && agreeData != null) {
+            int i = 0;
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                i = baijiahaoData.oriUgcType;
+            }
+            StatisticItem param = new StatisticItem("c13271").param("obj_type", yr4Var.g).param("obj_locate", yr4Var.h).param("obj_id", yr4Var.i).param("obj_name", i).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+            if (threadData != null) {
+                param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+                if (threadData.getBaijiahaoData() != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                    }
+                }
+                if (threadData.isBjhDynamicThread()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                    int i2 = threadData.threadType;
+                    if (i2 == 0 || i2 == 40) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                    }
+                } else {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                }
+            } else {
+                param.param("tid", agreeData.threadId);
+                param.param("nid", agreeData.nid);
+                param.param("fid", agreeData.forumId);
+                param.param("card_type", agreeData.cardType);
+                param.param("ab_tag", agreeData.recomAbTag);
+                param.param("recom_source", agreeData.recomSource);
+                param.param("weight", agreeData.recomWeight);
+                param.param("extra", agreeData.recomExtra);
+                BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+                if (baijiahaoData2 != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+                }
+            }
+            if (context != null) {
+                be5.b(context, param);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                jx4.a(3, -1);
                 return;
             }
-        }
-        this.a = 0;
-        this.c = new a(this);
-        this.b = fragmentTabHost;
-        this.a = i;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            sg.h().m(str, 10, this.c, c());
-        }
-    }
-
-    public final BdUniqueId c() {
-        InterceptResult invokeV;
-        r9<?> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.b;
-            if (fragmentTabHost != null && fragmentTabHost.getContext() != null && (a2 = w9.a(this.b.getContext())) != null) {
-                return a2.getUniqueId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
             }
-            return null;
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(rb5.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, rb5.b());
+                }
+                if (!TextUtils.isEmpty(rb5.f())) {
+                    httpMessage.addParam(HttpRequest.TBS, rb5.f());
+                }
+                if (!TextUtils.isEmpty(rb5.e())) {
+                    httpMessage.addParam("stoken", rb5.e());
+                }
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void e(Pair<String, String> pair) {
+    public void d(AgreeData agreeData, bp8 bp8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) && pair != null) {
-            String str = (String) pair.first;
-            String str2 = (String) pair.second;
-            boolean z = true;
-            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, bp8Var) == null) {
+            bp8Var.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, bp8Var));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, bp8Var));
+                a(agreeData, AgreeEvent.IS_POST);
             }
-            if (z && !TextUtils.isEmpty(str2)) {
-                d(str2);
-            } else if (!TextUtils.isEmpty(str)) {
-                d(str);
-            } else {
-                f();
-            }
-        }
-    }
-
-    public final void f() {
-        FragmentTabHost fragmentTabHost;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fragmentTabHost = this.b) != null && fragmentTabHost.getFragmentTabWidget() != null) {
-            this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
-            SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
-            SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
         }
     }
 }

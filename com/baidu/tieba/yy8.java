@@ -1,388 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yy8 extends iv4 implements View.OnClickListener {
+public class yy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public TextView c;
-    public ViewGroup d;
-    public TbCheckBox e;
-    public TextView f;
-    public Button g;
-    public Button h;
-    public ImageView i;
-    public String j;
-    public String k;
-    public String l;
-    public iv4.e m;
-    public String n;
-    public iv4.e o;
-    public String p;
-    public CompoundButton.OnCheckedChangeListener q;
-    public boolean r;
-    public TbCheckBox.b s;
-    public final rg<hn> t;
+    public int a;
+    public float b;
+    public int c;
+    public Camera d;
+    public ez8 e;
 
-    /* loaded from: classes6.dex */
-    public class a implements TbCheckBox.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yy8 a;
-
-        public a(yy8 yy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yy8Var;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) && this.a.q != null) {
-                this.a.q.onCheckedChanged(null, z);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends rg<hn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yy8 a;
-
-        public b(yy8 yy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yy8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((b) hnVar, str, i);
-                if (hnVar != null && hnVar.w()) {
-                    this.a.b.setBackgroundResource(0);
-                    this.a.b.setImageDrawable(null);
-                    hnVar.h(this.a.b);
-                    return;
-                }
-                this.a.b.setImageResource(R.drawable.obfuscated_res_0x7f080597);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements TbCheckBox.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-
-        public c(yy8 yy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public void setChecked(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a = z;
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public boolean isChecked() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy8(Activity activity) {
-        super(activity);
+    public yy8(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = false;
-        this.s = new a(this);
-        this.t = new b(this);
-        c();
-        setContentViewSize(1);
-        setCanceledOnTouchOutside(false);
-        setCancelable(false);
+        this.a = 0;
+        this.d = camera;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void c(ez8 ez8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ez8Var) == null) {
+            this.e = ez8Var;
+        }
+    }
+
+    public final void d(int i) {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
             return;
         }
-        int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091a78) {
-            iv4.e eVar = this.m;
-            if (eVar != null) {
-                eVar.onClick(this);
-            }
-        } else if (id == R.id.obfuscated_res_0x7f0916a3) {
-            iv4.e eVar2 = this.o;
-            if (eVar2 != null) {
-                eVar2.onClick(this);
-            }
-        } else if (id == R.id.obfuscated_res_0x7f09066c) {
-            dismiss();
-        } else if (id == R.id.obfuscated_res_0x7f090629) {
-            TbCheckBox tbCheckBox = this.e;
-            tbCheckBox.setChecked(!tbCheckBox.d());
+        Camera.Parameters parameters = camera.getParameters();
+        if (!parameters.isZoomSupported()) {
+            return;
         }
+        parameters.setZoom(i);
+        this.d.setParameters(parameters);
+        this.c = i;
     }
 
-    public yy8 e(String str) {
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Camera camera = this.d;
+            if (camera == null) {
+                return -1;
+            }
+            Camera.Parameters parameters = camera.getParameters();
+            if (!parameters.isZoomSupported()) {
+                return -1;
+            }
+            if (parameters.getMaxZoom() > 40) {
+                return 40;
+            }
+            return parameters.getMaxZoom();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (yy8) invokeL.objValue;
-    }
-
-    public yy8 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (yy8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public /* bridge */ /* synthetic */ iv4 setMessage(String str) {
-        f(str);
-        return this;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0241, (ViewGroup) null);
-            this.a = viewGroup;
-            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c9);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091546);
-            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0916a3);
-            this.h = button;
-            button.setOnClickListener(this);
-            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091a78);
-            this.g = button2;
-            button2.setOnClickListener(this);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09066c);
-            this.i = imageView;
-            imageView.setOnClickListener(this);
-            this.d = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090629);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09062b);
-            TbCheckBox tbCheckBox = (TbCheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f090627);
-            this.e = tbCheckBox;
-            tbCheckBox.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f080731, R.drawable.obfuscated_res_0x7f080732);
-            this.e.setStatedChangedListener(this.s);
-            this.e.setTagData(new c(this));
-            this.d.setClickable(true);
-            this.d.setOnClickListener(this);
-            setContentView(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public iv4 create(r9<?> r9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r9Var)) == null) {
-            if (this.r) {
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            ez8 ez8Var = this.e;
+            if (ez8Var != null && ez8Var.j()) {
+                return true;
             }
-            this.r = true;
-            super.create(r9Var);
-            if (!wi.isEmpty(this.k)) {
-                this.c.setText(this.k);
-            }
-            if (!wi.isEmpty(this.p)) {
-                this.f.setText(this.p);
+            int action = motionEvent.getAction() & 255;
+            int i = 0;
+            if (action != 0) {
+                if (action != 2) {
+                    if (action == 5) {
+                        this.a = 1;
+                        this.b = e(motionEvent);
+                    }
+                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
+                    return true;
+                } else {
+                    float e = e(motionEvent);
+                    int i2 = (int) ((e - this.b) / 10.0f);
+                    if (i2 >= 1 || i2 <= -1) {
+                        int i3 = this.c + i2;
+                        if (i3 > a()) {
+                            i3 = a();
+                        }
+                        if (i3 >= 0) {
+                            i = i3;
+                        }
+                        d(i);
+                        this.b = e;
+                    }
+                }
             } else {
-                this.d.setVisibility(4);
+                this.a = 0;
             }
-            if (!wi.isEmpty(this.n)) {
-                this.h.setText(this.n);
-            }
-            if (!wi.isEmpty(this.l)) {
-                this.g.setText(this.l);
-            }
-            if (!TextUtils.isEmpty(this.j)) {
-                sg.h().m(this.j, 10, this.t, r9Var.getUniqueId());
-            } else {
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080597);
-            }
-            getRealView().setBackgroundDrawable(null);
-            return this;
+            return true;
         }
-        return (iv4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public yy8 d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        InterceptResult invokeIL;
+    public final float e(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, onCheckedChangeListener)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.p = activity.getResources().getString(i);
-                this.q = onCheckedChangeListener;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
             }
-            return this;
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
         }
-        return (yy8) invokeIL.objValue;
-    }
-
-    public yy8 g(@StringRes int i, iv4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.n = activity.getResources().getString(i);
-                this.o = eVar;
-            }
-            return this;
-        }
-        return (yy8) invokeIL.objValue;
-    }
-
-    public yy8 h(int i, iv4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.l = activity.getResources().getString(i);
-                this.m = eVar;
-            }
-            return this;
-        }
-        return (yy8) invokeIL.objValue;
-    }
-
-    public yy8 i(String str, iv4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
-            this.l = str;
-            this.m = eVar;
-            return this;
-        }
-        return (yy8) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public /* bridge */ /* synthetic */ iv4 setNegativeButton(@StringRes int i, iv4.e eVar) {
-        g(i, eVar);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public /* bridge */ /* synthetic */ iv4 setPositiveButton(int i, iv4.e eVar) {
-        h(i, eVar);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public iv4 setNegativeButton(String str, iv4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
-            this.n = str;
-            this.o = eVar;
-            return this;
-        }
-        return (iv4) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.iv4
-    public /* bridge */ /* synthetic */ iv4 setPositiveButton(String str, iv4.e eVar) {
-        i(str, eVar);
-        return this;
+        return invokeL.floatValue;
     }
 }

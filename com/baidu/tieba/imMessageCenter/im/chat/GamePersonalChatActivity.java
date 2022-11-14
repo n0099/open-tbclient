@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p97;
+import com.baidu.tieba.aa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,10 +33,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener e0;
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean r1(p97 p97Var) {
+    public boolean r1(aa7 aa7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, p97Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aa7Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -289,10 +289,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
             return;
         }
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(getPageContext().getPageActivity());
-        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07b6);
-        tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037b);
+        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07b7);
+        tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037c);
         tBAlertBuilder.m(true);
-        tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0fc1, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+        tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0fc7, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
         tBAlertBuilder.g();
         tBAlertBuilder.h(false);
         tBAlertBuilder.w();

@@ -25,14 +25,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mm5;
-import com.baidu.tieba.ot4;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.pt4;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.tt4;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.ut4;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -421,14 +421,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = tt4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = ut4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 boolean z = false;
-                this.is_manager = wg.e((String) map.get("is_manager"), 0);
-                this.is_origin_manager = wg.e((String) map.get("is_origin_manager"), 0);
+                this.is_manager = xg.e((String) map.get("is_manager"), 0);
+                this.is_origin_manager = xg.e((String) map.get("is_origin_manager"), 0);
                 this.nid = (String) map.get("nid");
                 this.post_id = (String) map.get("first_post_id");
                 if (map.get(WriteActivityConfig.VIDEO_INFO) instanceof Map) {
@@ -437,12 +437,12 @@ public class VideoItemData implements Serializable, Parcelable {
                     this.thumbnail_height = String.valueOf(map2.get("thumbnail_height"));
                     this.mMd5 = (String) map2.get(VideoFinishResult.KEY_VIDEO_MD5);
                     this.video_url = (String) map2.get("video_url");
-                    this.video_duration = wg.e((String) map2.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+                    this.video_duration = xg.e((String) map2.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
                     this.video_width = String.valueOf(map2.get("video_width"));
                     this.video_height = String.valueOf(map2.get("video_height"));
-                    this.isVerticalVideo = wg.a(map2.get(TiebaStatic.Params.IS_VERTICAL), false) ? 1 : 0;
+                    this.isVerticalVideo = xg.a(map2.get(TiebaStatic.Params.IS_VERTICAL), false) ? 1 : 0;
                     this.thumbnail_url = (String) map2.get("thumbnail_url");
-                    this.play_count = wg.e((String) map2.get("play_count"), 0);
+                    this.play_count = xg.e((String) map2.get("play_count"), 0);
                 }
                 this.comment_num = (String) map.get("reply_num");
                 this.share_num = (String) map.get("share_num");
@@ -459,7 +459,7 @@ public class VideoItemData implements Serializable, Parcelable {
                     BaijiahaoData baijiahaoData = new BaijiahaoData();
                     baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
                     baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-                    baijiahaoData.oriUgcType = wg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+                    baijiahaoData.oriUgcType = xg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
                     baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
                     baijiahaoData.forwardUrl = (String) map4.get("forward_url");
                     this.baijiahaoData = baijiahaoData;
@@ -601,7 +601,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray2 != null) {
-                    this.mRichAbstractList = tt4.a(optJSONArray2);
+                    this.mRichAbstractList = ut4.a(optJSONArray2);
                 }
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -678,7 +678,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 threadData.parserJson(jSONObject);
                 this.threadData.tid = this.thread_id;
                 this.threadData.threadType = 40;
-                this.threadData.setReply_num(wg.e(this.comment_num, 0));
+                this.threadData.setReply_num(xg.e(this.comment_num, 0));
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_width = Integer.valueOf(this.video_width);
                 builder.video_height = Integer.valueOf(this.video_height);
@@ -786,27 +786,27 @@ public class VideoItemData implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public ot4 getNegFeedBackData() {
+    public pt4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             SparseArray<String> sparseArray = this.feedBackReasonMap;
             if (sparseArray != null && sparseArray.size() > 0) {
-                ot4 ot4Var = new ot4();
-                ot4Var.n(this.nid);
-                ot4Var.o(this.thread_id);
-                ot4Var.l(this.forum_id);
-                ot4Var.j(this.feedBackReasonMap);
-                ot4Var.g = this.feedBackExtraMap;
-                ot4Var.p = this.mRecomAbTag;
-                ot4Var.k = this.mRecomWeight;
-                ot4Var.m = this.mRecomExtra;
-                ot4Var.l = this.mRecomSource;
-                return ot4Var;
+                pt4 pt4Var = new pt4();
+                pt4Var.n(this.nid);
+                pt4Var.o(this.thread_id);
+                pt4Var.l(this.forum_id);
+                pt4Var.j(this.feedBackReasonMap);
+                pt4Var.g = this.feedBackExtraMap;
+                pt4Var.p = this.mRecomAbTag;
+                pt4Var.k = this.mRecomWeight;
+                pt4Var.m = this.mRecomExtra;
+                pt4Var.l = this.mRecomSource;
+                return pt4Var;
             }
             return null;
         }
-        return (ot4) invokeV.objValue;
+        return (pt4) invokeV.objValue;
     }
 
     public void parseFeedJson(String str, String str2) {
@@ -834,7 +834,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.title = jSONObject.optString("title");
                 JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray != null) {
-                    this.mRichAbstractList = tt4.a(optJSONArray);
+                    this.mRichAbstractList = ut4.a(optJSONArray);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
                 if (optJSONArray2 != null) {
@@ -1028,13 +1028,13 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        xa5 f = xa5.f(this.threadData, pbContent);
+                        eb5 f = eb5.f(this.threadData, pbContent);
                         f.d(R.color.CAM_X0101);
                         f.e(R.color.CAM_X0113);
                         f.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        n = mm5.o(f);
+                        n = wm5.o(f);
                     } else {
-                        n = mm5.n(this.threadData, pbContent);
+                        n = wm5.n(this.threadData, pbContent);
                     }
                     this.titleSsb.append(n);
                 }

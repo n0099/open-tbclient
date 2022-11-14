@@ -1,134 +1,86 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.AlbumElement;
-import tbclient.ItemGameCode;
-import tbclient.ItemGameInfo;
-import tbclient.ItemInfo;
-import tbclient.ItemPage.DataRes;
-import tbclient.RecentUpdate;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class lq6 implements uc5 {
+public class lq6 extends oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemInfo a;
-    public List<AlbumElement> b;
-    public ArrayList<wn> c;
-    public boolean d;
 
-    @Override // com.baidu.tieba.uc5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.oa5
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uc5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
-    }
-
-    public lq6() {
+    public lq6(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList<>();
+        pa5 pa5Var = this.a;
+        pa5Var.e = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) pa5Var.a;
+        specialFrsWebFragment.j2(i);
+        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
+            if (str.contains("&ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            } else if (str.contains("?ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            }
+        }
+        specialFrsWebFragment.z1(str);
     }
 
-    public void a(DataRes dataRes) {
-        boolean z;
+    @Override // com.baidu.tieba.oa5
+    public pa5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            pa5 pa5Var = new pa5();
+            pa5Var.a = new SpecialFrsWebFragment();
+            pa5Var.e = 101;
+            pa5Var.i = pa5.k;
+            return pa5Var;
         }
-        ItemInfo itemInfo = dataRes.item_info;
-        this.a = itemInfo;
-        if (itemInfo == null) {
-            return;
+        return (pa5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oa5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        this.b = dataRes.album_list;
-        int i = 1;
-        if (dataRes.has_tornado.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        ItemGameCode itemGameCode = dataRes.item_game_code;
-        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
-            dr6 dr6Var = new dr6();
-            dr6Var.h(dataRes.item_game_code);
-            this.c.add(dr6Var);
-        }
-        ItemGameInfo itemGameInfo = dataRes.item_game_info;
-        if (itemGameInfo != null) {
-            List<ThreadInfo> list = itemGameInfo.hot_videos;
-            if (list != null && ListUtils.getCount(list) >= 3) {
-                er6 er6Var = new er6();
-                er6Var.f(dataRes.item_game_info.hot_videos);
-                this.c.add(er6Var);
-            }
-            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
-            if (recentUpdate != null && !wi.isEmpty(recentUpdate.log)) {
-                fr6 fr6Var = new fr6();
-                fr6Var.f(dataRes.item_game_info.recent_update);
-                this.c.add(fr6Var);
-            }
-        }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            br6 br6Var = new br6();
-            br6Var.setSupportType(BaseCardInfo.SupportType.TOP);
-            this.c.add(br6Var);
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.setPositionInFrsItemTab(i);
-                    i++;
-                    threadData.insertItemToTitleOrAbstractText();
-                    this.c.add(threadData);
-                    br6 br6Var2 = new br6();
-                    br6Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    this.c.add(br6Var2);
-                }
-            }
-            br6 br6Var3 = new br6();
-            br6Var3.f(this.a.id.intValue());
-            br6Var3.setPositionInFrsItemTab(i);
-            br6Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-            this.c.add(br6Var3);
-        }
-        cr6 cr6Var = new cr6();
-        cr6Var.h(dataRes.item_info);
-        if (cr6Var.f()) {
-            this.c.add(cr6Var);
-        }
-        gr6 gr6Var = new gr6();
-        gr6Var.f(dataRes.recommend_item);
-        this.c.add(gr6Var);
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes6.dex */
-public class zw7 {
+public class zw7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
 
     public zw7() {
         Interceptable interceptable = $ic;
@@ -33,50 +31,31 @@ public class zw7 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e == 3) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            yw7 yw7Var = null;
+            if (customMessage == null || customMessage.getCmd() != 2001314) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 1) {
-                return true;
+            iv4.f();
+            byte[] bArr = iv4.d("tb.pb_normal").get("chosen_pb_page_cache");
+            if (bArr != null) {
+                try {
+                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                } catch (Exception unused) {
+                    excPbPageResIdl = null;
+                }
+                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                    yw7Var = new yw7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                }
             }
-            return false;
+            return new ReadChosenPbCacheResponse(yw7Var);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
-            this.b = jSONObject.optString("card_logo");
-            this.c = jSONObject.optString("card_name");
-            this.d = jSONObject.optString("card_pro");
-            this.e = jSONObject.optInt("card_get_status");
-            this.a = jSONObject.optLong("packet_id");
-            this.f = jSONObject.optString("card_num");
-        }
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
-            this.b = sendCardInfo.card_logo;
-            this.c = sendCardInfo.card_name;
-            this.d = sendCardInfo.card_pro;
-            this.e = sendCardInfo.card_get_status.intValue();
-            this.a = sendCardInfo.packet_id.longValue();
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

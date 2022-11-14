@@ -1,0 +1,50 @@
+package com.baidu.tbadk.switchs;
+
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.py4;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class WindowGreySwitch extends BaseNormalSwitch {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_SWITCH = "tb_window_grey_switch";
+    public static final int TYPE_CLOSE = 0;
+    public static final int TYPE_OPEN = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
+    }
+
+    public WindowGreySwitch() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static boolean getIsOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!PermissionUtil.isAgreePrivacyPolicy() || py4.k().l(KEY_SWITCH, 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+}

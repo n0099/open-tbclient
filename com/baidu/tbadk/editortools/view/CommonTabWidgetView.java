@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.q85;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.w85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class CommonTabWidgetView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.A(new e65(3, 3, null));
+                this.a.c.A(new k65(3, 3, null));
             }
         }
     }
@@ -92,8 +92,8 @@ public class CommonTabWidgetView extends LinearLayout {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01eb, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091ae3);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ae1);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091aed);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091aeb);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
@@ -121,7 +121,7 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(q85.b bVar) {
+    public void b(w85.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
@@ -145,7 +145,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<q85> arrayList) {
+    public void setDatas(ArrayList<w85> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

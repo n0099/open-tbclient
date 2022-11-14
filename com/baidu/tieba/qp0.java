@@ -12,20 +12,16 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qp0 {
+public final class qp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
-    public int a;
+    public String a;
     @JvmField
-    public int b;
+    public String b;
     @JvmField
-    public Object c;
-    @JvmField
-    public kp0 d;
-    @JvmField
-    public np0 e;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +36,7 @@ public class qp0 {
                 return;
             }
         }
-        f = new a(null);
+        d = new a(null);
     }
 
     /* loaded from: classes5.dex */
@@ -74,20 +70,18 @@ public class qp0 {
                 if (jSONObject == null) {
                     return null;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
+                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
                 if (optJSONObject == null) {
-                    optJSONObject = p01.c(jSONObject.optString("popover"));
+                    optJSONObject = q01.c(jSONObject.optString("panel"));
                 }
                 if (optJSONObject == null) {
                     return null;
                 }
                 qp0 qp0Var = new qp0();
-                qp0Var.a = optJSONObject.optInt("type");
-                qp0Var.b = optJSONObject.optInt("show_time");
-                optJSONObject.optInt("async_get_popover_data_switch");
-                optJSONObject.optInt("async_get_popover_data_delay_time");
-                optJSONObject.optString("popover_data_request_url");
-                optJSONObject.optJSONObject("popover_data_request_params");
+                qp0Var.a = optJSONObject.optString("title");
+                qp0Var.b = optJSONObject.optString("brand_name");
+                qp0Var.c = optJSONObject.optString("avatar");
+                optJSONObject.optJSONArray("tag_list");
                 return qp0Var;
             }
             return (qp0) invokeL.objValue;

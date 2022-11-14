@@ -16,6 +16,7 @@ public class SyncDataEvent extends SerializableEvent {
     public ABTestExtraData abtestExtraData;
     public ProfileVirtualImageInfo profileVirtualImageInfo;
     public String sampleId;
+    public int themeIsBlack;
     public String ubsABTest;
     public UserGrowthTaskListData userGrowthTaskListData;
 

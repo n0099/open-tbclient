@@ -192,9 +192,9 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09126a);
-            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09114b);
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09126f);
+            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091150);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125f);
         }
     }
 

@@ -5,9 +5,9 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e77;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.p77;
+import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e77 a;
-    public pb b;
-    public pb c;
+    public p77 a;
+    public qb b;
+    public qb c;
     public boolean d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -30,10 +30,10 @@ public class TopicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void A(e77 e77Var) {
+    public void A(p77 p77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e77Var) == null) {
-            this.a = e77Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, p77Var) == null) {
+            this.a = p77Var;
         }
     }
 
@@ -73,9 +73,9 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                e77 e77Var = this.a;
-                if (e77Var != null) {
-                    e77Var.j(-1, null);
+                p77 p77Var = this.a;
+                if (p77Var != null) {
+                    p77Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {

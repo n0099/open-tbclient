@@ -13,11 +13,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag;
-import com.baidu.tieba.ka;
-import com.baidu.tieba.th;
-import com.baidu.tieba.wb;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.la;
+import com.baidu.tieba.uh;
+import com.baidu.tieba.xb;
+import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
+public class HttpClient extends la<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,8 +74,8 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final ag c;
-        public volatile xf d;
+        public final bg c;
+        public volatile yf d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new ag();
+            this.c = new bg();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,7 +148,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new xf(this.c);
+                    this.d = new yf(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -218,8 +218,8 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                             }
                             String url = this.b.getUrl();
                             boolean isSuccess = newInstance.isSuccess();
-                            wb wbVar = newInstance.performanceData;
-                            th.a(str3, cmd, url, isSuccess, true, j3, j12, wbVar.g, j4, j5, wbVar.i);
+                            xb xbVar = newInstance.performanceData;
+                            uh.a(str3, cmd, url, isSuccess, true, j3, j12, xbVar.g, j4, j5, xbVar.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -230,7 +230,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                             }
                             ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            th.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
+                            uh.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
                             return errorHttpResponsedMessage;
                         }
                     }
@@ -291,8 +291,8 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                             }
                             String url2 = this.b.getUrl();
                             boolean isSuccess2 = newInstance.isSuccess();
-                            wb wbVar2 = newInstance.performanceData;
-                            th.a(str3, cmd, url2, isSuccess2, true, j3, j12, wbVar2.g, j4, j5, wbVar2.i);
+                            xb xbVar2 = newInstance.performanceData;
+                            uh.a(str3, cmd, url2, isSuccess2, true, j3, j12, xbVar2.g, j4, j5, xbVar2.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -318,8 +318,8 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                         }
                         String url22 = this.b.getUrl();
                         boolean isSuccess22 = newInstance.isSuccess();
-                        wb wbVar22 = newInstance.performanceData;
-                        th.a(str3, cmd, url22, isSuccess22, true, j3, j12, wbVar22.g, j4, j5, wbVar22.i);
+                        xb xbVar22 = newInstance.performanceData;
+                        uh.a(str3, cmd, url22, isSuccess22, true, j3, j12, xbVar22.g, j4, j5, xbVar22.i);
                         newInstance.logStatInBackground(this.a.getCmd(), this.c);
                         newInstance.setStartTime(System.currentTimeMillis());
                         publishProgress(newInstance);
@@ -338,8 +338,8 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
                 }
                 String url222 = this.b.getUrl();
                 boolean isSuccess222 = newInstance.isSuccess();
-                wb wbVar222 = newInstance.performanceData;
-                th.a(str3, cmd, url222, isSuccess222, true, j3, j12, wbVar222.g, j4, j5, wbVar222.i);
+                xb xbVar222 = newInstance.performanceData;
+                uh.a(str3, cmd, url222, isSuccess222, true, j3, j12, xbVar222.g, j4, j5, xbVar222.i);
                 newInstance.logStatInBackground(this.a.getCmd(), this.c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);
@@ -408,7 +408,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
         }
     }
 
-    @Override // com.baidu.tieba.ha
+    @Override // com.baidu.tieba.ia
     public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
         return (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.ha
+    @Override // com.baidu.tieba.ia
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
@@ -427,7 +427,7 @@ public class HttpClient extends ka<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha
+    @Override // com.baidu.tieba.ia
     /* renamed from: k */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;

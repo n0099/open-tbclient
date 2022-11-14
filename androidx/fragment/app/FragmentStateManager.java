@@ -413,7 +413,7 @@ public class FragmentStateManager {
                 if (view2 != null) {
                     view2.setSaveFromParentEnabled(false);
                     Fragment fragment3 = this.mFragment;
-                    fragment3.mView.setTag(R.id.obfuscated_res_0x7f090aea, fragment3);
+                    fragment3.mView.setTag(R.id.obfuscated_res_0x7f090aeb, fragment3);
                     Fragment fragment4 = this.mFragment;
                     if (fragment4.mHidden) {
                         fragment4.mView.setVisibility(8);
@@ -471,7 +471,7 @@ public class FragmentStateManager {
             boolean z = false;
             view2.setSaveFromParentEnabled(false);
             Fragment fragment4 = this.mFragment;
-            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090aea, fragment4);
+            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090aeb, fragment4);
             if (viewGroup != null) {
                 viewGroup.addView(this.mFragment.mView);
             }

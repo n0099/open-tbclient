@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes6.dex */
-public interface zr6 {
-    FrsModelController J0();
+public interface zr6 extends FrsLoadMoreModel.b {
+    FrsViewData O0();
 
-    qr6 Z0();
+    String c();
 
-    void b();
+    r9 getPageContext();
 
-    aj6 j1();
-
-    nv6 n0();
+    BdUniqueId getUniqueId();
 }

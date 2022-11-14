@@ -37,7 +37,7 @@ public class StringUtils {
     public static String tryFixDefaultValue(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
     static {
@@ -119,10 +119,19 @@ public class StringUtils {
         return invokeL.booleanValue;
     }
 
-    public static boolean isNull(String str) {
+    public static boolean isNotNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return !isNull(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isNull(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (str != null && str.trim().length() != 0) {
                 return false;
             }
@@ -134,7 +143,7 @@ public class StringUtils {
     public static boolean isValidPassWord(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && !str.contains(" ")) {
                 return str.matches(PASSWORD_PREFIX);
             }
@@ -201,7 +210,7 @@ public class StringUtils {
     public static final String string(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, objArr)) == null) {
             if (objArr != null) {
                 StringBuffer stringBuffer = new StringBuffer();
                 for (Object obj : objArr) {
@@ -223,7 +232,7 @@ public class StringUtils {
     public static String unitFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
             if (i >= 0 && i < 10) {
                 return "0" + Integer.toString(i);
             }
@@ -236,7 +245,7 @@ public class StringUtils {
         InterceptResult invokeLZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65548, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, str, z)) == null) {
             if (str != null && str.trim().length() != 0) {
                 z2 = false;
             } else {
@@ -253,7 +262,7 @@ public class StringUtils {
     public static String translateSecondsToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
             if (i <= 0) {
                 return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }

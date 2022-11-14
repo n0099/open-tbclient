@@ -93,7 +93,7 @@ public abstract class BaseMenuView extends FrameLayout {
         this.a = context;
         View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d008d, this);
         this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090329);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904ad);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904ae);
         this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dc);
     }
 
@@ -136,7 +136,7 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Resources resources = getResources();
-            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081180));
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081190));
             this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060382));
             this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060383));
             this.c.setAlpha(1.0f);

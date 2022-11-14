@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ja5;
+import com.baidu.tieba.pa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,28 +57,28 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void M0(ja5 ja5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void M0(pa5 pa5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, ja5Var, fragmentTabIndicator, str) != null) || ja5Var == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, pa5Var, fragmentTabIndicator, str) != null) || pa5Var == null) {
             return;
         }
-        FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.c = ja5Var.a;
-        fragmentTabIndicator.setText(ja5Var.b);
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
+        cVar.c = pa5Var.a;
+        fragmentTabIndicator.setText(pa5Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f070207));
         fragmentTabIndicator.h = R.color.s_actionbar_text_color;
-        bVar.b = fragmentTabIndicator;
-        this.b.a(bVar);
+        cVar.b = fragmentTabIndicator;
+        this.b.b(cVar);
     }
 
     public final FragmentTabIndicator O0(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+            return (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
         }
         return (FragmentTabIndicator) invokeL.objValue;
     }
@@ -90,39 +90,39 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             this.a.onChangeSkinType(getPageContext(), i);
             this.b.setNeedShowThemeStyle(false);
             this.b.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
-            this.b.p(i);
+            this.b.s(i);
         }
     }
 
     public final void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091bf9);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091c03);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
             sigleRecordsFragment.I1(1);
-            ja5 ja5Var = new ja5();
-            ja5Var.a = this.c;
-            ja5Var.b = R.string.obfuscated_res_0x7f0f05f3;
-            M0(ja5Var, O0(getPageContext().getPageActivity()), null);
+            pa5 pa5Var = new pa5();
+            pa5Var.a = this.c;
+            pa5Var.b = R.string.obfuscated_res_0x7f0f05f4;
+            M0(pa5Var, O0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
             sigleRecordsFragment2.I1(2);
-            ja5 ja5Var2 = new ja5();
-            ja5Var2.a = this.d;
-            ja5Var2.b = R.string.obfuscated_res_0x7f0f0910;
-            M0(ja5Var2, O0(getPageContext().getPageActivity()), null);
+            pa5 pa5Var2 = new pa5();
+            pa5Var2.a = this.d;
+            pa5Var2.b = R.string.obfuscated_res_0x7f0f0912;
+            M0(pa5Var2, O0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.I1(3);
-            ja5 ja5Var3 = new ja5();
-            ja5Var3.a = this.e;
-            ja5Var3.b = R.string.obfuscated_res_0x7f0f0fda;
-            M0(ja5Var3, O0(getPageContext().getPageActivity()), null);
-            this.b.k(3);
+            pa5 pa5Var3 = new pa5();
+            pa5Var3.a = this.e;
+            pa5Var3.b = R.string.obfuscated_res_0x7f0f0fe0;
+            M0(pa5Var3, O0(getPageContext().getPageActivity()), null);
+            this.b.l(3);
             this.b.setCurrentTab(N0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }
     }
@@ -133,10 +133,10 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d01fa);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09168f);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f044d));
+            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f044e));
             R0();
         }
     }

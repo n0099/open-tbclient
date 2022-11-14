@@ -16,6 +16,7 @@ public final class PayType {
     public static final /* synthetic */ PayType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PayType ALI_PAY;
+    public static final PayType ALI_PAY_SIGN;
     public static final PayType DXM_PAY;
     public static final PayType DXM_PAY_H5;
     public static final PayType DXM_PAY_KJ;
@@ -23,6 +24,7 @@ public final class PayType {
     public static final PayType QQ_PAY;
     public static final PayType UNION_PAY;
     public static final PayType WECHAT_PAY;
+    public static final PayType YY_COIN_PAY;
     public transient /* synthetic */ FieldHolder $fh;
     public final String channel;
     public final String method;
@@ -42,14 +44,16 @@ public final class PayType {
         }
         WECHAT_PAY = new PayType("WECHAT_PAY", 0, "Weixin", "WapApp");
         ALI_PAY = new PayType("ALI_PAY", 1, "Zfb", "WapApp");
-        DXM_PAY = new PayType("DXM_PAY", 2, "Dxm", "WapApp");
-        DXM_PAY_KJ = new PayType("DXM_PAY_KJ", 3, "Dxm", "WapKj");
-        DXM_PAY_H5 = new PayType("DXM_PAY_H5", 4, "Dxm", "Wap");
-        MOCK_TEST_PAY = new PayType("MOCK_TEST_PAY", 5, "Mock", "Balance");
-        QQ_PAY = new PayType("QQ_PAY", 6, "Qq", "WapApp");
-        PayType payType = new PayType("UNION_PAY", 7, "Unionpay", "WapAdvance");
-        UNION_PAY = payType;
-        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, DXM_PAY, DXM_PAY_KJ, DXM_PAY_H5, MOCK_TEST_PAY, QQ_PAY, payType};
+        ALI_PAY_SIGN = new PayType("ALI_PAY_SIGN", 2, "Zfb", "PaySign");
+        DXM_PAY = new PayType("DXM_PAY", 3, "Dxm", "WapApp");
+        DXM_PAY_KJ = new PayType("DXM_PAY_KJ", 4, "Dxm", "WapKj");
+        DXM_PAY_H5 = new PayType("DXM_PAY_H5", 5, "Dxm", "Wap");
+        MOCK_TEST_PAY = new PayType("MOCK_TEST_PAY", 6, "Mock", "Balance");
+        QQ_PAY = new PayType("QQ_PAY", 7, "Qq", "WapApp");
+        UNION_PAY = new PayType("UNION_PAY", 8, "Unionpay", "WapAdvance");
+        PayType payType = new PayType("YY_COIN_PAY", 9, "Yb", "Balance");
+        YY_COIN_PAY = payType;
+        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, ALI_PAY_SIGN, DXM_PAY, DXM_PAY_KJ, DXM_PAY_H5, MOCK_TEST_PAY, QQ_PAY, UNION_PAY, payType};
     }
 
     public PayType(String str, int i, String str2, String str3) {

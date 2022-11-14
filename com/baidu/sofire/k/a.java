@@ -39,12 +39,11 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.baidu.sofire.rp.receiver.Receiver;
-import com.baidu.tieba.di1;
+import com.baidu.tieba.ei1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.gms.common.internal.ImagesContract;
-import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.BufferedReader;
@@ -1937,7 +1936,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(di1.a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(ei1.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -2000,7 +1999,7 @@ public class a {
                 } else {
                     jSONObject3.put("14", 2);
                 }
-                jSONObject3.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, k.a(context));
+                jSONObject3.put("28", k.a(context));
                 if (d.b(context)) {
                     try {
                         str6 = DeviceId.getCUID(context);
@@ -2012,7 +2011,7 @@ public class a {
                     jSONObject3.put("23", "");
                     jSONObject3.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, m.i(context));
                     jSONObject3.put("21", m.g(context));
-                    jSONObject3.put("32", h(context));
+                    jSONObject3.put(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK, h(context));
                 }
                 Object obj = jSONObject.get("Module_section");
                 if (obj instanceof JSONArray) {

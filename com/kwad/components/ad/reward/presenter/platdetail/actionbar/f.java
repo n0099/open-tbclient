@@ -667,8 +667,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091152);
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091081);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091157);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091086);
         }
     }
 

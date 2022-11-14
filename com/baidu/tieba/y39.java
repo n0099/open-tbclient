@@ -1,134 +1,61 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.airbnb.lottie.RenderMode;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.AddMediaInfo;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.write.album.TbCameraView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishGuideActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.switchs.PublishVideoThreadSwitch;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.uv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class y39 extends BaseAdapter {
+public class y39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<MediaFileInfo> a;
-    public BaseFragmentActivity b;
-    public LayoutInflater c;
-    public s39 d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public View.OnClickListener h;
-    public w39 i;
-    public x39 j;
-    public TbCameraView.g k;
-    public TbCameraView.e l;
-    public p56 m;
-    public d n;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public static boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 1 || i == 2 : invokeI.booleanValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public static class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ForumWriteData c;
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            }
-        }
-
-        public a(y39 y39Var) {
+        public a(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y39 a;
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        public b(y39 y39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
+                Object[] objArr = {tbPageContext, str, forumWriteData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -138,96 +65,41 @@ public class y39 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = y39Var;
+            this.a = tbPageContext;
+            this.b = str;
+            this.c = forumWriteData;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.n.d.cancelAnimation();
-                this.a.n.d.setFrame(0);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y39.i(this.a, this.b, this.c);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
+    public static class b implements uv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y39 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ Boolean f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ String i;
+        public final /* synthetic */ sv4 j;
 
-        public c(y39 y39Var) {
+        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, sv4 sv4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y39Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.m.h();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public View b;
-        public TbCameraView c;
-        public TBLottieAnimationView d;
-
-        public d(y39 y39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ d(y39 y39Var, a aVar) {
-            this(y39Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public MediaFileInfo a;
-        public int b;
-        public final /* synthetic */ y39 c;
-
-        public e(y39 y39Var, MediaFileInfo mediaFileInfo, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var, mediaFileInfo, Integer.valueOf(i)};
+                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, sv4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -237,457 +109,214 @@ public class y39 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = y39Var;
-            this.a = mediaFileInfo;
-            this.b = i;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = i;
+            this.f = bool;
+            this.g = str5;
+            this.h = str6;
+            this.i = str7;
+            this.j = sv4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.uv4.e
+        public void n0(uv4 uv4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091a07) {
-                    if (this.c.i != null && this.a != null) {
-                        this.c.i.a(this.b, this.a);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091298) {
-                    if (this.a != null && this.c.j != null) {
-                        this.c.j.a(this.b, this.a);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0925c7 && this.c.j != null && this.a != null) {
-                    this.c.j.a(this.b, this.a);
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, uv4Var, i, view2) == null) {
+                if (i == 0) {
+                    y39.k(true, true, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
+                } else if (i == 1) {
+                    y39.k(true, false, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
+                }
+                sv4 sv4Var = this.j;
+                if (sv4Var != null) {
+                    sv4Var.dismiss();
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f {
+    public static class c implements uv4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TbImageView b;
-        public TextView c;
+        public final /* synthetic */ sv4 a;
 
-        public f(y39 y39Var) {
+        public c(sv4 sv4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
+                Object[] objArr = {sv4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = sv4Var;
         }
 
-        public /* synthetic */ f(y39 y39Var, a aVar) {
-            this(y39Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TbImageView b;
-        public ImageView c;
-        public RelativeLayout d;
-
-        public g(y39 y39Var) {
+        @Override // com.baidu.tieba.uv4.c
+        public void onClick() {
+            sv4 sv4Var;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sv4Var = this.a) != null) {
+                sv4Var.dismiss();
             }
         }
-
-        public /* synthetic */ g(y39 y39Var, a aVar) {
-            this(y39Var);
-        }
     }
 
-    public y39(BaseFragmentActivity baseFragmentActivity, s39 s39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, s39Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.e = false;
-        this.f = true;
-        this.g = true;
-        this.b = baseFragmentActivity;
-        this.d = s39Var;
-        this.c = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
-    }
-
-    public void t(ImageView imageView, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048597, this, imageView, z) == null) && imageView != null) {
-            if (z) {
-                imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03b5));
-                imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080839, WebPManager.ResourceStateType.NORMAL));
-                return;
-            }
-            imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03b6));
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080838, WebPManager.ResourceStateType.NORMAL));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: e */
-    public MediaFileInfo getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (MediaFileInfo) ListUtils.getItem(this.a, i);
-        }
-        return (MediaFileInfo) invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.a, i);
-            if (mediaFileInfo != null) {
-                return mediaFileInfo.getType();
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public void m(List<MediaFileInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            this.a.clear();
-            if (this.f) {
-                this.a.add(l());
-            }
-            if (!ListUtils.isEmpty(list)) {
-                this.a.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    public void n(w39 w39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, w39Var) == null) {
-            this.i = w39Var;
-        }
-    }
-
-    public void o(TbCameraView.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.l = eVar;
-        }
-    }
-
-    public void p(TbCameraView.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
-            this.k = gVar;
-        }
-    }
-
-    public void q(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.h = onClickListener;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void u(x39 x39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, x39Var) == null) {
-            this.j = x39Var;
-        }
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048599, this, z) == null) && this.f != z) {
-            this.f = z;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public final View f(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
-            if (mediaFileInfo != null && mediaFileInfo.getType() == 2) {
-                d dVar = this.n;
-                if (dVar == null || dVar.c == null) {
-                    this.n = new d(this, null);
-                    View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d011c, viewGroup, false);
-                    d dVar2 = this.n;
-                    dVar2.a = inflate;
-                    dVar2.c = (TbCameraView) inflate.findViewById(R.id.obfuscated_res_0x7f0904aa);
-                    this.n.d = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09028c);
-                    this.n.b = inflate.findViewById(R.id.obfuscated_res_0x7f090e51);
-                    this.n.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.n.d.setFrame(0);
-                    this.n.d.setRenderMode(RenderMode.HARDWARE);
-                    SkinManager.setLottieAnimation(this.n.d, R.raw.obfuscated_res_0x7f11004a);
-                    inflate.setTag(this.n);
-                    x(this.n.b);
-                }
-                SkinManager.setBackgroundColor(this.n.a, R.color.black_alpha90);
-                this.n.c.setOnRequestPermissionListener(this.k);
-                this.n.c.setOnOpenCameraFailedListener(this.l);
-                this.n.d.setOnClickListener(this.h);
-                this.n.c.setOnClickListener(this.h);
-                this.n.a.setOnClickListener(this.h);
-                this.n.d.addAnimatorUpdateListener(new a(this));
-                this.n.d.addAnimatorListener(new b(this));
-                return this.n.a;
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final View g(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
-        InterceptResult invokeCommon;
-        g gVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
-            if (mediaFileInfo != null && mediaFileInfo.getType() == 0 && (mediaFileInfo instanceof ImageFileInfo)) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                if (view2 != null && (view2.getTag() instanceof g)) {
-                    gVar = (g) view2.getTag();
-                } else {
-                    g gVar2 = new g(this, null);
-                    View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0119, viewGroup, false);
-                    gVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a07);
-                    gVar2.b = tbImageView;
-                    tbImageView.setDefaultResource(0);
-                    gVar2.b.setTagPaddingDis(8, 8);
-                    gVar2.b.setGifIconSupport(true);
-                    gVar2.b.setLongIconSupport(true);
-                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e88);
-                    gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
-                    s39 s39Var = this.d;
-                    if (s39Var != null && s39Var.m() != null && this.d.m().isFromQRCode()) {
-                        gVar2.d.setVisibility(8);
-                    }
-                    if (!this.g) {
-                        gVar2.d.setVisibility(8);
-                    }
-                    inflate.setTag(gVar2);
-                    gVar = gVar2;
-                    view2 = inflate;
-                }
-                gVar.b.setIsLongPic(imageFileInfo.isLong());
-                gVar.b.K(imageFileInfo.getFilePath(), 35, false);
-                s(gVar.c, mediaFileInfo);
-                e eVar = new e(this, mediaFileInfo, i);
-                gVar.b.setOnClickListener(eVar);
-                gVar.d.setOnClickListener(eVar);
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ListUtils.getCount(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return py4.k().l("key_work_video_guide_pop", -1);
         }
         return invokeV.intValue;
     }
 
-    public TbCameraView j() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d dVar = this.n;
-            if (dVar != null) {
-                return dVar.c;
-            }
-            return null;
-        }
-        return (TbCameraView) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return !TextUtils.isEmpty(oo8.C());
         }
         return invokeV.booleanValue;
     }
 
-    public final MediaFileInfo l() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new AddMediaInfo();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (SwitchManager.getInstance().findType(PublishVideoThreadSwitch.PUBLISH_VIDEO_THREAD_KEY) != 1) {
+                return true;
+            }
+            return false;
         }
-        return (MediaFileInfo) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static boolean e(Context context, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            MediaFileInfo item = getItem(i);
-            if (item == null) {
-                return view2;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2)) == null) {
+            WorkPublishGuideActivityConfig workPublishGuideActivityConfig = new WorkPublishGuideActivityConfig(context);
+            workPublishGuideActivityConfig.setRequestCode(25064);
+            workPublishGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+            if (c(i)) {
+                workPublishGuideActivityConfig.setPopStatus(i);
+                workPublishGuideActivityConfig.setFrom(i2);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishGuideActivityConfig));
+                return true;
             }
-            if (item.getType() == 2) {
-                return f(i, view2, viewGroup, item);
-            }
-            if (item.getType() == 1) {
-                return h(i, view2, viewGroup, item);
-            }
-            if (item.getType() == 0) {
-                return g(i, view2, viewGroup, item);
-            }
-            return view2;
+            return false;
         }
-        return (View) invokeILL.objValue;
+        return invokeLII.booleanValue;
     }
 
-    public final View h(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
-        InterceptResult invokeCommon;
-        f fVar;
+    public static void f(r9 r9Var, String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
-            if (mediaFileInfo != null && mediaFileInfo.getType() == 1 && (mediaFileInfo instanceof VideoFileInfo)) {
-                VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
-                if (view2 != null && (view2.getTag() instanceof g)) {
-                    fVar = (f) view2.getTag();
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{r9Var, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) && r9Var != null && r9Var.getPageActivity() != null) {
+            String string = r9Var.getString(R.string.obfuscated_res_0x7f0f161e);
+            sv4 sv4Var = new sv4(r9Var);
+            uv4 uv4Var = new uv4(r9Var.getPageActivity());
+            uv4Var.q(string);
+            ArrayList arrayList = new ArrayList();
+            qv4 qv4Var = new qv4(0, r9Var.getString(R.string.obfuscated_res_0x7f0f161d), uv4Var);
+            qv4Var.q(R.color.CAM_X0105);
+            qv4Var.o(R.color.CAM_X0204);
+            arrayList.add(qv4Var);
+            qv4 qv4Var2 = new qv4(1, r9Var.getString(R.string.obfuscated_res_0x7f0f161c), uv4Var);
+            qv4Var2.q(R.color.CAM_X0105);
+            qv4Var2.o(R.color.CAM_X0204);
+            arrayList.add(qv4Var2);
+            b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, sv4Var);
+            c cVar = new c(sv4Var);
+            uv4Var.j(arrayList);
+            uv4Var.n(bVar);
+            uv4Var.m(cVar);
+            sv4Var.setCanceledOnTouchOutside(true);
+            sv4Var.h(uv4Var);
+            sv4Var.k();
+        }
+    }
+
+    public static void g(String str, String str2, String str3, String str4, int i, Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), bool}) == null) {
+            h(str, str2, str3, str4, i, bool, "", "", "");
+        }
+    }
+
+    public static void h(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof TbPageContextSupport) {
+                f(((TbPageContextSupport) currentActivity).getPageContext(), str, str2, str3, str4, i, bool, str5, str6, str7);
+            }
+        }
+    }
+
+    public static void i(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65544, null, tbPageContext, str, forumWriteData) == null) && forumWriteData != null && tbPageContext != null && d()) {
+            RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str, 0);
+            recordVideoActivityConfig.setShowType(0);
+            if (forumWriteData != null) {
+                recordVideoActivityConfig.setExtraData(forumWriteData.antiData, forumWriteData.prefixData, forumWriteData.firstDir, forumWriteData.secondDir);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921615, recordVideoActivityConfig));
+        }
+    }
+
+    public static void j(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, str, forumWriteData) == null) && forumWriteData != null && tbPageContext != null) {
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            permissionJudgePolicy.setOnPermissionsGrantedListener(new a(tbPageContext, str, forumWriteData));
+            permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
+        }
+    }
+
+    public static void k(boolean z, boolean z2, String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) {
+            if (z) {
+                if (z2) {
+                    i2 = 2;
                 } else {
-                    f fVar2 = new f(this, null);
-                    View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d011d, viewGroup, false);
-                    fVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c7);
-                    fVar2.b = tbImageView;
-                    tbImageView.setDefaultResource(0);
-                    fVar2.b.setTagPaddingDis(8, 8);
-                    fVar2.b.setGifIconSupport(false);
-                    fVar2.b.setLongIconSupport(false);
-                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09259c);
-                    inflate.setTag(fVar2);
-                    fVar = fVar2;
-                    view2 = inflate;
+                    oo8.x("");
+                    i2 = 1;
                 }
-                fVar.b.K(videoFileInfo.videoPath, 37, false);
-                fVar.c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
-                fVar.b.setOnClickListener(new e(this, mediaFileInfo, i));
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public int i(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        List<MediaFileInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imageFileInfo)) == null) {
-            if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.a) != null && list.size() != 0) {
-                String filePath = imageFileInfo.getFilePath();
-                int size = this.a.size();
-                for (int i = 0; i < size; i++) {
-                    MediaFileInfo mediaFileInfo = this.a.get(i);
-                    if (mediaFileInfo instanceof ImageFileInfo) {
-                        ImageFileInfo imageFileInfo2 = (ImageFileInfo) mediaFileInfo;
-                        if (imageFileInfo2.getFilePath() != null && imageFileInfo2.getFilePath().equals(filePath)) {
-                            return i;
-                        }
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public void x(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
-            if (this.m == null && view2 != null) {
-                p56 p56Var = new p56(this.b.getPageContext(), view2);
-                this.m = p56Var;
-                p56Var.L(R.drawable.obfuscated_res_0x7f0802f5);
-                this.m.m(new c(this));
-                this.m.o(16);
-                this.m.n(5000);
-            }
-            if (this.m != null) {
-                String o = ky4.o("key_show_take_photo_tip");
-                this.m.S(this.b.getString(R.string.obfuscated_res_0x7f0f0261), o);
-            }
-        }
-    }
-
-    public final void s(ImageView imageView, MediaFileInfo mediaFileInfo) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, imageView, mediaFileInfo) == null) {
-            s39 s39Var = this.d;
-            if (s39Var != null && (mediaFileInfo instanceof ImageFileInfo)) {
-                z = s39Var.n((ImageFileInfo) mediaFileInfo);
             } else {
-                s39 s39Var2 = this.d;
-                if (s39Var2 != null && (mediaFileInfo instanceof VideoFileInfo)) {
-                    z = s39Var2.q((VideoFileInfo) mediaFileInfo);
-                } else {
-                    z = false;
-                }
+                i2 = 0;
             }
-            t(imageView, z);
+            WorkPublishOpenHelper.Companion.c(i2, TbadkCoreApplication.getInst().getCurrentActivity(), str, str2, str3, str4, Integer.valueOf(i), bool.booleanValue(), str5, str6, str7);
+        }
+    }
+
+    public static void l(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, editText, i) == null) {
+            try {
+                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
+                declaredField.setAccessible(true);
+                declaredField.set(editText, Integer.valueOf(i));
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 }

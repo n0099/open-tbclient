@@ -145,8 +145,8 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09126f);
-            this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126e);
+            this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091274);
+            this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091273);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
             if (com.kwad.sdk.core.response.a.a.am(bQ)) {
                 this.mWebDownloadContainer.setVisibility(0);
@@ -265,7 +265,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
             }
             List<AdInfo> list = this.mAdTemplate.adInfoList;
             String bl = (list == null || list.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) ? "详情页面" : com.kwad.sdk.core.response.a.a.bl(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
-            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091119));
+            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f09111e));
             this.mTitleBarHelper = aVar;
             aVar.a(new a.InterfaceC0583a(this) { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
                 public static /* synthetic */ Interceptable $ic;
@@ -312,7 +312,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
             b M = b.M(this.mAdTemplate);
             this.mFragment = M;
             M.setApkDownloadHelper(this.mApkDownloadHelper);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09116d, this.mFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f091172, this.mFragment).commitAllowingStateLoss();
         }
     }
 
@@ -396,7 +396,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0408);
+            setContentView(R.layout.obfuscated_res_0x7f0d0409);
             Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
             showingAdWebViewVideoActivity = true;
             if (!(serializableExtra instanceof AdTemplate)) {

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t74;
+import com.baidu.tieba.u74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public t74 c;
+    public u74 c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -72,7 +72,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0856, viewGroup, false));
+            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d085a, viewGroup, false));
         }
         return (ListRecommendViewHolder) invokeLI.objValue;
     }
@@ -84,10 +84,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
-    public void g(t74 t74Var) {
+    public void g(u74 u74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t74Var) == null) {
-            this.c = t74Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u74Var) == null) {
+            this.c = u74Var;
             notifyDataSetChanged();
         }
     }
@@ -106,8 +106,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            t74 t74Var = this.c;
-            if (t74Var != null && (list = t74Var.b) != null) {
+            u74 u74Var = this.c;
+            if (u74Var != null && (list = u74Var.b) != null) {
                 return list.size();
             }
             return 0;

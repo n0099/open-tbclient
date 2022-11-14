@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx6;
-import com.baidu.tieba.dx6;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.nx6;
+import com.baidu.tieba.ox6;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,23 +32,23 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(cx6 cx6Var, int i);
+        void a(nx6 nx6Var, int i);
     }
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cx6 a;
+        public final /* synthetic */ nx6 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ GameRankHorizontalLayout c;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, cx6 cx6Var, int i) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, nx6 nx6Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameRankHorizontalLayout, cx6Var, Integer.valueOf(i)};
+                Object[] objArr = {gameRankHorizontalLayout, nx6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -59,7 +59,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 }
             }
             this.c = gameRankHorizontalLayout;
-            this.a = cx6Var;
+            this.a = nx6Var;
             this.b = i;
         }
 
@@ -68,8 +68,8 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.b != null) {
                 this.c.b.a(this.a, this.b);
-                if (ky4.k().l("game_rank_list_show_times", 0) != 0) {
-                    ky4.k().w("game_rank_list_show_times", 0);
+                if (py4.k().l("game_rank_list_show_times", 0) != 0) {
+                    py4.k().w("game_rank_list_show_times", 0);
                 }
             }
         }
@@ -158,57 +158,57 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         }
     }
 
-    public final View c(cx6 cx6Var, int i) {
+    public final View c(nx6 nx6Var, int i) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cx6Var, i)) == null) {
-            if (cx6Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nx6Var, i)) == null) {
+            if (nx6Var == null) {
                 return null;
             }
-            if (!StringUtils.isNull(cx6Var.b())) {
+            if (!StringUtils.isNull(nx6Var.b())) {
+                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0378, (ViewGroup) null);
+                roundAngleRelativeLayout.setRadius(4.0f);
+                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d5f);
+                headImageView.setIsRound(true);
+                headImageView.K(nx6Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0926bf)).K(nx6Var.b(), 10, false);
+            } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0377, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d5d);
-                headImageView.setIsRound(true);
-                headImageView.K(cx6Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0926b0)).K(cx6Var.b(), 10, false);
-            } else {
-                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0376, (ViewGroup) null);
-                roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d5d);
+                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d5f);
                 headImageView2.setIsRound(true);
-                headImageView2.K(cx6Var.f(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091726)).K(cx6Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0924f6)).setText(cx6Var.e());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b94)).setText(cx6Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092505)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07c7, cx6Var.d()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b8d)).setText(cx6Var.a());
+                headImageView2.K(nx6Var.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09172d)).K(nx6Var.f(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092505)).setText(nx6Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b9e)).setText(nx6Var.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092514)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07c8, nx6Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b97)).setText(nx6Var.a());
             }
             if (roundAngleRelativeLayout != null) {
-                roundAngleRelativeLayout.setOnClickListener(new a(this, cx6Var, i));
+                roundAngleRelativeLayout.setOnClickListener(new a(this, nx6Var, i));
             }
             return roundAngleRelativeLayout;
         }
         return (View) invokeLI.objValue;
     }
 
-    public void setData(dx6 dx6Var) {
+    public void setData(ox6 ox6Var) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dx6Var) == null) && (linearLayout = this.a) != null && dx6Var != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ox6Var) == null) && (linearLayout = this.a) != null && ox6Var != null) {
             linearLayout.removeAllViews();
-            if (!ListUtils.isEmpty(dx6Var.b())) {
-                for (int i = 0; i < dx6Var.b().size(); i++) {
-                    View c = c(dx6Var.b().get(i), i);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(xi.g(getContext(), R.dimen.obfuscated_res_0x7f0702c9), xi.g(getContext(), R.dimen.obfuscated_res_0x7f070267));
+            if (!ListUtils.isEmpty(ox6Var.b())) {
+                for (int i = 0; i < ox6Var.b().size(); i++) {
+                    View c = c(ox6Var.b().get(i), i);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0702c9), yi.g(getContext(), R.dimen.obfuscated_res_0x7f070267));
                     if (i != 0) {
-                        layoutParams.leftMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
+                        layoutParams.leftMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
                     } else {
-                        layoutParams.leftMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
+                        layoutParams.leftMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     }
-                    if (i == dx6Var.b().size() - 1) {
-                        layoutParams.rightMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
+                    if (i == ox6Var.b().size() - 1) {
+                        layoutParams.rightMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     } else {
                         layoutParams.rightMargin = 0;
                     }

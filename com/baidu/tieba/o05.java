@@ -1,82 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import com.baidu.tieba.wn;
+import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.UrlParser.DataRes;
+import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes5.dex */
-public abstract class o05<T extends wn, V extends BdBaseViewPagerAdapter.a> {
+public class o05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public CardLinkInfoData j;
 
-    /* loaded from: classes5.dex */
-    public interface a<T extends wn, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
-
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978453, "Lcom/baidu/tieba/o05;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947978453, "Lcom/baidu/tieba/o05;");
         }
     }
 
-    public abstract View d(ViewGroup viewGroup, V v, T t);
-
-    public o05(Context context, BdUniqueId bdUniqueId) {
+    public o05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
     }
 
-    public a<T, V> a() {
-        InterceptResult invokeV;
+    public void a(UrlParserResIdl urlParserResIdl) {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(a<T, V> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
+            this.a = dataRes.status.intValue();
+            this.b = urlParserResIdl.data.url_type.intValue();
+            DataRes dataRes2 = urlParserResIdl.data;
+            this.d = dataRes2.image;
+            this.e = dataRes2.title;
+            this.f = dataRes2.link_from;
+            this.g = dataRes2.price_txt;
+            boolean z = true;
+            if (dataRes2.is_recognize.intValue() != 1) {
+                z = false;
+            }
+            this.h = z;
+            this.i = urlParserResIdl.data.description;
+            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
+            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
+            this.j = cardLinkInfoData;
         }
     }
 }

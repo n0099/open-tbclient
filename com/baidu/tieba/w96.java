@@ -1,22 +1,36 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public class w96 implements q96 {
+public class w96 implements bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<n96> a;
+    public List<n96> b;
+    public Integer c;
 
-    @Override // com.baidu.tieba.q96
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bd5
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bd5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
     }
 
     public w96() {
@@ -29,19 +43,33 @@ public class w96 implements q96 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
+    }
+
+    public void a(w96 w96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, w96Var) == null) {
+            this.a.addAll(w96Var.a);
+            this.b = w96Var.b;
+            this.c = w96Var.c;
         }
     }
 
-    @Override // com.baidu.tieba.q96
-    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
-            try {
-                p96.f().i(str2, str3);
-            } catch (Throwable unused) {
-                p96.f().e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(n96.c(manageInfo));
             }
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(n96.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
         }
     }
 }

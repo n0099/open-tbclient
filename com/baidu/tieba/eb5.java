@@ -1,184 +1,236 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.text.TextUtils;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbContent;
 /* loaded from: classes3.dex */
 public class eb5 {
     public static /* synthetic */ Interceptable $ic;
-    public static eb5 a;
-    public static boolean b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public ThreadData a;
+    @NonNull
+    public PbContent b;
+    public boolean c;
+    public int d;
+    public int e;
+    @Nullable
+    public PostData f;
+    @NonNull
+    public HotTopicStat.Locate g;
+    @Nullable
+    public String h;
+    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947728593, "Lcom/baidu/tieba/eb5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947728593, "Lcom/baidu/tieba/eb5;");
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
-    }
-
-    public eb5() {
+    public eb5(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData, pbContent};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = HotTopicStat.Locate.UNDEFINED;
+        this.a = threadData;
+        this.b = pbContent;
+        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
     }
 
-    public static eb5 b() {
+    @NonNull
+    public static eb5 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) {
+            return new eb5(threadData, pbContent);
+        }
+        return (eb5) invokeLL.objValue;
+    }
+
+    @NonNull
+    public eb5 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.i = z;
+            return this;
+        }
+        return (eb5) invokeZ.objValue;
+    }
+
+    @NonNull
+    public eb5 b(@NonNull HotTopicStat.Locate locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            this.g = locate;
+            return this;
+        }
+        return (eb5) invokeL.objValue;
+    }
+
+    @NonNull
+    public eb5 c(@Nullable PostData postData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
+            this.f = postData;
+            return this;
+        }
+        return (eb5) invokeL.objValue;
+    }
+
+    @NonNull
+    public eb5 d(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.d = i;
+            return this;
+        }
+        return (eb5) invokeI.objValue;
+    }
+
+    @NonNull
+    public eb5 e(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.e = i;
+            return this;
+        }
+        return (eb5) invokeI.objValue;
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @NonNull
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (TbSingleton.class) {
-                    if (a == null) {
-                        a = new eb5();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.valueOf(this.a.getFid());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.h == null) {
+                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
             }
-            return a;
+            return this.h;
         }
-        return (eb5) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
+    @NonNull
+    public HotTopicStat.Locate i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return h(TbadkCoreApplication.getInst().getCurrentActivity());
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return (HotTopicStat.Locate) invokeV.objValue;
     }
 
-    public boolean k() {
+    @NonNull
+    public PbContent j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (PbContent) invokeV.objValue;
+    }
+
+    @Nullable
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return c;
+            PostData postData = this.f;
+            if (postData == null) {
+                return null;
+            }
+            return postData.M();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @ColorRes
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (o()) {
+                int i = this.e;
+                if (i != 0) {
+                    return i;
+                }
+            } else {
+                int i2 = this.d;
+                if (i2 != 0) {
+                    return i2;
+                }
+            }
+            return R.color.CAM_X0304;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.i;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return db5.a.contains(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return db5.d.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return db5.c.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean h(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-            if (activity == null) {
-                return false;
-            }
-            if (activity instanceof SuspendedActivity) {
-                return true;
-            }
-            return db5.b.contains(activity.getClass().getName());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            c = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            b = z;
-        }
+        return invokeV.booleanValue;
     }
 }

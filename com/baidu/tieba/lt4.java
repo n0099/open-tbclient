@@ -1,17 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class lt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> a;
+    public UserData a;
+    public AntiData b;
+    public ArrayList<String> c;
+    public String d;
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
 
     public lt4() {
         Interceptable interceptable = $ic;
@@ -23,18 +38,70 @@ public class lt4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        this.a = new UserData();
+        this.b = new AntiData();
+        this.c = new ArrayList<>();
+        f(0);
+    }
+
+    public AntiData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (AntiData) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public UserData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                e(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(LotteryRegular lotteryRegular) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
-            String str = lotteryRegular.regular;
-            this.a = new ArrayList();
-            int size = lotteryRegular.chance.size();
-            for (int i = 0; i < size; i++) {
-                this.a.add(lotteryRegular.chance.get(i));
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("user"));
+                this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+                JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.c.add(optJSONArray.optString(i, null));
+                    }
+                }
+                f(jSONObject.optInt("retrytime"));
+                this.d = jSONObject.optString("growth_switch");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

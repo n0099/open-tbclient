@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes3.dex */
 public interface bb5 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final bb5 b;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
+    boolean a(@NonNull String str);
 
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (bb5) ServiceManager.getService(serviceReference);
     }
-
-    void a(@Nullable a aVar);
-
-    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
 }

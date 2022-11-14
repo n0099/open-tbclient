@@ -1,96 +1,86 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
 
-    public static ArrayList<qh> a(nh nhVar, boolean z) {
-        InterceptResult invokeLZ;
+    public wh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, nhVar, z)) == null) {
-            ArrayList<qh> arrayList = new ArrayList<>();
-            File[] b = oh.b(nhVar.E(), z);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith(nhVar.h()) && name.contains("Uploading")) {
-                            long length = file.length();
-                            if (z && file.getPath().contains("/notUpload")) {
-                                name = "notUpload/" + file.getName();
-                            }
-                            arrayList.add(new qh(name, length, file.lastModified()));
-                        }
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            ArrayList<qh> arrayList2 = new ArrayList<>();
-            ArrayList arrayList3 = new ArrayList();
-            if (nhVar.h() != "stat") {
-                Iterator<qh> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    qh next = it.next();
-                    if (next != null) {
-                        long j = next.c;
-                        if (j != 0 && j + 604800000 < currentTimeMillis) {
-                            arrayList3.add(next.b);
-                        } else {
-                            arrayList2.add(next);
-                        }
-                    }
-                }
-                arrayList = arrayList2;
-            }
-            if (arrayList3.size() > 0) {
-                oh.a(arrayList3, nhVar.E());
-            }
-            return arrayList;
         }
-        return (ArrayList) invokeLZ.objValue;
+        this.a = 0L;
+        this.b = null;
     }
 
-    public static BdUploadingLogInfo b(nh nhVar, boolean z) {
-        InterceptResult invokeLZ;
+    public boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, nhVar, z)) == null) {
-            ArrayList<qh> a = a(nhVar, z);
-            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), nhVar.E(), nhVar.A());
-            if (a != null && a.size() > 0) {
-                if (a.size() > 1) {
-                    Collections.sort(a, new rh());
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = a.size();
-                long j = 0;
-                for (int i = 0; i < size; i++) {
-                    qh qhVar = a.get(i);
-                    j += qhVar.a;
-                    arrayList.add(qhVar);
-                    if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                        bdUploadingLogInfo.add(arrayList);
-                        arrayList = new ArrayList();
-                        j = 0;
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    bdUploadingLogInfo.add(arrayList);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qc qcVar = new qc("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
+            qcVar.setSdCard(false);
+            qcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            lc.f().call(qcVar);
+            if (qcVar.isSuccess()) {
+                str = qcVar.a();
+            } else {
+                str = null;
             }
-            return bdUploadingLogInfo;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.getLong("time");
+                this.b = jSONObject.getString("data");
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
         }
-        return (BdUploadingLogInfo) invokeLZ.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("time", currentTimeMillis);
+            jSONObject.put("data", str);
+            qc qcVar = new qc("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
+            qcVar.setSdCard(false);
+            qcVar.b(jSONObject.toString());
+            qcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            lc.f().call(qcVar);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

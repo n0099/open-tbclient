@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class rd implements ud {
+public class rd implements vd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public char a;
+    public Byte a;
 
-    public rd(char c) {
+    public rd(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Character.valueOf(c)};
+            Object[] objArr = {Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +27,15 @@ public class rd implements ud {
                 return;
             }
         }
-        this.a = c;
+        this.a = Byte.valueOf(b);
     }
 
-    @Override // com.baidu.tieba.ud
-    public Object a(ke keVar) {
+    @Override // com.baidu.tieba.vd
+    public Object a(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keVar)) == null) {
-            Class<?> a = keVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, leVar)) == null) {
+            Class<?> a = leVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -53,7 +53,7 @@ public class rd implements ud {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return pi.e(String.valueOf(this.a), 0);
+                                                    return qi.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;
@@ -61,24 +61,24 @@ public class rd implements ud {
                                             }
                                             return null;
                                         }
-                                        if (((byte) this.a) == 0) {
+                                        if (this.a.byteValue() == 0) {
                                             z = true;
                                         }
                                         return Boolean.valueOf(z);
                                     }
-                                    return Character.valueOf(this.a);
+                                    return Character.valueOf((char) this.a.intValue());
                                 }
-                                return Double.valueOf(this.a);
+                                return Double.valueOf(this.a.doubleValue());
                             }
-                            return Float.valueOf(this.a);
+                            return Float.valueOf(this.a.floatValue());
                         }
-                        return Long.valueOf(this.a);
+                        return Long.valueOf(this.a.longValue());
                     }
-                    return Integer.valueOf(this.a);
+                    return Integer.valueOf(this.a.intValue());
                 }
-                return Short.valueOf((short) this.a);
+                return Short.valueOf(this.a.shortValue());
             }
-            return Byte.valueOf((byte) this.a);
+            return Byte.valueOf(this.a.byteValue());
         }
         return invokeL.objValue;
     }

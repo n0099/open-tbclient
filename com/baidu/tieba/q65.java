@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.editortools.EditorTools;
+import android.content.Context;
+import com.baidu.tbadk.editortools.BLauncher;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface q65 extends f65 {
-    void K(e65 e65Var);
+public class q65 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void display();
-
-    int getToolId();
-
-    void hide();
-
-    void init();
-
-    void onChangeSkinType(int i);
-
-    void setEditorTools(EditorTools editorTools);
-
-    void setToolId(int i);
+    public static r65 a(Context context, v65 v65Var, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, v65Var, i)) == null) {
+            if (i != 1) {
+                return new DLauncher(context, v65Var);
+            }
+            return new BLauncher(context, v65Var);
+        }
+        return (r65) invokeLLI.objValue;
+    }
 }

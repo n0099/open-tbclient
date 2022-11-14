@@ -217,10 +217,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sN = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910de);
-            this.sO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910dd);
-            this.sP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c4);
-            this.sQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091196);
+            this.sN = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910e3);
+            this.sO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e2);
+            this.sP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c9);
+            this.sQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09119b);
         }
     }
 

@@ -1,140 +1,194 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.Surface;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.VideoEncoderCore;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes5.dex */
 public class ri9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Surface a;
+    public qi9 b;
+    public MediaCodec c;
+    public MediaCodec.BufferInfo d;
+    public int e;
+    public boolean f;
+    public Bundle g;
+    public long h;
+    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948122727, "Lcom/baidu/tieba/ri9;")) == null) {
+    @TargetApi(18)
+    public ri9(int i, int i2, int i3, boolean z, qi9 qi9Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), qi9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = new Bundle();
+        this.h = 0L;
+        this.i = 10000;
+        String str = MimeTypes.VIDEO_H265;
+        str = (!z || mj9.m(MimeTypes.VIDEO_H265) == null) ? "video/avc" : "video/avc";
+        this.d = new MediaCodec.BufferInfo();
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
+        createVideoFormat.setInteger("color-format", 2130708361);
+        createVideoFormat.setInteger("bitrate", i3);
+        createVideoFormat.setInteger("frame-rate", 30);
+        createVideoFormat.setInteger("i-frame-interval", 5);
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
+        this.c = createEncoderByType;
+        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.a = this.c.createInputSurface();
+        this.c.start();
+        this.g.putInt("request-sync", 0);
+        if (Build.VERSION.SDK_INT >= 19) {
+            this.c.setParameters(this.g);
+        }
+        this.e = -1;
+        this.f = false;
+        this.b = qi9Var;
+    }
+
+    public Surface a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Surface) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    @RequiresApi(api = 18)
+    public void c(boolean z) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (z) {
+            this.c.signalEndOfInputStream();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948122727, "Lcom/baidu/tieba/ri9;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String fileName = stackTrace[4].getFileName();
-            String methodName = stackTrace[4].getMethodName();
-            return String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.d(h[0], h[1]);
-            } else {
-                Log.d("BdLog", str);
+        while (true) {
+            ByteBuffer[] outputBuffers = this.c.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.d, this.i);
+                if (dequeueOutputBuffer == -1) {
+                    if (!z) {
+                        return;
+                    }
+                } else if (dequeueOutputBuffer == -3) {
+                    break;
+                } else if (dequeueOutputBuffer == -2) {
+                    if (this.f) {
+                        throw new RuntimeException("format changed twice");
+                    }
+                    MediaFormat outputFormat = this.c.getOutputFormat();
+                    cj9.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
+                    this.e = this.b.a(outputFormat);
+                    if (!this.b.c()) {
+                        synchronized (this.b) {
+                            while (!this.b.e()) {
+                                try {
+                                    this.b.wait(100L);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    this.f = true;
+                } else if (dequeueOutputBuffer < 0) {
+                    cj9.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                } else {
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer == null) {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
+                    MediaCodec.BufferInfo bufferInfo = this.d;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.d;
+                    if (bufferInfo2.size != 0) {
+                        if (!this.f) {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                        byteBuffer.position(bufferInfo2.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.d;
+                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                        this.b.b(this.e, byteBuffer, this.d);
+                    }
+                    this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.h >= 500) {
+                        this.c.setParameters(this.g);
+                        this.h = System.currentTimeMillis();
+                    }
+                    if ((this.d.flags & 4) != 0) {
+                        if (z) {
+                            return;
+                        }
+                        cj9.l(VideoEncoderCore.TAG, "reached end of stream unexpectedly");
+                        return;
+                    }
+                }
             }
         }
     }
 
-    public static void d(String str) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.e(h[0], h[1]);
-            } else {
-                Log.e("BdLog", str);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MediaCodec mediaCodec = this.c;
+            if (mediaCodec != null) {
+                mediaCodec.stop();
+                this.c.release();
+                this.c = null;
+            }
+            qi9 qi9Var = this.b;
+            if (qi9Var != null) {
+                try {
+                    qi9Var.d();
+                } catch (IllegalStateException e) {
+                    cj9.g(e);
+                }
+                this.b = null;
             }
         }
     }
 
-    public static void g(Throwable th) {
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, th) == null) && a && th != null) {
-            th.printStackTrace();
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.i(h[0], h[1]);
-            } else {
-                Log.i("BdLog", str);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
             }
         }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
-            Log.d(str, a(str2));
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
-            Log.e(str, a(str2));
-        }
-    }
-
-    public static void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && a) {
-            Log.i(str, a(str2));
-        }
-    }
-
-    public static void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && a) {
-            Log.v(str, a(str2));
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && a) {
-            Log.w(str, a(str2));
-        }
-    }
-
-    public static void f(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, str2, th) == null) && a) {
-            Log.e(str, a(str2), th);
-        }
-    }
-
-    public static String[] h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String fileName = stackTrace[4].getFileName();
-            String methodName = stackTrace[4].getMethodName();
-            return new String[]{fileName, String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str)};
-        }
-        return (String[]) invokeL.objValue;
     }
 }

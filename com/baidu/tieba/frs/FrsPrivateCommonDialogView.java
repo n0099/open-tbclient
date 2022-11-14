@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,11 +58,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        k = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        l = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        m = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        n = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,24 +130,24 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             }
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0756);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f6e);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0757);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f7e);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0756);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f6f);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0757);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f7f);
                 } else {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0756);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0757);
                     f();
-                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f6b);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f6c);
+                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f7b);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f7c);
                 }
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0758);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f6d);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0759);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f7d);
             }
-            this.f.setTag(R.id.obfuscated_res_0x7f090fb6, Boolean.valueOf(z));
-            this.f.setTag(R.id.obfuscated_res_0x7f091ad1, privateForumPopInfoData);
+            this.f.setTag(R.id.obfuscated_res_0x7f090fba, Boolean.valueOf(z));
+            this.f.setTag(R.id.obfuscated_res_0x7f091adb, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
             this.e.setText(privateForumPopInfoData.A());
             return true;
@@ -163,10 +163,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (ky4.k().h(str, false)) {
+            if (py4.k().h(str, false)) {
                 return true;
             }
-            ky4.k().u(str, true);
+            py4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -175,34 +175,34 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0343, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bf3);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090aaf);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0344, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bf4);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ab0);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setDrawBorder(true);
             this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
             this.b.setBorderWidth(j);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090aae);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf4);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf2);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf1);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ad0);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090d72);
-            this.i = findViewById(R.id.obfuscated_res_0x7f091acf);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090aaf);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf2);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ada);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090d74);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091ad9);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            kw4 d = kw4.d(this.f);
+            pw4 d = pw4.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            kw4 d2 = kw4.d(this.d);
+            pw4 d2 = pw4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            kw4 d3 = kw4.d(this.h);
+            pw4 d3 = pw4.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            kw4 d4 = kw4.d(this.i);
+            pw4 d4 = pw4.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -213,7 +213,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = y85.d().e().getAvater();
+            String avater = e95.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.K(avater, 10, false);
             } else {

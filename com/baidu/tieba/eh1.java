@@ -1,11 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface eh1 {
-    @Nullable
-    ue1 a();
+    void d();
 
-    JSONObject b();
+    void g();
+
+    void h(String str);
+
+    void onAdError(String str);
 }

@@ -1,57 +1,155 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ForumToolPerm;
 /* loaded from: classes4.dex */
-public class fj6 extends BaseCardInfo {
+public class fj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static UserData a;
+    public static boolean b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947766103, "Lcom/baidu/tieba/fj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947766103, "Lcom/baidu/tieba/fj6;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public fj6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
+    public static UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             return a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (UserData) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static UserData b(FrsViewData frsViewData) {
+        InterceptResult invokeL;
+        UserData userData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
+            if (frsViewData != null) {
+                userData = frsViewData.getUserData();
+            } else {
+                userData = null;
+            }
+            a = userData;
+            return userData;
+        }
+        return (UserData) invokeL.objValue;
+    }
+
+    public static boolean d(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
+            if (userData == null) {
+                return false;
+            }
+            int is_manager = userData.getIs_manager();
+            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        List<ForumToolPerm> forumToolAuth;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            UserData a2 = a();
+            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
+                for (int i = 0; i < forumToolAuth.size(); i++) {
+                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
+                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i(ax axVar, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, axVar, frsViewData) != null) || axVar == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && (d(b(frsViewData)) || h())) {
+            axVar.f(4);
+        } else {
+            axVar.g(4);
+        }
+    }
+
+    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && d(b(frsViewData))) {
+            threadCommentAndPraiseInfoLayout.setManageVisible(true);
+        } else {
+            threadCommentAndPraiseInfoLayout.setManageVisible(false);
+        }
     }
 }

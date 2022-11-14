@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.FeedbackReportActivity;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes6.dex */
 public class a1 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -60,10 +61,10 @@ public class a1 implements View.OnClickListener {
                 } else {
                     if (feedbackReportActivity2.l == 1) {
                         if (feedbackReportActivity2.f.getText().toString().trim().length() < 5) {
-                            Toast.makeText(feedbackReportActivity2, t1.a("33"), 0).show();
+                            Toast.makeText(feedbackReportActivity2, t1.a(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK), 0).show();
                             return;
                         } else if (feedbackReportActivity2.w.size() <= 1) {
-                            Toast.makeText(feedbackReportActivity2, t1.a("34"), 0).show();
+                            Toast.makeText(feedbackReportActivity2, t1.a(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK), 0).show();
                             return;
                         }
                     }
@@ -88,7 +89,7 @@ public class a1 implements View.OnClickListener {
                     if (feedbackReportActivity2.n) {
                         int i2 = feedbackReportActivity2.l;
                         if ((i2 == 4 || i2 == 5) && feedbackReportActivity2.w.size() <= 1) {
-                            Toast.makeText(feedbackReportActivity2, t1.a("34"), 0).show();
+                            Toast.makeText(feedbackReportActivity2, t1.a(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK), 0).show();
                             return;
                         } else if (feedbackReportActivity2.l == 5 && feedbackReportActivity2.t.getText().toString().trim().length() < 1) {
                             Toast.makeText(feedbackReportActivity2, "联系方式未填写", 0).show();
@@ -96,7 +97,7 @@ public class a1 implements View.OnClickListener {
                         }
                     }
                     if (feedbackReportActivity2.t.getText().toString().trim().length() > 30) {
-                        Toast.makeText(feedbackReportActivity2, t1.a("32"), 0).show();
+                        Toast.makeText(feedbackReportActivity2, t1.a(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK), 0).show();
                     } else if (feedbackReportActivity2.S.d.size() == 0 && feedbackReportActivity2.s.getText().toString().trim().length() < 4) {
                         Toast.makeText(feedbackReportActivity2, t1.a("12"), 0).show();
                     } else if (feedbackReportActivity2.s.getText().toString().trim().length() > 200) {

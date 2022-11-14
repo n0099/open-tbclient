@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.rx;
+import com.baidu.tieba.az;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.sr4;
+import com.baidu.tieba.sx;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,8 +52,8 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public nu4 g;
-    public zy h;
+    public ou4 g;
+    public az h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -251,7 +251,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kw4.d(this.e).v(R.color.CAM_X0109);
+            pw4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -260,7 +260,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
         if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
             this.f.b(this.g);
             if (threadData.getHasAgree() == 1) {
-                this.f.setButtonContent(getContext().getString(R.string.obfuscated_res_0x7f0f0532));
+                this.f.setButtonContent(getContext().getString(R.string.obfuscated_res_0x7f0f0533));
             }
         }
     }
@@ -272,31 +272,31 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
         }
     }
 
-    public void setOnStatListener(zy zyVar) {
+    public void setOnStatListener(az azVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zyVar) == null) {
-            this.h = zyVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, azVar) == null) {
+            this.h = azVar;
         }
     }
 
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038f, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d8d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0390, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d8f);
             this.a = tbImageView;
             tbImageView.setRadiusById(R.string.J_X05);
             this.a.r(15);
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f0808e7);
-            this.b = (HeadlinesAgreeRewardContainer) findViewById(R.id.obfuscated_res_0x7f090d95);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c75);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f0808ec);
+            this.b = (HeadlinesAgreeRewardContainer) findViewById(R.id.obfuscated_res_0x7f090d97);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c7f);
             this.c = tbImageView2;
             tbImageView2.setAutoChangeStyle(true);
             this.c.setDrawCorner(true);
             this.c.setRadiusById(R.string.J_X05);
             this.c.r(8);
-            this.c.setImageResource(R.drawable.obfuscated_res_0x7f0808e5);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.obfuscated_res_0x7f090d8b);
+            this.c.setImageResource(R.drawable.obfuscated_res_0x7f0808ea);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.obfuscated_res_0x7f090d8d);
             this.d = tbImageAutoSwitch;
             int i = l;
             tbImageAutoSwitch.l(4, i, i, k);
@@ -304,34 +304,34 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
             this.d.setCarouselDelayPeriod(2000);
             this.d.setCarouselPeriod(2000);
             this.d.setAdapter(this.j);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d8c);
-            this.f = (HeadlinesItemInfoView) findViewById(R.id.obfuscated_res_0x7f090d93);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d8e);
+            this.f = (HeadlinesItemInfoView) findViewById(R.id.obfuscated_res_0x7f090d95);
         }
     }
 
     public void g() {
-        nu4 nu4Var;
+        ou4 ou4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nu4Var = this.g) != null && !TextUtils.isEmpty(nu4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ou4Var = this.g) != null && !TextUtils.isEmpty(ou4Var.a())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.a(), true)));
         }
     }
 
     public void h() {
-        nu4 nu4Var;
+        ou4 ou4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (nu4Var = this.g) != null && !TextUtils.isEmpty(nu4Var.h())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ou4Var = this.g) != null && !TextUtils.isEmpty(ou4Var.h())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.h(), true)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.sx
     /* renamed from: i */
-    public void a(rr4 rr4Var) {
+    public void a(sr4 sr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, rr4Var) == null) && rr4Var != null && rr4Var.getThreadData() != null && rr4Var.getThreadData().getTaskInfoData() != null && rr4Var.getThreadData().getTaskInfoData().e() != null) {
-            nu4 e = rr4Var.getThreadData().getTaskInfoData().e();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) && sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getTaskInfoData() != null && sr4Var.getThreadData().getTaskInfoData().e() != null) {
+            ou4 e = sr4Var.getThreadData().getTaskInfoData().e();
             this.g = e;
             this.b.setData(e);
             this.i.clear();
@@ -340,11 +340,11 @@ public class HeadlinesAgreeCardView extends FrameLayout implements rx<rr4> {
             if (!TextUtils.isEmpty(this.g.g())) {
                 this.e.setText(this.g.g());
             }
-            k(rr4Var.getThreadData());
+            k(sr4Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
-            zy zyVar = this.h;
-            if (zyVar != null) {
-                zyVar.onShow();
+            az azVar = this.h;
+            if (azVar != null) {
+                azVar.onShow();
             }
         }
     }

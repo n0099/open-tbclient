@@ -15,7 +15,7 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return wi.charSequence2String(editText.getText(), null);
+            return xi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -111,20 +111,20 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d037a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d037b, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ca9);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091efc);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090ca7);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cac);
-            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cab);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca8);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090caa);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090ca8);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cad);
+            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cac);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca9);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0106, 1);
             this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca7);
             this.g = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             a();

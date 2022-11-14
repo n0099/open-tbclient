@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uq;
+import com.baidu.tieba.vq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,20 +17,20 @@ import org.json.JSONObject;
 public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ int $behavior;
-    public final /* synthetic */ uq $callback;
+    public final /* synthetic */ vq $callback;
     public final /* synthetic */ JSONObject $external;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $taskId;
     public final /* synthetic */ String $token;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, uq uqVar) {
+    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, vq vqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, uqVar};
+            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, vqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implem
         this.$taskId = str2;
         this.$behavior = i;
         this.$external = jSONObject;
-        this.$callback = uqVar;
+        this.$callback = vqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

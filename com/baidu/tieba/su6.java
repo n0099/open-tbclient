@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes5.dex */
 public class su6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public boolean a;
+    public boolean b;
+    public boolean c;
 
-    public su6() {
+    public su6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,112 +29,92 @@ public class su6 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
-    }
-
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !"0".equals(str) && !"0".equals(str2)) {
-                return true;
+        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
+            this.a = str.substring(0, 1).contains("1");
+            this.b = str.substring(2, 3).contains("1");
+            if (str.length() >= 5) {
+                this.c = str.substring(4, 5).contains("1");
+                return;
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || !a(str, str2)) {
             return;
         }
-        String str3 = str + '_' + str2;
-        Set<String> keySet = this.a.getAll().keySet();
-        SharedPreferences.Editor edit = this.a.edit();
-        for (String str4 : keySet) {
-            if (str4.startsWith(str3)) {
-                edit.remove(str4);
+        this.a = false;
+        this.b = true;
+    }
+
+    public su6(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        edit.apply();
+        this.a = z;
+        this.b = z2;
     }
 
-    public long c(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
-            }
-            return this.a.getLong(str + '_' + str2 + "_visit_time", 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLL.longValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return false;
-            }
-            return this.a.getBoolean(str + '_' + str2 + "_show", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public int e(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0;
-            }
-            return this.a.getInt(str + '_' + str2 + "_show_cnt", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeLL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public long f(String str, String str2) {
-        InterceptResult invokeLL;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
-            }
-            return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
         }
-        return invokeLL.longValue;
     }
 
-    public void g(String str, String str2, long j, boolean z) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) != null) || !a(str, str2)) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
         }
-        String str3 = str + '_' + str2 + "_show_time";
-        String str4 = str + '_' + str2 + "_show_cnt";
-        int i = this.a.getInt(str4, 0);
-        SharedPreferences.Editor edit = this.a.edit();
-        if (i > 3) {
-            edit.putInt(str4, i + 1);
-        }
-        edit.putLong(str3, j);
-        if (z) {
-            edit.putBoolean(str + '_' + str2 + "_show", true);
-        }
-        edit.apply();
     }
 
-    public void h(String str, String str2, long j) {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) != null) || !a(str, str2)) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
-        String str3 = str + '_' + str2 + "_visit_time";
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.putLong(str3, j);
-        edit.apply();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0));
+        }
+        return (String) invokeV.objValue;
     }
 }

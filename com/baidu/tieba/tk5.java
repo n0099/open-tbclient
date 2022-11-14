@@ -1,15 +1,25 @@
 package com.baidu.tieba;
+
+import android.graphics.Canvas;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
 /* loaded from: classes6.dex */
 public interface tk5 {
-    String a();
+    void a();
 
-    void b(String str);
+    void b(Canvas canvas);
 
-    String c();
+    void onDraw(Canvas canvas);
 
-    String d();
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    boolean e();
+    void onMeasure(int i, int i2);
 
-    boolean isValid();
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

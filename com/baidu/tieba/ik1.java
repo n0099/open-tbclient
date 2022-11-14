@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes4.dex */
-public class ik1 {
+public class ik1 implements zj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Class<?> b;
-    public Method c;
+    public hk1 a;
+    public String b;
+    public Context c;
+    public gk1 d;
 
     public ik1() {
         Interceptable interceptable = $ic;
@@ -29,24 +33,51 @@ public class ik1 {
         }
     }
 
-    public final String a(Context context, Method method) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.zj1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.a;
-            if (obj == null || method == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = this.a.a(0, null);
             }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zj1
+    public void a(Context context, ak1 ak1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ak1Var) == null) {
+            this.a = new hk1(context);
+            this.c = context;
+            if (b()) {
+                this.d = new gk1(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.d);
+            }
+            if (ak1Var != null) {
+                ak1Var.a();
             }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
+            } catch (Throwable unused) {
+                str = null;
+            }
+            if ("1".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

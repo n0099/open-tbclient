@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g49;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.r49;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -124,12 +124,12 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements TbImageView.g {
+    public class b implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareSdkView a;
 
-        @Override // com.baidu.tbadk.widget.TbImageView.g
+        @Override // com.baidu.tbadk.widget.TbImageView.f
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -154,12 +154,12 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.a = shareSdkView;
         }
 
-        @Override // com.baidu.tbadk.widget.TbImageView.g
+        @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.h.getLayoutParams();
-                layoutParams.height = ((xi.l(this.a.getContext()) - xi.g(this.a.getContext(), R.dimen.tbds408)) * 9) / 16;
+                layoutParams.height = ((yi.l(this.a.getContext()) - yi.g(this.a.getContext(), R.dimen.tbds408)) * 9) / 16;
                 this.a.h.setLayoutParams(layoutParams);
             }
         }
@@ -245,33 +245,33 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d8, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091ef2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ef4);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091ef0);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091eec);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091eed);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091eef);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ef5);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091ef3);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091ef1);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091eee);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091eeb);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091ef6);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07dc, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091efe);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f00);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091efc);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091ef8);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ef9);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091efb);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f01);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091eff);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091efd);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091efa);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091ef7);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091f02);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
             this.e.setIsRound(true);
             this.e.setIsPreDrawBorder(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(xi.g(context, R.dimen.tbds1));
+            this.e.setBorderWidth(yi.g(context, R.dimen.tbds1));
             this.e.setDefaultResource(R.color.CAM_X0205);
-            this.e.setRadius(xi.g(context, R.dimen.obfuscated_res_0x7f070266));
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080fb3);
-            this.n = (xi.l(getContext()) - xi.g(getContext(), R.dimen.tbds516)) / xi.g(getContext(), R.dimen.tbds45);
-            this.q = xi.g(getContext(), R.dimen.tbds27);
-            this.r = xi.g(getContext(), R.dimen.tbds11);
-            this.s = xi.g(getContext(), R.dimen.tbds36);
+            this.e.setRadius(yi.g(context, R.dimen.obfuscated_res_0x7f070266));
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080fc3);
+            this.n = (yi.l(getContext()) - yi.g(getContext(), R.dimen.tbds516)) / yi.g(getContext(), R.dimen.tbds45);
+            this.q = yi.g(getContext(), R.dimen.tbds27);
+            this.r = yi.g(getContext(), R.dimen.tbds11);
+            this.s = yi.g(getContext(), R.dimen.tbds36);
             int i = this.q;
             this.o = i;
             this.p = i;
@@ -335,23 +335,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(g49 g49Var) {
+    public void setData(r49 r49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, g49Var) == null) {
-            if (g49Var == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, r49Var) == null) {
+            if (r49Var == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11a7), g49Var.f));
-            this.e.K(g49Var.d, 10, false);
-            this.f.setText(g49Var.c);
-            if (StringUtils.isNull(g49Var.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11ad), r49Var.f));
+            this.e.K(r49Var.d, 10, false);
+            this.f.setText(r49Var.c);
+            if (StringUtils.isNull(r49Var.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(g49Var.h);
+                this.g.setText(r49Var.h);
             }
             this.h.setEvent(new b(this));
-            this.h.K(g49Var.i, 42, false);
+            this.h.K(r49Var.i, 42, false);
         }
     }
 }

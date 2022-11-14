@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ui5;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class FrsPraiseView extends LinearLayout {
                 } else {
                     str = "";
                 }
-                ui5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
+                bj5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
             }
         }
     }
@@ -108,7 +108,7 @@ public class FrsPraiseView extends LinearLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (metaData = this.a.f.getUser().get(1)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(wg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(xg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -143,7 +143,7 @@ public class FrsPraiseView extends LinearLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (metaData = this.a.f.getUser().get(0)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(wg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(xg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -249,13 +249,13 @@ public class FrsPraiseView extends LinearLayout {
                     }
                 }
                 if (num <= 2) {
-                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0426));
+                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0427));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d5) + num + this.a.getString(R.string.obfuscated_res_0x7f0f0427));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d6) + num + this.a.getString(R.string.obfuscated_res_0x7f0f0428));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d5) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f0427));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d6) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f0428));
                 }
             }
         }
@@ -264,11 +264,11 @@ public class FrsPraiseView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032e, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032f, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b54);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bef);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf0);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b55);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf0);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf1);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

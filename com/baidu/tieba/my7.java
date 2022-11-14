@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: IEjectionAnimationViewCallback.java */
 /* loaded from: classes5.dex */
-public interface my7<D extends IBaseDialogData> {
-    void a();
+public final /* synthetic */ class my7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(D d);
-
-    int c();
-
-    ViewGroup getViewGroup();
+    public static void a(ny7 ny7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, ny7Var) == null) {
+        }
+    }
 }

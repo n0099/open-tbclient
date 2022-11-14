@@ -1,179 +1,102 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.qm8;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bu8 extends yv4 {
+public class bu8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final or8 d;
-    public IconPopData e;
-    public jv4 f;
-
-    /* loaded from: classes3.dex */
-    public class a implements qm8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu8 a;
-
-        public a(bu8 bu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu8Var;
-        }
-
-        @Override // com.baidu.tieba.qm8.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.qm8.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.qm8.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu8 a;
-
-        public b(bu8 bu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu8Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.c();
-            }
-        }
-    }
+    public final MainTabActivity a;
+    public final ks8 b;
+    public final zr8 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(mainTabActivity);
+    public bu8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
-        this.d = or8Var;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+        this.c = zr8Var;
     }
 
-    @Override // com.baidu.tieba.yv4
-    public void b() {
-        jv4 jv4Var;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (jv4Var = this.f) != null) {
-            jv4Var.a();
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
+            pl0.l().p();
         }
     }
 
-    @Override // com.baidu.tieba.yv4
-    public void d(yv4.a aVar) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (ew4.d() && aVar != null) {
-                aVar.a(false);
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.W) {
+            if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
+                a();
             }
-            or8 or8Var = this.d;
-            if ((or8Var == null || or8Var.B() == null || (this.d.B().getCurrentTabType() != 2 && this.d.B().getCurrentTabType() != 1 && this.d.B().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            this.e = iconPopData;
-            if (iconPopData != null && PollingModel.R() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.f1() && this.c.D && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.a(true);
-            } else if (aVar != null) {
-                aVar.a(false);
-            }
+            bk5.a(1);
+            j45.h(HotEventData.getInstance());
         }
     }
 
-    @Override // com.baidu.tieba.yv4
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.e == null) {
-                this.e = TbSingleton.getInstance().getIconPopData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            b();
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                if (!TbSingleton.getInstance().mIsSplashClick && (ks8Var = this.b) != null && ks8Var.b() != null) {
+                    if (UbsABTestHelper.isNewInterestShowTestA()) {
+                        this.b.b().d();
+                    } else {
+                        this.b.b().a();
+                    }
+                }
+                ks8 ks8Var2 = this.b;
+                if (ks8Var2 != null && ks8Var2.h() != null) {
+                    this.b.h().a();
+                }
             }
-            if (!PollingModel.R()) {
-                c();
-                return;
+            if (!MainTabActivity.W && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
+                new ci5(this.a).o();
             }
-            qm8 qm8Var = new qm8();
-            qm8Var.e(new a(this));
-            qm8Var.f(new b(this));
-            this.f = qm8Var.d(this.e);
+            gu8 Y0 = this.a.Y0();
+            if (Y0 != null) {
+                Y0.c();
+            }
+            if (py4.k().h(py4.o("key_new_god_pop_is_show"), false)) {
+                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            }
+            MainTabActivity.W = true;
+            this.c.S();
         }
     }
 }

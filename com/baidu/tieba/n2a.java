@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes5.dex */
-public abstract class n2a<E> extends j2a<E> {
+public abstract class n2a<E> extends l2a<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long f;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long producerIndex;
+    public LinkedQueueNode<E> producerNode;
 
     static {
         InterceptResult invokeClinit;
@@ -28,42 +29,36 @@ public abstract class n2a<E> extends j2a<E> {
                 return;
             }
         }
-        f = d3a.a(n2a.class, "producerIndex");
+        a = o3a.a(n2a.class, "producerNode");
     }
 
-    public final long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.producerIndex;
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n2a(int i) {
-        super(i);
+    public n2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public final void i(long j) {
+    public final LinkedQueueNode<E> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            d3a.a.i(this, f, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (LinkedQueueNode) o3a.a.f(this, a);
+        }
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
         }
     }
 }

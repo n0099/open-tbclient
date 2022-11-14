@@ -223,6 +223,7 @@ public class H5PayManager {
                 if (getChargeOrderStatusResult.giftbags != null && getChargeOrderStatusResult.giftbags.size() > 0) {
                     currencyChargeMessage.giftBagsInfo = getChargeOrderStatusResult.giftbags.get(0);
                 }
+                currencyChargeMessage.splitRecordItemList = getChargeOrderStatusResult.splitRecordItemList;
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     h5PayParams.payServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);
                 } else {

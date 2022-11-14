@@ -1,60 +1,41 @@
 package com.baidu.tieba;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class gb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947788082, "Lcom/baidu/tieba/gb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947788082, "Lcom/baidu/tieba/gb2;");
-                return;
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                f12.d("SwanLaunchBehaviorTable", "createTable", e);
             }
         }
-        a = "content://" + db2.b + "/history_with_app";
-        b = "content://" + db2.b + "/history";
-        c = "content://" + db2.b + "/history_with_aps_pms";
     }
 
-    public static Uri a() {
+    @NonNull
+    public static synchronized Uri b() {
         InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Uri.parse(b);
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public static Uri b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Uri.parse(a);
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public static Uri c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return Uri.parse(c);
+            synchronized (gb2.class) {
+                if (a == null) {
+                    a = eb2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
+            }
+            return uri;
         }
         return (Uri) invokeV.objValue;
     }

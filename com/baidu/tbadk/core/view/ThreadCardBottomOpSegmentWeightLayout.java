@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wy4;
+import com.baidu.tieba.bz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             super.F();
             this.e.setVisibilityListener(this.s0);
             this.e.x(true);
-            wy4.b(this);
+            bz4.b(this);
         }
     }
 
@@ -154,7 +154,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0928, (ViewGroup) this, true);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092c, (ViewGroup) this, true);
         }
         return (View) invokeL.objValue;
     }

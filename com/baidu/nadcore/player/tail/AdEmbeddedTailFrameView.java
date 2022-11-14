@@ -18,7 +18,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d062c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d062d : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,8 +92,8 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
             this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a9));
             this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060296));
             this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060296));
-            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2f));
-            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2f));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e34));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e34));
             this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060882));
         }
     }

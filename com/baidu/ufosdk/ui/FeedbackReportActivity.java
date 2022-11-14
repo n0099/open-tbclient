@@ -70,6 +70,7 @@ import com.baidu.ufosdk.s1;
 import com.baidu.ufosdk.t1;
 import com.baidu.ufosdk.z0;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -1083,7 +1084,7 @@ public class FeedbackReportActivity extends Activity {
             if (editText.getText().toString().trim().length() > 30) {
                 FeedbackReportActivity feedbackReportActivity = this.a;
                 feedbackReportActivity.t.setText(feedbackReportActivity.J);
-                Toast.makeText(this.a, t1.a("32"), 1).show();
+                Toast.makeText(this.a, t1.a(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK), 1).show();
                 FeedbackReportActivity feedbackReportActivity2 = this.a;
                 feedbackReportActivity2.t.setSelection(feedbackReportActivity2.J.length());
             }

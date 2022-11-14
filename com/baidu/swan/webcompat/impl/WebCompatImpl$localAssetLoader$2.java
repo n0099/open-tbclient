@@ -1,8 +1,8 @@
 package com.baidu.swan.webcompat.impl;
 
 import androidx.webkit.WebViewAssetLoader;
-import com.baidu.tieba.bm4;
-import com.baidu.tieba.d43;
+import com.baidu.tieba.cm4;
+import com.baidu.tieba.e43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q2;
         WebViewAssetLoader.InternalStoragePathHandler m2;
         FilePathInfo l;
-        bm4 k;
+        cm4 k;
         String q3;
         String q4;
         String q5;
@@ -63,7 +63,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         WebViewAssetLoader.InternalStoragePathHandler m3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d43 K = d43.K();
+            e43 K = e43.K();
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);

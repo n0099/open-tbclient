@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ad implements bd {
+public class ad implements cd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public double a;
 
-    public ad(float f) {
+    public ad(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,64 +27,64 @@ public class ad implements bd {
                 return;
             }
         }
-        this.a = f;
+        this.a = d;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object a(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object a(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keVar)) == null) {
-            return Float.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, leVar)) == null) {
+            return Double.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object b(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object b(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keVar)) == null) {
-            return Float.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leVar)) == null) {
+            return Double.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object c(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object c(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keVar)) == null) {
-            return Float.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, leVar)) == null) {
+            return Double.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object d(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object d(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keVar)) == null) {
-            return Float.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, leVar)) == null) {
+            return Double.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object e(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object e(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, keVar)) == null) {
-            return d(keVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, leVar)) == null) {
+            return d(leVar);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bd
-    public Object f(ke keVar) {
+    @Override // com.baidu.tieba.cd
+    public Object f(le leVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, keVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, leVar)) == null) {
             return Double.valueOf(this.a);
         }
         return invokeL.objValue;

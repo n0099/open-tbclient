@@ -4,16 +4,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes4.dex */
 public class ki8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ii8> a;
-    public boolean b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public ki8() {
         Interceptable interceptable = $ic;
@@ -28,26 +43,40 @@ public class ki8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
+        this.k = "";
     }
 
-    public void a(DataRes dataRes) {
+    public ki8(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            ii8 ii8Var = new ii8();
-            ii8Var.a = forumList.avatar;
-            ii8Var.b = forumList.forum_name;
-            ii8Var.c = String.valueOf(forumList.forum_id);
-            this.a.add(ii8Var);
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
+    }
+
+    public static void a(ki8 ki8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ki8Var) == null) {
+            ki8Var.i = 0;
+            ki8Var.g = 4;
+            ki8Var.h = 4;
+            ki8Var.l = System.currentTimeMillis();
+            ki8Var.n = true;
         }
-        boolean z = true;
-        if (dataRes.has_more.intValue() != 1) {
-            z = false;
-        }
-        this.b = z;
     }
 }

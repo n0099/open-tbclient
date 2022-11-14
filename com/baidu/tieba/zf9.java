@@ -1,19 +1,29 @@
 package com.baidu.tieba;
+
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public interface zf9 {
-    int a(byte[] bArr, int i);
+    int a() throws IOException;
 
-    boolean a();
+    int b() throws IOException;
 
-    boolean a(int i, int i2, int i3, int i4);
+    boolean c();
 
-    byte[] a(int i);
-
-    boolean b();
-
-    void c();
+    void close();
 
     void d();
 
-    void e();
+    int e() throws IOException;
+
+    boolean f();
+
+    byte[] g();
+
+    long getCurrentPosition();
+
+    long getDuration();
+
+    void h(long j);
+
+    void seek(long j);
 }

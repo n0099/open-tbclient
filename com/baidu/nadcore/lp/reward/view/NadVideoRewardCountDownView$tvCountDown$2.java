@@ -47,7 +47,7 @@ public final class NadVideoRewardCountDownView$tvCountDown$2 extends Lambda impl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f0923c6);
+            View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f0923d5);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.tv_countdown)");
             return (TextView) findViewById;
         }

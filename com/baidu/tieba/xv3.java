@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface xv3 {
-    void a(zv3 zv3Var);
+public interface xv3 extends yv3 {
+    void setFilePath(String str);
+
+    void setPackageName(String str);
 }

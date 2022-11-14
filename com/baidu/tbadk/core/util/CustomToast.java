@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -144,7 +144,7 @@ public class CustomToast {
     public void showToast(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            showToast(str, i, xi.d(BdBaseApplication.getInst().getApp(), 100.0f));
+            showToast(str, i, yi.d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
     }
 
@@ -175,6 +175,7 @@ public class CustomToast {
             makeText2.setText(trim);
             mToast.setGravity(17, 0, i2);
         }
+        GreyUtil.grey(mToast);
         mHandler.postDelayed(r, i);
         mToast.show();
     }

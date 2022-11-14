@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes4.dex */
-public interface ew6<T> {
-    void a(View view2, T t, int i);
+public interface ew6 {
+    boolean b(int i);
 
-    void b(View view2, T t, int i);
+    void d(FrsViewData frsViewData, int i);
+
+    void f(int i);
 }

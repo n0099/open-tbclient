@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.adModel;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dl6;
+import com.baidu.tieba.pl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<dl6> list;
+    public List<pl6> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,15 +65,15 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
                 return getADListResIdl;
             }
             for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-                dl6 dl6Var = new dl6();
-                dl6Var.s(getADListResIdl.data.ad_list.get(i2));
+                pl6 pl6Var = new pl6();
+                pl6Var.s(getADListResIdl.data.ad_list.get(i2));
                 if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                    dl6Var.t(true);
+                    pl6Var.t(true);
                 } else {
-                    dl6Var.t(false);
+                    pl6Var.t(false);
                 }
-                if (dl6Var.r() == 0 || dl6Var.r() == 2) {
-                    this.list.add(dl6Var);
+                if (pl6Var.r() == 0 || pl6Var.r() == 2) {
+                    this.list.add(pl6Var);
                 }
             }
             this.has_more = getADListResIdl.data.has_more.intValue();
@@ -92,7 +92,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<dl6> getList() {
+    public List<pl6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

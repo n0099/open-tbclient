@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,16 +12,17 @@ public class bt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final or8 b;
+    public final zr8 b;
+    public final ks8 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bt8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(2921728);
+    public bt8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2921491);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,25 +34,20 @@ public class bt8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = or8Var;
-        setPriority(1);
+        this.b = zr8Var;
+        this.c = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        or8 or8Var;
-        MainTabActivity mainTabActivity;
-        vt8 Y0;
+        zr8 zr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && (or8Var = this.b) != null && or8Var.B() != null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && (mainTabActivity = this.a) != null && (Y0 = mainTabActivity.Y0()) != null) {
-                Y0.a();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && (zr8Var = this.b) != null && zr8Var.B() != null && this.b.B().getCurrentTabType() != 21) {
+            String str = (String) customResponsedMessage.getData();
+            ks8 ks8Var = this.c;
+            if (ks8Var != null && ks8Var.a() != null) {
+                this.c.a().e(str);
             }
         }
     }

@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jz4;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.sr4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -141,25 +141,25 @@ public class ExtraLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0197, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090986);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090987);
             this.b = textView;
-            textView.setCompoundDrawablePadding(xi.g(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090985);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090982);
+            textView.setCompoundDrawablePadding(yi.g(context, R.dimen.tbds10));
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090986);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090983);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            jz4 jz4Var = new jz4();
-            jz4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(jz4Var);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0522));
+            oz4 oz4Var = new oz4();
+            oz4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(oz4Var);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0523));
         }
     }
 
-    public void setData(rr4 rr4Var) {
+    public void setData(sr4 sr4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rr4Var) == null) {
-            ThreadData threadData = rr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr4Var) == null) {
+            ThreadData threadData = sr4Var.getThreadData();
             boolean z2 = true;
             int i = 8;
             if (!TextUtils.isEmpty(threadData.extraText)) {

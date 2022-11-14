@@ -1,163 +1,266 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vx4 extends PopupWindow {
+public class vx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicLong i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ux4 a;
-    public int b;
-    public int c;
-    public int d;
-    public View e;
-    public View f;
-    public Activity g;
+    public final String a;
+    public final String b;
+    public final Map<String, Object> c;
+    public final Map<String, Object> d;
+    public final int e;
+    public final String f;
+    public final long g;
+    public final long h;
 
     /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vx4 a;
+    }
 
-        public a(vx4 vx4Var) {
+    public void g(int i2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, th) == null) {
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b extends vx4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final tx4 j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, tx4 tx4Var, long j) {
+            super(i, str, str2, map, map2, str3, j, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vx4Var};
+                Object[] objArr = {Integer.valueOf(i), str, str2, map, map2, str3, tx4Var, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], (Map) objArr2[3], (Map) objArr2[4], (String) objArr2[5], ((Long) objArr2[6]).longValue(), (a) objArr2[7]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vx4Var;
+            this.j = tx4Var;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        public /* synthetic */ b(int i, String str, String str2, Map map, Map map2, String str3, tx4 tx4Var, long j, a aVar) {
+            this(i, str, str2, map, map2, str3, tx4Var, j);
+        }
+
+        @Override // com.baidu.tieba.vx4
+        public void g(int i, Throwable th) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                this.a.e();
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, th) == null) {
+                this.j.b(i, th);
+            }
+        }
+
+        @Override // com.baidu.tieba.vx4
+        public void h(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                this.j.a(this, jSONObject);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vx4(Activity activity) {
-        super(activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256151, "Lcom/baidu/tieba/vx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948256151, "Lcom/baidu/tieba/vx4;");
+                return;
+            }
+        }
+        i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            long andIncrement = i.getAndIncrement();
+            return "TBCWebViewJsBridge_callback_ID_" + andIncrement;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i2 = this.e;
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        return "response";
+                    }
+                    throw new IllegalArgumentException("Unsupported request type");
+                }
+                return "request";
+            }
+            return "ping";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public vx4(int i2, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i2), str, str2, map, map2, str3, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0406, (ViewGroup) null, false);
-        this.e = inflate;
-        setContentView(inflate);
-        setSoftInputMode(21);
-        setInputMethodMode(1);
-        this.f = activity.findViewById(16908290);
-        setWidth(0);
-        setHeight(-1);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+        this.a = str;
+        this.b = str2;
+        this.c = map;
+        this.d = map2;
+        this.e = i2;
+        this.f = str3;
+        this.g = j;
+        this.h = System.currentTimeMillis();
     }
 
-    public void g(ux4 ux4Var) {
+    public /* synthetic */ vx4(int i2, String str, String str2, Map map, Map map2, String str3, long j, a aVar) {
+        this(i2, str, str2, map, map2, str3, j);
+    }
+
+    public static vx4 a(int i2, String str, String str2, Map<String, Object> map, long j, boolean z) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ux4Var) == null) {
-            this.a = ux4Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, str2, map, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                str3 = d();
+            } else {
+                str3 = null;
+            }
+            return new vx4(i2, str, str2, map, null, str3, j);
+        }
+        return (vx4) invokeCommon.objValue;
+    }
+
+    public static vx4 i(Map<String, Object> map, long j, tx4 tx4Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{map, Long.valueOf(j), tx4Var})) == null) {
+            return new b(1, null, null, map, null, d(), tx4Var, j, null);
+        }
+        return (vx4) invokeCommon.objValue;
+    }
+
+    public static vx4 j(String str, String str2, Map<String, Object> map, long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, map, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            return a(2, str, str2, map, j, z);
+        }
+        return (vx4) invokeCommon.objValue;
+    }
+
+    public static vx4 k(String str, Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            return new vx4(3, null, null, null, map, str, -1L);
+        }
+        return (vx4) invokeLL.objValue;
+    }
+
+    public final void e(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, jSONObject) == null) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
+            }
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            dismiss();
-        }
-    }
-
-    public final int d() {
+    public String b() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g.getResources().getConfiguration().orientation;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(this.a)) {
+                jSONObject.put("cmd", this.a);
+            }
+            if (!TextUtils.isEmpty(this.b)) {
+                jSONObject.put("method", this.b);
+            }
+            Map<String, Object> map = this.c;
+            if (map != null && !map.isEmpty()) {
+                JSONObject jSONObject2 = new JSONObject();
+                e(this.c, jSONObject2);
+                jSONObject.put("inputData", jSONObject2);
+            }
+            Map<String, Object> map2 = this.d;
+            if (map2 != null && !map2.isEmpty()) {
+                JSONObject jSONObject3 = new JSONObject();
+                e(this.d, jSONObject3);
+                jSONObject.put("outputData", jSONObject3);
+            }
+            jSONObject.put("messageType", f());
+            if (!TextUtils.isEmpty(this.f)) {
+                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f);
+            }
+            return c(jSONObject.toString());
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void h() {
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
-            setBackgroundDrawable(new ColorDrawable(0));
-            showAtLocation(this.f, 0, 0, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String replace = str.replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\"", "\\\"").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r").replace("\f", "\\f").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029");
+            return "javascript:__tb_js_bridge.send('" + replace + "');";
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Point point = new Point();
-            this.g.getWindowManager().getDefaultDisplay().getSize(point);
-            Rect rect = new Rect();
-            this.e.getWindowVisibleDisplayFrame(rect);
-            int d = d();
-            int i = point.y - rect.bottom;
-            if (i == 0) {
-                f(0, d);
-            } else if (d == 1) {
-                this.d = i;
-                f(i, d);
-            } else {
-                this.c = i;
-                f(i, d);
-            }
-        }
-    }
-
-    public final void f(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (i <= 0) {
-                this.b = i;
-                i3 = 0;
-            } else {
-                i3 = i - this.b;
-            }
-            ux4 ux4Var = this.a;
-            if (ux4Var != null) {
-                ux4Var.onKeyboardHeightChanged(i3, i2);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

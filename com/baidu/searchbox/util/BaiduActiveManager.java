@@ -31,8 +31,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.n10;
-import com.baidu.tieba.o20;
+import com.baidu.tieba.o10;
+import com.baidu.tieba.p20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -454,7 +454,7 @@ public final class BaiduActiveManager {
                     e = e3;
                     e.printStackTrace();
                     String encode = encode(getRandId(), "none");
-                    String encode2 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
+                    String encode2 = encode(p20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode3 = encode(this.mInvokeSource, "none");
                     String encode4 = encode(this.mLauncherSource, "none");
                     String encode5 = encode(this.mLauncherExt, "none");
@@ -488,7 +488,7 @@ public final class BaiduActiveManager {
                     e = e4;
                     e.printStackTrace();
                     String encode10 = encode(getRandId(), "none");
-                    String encode22 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
+                    String encode22 = encode(p20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode32 = encode(this.mInvokeSource, "none");
                     String encode42 = encode(this.mLauncherSource, "none");
                     String encode52 = encode(this.mLauncherExt, "none");
@@ -529,7 +529,7 @@ public final class BaiduActiveManager {
                 str2 = str;
             }
             String encode102 = encode(getRandId(), "none");
-            String encode222 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
+            String encode222 = encode(p20.f(AppRuntime.getAppContext()).e(), "none");
             String encode322 = encode(this.mInvokeSource, "none");
             String encode422 = encode(this.mLauncherSource, "none");
             String encode522 = encode(this.mLauncherExt, "none");
@@ -1065,7 +1065,7 @@ public final class BaiduActiveManager {
                                     }
                                     appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
                                     if (BaiduActiveManager.DEBUG) {
-                                        Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + n10.b().h());
+                                        Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + o10.b().h());
                                         Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
                                     }
                                     activePostData = this.this$0.getActivePostData();

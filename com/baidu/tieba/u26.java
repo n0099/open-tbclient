@@ -1,5 +1,43 @@
 package com.baidu.tieba;
+
+import android.graphics.Rect;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface u26 {
-    boolean a(float f);
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        int a(byte[] bArr, int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(byte[] bArr);
+    }
+
+    View a();
+
+    void b(b bVar);
+
+    void c(int i);
+
+    int d();
+
+    void e();
+
+    Rect f();
+
+    void g();
+
+    void h(int i);
+
+    void i(v26 v26Var);
+
+    void pause();
+
+    void resume();
+
+    void start();
+
+    void stop();
 }

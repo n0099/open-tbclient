@@ -1,10 +1,10 @@
 package com.baidu.searchbox.websocket;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jx9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.pw9;
-import com.baidu.tieba.qw9;
+import com.baidu.tieba.ax9;
+import com.baidu.tieba.bx9;
+import com.baidu.tieba.ux9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public final class JavaWebSockeClientImpl implements IWebSocketClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pw9 webSocketClient;
+    public ax9 webSocketClient;
 
     public JavaWebSockeClientImpl() {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, reason) == null) {
             Intrinsics.checkNotNullParameter(reason, "reason");
-            pw9 pw9Var = this.webSocketClient;
-            if (pw9Var == null) {
+            ax9 ax9Var = this.webSocketClient;
+            if (ax9Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
             }
-            pw9Var.close();
+            ax9Var.close();
         }
     }
 
@@ -72,14 +72,14 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             if (protocols != null) {
                 listOf = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(protocols, 10));
                 for (String str : protocols) {
-                    listOf.add(new mx9(str));
+                    listOf.add(new xx9(str));
                 }
             } else {
-                listOf = CollectionsKt__CollectionsJVMKt.listOf(new mx9(""));
+                listOf = CollectionsKt__CollectionsJVMKt.listOf(new xx9(""));
             }
-            final qw9 qw9Var = new qw9(emptyList, listOf);
+            final bx9 bx9Var = new bx9(emptyList, listOf);
             final Map<String, String> headers = request.getHeaders();
-            this.webSocketClient = new pw9(listener, request, create, qw9Var, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
+            this.webSocketClient = new ax9(listener, request, create, bx9Var, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IWebSocketListener $listener;
@@ -87,12 +87,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(create, qw9Var, headers);
+                    super(create, bx9Var, headers);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {listener, request, create, qw9Var, headers};
+                        Object[] objArr = {listener, request, create, bx9Var, headers};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -108,7 +108,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     this.$request = request;
                 }
 
-                @Override // com.baidu.tieba.pw9
+                @Override // com.baidu.tieba.ax9
                 public void onClose(int i, String str2, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
@@ -124,7 +124,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // com.baidu.tieba.pw9
+                @Override // com.baidu.tieba.ax9
                 public void onError(Exception p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -133,7 +133,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // com.baidu.tieba.pw9
+                @Override // com.baidu.tieba.ax9
                 public void onMessage(String p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0) == null) {
@@ -142,7 +142,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // com.baidu.tieba.pw9
+                @Override // com.baidu.tieba.ax9
                 public void onMessage(ByteBuffer bytes) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, bytes) == null) {
@@ -151,16 +151,16 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // com.baidu.tieba.pw9
-                public void onOpen(jx9 jx9Var) {
+                @Override // com.baidu.tieba.ax9
+                public void onOpen(ux9 ux9Var) {
                     Iterator<String> g;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, jx9Var) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, ux9Var) == null) {
                         HashMap hashMap = new HashMap();
-                        if (jx9Var != null && (g = jx9Var.g()) != null) {
+                        if (ux9Var != null && (g = ux9Var.g()) != null) {
                             while (g.hasNext()) {
                                 String next = g.next();
-                                hashMap.put(next, jx9Var.d(next));
+                                hashMap.put(next, ux9Var.d(next));
                             }
                         }
                         this.$listener.onOpen(hashMap);
@@ -170,17 +170,17 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             Integer connectionLostTimeout = request.getConnectionLostTimeout();
             if (connectionLostTimeout != null) {
                 int intValue = connectionLostTimeout.intValue();
-                pw9 pw9Var = this.webSocketClient;
-                if (pw9Var == null) {
+                ax9 ax9Var = this.webSocketClient;
+                if (ax9Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
                 }
-                pw9Var.setConnectionLostTimeout(intValue);
+                ax9Var.setConnectionLostTimeout(intValue);
             }
-            pw9 pw9Var2 = this.webSocketClient;
-            if (pw9Var2 == null) {
+            ax9 ax9Var2 = this.webSocketClient;
+            if (ax9Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
             }
-            pw9Var2.connect();
+            ax9Var2.connect();
         }
     }
 
@@ -189,11 +189,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             Intrinsics.checkNotNullParameter(message, "message");
-            pw9 pw9Var = this.webSocketClient;
-            if (pw9Var == null) {
+            ax9 ax9Var = this.webSocketClient;
+            if (ax9Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
             }
-            pw9Var.send(message);
+            ax9Var.send(message);
         }
     }
 
@@ -202,11 +202,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            pw9 pw9Var = this.webSocketClient;
-            if (pw9Var == null) {
+            ax9 ax9Var = this.webSocketClient;
+            if (ax9Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
             }
-            pw9Var.send(data);
+            ax9Var.send(data);
         }
     }
 }

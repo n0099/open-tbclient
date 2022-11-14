@@ -266,7 +266,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.j.setVisibility(8);
-            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cab)).addView(this.j, layoutParams);
+            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cb7)).addView(this.j, layoutParams);
             window.setLayout(-1, -2);
             Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.btn_sumbit_evaluate);
             this.l = button;
@@ -285,7 +285,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             if (length != 4) {
                                 if (length == 5) {
                                     inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_3).setVisibility(0);
-                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cd);
+                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905ce);
                                     this.u = checkBox;
                                     checkBox.setVisibility(0);
                                     this.u.setText(this.f.optString(4));
@@ -294,7 +294,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                                 }
                             } else {
                                 inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_2).setVisibility(0);
-                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cc);
+                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cd);
                                 this.t = checkBox2;
                                 checkBox2.setVisibility(0);
                                 this.t.setText(this.f.optString(3));
@@ -303,7 +303,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             }
                         } else {
                             inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_2).setVisibility(0);
-                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cb);
+                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cc);
                             this.s = checkBox3;
                             checkBox3.setVisibility(0);
                             this.s.setText(this.f.optString(2));
@@ -312,7 +312,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                         }
                     } else {
                         inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_1).setVisibility(0);
-                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905ca);
+                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cb);
                         this.r = checkBox4;
                         checkBox4.setVisibility(0);
                         this.r.setText(this.f.optString(1));
@@ -321,7 +321,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                     }
                 } else {
                     inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_1).setVisibility(0);
-                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c9);
+                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905ca);
                     this.q = checkBox5;
                     checkBox5.setVisibility(0);
                     this.q.setText(this.f.optString(0));

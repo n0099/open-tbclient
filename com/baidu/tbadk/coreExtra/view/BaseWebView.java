@@ -6,7 +6,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JsPromptResult;
@@ -24,12 +27,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ch;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.mp8;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.rp4;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.sp4;
+import com.baidu.tieba.xp8;
+import com.baidu.tieba.zp4;
+import com.baidu.tieba.zp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,14 +44,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String USER_SKIN_OVERLAY = "user_skin_overlay=1";
     public transient /* synthetic */ FieldHolder $fh;
-    public op8 jsCallback;
+    public zp8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public mp8 mJsBridge;
+    public xp8 mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -56,6 +62,7 @@ public class BaseWebView extends WebView {
     public j mOnScrollChangeListener;
     public k mWebChromeClient;
     public WebViewClient mWebViewClient;
+    public View skinOverlayView;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -100,7 +107,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements op8 {
+    public class a implements zp8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -123,15 +130,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.op8
+        @Override // com.baidu.tieba.zp8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                mp8 mp8Var = baseWebView.mJsBridge;
-                if (mp8Var != null) {
-                    return mp8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                xp8 xp8Var = baseWebView.mJsBridge;
+                if (xp8Var != null) {
+                    return xp8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -172,7 +179,7 @@ public class BaseWebView extends WebView {
                     return true;
                 }
                 try {
-                    rp4.l(this.a.mContext, str);
+                    sp4.l(this.a.mContext, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -231,7 +238,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                yp4.a("BaseWebView", webView);
+                zp4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -341,7 +348,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -354,7 +361,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -367,7 +374,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -505,10 +512,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(op8 op8Var) {
+    public void setOnJsPromptCallback(zp8 zp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, op8Var) == null) {
-            this.jsCallback = op8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, zp8Var) == null) {
+            this.jsCallback = zp8Var;
         }
     }
 
@@ -577,44 +584,46 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void sendNotification(String str, HashMap hashMap) {
-        mp8 mp8Var;
+    public void setWebViewSkinOverly(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) && (mp8Var = this.mJsBridge) != null) {
-            mp8Var.h(getWebView(), str, hashMap);
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            if (!TextUtils.isEmpty(str) && str.contains(USER_SKIN_OVERLAY)) {
+                showSkinOverly();
+            } else {
+                hideSkinOverly();
+            }
         }
     }
 
-    private void init() {
+    public void sendNotification(String str, HashMap hashMap) {
+        xp8 xp8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            getSettings().setJavaScriptEnabled(true);
-            getSettings().setCacheMode(2);
-            getSettings().setUseWideViewPort(true);
-            getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            rp4.a(getSettings());
-            this.mWebViewClient = new c(this);
-            this.mWebChromeClient = new k(this, null);
-            this.mJsBridge = new mp8();
-            setWebViewClient(this.mWebViewClient);
-            setWebChromeClient(this.mWebChromeClient);
-            if (Build.VERSION.SDK_INT >= 11) {
-                removeJavascriptInterface("searchBoxJavaBridge_");
-                removeJavascriptInterface("accessibility");
-                removeJavascriptInterface("accessibilityTraversal");
-            }
-            rp4.g(getContext());
-            if (Build.VERSION.SDK_INT >= 21) {
-                setAcceptThirdPartyCookies(true);
-                getSettings().setMixedContentMode(0);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) && (xp8Var = this.mJsBridge) != null) {
+            xp8Var.h(getWebView(), str, hashMap);
+        }
+    }
+
+    private void hideSkinOverly() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && (view2 = this.skinOverlayView) != null) {
+            view2.setVisibility(8);
         }
     }
 
     private void initDownload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             this.mDownloadListener = new b(this);
+        }
+    }
+
+    private void showSkinOverly() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && (view2 = this.skinOverlayView) != null) {
+            view2.setVisibility(0);
+            pw4.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -650,20 +659,65 @@ public class BaseWebView extends WebView {
         return invokeV.booleanValue;
     }
 
-    public void onChangeSkinType() {
+    public void reshow() {
+        xp8 xp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mJsBridge != null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-            this.mJsBridge.h(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (xp8Var = this.mJsBridge) != null) {
+            xp8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
-    public void reshow() {
-        mp8 mp8Var;
+    private void init() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (mp8Var = this.mJsBridge) != null) {
-            mp8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            getSettings().setJavaScriptEnabled(true);
+            getSettings().setCacheMode(2);
+            getSettings().setUseWideViewPort(true);
+            getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
+            sp4.a(getSettings());
+            this.mWebViewClient = new c(this);
+            this.mWebChromeClient = new k(this, null);
+            this.mJsBridge = new xp8();
+            setWebViewClient(this.mWebViewClient);
+            setWebChromeClient(this.mWebChromeClient);
+            if (Build.VERSION.SDK_INT >= 11) {
+                removeJavascriptInterface("searchBoxJavaBridge_");
+                removeJavascriptInterface("accessibility");
+                removeJavascriptInterface("accessibilityTraversal");
+            }
+            sp4.g(getContext());
+            if (Build.VERSION.SDK_INT >= 21) {
+                setAcceptThirdPartyCookies(true);
+                getSettings().setMixedContentMode(0);
+            }
+            initSkinOverlyView();
+        }
+    }
+
+    private void initSkinOverlyView() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (context = this.mContext) != null && this.skinOverlayView == null) {
+            View view2 = new View(context);
+            this.skinOverlayView = view2;
+            view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            addView(this.skinOverlayView);
+            this.skinOverlayView.setVisibility(8);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.mJsBridge != null) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
+                this.mJsBridge.h(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+            }
+            View view2 = this.skinOverlayView;
+            if (view2 != null) {
+                pw4.d(view2).f(R.color.CAM_X0503);
+            }
         }
     }
 
@@ -675,6 +729,12 @@ public class BaseWebView extends WebView {
             j jVar = this.mOnScrollChangeListener;
             if (jVar != null) {
                 jVar.onScrollChanged(i2, i3, i4, i5);
+            }
+            View view2 = this.skinOverlayView;
+            if (view2 != null && view2.getVisibility() == 0) {
+                ViewGroup.LayoutParams layoutParams = this.skinOverlayView.getLayoutParams();
+                layoutParams.height = getHeight() + i3;
+                this.skinOverlayView.setLayoutParams(layoutParams);
             }
         }
     }

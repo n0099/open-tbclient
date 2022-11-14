@@ -1,99 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import java.util.HashMap;
+import tbclient.ZoneRight.DataReq;
+import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes6.dex */
-public abstract class xs6 implements zs6 {
+public class xs6 implements ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
+    public int a;
+    public long b;
+    public String c;
+    public int d;
+    public int e;
 
-    @Override // com.baidu.tieba.zs6
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zc5
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (T) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs6
-    public void b(@NonNull ThemeElement themeElement) {
+    @Override // com.baidu.tieba.zc5
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void d(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zs6
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void i(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void j(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void k(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zs6
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void m();
-
-    @Override // com.baidu.tieba.ft6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
+        return (HashMap) invokeV.objValue;
     }
 
     public xs6() {
@@ -106,40 +49,28 @@ public abstract class xs6 implements zs6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        fn8.b();
     }
 
-    @Override // com.baidu.tieba.zs6
-    @NonNull
-    public dt6 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cd5
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.j1().h0();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            int i = 1;
+            cj5.c(builder, true, false, true);
+            builder.forum_id = Long.valueOf(xg.g(this.c, 0L));
+            builder.thread_id = Long.valueOf(this.b);
+            if (this.d == 1) {
+                i = 2;
+            }
+            builder.req_type = Integer.valueOf(i);
+            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         }
-        return (dt6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void onDestory() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.zs6
-    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
-            return;
-        }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        m();
+        return invokeZ.objValue;
     }
 }

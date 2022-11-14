@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.vi5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class FeedRecRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             int i = 1;
-            vi5.c(builder, true, false, true);
+            cj5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -65,9 +65,9 @@ public class FeedRecRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(xi.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(xi.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(xi.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             }

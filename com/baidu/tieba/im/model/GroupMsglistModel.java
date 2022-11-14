@@ -5,6 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tieba.aa7;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
@@ -16,7 +17,6 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.p97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                p97 callback;
+                aa7 callback;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                     return;
@@ -189,10 +189,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(p97 p97Var) {
+    public boolean loadFirst(aa7 aa7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, p97Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aa7Var)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
@@ -202,7 +202,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             aVar.b = null;
             aVar.d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
-            loadGroupHistoryMessage.setCallback(p97Var);
+            loadGroupHistoryMessage.setCallback(aa7Var);
             super.sendMessage(loadGroupHistoryMessage);
             return true;
         }

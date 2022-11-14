@@ -1,173 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class vu7 {
+public class vu7 extends kn<ev7, InterestedForumStyleATitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948253361, "Lcom/baidu/tieba/vu7;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements ho {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(vu7 vu7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948253361, "Lcom/baidu/tieba/vu7;");
+
+        @Override // com.baidu.tieba.ho
+        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof ev7)) {
+            }
         }
     }
 
-    public vu7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vu7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    public void a(int i, qu7 qu7Var, int i2, List<wn> list, BdTypeRecyclerView bdTypeRecyclerView) {
-        List<ou7> list2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), qu7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) && qu7Var != null && (list2 = qu7Var.a) != null && !ListUtils.isEmpty(list2)) {
-            ArrayList arrayList = new ArrayList();
-            c(i, arrayList, list);
-            List<ou7> list3 = qu7Var.a;
-            if (list3 != null && list3.size() > 0) {
-                int i3 = 0;
-                for (ou7 ou7Var : list3) {
-                    if (ou7Var != null && i == ou7Var.b.intValue()) {
-                        List<uu7> list4 = ou7Var.a;
-                        if (list4 != null && list4.size() > 0) {
-                            for (int i4 = 0; i4 < list4.size(); i4++) {
-                                if (list4.get(i4) != null) {
-                                    if (arrayList.size() >= 20) {
-                                        d(list.get(i2));
-                                        bdTypeRecyclerView.setData(list);
-                                        return;
-                                    } else if (i3 >= 4) {
-                                        bdTypeRecyclerView.setData(list);
-                                        return;
-                                    } else {
-                                        if (i4 == list4.size() - 1) {
-                                            d(list.get(i2));
-                                        }
-                                        RecommendForumInfo recommendForumInfo = list4.get(i4).a;
-                                        if (!arrayList.contains(recommendForumInfo.forum_id)) {
-                                            ru7 ru7Var = new ru7();
-                                            ru7Var.n(ou7Var.b.intValue());
-                                            ru7Var.l(recommendForumInfo.avatar);
-                                            ru7Var.q(recommendForumInfo.forum_id.longValue());
-                                            ru7Var.r(recommendForumInfo.forum_name);
-                                            ru7Var.s(recommendForumInfo.member_count.intValue());
-                                            ru7Var.w(recommendForumInfo.thread_count.intValue());
-                                            ru7Var.v(recommendForumInfo.slogan);
-                                            ru7Var.t(false);
-                                            list.add(i2, ru7Var);
-                                            arrayList.add(recommendForumInfo.forum_id);
-                                            i2++;
-                                            i3++;
-                                        }
-                                    }
-                                }
-                            }
-                            bdTypeRecyclerView.setData(list);
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public List<wn> b(List<ou7> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public InterestedForumStyleATitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (ou7 ou7Var : list) {
-                    if (ou7Var != null) {
-                        tu7 tu7Var = new tu7();
-                        tu7Var.f(ou7Var.b.intValue());
-                        tu7Var.c(ou7Var.d);
-                        tu7Var.g(ou7Var.c);
-                        arrayList.add(tu7Var);
-                        List<uu7> list2 = ou7Var.a;
-                        if (list2 != null && list2.size() > 0) {
-                            a = 0;
-                            for (uu7 uu7Var : list2) {
-                                if (uu7Var != null) {
-                                    if (a >= 4) {
-                                        break;
-                                    }
-                                    ru7 ru7Var = new ru7();
-                                    RecommendForumInfo recommendForumInfo = uu7Var.a;
-                                    ru7Var.n(ou7Var.b.intValue());
-                                    ru7Var.o(ou7Var.c);
-                                    ru7Var.l(recommendForumInfo.avatar);
-                                    ru7Var.q(recommendForumInfo.forum_id.longValue());
-                                    ru7Var.r(recommendForumInfo.forum_name);
-                                    ru7Var.s(recommendForumInfo.member_count.intValue());
-                                    ru7Var.w(recommendForumInfo.thread_count.intValue());
-                                    ru7Var.v(recommendForumInfo.slogan);
-                                    arrayList.add(ru7Var);
-                                    a++;
-                                }
-                            }
-                            su7 su7Var = new su7();
-                            su7Var.f(ou7Var.b.intValue());
-                            su7Var.g(ou7Var.c);
-                            arrayList.add(su7Var);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03fa, viewGroup, false));
         }
-        return (List) invokeL.objValue;
+        return (InterestedForumStyleATitleViewHolder) invokeL.objValue;
     }
 
-    public final void c(int i, List<Long> list, List<wn> list2) {
-        ru7 ru7Var;
+    public final void v(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
-            for (wn wnVar : list2) {
-                if ((wnVar instanceof ru7) && (ru7Var = (ru7) wnVar) != null && ru7Var.b() == i) {
-                    list.add(Long.valueOf(ru7Var.c()));
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
+            pw4 d = pw4.d(interestedForumStyleATitleViewHolder.c);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X06);
+            d.A(R.string.F_X02);
         }
     }
 
-    public final void d(wn wnVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ev7 ev7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        t(i, view2, viewGroup, ev7Var, interestedForumStyleATitleViewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, ev7 ev7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, wnVar) == null) && (wnVar instanceof su7)) {
-            ((su7) wnVar).h(false);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ev7Var, interestedForumStyleATitleViewHolder})) == null) {
+            if (ev7Var == null) {
+                return view2;
+            }
+            v(interestedForumStyleATitleViewHolder);
+            u(interestedForumStyleATitleViewHolder, ev7Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, ev7 ev7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, ev7Var) == null) {
+            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080791);
+            interestedForumStyleATitleViewHolder.b.K(ev7Var.a(), 10, false);
+            interestedForumStyleATitleViewHolder.c.setText(ev7Var.b());
         }
     }
 }

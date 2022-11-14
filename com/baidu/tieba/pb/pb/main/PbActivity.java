@@ -14,12 +14,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.h18;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.u08;
-import com.baidu.tieba.zn;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.ew4;
+import com.baidu.tieba.ex4;
+import com.baidu.tieba.f18;
+import com.baidu.tieba.gw4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.s18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +40,7 @@ public class PbActivity extends AbsPbActivity {
     public int f1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e7 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -62,7 +64,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements zn {
+    public class a implements ao {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -89,7 +91,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.zn
+        @Override // com.baidu.tieba.ao
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -99,7 +101,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements zn {
+    public class b implements ao {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -126,7 +128,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.zn
+        @Override // com.baidu.tieba.ao
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -169,6 +171,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
             this.w = false;
+            gw4.n(ew4.o);
         }
     }
 
@@ -179,6 +182,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.w = true;
+            gw4.o(this, ew4.o);
         }
     }
 
@@ -197,17 +201,17 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (cx4.a().c == 1) {
+                if (hx4.a().c == 1) {
                     i3 = 8;
                 }
-                if (cx4.a().c == 2) {
+                if (hx4.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, cx4.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, hx4.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - g1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, zw4.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, ex4.e());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -232,9 +236,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void C1(int i, h18 h18Var) {
+    public void C1(int i, s18 s18Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, h18Var) == null) && !this.v && j1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, s18Var) == null) && !this.v && j1() != null) {
             int i2 = 1;
             this.v = true;
             if (j1() != null && j1().R1() == 7) {
@@ -245,7 +249,7 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            h18Var.j2(new b(this, i, i2));
+            s18Var.j2(new b(this, i, i2));
         }
     }
 
@@ -256,7 +260,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new u08(this));
+            registerListener(new f18(this));
             y1();
         }
     }
@@ -274,7 +278,7 @@ public class PbActivity extends AbsPbActivity {
             } else {
                 z = false;
             }
-            String q = ky4.k().q(ky4.o("key_reaction_guide_show_pb_strategy"), "");
+            String q = py4.k().q(py4.o("key_reaction_guide_show_pb_strategy"), "");
             int i = 0;
             for (String str : q.split(",")) {
                 if ("1".equals(str)) {
@@ -292,32 +296,32 @@ public class PbActivity extends AbsPbActivity {
             }
             if (i == 0) {
                 if (z) {
-                    ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 3);
-                    ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                    py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 3);
+                    py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
                     return;
                 }
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 1);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 1);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
             } else if (i == 1) {
                 if (z) {
-                    ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 3);
-                    ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                    py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 3);
+                    py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
                     return;
                 }
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 2);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 2);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
             } else if (i == 4) {
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 1);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 1);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
             } else if (i == 5) {
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 2);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 2);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
             } else if (i == 3) {
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 3);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 3);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
             } else if (i == 7) {
-                ky4.k().w(ky4.o("key_reaction_guide_show_number_pb"), 4);
-                ky4.k().y(ky4.o("key_reaction_guide_show_pb_strategy"), q + "4");
+                py4.k().w(py4.o("key_reaction_guide_show_number_pb"), 4);
+                py4.k().y(py4.o("key_reaction_guide_show_pb_strategy"), q + "4");
             }
         }
     }

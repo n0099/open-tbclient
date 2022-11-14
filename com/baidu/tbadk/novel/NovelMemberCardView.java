@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.ld5;
-import com.baidu.tieba.md5;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.q55;
+import com.baidu.tieba.sd5;
+import com.baidu.tieba.td5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public ImageView f;
     public View g;
     public TextView h;
-    public l55 i;
+    public q55 i;
     public boolean j;
     public String k;
     public int l;
@@ -119,13 +119,13 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         e(context);
     }
 
-    public void f(l55 l55Var) {
+    public void f(q55 q55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l55Var) == null) {
-            if (l55Var.h()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q55Var) == null) {
+            if (q55Var.h()) {
                 this.b.setVisibility(8);
                 this.g.setVisibility(0);
-                this.h.setText(R.string.obfuscated_res_0x7f0f0d05);
+                this.h.setText(R.string.obfuscated_res_0x7f0f0d07);
                 g();
                 return;
             }
@@ -185,7 +185,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return ld5.g(ld5.a(str, "sectionIndex", this.l));
+            return sd5.g(sd5.a(str, "sectionIndex", this.l));
         }
         return (String) invokeL.objValue;
     }
@@ -204,7 +204,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         if ((interceptable != null && interceptable.invokeV(65542, this) != null) || this.i == null) {
             return;
         }
-        String c = ld5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
+        String c = sd5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
         ReadRecordsData readRecordsData = (ReadRecordsData) OrmObject.objectWithJsonStr(c, ReadRecordsData.class);
         if (!StringUtils.isNull(c) && readRecordsData != null && readRecordsData.A()) {
             this.k = readRecordsData.z();
@@ -221,32 +221,32 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
         this.a = skinType;
         this.c.setSkinType(skinType);
-        kw4 d = kw4.d(this.d);
+        pw4 d = pw4.d(this.d);
         d.A(R.string.F_X01);
         d.z(R.dimen.T_X05);
         d.v(R.color.CAM_X0319);
-        kw4 d2 = kw4.d(this.h);
+        pw4 d2 = pw4.d(this.h);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X05);
         d2.v(R.color.CAM_X0304);
-        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080988, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
-        WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f0808c0, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08098d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f0808c5, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
     }
 
     public final void d(View view2) {
-        l55 l55Var;
+        q55 q55Var;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (l55Var = this.i) != null) {
-            if (l55Var.h()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (q55Var = this.i) != null) {
+            if (q55Var.h()) {
                 i = 2;
             } else {
                 i = 1;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f091744) {
-                md5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
+            if (view2.getId() == R.id.obfuscated_res_0x7f09174b) {
+                td5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
             } else {
-                md5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
+                td5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
             }
         }
     }
@@ -255,18 +255,18 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d068d, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091741);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091744);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d068e, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091748);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09174b);
             this.c = tbImageView;
             tbImageView.setDrawCorner(true);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X06);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ba2);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e52);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091746);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091743);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091742);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bac);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e55);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09174d);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09174a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091749);
             this.c.setOnClickListener(this);
             setOnClickListener(this);
             g();
@@ -274,19 +274,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    public void setData(l55 l55Var) {
+    public void setData(q55 q55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, l55Var) == null) {
-            if (l55Var != null && !l55Var.i()) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, q55Var) == null) {
+            if (q55Var != null && !q55Var.i()) {
                 setVisibility(0);
-                this.i = l55Var;
-                if (!StringUtils.isNull(l55Var.d())) {
+                this.i = q55Var;
+                if (!StringUtils.isNull(q55Var.d())) {
                     this.c.K(this.i.d(), 10, false);
                 } else {
                     this.c.setVisibility(8);
                 }
                 if (StringUtils.isNull(this.i.e())) {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f0d03);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f0d05);
                 } else {
                     this.d.setText(this.i.e());
                 }
@@ -346,19 +346,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     }
 
     public void j() {
-        l55 l55Var;
+        q55 q55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (l55Var = this.i) != null) {
-            f(l55Var);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (q55Var = this.i) != null) {
+            f(q55Var);
         }
     }
 
     public final void h() {
-        l55 l55Var;
+        q55 q55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (l55Var = this.i) != null && !StringUtils.isNull(l55Var.c()) && !StringUtils.isNull(this.i.a())) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (q55Var = this.i) != null && !StringUtils.isNull(q55Var.c()) && !StringUtils.isNull(this.i.a())) {
             if (this.i.h()) {
-                k(l(ld5.f(this.i.c(), "data", "cid", this.k)), true);
+                k(l(sd5.f(this.i.c(), "data", "cid", this.k)), true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
                 return;
             }

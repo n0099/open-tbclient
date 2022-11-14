@@ -1739,7 +1739,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, view2) == null) {
-            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090791);
+            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090792);
             this.mOverlayLayout = actionBarOverlayLayout;
             if (actionBarOverlayLayout != null) {
                 actionBarOverlayLayout.setActionBarVisibilityCallback(this);

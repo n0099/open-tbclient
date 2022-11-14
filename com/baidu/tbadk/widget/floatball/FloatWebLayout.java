@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rk5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bl5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public rk5 i;
+    public bl5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -156,7 +156,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     public boolean b() {
@@ -179,9 +179,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            rk5 rk5Var = this.i;
-            if (rk5Var != null) {
-                rk5Var.A();
+            bl5 bl5Var = this.i;
+            if (bl5Var != null) {
+                bl5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -206,7 +206,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return xi.g(getContext(), R.dimen.tbds153);
+            return yi.g(getContext(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -244,9 +244,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            rk5 rk5Var = this.i;
-            if (rk5Var != null) {
-                rk5Var.onDestroy();
+            bl5 bl5Var = this.i;
+            if (bl5Var != null) {
+                bl5Var.onDestroy();
             }
         }
     }
@@ -318,9 +318,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            rk5 rk5Var = new rk5(context, this.h, this);
-            this.i = rk5Var;
-            this.b.setContentViewTop(rk5Var);
+            bl5 bl5Var = new bl5(context, this.h, this);
+            this.i = bl5Var;
+            this.b.setContentViewTop(bl5Var);
         }
     }
 
@@ -338,9 +338,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            rk5 rk5Var = this.i;
-            if (rk5Var != null) {
-                rk5Var.z(str, false);
+            bl5 bl5Var = this.i;
+            if (bl5Var != null) {
+                bl5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -358,11 +358,11 @@ public class FloatWebLayout extends FrameLayout {
     public final void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04aa, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f092007);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09168b);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092005);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ab, (ViewGroup) this, true);
+            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f092013);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091692);
+            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092011);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
             h(context);
             g(context);
             f(context);
@@ -375,11 +375,11 @@ public class FloatWebLayout extends FrameLayout {
     public final void g(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d04a9, (View.OnClickListener) null);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d04aa, (View.OnClickListener) null);
             this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090327);
-            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090679);
-            this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905fd);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a2d, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09067a);
+            this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905fe);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a32, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08062e, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));

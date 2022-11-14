@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes5.dex */
-public class qc3 extends oc3 {
+public class qc3 extends pc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,47 +28,48 @@ public class qc3 extends oc3 {
         }
     }
 
-    @Override // com.baidu.tieba.oc3
+    @Override // com.baidu.tieba.pc3
     @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(nc3 nc3Var) {
+    public Bundle c(oc3 oc3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nc3Var)) == null) {
-            mc3 b = sc3.b(nc3Var.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oc3Var)) == null) {
+            Bundle bundle = new Bundle();
+            nc3 b = tc3.b(oc3Var.a);
             if (b == null) {
-                if (!oc3.a) {
-                    return Bundle.EMPTY;
+                if (!pc3.a) {
+                    return bundle;
                 }
                 throw new IllegalArgumentException("illegal sp.");
             }
-            int i = nc3Var.b;
+            int i = oc3Var.b;
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
                             if (i != 5) {
-                                if (oc3.a) {
+                                if (pc3.a) {
                                     throw new IllegalArgumentException("wrong info params.");
                                 }
                             } else {
-                                b.putFloat(nc3Var.c, Float.parseFloat(nc3Var.d));
+                                bundle.putFloat("result_value", b.getFloat(oc3Var.c, Float.parseFloat(oc3Var.d)));
                             }
                         } else {
-                            b.putString(nc3Var.c, nc3Var.d);
+                            bundle.putString("result_value", b.getString(oc3Var.c, oc3Var.d));
                         }
                     } else {
-                        b.putBoolean(nc3Var.c, Boolean.parseBoolean(nc3Var.d));
+                        bundle.putBoolean("result_value", b.getBoolean(oc3Var.c, Boolean.parseBoolean(oc3Var.d)));
                     }
                 } else {
-                    b.putLong(nc3Var.c, Long.parseLong(nc3Var.d));
+                    bundle.putLong("result_value", b.getLong(oc3Var.c, Long.parseLong(oc3Var.d)));
                 }
             } else {
-                b.putInt(nc3Var.c, Integer.parseInt(nc3Var.d));
+                bundle.putInt("result_value", b.getInt(oc3Var.c, Integer.parseInt(oc3Var.d)));
             }
-            if (oc3.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + nc3Var);
+            if (pc3.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + oc3Var);
             }
-            return Bundle.EMPTY;
+            return bundle;
         }
         return (Bundle) invokeL.objValue;
     }

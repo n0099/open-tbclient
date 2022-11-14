@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes5.dex */
 public interface mf1<T> {
-    void a(if1<List<T>> if1Var);
+    void a(jf1<T> jf1Var);
 
-    List<T> getList();
+    T get();
 }

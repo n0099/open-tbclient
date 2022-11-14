@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface qx2 {
-    void end(long j);
 
-    void start(long j);
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public interface qx2 extends rx2 {
+    void b(JSONObject jSONObject);
 }

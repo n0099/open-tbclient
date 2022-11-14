@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq8;
+import com.baidu.tieba.da7;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.oa7;
-import com.baidu.tieba.s97;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.lq8;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
-public class MsgPhotoLiveCardVew extends s97 {
+public class MsgPhotoLiveCardVew extends da7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long G;
@@ -78,7 +78,7 @@ public class MsgPhotoLiveCardVew extends s97 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G > 0) {
-                aq8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                lq8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
                 if (this.a.I == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
                     if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.G)) > 0) {
@@ -134,7 +134,7 @@ public class MsgPhotoLiveCardVew extends s97 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgPhotoLiveCardVew(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05b3);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05b4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class MsgPhotoLiveCardVew extends s97 {
         this.G = 0L;
         this.I = 0;
         this.S = 0;
-        this.S = xi.g(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+        this.S = yi.g(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
         f0();
     }
 
@@ -210,15 +210,15 @@ public class MsgPhotoLiveCardVew extends s97 {
     public final void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.J = (LinearLayout) j(R.id.obfuscated_res_0x7f0915ba);
+            this.J = (LinearLayout) j(R.id.obfuscated_res_0x7f0915c1);
             this.K = (ClickableHeaderImageView) j(R.id.obfuscated_res_0x7f090305);
             this.L = (TextView) j(R.id.obfuscated_res_0x7f090304);
-            this.M = (TextView) j(R.id.obfuscated_res_0x7f0904a7);
-            this.N = (TextView) j(R.id.obfuscated_res_0x7f0904a4);
-            this.O = (TextView) j(R.id.obfuscated_res_0x7f0904a6);
+            this.M = (TextView) j(R.id.obfuscated_res_0x7f0904a8);
+            this.N = (TextView) j(R.id.obfuscated_res_0x7f0904a5);
+            this.O = (TextView) j(R.id.obfuscated_res_0x7f0904a7);
             this.Q = (LinearLayout) j(R.id.obfuscated_res_0x7f0902f9);
-            this.P = (TextView) j(R.id.obfuscated_res_0x7f091c16);
-            this.R = (TextView) j(R.id.obfuscated_res_0x7f0904e8);
+            this.P = (TextView) j(R.id.obfuscated_res_0x7f091c20);
+            this.R = (TextView) j(R.id.obfuscated_res_0x7f0904e9);
             this.J.setOnClickListener(new a(this));
         }
     }
@@ -230,7 +230,7 @@ public class MsgPhotoLiveCardVew extends s97 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        oa7.a a2 = oa7.a(chatMessage.getContent());
+        za7.a a2 = za7.a(chatMessage.getContent());
         if (a2 == null) {
             this.G = 0L;
             return;
@@ -245,12 +245,12 @@ public class MsgPhotoLiveCardVew extends s97 {
         if (i3 != 1 && i3 != 6) {
             if (i3 == 3) {
                 this.O.setText(a2.g);
-                layoutParams.height = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
+                layoutParams.height = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
                 this.Q.setPadding(0, 0, 0, 0);
                 this.K.setVisibility(8);
                 this.P.setVisibility(0);
                 this.L.setVisibility(8);
-                this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0621));
+                this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0622));
                 String str = a2.e;
                 if (str != null && str.indexOf(String.valueOf(i2)) != -1) {
                     this.N.setText(a0(a2.e, i2));
@@ -258,7 +258,7 @@ public class MsgPhotoLiveCardVew extends s97 {
                     this.N.setText(a2.e);
                 }
             } else {
-                layoutParams.height = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
+                layoutParams.height = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
                 this.Q.setPadding(0, 0, 0, 0);
                 this.K.setVisibility(8);
                 this.P.setVisibility(0);
@@ -267,24 +267,24 @@ public class MsgPhotoLiveCardVew extends s97 {
                 int i5 = this.I;
                 if (i5 == 4) {
                     this.O.setText(a2.g);
-                    this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1526));
+                    this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f152d));
                 } else if (i5 == 5) {
                     this.O.setText(a2.g);
-                    this.R.setText(R.string.obfuscated_res_0x7f0f0aa3);
-                    this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f039e));
+                    this.R.setText(R.string.obfuscated_res_0x7f0f0aa5);
+                    this.P.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f039f));
                 }
             }
         } else {
             if (this.I == 1) {
                 decode = a2.g;
-                i = R.string.obfuscated_res_0x7f0f0aa1;
+                i = R.string.obfuscated_res_0x7f0f0aa3;
             } else {
                 decode = URLDecoder.decode(a2.g);
-                i = R.string.obfuscated_res_0x7f0f0aa0;
+                i = R.string.obfuscated_res_0x7f0f0aa2;
                 i4 = 0;
             }
             this.O.setText(decode);
-            layoutParams.height = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07026a);
+            layoutParams.height = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07026a);
             this.Q.setPadding(this.S, 0, 0, 0);
             this.K.setVisibility(0);
             this.K.setOnClickListener(new b(this));
@@ -294,7 +294,7 @@ public class MsgPhotoLiveCardVew extends s97 {
             this.L.setVisibility(0);
             this.L.setText(a2.c);
             this.N.setText(a2.e);
-            this.L.setTextSize(0, xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702b5));
+            this.L.setTextSize(0, yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702b5));
             this.R.setText(i);
         }
         if (!TextUtils.isEmpty(a2.a)) {

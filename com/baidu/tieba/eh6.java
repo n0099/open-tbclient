@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.df;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class eh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jn> a;
-    public BdTypeListView b;
-    public ah6 c;
-    public ch6 d;
+    public df<byte[]> a;
 
-    public eh6(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
+    public eh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +29,51 @@ public class eh6 {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        this.b = bdTypeListView;
-        arrayList.add(new wg6(baseActivity.getPageContext(), xg6.d));
-        this.a.add(new yg6(baseActivity.getPageContext(), zg6.c));
-        this.a.add(new vg6(baseActivity.getPageContext(), xi6.c));
-        this.a.add(new mg6(baseActivity.getPageContext(), ng6.b));
-        this.a.add(new og6(baseActivity.getPageContext(), pg6.g));
-        this.a.add(new qg6(baseActivity.getPageContext()));
-        ah6 ah6Var = new ah6(baseActivity.getPageContext(), bh6.e);
-        this.c = ah6Var;
-        this.a.add(ah6Var);
-        ch6 ch6Var = new ch6(baseActivity.getPageContext(), dh6.d);
-        this.d = ch6Var;
-        this.a.add(ch6Var);
-    }
-
-    public List<jn> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
+        b();
     }
 
     public void b() {
-        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof nn)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            iv4.f();
+            this.a = iv4.d("tb.forum_member_info");
         }
     }
 
-    public void c() {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        df.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.onDestroy();
-            this.d.onDestroy();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            df<byte[]> dfVar = this.a;
+            if (dfVar != null) {
+                bVar = dfVar.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            df<byte[]> dfVar = this.a;
+            dfVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

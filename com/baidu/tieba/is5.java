@@ -1,128 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class is5 {
+public class is5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public is5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String imei = TbadkCoreApplication.getInst().getImei();
-            if (imei == null || Config.NULL_DEVICE_ID.equals(imei)) {
-                return "-";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return imei;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Integer e(Context context) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer b(Context context) {
-        InterceptResult invokeL;
-        int value;
-        WirelessNetworkType wirelessNetworkType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                String typeName = activeNetworkInfo.getTypeName();
-                if (typeName.equalsIgnoreCase("WIFI")) {
-                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                y35 y35Var = (y35) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = ks5.f().a(y35Var);
+                } else {
+                    d = ks5.f().d(y35Var.d());
                 }
-                if (typeName.equalsIgnoreCase("MOBILE")) {
-                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                        if (g(context)) {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
-                        } else {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
-                        }
-                        value = wirelessNetworkType.getValue();
-                    } else {
-                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
-                    }
-                    return Integer.valueOf(value);
+                if (!d) {
+                    py4 k = py4.k();
+                    k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
-                return valueOf;
             }
-            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+            return null;
         }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return zi.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return zi.k();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                    return true;
-                case 4:
-                case 7:
-                case 11:
-                default:
-                    return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

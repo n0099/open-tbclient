@@ -34,7 +34,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce = false;
-    public static int tagId = 2131299570;
+    public static int tagId = 2131299571;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;

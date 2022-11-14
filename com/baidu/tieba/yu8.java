@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.BackgroundItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class yu8 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Object> a;
     public TbPageContext<?> b;
-    public xu8 c;
+    public bv8 c;
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
@@ -38,9 +38,10 @@ public class yu8 extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
-        public BubbleItemView b;
-        public BubbleItemView c;
-        public View d;
+        public BackgroundItemView b;
+        public BackgroundItemView c;
+        public BackgroundItemView d;
+        public View e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -57,12 +58,12 @@ public class yu8 extends BaseAdapter {
         }
     }
 
-    public yu8(TbPageContext<?> tbPageContext, xu8 xu8Var) {
+    public yu8(TbPageContext<?> tbPageContext, bv8 bv8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xu8Var};
+            Object[] objArr = {tbPageContext, bv8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,7 +74,7 @@ public class yu8 extends BaseAdapter {
             }
         }
         this.b = tbPageContext;
-        this.c = xu8Var;
+        this.c = bv8Var;
     }
 
     public void a(List<Object> list) {
@@ -146,14 +147,15 @@ public class yu8 extends BaseAdapter {
             } else if (getItemViewType(i) == 0) {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012f, viewGroup, false);
                 aVar = new a();
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2b);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2d);
                 view2.setTag(aVar);
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016b, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0135, viewGroup, false);
                 aVar = new a();
-                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090399);
-                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
-                aVar.d = view2.findViewById(R.id.divider_line);
+                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090399);
+                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
+                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039b);
+                aVar.e = view2.findViewById(R.id.divider_line);
                 view2.setTag(aVar);
             }
             if (item != null) {
@@ -161,20 +163,25 @@ public class yu8 extends BaseAdapter {
                     aVar.a.setText(item.toString());
                 } else {
                     List list = (List) item;
-                    aVar.b.d((DressItemData) list.get(0));
+                    aVar.b.e((DressItemData) list.get(0));
                     aVar.b.setController(this.c);
-                    aVar.b.setFromBubbleGroup(true);
-                    if (list.size() > 1) {
-                        aVar.c.d((DressItemData) list.get(1));
+                    if (list.size() > 2) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.d.e((DressItemData) list.get(2));
                         aVar.c.setController(this.c);
-                        aVar.c.setFromBubbleGroup(true);
+                        aVar.d.setController(this.c);
+                    } else if (list.size() > 1) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.d.f();
                     } else {
-                        aVar.c.e();
+                        aVar.c.f();
+                        aVar.d.f();
                     }
                     if (getItem(i + 1) instanceof List) {
-                        aVar.d.setVisibility(8);
+                        aVar.e.setVisibility(8);
                     } else {
-                        aVar.d.setVisibility(0);
+                        aVar.e.setVisibility(0);
                     }
                 }
             }

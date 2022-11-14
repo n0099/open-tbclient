@@ -27,10 +27,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.wv4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.u9;
+import com.baidu.tieba.xv4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -207,6 +209,21 @@ public class TBAlertBuilder {
         return (TBAlertBuilder) invokeL.objValue;
     }
 
+    public AlertDialog x(AlertDialog alertDialog) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, alertDialog)) == null) {
+            if (WindowGreySwitch.getIsOn() && alertDialog.getWindow() != null) {
+                u9.b(alertDialog.getWindow().getDecorView());
+            }
+            alertDialog.show();
+            d(alertDialog);
+            e(alertDialog);
+            return alertDialog;
+        }
+        return (AlertDialog) invokeL.objValue;
+    }
+
     public static void d(@NonNull Dialog dialog) {
         Window window;
         Interceptable interceptable = $ic;
@@ -235,7 +252,7 @@ public class TBAlertBuilder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().widthPixels;
             int i2 = (i * 837) / 1076;
-            int g = xi.g(context, R.dimen.tbds756);
+            int g = yi.g(context, R.dimen.tbds756);
             if (i2 < g) {
                 return Math.min(i, g);
             }
@@ -374,18 +391,6 @@ public class TBAlertBuilder {
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public AlertDialog x(AlertDialog alertDialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, alertDialog)) == null) {
-            alertDialog.show();
-            d(alertDialog);
-            e(alertDialog);
-            return alertDialog;
-        }
-        return (AlertDialog) invokeL.objValue;
-    }
-
     public AlertDialog c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -451,7 +456,7 @@ public class TBAlertBuilder {
             linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             int i = 2;
             if (this.r) {
-                kw4 d = kw4.d(linearLayout2);
+                pw4 d = pw4.d(linearLayout2);
                 if (this.e == null) {
                     i = 0;
                 }
@@ -459,7 +464,7 @@ public class TBAlertBuilder {
                 d.n(R.string.J_X06);
                 d.f(R.color.transparent);
             } else {
-                kw4 d2 = kw4.d(linearLayout2);
+                pw4 d2 = pw4.d(linearLayout2);
                 if (this.e == null) {
                     i = 0;
                 }
@@ -468,14 +473,14 @@ public class TBAlertBuilder {
                 d2.f(R.color.CAM_X0205);
             }
             if (!TextUtils.isEmpty(this.f)) {
-                TextView k = wv4.k(this.b);
+                TextView k = xv4.k(this.b);
                 k.setText(this.f);
                 k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 linearLayout2.addView(k);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     k.setPadding(k.getPaddingLeft(), k.getPaddingTop(), k.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView k2 = wv4.k(this.b);
+                    TextView k2 = xv4.k(this.b);
                     k2.setText(this.g);
                     k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     linearLayout2.addView(k2);
@@ -484,10 +489,10 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = wv4.b(this.b, this.j);
+                TextView b2 = xv4.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f0907ae);
+                b2.setId(R.id.obfuscated_res_0x7f0907af);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -495,7 +500,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907ae);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907af);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 linearLayout2.addView(relativeLayout);
@@ -513,14 +518,14 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                linearLayout2.addView(wv4.i(this.b, this.m, this.p));
+                linearLayout2.addView(xv4.i(this.b, this.m, this.p));
             }
             linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080825);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
-                layoutParams2.setMargins(0, xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
+                layoutParams2.setMargins(0, yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));
                 linearLayout.addView(imageView, layoutParams2);
             }

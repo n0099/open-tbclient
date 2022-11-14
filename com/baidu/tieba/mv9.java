@@ -1,33 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mv9 implements Cloneable {
+public final class mv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public HashMap<String, String> h;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
     public mv9() {
         Interceptable interceptable = $ic;
@@ -42,188 +30,165 @@ public class mv9 implements Cloneable {
                 return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = new HashMap<>();
+        this.c = 1.0f;
+        this.d = 1.0f;
     }
 
-    public Object clone() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                mv9 mv9Var = (mv9) super.clone();
-                HashMap<String, String> hashMap = new HashMap<>();
-                for (Map.Entry<String, String> entry : mv9Var.h.entrySet()) {
-                    hashMap.put(entry.getKey(), entry.getValue());
-                }
-                mv9Var.h = hashMap;
-                return mv9Var;
-            } catch (CloneNotSupportedException unused) {
-                return null;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    public String a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (z) {
-                return m(this.b);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (z) {
-                return m(this.d);
-            }
-            return this.d;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String e(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            if (z) {
-                return m(this.f);
-            }
-            return this.f;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (z) {
-                return m(this.c);
-            }
-            return this.c;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            if (z) {
-                return m(this.g);
-            }
-            return this.g;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            if (z) {
-                return m(this.e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.e;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.a = context.getApplicationContext();
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.e)) {
-                return true;
-            }
-            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public String c(boolean z) {
-        InterceptResult invokeZ;
+    public final float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            if (this.h.isEmpty()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : this.h.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                    return "";
-                }
-            }
-            if (z) {
-                return m(jSONObject.toString());
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (String) invokeZ.objValue;
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
+        }
+    }
+
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (lv9.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    return;
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
+                    return;
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    return;
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
+            }
+        }
     }
 }

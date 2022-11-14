@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf5;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.fn5;
-import com.baidu.tieba.i35;
-import com.baidu.tieba.k35;
-import com.baidu.tieba.qr4;
+import com.baidu.tieba.ej8;
+import com.baidu.tieba.i45;
+import com.baidu.tieba.if5;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.pn5;
+import com.baidu.tieba.rr4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.ti8;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,13 +33,13 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ti8 a;
+    public ej8 a;
     public MsgRemindModel b;
-    public final fn5 c;
+    public final pn5 c;
     public MsgRemindModel.f d;
 
     /* loaded from: classes5.dex */
-    public class a implements fn5 {
+    public class a implements pn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindActivity a;
@@ -62,11 +62,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             this.a = msgRemindActivity;
         }
 
-        @Override // com.baidu.tieba.fn5
+        @Override // com.baidu.tieba.pn5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && this.a.a != null) {
-                i35.d().Y(date.getHours(), date.getMinutes());
+                n35.d().Y(date.getHours(), date.getMinutes());
                 this.a.a.O();
                 this.a.a.N();
             }
@@ -174,7 +174,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onNetRefreshButtonClicked();
-            d45.e(getPageContext());
+            i45.e(getPageContext());
         }
     }
 
@@ -183,7 +183,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
-            i35.d().G();
+            n35.d().G();
         }
     }
 
@@ -201,9 +201,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ti8 ti8Var = new ti8(this);
-            this.a = ti8Var;
-            ti8Var.B(this);
+            ej8 ej8Var = new ej8(this);
+            this.a = ej8Var;
+            ej8Var.B(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -215,13 +215,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             boolean z = false;
             if (view2 == this.a.x()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    i35.d().X(true);
+                    n35.d().X(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
                     this.a.O();
                     this.a.L(true);
                 } else {
-                    i35.d().X(false);
+                    n35.d().X(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
                     this.a.L(false);
@@ -300,9 +300,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.a.w()) {
-                k35.c().k(3, getPageContext(), this.c, false);
+                p35.c().k(3, getPageContext(), this.c, false);
             } else if (view2 == this.a.r()) {
-                qr4.c().b();
+                rr4.c().b();
             }
         }
     }
@@ -312,15 +312,15 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            boolean a2 = bf5.a(this);
+            boolean a2 = if5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }
             if (!a2) {
                 this.a.M(false);
-                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f166a), getString(R.string.obfuscated_res_0x7f0f07ff), getString(R.string.obfuscated_res_0x7f0f07fe), true, getNetRefreshListener());
+                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f1671), getString(R.string.obfuscated_res_0x7f0f0800), getString(R.string.obfuscated_res_0x7f0f07ff), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
-                setNetRefreshViewEmotionMarginTop(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+                setNetRefreshViewEmotionMarginTop(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;
             }
             this.a.M(true);

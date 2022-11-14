@@ -1,96 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.DislikeReason;
-import tbclient.Personalized.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.App;
 /* loaded from: classes5.dex */
-public class n47 {
+public class n47 extends u46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DataRes.Builder builder, List<wn> list) {
-        g46 g46Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public n47() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
-            LongSparseArray longSparseArray = new LongSparseArray();
-            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
-                if (threadPersonalized2 != null) {
-                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
-                }
-            }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                wn wnVar = (wn) ListUtils.getItem(list, i);
-                if ((wnVar instanceof g46) && (threadData = (g46Var = (g46) wnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(wg.g(threadData.getTid(), 0L))) != null) {
-                    g46Var.J(threadPersonalized.source);
-                    g46Var.M(threadPersonalized.weight);
-                    g46Var.F(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        g46Var.H(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                    if (list2 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list2) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        g46Var.feedBackReasonMap = sparseArray;
-                        g46Var.G(threadPersonalized.extra);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(List<wn> list) {
+    public void f(App app) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, app) != null) || app == null) {
             return;
         }
-        int count = ListUtils.getCount(list);
-        int i = 0;
-        while (i < count) {
-            wn wnVar = (wn) ListUtils.getItem(list, i);
-            boolean z = wnVar instanceof u46;
-            if (z) {
-                ((u46) wnVar).d(true);
-            }
-            i++;
-            wn wnVar2 = (wn) ListUtils.getItem(list, i);
-            if (z && (wnVar2 instanceof u46)) {
-                u46 u46Var = (u46) wnVar;
-                u46 u46Var2 = (u46) wnVar2;
-                if (u46Var.m()) {
-                    u46Var2.d(false);
-                    if (u46Var2 instanceof t47) {
-                        u46Var.u(false);
-                    }
-                }
-            }
-            if (wnVar instanceof t47) {
-                ((t47) wnVar).u(false);
-            }
+        if (this.a == null) {
+            this.a = new AdvertAppInfo();
         }
-    }
-
-    public static void c(DataRes.Builder builder, List<wn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
-            b(list);
-            a(builder, list);
-        }
+        this.a.s(app);
+        this.position = this.a.position;
     }
 }
