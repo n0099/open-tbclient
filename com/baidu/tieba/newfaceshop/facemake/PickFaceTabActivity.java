@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au7;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.pt7;
-import com.baidu.tieba.qq4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.rq4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.pt7
+    @Override // com.baidu.tieba.au7
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -188,7 +188,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
         }
     }
 
-    @Override // com.baidu.tieba.pt7
+    @Override // com.baidu.tieba.au7
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pt7
+    @Override // com.baidu.tieba.au7
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -215,15 +215,15 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
         if ((interceptable != null && interceptable.invokeLIL(1048576, this, fragment, i, str) != null) || fragment == null) {
             return;
         }
-        FragmentTabHost.b bVar = new FragmentTabHost.b();
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.c = fragment;
-        bVar.a = i;
+        cVar.c = fragment;
+        cVar.a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.h = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
-        bVar.b = fragmentTabIndicator;
-        this.e.a(bVar);
+        cVar.b = fragmentTabIndicator;
+        this.e.b(cVar);
     }
 
     public final void T0() {
@@ -257,12 +257,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
                     Y0();
                 }
             }
-            S0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0609).toString());
-            S0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0605).toString());
-            S0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b83).toString());
-            this.e.k(1);
+            S0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f060a).toString());
+            S0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0606).toString());
+            S0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b85).toString());
+            this.e.l(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
+            this.e.getFragmentTabWidget().getLayoutParams().height = yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -270,12 +270,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
     public final void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912d6);
-            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912db);
+            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09168f);
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-            this.c.setLayoutParams(new RelativeLayout.LayoutParams(xi.l(getPageContext().getPageActivity()), -1));
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(yi.l(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092606);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092615);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             X0(0);
@@ -289,7 +289,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b83).toString());
+                        this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b85).toString());
                         return;
                     }
                     return;
@@ -297,7 +297,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
                 this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0255).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f060d).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f060e).toString());
         }
     }
 
@@ -305,7 +305,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            qq4 layoutMode = getLayoutMode();
+            rq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -318,7 +318,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
             this.g.onChangeSkinType(i);
             this.h.onChangeSkinType(i);
             this.d.d(getPageContext(), i);
-            this.e.p(i);
+            this.e.s(i);
         }
     }
 
@@ -329,13 +329,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements pt7 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d074d);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092060);
+            setContentView(R.layout.obfuscated_res_0x7f0d0751);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09206c);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
             this.e.setShouldDrawIndicatorLine(false);
-            this.e.o(true);
+            this.e.r(true);
             U0();
             T0();
         }

@@ -8,20 +8,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h98 extends jn<ra8, CardViewHolder<yb8>> {
+public class h98 extends kn<sa8, CardViewHolder<wb8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
+    public LikeModel b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h98(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), ra8.e);
+        super(tbPageContext.getPageActivity(), sa8.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,28 +41,31 @@ public class h98 extends jn<ra8, CardViewHolder<yb8>> {
             }
         }
         this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public CardViewHolder<yb8> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<wb8> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new yb8(this.a));
+            wb8 wb8Var = new wb8(this.a);
+            wb8Var.x(this.b);
+            return new CardViewHolder<>(wb8Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ra8 ra8Var, CardViewHolder<yb8> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sa8 sa8Var, CardViewHolder<wb8> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ra8Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(ra8Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sa8Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(sa8Var);
             cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.getView();
         }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rp4;
+import com.baidu.tieba.sp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +53,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f1), TbConfig.URL_BAIDU_SINGKIL);
+                sp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f2), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -85,11 +85,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != i) {
             this.a = i;
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08100e);
+            SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08101e);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080321);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f08100e);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f08101e);
         }
     }
 
@@ -142,12 +142,12 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05a2, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090af2);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05a3, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a34);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090af3);
             this.c = textView;
             textView.setOnClickListener(new a(this));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a39);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a43);
             b(TbadkApplication.getInst().getSkinType());
         }
     }

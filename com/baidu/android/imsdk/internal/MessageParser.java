@@ -28,9 +28,9 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.b80;
-import com.baidu.tieba.l80;
-import com.baidu.tieba.p80;
+import com.baidu.tieba.c80;
+import com.baidu.tieba.m80;
+import com.baidu.tieba.q80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -675,7 +675,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1056,13 +1056,13 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (b80.e) {
+                    if (c80.e) {
                         BLCPRequest bLCPRequest = new BLCPRequest();
                         bLCPRequest.a = 2L;
                         bLCPRequest.b = 95L;
                         bLCPRequest.c = newAckMessage.getBody().getBytes();
                         bLCPRequest.d = System.nanoTime();
-                        l80.c(bLCPRequest, new p80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        m80.c(bLCPRequest, new q80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Context val$context;
@@ -1087,7 +1087,7 @@ public class MessageParser {
                                 this.val$context = context;
                             }
 
-                            @Override // com.baidu.tieba.p80
+                            @Override // com.baidu.tieba.q80
                             public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {

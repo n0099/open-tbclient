@@ -19,6 +19,7 @@ public final class CancelType {
     public static final CancelType ON_DIALOG_CANCEL;
     public static final CancelType ON_DIALOG_DISMISS;
     public static final CancelType ON_START_SHOW_FAIL;
+    public static final CancelType ON_THIRD_PART_TO_YYPAT;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +39,10 @@ public final class CancelType {
         BUTTOM_AREA_CLICK = new CancelType("BUTTOM_AREA_CLICK", 1, 1);
         EMPTY_AREA_CLICK = new CancelType("EMPTY_AREA_CLICK", 2, 2);
         ON_DIALOG_DISMISS = new CancelType("ON_DIALOG_DISMISS", 3, 3);
-        CancelType cancelType = new CancelType("ON_DIALOG_CANCEL", 4, 4);
-        ON_DIALOG_CANCEL = cancelType;
-        $VALUES = new CancelType[]{ON_START_SHOW_FAIL, BUTTOM_AREA_CLICK, EMPTY_AREA_CLICK, ON_DIALOG_DISMISS, cancelType};
+        ON_DIALOG_CANCEL = new CancelType("ON_DIALOG_CANCEL", 4, 4);
+        CancelType cancelType = new CancelType("ON_THIRD_PART_TO_YYPAT", 5, 5);
+        ON_THIRD_PART_TO_YYPAT = cancelType;
+        $VALUES = new CancelType[]{ON_START_SHOW_FAIL, BUTTOM_AREA_CLICK, EMPTY_AREA_CLICK, ON_DIALOG_DISMISS, ON_DIALOG_CANCEL, cancelType};
     }
 
     public CancelType(String str, int i, int i2) {

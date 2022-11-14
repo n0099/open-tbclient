@@ -1,42 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.AutoChangeLineView;
+import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: lambda */
 /* loaded from: classes4.dex */
-public class ga9 {
+public final /* synthetic */ class ga9 implements AutoChangeLineView.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ ga9 a = new ga9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Bundle bundle;
+    private /* synthetic */ ga9() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
+    public final CharSequence a(TextView textView, int i, Object obj) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || str == null) {
-                return null;
-            }
-            try {
-                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-                if (applicationInfo != null) {
-                    bundle = applicationInfo.metaData;
-                } else {
-                    bundle = null;
-                }
-                if (bundle == null) {
-                    return null;
-                }
-                return bundle.getString(str);
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
+            String str = (String) obj;
+            SelectTagView.d(textView, i, str);
+            return str;
         }
-        return (String) invokeLL.objValue;
+        return (CharSequence) invokeLIL.objValue;
     }
 }

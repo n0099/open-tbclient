@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.pw4;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes6.dex */
-public interface tw4<T extends pw4> {
-    void a(int i, boolean z, T t);
+public interface tw4 {
+    ww4 a();
 
-    void b(int i, T t, boolean z);
+    View b();
+
+    zw4 c();
+
+    TbImageView d(Context context);
 }

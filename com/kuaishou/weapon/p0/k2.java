@@ -3,20 +3,16 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
-import androidx.room.RoomMasterTable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
 import com.baidu.searchbox.http.HttpConfig;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.jni.Engine;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
@@ -108,33 +104,33 @@ public class k2 {
                         jSONObject.put("25", q0Var.a("25"));
                         jSONObject.put("26", q0Var.a("26"));
                         jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, q0Var.a(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK));
-                        jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, q0Var.a(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT));
-                        jSONObject.put("29", q0Var.a("29"));
-                        jSONObject.put("30", q0Var.a("30"));
-                        jSONObject.put("31", q0Var.a("31"));
-                        jSONObject.put("32", q0Var.a("32"));
-                        jSONObject.put("33", q0Var.a("33"));
-                        jSONObject.put("34", q0Var.a("34"));
-                        jSONObject.put("35", q0Var.a("35"));
-                        jSONObject.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, q0Var.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR));
-                        jSONObject.put(PayConfig.PAYMENT_POS_KEY_MANGA, q0Var.a(PayConfig.PAYMENT_POS_KEY_MANGA));
-                        jSONObject.put("38", q0Var.a("38"));
-                        jSONObject.put("39", q0Var.a("39"));
-                        jSONObject.put("40", q0Var.a("40"));
-                        jSONObject.put("41", q0Var.a("41"));
-                        jSONObject.put(RoomMasterTable.DEFAULT_ID, q0Var.a(RoomMasterTable.DEFAULT_ID));
-                        jSONObject.put("43", q0Var.b("43"));
-                        jSONObject.put("44", q0Var.b("44"));
+                        jSONObject.put("28", q0Var.a("28"));
+                        jSONObject.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK, q0Var.a(PayUVEventType.THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK, q0Var.a(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, q0Var.a(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK, q0Var.a(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK, q0Var.a(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK, q0Var.a(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK, q0Var.a(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK));
+                        jSONObject.put("36", q0Var.a("36"));
+                        jSONObject.put("37", q0Var.a("37"));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK, q0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK, q0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK, q0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK, q0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK));
+                        jSONObject.put("42", q0Var.a("42"));
+                        jSONObject.put(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK, q0Var.b(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_WAY_FULL_PAGE_CLOSE_BTN_CLICK, q0Var.b(PayUVEventType.PAY_WAY_FULL_PAGE_CLOSE_BTN_CLICK));
                         jSONObject.put("101", q0Var.a("101"));
                         jSONObject.put("102", q0Var.a("102"));
                         jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, q0Var.a(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN));
                         jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, q0Var.a(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT));
-                        jSONObject.put("49", l3.b(this.a));
-                        jSONObject.put("50", l3.a(this.a));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, l3.b(this.a));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, l3.a(this.a));
                     }
                     if (a.a(f3.J, 1) == 1 && Engine.loadSuccess) {
                         v0 v0Var = new v0(this.a);
-                        jSONObject.put("45", v0Var.b("45"));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, v0Var.b(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
                         if (v0Var.b()) {
                             i = 1;
                             jSONObject.put(BaseUtils.METHOD_RECEIVEESSAGE, 1);
@@ -144,13 +140,13 @@ public class k2 {
                         if (v0Var.a()) {
                             jSONObject.put(HttpConfig.UBC_HTTP_ID, i);
                         }
-                        jSONObject.put("46", v0Var.b("46"));
-                        jSONObject.put("48", v0Var.d("48"));
-                        jSONObject.put("51", v0Var.a("51"));
-                        jSONObject.put("52", v0Var.a(this.a, "52", 0));
-                        jSONObject.put(BaseUtils.METHOD_SENDMESSAGE, v0Var.c(BaseUtils.METHOD_SENDMESSAGE));
-                        jSONObject.put("66", v0Var.d("66"));
-                        jSONObject.put("67", i3.c());
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, v0Var.b(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, v0Var.d(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, v0Var.a(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, v0Var.a(this.a, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, 0));
+                        jSONObject.put("55", v0Var.c("55"));
+                        jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, v0Var.d(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW));
+                        jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, i3.c());
                         jSONObject.put("78", v0Var.d("78"));
                         jSONObject.put("79", v0Var.d("79"));
                         z0 z0Var = new z0(this.a, 200);
@@ -162,17 +158,17 @@ public class k2 {
                     }
                     if (a.a(f3.M, 1) == 1) {
                         x0 x0Var = new x0(this.a);
-                        jSONObject.put("53", x0Var.a(this.a, "53", 1));
-                        jSONObject.put("56", x0Var.a("56"));
-                        jSONObject.put("57", x0Var.a("57"));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, x0Var.a(this.a, PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, 1));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, x0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, x0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW));
                         if (b || b2) {
                             k0 k0Var = new k0();
-                            jSONObject.put("47", k0Var.i(this.a));
-                            jSONObject.put("59", k0Var.j(this.a));
-                            jSONObject.put("60", k0Var.h(this.a));
-                            jSONObject.put("61", k0Var.b(this.a));
-                            jSONObject.put("62", k0Var.k(this.a));
-                            jSONObject.put("65", k0Var.l(this.a));
+                            jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, k0Var.i(this.a));
+                            jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, k0Var.j(this.a));
+                            jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, k0Var.h(this.a));
+                            jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_SHOW, k0Var.b(this.a));
+                            jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, k0Var.k(this.a));
+                            jSONObject.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, k0Var.l(this.a));
                             jSONObject.put("69", k0Var.g(this.a));
                             jSONObject.put("75", k0Var.a(this.a));
                             jSONObject.put("80", k0.a());
@@ -181,7 +177,7 @@ public class k2 {
                             jSONObject.put("91", k0Var.c(this.a));
                             jSONObject.put("92", k0Var.e(this.a));
                         }
-                        jSONObject.put(WebKitFactory.OS_64, i3.a());
+                        jSONObject.put("64", i3.a());
                     }
                     if (a.a(f3.N, 1) == 1) {
                         t2 t2Var = new t2();

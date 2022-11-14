@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gs5 {
+public class gs5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public long j;
-    public long k;
 
     public gs5() {
         Interceptable interceptable = $ic;
@@ -37,110 +23,20 @@ public class gs5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = "";
-        this.c = "";
-        this.e = "";
-        this.f = "";
-        this.b = "";
-        this.a = "";
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.d);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static gs5 a(AdInfo adInfo) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
-            gs5 gs5Var = new gs5();
-            if (adInfo == null) {
-                return gs5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
             }
-            gs5Var.a = adInfo.adImgUrl;
-            gs5Var.b = adInfo.redirectUrl;
-            gs5Var.j = adInfo.startShowTime;
-            gs5Var.k = adInfo.endShowTime;
-            gs5Var.d = adInfo.videoLocalPath;
-            gs5Var.e = adInfo.videoJumpUrl;
-            gs5Var.f = adInfo.videoMd5;
-            gs5Var.g = adInfo.videoDuration;
-            gs5Var.h = adInfo.videoWidth;
-            gs5Var.i = adInfo.videoHight;
-            gs5Var.c = adInfo.adVideoUrl;
-            return gs5Var;
+            return new CustomResponsedMessage<>(2001178, ks5.f().e());
         }
-        return (gs5) invokeL.objValue;
-    }
-
-    public static gs5 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            gs5 gs5Var = new gs5();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                gs5Var.a = jSONObject.optString("adImgUrl");
-                gs5Var.b = jSONObject.optString("redirectUrl");
-                gs5Var.d = jSONObject.optString("videoLocalPath");
-                gs5Var.j = jSONObject.optLong("startShowTime");
-                gs5Var.k = jSONObject.optLong("endShowTime");
-                gs5Var.e = jSONObject.optString("videoJumpUrl");
-                gs5Var.f = jSONObject.optString("videoMd5");
-                gs5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-                gs5Var.h = jSONObject.optInt("videoWidth");
-                gs5Var.i = jSONObject.optInt("videoHeight");
-                gs5Var.c = jSONObject.optString("adVideoUrl");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return gs5Var;
-        }
-        return (gs5) invokeL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adImgUrl", this.a);
-                jSONObject.put("redirectUrl", this.b);
-                jSONObject.put("videoLocalPath", this.d);
-                jSONObject.put("startShowTime", this.j);
-                jSONObject.put("endShowTime", this.k);
-                jSONObject.put("videoMd5", this.f);
-                jSONObject.put("videoJumpUrl", this.e);
-                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
-                jSONObject.put("videoWidth", this.h);
-                jSONObject.put("videoHeight", this.i);
-                jSONObject.put("adVideoUrl", this.c);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

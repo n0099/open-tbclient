@@ -536,12 +536,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.qA = findViewById(R.id.obfuscated_res_0x7f091132);
-            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091227);
-            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a0);
-            this.qD = findViewById(R.id.obfuscated_res_0x7f091152);
-            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091133);
+            this.qA = findViewById(R.id.obfuscated_res_0x7f091137);
+            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125f);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09122c);
+            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a5);
+            this.qD = findViewById(R.id.obfuscated_res_0x7f091157);
+            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091138);
         }
     }
 

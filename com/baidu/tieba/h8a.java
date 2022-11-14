@@ -1,45 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class h8a implements View.OnClickListener {
+public class h8a {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(View view2);
-
-    public h8a() {
+    public static int a(List<SplitMinAmountInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
+            for (SplitMinAmountInfo splitMinAmountInfo : list) {
+                if (splitMinAmountInfo.splitType == 1) {
+                    return splitMinAmountInfo.minAmount;
+                }
             }
+            return 0;
         }
+        return invokeL.intValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a >= 1000) {
-                a = currentTimeMillis;
-                a(view2);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            PaysSettingInfo d = l7a.d();
+            if (d == null) {
+                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
+                return false;
             }
-            RLog.debug("OnMultiClickListener", "click too often");
+            return c(d.splitMinAmountInfoList, i);
         }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean c(List<SplitMinAmountInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
+            if (list != null && !list.isEmpty()) {
+                int a = a(list);
+                if (a <= 0) {
+                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
+                    return false;
+                }
+                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
+                if (i < a) {
+                    return false;
+                }
+                return true;
+            }
+            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

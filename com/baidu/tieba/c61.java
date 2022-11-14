@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public interface c61 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
+    public static final ServiceReference a = new ServiceReference("nad.core", "navBarTool");
     public static final c61 b = new a();
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-    }
+    void a(View view2, f51 f51Var);
 
-    int a(Context context, b bVar);
+    int[] b();
+
+    int[] c();
 
     /* loaded from: classes3.dex */
     public static class a implements c61 {
@@ -25,13 +25,52 @@ public interface c61 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.c61
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
+        public int[] b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e6c} : (int[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.c61
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e6e} : (int[]) invokeV.objValue;
+        }
+
+        /* renamed from: com.baidu.tieba.c61$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class View$OnClickListenerC0224a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ f51 a;
+
+            public View$OnClickListenerC0224a(a aVar, f51 f51Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, f51Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = f51Var;
             }
-            return invokeLL.intValue;
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                f51 f51Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (f51Var = this.a) != null) {
+                    f51Var.a();
+                }
+            }
         }
 
         public a() {
@@ -45,6 +84,14 @@ public interface c61 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        @Override // com.baidu.tieba.c61
+        public void a(View view2, f51 f51Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, f51Var) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e6c) {
+                view2.setOnClickListener(new View$OnClickListenerC0224a(this, f51Var));
             }
         }
     }

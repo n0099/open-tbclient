@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,17 +68,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f40);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a36);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a38);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09217f);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092189);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2a);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f1b);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f44);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a42);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09218c);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092196);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2d);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            kw4.d(this.h).s(R.array.Mask_X003);
-            kw4 d = kw4.d(view2);
+            pw4.d(this.h).s(R.array.Mask_X003);
+            pw4 d = pw4.d(view2);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -179,7 +179,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d9, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08dd, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;
@@ -189,7 +189,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-            kw4 d = kw4.d(forumViewHolder.e);
+            pw4 d = pw4.d(forumViewHolder.e);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
         }
@@ -236,12 +236,12 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public final void l(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
-            if (!wi.isEmpty(videoItemData.title)) {
+            if (!xi.isEmpty(videoItemData.title)) {
                 forumViewHolder.f.setText(videoItemData.title);
-            } else if (!wi.isEmpty(videoItemData.abstext)) {
+            } else if (!xi.isEmpty(videoItemData.abstext)) {
                 forumViewHolder.f.setText(videoItemData.abstext);
             } else {
-                forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d5a));
+                forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d5c));
             }
         }
     }
@@ -279,7 +279,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else {
                 sb.append("00");
             }
-            kw4 d = kw4.d(forumViewHolder.d);
+            pw4 d = pw4.d(forumViewHolder.d);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             forumViewHolder.d.setText(sb.toString());

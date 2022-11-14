@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g10;
 import com.baidu.tieba.h10;
+import com.baidu.tieba.i10;
 import com.baidu.tieba.x;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,7 +31,7 @@ public class RTCLoadManager {
     public Context mContext;
     public ExecutorService mLoadServer;
     public LoadStatus mLoadStatus;
-    public h10 mSoCallback;
+    public i10 mSoCallback;
 
     /* loaded from: classes2.dex */
     public interface LoadListener {
@@ -133,7 +133,7 @@ public class RTCLoadManager {
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mLoadStatus = LoadStatus.IDLE;
         this.mCallbackList = new ArrayList();
-        this.mSoCallback = new h10.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new i10.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -156,7 +156,7 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.h10.a, com.baidu.tieba.h10
+            @Override // com.baidu.tieba.i10.a, com.baidu.tieba.i10
             public void onDownloadProgress(float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) != null) {
@@ -165,7 +165,7 @@ public class RTCLoadManager {
                 this.this$0.callbackProgress(f);
             }
 
-            @Override // com.baidu.tieba.h10
+            @Override // com.baidu.tieba.i10
             public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
@@ -176,13 +176,13 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.baidu.tieba.h10
+            @Override // com.baidu.tieba.i10
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    String str3 = g10.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str3 = h10.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
-                    x.k(this.this$0.mContext).n(g10.k(this.this$0.mContext));
+                    x.k(this.this$0.mContext).n(h10.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
@@ -390,7 +390,7 @@ public class RTCLoadManager {
             Log.d(TAG, "setup so later loading feature cpu type: " + str2);
             x.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
-                x.k(this.mContext).j(g10.j(), true, this.mSoCallback);
+                x.k(this.mContext).j(h10.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);

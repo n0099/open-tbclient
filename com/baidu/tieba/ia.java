@@ -1,5 +1,14 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.MessageTask;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public interface ia {
-    public static final int[] a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
+public interface ia<M extends Message<?>, T extends MessageTask> {
+    LinkedList<M> e(int i, BdUniqueId bdUniqueId);
+
+    void f(M m, T t);
+
+    void h(int i, BdUniqueId bdUniqueId);
 }

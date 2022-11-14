@@ -79,7 +79,7 @@ public final class ErrorRetryStatPlugin extends AbsPlugin {
             extStatisticsLogClone.put("isRetryError", 1);
             String ubcContent2 = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
             Intrinsics.checkNotNullExpressionValue(ubcContent2, "BDVideoPlayerUbcHelper.g…extLog, ubcContent, null)");
-            this.ubcService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, ubcContent2);
+            this.ubcService.onEvent("36", ubcContent2);
         } catch (JSONException e) {
             if (BDPlayerConfig.isDebug()) {
                 e.printStackTrace();

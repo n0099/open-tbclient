@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.b0a;
-import com.baidu.tieba.iz9;
-import com.baidu.tieba.k0a;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.v0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements iz9 {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements tz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -657299606803478389L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k0a<?, ?> parent;
+    public final v0a<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(k0a<?, ?> k0aVar) {
+    public OperatorEagerConcatMap$EagerOuterProducer(v0a<?, ?> v0aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k0aVar};
+            Object[] objArr = {v0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,17 +30,17 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
                 return;
             }
         }
-        this.parent = k0aVar;
+        this.parent = v0aVar;
     }
 
-    @Override // com.baidu.tieba.iz9
+    @Override // com.baidu.tieba.tz9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    b0a.b(this, j);
+                    m0a.b(this, j);
                     this.parent.g();
                     return;
                 }

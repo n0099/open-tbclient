@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class o95 {
+public class o95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
-
-    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
-
-    public abstract void d(String str);
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public o95() {
         Interceptable interceptable = $ic;
@@ -33,12 +33,23 @@ public abstract class o95 {
         }
     }
 
-    public Bitmap c(String str) throws Exception {
+    public static o95 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadBitmap(str), true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                o95 o95Var = new o95();
+                o95Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                o95Var.b = jSONObject.optInt("width");
+                o95Var.c = jSONObject.optInt("height");
+                o95Var.d = jSONObject.optString("pic_url");
+                o95Var.e = jSONObject.optString("thumbnail");
+                o95Var.g = jSONObject.optString("origin_url");
+                return o95Var;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return (Bitmap) invokeL.objValue;
+        return (o95) invokeL.objValue;
     }
 }

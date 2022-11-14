@@ -124,7 +124,7 @@ public final class k extends e {
             } else if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
                 this.ze.setText(com.kwad.components.ad.splashscreen.e.a(this.yF.mAdTemplate, this.mAdInfo, this.zi.mI()));
                 if (com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09122d), -1, 60, -1, -1);
+                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091232), -1, 60, -1, -1);
                     return;
                 }
                 return;
@@ -230,12 +230,12 @@ public final class k extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09121b)).inflate();
-            this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09122e);
-            this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f09122d);
-            this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f09122c);
-            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091229);
-            KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09122b)).inflate();
+            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091220)).inflate();
+            this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091233);
+            this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f091232);
+            this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091231);
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09122e);
+            KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091230)).inflate();
             this.zh = ksSplashSlidePathView;
             ksSplashSlidePathView.setOnSlideTouchListener(new KsSplashSlidePathView.a(this) { // from class: com.kwad.components.ad.splashscreen.b.k.1
                 public static /* synthetic */ Interceptable $ic;

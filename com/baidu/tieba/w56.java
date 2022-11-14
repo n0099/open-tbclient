@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public interface w56 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a();
-
-        void b();
-
-        void c(String str);
+        void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
     }
 
-    boolean a(x56 x56Var);
+    void a(a aVar);
 
-    boolean b(List<String> list);
+    void b();
 }

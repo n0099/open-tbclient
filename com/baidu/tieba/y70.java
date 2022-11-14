@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.NetworkInfo;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes6.dex */
 public final class y70 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "liteUBC";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,45 +27,30 @@ public final class y70 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        c = hashMap;
-        hashMap.put("WIFI", 1);
-        c.put("3GNET", 21);
-        c.put("3GWAP", 22);
-        c.put("CMNET", 31);
-        c.put("UNINET", 32);
-        c.put("CTNET", 33);
-        c.put("CMWAP", 41);
-        c.put("UNIWAP", 42);
-        c.put("CTWAP", 43);
+        b = p70.d().b();
     }
 
-    public y70(Context context) {
-        String upperCase;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        NetworkInfo a = z70.a(context);
-        if (a != null) {
-            if (!"wifi".equals(a.getTypeName().toLowerCase())) {
-                String extraInfo = a.getExtraInfo();
-                upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
-                this.b = a.getSubtype();
-            }
-            "wifi".toUpperCase();
-            this.a = upperCase;
-            this.b = a.getSubtype();
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 }

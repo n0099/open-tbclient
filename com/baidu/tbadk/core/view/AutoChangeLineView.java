@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gr8;
+import com.baidu.tieba.rr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,10 +33,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304610;
+    public static final int obfuscated = 2131304623;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304611;
+    public static final int obfuscated = 2131304624;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -649,7 +649,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.AutoChangeLineView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rr8.AutoChangeLineView);
             this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
             this.o = obtainStyledAttributes.getInteger(16, 0);
             this.p = obtainStyledAttributes.getInteger(17, 0);

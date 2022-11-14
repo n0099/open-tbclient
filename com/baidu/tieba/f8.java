@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -60,7 +59,7 @@ public class f8 {
             z = true;
         }
         g = z;
-        if (!System.getProperty("os.arch").contains(WebKitFactory.OS_64) && !System.getProperty("os.arch").startsWith("armv8")) {
+        if (!System.getProperty("os.arch").contains("64") && !System.getProperty("os.arch").startsWith("armv8")) {
             z2 = false;
         } else {
             z2 = true;

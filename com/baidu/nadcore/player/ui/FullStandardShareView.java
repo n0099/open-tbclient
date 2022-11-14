@@ -94,8 +94,8 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             ImageTextView imageTextView = new ImageTextView(context);
             this.b = imageTextView;
-            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080e52, R.string.obfuscated_res_0x7f0f0c08);
-            this.b.b(R.drawable.obfuscated_res_0x7f080e62);
+            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080e57, R.string.obfuscated_res_0x7f0f0c0a);
+            this.b.b(R.drawable.obfuscated_res_0x7f080e67);
             this.b.setOnClickListener(this);
             return this.b;
         }

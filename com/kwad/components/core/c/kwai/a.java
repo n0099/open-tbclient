@@ -58,8 +58,8 @@ public final class a extends KSFrameLayout {
         this.DG = bVar;
         this.DH = c0579b;
         this.mAdTemplate = c0579b.adTemplate;
-        FrameLayout.inflate(c0579b.context, R.layout.obfuscated_res_0x7f0d041f, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
+        FrameLayout.inflate(c0579b.context, R.layout.obfuscated_res_0x7f0d0420, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091209);
     }
 
     public static Presenter ap() {

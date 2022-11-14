@@ -49,22 +49,23 @@ import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.VirtualImageCustomFigure;
 import com.baidu.tbadk.data.VirtualImageCustomState;
+import com.baidu.tbadk.switchs.WorldCupEnableSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz;
-import com.baidu.tieba.dx;
-import com.baidu.tieba.eh8;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.mx;
+import com.baidu.tieba.cz;
+import com.baidu.tieba.ex;
+import com.baidu.tieba.nx;
+import com.baidu.tieba.ph8;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.rp4;
-import com.baidu.tieba.sx;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.sp4;
+import com.baidu.tieba.tx;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,26 +76,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
-public class CardUserInfoLayout extends RelativeLayout implements sx {
+public class CardUserInfoLayout extends RelativeLayout implements tx {
     public static /* synthetic */ Interceptable $ic;
-    public static final int Q;
+    public static final int R;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup A;
-    public View B;
-    public ThreadData C;
-    public ImageView D;
-    public FrameLayout E;
-    public HeadCustomImageView F;
-    public int G;
-    public boolean H;
-    public int I;
-    public String J;
-    public Runnable K;
-    public View.OnClickListener L;
+    public View.OnClickListener A;
+    public ViewGroup B;
+    public View C;
+    public ThreadData D;
+    public ImageView E;
+    public FrameLayout F;
+    public HeadCustomImageView G;
+    public int H;
+    public boolean I;
+    public int J;
+    public String K;
+    public Runnable L;
     public View.OnClickListener M;
     public View.OnClickListener N;
-    public final View.OnClickListener O;
+    public View.OnClickListener O;
     public final View.OnClickListener P;
+    public final View.OnClickListener Q;
     public Context a;
     public int b;
     public HeadPendantClickableView c;
@@ -114,17 +116,17 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
     public LinearLayout q;
     public VirtualImageStatusTip r;
     public TBLottieAnimationView s;
-    public int t;
+    public HeadWorldCupFlagLayout t;
     public int u;
     public int v;
     public int w;
     public int x;
-    public View.OnClickListener y;
+    public int y;
     public View.OnClickListener z;
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, tbPageContext) == null) {
         }
     }
 
@@ -189,8 +191,8 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         public void onClick(View view2) {
             String url;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a) && this.a.C != null && this.a.C.getAuthor() != null && this.a.C.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.C.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.C.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (w9.a(this.a.a) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a), new String[]{url});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a) && this.a.D != null && this.a.D.getAuthor() != null && this.a.D.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.D.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.D.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (x9.a(this.a.a) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.a), new String[]{url});
             }
         }
     }
@@ -223,32 +225,32 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         public void onClick(View view2) {
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null && !StringUtils.isNull(this.a.C.getAuthor().getName_show()) && !StringUtils.isNull(this.a.C.getAuthor().getUserId()) && this.a.C.getForum_name() != null) {
-                if (view2.getTag(R.id.obfuscated_res_0x7f0920b1) != null && (view2.getTag(R.id.obfuscated_res_0x7f0920b1) instanceof String)) {
-                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f0920b1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.D != null && this.a.D.getAuthor() != null && !StringUtils.isNull(this.a.D.getAuthor().getName_show()) && !StringUtils.isNull(this.a.D.getAuthor().getUserId()) && this.a.D.getForum_name() != null) {
+                if (view2.getTag(R.id.obfuscated_res_0x7f0920be) != null && (view2.getTag(R.id.obfuscated_res_0x7f0920be) instanceof String)) {
+                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f0920be);
                     if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                         return;
                     }
                 }
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.a, this.a.C.getAuthor().getUserId(), this.a.C.getAuthor().getName_show(), this.a.C.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-                personInfoActivityConfig.setSourceTid(this.a.C.getTid());
-                if (this.a.C.getThreadVideoInfo() != null) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.a, this.a.D.getAuthor().getUserId(), this.a.D.getAuthor().getName_show(), this.a.D.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                personInfoActivityConfig.setSourceTid(this.a.D.getTid());
+                if (this.a.D.getThreadVideoInfo() != null) {
                     z = true;
                 } else {
                     z = false;
                 }
                 personInfoActivityConfig.setIsVideoThread(z);
-                if (this.a.C.getResource() == 1) {
+                if (this.a.D.getResource() == 1) {
                     personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
-                } else if (this.a.C.getResource() == 2) {
+                } else if (this.a.D.getResource() == 2) {
                     personInfoActivityConfig.setVideoPersonFrom("frs");
-                } else if (this.a.C.getResource() == 5) {
+                } else if (this.a.D.getResource() == 5) {
                     personInfoActivityConfig.setVideoPersonFrom("topic_detail");
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-                if (this.a.y != null) {
-                    this.a.y.onClick(view2);
+                if (this.a.z != null) {
+                    this.a.z.onClick(view2);
                 }
             }
         }
@@ -281,10 +283,10 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null) {
-                rp4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1541), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.C.getAuthor().getUserId() + "&opacity=0", true, true, true);
-                if (this.a.z != null) {
-                    this.a.y.onClick(view2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.D != null && this.a.D.getAuthor() != null) {
+                sp4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1548), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.D.getAuthor().getUserId() + "&opacity=0", true, true, true);
+                if (this.a.A != null) {
+                    this.a.z.onClick(view2);
                 }
             }
         }
@@ -317,12 +319,12 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null) {
-                this.a.frsVirtualImageStatistic(mx.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.D != null && this.a.D.getAuthor() != null) {
+                this.a.frsVirtualImageStatistic(nx.a);
                 if ((view2 instanceof HeadCustomImageView) && ((HeadCustomImageView) view2).b()) {
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getContext(), this.a.C.getAuthor().getUserId(), this.a.C.getAuthor().getUserName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getContext(), this.a.D.getAuthor().getUserId(), this.a.D.getAuthor().getUserName())));
             }
         }
     }
@@ -399,8 +401,8 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.y != null) {
-                this.a.y.onClick(view2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.z != null) {
+                this.a.z.onClick(view2);
             }
         }
     }
@@ -484,13 +486,25 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                 return;
             }
         }
-        Q = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        R = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.d == null) {
+            return;
+        }
+        int g2 = yi.g(getContext(), R.dimen.tbds25);
+        if (this.d.getVisibility() != 0) {
+            g2 = 0;
+        }
+        setPadding(0, 0, 0, g2);
     }
 
     public HeadPendantClickableView getAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.c;
         }
         return (HeadPendantClickableView) invokeV.objValue;
@@ -499,7 +513,7 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
     public RelativeLayout getSuffixContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.o;
         }
         return (RelativeLayout) invokeV.objValue;
@@ -508,7 +522,7 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
     public View getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.e;
         }
         return (View) invokeV.objValue;
@@ -517,8 +531,8 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
     public boolean isHasPlayVirtualImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.H;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.I;
         }
         return invokeV.booleanValue;
     }
@@ -526,8 +540,8 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
     public boolean isVirtualImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ThreadData threadData = this.C;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ThreadData threadData = this.D;
             if (threadData == null || threadData.getCustomFigure() == null) {
                 return false;
             }
@@ -538,7 +552,7 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
 
     public void recoverVirtualAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             this.s.setVisibility(8);
             this.s.pauseAnimation();
         }
@@ -546,17 +560,17 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
 
     public void recoverVirtualImageAnimate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            bz.a(this.B);
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            cz.a(this.C);
             this.q.setVisibility(0);
             this.r.setVisibility(8);
-            this.F.setHeadViewNormalSize();
+            this.G.setHeadViewNormalSize();
         }
     }
 
     public void startVirtualAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             this.s.setVisibility(0);
             this.s.playAnimation();
         }
@@ -583,10 +597,25 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final boolean l(ThreadData threadData) {
+    public final void B(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+            if (threadData.getAuthor() == null) {
+                this.c.setVisibility(8);
+                return;
+            }
+            MetaData author = threadData.getAuthor();
+            if (!n(256)) {
+                author.setPendantData(null);
+            }
+            this.c.setData(threadData);
+        }
+    }
+
+    public final boolean m(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, threadData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, threadData)) == null) {
             if (threadData == null || threadData.getAuthor() == null || !threadData.isFromConcern || !UbsABTestHelper.isConcernForumCardShow() || threadData.getAuthor().hadConcerned() || ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
@@ -615,38 +644,23 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
             }
         }
         this.b = 3;
-        this.G = 34053;
-        this.I = 0;
-        this.J = null;
-        this.K = new a(this);
-        this.L = new b(this);
-        this.M = new c(this);
-        this.N = new d(this);
-        this.O = new e(this);
-        this.P = new f(this);
-        k();
+        this.H = 34053;
+        this.J = 0;
+        this.K = null;
+        this.L = new a(this);
+        this.M = new b(this);
+        this.N = new c(this);
+        this.O = new d(this);
+        this.P = new e(this);
+        this.Q = new f(this);
+        l();
     }
 
-    public final void A(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            if (threadData.getAuthor() == null) {
-                this.c.setVisibility(8);
-                return;
-            }
-            MetaData author = threadData.getAuthor();
-            if (!m(256)) {
-                author.setPendantData(null);
-            }
-            this.c.setData(threadData);
-        }
-    }
-
-    public final boolean m(int i2) {
+    public final boolean n(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            if ((i2 & this.G) > 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+            if ((i2 & this.H) > 0) {
                 return true;
             }
             return false;
@@ -656,45 +670,45 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
 
     public void setHasPlayVirtualImage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.H = z;
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+            this.I = z;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         HeadPendantClickableView headPendantClickableView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) && (headPendantClickableView = this.c) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048608, this, bdUniqueId) == null) && (headPendantClickableView = this.c) != null) {
             headPendantClickableView.setPageId(bdUniqueId);
         }
     }
 
     public void setShowFlag(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.G = i2;
-            g();
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            this.H = i2;
+            h();
         }
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, onClickListener) == null) {
-            this.y = onClickListener;
-        }
-    }
-
-    public void setUserIconAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, onClickListener) == null) {
             this.z = onClickListener;
         }
     }
 
-    public final void w(ThreadData threadData) {
+    public void setUserIconAfterClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, onClickListener) == null) {
+            this.A = onClickListener;
+        }
+    }
+
+    public final void x(ThreadData threadData) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048616, this, threadData) == null) && m(4096) && threadData != null && (imageView = this.p) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048618, this, threadData) == null) && n(4096) && threadData != null && (imageView = this.p) != null) {
             if (threadData.isHeadLinePost) {
                 imageView.setVisibility(0);
             } else {
@@ -703,15 +717,117 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void B(ThreadData threadData) {
+    public final void A(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) && this.i != null && threadData != null && threadData.getAuthor() != null && n(1)) {
+            ArrayList<IconData> tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
+            if (ListUtils.getCount(tShowInfoNew) != 0) {
+                this.i.setVisibility(0);
+                this.i.h(tShowInfoNew, 2, this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
+                return;
+            }
+            this.i.setVisibility(8);
+        }
+    }
+
+    public final void D(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, threadData) != null) || this.g == null) {
+            return;
+        }
+        if (!n(32)) {
+            this.g.setVisibility(8);
+        } else if (threadData != null && threadData.getAuthor() != null && (threadData.middle_page_num <= 0 || threadData.middle_page_pass_flag != 0)) {
+            ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
+            if (ListUtils.getCount(iconInfo) != 0) {
+                this.g.setVisibility(0);
+                this.g.h(iconInfo, 4, this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
+                return;
+            }
+            this.g.setVisibility(8);
+        } else {
+            this.g.setVisibility(8);
+        }
+    }
+
+    public void frsVirtualImageStatistic(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            VirtualImageCustomState customState = this.D.getCustomState();
+            if (customState == null) {
+                this.J = nx.f;
+            } else {
+                this.J = nx.e;
+                this.K = this.r.j(customState);
+            }
+            if (this.D.isFromFrs()) {
+                nx.a(i2, this.D.getTid(), nx.b, this.J, this.K, this.D.getAuthorId());
+            } else if (this.D.isFromConcern()) {
+                nx.a(i2, this.D.getTid(), nx.c, this.J, this.K, this.D.getAuthorId());
+            }
+        }
+    }
+
+    public final void u(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048615, this, threadData) == null) && threadData != null && threadData.getAuthor() != null) {
+            if (threadData.isFromFrs()) {
+                this.H |= 4096;
+            } else {
+                this.H &= -4097;
+            }
+            if (!threadData.isShowForumAndReply() && !(threadData instanceof AdvertAppInfo) && ((threadData.isFromHomPage && !threadData.isUgcThreadType() && !threadData.isNewGodAuthor() && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM) || (threadData.isFromHomPage && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM))) {
+                this.H &= -129;
+            } else {
+                this.H |= 128;
+            }
+            setShowFlag(this.H);
+        }
+    }
+
+    public final void v(ThreadData threadData) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048616, this, threadData) != null) || this.j == null) {
+            return;
+        }
+        if (threadData != null && !TextUtils.isEmpty(threadData.getThreadExtendInfo())) {
+            if (threadData.getAuthor() != null && threadData.getAuthor().isBaijiahaoUser()) {
+                this.j.setLines(1);
+                this.j.setEllipsize(TextUtils.TruncateAt.END);
+            } else {
+                this.j.setMaxLines(Integer.MAX_VALUE);
+                this.j.setEllipsize(null);
+            }
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+            this.j.setText(threadData.getThreadExtendInfo());
+            TextView textView = this.j;
+            if (n(128)) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            textView.setVisibility(i2);
+            if (threadData.isFromLocal) {
+                this.k.setLocationAndDistance(threadData.getAddress(), threadData.getDistance());
+                return;
+            } else {
+                this.k.setVisibility(8);
+                return;
+            }
+        }
+        this.j.setVisibility(8);
+    }
+
+    public final void C(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
             if (TbSingleton.getInstance().isUserGrowthOpen() && ((!threadData.isFromHomPage || threadData.isVideoThreadType()) && threadData.getAuthor() != null && threadData.getAuthor().getUserGrowthData() != null && threadData.getAuthor().getUserGrowthData().a() >= 0 && threadData.getAuthor().getUserGrowthData().a() <= 10)) {
                 int a2 = threadData.getAuthor().getUserGrowthData().a();
-                this.h.setImageResource(dx.b(a2));
+                this.h.setImageResource(ex.b(a2));
                 this.h.setVisibility(0);
                 this.h.setTag(threadData);
-                this.h.setOnClickListener(this.P);
+                this.h.setOnClickListener(this.Q);
                 if (threadData.isFromHomPage) {
                     CommonStatisticUtils.staticNameplateOfUserLevel(1, 2, a2);
                     return;
@@ -729,10 +845,10 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void D(ThreadData threadData) {
+    public final void E(ThreadData threadData) {
         String cutChineseAndEnglishWithEmoji;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) && this.e != null && threadData != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && this.e != null && threadData != null) {
             if (!threadData.isFromHomPage && !threadData.isFromConcern() && (!threadData.isFromFeedTab || !"fashion".equals(threadData.mHomePageTopTabTabCode))) {
                 if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                     if (threadData.isFromLocal) {
@@ -742,59 +858,60 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                     }
                     this.e.setText(cutChineseAndEnglishWithEmoji);
                 } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f1549);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f1550);
                 }
             } else {
-                ViewGroup.LayoutParams layoutParams = this.A.getLayoutParams();
-                layoutParams.width = this.x;
-                this.A.setLayoutParams(layoutParams);
-                ViewGroup.LayoutParams layoutParams2 = this.B.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.B.getLayoutParams();
+                layoutParams.width = this.y;
+                this.B.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams2 = this.C.getLayoutParams();
                 layoutParams2.width = -1;
-                this.B.setLayoutParams(layoutParams2);
+                this.C.setLayoutParams(layoutParams2);
                 this.e.setEllipsize(TextUtils.TruncateAt.END);
                 if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                     this.e.setText(threadData.getAuthor().getName_show());
                 } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f1549);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f1550);
                 }
             }
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);
-            o();
+            p();
         }
     }
 
-    public final void E(ThreadData threadData) {
+    public final void F(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData.getVoiceRoomData() != null && !StringUtils.isNull(threadData.getVoiceRoomData().room_name) && threadData.getVoiceRoomData().room_id.longValue() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) && threadData.getVoiceRoomData() != null && !StringUtils.isNull(threadData.getVoiceRoomData().room_name) && threadData.getVoiceRoomData().room_id.longValue() > 0) {
             if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-                marginLayoutParams.bottomMargin = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+                marginLayoutParams.bottomMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
                 setLayoutParams(marginLayoutParams);
             }
             if (threadData.getVoiceRoomData().status.intValue() == 1) {
                 this.c.setIsclearmode(true);
                 if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
-                    this.D.setVisibility(0);
-                    SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805fa);
+                    this.E.setVisibility(0);
+                    SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f0805fa);
                 }
-                this.G &= -257;
-                A(threadData);
+                this.H &= -257;
+                B(threadData);
                 this.d.setSpeed(0.8f);
                 this.d.setVisibility(0);
                 this.d.loop(true);
                 this.d.post(new h(this));
-                return;
+            } else {
+                this.d.setVisibility(8);
+                this.d.cancelAnimation();
+                this.c.setIsclearmode(false);
+                this.E.setVisibility(8);
             }
-            this.d.setVisibility(8);
-            this.d.cancelAnimation();
-            this.c.setIsclearmode(false);
-            this.D.setVisibility(8);
+            g();
         }
     }
 
-    public final void r(ThreadData threadData) {
+    public final void s(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, threadData) == null) {
             if (isVirtualImage()) {
                 VirtualImageCustomFigure customFigure = threadData.getCustomFigure();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -802,21 +919,21 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                     layoutParams.height = -2;
                     setLayoutParams(layoutParams);
                 }
-                this.F.setHeadImageViewResource(customFigure.getFigureUrl());
+                this.G.setHeadImageViewResource(customFigure.getFigureUrl());
                 if (VirtualImageCustomFigure.BACK_GROUND_TYPE_TONE.equals(customFigure.getBackGroundType())) {
-                    this.F.setHeadImageBackgroundColorResource(customFigure.getBackgroundValue());
+                    this.G.setHeadImageBackgroundColorResource(customFigure.getBackgroundValue());
                 } else if (VirtualImageCustomFigure.BACK_GROUND_TYPE_URL.equals(customFigure.getBackGroundType())) {
-                    this.F.setHeadImageBackgroundResource(customFigure.getBackgroundValue());
+                    this.G.setHeadImageBackgroundResource(customFigure.getBackgroundValue());
                 }
-                if (this.C.getResource() == 1) {
-                    this.F.setFrom(2);
-                } else if (this.C.getResource() == 2) {
-                    this.F.setFrom(1);
+                if (this.D.getResource() == 1) {
+                    this.G.setFrom(2);
+                } else if (this.D.getResource() == 2) {
+                    this.G.setFrom(1);
                 }
-                this.F.e(threadData.getAuthor());
-                this.F.setSmallWidthAndHeight(xi.g(TbadkApplication.getInst(), R.dimen.tbds94), xi.g(TbadkApplication.getInst(), R.dimen.tbds120));
-                this.E.setVisibility(8);
-                this.F.setVisibility(0);
+                this.G.e(threadData.getAuthor());
+                this.G.setSmallWidthAndHeight(yi.g(TbadkApplication.getInst(), R.dimen.tbds94), yi.g(TbadkApplication.getInst(), R.dimen.tbds120));
+                this.F.setVisibility(8);
+                this.G.setVisibility(0);
                 frsVirtualImageStatistic(2);
                 return;
             }
@@ -826,17 +943,54 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                 layoutParams2.width = -2;
                 setLayoutParams(layoutParams2);
             }
-            this.E.setVisibility(0);
-            this.F.setVisibility(8);
+            this.F.setVisibility(0);
+            this.G.setVisibility(8);
         }
     }
 
-    public final void s(ThreadData threadData) {
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, threadData) == null) {
+            if (threadData == null) {
+                setVisibility(8);
+            } else if (m(threadData)) {
+                setVisibility(4);
+            } else {
+                this.D = threadData;
+                u(threadData);
+                B(threadData);
+                A(threadData);
+                y(threadData);
+                E(threadData);
+                D(threadData);
+                w(threadData);
+                v(threadData);
+                t(threadData);
+                z(threadData);
+                q(threadData);
+                x(threadData);
+                F(threadData);
+                C(threadData);
+                if (WorldCupEnableSwitch.isOn() && ((threadData.isFromConcern || threadData.isFromFrs() || threadData.isFromFrsTab()) && threadData.getAuthor() != null)) {
+                    this.t.b(threadData.getAuthor());
+                }
+                setVisibility(0);
+                s(threadData);
+                if (n(128) && !threadData.isFromHomPage && !threadData.isFromConcern() && !threadData.isFromLocal) {
+                    if (!threadData.isFromFeedTab || !"fashion".equals(threadData.mHomePageTopTabTabCode)) {
+                        this.B.post(this.L);
+                    }
+                }
+            }
+        }
+    }
+
+    public final void t(ThreadData threadData) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, threadData) == null) {
             String str = "";
-            q("");
+            r("");
             if (threadData == null) {
                 return;
             }
@@ -853,32 +1007,32 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = eh8.e().c();
+                AppPosInfo c2 = ph8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
-                    double h2 = xi.h(wg.c(str2, 0.0d), wg.c(str3, 0.0d), wg.c(latitude, 0.0d), wg.c(longtitude, 0.0d));
+                    double h2 = yi.h(xg.c(str2, 0.0d), xg.c(str3, 0.0d), xg.c(latitude, 0.0d), xg.c(longtitude, 0.0d));
                     str = h2 <= 50.0d ? StringHelper.formatDistanceNum(h2) : threadData.getAddress();
                 }
             } else if (z) {
                 str = threadData.getAddress();
             }
-            q(str);
+            r(str);
         }
     }
 
-    public void y(ThreadData threadData) {
+    public void z(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048618, this, threadData) != null) || this.n == null) {
+        if ((interceptable != null && interceptable.invokeL(1048620, this, threadData) != null) || this.n == null) {
             return;
         }
-        if (threadData != null && (m(8) || m(512))) {
-            if (this.C.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+        if (threadData != null && (n(8) || n(512))) {
+            if (this.D.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
                 this.n.setVisibility(0);
                 this.n.getPaint().setFakeBoldText(true);
                 SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
                 return;
-            } else if (m(8)) {
+            } else if (n(8)) {
                 if (StringUtils.isNull(threadData.getRecomReason())) {
                     this.n.setVisibility(8);
                     return;
@@ -891,152 +1045,16 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                 this.n.setText(threadData.getRecomReason());
                 this.n.setVisibility(0);
                 return;
-            } else if (StringUtils.isNull(this.C.getShareIntro())) {
+            } else if (StringUtils.isNull(this.D.getShareIntro())) {
                 this.n.setVisibility(8);
                 return;
             } else {
                 this.n.setVisibility(0);
-                this.n.setText(this.C.getShareIntro());
+                this.n.setText(this.D.getShareIntro());
                 return;
             }
         }
         this.n.setVisibility(8);
-    }
-
-    public final void C(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) != null) || this.g == null) {
-            return;
-        }
-        if (!m(32)) {
-            this.g.setVisibility(8);
-        } else if (threadData != null && threadData.getAuthor() != null && (threadData.middle_page_num <= 0 || threadData.middle_page_pass_flag != 0)) {
-            ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
-            if (ListUtils.getCount(iconInfo) != 0) {
-                this.g.setVisibility(0);
-                this.g.h(iconInfo, 4, this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
-                return;
-            }
-            this.g.setVisibility(8);
-        } else {
-            this.g.setVisibility(8);
-        }
-    }
-
-    public void frsVirtualImageStatistic(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            VirtualImageCustomState customState = this.C.getCustomState();
-            if (customState == null) {
-                this.I = mx.f;
-            } else {
-                this.I = mx.e;
-                this.J = this.r.j(customState);
-            }
-            if (this.C.isFromFrs()) {
-                mx.a(i2, this.C.getTid(), mx.b, this.I, this.J, this.C.getAuthorId());
-            } else if (this.C.isFromConcern()) {
-                mx.a(i2, this.C.getTid(), mx.c, this.I, this.J, this.C.getAuthorId());
-            }
-        }
-    }
-
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, threadData) == null) {
-            if (threadData == null) {
-                setVisibility(8);
-            } else if (l(threadData)) {
-                setVisibility(4);
-            } else {
-                this.C = threadData;
-                t(threadData);
-                A(threadData);
-                z(threadData);
-                x(threadData);
-                D(threadData);
-                C(threadData);
-                v(threadData);
-                u(threadData);
-                s(threadData);
-                y(threadData);
-                p(threadData);
-                w(threadData);
-                E(threadData);
-                B(threadData);
-                setVisibility(0);
-                r(threadData);
-                if (m(128) && !threadData.isFromHomPage && !threadData.isFromConcern() && !threadData.isFromLocal) {
-                    if (!threadData.isFromFeedTab || !"fashion".equals(threadData.mHomePageTopTabTabCode)) {
-                        this.A.post(this.K);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void t(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048613, this, threadData) == null) && threadData != null && threadData.getAuthor() != null) {
-            if (threadData.isFromFrs()) {
-                this.G |= 4096;
-            } else {
-                this.G &= -4097;
-            }
-            if (!threadData.isShowForumAndReply() && !(threadData instanceof AdvertAppInfo) && ((threadData.isFromHomPage && !threadData.isUgcThreadType() && !threadData.isNewGodAuthor() && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM) || (threadData.isFromHomPage && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM))) {
-                this.G &= -129;
-            } else {
-                this.G |= 128;
-            }
-            setShowFlag(this.G);
-        }
-    }
-
-    public final void u(ThreadData threadData) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048614, this, threadData) != null) || this.j == null) {
-            return;
-        }
-        if (threadData != null && !TextUtils.isEmpty(threadData.getThreadExtendInfo())) {
-            if (threadData.getAuthor() != null && threadData.getAuthor().isBaijiahaoUser()) {
-                this.j.setLines(1);
-                this.j.setEllipsize(TextUtils.TruncateAt.END);
-            } else {
-                this.j.setMaxLines(Integer.MAX_VALUE);
-                this.j.setEllipsize(null);
-            }
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-            this.j.setText(threadData.getThreadExtendInfo());
-            TextView textView = this.j;
-            if (m(128)) {
-                i2 = 0;
-            } else {
-                i2 = 8;
-            }
-            textView.setVisibility(i2);
-            if (threadData.isFromLocal) {
-                this.k.setLocationAndDistance(threadData.getAddress(), threadData.getDistance());
-                return;
-            } else {
-                this.k.setVisibility(8);
-                return;
-            }
-        }
-        this.j.setVisibility(8);
-    }
-
-    public final void z(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048619, this, threadData) == null) && this.i != null && threadData != null && threadData.getAuthor() != null && m(1)) {
-            ArrayList<IconData> tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
-            if (ListUtils.getCount(tShowInfoNew) != 0) {
-                this.i.setVisibility(0);
-                this.i.h(tShowInfoNew, 2, this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
-                return;
-            }
-            this.i.setVisibility(8);
-        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0097 A[RETURN] */
@@ -1049,29 +1067,29 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (m(512)) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (n(512)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.e.getMeasuredHeight());
-                layoutParams.setMargins(xi.g(this.a, R.dimen.tbds10), xi.g(this.a, R.dimen.tbds_5), 0, 0);
+                layoutParams.setMargins(yi.g(this.a, R.dimen.tbds10), yi.g(this.a, R.dimen.tbds_5), 0, 0);
                 this.n.setLayoutParams(layoutParams);
             }
             TextPaint paint = this.e.getPaint();
-            int i4 = xi.s(this.a)[0];
+            int i4 = yi.s(this.a)[0];
             if (i4 <= 0) {
                 return;
             }
             int width = getWidth() - ((i4 * 31) / 108);
-            if (this.C.showFollowBtn()) {
-                g2 = xi.g(this.a, R.dimen.tbds120);
+            if (this.D.showFollowBtn()) {
+                g2 = yi.g(this.a, R.dimen.tbds120);
             } else {
-                if (this.C.getAuthor() != null && this.C.getAuthor().getThemeCard() != null && !wi.isEmpty(this.C.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.C.isHeadLinePost) {
-                    g2 = xi.g(this.a, R.dimen.tbds120);
+                if (this.D.getAuthor() != null && this.D.getAuthor().getThemeCard() != null && !xi.isEmpty(this.D.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.D.isHeadLinePost) {
+                    g2 = yi.g(this.a, R.dimen.tbds120);
                 }
                 if (width > 0) {
                     return;
                 }
-                int w = xi.w(paint, n(this.C.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
-                int w2 = xi.w(paint, n(this.C.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+                int w = yi.w(paint, o(this.D.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+                int w2 = yi.w(paint, o(this.D.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
                 int measuredWidth = this.i.getMeasuredWidth();
                 int measuredWidth2 = this.e.getMeasuredWidth();
                 int measuredWidth3 = this.n.getMeasuredWidth();
@@ -1085,9 +1103,9 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                     int i7 = measuredWidth5 + i6;
                     int i8 = w + i7 + measuredWidth6;
                     if (width > i8) {
-                        this.e.setText(n(charSequence, 12));
+                        this.e.setText(o(charSequence, 12));
                     } else if (width < i8) {
-                        this.e.setText(n(charSequence, 10));
+                        this.e.setText(o(charSequence, 10));
                     }
                     if (width < i7 + w2 + measuredWidth6) {
                         this.g.setVisibility(8);
@@ -1103,16 +1121,16 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                     }
                 }
                 int i9 = Integer.MAX_VALUE;
-                if (m(2048)) {
-                    i2 = (i4 - this.t) - this.u;
-                    i3 = this.v;
+                if (n(2048)) {
+                    i2 = (i4 - this.u) - this.v;
+                    i3 = this.w;
                 } else {
-                    ThreadData threadData = this.C;
-                    if (threadData != null && threadData.getAuthor() != null && this.C.getAuthor().isBaijiahaoUser()) {
-                        i9 = (i4 - this.t) - this.w;
-                        if (!this.C.getAuthor().hadConcerned()) {
-                            i2 = (i4 - this.t) - this.u;
-                            i3 = this.v;
+                    ThreadData threadData = this.D;
+                    if (threadData != null && threadData.getAuthor() != null && this.D.getAuthor().isBaijiahaoUser()) {
+                        i9 = (i4 - this.u) - this.x;
+                        if (!this.D.getAuthor().hadConcerned()) {
+                            i2 = (i4 - this.u) - this.v;
+                            i3 = this.w;
                         }
                     }
                     this.j.setMaxWidth(i9);
@@ -1128,81 +1146,81 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void g() {
+    public final void h() {
         int i2;
         int i3;
         int i4;
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             UserIconBox userIconBox = this.i;
             int i7 = 0;
-            if (m(1)) {
+            if (n(1)) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
             userIconBox.setVisibility(i2);
             TextView textView = this.e;
-            if (m(4)) {
+            if (n(4)) {
                 i3 = 0;
             } else {
                 i3 = 8;
             }
             textView.setVisibility(i3);
             TextView textView2 = this.f;
-            if (m(16)) {
+            if (n(16)) {
                 i4 = 0;
             } else {
                 i4 = 8;
             }
             textView2.setVisibility(i4);
             TextView textView3 = this.n;
-            if (m(8)) {
+            if (n(8)) {
                 i5 = 0;
             } else {
                 i5 = 8;
             }
             textView3.setVisibility(i5);
             UserIconBox userIconBox2 = this.g;
-            if (m(32)) {
+            if (n(32)) {
                 i6 = 0;
             } else {
                 i6 = 8;
             }
             userIconBox2.setVisibility(i6);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.A.getLayoutParams();
-            if (m(128)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.B.getLayoutParams();
+            if (n(128)) {
                 this.j.setVisibility(0);
             } else {
                 this.j.setVisibility(8);
             }
-            this.A.setLayoutParams(marginLayoutParams);
+            this.B.setLayoutParams(marginLayoutParams);
             ImageView imageView = this.p;
-            if (!m(4096)) {
+            if (!n(4096)) {
                 i7 = 8;
             }
             imageView.setVisibility(i7);
         }
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.a = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08cf, (ViewGroup) this, true);
-            h();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d3, (ViewGroup) this, true);
             i();
-            xi.g(this.a, R.dimen.tbds40);
-            this.t = xi.g(this.a, R.dimen.tbds164);
-            this.u = xi.g(this.a, R.dimen.tbds156);
-            this.v = xi.g(this.a, R.dimen.tbds148);
-            this.w = xi.g(this.a, R.dimen.tbds118);
-            this.x = xi.g(this.a, R.dimen.tbds580);
+            j();
+            yi.g(this.a, R.dimen.tbds40);
+            this.u = yi.g(this.a, R.dimen.tbds164);
+            this.v = yi.g(this.a, R.dimen.tbds156);
+            this.w = yi.g(this.a, R.dimen.tbds148);
+            this.x = yi.g(this.a, R.dimen.tbds118);
+            this.y = yi.g(this.a, R.dimen.tbds580);
         }
     }
 
@@ -1211,7 +1229,7 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         VirtualImageCustomFigure customFigure;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048612, this) != null) || (threadData = this.C) == null || (customFigure = threadData.getCustomFigure()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048613, this) != null) || (threadData = this.D) == null || (customFigure = threadData.getCustomFigure()) == null) {
             return;
         }
         if (VirtualImageCustomFigure.BACK_GROUND_TYPE_TONE.equals(customFigure.getBackGroundType())) {
@@ -1219,24 +1237,24 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         } else {
             str = "#7F66FE";
         }
-        VirtualImageCustomState customState = this.C.getCustomState();
+        VirtualImageCustomState customState = this.D.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.getIcon())) {
             this.q.setVisibility(8);
-            bz.b(this.B, 400);
+            cz.b(this.C, 400);
             this.r.setVisibility(0);
             this.r.setData(customState, true, str);
             this.r.f();
         } else {
             this.r.setVisibility(8);
         }
-        this.F.g(true, 400L);
-        j();
+        this.G.g(true, 400L);
+        k();
     }
 
-    public final void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f0924c8);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f0924d7);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -1244,64 +1262,65 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new g(this));
-            this.E = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924ce);
-            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f0924ca);
-            this.F = headCustomImageView;
-            headCustomImageView.setOnClickListener(this.O);
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924f4);
-            this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f26);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092517);
+            this.F = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924dd);
+            this.t = (HeadWorldCupFlagLayout) findViewById(R.id.obfuscated_res_0x7f0926f9);
+            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f0924d9);
+            this.G = headCustomImageView;
+            headCustomImageView.setOnClickListener(this.P);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092503);
+            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f29);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092526);
             this.i = userIconBox;
-            userIconBox.setOnClickListener(this.L);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f6);
+            userIconBox.setOnClickListener(this.M);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092505);
             this.e = textView;
-            textView.setOnClickListener(this.M);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e89);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092202);
+            textView.setOnClickListener(this.N);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e8c);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f092208);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f09220f);
             this.g = userIconBox2;
-            userIconBox2.setOnClickListener(this.N);
+            userIconBox2.setOnClickListener(this.O);
             this.g.setAutoChangedStyle(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0921dd);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ea);
             if (DeviceInfoUtil.isMi5X()) {
-                this.j.setPadding(0, -Q, 0, 0);
+                this.j.setPadding(0, -R, 0, 0);
             }
-            this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f09060e);
+            this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f09060f);
             this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090212);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090211);
-            this.A = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924f8);
-            this.B = findViewById(R.id.obfuscated_res_0x7f090562);
-            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ffd);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b6a);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e6d);
-            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092647);
+            this.B = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092507);
+            this.C = findViewById(R.id.obfuscated_res_0x7f090563);
+            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092009);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b6b);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e79);
+            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092656);
             this.r = virtualImageStatusTip;
-            virtualImageStatusTip.setOnClickListener(this.O);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924d3);
+            virtualImageStatusTip.setOnClickListener(this.P);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924e2);
         }
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.s = new TBLottieAnimationView(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.g(this.a, R.dimen.tbds650), xi.g(this.a, R.dimen.tbds100));
-            layoutParams.setMargins(xi.g(this.a, R.dimen.tbds64), 0, 0, 0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.g(this.a, R.dimen.tbds650), yi.g(this.a, R.dimen.tbds100));
+            layoutParams.setMargins(yi.g(this.a, R.dimen.tbds64), 0, 0, 0);
             addView(this.s, layoutParams);
-            j();
+            k();
             this.s.setVisibility(8);
         }
     }
 
-    public final void o() {
+    public final void p() {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (threadData = this.C) != null && threadData.getAuthor() != null) {
-            ThreadData threadData2 = this.C;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (threadData = this.D) != null && threadData.getAuthor() != null) {
+            ThreadData threadData2 = this.D;
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
                 SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0106);
                 HomeGroupUbsUIHelper.handleHeadSegmentTitleViewColor(this.e);
-            } else if (ListUtils.isEmpty(this.C.getAuthor().getTShowInfoNew()) && !this.C.isNewGodAuthor()) {
+            } else if (ListUtils.isEmpty(this.D.getAuthor().getTShowInfoNew()) && !this.D.isNewGodAuthor()) {
                 SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0106);
                 HomeGroupUbsUIHelper.handleHeadSegmentTitleViewColor(this.e);
             } else {
@@ -1310,9 +1329,9 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.s != null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.s != null) {
             if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
                 this.s.setImageAssetsFolder("lottie_reactions_guide_left_img");
             } else {
@@ -1322,27 +1341,27 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public String n(String str, int i2) {
+    public String o(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i2)) == null) {
             return StringHelper.cutChineseAndEnglishWithSuffix(str, i2, StringHelper.STRING_MORE);
         }
         return (String) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048597, this, tbPageContext, i2) == null) && i2 != this.b) {
+        if ((interceptable == null || interceptable.invokeLI(1048598, this, tbPageContext, i2) == null) && i2 != this.b) {
             this.b = i2;
             this.c.getHeadView().setPlaceHolder(1);
             TBLottieAnimationView tBLottieAnimationView = this.d;
             if (tBLottieAnimationView != null) {
                 SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
             }
-            if (this.D.getVisibility() == 0) {
-                WebPManager.setMaskDrawable(this.D, R.drawable.obfuscated_res_0x7f0805fa, null);
+            if (this.E.getVisibility() == 0) {
+                WebPManager.setMaskDrawable(this.E, R.drawable.obfuscated_res_0x7f0805fa, null);
             }
             LocationExtendLayout locationExtendLayout = this.k;
             if (locationExtendLayout != null) {
@@ -1351,18 +1370,19 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void p(ThreadData threadData) {
+    public final void q(ThreadData threadData) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, threadData) == null) {
-            if (!m(32768)) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) {
+            if (!n(32768)) {
                 this.d.setVisibility(8);
                 if (this.d.isAnimating()) {
                     this.d.cancelAnimation();
                 }
                 this.c.setIsclearmode(false);
-                this.D.setVisibility(8);
+                this.E.setVisibility(8);
+                g();
                 return;
             }
             if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null && threadData.getAuthor().getAlaUserData().live_status == 1) {
@@ -1379,33 +1399,34 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
                 this.d.setVisibility(8);
                 this.d.cancelAnimation();
                 this.c.setIsclearmode(false);
-                this.D.setVisibility(8);
-                return;
+                this.E.setVisibility(8);
+            } else {
+                this.c.setIsclearmode(true);
+                if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
+                    this.E.setVisibility(0);
+                    SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f0805fa);
+                }
+                this.H &= -257;
+                B(threadData);
+                this.d.setSpeed(0.8f);
+                this.d.setVisibility(0);
+                this.d.loop(true);
+                this.d.post(new i(this));
             }
-            this.c.setIsclearmode(true);
-            if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
-                this.D.setVisibility(0);
-                SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805fa);
-            }
-            this.G &= -257;
-            A(threadData);
-            this.d.setSpeed(0.8f);
-            this.d.setVisibility(0);
-            this.d.loop(true);
-            this.d.post(new i(this));
+            g();
         }
     }
 
-    public final void x(ThreadData threadData) {
+    public final void y(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048617, this, threadData) == null) && this.f != null && threadData != null && threadData.getAuthor() != null && m(16)) {
+        if ((interceptable == null || interceptable.invokeL(1048619, this, threadData) == null) && this.f != null && threadData != null && threadData.getAuthor() != null && n(16)) {
             MetaData author = threadData.getAuthor();
             if (this.f.getLayoutParams() != null) {
                 this.f.getLayoutParams().width = -2;
             }
             this.f.setOnClickListener(null);
             if (author.getIs_bawu() == 1) {
-                kw4 d2 = kw4.d(this.f);
+                pw4 d2 = pw4.d(this.f);
                 d2.v(R.color.CAM_X0101);
                 d2.e(R.string.A_X04);
                 d2.n(R.string.J_X04);
@@ -1439,10 +1460,10 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
         }
     }
 
-    public final void q(String str) {
+    public final void r(String str) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             boolean z = !StringUtils.isNull(str);
             ImageView imageView = this.l;
             int i3 = 0;
@@ -1459,22 +1480,22 @@ public class CardUserInfoLayout extends RelativeLayout implements sx {
             textView.setVisibility(i3);
             if (z) {
                 this.m.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809db, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             }
         }
     }
 
-    public final void v(ThreadData threadData) {
+    public final void w(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048615, this, threadData) == null) && this.c != null && threadData != null && this.C.getAuthor() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048617, this, threadData) == null) && this.c != null && threadData != null && this.D.getAuthor() != null) {
             this.c.setBigVDimenSize(R.dimen.tbds36);
             this.c.setIsHomePage(threadData.isFromHomPage);
-            ThreadData threadData2 = this.C;
+            ThreadData threadData2 = this.D;
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
                 this.c.h(false);
             } else {
-                this.c.j(this.C.getAuthor(), 0);
+                this.c.j(this.D.getAuthor(), 0);
             }
         }
     }

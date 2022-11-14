@@ -3,10 +3,10 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ke;
-import com.baidu.tieba.md;
-import com.baidu.tieba.oe;
-import com.baidu.tieba.ud;
+import com.baidu.tieba.le;
+import com.baidu.tieba.nd;
+import com.baidu.tieba.pe;
+import com.baidu.tieba.vd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.lang.reflect.Type;
 import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
-public class CursorDataSource implements md {
+public class CursorDataSource implements nd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Cursor jo;
@@ -71,7 +71,7 @@ public class CursorDataSource implements md {
         }
     }
 
-    @Override // com.baidu.tieba.md
+    @Override // com.baidu.tieba.nd
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,17 +143,17 @@ public class CursorDataSource implements md {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.md
+    @Override // com.baidu.tieba.nd
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                ke keVar = new ke(type);
-                ud a = oe.a(object);
+                le leVar = new le(type);
+                vd a = pe.a(object);
                 if (a != null) {
-                    return a.a(keVar);
+                    return a.a(leVar);
                 }
                 return object;
             }
@@ -162,7 +162,7 @@ public class CursorDataSource implements md {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.md
+    @Override // com.baidu.tieba.nd
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) && str != null) {

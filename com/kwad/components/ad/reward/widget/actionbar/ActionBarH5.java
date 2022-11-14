@@ -102,10 +102,10 @@ public class ActionBarH5 extends FrameLayout implements c {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0480, this);
-            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910e8);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ec);
-            this.wS = findViewById(R.id.obfuscated_res_0x7f0910c7);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0481, this);
+            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ed);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
+            this.wS = findViewById(R.id.obfuscated_res_0x7f0910cc);
         }
     }
 

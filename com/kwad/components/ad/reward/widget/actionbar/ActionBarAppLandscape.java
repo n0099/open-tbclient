@@ -243,17 +243,17 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d047e, this);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091090);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091094);
-            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f09108c);
-            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091093);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f09108f);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09108e);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d047f, this);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
+            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091091);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091098);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091094);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091093);
             this.wI = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
             this.wI.setTextColor(-1);
-            this.wJ = findViewById(R.id.obfuscated_res_0x7f0910c7);
+            this.wJ = findViewById(R.id.obfuscated_res_0x7f0910cc);
         }
     }
 

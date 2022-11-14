@@ -4,7 +4,7 @@ import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.core.response.model.TemplateConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bg implements com.kwad.sdk.core.d<SdkConfigData.CouponActiveConfig> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {

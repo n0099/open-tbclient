@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.core.util.TiebaMainSdDatabaseHelper;
-import com.baidu.tieba.y9;
+import com.baidu.tieba.z9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +17,8 @@ public class TiebaDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static TiebaDatabase _instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public y9 mainDB;
-    public y9 mainSdDB;
+    public z9 mainDB;
+    public z9 mainSdDB;
 
     static {
         InterceptResult invokeClinit;
@@ -59,43 +59,43 @@ public class TiebaDatabase {
         return (TiebaDatabase) invokeV.objValue;
     }
 
-    public y9 getMainDBDatabaseManager() {
+    public z9 getMainDBDatabaseManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            y9 y9Var = this.mainDB;
-            if (y9Var != null) {
-                return y9Var;
+            z9 z9Var = this.mainDB;
+            if (z9Var != null) {
+                return z9Var;
             }
             synchronized (_instance) {
                 if (this.mainDB != null) {
                     return this.mainDB;
                 }
-                y9 y9Var2 = new y9(new TiebaMainDatabaseHelper(TbadkCoreApplication.getInst().getContext()));
-                this.mainDB = y9Var2;
-                return y9Var2;
+                z9 z9Var2 = new z9(new TiebaMainDatabaseHelper(TbadkCoreApplication.getInst().getContext()));
+                this.mainDB = z9Var2;
+                return z9Var2;
             }
         }
-        return (y9) invokeV.objValue;
+        return (z9) invokeV.objValue;
     }
 
-    public y9 getSdcardMainDBDatabaseManager() {
+    public z9 getSdcardMainDBDatabaseManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y9 y9Var = this.mainSdDB;
-            if (y9Var != null) {
-                return y9Var;
+            z9 z9Var = this.mainSdDB;
+            if (z9Var != null) {
+                return z9Var;
             }
             synchronized (_instance) {
                 if (this.mainSdDB != null) {
                     return this.mainSdDB;
                 }
-                y9 y9Var2 = new y9(new TiebaMainSdDatabaseHelper());
-                this.mainSdDB = y9Var2;
-                return y9Var2;
+                z9 z9Var2 = new z9(new TiebaMainSdDatabaseHelper());
+                this.mainSdDB = z9Var2;
+                return z9Var2;
             }
         }
-        return (y9) invokeV.objValue;
+        return (z9) invokeV.objValue;
     }
 }

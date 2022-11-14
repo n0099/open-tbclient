@@ -60,9 +60,9 @@ public class d extends com.kwad.components.core.i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(R.string.obfuscated_res_0x7f0f09ed);
-            builder.setMessage(R.string.obfuscated_res_0x7f0f09ea);
-            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f09eb, new DialogInterface.OnClickListener(this) { // from class: com.kwad.components.core.page.d.1
+            builder.setTitle(R.string.obfuscated_res_0x7f0f09ef);
+            builder.setMessage(R.string.obfuscated_res_0x7f0f09ec);
+            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f09ed, new DialogInterface.OnClickListener(this) { // from class: com.kwad.components.core.page.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d Gb;
@@ -93,7 +93,7 @@ public class d extends com.kwad.components.core.i.b {
                     }
                 }
             });
-            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f09ec, new DialogInterface.OnClickListener(this) { // from class: com.kwad.components.core.page.d.2
+            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f09ee, new DialogInterface.OnClickListener(this) { // from class: com.kwad.components.core.page.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d Gb;

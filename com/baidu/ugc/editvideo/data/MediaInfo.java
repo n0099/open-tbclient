@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.data;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ij9;
+import com.baidu.tieba.tj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -194,7 +194,7 @@ public class MediaInfo {
                     isMore3s = false;
                 }
             }
-            if (!ij9.a) {
+            if (!tj9.a) {
                 if (this.duration > 15000) {
                     z = false;
                 }

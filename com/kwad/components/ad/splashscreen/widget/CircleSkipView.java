@@ -179,7 +179,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09f2));
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09f4));
             textView.setTextColor(-1);
             textView.setTextSize(12.0f);
             return textView;

@@ -13,8 +13,8 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.v7a;
+import com.baidu.tieba.d5a;
+import com.baidu.tieba.x8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +135,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= v7a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= x8a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
@@ -315,7 +315,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 radioButton.setId(i + 4660);
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee5));
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eef));
                 RadioGroup radioGroup2 = this.b;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
@@ -392,14 +392,14 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void g(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o4a.Pay_Ui_Banner, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d5a.Pay_Ui_Banner, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c8, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912e2);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06cb, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912e7);
             if (findViewById != null) {
                 this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912e1);
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912e6);
                 if (findViewById2 != null) {
                     this.b = (RadioGroup) findViewById2;
                     this.d = findViewById(R.id.obfuscated_res_0x7f090337);

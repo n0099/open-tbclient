@@ -1,47 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+@TargetApi(16)
 /* loaded from: classes5.dex */
-public class re5 extends qe5 {
+public class re5 implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long A;
-    public long B;
-    public long C;
-    public long D;
-    public HashMap<String, String> E;
-    public boolean b;
+    public long a;
+    public long b;
     public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public long k;
-    public long l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public long q;
-    public long r;
-    public boolean s;
-    public int t;
-    public long u;
-    public int v;
-    public long w;
-    public long x;
-    public boolean y;
-    public long z;
+    public int d;
+    public int e;
+    public boolean f;
 
     public re5() {
         Interceptable interceptable = $ic;
@@ -56,111 +33,80 @@ public class re5 extends qe5 {
                 return;
             }
         }
-        this.i = 0L;
-        this.j = 0L;
-        this.n = 0L;
-        this.p = 0L;
-        this.q = 0L;
-        this.r = 0L;
-        this.w = 0L;
-        this.x = 0L;
-        this.y = false;
-        this.E = new HashMap<>();
+        this.a = 0L;
+        this.d = 0;
+        this.e = -1;
+        this.f = false;
     }
 
-    public re5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        this.i = 0L;
-        this.j = 0L;
-        this.n = 0L;
-        this.p = 0L;
-        this.q = 0L;
-        this.r = 0L;
-        this.w = 0L;
-        this.x = 0L;
-        this.y = false;
-        this.E = new HashMap<>();
-        if (responsedMessage == null) {
-            return;
-        }
-        this.a = i;
-        this.s = z;
-        if (z) {
-            this.r = responsedMessage.getDownSize();
-            this.A = responsedMessage.getOrginalMessage().getClientLogID();
-            this.z = responsedMessage.getOrginalMessage().getSquencedId();
-            wb wbVar = responsedMessage.performanceData;
-            this.w = wbVar.k;
-            this.x = wbVar.l;
-            this.t = wbVar.i;
-            this.u = wbVar.j;
-        } else {
-            this.q = responsedMessage.getDownSize();
-            this.z = responsedMessage.getOrginalMessage().getSquencedId();
-        }
-        this.c = j;
-        this.d = j4;
-        this.e = j2;
-        this.o = j3;
-        this.m = j5;
-        this.b = !responsedMessage.hasError();
-        wb wbVar2 = responsedMessage.performanceData;
-        this.f = wbVar2.a;
-        this.g = wbVar2.b;
-        this.h = wbVar2.c;
-        this.i = wbVar2.d;
-        this.j = wbVar2.e;
-        this.k = wbVar2.f;
-        this.l = wbVar2.g;
-        long j7 = wbVar2.h;
-        this.n = j7;
-        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
-        this.v = responsedMessage.getError();
-        this.y = z2;
-        this.p = j6;
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && !wi.isEmpty(str) && !wi.isEmpty(str2)) {
-            this.E.put(str, str2);
-        }
+        return invokeV.intValue;
     }
 
     public void c() {
-        ve5 ve5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ve5Var = (ve5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            ve5Var.b(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.c = currentTimeMillis;
+            this.b = currentTimeMillis + 1000;
+            this.a = 0L;
+            this.d = 0;
+            this.e = -1;
+            this.f = false;
+            Choreographer.getInstance().postFrameCallback(this);
         }
     }
 
-    public void d(int i) {
-        ve5 ve5Var;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (ve5Var = (ve5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            ve5Var.c(this, i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.d = 0;
+            this.c = 0L;
         }
     }
 
-    public void e(boolean z) {
-        ve5 ve5Var;
+    public final void a(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (ve5Var = (ve5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            ve5Var.d(this, z);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.c;
+            if (j2 <= 0) {
+                return;
+            }
+            long j3 = j - j2;
+            if (j3 > 0 && this.e <= 0) {
+                this.e = (int) (60 - ((this.d * 1000) / j3));
+            }
+        }
+    }
+
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.a;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.d = (int) (this.d + (j3 / 16));
+                }
+            }
+            this.a = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.b && !this.f) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
+            }
+            a(currentTimeMillis);
+            this.d = 0;
+            this.c = 0L;
         }
     }
 }

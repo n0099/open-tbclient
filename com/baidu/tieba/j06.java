@@ -1,35 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.ala.data.AlaLiveInfoData;
-import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class j06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaUserInfoData a;
-    public p06 b;
-    public x06 c;
-    public List<AlaLiveInfoData> d;
-    public List<w06> e;
-    public boolean f;
-    public final h06 g;
-    public y06 h;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<kn> c;
+    public List<xn> d;
+    public l16 e;
+    public p06 f;
 
-    public j06() {
+    public j06(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, l16 l16Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, l16Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,83 +36,81 @@ public class j06 {
                 return;
             }
         }
-        this.f = false;
-        this.a = new AlaUserInfoData();
-        this.b = new p06();
-        this.c = new x06();
-        this.g = new h06();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.c = new ArrayList();
         this.d = new ArrayList();
-        this.e = new ArrayList();
+        this.e = l16Var;
+        a();
     }
 
-    public h06 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (h06) invokeV.objValue;
-    }
-
-    public AlaUserInfoData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (AlaUserInfoData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-            JSONObject optJSONObject = jSONObject2.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
-            }
-            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                w06 w06Var = new w06();
-                w06Var.a(optJSONArray.getJSONObject(i));
-                this.e.add(w06Var);
-            }
-            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
-            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
-                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
-                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                this.d.add(alaLiveInfoData);
-            }
-            this.b.a(jSONObject2.optJSONObject("media"));
-            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
-            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
-            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
-            if (optJSONObject2 != null) {
-                y06 y06Var = new y06();
-                this.h = y06Var;
-                y06Var.a(optJSONObject2);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            i06 i06Var = new i06(this.a);
+            m06 m06Var = new m06(this.a);
+            n06 n06Var = new n06(this.a);
+            g06 g06Var = new g06(this.a);
+            l06 l06Var = new l06(this.a);
+            o06 o06Var = new o06(this.a);
+            k06 k06Var = new k06(this.a);
+            h06 h06Var = new h06(this.a);
+            this.f = new p06(this.a);
+            r06 r06Var = new r06(this.a, this.e);
+            q06 q06Var = new q06(this.a);
+            this.c.add(i06Var);
+            this.c.add(this.f);
+            this.c.add(m06Var);
+            this.c.add(n06Var);
+            this.c.add(g06Var);
+            this.c.add(l06Var);
+            this.c.add(o06Var);
+            this.c.add(k06Var);
+            this.c.add(h06Var);
+            this.c.add(r06Var);
+            this.c.add(q06Var);
+            this.b.a(this.c);
         }
     }
 
-    public void e(boolean z) {
+    public void b(List<xn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f = z;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
+            this.d.clear();
+            this.d.addAll(list);
+            this.b.setData(this.d);
+        }
+    }
+
+    public void c(String str) {
+        p06 p06Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (p06Var = this.f) != null) {
+            p06Var.D(str);
+        }
+    }
+
+    public void d(String str) {
+        p06 p06Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (p06Var = this.f) != null) {
+            p06Var.a(str);
+        }
+    }
+
+    public void e(String str) {
+        p06 p06Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (p06Var = this.f) != null) {
+            p06Var.E(str);
+        }
+    }
+
+    public void f(boolean z) {
+        p06 p06Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (p06Var = this.f) != null) {
+            p06Var.F(z);
         }
     }
 }

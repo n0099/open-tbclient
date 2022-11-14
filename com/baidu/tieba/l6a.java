@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.r5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class l6a {
+public class l6a implements c9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GiftBagsInfo a;
-    public boolean b;
+    public r5a.b a;
 
-    public l6a(GiftBagsInfo giftBagsInfo, boolean z) {
+    @Override // com.baidu.tieba.c9a
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public l6a(r5a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +41,18 @@ public class l6a {
                 return;
             }
         }
-        this.a = giftBagsInfo;
-        this.b = z;
+        this.a = bVar;
     }
 
-    public static boolean b(l6a l6aVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c9a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l6aVar)) == null) {
-            if (l6aVar != null && l6aVar.a() != null && l6aVar.a().giftbag != null && !l6aVar.a().giftbag.isEmpty()) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            r5a.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public GiftBagsInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (GiftBagsInfo) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
         }
     }
 }

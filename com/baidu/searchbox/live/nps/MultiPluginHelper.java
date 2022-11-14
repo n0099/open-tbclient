@@ -10,9 +10,8 @@ import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.SubBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tieba.s91;
+import com.baidu.tieba.t91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,6 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MultiPluginHelper {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String AB_TEST_ENABLE_NPS_MULTI_PLUGIN = "android_live_enable_nps_multi_plugin_online";
     public static final int ARCH_TYPE_NEW = 3;
     public static final int ARCH_TYPE_OLD = 1;
     public static final int ARCH_TYPE_OLD_KEEP_LOCAL = 2;
@@ -41,9 +39,17 @@ public class MultiPluginHelper {
     public static final int MIX_NEW_ARCH_PLUGIN_VERSION = 508000000;
     public static final String UBC_ID_CANCEL_JOIN_LIVE = "4417";
     public static final String YY_NPS_PLUGIN_PKG_NAME = "com.baidu.searchbox.yylive.entrance";
-    public static AbConfigService abService;
     public static AppInfoService appService;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static boolean isMultiPluginOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +65,6 @@ public class MultiPluginHelper {
             }
         }
         appService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        abService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
     }
 
     public MultiPluginHelper() {
@@ -181,13 +186,19 @@ public class MultiPluginHelper {
 
     public static int getPluginArchLaunchType(boolean z) {
         InterceptResult invokeZ;
+        BundleInfoGroup bundleGroup;
+        BundleInfoGroup bundleGroup2;
         BundleInfo bundleInfo;
         BundleInfo bundleInfo2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
             log("getPluginArchLaunchType ignoreEntrance:  " + z);
-            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.livenps");
-            BundleInfoGroup bundleGroup2 = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
+            try {
+                bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.livenps");
+                bundleGroup2 = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (bundleGroup == null) {
                 return 3;
             }
@@ -246,7 +257,7 @@ public class MultiPluginHelper {
                     log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                     return 3;
                 }
-                int c = s91.b().c("com.baidu.searchbox.livenps");
+                int c = t91.b().c("com.baidu.searchbox.livenps");
                 if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                     log("installLivenps：" + bundleByType.getVersionCode());
                     log("installLivenps.livenpsHostMinVersion：" + c);
@@ -260,34 +271,18 @@ public class MultiPluginHelper {
                         log("ARCH_TYPE_OLD_KEEP_LOCAL downloadEntrance null:");
                     }
                     return 2;
-                } else if (!isMultiPluginOn() && bundleByType == null && bundleByType2 != null && bundleByType2.getVersionCode() < 508000000 && bundleByType2.getVersionCode() >= c) {
+                }
+                if (!isMultiPluginOn() && bundleByType == null && bundleByType2 != null && bundleByType2.getVersionCode() < 508000000 && bundleByType2.getVersionCode() >= c) {
                     log("downloadLivenps.getVersionCode：" + bundleByType2.getVersionCode());
                     log("downloadLivenps.livenpsHostMinVersion：" + c);
                     log("ARCH_TYPE_OLD_KEEP_LOCAL installLivenps null  downloadLivenps: " + bundleByType2.getVersionCode());
                     return 2;
-                } else {
-                    log("ARCH_TYPE_NEW：兜底");
-                    return 3;
                 }
+                log("ARCH_TYPE_NEW：兜底");
+                return 3;
             }
         }
         return invokeZ.intValue;
-    }
-
-    public static boolean isMultiPluginOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            AbConfigService abConfigService = abService;
-            boolean z = false;
-            if (abConfigService != null) {
-                z = abConfigService.getSwitch(AB_TEST_ENABLE_NPS_MULTI_PLUGIN, false);
-                log("isMultiPluginOn abService result: " + z);
-            }
-            log("isMultiPluginOn result: " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 
     public static boolean isNetworkAvailableForImmediately() {

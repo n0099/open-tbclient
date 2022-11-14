@@ -1,105 +1,102 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.TbadkCore;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
 /* loaded from: classes3.dex */
-public class dq5 {
+public class dq5 extends zf1<TbadkCore> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View.OnClickListener a;
-    public BaseActivity b;
-    public LinearLayout c;
-    public LinearLayout d;
-    public TbSettingTextTipView e;
-    public TbSettingTextTipView f;
-    public TextView g;
 
-    public dq5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes3.dex */
+    public class a implements TbadkCore {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dq5 dq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return PermissionUtil.checkReadPhoneState(context);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilIsAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return PermissionUtil.isAgreePrivacyPolicy();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        @NonNull
+        public String tbConfigGetVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String version = TbConfig.getVersion();
+                if (version == null) {
+                    return "";
+                }
+                return version;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public dq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = baseActivity;
-        this.a = onClickListener;
-        b();
     }
 
-    public View a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zf1
+    /* renamed from: a */
+    public TbadkCore createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return new a(this);
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeAllViews();
-            this.b = null;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
-            this.c = linearLayout;
-            this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f090700);
-            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090353);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09245a);
-            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090057);
-            this.e.a();
-            this.f.a();
-            this.e.setOnClickListener(this.a);
-            this.f.setOnClickListener(this.a);
-        }
-    }
-
-    public void d(SimpleUser simpleUser) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
-            return;
-        }
-        this.f.setTip(simpleUser.block_msg);
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            qq4 layoutMode = this.b.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.c);
-            kw4 d = kw4.d(this.g);
-            d.v(R.color.CAM_X0109);
-            d.f(R.color.CAM_X0204);
-        }
+        return (TbadkCore) invokeV.objValue;
     }
 }

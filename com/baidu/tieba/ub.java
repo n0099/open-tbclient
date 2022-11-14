@@ -1,384 +1,97 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public abstract class ub<M extends Message<?>, T extends MessageTask, R extends jb<?, ?>, N extends ResponsedMessage<?>> implements ha<M, T> {
+public class ub extends vb<HttpMessage, HttpMessageTask, ib, HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
-    public static qb<Message<?>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageManager a;
-    public final SparseArray<T> b;
-    public final SparseArray<N> c;
-    public final SparseArray<LinkedList<MessageListener<N>>> d;
-    public ac e;
-    public boolean f;
-    public final SparseIntArray g;
+    public HttpClient i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318656, "Lcom/baidu/tieba/ub;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318656, "Lcom/baidu/tieba/ub;");
-        }
+    public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
     }
 
-    public abstract M m(M m, T t);
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ub(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new SparseArray<>();
-        this.c = new SparseArray<>();
-        this.d = new SparseArray<>();
-        this.e = null;
-        this.f = false;
-        this.g = new SparseIntArray();
-        this.a = messageManager;
+        this.i = null;
+        this.i = new HttpClient(messageManager);
+        this.e = zb.d();
     }
 
-    public void s(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.ia
+    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
-            xi.c();
-            if (bdUniqueId == null) {
-                return;
-            }
-            int size = this.d.size();
-            for (int i = 0; i < size; i++) {
-                int keyAt = this.d.keyAt(i);
-                Iterator<MessageListener<N>> it = this.d.valueAt(i).iterator();
-                while (it.hasNext()) {
-                    MessageListener<N> next = it.next();
-                    if (next != null && next.getTag() == bdUniqueId) {
-                        b(keyAt);
-                        it.remove();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
+        }
+        return (LinkedList) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ia
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
         }
     }
 
-    public void t(MessageListener<?> messageListener) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.tieba.vb
+    public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        w(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ia
+    /* renamed from: y */
+    public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, messageListener) == null) {
-            xi.c();
-            if (messageListener == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
+            if (httpMessageTask.getConnectTimeOut() == null) {
+                httpMessageTask.setConnectTimeOut(((zb) this.e).c());
             }
-            int cmd = messageListener.getCmd();
-            if (cmd == 0) {
-                int size = this.d.size();
-                for (int i = 0; i < size; i++) {
-                    LinkedList<MessageListener<N>> valueAt = this.d.valueAt(i);
-                    int keyAt = this.d.keyAt(i);
-                    if (valueAt.contains(messageListener)) {
-                        b(keyAt);
-                        valueAt.remove(messageListener);
-                    }
-                }
-                return;
-            }
-            b(cmd);
-            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
-            if (linkedList != null) {
-                linkedList.remove(messageListener);
-            }
+            this.i.f(httpMessage, httpMessageTask);
         }
     }
 
-    public static void q(qb<Message<?>> qbVar) {
+    public void x(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, qbVar) == null) {
-            h = qbVar;
-        }
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || !k(i)) {
-            return;
-        }
-        throw new IllegalStateException("MessageListener locked");
-    }
-
-    public synchronized T g(int i) {
-        InterceptResult invokeI;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            synchronized (this) {
-                t = this.b.get(i);
-            }
-            return t;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
-            if (linkedList != null && linkedList.size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final synchronized boolean k(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            synchronized (this) {
-                z = false;
-                if (this.g.get(i, 0) != 0) {
-                    z = true;
-                }
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final synchronized void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            synchronized (this) {
-                this.g.put(i, this.g.get(i, 0) + 1);
-            }
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && this.c.indexOfKey(i) < 0) {
-            this.c.put(i, null);
-        }
-    }
-
-    public synchronized void p(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
-            synchronized (this) {
-                if (t == null) {
-                    return;
-                }
-                int cmd = t.getCmd();
-                FrameHelper.f(cmd);
-                this.b.put(cmd, t);
-            }
-        }
-    }
-
-    public final synchronized void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            synchronized (this) {
-                int i2 = this.g.get(i, 0);
-                if (i2 <= 1) {
-                    this.g.delete(i);
-                } else {
-                    this.g.put(i, i2 - 1);
-                }
-            }
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.c.remove(i);
-        }
-    }
-
-    public synchronized void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            synchronized (this) {
-                this.b.remove(i);
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f = true;
-        }
-    }
-
-    public boolean c(M m, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m, t)) == null) {
-            xi.c();
-            if (m == null) {
-                return false;
-            }
-            int cmd = m.getCmd();
-            if (t == null) {
-                t = g(cmd);
-            }
-            if (t != null) {
-                M m2 = m(m, t);
-                if (this.e != null) {
-                    if (t.getTimeOut() == null) {
-                        t.setTimeOut(this.e.b());
-                    }
-                    if (t.getRetry() == 0) {
-                        t.setRetry(this.e.a());
-                    }
-                }
-                if (m2 != null) {
-                    f(m2, t);
-                    return true;
-                }
-                BdLog.d("message is trapped:" + cmd);
-                return false;
-            }
-            qb<Message<?>> qbVar = h;
-            if (qbVar != null) {
-                qbVar.a(m);
-            }
-            BdLog.e("task not register:" + cmd);
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void d(N n) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n) == null) {
-            xi.c();
-            if (n == null) {
-                return;
-            }
-            n.setProcessTime(System.currentTimeMillis());
-            int cmd = n.getCmd();
-            BdUniqueId bdUniqueId = null;
-            Message<?> orginalMessage = n.getOrginalMessage();
-            if (orginalMessage != null) {
-                bdUniqueId = orginalMessage.getTag();
-            }
-            if (this.c.indexOfKey(cmd) >= 0) {
-                this.c.put(cmd, n);
-            }
-            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
-            if (linkedList == null) {
-                return;
-            }
-            this.f = false;
-            l(cmd);
-            try {
-                try {
-                    Iterator<MessageListener<N>> it = linkedList.iterator();
-                    while (it.hasNext() && !this.f) {
-                        MessageListener<N> next = it.next();
-                        if (next != null && (!next.isSelfListener() || next.getTag() == bdUniqueId)) {
-                            try {
-                                next.onMessage(n);
-                            } catch (Exception e) {
-                                BdLog.detailException(n.getClass().getName(), e, true);
-                            }
-                        }
-                    }
-                } catch (Exception e2) {
-                    BdLog.detailException(n.getClass().getName(), e2, true);
-                }
-            } finally {
-                r(cmd);
-            }
-        }
-    }
-
-    public synchronized ArrayList<T> i() {
-        InterceptResult invokeV;
-        ArrayList<T> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList<>();
-                int size = this.b.size();
-                for (int i = 0; i < size; i++) {
-                    arrayList.add(this.b.valueAt(i));
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void n(int i, MessageListener<N> messageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, messageListener) == null) {
-            xi.c();
-            if (messageListener == null) {
-                return;
-            }
-            if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
-                throw new InvalidParameterException("registerListener cmd error");
-            }
-            if (i == 0) {
-                i = messageListener.getCmd();
-            }
-            FrameHelper.f(i);
-            b(i);
-            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
-            if (linkedList == null) {
-                linkedList = new LinkedList<>();
-                this.d.put(i, linkedList);
-            }
-            FrameHelper.insert(linkedList, messageListener);
-            N n = this.c.get(i);
-            if (n != null) {
-                messageListener.onMessage(n);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
         }
     }
 }

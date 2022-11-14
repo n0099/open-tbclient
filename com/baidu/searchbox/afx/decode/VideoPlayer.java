@@ -361,7 +361,7 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:82:0x013c  */
     /* JADX WARN: Removed duplicated region for block: B:84:0x0141  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
     @SuppressLint({"BDThrowableCheck"})
     /*

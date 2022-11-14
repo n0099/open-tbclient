@@ -1,71 +1,89 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mm6 extends ui6<fj6, ReadProgressViewHolder> {
+public class mm6 implements wn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gw6 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mm6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public mm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: E */
-    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wn6
+    public xn6 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0347, viewGroup, false), this.c.getPageActivity());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new om6();
         }
-        return (ReadProgressViewHolder) invokeL.objValue;
+        return (xn6) invokeV.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, fj6 fj6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.wn6
+    public uv6 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fj6Var, readProgressViewHolder})) == null) {
-            if (fj6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.b(fj6Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
+            if (!frsFragment.Q3()) {
+                return new uv6(frsFragment, noPressedRelativeLayout);
             }
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (uv6) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ui6, com.baidu.tieba.jn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (fj6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.wn6
+    public yn6 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) {
+            return new sv6(frsFragment, noPressedRelativeLayout);
+        }
+        return (yn6) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wn6
+    public vn6 b(FrsFragment frsFragment, Cdo cdo, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, cdo, z)) == null) {
+            return new hn6(frsFragment, cdo, z);
+        }
+        return (vn6) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.wn6
+    public gw6 e(String str, FrsFragment frsFragment, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
+            if (frsFragment == null) {
+                return null;
+            }
+            nm6 nm6Var = new nm6(frsFragment, null, null, i);
+            this.a = nm6Var;
+            nm6Var.R(frsFragment.p3());
+            return this.a;
+        }
+        return (gw6) invokeLLI.objValue;
     }
 }

@@ -1,68 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class z33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public Context c;
 
-    public z33(Context context) {
+    public static int a(@Nullable Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) {
+            return wh3.f(context, f);
         }
-        this.b = null;
-        this.c = context;
-    }
-
-    public z33 a(View view2, View view3) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, view3)) == null) {
-            this.a = view2;
-            if (view2 == null) {
-                return this;
-            }
-            if (!(view2.getParent() instanceof ViewGroup)) {
-                return this;
-            }
-            ViewGroup viewGroup = (ViewGroup) this.a.getParent();
-            int indexOfChild = viewGroup.indexOfChild(this.a);
-            View view4 = this.b;
-            if (view4 != null) {
-                viewGroup.removeView(view4);
-            }
-            this.b = view3;
-            view3.setLayoutParams(this.a.getLayoutParams());
-            viewGroup.addView(this.b, indexOfChild);
-            if (viewGroup instanceof RelativeLayout) {
-                this.a.setVisibility(4);
-            } else {
-                this.a.setVisibility(8);
-            }
-            return this;
-        }
-        return (z33) invokeLL.objValue;
+        return invokeLF.intValue;
     }
 }

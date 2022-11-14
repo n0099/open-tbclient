@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes4.dex */
 public interface eo1 {
-    qn1 a();
+    boolean a(Context context, String str);
 
-    xn1 b();
+    boolean b(Context context, String str);
+
+    boolean c(Context context, String str);
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.h5power;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.rp8;
-import com.baidu.tieba.tp8;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.aq8;
+import com.baidu.tieba.cq8;
+import com.baidu.tieba.eq8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class UegTbJsBridge_Proxy extends pp8 {
+public class UegTbJsBridge_Proxy extends aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UegTbJsBridge mJsBridge;
@@ -44,78 +44,78 @@ public class UegTbJsBridge_Proxy extends pp8 {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.pp8
-    public rp8 dispatch(tp8 tp8Var, rp8 rp8Var) {
+    @Override // com.baidu.tieba.aq8
+    public cq8 dispatch(eq8 eq8Var, cq8 cq8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tp8Var, rp8Var)) == null) {
-            if (rp8Var == null) {
-                rp8Var = new rp8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eq8Var, cq8Var)) == null) {
+            if (cq8Var == null) {
+                cq8Var = new cq8();
             }
-            String b = tp8Var.b();
-            JSONObject e = tp8Var.e();
+            String b = eq8Var.b();
+            JSONObject e = eq8Var.e();
             if (b.equals("host/callNativeSMS")) {
-                rp8Var.r(true);
-                rp8 callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
+                cq8Var.r(true);
+                cq8 callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
                 if (callNativeSMS != null) {
-                    rp8Var.x(callNativeSMS.f());
-                    rp8Var.t(callNativeSMS.b());
-                    rp8Var.o(callNativeSMS.a());
-                    rp8Var.w(callNativeSMS.e());
+                    cq8Var.x(callNativeSMS.f());
+                    cq8Var.t(callNativeSMS.b());
+                    cq8Var.o(callNativeSMS.a());
+                    cq8Var.w(callNativeSMS.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("device/setBlockPopInfo")) {
-                rp8Var.r(true);
-                rp8 blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
+                cq8Var.r(true);
+                cq8 blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
                 if (blockPopInfo != null) {
-                    rp8Var.x(blockPopInfo.f());
-                    rp8Var.t(blockPopInfo.b());
-                    rp8Var.o(blockPopInfo.a());
-                    rp8Var.w(blockPopInfo.e());
+                    cq8Var.x(blockPopInfo.f());
+                    cq8Var.t(blockPopInfo.b());
+                    cq8Var.o(blockPopInfo.a());
+                    cq8Var.w(blockPopInfo.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("account/bindMobileNumber")) {
-                rp8Var.r(true);
-                rp8 bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
+                cq8Var.r(true);
+                cq8 bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
                 if (bindingMobileNumber != null) {
-                    rp8Var.x(bindingMobileNumber.f());
-                    rp8Var.t(bindingMobileNumber.b());
-                    rp8Var.o(bindingMobileNumber.a());
-                    rp8Var.w(bindingMobileNumber.e());
+                    cq8Var.x(bindingMobileNumber.f());
+                    cq8Var.t(bindingMobileNumber.b());
+                    cq8Var.o(bindingMobileNumber.a());
+                    cq8Var.w(bindingMobileNumber.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("host/recordNovelInfo")) {
-                rp8Var.r(true);
-                rp8 recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
+                cq8Var.r(true);
+                cq8 recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
                 if (recordNovelInfo != null) {
-                    rp8Var.x(recordNovelInfo.f());
-                    rp8Var.t(recordNovelInfo.b());
-                    rp8Var.o(recordNovelInfo.a());
-                    rp8Var.w(recordNovelInfo.e());
+                    cq8Var.x(recordNovelInfo.f());
+                    cq8Var.t(recordNovelInfo.b());
+                    cq8Var.o(recordNovelInfo.a());
+                    cq8Var.w(recordNovelInfo.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             } else if (b.equals("host/novelPayResultToClient")) {
-                rp8Var.r(true);
-                rp8 novelPayResultToClient = this.mJsBridge.novelPayResultToClient(e.optBoolean("isPaySuccess"));
+                cq8Var.r(true);
+                cq8 novelPayResultToClient = this.mJsBridge.novelPayResultToClient(e.optBoolean("isPaySuccess"));
                 if (novelPayResultToClient != null) {
-                    rp8Var.x(novelPayResultToClient.f());
-                    rp8Var.t(novelPayResultToClient.b());
-                    rp8Var.o(novelPayResultToClient.a());
-                    rp8Var.w(novelPayResultToClient.e());
+                    cq8Var.x(novelPayResultToClient.f());
+                    cq8Var.t(novelPayResultToClient.b());
+                    cq8Var.o(novelPayResultToClient.a());
+                    cq8Var.w(novelPayResultToClient.e());
                 }
-                rp8Var.y(0);
+                cq8Var.y(0);
             }
-            return rp8Var;
+            return cq8Var;
         }
-        return (rp8) invokeLL.objValue;
+        return (cq8) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.pp8
-    public List<rp8> processNotification(String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.aq8
+    public List<cq8> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
-            if (!wi.isEmpty(str) && this.mNotificationNameList.contains(str)) {
+            if (!xi.isEmpty(str) && this.mNotificationNameList.contains(str)) {
                 ArrayList arrayList = new ArrayList();
                 this.mAsyncCallBackMethodList.get(str);
                 return arrayList;

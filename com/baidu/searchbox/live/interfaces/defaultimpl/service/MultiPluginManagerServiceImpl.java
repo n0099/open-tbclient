@@ -28,9 +28,9 @@ import com.baidu.searchbox.live.interfaces.multiplugin.MultiPluginLoadCallback;
 import com.baidu.searchbox.live.interfaces.multiplugin.SubPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
-import com.baidu.tieba.r91;
-import com.baidu.tieba.t91;
+import com.baidu.tieba.s91;
 import com.baidu.tieba.u91;
+import com.baidu.tieba.v91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
     public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, multiPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new r91(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new s91(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ MultiPluginDownloadCallback $downloadCallback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     this.$downloadCallback = multiPluginDownloadCallback;
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.s91
                 public void onProgress(long j, long j2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.s91
                 public void onResult(int i, String str2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -173,7 +173,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                         multiPluginDownloadCallback2.onResult(i, str2);
                     }
                 }
-            }, new t91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
+            }, new u91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,11 +191,11 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                 }
 
-                @Override // com.baidu.tieba.t91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
+                @Override // com.baidu.tieba.u91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, v91 v91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
-                        u91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, v91Var) == null) && v91Var != null) {
+                        v91Var.onResult(1);
                     }
                 }
             }, 1, true);

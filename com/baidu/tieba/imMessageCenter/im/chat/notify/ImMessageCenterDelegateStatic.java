@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia5;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.la5;
 import com.baidu.tieba.oa5;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.qa5;
+import com.baidu.tieba.ra5;
+import com.baidu.tieba.va5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,14 +31,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes4.dex */
-public class ImMessageCenterDelegateStatic extends ia5 {
+public class ImMessageCenterDelegateStatic extends oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
     public CustomMessageListener d;
 
     /* loaded from: classes4.dex */
-    public class a implements la5.b {
+    public class a implements ra5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -61,7 +61,7 @@ public class ImMessageCenterDelegateStatic extends ia5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.la5.b
+        @Override // com.baidu.tieba.ra5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class ImMessageCenterDelegateStatic extends ia5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((ka5) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+            ((qa5) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
         }
     }
 
@@ -175,21 +175,21 @@ public class ImMessageCenterDelegateStatic extends ia5 {
         MessageManager.getInstance().registerListener(bVar);
     }
 
-    @Override // com.baidu.tieba.ia5
-    public ja5 a() {
+    @Override // com.baidu.tieba.oa5
+    public pa5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ja5 ja5Var = new ja5();
-            ja5Var.a = new MessageCenterFragment();
-            ja5Var.e = 3;
-            ja5Var.b = R.string.obfuscated_res_0x7f0f0b84;
-            ja5Var.f = R.raw.lottie_tab_msg;
-            ja5Var.i = ja5.l;
-            ja5Var.h = oa5.d().c("message");
-            return ja5Var;
+            pa5 pa5Var = new pa5();
+            pa5Var.a = new MessageCenterFragment();
+            pa5Var.e = 3;
+            pa5Var.b = R.string.obfuscated_res_0x7f0f0b86;
+            pa5Var.f = R.raw.lottie_tab_msg;
+            pa5Var.i = pa5.l;
+            pa5Var.h = va5.d().c("message");
+            return pa5Var;
         }
-        return (ja5) invokeV.objValue;
+        return (pa5) invokeV.objValue;
     }
 
     public ImMessageCenterDelegateStatic() {
@@ -206,7 +206,7 @@ public class ImMessageCenterDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class ImMessageCenterDelegateStatic extends ia5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -225,7 +225,7 @@ public class ImMessageCenterDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -234,12 +234,12 @@ public class ImMessageCenterDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) la5.e().d(1004, new a(this, context));
+            this.b = (MaintabBottomIndicator) ra5.e().d(1004, new a(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;

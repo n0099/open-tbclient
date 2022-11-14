@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.ps4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public os4 i;
+    public ps4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -123,7 +123,7 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f2);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f9);
     }
 
     public TbLinkSpanGroup() {
@@ -155,13 +155,13 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         }
     }
 
-    public os4 t() {
+    public ps4 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.i;
         }
-        return (os4) invokeV.objValue;
+        return (ps4) invokeV.objValue;
     }
 
     public LINK_TYPE u() {
@@ -211,7 +211,7 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d05
+    @Override // com.baidu.tieba.i05
     /* renamed from: s */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -261,10 +261,10 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         }
     }
 
-    public void y(os4 os4Var) {
+    public void y(ps4 ps4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, os4Var) == null) {
-            this.i = os4Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ps4Var) == null) {
+            this.i = ps4Var;
         }
     }
 
@@ -286,7 +286,7 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         this.q = str.length();
         i(str);
         if (f() >= 0 && f() <= this.c.length() && f() + 3 >= 0 && f() + 3 <= this.c.length() && c() >= 0 && c() <= this.c.length()) {
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809de, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
             l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
@@ -295,7 +295,7 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
 
     public void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.k == 2 || wi.isEmpty(this.o)) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.k == 2 || xi.isEmpty(this.o)) {
             return;
         }
         this.k = 2;
@@ -303,13 +303,13 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         String str = "[p]" + this.p + ((Object) this.m);
         this.q = str.length();
         i(str);
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809de, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.d05
+    @Override // com.baidu.tieba.i05
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i, i2, i3) == null) {
@@ -324,13 +324,13 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.d05
+    @Override // com.baidu.tieba.i05
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editable) == null) {
-            os4 os4Var = this.i;
-            if (os4Var != null && os4Var.b == 2) {
-                if (os4Var.h != null) {
+            ps4 ps4Var = this.i;
+            if (ps4Var != null && ps4Var.b == 2) {
+                if (ps4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -347,19 +347,19 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.d05
+    @Override // com.baidu.tieba.i05
     public void q(Editable editable, int i) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable, i) == null) {
             if (this.i == null) {
-                if (wi.isEmpty(this.n)) {
+                if (xi.isEmpty(this.n)) {
                     str = "0";
                 } else {
                     str = this.n;
                 }
-                if (this.j == LINK_TYPE.INTERNAL_LINK && wi.isEmpty(this.o)) {
+                if (this.j == LINK_TYPE.INTERNAL_LINK && xi.isEmpty(this.o)) {
                     str2 = "";
                 } else {
                     str2 = this.p;
@@ -368,9 +368,9 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
                 sb.append("#(url,");
                 sb.append(str);
                 sb.append(",");
-                sb.append(wi.getUrlEncode(this.l.toString()));
+                sb.append(xi.getUrlEncode(this.l.toString()));
                 sb.append(",");
-                sb.append(wi.getUrlEncode(str2));
+                sb.append(xi.getUrlEncode(str2));
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 sb.append(this.m);
                 i(sb);
@@ -389,7 +389,7 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
                         StringBuilder sb2 = new StringBuilder();
                         jSONObject.put("goods", jSONObject2);
                         sb2.append("#(goods,");
-                        sb2.append(wi.getUrlEncode(jSONObject.toString()));
+                        sb2.append(xi.getUrlEncode(jSONObject.toString()));
                         sb2.append(SmallTailInfo.EMOTION_SUFFIX);
                         sb2.append(this.m);
                         i(sb2);
@@ -404,15 +404,15 @@ public class TbLinkSpanGroup extends d05<TbLinkSpanGroup> {
             String str3 = this.p;
             StringBuilder sb3 = new StringBuilder();
             sb3.append("#(url,0,");
-            sb3.append(wi.getUrlEncode(this.l.toString()));
+            sb3.append(xi.getUrlEncode(this.l.toString()));
             sb3.append(",");
-            sb3.append(wi.getUrlEncode(str3));
+            sb3.append(xi.getUrlEncode(str3));
             sb3.append(",");
-            sb3.append(wi.getUrlEncode(this.i.l));
+            sb3.append(xi.getUrlEncode(this.i.l));
             sb3.append(",");
             sb3.append(this.i.e);
             sb3.append(",");
-            sb3.append(wi.getUrlEncode(this.i.f));
+            sb3.append(xi.getUrlEncode(this.i.f));
             sb3.append(",");
             sb3.append(i);
             sb3.append(",");

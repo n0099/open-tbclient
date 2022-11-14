@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public abstract class t1a<E> extends AbstractQueue<E> {
+public class t1a implements e0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<LinkedQueueNode<E>> a;
-    public final AtomicReference<LinkedQueueNode<E>> b;
+    public final e0a a;
+    public final uz9.a b;
+    public final long c;
 
-    public t1a() {
+    public t1a(e0a e0aVar, uz9.a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e0aVar, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,101 +28,30 @@ public abstract class t1a<E> extends AbstractQueue<E> {
                 return;
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
+        this.a = e0aVar;
+        this.b = aVar;
+        this.c = j;
     }
 
-    public final LinkedQueueNode<E> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e0a
+    public void call() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.get();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+            return;
         }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.get();
-        }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.get();
-        }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.get();
-        }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (c() == d()) {
-                return true;
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                d0a.c(e);
+                throw null;
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public final Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (this.b.isUnsubscribed()) {
+            return;
         }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final int size() {
-        InterceptResult invokeV;
-        LinkedQueueNode<E> lvNext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            LinkedQueueNode<E> c = c();
-            LinkedQueueNode<E> d = d();
-            int i = 0;
-            while (c != d && i < Integer.MAX_VALUE) {
-                do {
-                    lvNext = c.lvNext();
-                } while (lvNext == null);
-                i++;
-                c = lvNext;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void e(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
-            this.b.lazySet(linkedQueueNode);
-        }
-    }
-
-    public final void f(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
-            this.a.lazySet(linkedQueueNode);
-        }
+        this.a.call();
     }
 }

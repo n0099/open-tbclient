@@ -59,6 +59,8 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int SCENE_FROM_MEMBER_DEFAULT_COMMON = 0;
     public static final int SCENE_FROM_MEMBER_YEAR_COMMON = 9;
     public static final int SCENE_FROM_PB = 100017;
+    public static final int SCENE_FROM_THEME_SUIT_YEAR_END = 100299;
+    public static final int SCENE_FROM_THEME_SUIT_YEAR_START = 100200;
     public static final String SCENE_ID = "scene_id";
     public static final String SHOW_PRICE = "show_price";
     public static final String SHOW_VIP_TIP = "show_vip_tip";

@@ -1,444 +1,289 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.gn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class fn9 extends ks9 {
+public final class fn9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final long b;
-    public final long c;
-    public final int d;
-    public final List<c> e;
+    public final /* synthetic */ List a;
+    public final /* synthetic */ FunAdConfig b;
+    public final /* synthetic */ Map c;
+    public final /* synthetic */ long d;
+    public final /* synthetic */ gn9.a e;
 
-    /* loaded from: classes4.dex */
-    public static final class b extends ks9 implements an9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
-        public final c d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, c cVar) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = cVar;
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map, c cVar) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, cVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.d = cVar;
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
-        }
-
-        @Override // com.baidu.tieba.an9
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.an9
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && this.b == bVar.b && Objects.equals(this.c, bVar.c);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ks9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
+    public fn9(List list, FunAdConfig funAdConfig, Map map, long j, gn9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
+            Object[] objArr = {list, funAdConfig, map, Long.valueOf(j), aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = objectInput.readUTF();
-        this.b = objectInput.readLong();
-        this.c = objectInput.readLong();
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new c(objectInput.readInt(), objectInput, map));
-        }
-        ArrayList arrayList = new ArrayList(hashSet);
-        a(arrayList);
-        this.e = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.d = objectInput.readInt();
-        } else {
-            this.d = 0;
-        }
+        this.a = list;
+        this.b = funAdConfig;
+        this.c = map;
+        this.d = j;
+        this.e = aVar;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.getString("sid");
-        this.b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
-        this.c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        HashSet hashSet = new HashSet();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            hashSet.add(new c(jSONArray.getJSONObject(i3), map));
-        }
-        ArrayList arrayList = new ArrayList(hashSet);
-        a(arrayList);
-        this.e = Collections.unmodifiableList(arrayList);
-        this.d = jSONObject.optInt("ver", 0);
-    }
-
-    public final <T extends c> List<T> a(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            Collections.sort(list, new a(this));
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || fn9.class != obj.getClass()) {
-                return false;
-            }
-            fn9 fn9Var = (fn9) obj;
-            return this.b == fn9Var.b && this.c == fn9Var.c && Objects.equals(this.a, fn9Var.a) && Objects.equals(this.e, fn9Var.e) && this.d == fn9Var.d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c), this.e, Integer.valueOf(this.d)) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ks9
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeLong(this.b);
-            objectOutput.writeLong(this.c);
-            objectOutput.writeInt(this.e.size());
-            for (c cVar : this.e) {
-                cVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.d);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class c extends ks9 implements an9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final List<b> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readInt();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new b(objectInput.readInt(), objectInput, map, this));
-            }
-            this.b = Collections.unmodifiableList(new ArrayList(hashSet));
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new b(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        public final <T extends b> List<T> a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.an9
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.an9
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || c.class != obj.getClass()) {
-                    return false;
-                }
-                c cVar = (c) obj;
-                return this.a == cVar.a && Objects.equals(this.b, cVar.b);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ks9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, objectOutput) == null) {
-                objectOutput.writeInt(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (b bVar : this.b) {
-                    bVar.srzable(objectOutput);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class a implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Ssp ssp : this.a) {
+                if (this.b.forbiddenPlatforms.contains(ssp.type)) {
+                    LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    LogPrinter.d("sdk for %s init start", ssp.type);
+                    String str3 = ssp.type;
+                    str3.hashCode();
+                    char c = 65535;
+                    switch (str3.hashCode()) {
+                        case 3116:
+                            if (str3.equals(FunAdSdk.PLATFORM_AM)) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 3127:
+                            if (str3.equals(FunAdSdk.PLATFORM_AX)) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 3343:
+                            if (str3.equals(FunAdSdk.PLATFORM_HW)) {
+                                c = 2;
+                                break;
+                            }
+                            break;
+                        case 3407:
+                            if (str3.equals(FunAdSdk.PLATFORM_JY)) {
+                                c = 3;
+                                break;
+                            }
+                            break;
+                        case 3432:
+                            if (str3.equals(FunAdSdk.PLATFORM_KS)) {
+                                c = 4;
+                                break;
+                            }
+                            break;
+                        case 3477:
+                            if (str3.equals(FunAdSdk.PLATFORM_MB)) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 3483:
+                            if (str3.equals(FunAdSdk.PLATFORM_MH)) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 3488:
+                            if (str3.equals(FunAdSdk.PLATFORM_MM)) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        case 3560:
+                            if (str3.equals(FunAdSdk.PLATFORM_OW)) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                        case 3575:
+                            if (str3.equals(FunAdSdk.PLATFORM_PG)) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 3693:
+                            if (str3.equals(FunAdSdk.PLATFORM_TA)) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 102199:
+                            if (str3.equals(FunAdSdk.PLATFORM_GDT)) {
+                                c = 11;
+                                break;
+                            }
+                            break;
+                        case 106042:
+                            if (str3.equals(FunAdSdk.PLATFORM_KDS)) {
+                                c = '\f';
+                                break;
+                            }
+                            break;
+                        case 107876:
+                            if (str3.equals(FunAdSdk.PLATFORM_MAX)) {
+                                c = '\r';
+                                break;
+                            }
+                            break;
+                        case 113873:
+                            if (str3.equals(FunAdSdk.PLATFORM_SIG)) {
+                                c = 14;
+                                break;
+                            }
+                            break;
+                        case 3418016:
+                            if (str3.equals("oppo")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 3620012:
+                            if (str3.equals("vivo")) {
+                                c = 16;
+                                break;
+                            }
+                            break;
+                        case 93498907:
+                            if (str3.equals("baidu")) {
+                                c = 17;
+                                break;
+                            }
+                            break;
+                    }
+                    switch (c) {
+                        case 0:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.am.AmModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 1:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.AxModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 2:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.HwModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 3:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.JyModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 4:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.KsModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 5:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.MbModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 6:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.MhModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 7:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.MmModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case '\b':
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.OwModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case '\t':
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.pg.PgModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case '\n':
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.TAModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 11:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.GdtModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case '\f':
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.KdsModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case '\r':
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.max.MaxModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 14:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.SigModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 15:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.oppo.OppoModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 16:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.VivoModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        case 17:
+                            str = ssp.type;
+                            str2 = "com.fun.ad.sdk.channel.BaiduModule";
+                            gn9.f(str, str2, this.b, this.c, ssp.sspId);
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
+                        default:
+                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                            break;
                     }
                 }
             }
-
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                    return -Integer.compare(((b) obj).b, ((b) obj2).b);
-                }
-                return invokeLL.intValue;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Comparator<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(fn9 fn9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                return -Integer.compare(((c) obj).a, ((c) obj2).a);
-            }
-            return invokeLL.intValue;
+            gn9.e(this.d, this.e, this.b, this.c);
         }
     }
 }

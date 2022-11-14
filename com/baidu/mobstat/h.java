@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +32,7 @@ public class h {
                 jSONObject.put(Config.DEVICE_WIDTH, bw.c(context));
                 jSONObject.put("h", bw.d(context));
                 jSONObject.put("ly", z.c);
-                jSONObject.put("pv", "35");
+                jSONObject.put("pv", PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK);
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     jSONObject.put("pn", bw.n(2, context));

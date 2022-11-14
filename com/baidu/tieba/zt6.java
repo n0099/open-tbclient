@@ -1,59 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.yt6;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.SportScheduleInfo;
 /* loaded from: classes6.dex */
-public class zt6 implements ut6 {
+public class zt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public yt6.e b;
-    public Context c;
-    public List<rk6> d;
-    public yt6 e;
-    public final BaseAdapter f;
-    public AdapterView.OnItemClickListener g;
-
-    @Override // com.baidu.tieba.ut6
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public TbPageContext a;
+    public View b;
+    public TextView c;
+    public TbImageView d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public String k;
+    public String l;
+    public final View.OnClickListener m;
 
     /* loaded from: classes6.dex */
-    public class a extends BaseAdapter {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zt6 a;
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-        }
 
         public a(zt6 zt6Var) {
             Interceptable interceptable = $ic;
@@ -73,130 +59,22 @@ public class zt6 implements ut6 {
             this.a = zt6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public rk6 getItem(int i) {
-            InterceptResult invokeI;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.d == null) {
-                    return null;
-                }
-                return (rk6) this.a.d.get(i);
-            }
-            return (rk6) invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d == null) {
-                    return 0;
-                }
-                return this.a.d.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0859, (ViewGroup) null);
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
-                    yt6.f fVar = new yt6.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092067);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092064);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092066);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092065);
-                    view2.setTag(fVar);
-                }
-                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
-                yt6.f fVar2 = (yt6.f) view2.getTag();
-                rk6 item = getItem(i);
-                if (item == null) {
-                    return view2;
-                }
-                fVar2.a.setText(item.a);
-                if (item.c) {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
-                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
-                    fVar2.b.setVisibility(0);
-                } else {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
-                    fVar2.b.setVisibility(8);
-                }
-                if (i >= 0 && i == getCount() - 1) {
-                    fVar2.d.setVisibility(0);
-                    fVar2.c.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
-                } else {
-                    fVar2.c.setVisibility(0);
-                    fVar2.d.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
-                }
-                return view2;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zt6 a;
-
-        public b(zt6 zt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zt6Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (this.a.e != null) {
-                    this.a.e.c();
-                }
-                if (this.a.f != null && this.a.b != null) {
-                    for (rk6 rk6Var : this.a.d) {
-                        if (rk6Var != null) {
-                            rk6Var.c = false;
-                        }
-                    }
-                    rk6 rk6Var2 = (rk6) this.a.f.getItem(i);
-                    if (rk6Var2 != null) {
-                        rk6Var2.c = true;
-                        this.a.b.a(rk6Var2.b);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !xi.isEmpty(this.a.k)) {
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
+                TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
             }
         }
     }
 
-    public zt6() {
+    public zt6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsSportsRecommendFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,52 +84,67 @@ public class zt6 implements ut6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-    }
-
-    @Override // com.baidu.tieba.ut6
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ut6
-    public void setData(List<rk6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-            this.f.notifyDataSetChanged();
+        this.m = new a(this);
+        if (frsSportsRecommendFragment != null && view2 != null) {
+            this.a = frsSportsRecommendFragment.getPageContext();
+            BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090c12);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c1a);
+            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c13);
+            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c18);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c14);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c19);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c17);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c16);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c15);
+            this.d.setPageId(uniqueId);
+            this.e.setPageId(uniqueId);
         }
     }
 
-    @Override // com.baidu.tieba.ut6
-    public void a(Context context, yt6 yt6Var) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, yt6Var) == null) && context != null && yt6Var != null) {
-            this.c = context;
-            this.e = yt6Var;
-            this.b = yt6Var.d();
-            g();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
         }
     }
 
-    public final void g() {
+    public void e(SportScheduleInfo sportScheduleInfo, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdListView bdListView = new BdListView(this.c);
-            this.a = bdListView;
-            bdListView.setAlwaysDrawnWithCacheEnabled(false);
-            this.a.setDivider(null);
-            this.a.setDividerHeight(0);
-            this.a.setSelector(17170445);
-            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
-            this.a.setOnItemClickListener(this.g);
-            this.a.setAdapter((ListAdapter) this.f);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
+            if (sportScheduleInfo == null) {
+                this.b.setVisibility(8);
+                this.c.setVisibility(0);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0775);
+                return;
+            }
+            this.b.setVisibility(0);
+            this.c.setVisibility(8);
+            this.d.K(sportScheduleInfo.home_team_icon, 10, false);
+            this.e.K(sportScheduleInfo.guest_team_icon, 10, false);
+            String str2 = sportScheduleInfo.home_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
+                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
+            }
+            String str3 = sportScheduleInfo.guest_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
+                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
+            }
+            this.f.setText(str2);
+            this.g.setText(str3);
+            this.h.setText(sportScheduleInfo.match_top_info);
+            this.i.setText(sportScheduleInfo.match_middle_info);
+            this.j.setText(sportScheduleInfo.match_bottom_info);
+            this.k = sportScheduleInfo.msg_url;
+            this.l = str;
+            this.b.setOnClickListener(this.m);
         }
     }
 }

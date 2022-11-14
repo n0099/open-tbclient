@@ -24,7 +24,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,6 +156,8 @@ public class WriteData extends OrmObject implements Serializable {
     public VoiceData.VoiceModel mVoiceModel;
     public WriteVoteData mWriteVoteData;
     public String netImgUrl;
+    public boolean notFakePost;
+    public boolean notificationH5;
     public String originalThreadId;
     public String originalVideoCover;
     public String originalVideoTitle;
@@ -251,7 +253,7 @@ public class WriteData extends OrmObject implements Serializable {
         List<Object> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
-            if ((!this.isRichTextEditorMode && !wi.isEmpty(this.mContent)) || !wi.isEmpty(this.mTitle)) {
+            if ((!this.isRichTextEditorMode && !xi.isEmpty(this.mContent)) || !xi.isEmpty(this.mTitle)) {
                 return true;
             }
             WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
@@ -312,7 +314,7 @@ public class WriteData extends OrmObject implements Serializable {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (wi.isEmpty(str)) {
+            if (xi.isEmpty(str)) {
                 return null;
             }
             try {
@@ -1337,10 +1339,28 @@ public class WriteData extends OrmObject implements Serializable {
         return invokeV.booleanValue;
     }
 
-    public boolean isPrivacy() {
+    public boolean isNotFakePost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
+            return this.notFakePost;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNotificationH5() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+            return this.notificationH5;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isPrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
             return this.isPrivacy;
         }
         return invokeV.booleanValue;
@@ -1349,7 +1369,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isQuestionTagManualCreated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
             return this.isQuestionTagManualCreated;
         }
         return invokeV.booleanValue;
@@ -1358,7 +1378,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isQuestionThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
             return this.isQuestionThread;
         }
         return invokeV.booleanValue;
@@ -1367,7 +1387,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isRichTextEditorMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) {
             return this.isRichTextEditorMode;
         }
         return invokeV.booleanValue;
@@ -1376,7 +1396,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isSaveDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
             return this.isSaveDraft;
         }
         return invokeV.booleanValue;
@@ -1385,7 +1405,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isShareThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
             return this.isShareThread;
         }
         return invokeV.booleanValue;
@@ -1394,7 +1414,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isShowCustomFigure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
             return this.mShowCustomFigure;
         }
         return invokeV.booleanValue;
@@ -1403,7 +1423,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isSubFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
             if (this.mType == 2) {
                 return true;
             }
@@ -1415,7 +1435,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isToDynamic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
             return this.isToDynamic;
         }
         return invokeV.booleanValue;
@@ -1424,7 +1444,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isVoiceEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             return this.isVoiceEnable;
         }
         return invokeV.booleanValue;
@@ -1433,7 +1453,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isWork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
             return this.isWork;
         }
         return invokeV.booleanValue;
@@ -1442,7 +1462,7 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean isWorkDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) {
             return this.isWorkDraft;
         }
         return invokeV.booleanValue;
@@ -1450,7 +1470,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void startPublish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048807, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048811, this) == null) {
             this.startPublishTime = System.currentTimeMillis();
         }
     }
@@ -1458,7 +1478,7 @@ public class WriteData extends OrmObject implements Serializable {
     public long startPublishTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048808, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048812, this)) == null) {
             return this.startPublishTime;
         }
         return invokeV.longValue;
@@ -1473,7 +1493,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i = 0;
                     while (i < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !wi.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !xi.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();
@@ -1552,7 +1572,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void removeItemData(ItemData itemData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048697, this, itemData) != null) || itemData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048699, this, itemData) != null) || itemData == null) {
             return;
         }
         this.itemDatas.remove(itemData);
@@ -1561,280 +1581,280 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setAsyncPublishStatData(AsyncPublishStatData asyncPublishStatData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048698, this, asyncPublishStatData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048700, this, asyncPublishStatData) == null) {
             this.asyncPublishStatData = asyncPublishStatData;
         }
     }
 
     public void setAuthSid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048699, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
             this.mAuthSid = str;
         }
     }
 
     public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048700, this, baijiahaoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048702, this, baijiahaoData) == null) {
             this.mBaijiahaoData = baijiahaoData;
         }
     }
 
     public void setCallFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048703, this, str) == null) {
             this.callFrom = str;
         }
     }
 
     public void setCanGoods(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048702, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048704, this, z) == null) {
             this.canGoods = z;
         }
     }
 
     public void setCanNoForum(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048703, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048705, this, z) == null) {
             this.canNoForum = z;
         }
     }
 
     public void setClassAndTagData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, videoCategoryClassData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048706, this, videoCategoryClassData) == null) {
             this.mClassAndTagData = videoCategoryClassData;
         }
     }
 
     public void setComment_head(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048705, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048707, this, str) == null) {
             this.comment_head = str;
         }
     }
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048706, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048708, this, str) == null) {
             this.mContent = str;
         }
     }
 
     public void setDisableAudioMessage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048707, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048709, this, str) == null) {
             this.mDisableAudioMessage = str;
         }
     }
 
     public void setEntranceType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048708, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048710, this, i) == null) {
             this.entranceType = i;
         }
     }
 
     public void setEvaluationStar(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048709, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048711, this, i) == null) {
             this.mEvaluationStar = i;
         }
     }
 
     public void setFirstDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048710, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048712, this, str) == null) {
             this.mFirstDir = str;
         }
     }
 
     public void setFloor(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048711, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
             this.mFloor = str;
         }
     }
 
     public void setFloorNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048712, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
             this.mFloorNum = i;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048715, this, str) == null) {
             this.mForumId = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048716, this, str) == null) {
             this.mForumName = str;
         }
     }
 
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048715, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048717, this, str) == null) {
             this.mFrom = str;
         }
     }
 
     public void setFromErrorDialog(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048716, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048718, this, z) == null) {
             this.fromErrorDialog = z;
         }
     }
 
     public void setFromForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048717, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048719, this, str) == null) {
             this.mFromForumId = str;
         }
     }
 
     public void setFromGameRank(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048718, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048720, this, z) == null) {
             this.isFromGameRank = z;
         }
     }
 
     public void setFromItemDetail(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048719, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048721, this, z) == null) {
             this.isFromItemDetail = z;
         }
     }
 
     public void setFrsTabInfoData(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048720, this, frsTabInfoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048722, this, frsTabInfoData) == null) {
             this.frsTabInfoData = frsTabInfoData;
         }
     }
 
     public void setGameId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048721, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048723, this, str) == null) {
             this.gameId = str;
         }
     }
 
     public void setGameName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048722, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048724, this, str) == null) {
             this.gameName = str;
         }
     }
 
     public void setHasLocationData(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048723, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048725, this, z) == null) {
             this.mHasLocationData = z;
         }
     }
 
     public void setHaveDraft(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048724, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048726, this, z) == null) {
             this.mHaveDraft = z;
         }
     }
 
     public void setIntentItemInfo(SerializableItemInfo serializableItemInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048725, this, serializableItemInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048727, this, serializableItemInfo) == null) {
             this.mIntentItemInfo = serializableItemInfo;
         }
     }
 
     public void setIntentStarCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048726, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048728, this, i) == null) {
             this.mIntentStarCount = i;
         }
     }
 
     public void setIsAd(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048727, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048729, this, z) == null) {
             this.isAd = z;
         }
     }
 
     public void setIsAddition(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048728, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
             this.mIsAddition = z;
         }
     }
 
     public void setIsArticle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048729, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048731, this, str) == null) {
             this.isArticle = str;
         }
     }
 
     public void setIsBJHPost(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048732, this, z) == null) {
             this.isBJHPost = z;
         }
     }
 
     public void setIsEvaluate(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048731, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048733, this, z) == null) {
             this.isEvaluate = z;
         }
     }
 
     public void setIsForumBusinessAccount(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048732, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048734, this, z) == null) {
             this.isForumBusinessAccount = z;
         }
     }
 
     public void setIsGeneralTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048733, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048735, this, i) == null) {
             this.isGeneralTab = i;
         }
     }
 
     public void setIsLinkThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048734, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048736, this, z) == null) {
             this.isLinkThread = z;
         }
     }
 
     public void setIsNoTitle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048735, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048737, this, z) == null) {
             this.mIsNoTitle = z;
         }
     }
 
     public void setIsShareThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048736, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048738, this, z) == null) {
             this.isShareThread = z;
         }
     }
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048737, this, tbRichTextEvaluateItemInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048739, this, tbRichTextEvaluateItemInfo) == null) {
             this.mEvaluateItemInfo = tbRichTextEvaluateItemInfo;
             if (tbRichTextEvaluateItemInfo != null) {
                 this.item_id = tbRichTextEvaluateItemInfo.getItemID();
@@ -1844,7 +1864,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setItem_id(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048738, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048740, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
                 this.item_id = "";
             } else {
@@ -1855,406 +1875,420 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setLinkUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048739, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048741, this, str) == null) {
             this.linkUrl = str;
         }
     }
 
     public void setLinkUrlCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048740, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048742, this, str) == null) {
             this.linkUrlCode = str;
         }
     }
 
     public void setLocalChannelDynamic(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048741, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048743, this, z) == null) {
             this.isLocalChannelDynamic = z;
         }
     }
 
     public void setLocalChannelTopic(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048742, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048744, this, str) == null) {
             this.mLocalChannelTopic = str;
         }
     }
 
     public void setMemeContSign(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048743, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048745, this, str) == null) {
             this.mMemeContSign = str;
         }
     }
 
     public void setMemeText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048744, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048746, this, str) == null) {
             this.mMemeText = str;
         }
     }
 
     public void setMoreForumImg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048745, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048747, this, str) == null) {
             this.mMoreForumImg = str;
         }
     }
 
     public void setMoreForumTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048746, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048748, this, str) == null) {
             this.mMoreForumTitle = str;
         }
     }
 
     public void setMoreForumUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048747, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048749, this, str) == null) {
             this.mMoreForumUrl = str;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048748, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048750, this, str) == null) {
             this.mName = str;
         }
     }
 
     public void setNetImgUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048749, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048751, this, str) == null) {
             this.netImgUrl = str;
         }
     }
 
     public void setNewWritePage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048750, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048752, this, z) == null) {
             this.isNewWritePage = z;
+        }
+    }
+
+    public void setNotFakePost(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048753, this, z) == null) {
+            this.notFakePost = z;
+        }
+    }
+
+    public void setNotificationH5(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048754, this, z) == null) {
+            this.notificationH5 = z;
         }
     }
 
     public void setOriBaijiahaoData(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048751, this, baijiahaoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048755, this, baijiahaoData) == null) {
             this.mOriBaijiahaoData = baijiahaoData;
         }
     }
 
     public void setOriginalThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048752, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048756, this, str) == null) {
             this.originalThreadId = str;
         }
     }
 
     public void setOriginalVideoCover(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048753, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048757, this, str) == null) {
             this.originalVideoCover = str;
         }
     }
 
     public void setOriginalVideoTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048754, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048758, this, str) == null) {
             this.originalVideoTitle = str;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048755, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048759, this, str) == null) {
             this.mPortrait = str;
         }
     }
 
     public void setPostPrefix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048756, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048760, this, str) == null) {
             this.postPrefix = str;
         }
     }
 
     public void setPrefixData(PostPrefixData postPrefixData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048757, this, postPrefixData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048761, this, postPrefixData) == null) {
             this.mPrefixData = postPrefixData;
         }
     }
 
     public void setPrivacy(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048758, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048762, this, z) == null) {
             this.isPrivacy = z;
         }
     }
 
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048759, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048763, this, i) == null) {
             this.mPrivateThread = i;
         }
     }
 
     public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048760, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048764, this, i) == null) {
             this.proZone = i;
         }
     }
 
     public void setQuestionTagId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048761, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048765, this, str) == null) {
             this.mQuestionTagId = str;
         }
     }
 
     public void setQuestionTagManualCreated(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048762, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048766, this, z) == null) {
             this.isQuestionTagManualCreated = z;
         }
     }
 
     public void setQuestionThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048763, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048767, this, z) == null) {
             this.isQuestionThread = z;
         }
     }
 
     public void setReSubPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048764, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048768, this, str) == null) {
             this.mReSubPostId = str;
         }
     }
 
     public void setReplyId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048765, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048769, this, str) == null) {
             this.mReplyUid = str;
         }
     }
 
     public void setRepostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048766, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048770, this, str) == null) {
             this.mRepostId = str;
         }
     }
 
     public void setReturnVoiceMd5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048767, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048771, this, str) == null) {
             this.mReturnVoiceMd5 = str;
         }
     }
 
     public void setRewardsType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048768, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048772, this, str) == null) {
             this.rewardsType = str;
         }
     }
 
     public void setRichContentData(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048769, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048773, this, list) == null) {
             this.richContentData = list;
         }
     }
 
     public void setRichTextEditorMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048770, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048774, this, z) == null) {
             this.isRichTextEditorMode = z;
         }
     }
 
     public void setSaveDraft(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048771, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048775, this, z) == null) {
             this.isSaveDraft = z;
         }
     }
 
     public void setSecondDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048772, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048776, this, str) == null) {
             this.mSecondDir = str;
         }
     }
 
     public void setServerRichContent(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048773, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048777, this, list) == null) {
             this.richServerContentData = list;
         }
     }
 
     public void setShowCustomFigure(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048774, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048778, this, z) == null) {
             this.mShowCustomFigure = z;
         }
     }
 
     public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048775, this, spanGroupManager) == null) {
+        if (interceptable == null || interceptable.invokeL(1048779, this, spanGroupManager) == null) {
             this.mSpanGroupManager = spanGroupManager;
         }
     }
 
     public void setSpanGroupString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048776, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048780, this, str) == null) {
             this.mSpanGroupString = str;
         }
     }
 
     public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048777, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048781, this, i) == null) {
             this.statisticFrom = i;
         }
     }
 
     public void setSubPbReplyPrefix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048778, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048782, this, str) == null) {
             this.mSubPbReplyPrefix = str;
         }
     }
 
     public void setTabId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048779, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048783, this, i) == null) {
             this.mTabId = i;
         }
     }
 
     public void setTabName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048780, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048784, this, str) == null) {
             this.mTabName = str;
         }
     }
 
     public void setTakePhotoNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048781, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048785, this, i) == null) {
             this.mTakePhotoNum = i;
         }
     }
 
     public void setThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048782, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048786, this, str) == null) {
             this.mThreadId = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048783, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048787, this, str) == null) {
             this.mTitle = str;
         }
     }
 
     public void setToDynamic(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048788, this, z) == null) {
             this.isToDynamic = z;
         }
     }
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048785, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048789, this, str) == null) {
             this.mTopicId = str;
         }
     }
 
     public void setTransmitForumData(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048786, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048790, this, str) == null) {
             this.transmitForumData = str;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048787, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048791, this, i) == null) {
             this.mType = i;
         }
     }
 
     public void setVForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048788, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048792, this, str) == null) {
             this.vForumId = str;
         }
     }
 
     public void setVForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048789, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048793, this, str) == null) {
             this.vForumName = str;
         }
     }
 
     public void setVcode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048790, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048794, this, str) == null) {
             this.mVcode = str;
         }
     }
 
     public void setVcodeExtra(VcodeExtra vcodeExtra) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048791, this, vcodeExtra) == null) {
+        if (interceptable == null || interceptable.invokeL(1048795, this, vcodeExtra) == null) {
             this.mVcodeExtra = vcodeExtra;
         }
     }
 
     public void setVcodeMD5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048792, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048796, this, str) == null) {
             this.mVcodeMD5 = str;
         }
     }
 
     public void setVcodeType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048793, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048797, this, str) == null) {
             this.mVcodeType = str;
         }
     }
 
     public void setVcodeUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048794, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048798, this, str) == null) {
             this.mVcodeUrl = str;
         }
     }
 
     public void setVideoId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048795, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048799, this, str) == null) {
             this.mVideoId = str;
         }
     }
 
     public void setVideoInfo(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048796, this, videoInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048800, this, videoInfo) == null) {
             this.mVideoInfo = videoInfo;
         }
     }
@@ -2262,7 +2296,7 @@ public class WriteData extends OrmObject implements Serializable {
     public void setVoice(String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048797, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
             if (str != null && (str2 = this.mVoiceMd5) != null) {
                 if (!str.equals(str2)) {
                     setReturnVoiceMd5(null);
@@ -2276,63 +2310,63 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setVoiceDuringTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048798, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048802, this, i) == null) {
             this.mDuringTime = i;
         }
     }
 
     public void setVoiceEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048799, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048803, this, z) == null) {
             this.isVoiceEnable = z;
         }
     }
 
     public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048800, this, voiceModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048804, this, voiceModel) == null) {
             this.mVoiceModel = voiceModel;
         }
     }
 
     public void setWork(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048801, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048805, this, z) == null) {
             this.isWork = z;
         }
     }
 
     public void setWorkDraft(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048802, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048806, this, z) == null) {
             this.isWorkDraft = z;
         }
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048803, this, writeImagesInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048807, this, writeImagesInfo) == null) {
             this.writeImagesInfo = writeImagesInfo;
         }
     }
 
     public void setWriteVoteData(WriteVoteData writeVoteData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048804, this, writeVoteData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048808, this, writeVoteData) == null) {
             this.mWriteVoteData = writeVoteData;
         }
     }
 
     public void setXiuxiuOriginalContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048805, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048809, this, str) == null) {
             this.xiuxiuOriginalContent = str;
         }
     }
 
     public void setXiuxiuOriginalFname(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048806, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048810, this, str) == null) {
             this.xiuxiuOriginalFname = str;
         }
     }
@@ -2341,7 +2375,7 @@ public class WriteData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         String y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048809, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("mType", this.mType);

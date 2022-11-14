@@ -153,12 +153,12 @@ public class AdRewardPreviewActivityProxy extends a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091269);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09126e);
             this.mAdWebView = ksAdWebView;
             this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).R(this.mAdTemplate).aA(false).b(getWebErrorListener()));
             this.mAdWebView.pp();
-            this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126d);
-            this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09111c);
+            this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091272);
+            this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091121);
             this.mWebCloseBtn.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class AdRewardPreviewActivityProxy extends a {
                     }
                 }
             });
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ed);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f2);
             this.mCountDownTips = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
                 public static /* synthetic */ Interceptable $ic;
@@ -453,7 +453,7 @@ public class AdRewardPreviewActivityProxy extends a {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d040f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0410);
             String stringExtra = getIntent().getStringExtra("key_template_json");
             this.mUrl = getIntent().getStringExtra(KEY_URL);
             try {

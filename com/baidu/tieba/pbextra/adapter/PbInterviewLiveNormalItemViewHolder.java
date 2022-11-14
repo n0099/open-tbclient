@@ -10,7 +10,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.tieba.tbadkCore.FrsPraiseView;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,25 +51,25 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f98);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9c);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c61);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091869);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f09186a);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091868);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cdc);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c6b);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091871);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091872);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091870);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cdd);
         this.b.getLayoutStrategy().t();
         this.b.getLayoutStrategy().k(true);
-        int min = Math.min(((((xi.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
+        int min = Math.min(((((yi.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.b.getLayoutStrategy().q(min);
         this.b.getLayoutStrategy().p((int) (min * 1.618f));
         this.b.setTextSize(TbConfig.getContentSize());
         this.b.setDisplayImage(z2, false);
-        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d091a);
+        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d091e);
     }
 }

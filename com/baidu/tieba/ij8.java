@@ -1,21 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jj8;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class ij8 extends fj8 {
+public class ij8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jj8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public jj8.a e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes4.dex */
+    public class a implements jj8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ij8 a;
+
+        public a(ij8 ij8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ij8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ij8Var;
+        }
+
+        @Override // com.baidu.tieba.jj8.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.c) {
+                return;
+            }
+            this.a.c = false;
+        }
+    }
+
     public ij8(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,47 +66,129 @@ public class ij8 extends fj8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
     }
 
-    @Override // com.baidu.tieba.lj8
-    public void a(ShareEntity shareEntity, mj8 mj8Var) {
-        String str;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, mj8Var) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (nj8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.share_to)))) {
-                    if (mj8Var != null) {
-                        mj8Var.b1(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (mj8Var != null) {
-                    mj8Var.b1(0, 2);
-                    return;
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
             }
-            xi.O(d(), R.string.obfuscated_res_0x7f0f1184);
-            if (mj8Var != null) {
-                mj8Var.b1(0, 2);
+            String b = kj8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = kj8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (kj8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
             }
         }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.jj8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.jj8$a, com.baidu.tieba.jj8] */
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            jj8 jj8Var = this.a;
+            if (jj8Var != null) {
+                try {
+                    try {
+                        jj8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
+                return;
+            }
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+        }
+    }
+
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            e(str);
+            jj8 jj8Var = new jj8(str, str2, z);
+            this.a = jj8Var;
+            jj8Var.b(this.e);
+            try {
+                this.a.start();
+                return true;
+            } catch (IllegalThreadStateException unused) {
+                return true;
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e);
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

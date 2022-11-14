@@ -273,10 +273,10 @@ public abstract class a implements c {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(this.xb, (ViewGroup) null, false);
             this.wU = inflate;
-            this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091264);
-            this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f091261);
-            this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f09123e);
-            this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f091254);
+            this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091269);
+            this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f091266);
+            this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f091243);
+            this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f091259);
         }
     }
 

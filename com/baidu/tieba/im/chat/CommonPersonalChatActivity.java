@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.le7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +135,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.rf
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -146,7 +146,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.q(view2, i, i2, j);
-            if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !le7.w(msg) || content == null) {
+            if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !we7.w(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;

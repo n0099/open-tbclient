@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.bu;
-import com.baidu.tieba.o20;
-import com.baidu.tieba.q20;
+import com.baidu.tieba.p20;
+import com.baidu.tieba.r20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,14 +41,14 @@ public class CuidUtil {
                 return "";
             }
             try {
-                str = o20.f(context).c();
+                str = p20.f(context).c();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        o20.f(context).j(new q20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.2
+                        p20.f(context).j(new r20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onError(int i, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) {
@@ -56,7 +56,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {
@@ -100,11 +100,11 @@ public class CuidUtil {
                 str = bu.a().b();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        o20.f(context).m(new q20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.3
+                        p20.f(context).m(new r20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onError(int i, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) {
@@ -126,7 +126,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) && !TextUtils.isEmpty(str2)) {
@@ -154,14 +154,14 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                str = o20.f(context).g();
+                str = p20.f(context).g();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        o20.f(context).o(new q20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.1
+                        p20.f(context).o(new r20<String>() { // from class: com.baidu.mobstat.util.CuidUtil.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onError(int i, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) {
@@ -169,7 +169,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // com.baidu.tieba.q20
+                            @Override // com.baidu.tieba.r20
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {
@@ -210,7 +210,7 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                str = o20.f(context).e();
+                str = p20.f(context).e();
             } catch (Throwable unused) {
                 str = "";
             }
@@ -228,7 +228,7 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                str = o20.f(context).h();
+                str = p20.f(context).h();
             } catch (Throwable unused) {
                 str = "";
             }

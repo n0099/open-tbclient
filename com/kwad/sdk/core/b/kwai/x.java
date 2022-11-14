@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class x implements com.kwad.sdk.core.d<AdInfo.AdRewardInfo> {
@@ -9,8 +10,8 @@ public final class x implements com.kwad.sdk.core.d<AdInfo.AdRewardInfo> {
         if (jSONObject == null) {
             return;
         }
-        adRewardInfo.skipShowTime = jSONObject.optInt("skipShowTime", new Integer("30").intValue());
-        adRewardInfo.rewardTime = jSONObject.optInt("rewardTime", new Integer("30").intValue());
+        adRewardInfo.skipShowTime = jSONObject.optInt("skipShowTime", new Integer(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK).intValue());
+        adRewardInfo.rewardTime = jSONObject.optInt("rewardTime", new Integer(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK).intValue());
         adRewardInfo.showLandingPage = jSONObject.optInt("showLandingPage");
         adRewardInfo.rewardVideoEndCardSwitch = jSONObject.optBoolean("rewardVideoEndCardSwitch");
         adRewardInfo.recommendAggregateSwitch = jSONObject.optBoolean("recommendAggregateSwitch");

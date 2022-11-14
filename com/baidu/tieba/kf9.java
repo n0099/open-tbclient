@@ -1,82 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class kf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gf9> a;
-    public int[] b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kf9(List<gf9> list) {
-        this(list, null);
+    public static void a(String str, of9 of9Var, nf9 nf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (int[]) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, of9Var, nf9Var) == null) {
+            if (cj9.a) {
+                cj9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + nf9Var.toString());
             }
-        }
-    }
-
-    public kf9(List<gf9> list, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = list;
-        c(iArr);
-    }
-
-    public List<gf9> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public int[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
-    }
-
-    public void c(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-            this.b = iArr;
-            if (wi9.e(this.a)) {
-                return;
-            }
-            for (gf9 gf9Var : this.a) {
-                if (gf9Var.b() != null) {
-                    gf9Var.b().mSoundTypes = iArr;
+            if9 g = ff9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (nf9Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", nf9Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", nf9Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", nf9Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", nf9Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", nf9Var.d + ""));
                 }
+                g.a("perf_record_arperf", str, of9Var.a, of9Var.b, of9Var.c, of9Var.d, of9Var.e, null, arrayList);
+            }
+        }
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (cj9.a) {
+                cj9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            if9 g = ff9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", aj9.a(ff9.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(aj9.b(ff9.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
         }
     }

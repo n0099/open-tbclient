@@ -71,6 +71,7 @@ import com.baidu.ufosdk.r0;
 import com.baidu.ufosdk.s1;
 import com.baidu.ufosdk.screencapedt.ScreenCapEditActivity;
 import com.baidu.ufosdk.t1;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -819,7 +820,7 @@ public class FeedbackEditActivity extends Activity {
                                     }
                                     this.a.C.onMessageSubmit(jSONObject.toString());
                                 }
-                                Toast.makeText(this.a, t1.a("35"), 0).show();
+                                Toast.makeText(this.a, t1.a(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK), 0).show();
                                 this.a.finish();
                                 return;
                             }

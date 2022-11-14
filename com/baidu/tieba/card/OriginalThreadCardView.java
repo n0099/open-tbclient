@@ -36,10 +36,10 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.mm5;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,11 +142,11 @@ public class OriginalThreadCardView extends RelativeLayout {
                 return;
             }
         }
-        s = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        t = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        u = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-        v = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        w = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        s = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        t = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        u = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        v = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        w = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -268,11 +268,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                kw4.d(view2).f(i);
+                pw4.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                kw4.d(textView).f(i);
+                pw4.d(textView).f(i);
             }
         }
     }
@@ -308,7 +308,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = mm5.d(itemStarData);
+            SpannableStringBuilder d = wm5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -336,9 +336,9 @@ public class OriginalThreadCardView extends RelativeLayout {
             setPadding(i, i, i, u);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
             if (this.c.getVisibility() == 0) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090ee3);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090ee6);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0921ac);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0921b9);
             }
             this.f.setLayoutParams(layoutParams);
             this.h.setStarSpacing(s);
@@ -371,7 +371,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     TextView textView = this.i;
                     textView.setText(itemData.mScore + "");
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f06fa);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f06fb);
                 }
                 if (this.c.getVisibility() == 8) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -576,25 +576,25 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ac, (ViewGroup) this, true);
         this.p = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ac);
-        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090ee3);
-        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e58);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921f6);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b9);
+        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090ee6);
+        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e5b);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092203);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
-        this.c.setRadius(xi.g(context, R.dimen.tbds10));
+        this.c.setRadius(yi.g(context, R.dimen.tbds10));
         this.c.setConrers(15);
         this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
-        int l = (((xi.l(context) - (xi.g(context, R.dimen.tbds44) * 2)) - (xi.g(getContext(), R.dimen.tbds26) * 2)) - (xi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int l = (((yi.l(context) - (yi.g(context, R.dimen.tbds44) * 2)) - (yi.g(getContext(), R.dimen.tbds26) * 2)) - (yi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams.width = l;
         layoutParams.height = l;
         this.c.setLayoutParams(layoutParams);
         this.e.setLayoutParams(layoutParams);
-        int g = xi.g(context, R.dimen.tbds52);
+        int g = yi.g(context, R.dimen.tbds52);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams2.leftMargin = (l - g) / 2;
         this.d.setLayoutParams(layoutParams2);
@@ -602,12 +602,12 @@ public class OriginalThreadCardView extends RelativeLayout {
         layoutParams3.height = l;
         this.b.setLayoutParams(layoutParams3);
         this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090123);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09100a);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09100e);
         this.g = textView;
-        textView.setMaxWidth(xi.s(context)[0] / 2);
-        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091001);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090ffd);
-        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f09268a);
+        textView.setMaxWidth(yi.s(context)[0] / 2);
+        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091005);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091001);
+        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f092699);
         this.j = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
         setOnClickListener(new a(this));
@@ -675,8 +675,8 @@ public class OriginalThreadCardView extends RelativeLayout {
             if (i4 != 0) {
                 SkinManager.setImageResource(this.d, i4);
             }
-            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
-            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(xi.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
+            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
+            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
             this.j.D(skinType);
             SkinManager.setViewTextColor(this.g, i2, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0107, 1);

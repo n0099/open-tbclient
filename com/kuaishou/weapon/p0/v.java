@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.qq.e.comm.constants.Constants;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -326,14 +326,14 @@ public class v implements Runnable {
                             boolean z3 = false;
                             while (keys.hasNext()) {
                                 String next = keys.next();
-                                if (c && next.endsWith(WebKitFactory.OS_64)) {
+                                if (c && next.endsWith("64")) {
                                     if (next.length() > 3) {
                                         hashSet.add(next.substring(0, next.length() - 3));
                                         str = next.substring(0, next.length() - 3) + ".32";
                                         hashSet.add(str);
                                     }
                                     z3 = true;
-                                } else if (!c && next.endsWith("32")) {
+                                } else if (!c && next.endsWith(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK)) {
                                     if (next.length() > 3) {
                                         hashSet.add(next.substring(0, next.length() - 3));
                                         str = next.substring(0, next.length() - 3) + ".64";
@@ -369,7 +369,7 @@ public class v implements Runnable {
                             String next2 = keys2.next();
                             t b2 = p.b(a2.optJSONObject(next2));
                             if (b2 != null) {
-                                if (z2 && !b2.y && (next2.endsWith("32") || next2.endsWith(WebKitFactory.OS_64) || next2.endsWith("v7") || next2.endsWith(V8Engine.TYPE_V8))) {
+                                if (z2 && !b2.y && (next2.endsWith(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK) || next2.endsWith("64") || next2.endsWith("v7") || next2.endsWith(V8Engine.TYPE_V8))) {
                                     b2.y = true;
                                 }
                                 if (b2.v) {

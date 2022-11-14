@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jc5 implements gb5<SyncDataEvent> {
+public class jc5 implements nb5<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,20 +27,29 @@ public class jc5 implements gb5<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gb5
+    @Override // com.baidu.tieba.nb5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(MissionEvent missionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            if (syncDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return false;
             }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            sh5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            int i = missionEvent.pageId;
+            int i2 = missionEvent.pageType;
+            long j = missionEvent.tid;
+            String str = missionEvent.actionType;
+            if ("onResume".equals(str)) {
+                lm4.w().K(i, j);
+                lm4.w().P(i2, j);
+            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                lm4.w().E();
+            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                lm4.w().F();
+            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                lm4.w().K(i, j);
+            }
             return true;
         }
         return invokeL.booleanValue;

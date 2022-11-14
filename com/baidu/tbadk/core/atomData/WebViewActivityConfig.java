@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,6 +46,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_SHOW_LOADING_SWITCH = "tag_show_loading_switch";
     public static final String TAG_TEXT_AUTO_SIZE = "tag_text_auto_size";
     public static final String TAG_TITLE = "tag_title";
+    public static final String TAG_TRANSLUCENT_AUTO_CLOSE = "trans_auto_close";
     public static final String TAG_URL = "tag_url";
     public static final String TAG_WEB_DIALOG_NAME = "tag_web_dialog_name";
     public transient /* synthetic */ FieldHolder $fh;
@@ -231,9 +232,16 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setTranslucentAutoClose(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_TRANSLUCENT_AUTO_CLOSE, z);
+        }
+    }
+
     public void setWebDialogName(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_WEB_DIALOG_NAME, str);
         }
     }
@@ -242,9 +250,9 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!wi.isEmpty(str)) {
+            if (!xi.isEmpty(str)) {
                 if (str.indexOf("_client_version=") < 0) {
-                    if (wi.isEmpty(Uri.parse(str).getQuery())) {
+                    if (xi.isEmpty(Uri.parse(str).getQuery())) {
                         str = str + "?_client_version=" + TbConfig.getVersion();
                     } else {
                         str = str + "&_client_version=" + TbConfig.getVersion();
@@ -266,7 +274,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                xi.P(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15f4));
+                yi.P(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15fb));
                 return false;
             }
             return true;

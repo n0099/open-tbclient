@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.kt4;
+import com.baidu.tieba.w36;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,18 +103,18 @@ public class ThreadLinkView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0533, (ViewGroup) this, true);
-            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091cc0);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09134e);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0534, (ViewGroup) this, true);
+            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091ccc);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091353);
             this.b = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.icon_card_url_n);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091350);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09134b);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091351);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f09134c);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091355);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091350);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091356);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091351);
             this.b.setLongIconSupport(false);
             this.b.setGifIconSupport(false);
-            this.b.setRadius(xi.g(context, R.dimen.tbds10));
+            this.b.setRadius(yi.g(context, R.dimen.tbds10));
             this.b.setConrers(5);
             d(inflate);
         }
@@ -123,7 +123,7 @@ public class ThreadLinkView extends RelativeLayout {
     public final void d(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.f != null && this.b != null) {
-            int l = (((xi.l(this.a) - (xi.g(this.a, R.dimen.tbds44) * 2)) - (xi.g(getContext(), R.dimen.tbds26) * 2)) - (xi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+            int l = (((yi.l(this.a) - (yi.g(this.a, R.dimen.tbds44) * 2)) - (yi.g(getContext(), R.dimen.tbds26) * 2)) - (yi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
             layoutParams.height = l;
             this.f.setLayoutParams(layoutParams);
@@ -145,9 +145,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            k36.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            k36.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            k36.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            w36.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            w36.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            w36.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -161,9 +161,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            if (threadData != null && threadData.getLinkThreadData() != null && !wi.isEmpty(threadData.getLinkThreadData().e())) {
-                jt4 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != jt4.g) {
+            if (threadData != null && threadData.getLinkThreadData() != null && !xi.isEmpty(threadData.getLinkThreadData().e())) {
+                kt4 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != kt4.g) {
                     setVisibility(8);
                     return;
                 }
@@ -179,20 +179,20 @@ public class ThreadLinkView extends RelativeLayout {
                     this.e.setVisibility(8);
                     String d = linkThreadData.d();
                     String a = linkThreadData.a();
-                    if (!wi.isEmpty(d)) {
+                    if (!xi.isEmpty(d)) {
                         this.c.setText(d);
                         this.c.setVisibility(0);
                         this.d.setVisibility(8);
                     } else {
                         this.c.setVisibility(8);
-                        if (!wi.isEmpty(a)) {
+                        if (!xi.isEmpty(a)) {
                             this.d.setText(a);
                             this.d.setVisibility(0);
                         } else {
                             this.d.setVisibility(4);
                         }
                     }
-                    if (!wi.isEmpty(linkThreadData.b())) {
+                    if (!xi.isEmpty(linkThreadData.b())) {
                         this.b.K(linkThreadData.b(), 10, false);
                     } else {
                         this.b.F();

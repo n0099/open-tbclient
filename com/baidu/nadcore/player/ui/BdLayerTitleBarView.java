@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoBattery;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tz0;
+import com.baidu.tieba.uz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,7 +94,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
             if (z2) {
                 this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060899));
             } else {
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e33));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e38));
             }
             c(z);
         }
@@ -104,7 +104,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(tz0.d());
+                startAnimation(uz0.d());
             }
             setVisibility(4);
         }
@@ -114,7 +114,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                startAnimation(tz0.c());
+                startAnimation(uz0.c());
             }
             f();
             setVisibility(0);
@@ -182,18 +182,18 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d0630, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914b3);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
+            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d0631, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914ba);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c8);
             this.c = imageView;
             imageView.setOnClickListener(this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c2);
-            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f0914b2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c9);
+            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f0914b9);
             this.e = bdVideoBattery;
-            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e5a);
-            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914bc);
+            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e5f);
+            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914c3);
             f();
-            this.h = findViewById(R.id.obfuscated_res_0x7f0922dd);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0922ea);
         }
     }
 

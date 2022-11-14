@@ -1,42 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
-import tv.athena.revenue.payui.model.PayFlowType;
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes3.dex */
-public class a6a implements IH5PayActivityVisit {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a6a extends q5a {
+    void a(PayFlowType payFlowType);
 
-    public a6a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(Activity activity, IYYPayWayView.b bVar, j7a j7aVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
-    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
-            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
-            PayFlowType a = f7a.a(i3);
-            if (a == null) {
-                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
-                return;
-            }
-            h6a.b(str, i, i2, a);
-        }
-    }
+    void c(Activity activity);
+
+    void d(String str, PayFlowType payFlowType);
+
+    boolean e();
+
+    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void g(Activity activity, IYYPayAmountView.ViewParams viewParams);
+
+    boolean i(PayFlowType payFlowType);
+
+    void j(String str, PayFlowType payFlowType);
+
+    void refreshWindow(WindowParams windowParams);
+
+    void release();
 }

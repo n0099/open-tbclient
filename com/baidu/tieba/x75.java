@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class x75 {
+public class x75 extends m65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public t75 e;
+    public final p75 a;
 
-    public x75(View view2) {
+    @Override // com.baidu.tieba.m65
+    public void c(o65 o65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o65Var) == null) {
+        }
+    }
+
+    public x75(p75 p75Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {p75Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,83 +37,40 @@ public class x75 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = a85.a(view2.getContext());
-        this.d = b85.c((Activity) view2.getContext());
+        this.a = p75Var;
     }
 
-    public final t75 a(View view2) {
+    @Override // com.baidu.tieba.m65
+    public o65 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            t75 t75Var = this.e;
-            if (t75Var != null) {
-                return t75Var;
-            }
-            if (view2 instanceof t75) {
-                t75 t75Var2 = (t75) view2;
-                this.e = t75Var2;
-                return t75Var2;
-            } else if (view2 instanceof ViewGroup) {
-                int i = 0;
-                while (true) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    if (i < viewGroup.getChildCount()) {
-                        t75 a = a(viewGroup.getChildAt(i));
-                        if (a != null) {
-                            this.e = a;
-                            return a;
-                        }
-                        i++;
-                    } else {
-                        return null;
-                    }
-                }
-            } else {
-                return null;
-            }
-        } else {
-            return (t75) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarLauncherType(6);
+            editorTools.setBackgroundColorId(R.color.CAM_X0602);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
+            editorTools.D(false);
+            return new w75(editorTools);
         }
+        return (o65) invokeL.objValue;
     }
 
-    @TargetApi(16)
-    public void b(int i, int i2) {
+    @Override // com.baidu.tieba.m65
+    public void d(o65 o65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
-            }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                t75 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < z75.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o65Var) == null) {
+            EditorTools b = o65Var.b();
+            b.setHideBigEmotion(true);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            b.d(new y75(b.getContext(), this.a));
+            v65 n = b.n(5);
+            n.d = 0;
+            n.e(false);
+            b.setClearEbPadding(true);
+            b.f();
         }
     }
 }

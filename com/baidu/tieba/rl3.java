@@ -1,16 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class rl3 implements po1 {
+public class rl3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements zi3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ rl3 b;
+
+        public a(rl3 rl3Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rl3Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rl3Var;
+            this.a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zi3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b.c(this.a);
+            }
+            return (Bundle) invokeV.objValue;
+        }
+    }
 
     public rl3() {
         Interceptable interceptable = $ic;
@@ -26,13 +68,42 @@ public class rl3 implements po1 {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public g93 a() {
-        InterceptResult invokeV;
+    public Bundle c(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ol3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            ql3 ql3Var = new ql3();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return bundle2;
+                        }
+                        bundle2.putString(TiebaStatic.LogFields.RESULT, ql3Var.getCookie(string));
+                        return bundle2;
+                    }
+                    ql3Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                    return bundle2;
+                }
+                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, ql3Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
+            }
+            bundle2.putBoolean(TiebaStatic.LogFields.RESULT, ql3Var.shouldAcceptCookie(string, bundle.getString("param2")));
+            return bundle2;
         }
-        return (g93) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            return (Bundle) wi3.b(new a(this, bundle));
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

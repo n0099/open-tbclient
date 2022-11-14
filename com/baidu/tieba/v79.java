@@ -1,41 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v79 {
+public class v79 implements x79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public TbPageContext<?> a;
+    public final TbPageContext<?> a;
     @NonNull
-    public NavigationBar b;
-    @NonNull
-    public LinearLayout c;
-    @NonNull
-    public LinearLayout d;
-    @NonNull
-    public l69 e;
-    public EditorTools f;
+    public final z69 b;
 
-    public v79(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull l69 l69Var) {
+    public v79(@NonNull TbPageContext<?> tbPageContext, @NonNull z69 z69Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, l69Var};
+            Object[] objArr = {tbPageContext, z69Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,68 +37,86 @@ public class v79 {
             }
         }
         this.a = tbPageContext;
-        this.b = navigationBar;
-        this.c = linearLayout;
-        this.d = linearLayout2;
-        this.e = l69Var;
+        this.b = z69Var;
     }
 
-    @Nullable
-    public o69 a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.l65
+    public void B(k65 k65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return c(i, z);
-        }
-        return (o69) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public o69 b(Bundle bundle) {
-        InterceptResult invokeL;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            int i = 9;
-            if (bundle != null) {
-                i = bundle.getInt("type", 9);
-            } else if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
-                i = intent.getIntExtra("type", 9);
+        if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
+            int i = k65Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.h();
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 43) {
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
+                        py4.k().u("hot_topic_has_click", true);
+                        this.b.D(new k65(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(k65Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = k65Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = k65Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.i();
+                    return;
+                }
             }
-            return c(i, true);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
+            this.b.r();
         }
-        return (o69) invokeL.objValue;
-    }
-
-    public final o69 c(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (this.a.getPageActivity() == null) {
-                return null;
-            }
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-            this.c.removeAllViews();
-            this.d.removeAllViews();
-            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
-            this.f = editorTools;
-            this.d.addView(editorTools);
-            switch (i) {
-                case 11:
-                    return new g89(this.a, this.b, this.c, this.f, this.e, z);
-                case 12:
-                    return new c89(this.a, this.b, this.c, this.f, this.e, z);
-                case 13:
-                    return new d89(this.a, this.b, this.c, this.f, this.e, z);
-                case 14:
-                    return new f89(this.a, this.b, this.c, this.f, this.e, z);
-                case 15:
-                    return new b89(this.a, this.b, this.c, this.f, this.e, z);
-                default:
-                    return new e89(this.a, this.b, this.c, this.f, this.e, z);
-            }
-        }
-        return (o69) invokeCommon.objValue;
     }
 }

@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s94;
+import com.baidu.tieba.t94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FlipperFrameLayout extends FrameLayout implements s94.b {
+public class FlipperFrameLayout extends FrameLayout implements t94.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public s94 b;
+    public t94 b;
     public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class FlipperFrameLayout extends FrameLayout implements s94.b {
         }
     }
 
-    @Override // com.baidu.tieba.s94.b
+    @Override // com.baidu.tieba.t94.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -94,7 +94,7 @@ public class FlipperFrameLayout extends FrameLayout implements s94.b {
         }
     }
 
-    @Override // com.baidu.tieba.s94.b
+    @Override // com.baidu.tieba.t94.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -114,10 +114,10 @@ public class FlipperFrameLayout extends FrameLayout implements s94.b {
         return invokeF.booleanValue;
     }
 
-    public void setViewFlipper(s94 s94Var) {
+    public void setViewFlipper(t94 t94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, s94Var) == null) {
-            this.b = s94Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, t94Var) == null) {
+            this.b = t94Var;
         }
     }
 

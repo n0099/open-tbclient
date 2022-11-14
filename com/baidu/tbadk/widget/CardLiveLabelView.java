@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -255,7 +255,7 @@ public class CardLiveLabelView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.m.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a40));
+                this.m.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a42));
             } else {
                 this.m.setText(str);
             }
@@ -269,7 +269,7 @@ public class CardLiveLabelView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.s.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a40));
+                this.s.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a42));
             } else {
                 this.s.setText(str);
             }
@@ -331,10 +331,10 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    kw4 d2 = kw4.d(this.c);
+                    pw4 d2 = pw4.d(this.c);
                     d2.n(R.string.J_X01);
                     d2.f(R.color.CAM_X0605);
-                    kw4 d3 = kw4.d(this.j);
+                    pw4 d3 = pw4.d(this.j);
                     d3.n(R.string.J_X07);
                     d3.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
@@ -342,7 +342,7 @@ public class CardLiveLabelView extends RelativeLayout {
                 }
                 return;
             }
-            float g = xi.g(getContext(), R.dimen.tbds31);
+            float g = yi.g(getContext(), R.dimen.tbds31);
             SkinManager.setBackgroundEndColorToAutoColor(this.c, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{g, g, g, g, g, g, g, g});
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
@@ -384,10 +384,10 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kw4 d2 = kw4.d(this.k);
+            pw4 d2 = pw4.d(this.k);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0605);
-            kw4 d3 = kw4.d(this.o);
+            pw4 d3 = pw4.d(this.o);
             d3.n(R.string.J_X07);
             d3.f(R.color.CAM_X0310);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
@@ -402,7 +402,7 @@ public class CardLiveLabelView extends RelativeLayout {
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0101);
-            kw4 d2 = kw4.d(this.q);
+            pw4 d2 = pw4.d(this.q);
             d2.n(R.string.J_X01);
             d2.p(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
         }
@@ -420,7 +420,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0494, this).findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0495, this).findViewById(R.id.obfuscated_res_0x7f091cd4);
         }
     }
 
@@ -452,8 +452,8 @@ public class CardLiveLabelView extends RelativeLayout {
             tBLottieAnimationView.loop(true);
             SkinManager.setLottieAnimation(this.d, R.raw.ala_live2);
             this.d.addOnAttachStateChangeListener(new c(this));
-            this.e = this.x.findViewById(R.id.obfuscated_res_0x7f091a2e);
-            this.f = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091a2d);
+            this.e = this.x.findViewById(R.id.obfuscated_res_0x7f091a38);
+            this.f = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091a37);
             this.g = (RelativeLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0901f6);
             this.h = (TBLottieAnimationView) this.x.findViewById(R.id.obfuscated_res_0x7f0901f7);
             this.i = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090203);
@@ -488,15 +488,15 @@ public class CardLiveLabelView extends RelativeLayout {
             if (i != 1 && i != 2) {
                 if (i != 3) {
                     if (i == 4) {
-                        this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0497, (ViewGroup) null, false);
+                        this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0498, (ViewGroup) null, false);
                         k();
                     }
                 } else {
-                    this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) null, false);
+                    this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0497, (ViewGroup) null, false);
                     j();
                 }
             } else {
-                this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0495, (ViewGroup) null, false);
+                this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) null, false);
                 i();
             }
             View view2 = this.x;

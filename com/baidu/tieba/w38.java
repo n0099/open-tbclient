@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.report.UEGReportRequestMessage;
+import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
 public class w38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a48> a;
+    public BdUniqueId a;
 
     public w38() {
         Interceptable interceptable = $ic;
@@ -29,67 +31,35 @@ public class w38 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UEG_REPORT, TbConfig.SERVER_ADDRESS + TbConfig.URL_UEG_REPORT);
+        tbHttpMessageTask.setResponsedClass(UEGReportResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public ArrayList<a48> a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
+            uEGReportRequestMessage.setTag(this.a);
+            uEGReportRequestMessage.setPid(str);
+            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            if (longValue == 2 || longValue == 0 || longValue == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
+            uEGReportRequestMessage.setTag(this.a);
+            uEGReportRequestMessage.setTUid(str);
+            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
         }
-        return invokeL.booleanValue;
     }
 
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        d48 d48Var;
+    public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
-            loop0: while (true) {
-                d48Var = null;
-                for (ExcContent excContent : list) {
-                    if (excContent != null && excContent.type != null) {
-                        if (b(excContent)) {
-                            z38 a = c48.a(tbPageContext, excContent);
-                            if (a == null) {
-                                continue;
-                            } else if (a.a()) {
-                                if (d48Var != null) {
-                                    this.a.add(d48Var);
-                                }
-                                this.a.add(a);
-                            } else {
-                                if (d48Var == null) {
-                                    d48Var = new d48();
-                                }
-                                d48Var.c(a.b());
-                            }
-                        } else {
-                            if (d48Var != null) {
-                                this.a.add(d48Var);
-                            }
-                            this.a.add(c48.b(excContent));
-                        }
-                    }
-                }
-                break loop0;
-            }
-            if (d48Var != null) {
-                this.a.add(d48Var);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
         }
     }
 }

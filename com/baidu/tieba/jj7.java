@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.squareup.wire.Message;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface jj7 {
-    boolean a();
+public class jj7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
-
-    void c(boolean z, Message message, boolean z2, int i);
-
-    List<ICardInfo> d();
-
-    boolean hasMore();
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i < 0) {
+                return 0;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
 }

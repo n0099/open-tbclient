@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
 /* loaded from: classes3.dex */
-public class dg9 implements cg9 {
+public class dg9 implements kg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qf9 a;
+    public int b;
+    public int c;
+    public boolean d;
 
     public dg9() {
         Interceptable interceptable = $ic;
@@ -23,61 +26,130 @@ public class dg9 implements cg9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = true;
     }
 
-    @Override // com.baidu.tieba.cg9
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kg9
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (ue9.c().d() != null && ue9.c().d().c() != null) {
-                    return ue9.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                xi9.b(e.getMessage());
-                return "";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            qf9 qf9Var = this.a;
+            if (qf9Var == null || bArr == null) {
+                return 0;
             }
+            this.b += bArr.length;
+            qf9Var.putBytes(bArr, i);
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.cg9
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.kg9
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (ue9.c().d() != null && ue9.c().d().c() != null) {
-                    return (T) ue9.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                xi9.b(e.getMessage());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (qf9) sj9.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            qf9 qf9Var = this.a;
+            if (qf9Var != null) {
+                qf9Var.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            qf9 qf9Var = this.a;
+            if (qf9Var == null || qf9Var.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
                 return null;
             }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
         }
-        return (T) invokeLL.objValue;
+        return (byte[]) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.cg9
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
+    public void b(int[] iArr) {
+        qf9 qf9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (ue9.c().d() != null && ue9.c().d().c() != null) {
-                    return (T) ue9.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                xi9.b(e.getMessage());
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (qf9Var = this.a) == null) {
+            return;
         }
-        return (T) invokeLL.objValue;
+        qf9Var.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public void c() {
+        qf9 qf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (qf9Var = this.a) == null) {
+            return;
+        }
+        qf9Var.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        qf9 qf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (qf9Var = this.a) == null) {
+            return;
+        }
+        qf9Var.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public void d() {
+        qf9 qf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (qf9Var = this.a) == null) {
+            return;
+        }
+        qf9Var.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.kg9
+    public void e() {
+        qf9 qf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (qf9Var = this.a) == null) {
+            return;
+        }
+        qf9Var.clearQueues();
     }
 }

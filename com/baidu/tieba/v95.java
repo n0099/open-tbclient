@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class v95 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static v95 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Class<? extends u95>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,46 +34,179 @@ public class v95 {
                 return;
             }
         }
-        boolean z = false;
-        if (ky4.k().l("key_lcs_log_switch", 0) == 1) {
-            z = true;
+        b = new v95();
+    }
+
+    public static v95 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        a = z;
-        if (z) {
-            a();
+        return (v95) invokeV.objValue;
+    }
+
+    public v95() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        f(w95.class);
+        f(y95.class);
+        f(t95.class);
+        f(x95.class);
+        f(z95.class);
+    }
+
+    public u95 a(ImageOperation imageOperation) {
+        InterceptResult invokeL;
+        u95 e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
+            Class<? extends u95> cls = this.a.get(imageOperation.actionName);
+            if (cls == null || (e = e(cls)) == null) {
+                return null;
+            }
+            e.d(imageOperation.actionParam);
+            return e;
+        }
+        return (u95) invokeL.objValue;
+    }
+
+    public final u95 e(Class<? extends u95> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            try {
+                return cls.newInstance();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (u95) invokeL.objValue;
+    }
+
+    public final void f(Class<? extends u95> cls) {
+        u95 e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
+            this.a.put(e.a(), cls);
         }
     }
 
-    public static void a() {
+    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
-            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
+            if (bitmap == null) {
+                return bitmap;
+            }
+            if (ListUtils.isEmpty(list)) {
+                return bitmap;
+            }
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                u95 a = a(list.get(i));
+                if ((a instanceof z95) && imageFileInfo != null) {
+                    ((z95) a).e(imageFileInfo.getFilePath());
+                    return a.b(bitmap, z);
+                }
+            }
+            w95 w95Var = null;
+            int i2 = 0;
+            while (i2 < size) {
+                ImageOperation imageOperation = list.get(i2);
+                if ("resize".equals(imageOperation.actionName)) {
+                    w95 w95Var2 = (w95) a(imageOperation);
+                    if (w95Var == null || w95Var2.f() <= w95Var.f() || w95Var2.e() <= w95Var.e()) {
+                        w95Var = w95Var2;
+                    }
+                    list.remove(i2);
+                    i2--;
+                }
+                i2++;
+            }
+            if (w95Var != null) {
+                bitmap2 = w95Var.b(bitmap, z);
+            } else {
+                bitmap2 = null;
+            }
+            if (list != null) {
+                for (int i3 = 0; i3 < size; i3++) {
+                    u95 a2 = a(list.get(i3));
+                    if (a2 != null) {
+                        if (bitmap2 == null) {
+                            return null;
+                        }
+                        bitmap2 = a2.b(bitmap, z);
+                    }
+                }
+            }
+            return bitmap2;
         }
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static void b(int i, int i2, int i3, int i4, int i5) {
+    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            c(i, i2, i3, i4, i5, 0);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
+            Bitmap bitmap = null;
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                u95 a = a(list.get(i));
+                if ((a instanceof z95) && imageFileInfo != null) {
+                    return a.c(imageFileInfo.getFilePath());
+                }
+            }
+            w95 w95Var = null;
+            int i2 = 0;
+            while (i2 < list.size()) {
+                ImageOperation imageOperation = list.get(i2);
+                if ("resize".equals(imageOperation.actionName)) {
+                    w95 w95Var2 = (w95) a(imageOperation);
+                    if (w95Var == null || w95Var2.f() <= w95Var.f() || w95Var2.e() <= w95Var.e()) {
+                        w95Var = w95Var2;
+                    }
+                    list.remove(i2);
+                    i2--;
+                }
+                i2++;
+            }
+            if (w95Var != null) {
+                bitmap = w95Var.c(str);
+            }
+            if (list != null) {
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    u95 a2 = a(list.get(i3));
+                    if (a2 != null) {
+                        if (bitmap == null) {
+                            bitmap = a2.c(str);
+                        } else {
+                            bitmap = a2.b(bitmap, true);
+                        }
+                    }
+                }
+            }
+            return bitmap;
         }
-    }
-
-    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !a) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-        httpMessage.addParam("cmd", i);
-        httpMessage.addParam("lcs_status", i2);
-        httpMessage.addParam("online_status", i3);
-        httpMessage.addParam("status_change_name", i4);
-        httpMessage.addParam("status_change_trigger", i5);
-        httpMessage.addParam("lcs_vailable", i6);
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        return (Bitmap) invokeLLL.objValue;
     }
 }

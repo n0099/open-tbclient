@@ -462,7 +462,7 @@ public class OauthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0515);
+                setContentView(R.layout.obfuscated_res_0x7f0d0516);
                 if (!b()) {
                     return;
                 }

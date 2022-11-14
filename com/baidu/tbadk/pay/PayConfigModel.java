@@ -12,9 +12,9 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.fe5;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.je5;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,8 +27,8 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce5 a;
-    public final pb b;
+    public je5 a;
+    public final qb b;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -51,7 +51,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayConfigModel a;
@@ -78,7 +78,7 @@ public class PayConfigModel extends BdBaseModel {
             this.a = payConfigModel;
         }
 
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !this.a.C(responsedMessage)) {
@@ -96,7 +96,7 @@ public class PayConfigModel extends BdBaseModel {
                 return;
             }
             String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7f);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c81);
             if (StringUtils.isNull(errorString)) {
                 errorString = string;
             }
@@ -107,13 +107,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, ce5 ce5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, je5 je5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ce5Var};
+            Object[] objArr = {tbPageContext, je5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,7 +126,7 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = ce5Var;
+        this.a = je5Var;
         registerListener(aVar);
     }
 
@@ -148,23 +148,23 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    ce5 ce5Var = this.a;
-                    if (ce5Var != null) {
-                        ce5Var.b();
+                    je5 je5Var = this.a;
+                    if (je5Var != null) {
+                        je5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    ce5 ce5Var2 = this.a;
-                    if (ce5Var2 != null) {
-                        ce5Var2.a();
+                    je5 je5Var2 = this.a;
+                    if (je5Var2 != null) {
+                        je5Var2.a();
                     }
                 } else {
-                    ce5 ce5Var3 = this.a;
-                    if (ce5Var3 != null) {
-                        ce5Var3.onError("");
+                    je5 je5Var3 = this.a;
+                    if (je5Var3 != null) {
+                        je5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
-                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0496));
+                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0497));
             }
         }
     }
@@ -172,15 +172,15 @@ public class PayConfigModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!fe5.c().d()) {
-                ce5 ce5Var = this.a;
-                if (ce5Var != null) {
-                    ce5Var.a();
+            if (!me5.c().d()) {
+                je5 je5Var = this.a;
+                if (je5Var != null) {
+                    je5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                ce5 ce5Var2 = this.a;
-                if (ce5Var2 != null) {
-                    ce5Var2.b();
+                je5 je5Var2 = this.a;
+                if (je5Var2 != null) {
+                    je5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

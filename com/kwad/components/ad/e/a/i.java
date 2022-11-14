@@ -130,7 +130,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125f);
         }
     }
 

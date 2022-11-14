@@ -24,14 +24,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e97;
-import com.baidu.tieba.h97;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.kw4;
+import com.baidu.tieba.nw4;
+import com.baidu.tieba.p97;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.s97;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<h97> w;
+    public List<s97> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -483,7 +483,7 @@ public class SelectTopicLayout extends RelativeLayout {
         ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
         layoutParams.height = i;
         this.a.setLayoutParams(layoutParams);
-        int j = xi.j(getContext()) - i;
+        int j = yi.j(getContext()) - i;
         this.q = j;
         this.c.setTranslationY(j);
     }
@@ -547,7 +547,7 @@ public class SelectTopicLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.u = ViewConfiguration.getMaximumFlingVelocity();
             this.t = ViewConfiguration.getMinimumFlingVelocity();
-            this.v = xi.j(getContext()) / 8;
+            this.v = yi.j(getContext()) / 8;
         }
     }
 
@@ -594,24 +594,24 @@ public class SelectTopicLayout extends RelativeLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07c7, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09227a);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07cb, this);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092287);
             this.a = findViewById;
             findViewById.setOnClickListener(new a(this));
-            this.b = findViewById(R.id.obfuscated_res_0x7f0906f3);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f2);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0922d7);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0906f4);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f3);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0922e4);
             this.e = findViewById(R.id.obfuscated_res_0x7f0903f7);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e9f);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea0);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09233d);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09233e);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f09233c);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09233f);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eab);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091eac);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09234a);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09234b);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092349);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09234c);
             this.k = editText;
             editText.addTextChangedListener(new b(this));
-            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f091e9d);
-            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f091e9e);
+            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f091ea9);
+            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f091eaa);
             this.j.setOnClickListener(this.z);
             setDelButtonVisible(false);
             v();
@@ -695,60 +695,60 @@ public class SelectTopicLayout extends RelativeLayout {
         return invokeLII.booleanValue;
     }
 
-    public void s(e97 e97Var, e97 e97Var2, e97 e97Var3) {
+    public void s(p97 p97Var, p97 p97Var2, p97 p97Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, e97Var, e97Var2, e97Var3) == null) && (selectTopicListLayout = this.l) != null) {
-            selectTopicListLayout.a(e97Var, e97Var2, e97Var3);
+        if ((interceptable == null || interceptable.invokeLLL(1048589, this, p97Var, p97Var2, p97Var3) == null) && (selectTopicListLayout = this.l) != null) {
+            selectTopicListLayout.a(p97Var, p97Var2, p97Var3);
         }
     }
 
-    public void u(e97 e97Var) {
+    public void u(p97 p97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, e97Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, p97Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            e97 e97Var2 = new e97();
-            this.w.add(new h97(searchKey, 0L, false));
-            if (e97Var == null) {
-                e97Var = e97Var2;
+            p97 p97Var2 = new p97();
+            this.w.add(new s97(searchKey, 0L, false));
+            if (p97Var == null) {
+                p97Var = p97Var2;
             }
-            e97Var.c().addAll(0, this.w);
-            this.m.a(getSearchKey(), e97Var.c());
+            p97Var.c().addAll(0, this.w);
+            this.m.a(getSearchKey(), p97Var.c());
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            kw4.d(this.b).o(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
-            kw4 d2 = kw4.d(this.d);
+            pw4.d(this.b).o(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
+            pw4 d2 = pw4.d(this.d);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0207);
-            kw4.d(this.e).f(R.color.CAM_X0207);
-            kw4 d3 = kw4.d(this.g);
+            pw4.d(this.e).f(R.color.CAM_X0207);
+            pw4 d3 = pw4.d(this.g);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X09);
             d3.A(R.string.F_X01);
-            kw4 d4 = kw4.d(this.h);
+            pw4 d4 = pw4.d(this.h);
             d4.n(R.string.J_X07);
             d4.f(R.color.CAM_X0209);
-            kw4 d5 = kw4.d(this.i);
+            pw4 d5 = pw4.d(this.i);
             d5.v(R.color.CAM_X0110);
             d5.z(R.dimen.T_X07);
             d5.A(R.string.F_X01);
-            this.k.setHintTextColor(iw4.i(R.color.CAM_X0110));
-            kw4 d6 = kw4.d(this.k);
+            this.k.setHintTextColor(nw4.i(R.color.CAM_X0110));
+            pw4 d6 = pw4.d(this.k);
             d6.v(R.color.CAM_X0105);
             d6.z(R.dimen.T_X07);
             d6.A(R.string.F_X01);
             this.l.d();
             this.m.c();
             SkinManager.setImageResource(this.j, R.drawable.del_search_btn);
-            kw4 d7 = kw4.d(this.f);
+            pw4 d7 = pw4.d(this.f);
             d7.n(R.string.J_X01);
             d7.f(R.color.CAM_X0209);
-            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d1, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d6, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 

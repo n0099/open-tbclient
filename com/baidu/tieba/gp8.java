@@ -1,29 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Timgs;
 /* loaded from: classes4.dex */
-public class gp8 {
+public class gp8 implements uw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eh a;
+    public String a;
     public String b;
-    public boolean c;
+    public int c;
+    public int d;
 
-    public gp8(String str) {
+    public gp8(Timgs timgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {timgs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,131 +32,63 @@ public class gp8 {
                 return;
             }
         }
+        this.a = null;
         this.b = null;
-        this.c = false;
-        e(str, false);
-    }
-
-    public void a() {
-        jp8 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long e = this.a.e();
-            if (e > 3000) {
-                ip8 ip8Var = c.f;
-                ip8Var.a += e;
-                ip8Var.b++;
-                hp8.b(c, 10);
-            }
-        }
-    }
-
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        jp8 c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
+        this.c = 1;
+        this.d = 1;
+        if (timgs == null) {
             return;
         }
-        if (z) {
-            ip8 ip8Var = c.d;
-            if (ip8Var == null) {
-                return;
+        this.a = timgs.img_url;
+        timgs.flag.intValue();
+        this.b = timgs.url;
+        String str = timgs.big_cdn_url;
+        String str2 = timgs.des_main;
+        String str3 = timgs.des_sub;
+        String str4 = timgs.bsize;
+        if (str4 != null) {
+            try {
+                String[] split = str4.split(",");
+                this.c = xg.e(split[0], 1);
+                this.d = xg.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            ip8Var.b++;
-            if (z2) {
-                ip8Var.a += j2;
-                ip8Var.d += j;
-            } else {
-                ip8Var.c++;
-            }
-        } else {
-            ip8 ip8Var2 = c.e;
-            if (ip8Var2 == null) {
-                return;
-            }
-            ip8Var2.b++;
-            if (z2) {
-                ip8Var2.a += j3;
-                ip8Var2.d += j;
-            } else {
-                ip8Var2.c++;
-            }
-            j2 = j3;
         }
-        this.a = null;
-        if (z2) {
-            hp8.b(c, 10);
+        if (this.c <= 0) {
+            this.c = 1;
         }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                eh ehVar = new eh("dbg");
-                ehVar.b("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
-                }
-                ehVar.b(TiebaStatic.LogFields.RESULT, str2);
-                if (z) {
-                    str3 = "1";
-                }
-                ehVar.b("isHttp", str3);
-                ehVar.b("timeCost", String.valueOf(j2));
-                ehVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                ehVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                ehVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", ehVar);
-            }
+        if (this.d <= 0) {
+            this.d = 1;
         }
     }
 
-    public final jp8 c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return hp8.e(this.b, d(), this.c);
-        }
-        return (jp8) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
-            }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public void f() {
+    @Override // com.baidu.tieba.uw4
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(String str, boolean z) {
+    @Override // com.baidu.tieba.uw4
+    public String getPicUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new eh("dbg");
-            hp8.c(str, d(), z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

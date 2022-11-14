@@ -24,7 +24,7 @@ public class b9 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b9 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public e20 a;
+    public f20 a;
     public Context b;
     public volatile int c;
     public AtomicReference<HashMap<String, i9>>[] d;
@@ -73,7 +73,7 @@ public class b9 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap[] hashMapArr = new HashMap[this.c.c];
                 for (i9 i9Var : this.a) {
-                    int a = m20.a(i9Var.a(), this.c.c);
+                    int a = n20.a(i9Var.a(), this.c.c);
                     if (hashMapArr[a] == null) {
                         hashMapArr[a] = new HashMap();
                     }
@@ -154,7 +154,7 @@ public class b9 {
         }
         this.b = context.getApplicationContext();
         this.c = k9.b().a();
-        this.a = new e20(this.b);
+        this.a = new f20(this.b);
         w();
     }
 
@@ -262,7 +262,7 @@ public class b9 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            return l20.a(t(str), z);
+            return m20.a(t(str), z);
         }
         return invokeLZ.booleanValue;
     }
@@ -271,7 +271,7 @@ public class b9 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return l20.b(t(str), d);
+            return m20.b(t(str), d);
         }
         return invokeCommon.doubleValue;
     }
@@ -280,7 +280,7 @@ public class b9 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
-            return l20.c(t(str), i);
+            return m20.c(t(str), i);
         }
         return invokeLI.intValue;
     }
@@ -289,7 +289,7 @@ public class b9 {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j)) == null) {
-            return l20.e(t(str), j);
+            return m20.e(t(str), j);
         }
         return invokeLJ.longValue;
     }
@@ -298,7 +298,7 @@ public class b9 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
-            return l20.f(t(str), str2);
+            return m20.f(t(str), str2);
         }
         return (String) invokeLL.objValue;
     }

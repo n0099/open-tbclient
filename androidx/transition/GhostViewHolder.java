@@ -45,7 +45,7 @@ public class GhostViewHolder extends FrameLayout {
         }
         setClipChildren(false);
         this.mParent = viewGroup;
-        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6, this);
+        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc7, this);
         ViewGroupUtils.getOverlay(this.mParent).add(this);
         this.mAttached = true;
     }
@@ -54,7 +54,7 @@ public class GhostViewHolder extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
-            return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6);
+            return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc7);
         }
         return (GhostViewHolder) invokeL.objValue;
     }
@@ -113,7 +113,7 @@ public class GhostViewHolder extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onViewRemoved(view2);
             if ((getChildCount() == 1 && getChildAt(0) == view2) || getChildCount() == 0) {
-                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6, null);
+                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc7, null);
                 ViewGroupUtils.getOverlay(this.mParent).remove(this);
                 this.mAttached = false;
             }

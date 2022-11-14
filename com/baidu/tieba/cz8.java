@@ -1,21 +1,26 @@
 package com.baidu.tieba;
+
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes3.dex */
 public interface cz8 {
-    void a();
 
-    void b();
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-    void c();
+    void a(Camera camera);
 
-    void d();
+    void b(Camera camera);
 
-    void e();
+    void c(a aVar);
 
-    void onClose();
+    void d(Camera camera);
 
-    void onDestroy();
+    void e(Camera camera);
 
-    void onPause();
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
 
-    void onResume();
+    void setPreviewSize(int i, int i2);
 }

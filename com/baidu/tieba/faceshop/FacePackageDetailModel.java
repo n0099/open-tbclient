@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.df;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.wi;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                hv4.f();
-                cf<String> g = hv4.g("tb_face_package");
+                iv4.f();
+                df<String> g = iv4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,11 +126,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    hv4.f();
-                    cf<String> g = hv4.g("tb_face_package");
+                    iv4.f();
+                    df<String> g = iv4.g("tb_face_package");
                     if (g != null) {
                         String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                        if (!wi.isEmpty(str)) {
+                        if (!xi.isEmpty(str)) {
                             publishProgress(str);
                         }
                     }
@@ -204,8 +204,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         this.l = null;
         this.h = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.i = xi.l(inst);
-        this.j = xi.j(inst);
+        this.i = yi.l(inst);
+        this.j = yi.j(inst);
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 

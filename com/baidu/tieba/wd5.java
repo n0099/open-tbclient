@@ -1,25 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class wd5 {
+public class wd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
+    public String b;
+    public final ArrayList<String> c;
 
-    public abstract int b();
-
-    public abstract boolean c();
-
-    public wd5() {
+    public wd5(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str, str2, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,61 +35,86 @@ public abstract class wd5 {
                 return;
             }
         }
-        this.a = ky4.k().h("page_stay_duration_switch", false);
+        this.c = new ArrayList<>();
+        this.a = str;
+        this.b = str2;
+        g(intent);
     }
 
-    public boolean a(yd5 yd5Var) {
-        InterceptResult invokeL;
-        int b;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yd5Var)) == null) {
-            if (yd5Var != null && !yd5Var.p()) {
-                if (yd5Var.a) {
-                    yd5Var.x(xd5.b(yd5Var.h(), 6));
-                } else {
-                    if (b() > zd5.b().c()) {
-                        b = zd5.b().c();
-                    } else {
-                        b = b();
-                    }
-                    if (b > 5) {
-                        b = 5;
-                    }
-                    yd5Var.x(xd5.b(yd5Var.h(), b));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbPageExtraHelper.buildNextPageSourceKeyList(this.c, this.a);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (String) ListUtils.getItem(this.c, ListUtils.getCount(this.c) - 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.a;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                e(false);
-                return false;
-            } else if (!zd5.b().f()) {
-                e(false);
-                return false;
-            } else {
-                e(true);
-                return true;
-            }
-        }
         return invokeV.booleanValue;
     }
 
-    public final void e(boolean z) {
+    public void g(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
-            ky4.k().u("page_stay_duration_switch", true);
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            this.c.clear();
+            if (intent != null) {
+                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
+                if (!ListUtils.isEmpty(stringArrayListExtra)) {
+                    this.c.addAll(stringArrayListExtra);
+                }
+            }
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 }

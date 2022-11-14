@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class du9 implements Runnable {
+public final class du9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ cu9 b;
+    public final Map<Long, AugmentedFace> a;
 
-    public du9(cu9 cu9Var, AtomicBoolean atomicBoolean) {
+    public du9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cu9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,18 +27,23 @@ public final class du9 implements Runnable {
                 return;
             }
         }
-        this.b = cu9Var;
-        this.a = atomicBoolean;
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
-            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            cu9 cu9Var = this.b;
-            xt9 xt9Var = cu9Var.c;
-            xt9.n(cu9Var.a, cu9Var.b);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
+                }
+            }
+            return augmentedFace;
         }
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

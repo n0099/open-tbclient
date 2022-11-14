@@ -1,393 +1,307 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.graphics.Point;
+import android.hardware.Camera;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import tbclient.App;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class ze8 {
+public final class ze8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public Point b;
+    public Point c;
+    public Point d;
+    public Camera e;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<ft4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357180, "Lcom/baidu/tieba/ze8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948357180, "Lcom/baidu/tieba/ze8;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ft4 ft4Var, ft4 ft4Var2) {
-            InterceptResult invokeLL;
-            int g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ft4Var, ft4Var2)) == null) {
-                if (ft4Var.e() && ft4Var2.e()) {
-                    return ft4Var.i() - ft4Var2.i();
-                }
-                int i = -1;
-                if (!ft4Var.e() && !ft4Var2.e()) {
-                    if (ft4Var.p() == null) {
-                        g = -1;
-                    } else {
-                        g = ze8.g(ft4Var.p());
-                    }
-                    if (ft4Var2.p() != null) {
-                        i = ze8.g(ft4Var2.p());
-                    }
-                    return g - i;
-                } else if (ft4Var.e()) {
-                    return -1;
-                } else {
-                    return 1;
-                }
-            }
-            return invokeLL.intValue;
-        }
+        f = Pattern.compile(",");
     }
 
-    public static Set<wn> a(List<wn> list, int i, String str) {
-        InterceptResult invokeLIL;
-        AdvertAppInfo p;
-        AdvertAppInfo p2;
+    public Point e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, list, i, str)) == null) {
-            HashSet hashSet = new HashSet();
-            if (vi7.e(list)) {
-                return hashSet;
-            }
-            Set<wn> a2 = gh8.a(str);
-            if (a2 == null) {
-                a2 = new HashSet();
-            }
-            for (wn wnVar : list) {
-                if (wnVar != null) {
-                    for (wn wnVar2 : a2) {
-                        if ((wnVar instanceof ft4) && (p2 = ((ft4) wnVar).p()) != null && wnVar2.hashCode() == p2.hashCode()) {
-                            p2.i = ((AdvertAppInfo) wnVar2).i;
-                        }
-                    }
-                    if ((wnVar instanceof ft4) && (p = ((ft4) wnVar).p()) != null && p.i == null) {
-                        wr4 wr4Var = new wr4();
-                        p.i = wr4Var;
-                        wr4Var.a = str;
-                        wr4Var.b = i;
-                        wr4Var.g = p.g;
-                        wr4Var.h = false;
-                        hashSet.add(p);
-                    }
-                }
-            }
-            a2.addAll(hashSet);
-            gh8.b(str, a2);
-            return hashSet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (Set) invokeLIL.objValue;
+        return (Point) invokeV.objValue;
     }
 
-    public static List<ft4> i(List<ft4> list, List<wn> list2, int i) {
-        InterceptResult invokeLLI;
-        int i2;
+    public void i() {
+        Camera camera;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, list, list2, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (vi7.e(list)) {
-                return arrayList;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (camera = this.e) != null) {
+            try {
+                h(camera);
+                j(this.e);
+            } catch (Exception unused) {
             }
-            o(list);
-            int i3 = 0;
-            for (int i4 = 0; i4 < list.size(); i4++) {
-                ft4 ft4Var = (ft4) vi7.d(list, i4);
-                if (ft4Var != null && ft4Var.p() != null) {
-                    int i5 = vi7.i(list2);
-                    int g = g(ft4Var.p()) - 1;
-                    if (g < 0) {
-                        n(ft4Var.p());
-                    } else {
-                        if (ft4Var.e()) {
-                            i2 = ft4Var.i();
-                        } else {
-                            i2 = g + i;
-                        }
-                        if (i2 > i5) {
-                            n(ft4Var.p());
-                        } else {
-                            ft4Var.setPosition(i2);
-                            vi7.b(list2, ft4Var, i2);
-                            arrayList.add(ft4Var);
-                        }
-                    }
-                }
-            }
-            while (i < vi7.i(list2)) {
-                wn wnVar = list2.get(i);
-                if (wnVar instanceof ft4) {
-                    i3++;
-                } else if (wnVar instanceof BaseCardInfo) {
-                    ((BaseCardInfo) wnVar).position += i3;
-                }
-                i++;
-            }
-            return arrayList;
         }
-        return (List) invokeLLI.objValue;
     }
 
-    public static int b(@NonNull List<wn> list) {
+    public ze8(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+    }
+
+    public static boolean a(Camera camera) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            int i = 0;
-            if (vi7.e(list)) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, camera)) == null) {
+            if (d(camera.getParameters().getSupportedFocusModes(), "auto") != null) {
+                return true;
             }
-            int i2 = -1;
-            for (int i3 = vi7.i(list) - 1; i3 >= 0 && !(vi7.d(list, i3) instanceof ft4); i3--) {
-                if (vi7.d(list, i3) instanceof vu4) {
-                    int i4 = ((vu4) vi7.d(list, i3)).position;
-                    if (i4 != i2) {
-                        i++;
-                        i2 = i4;
-                    }
-                } else {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(List<wn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || vi7.e(list)) {
-            return;
-        }
-        Iterator<wn> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next() instanceof ft4) {
-                it.remove();
-            }
-        }
-    }
-
-    public static String f(@NonNull AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, advertAppInfo)) == null) {
-            return "#Nad=" + advertAppInfo.g;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int g(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
-                return 0;
-            }
-            if (TextUtils.isEmpty(advertAppInfo.f)) {
-                return -1;
-            }
-            return wg.e(advertAppInfo.f, -1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean j(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("#Nad=");
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static int k(@Nullable AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
+    public void j(Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, advertAppInfo)) == null) {
-            int n = advertAppInfo.n();
-            if (g(advertAppInfo) < 0) {
-                return 23;
-            }
-            return n;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean l(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, advertAppInfo)) == null) {
-            return advertAppInfo.b();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, advertAppInfo) == null) {
-            m(advertAppInfo, 23);
+        if (interceptable == null || interceptable.invokeL(1048580, this, camera) == null) {
+            Camera.Parameters parameters = camera.getParameters();
+            Point point = this.d;
+            parameters.setPreviewSize(point.x, point.y);
+            k(parameters);
+            camera.setDisplayOrientation(f());
+            camera.setParameters(parameters);
         }
     }
 
-    public static void o(List<ft4> list) {
+    public static int b(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, list) == null) {
-            Collections.sort(list, new a());
-        }
-    }
-
-    public static void p(List<wn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, list) == null) {
-            for (int i = 0; i < vi7.i(list); i++) {
-                if (vi7.d(list, i) instanceof ft4) {
-                    ((ft4) vi7.d(list, i)).setPosition(i);
-                }
-            }
-        }
-    }
-
-    public static void d(String str, List list) {
-        ThreadData threadData;
-        yo8 yo8Var;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, list) != null) || vi7.e(list)) {
-            return;
-        }
-        Iterator it = list.iterator();
-        int i = 0;
-        int i2 = 0;
-        while (it.hasNext()) {
-            i++;
-            Object next = it.next();
-            if (StringUtils.isNull(str)) {
-                if (!(next instanceof App) && !(next instanceof ft4)) {
-                    if ((next instanceof vu4) && (threadData = ((vu4) next).t) != null && (yo8Var = threadData.funAdData) != null) {
-                        yo8Var.p(true);
-                        it.remove();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
+            int i2 = 0;
+            for (String str : f.split(charSequence)) {
+                try {
+                    double parseDouble = Double.parseDouble(str.trim());
+                    int i3 = (int) (10.0d * parseDouble);
+                    if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
+                        i2 = i3;
                     }
-                } else {
-                    it.remove();
-                }
-            } else {
-                if (i2 + 1 == i && (next instanceof er5)) {
-                    it.remove();
-                }
-                if (next instanceof App) {
-                    str2 = af8.a((App) next);
-                } else {
-                    if (next instanceof ft4) {
-                        ft4 ft4Var = (ft4) next;
-                        if (ft4Var.p() != null) {
-                            str2 = ft4Var.p().a;
-                        }
-                    }
-                    str2 = "";
-                }
-                if (TextUtils.equals(str, str2)) {
-                    it.remove();
-                    i2 = i;
+                } catch (NumberFormatException unused) {
+                    return i;
                 }
             }
+            return i2;
         }
+        return invokeLI.intValue;
     }
 
-    public static String e(List<wn> list, boolean z) {
-        InterceptResult invokeLZ;
-        ft4 ft4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !vi7.e(list)) {
-                int i = 0;
-                for (int i2 = vi7.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    if ((vi7.d(list, i2) instanceof ft4) && (ft4Var = (ft4) vi7.d(list, i2)) != null && !l(ft4Var.p())) {
-                        sb.append(ft4Var.i() + 1);
-                        sb.append(",");
-                        i++;
-                    }
-                }
-                if (sb.length() <= 1) {
-                    return sb.toString();
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
-            }
-            return sb.toString();
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static List<ft4> h(List<App> list, String str) {
+    public static Point c(List<Camera.Size> list, Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (vi7.e(list)) {
-                return arrayList;
-            }
-            Log.e("frs", "src ad list size " + list.size());
-            for (App app : list) {
-                AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                advertAppInfo.s(app);
-                advertAppInfo.j = str;
-                int k = k(advertAppInfo);
-                if (k != 0) {
-                    ih8.h(advertAppInfo, 1, k);
-                } else {
-                    arrayList.add(advertAppInfo);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, point)) == null) {
+            Iterator<Camera.Size> it = list.iterator();
+            int i = 0;
+            int i2 = 0;
+            int i3 = Integer.MAX_VALUE;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                Camera.Size next = it.next();
+                int i4 = next.width;
+                int i5 = next.height;
+                int abs = Math.abs(i4 - point.x) + Math.abs(i5 - point.y);
+                if (abs == 0) {
+                    i2 = i5;
+                    i = i4;
+                    break;
+                } else if (abs < i3) {
+                    i2 = i5;
+                    i = i4;
+                    i3 = abs;
                 }
             }
-            Log.e("frs", "src ad jiaoyan size " + arrayList.size());
-            return arrayList;
+            if (i > 0 && i2 > 0) {
+                return new Point(i, i2);
+            }
+            return null;
         }
-        return (List) invokeLL.objValue;
+        return (Point) invokeLL.objValue;
     }
 
-    public static void m(AdvertAppInfo advertAppInfo, int i) {
+    public static String d(Collection<String> collection, String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, advertAppInfo, i) == null) {
-            ih8.h(advertAppInfo, 1, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, collection, strArr)) == null) {
+            if (collection != null) {
+                for (String str : strArr) {
+                    if (collection.contains(str)) {
+                        return str;
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Point g(Camera.Parameters parameters, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parameters, point)) == null) {
+            Point c = c(parameters.getSupportedPreviewSizes(), point);
+            if (c == null) {
+                return new Point((point.x >> 3) << 3, (point.y >> 3) << 3);
+            }
+            return c;
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            int i = 0;
+            Camera.getCameraInfo(0, cameraInfo);
+            int rotation = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation != 1) {
+                    if (rotation != 2) {
+                        if (rotation == 3) {
+                            i = 270;
+                        }
+                    } else {
+                        i = 180;
+                    }
+                } else {
+                    i = 90;
+                }
+            }
+            if (cameraInfo.facing == 1) {
+                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
+            }
+            return ((cameraInfo.orientation - i) + 360) % 360;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(Camera camera) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) {
+            this.e = camera;
+            Camera.Parameters parameters = camera.getParameters();
+            if (a(camera)) {
+                parameters.setFocusMode("auto");
+            }
+            this.b = ye8.d(this.a);
+            Point point = new Point();
+            Point point2 = this.b;
+            point.x = point2.x;
+            point.y = point2.y;
+            int c = ye8.c(this.a);
+            if (c == 0) {
+                Point point3 = this.b;
+                point.x = point3.y;
+                point.y = point3.x;
+            }
+            if (UtilHelper.isOppoFoldLargeScreen(this.a)) {
+                this.d = new Point(1792, 1920);
+            } else {
+                this.d = g(parameters, point);
+            }
+            if (c == 0) {
+                Point point4 = this.d;
+                this.c = new Point(point4.y, point4.x);
+                return;
+            }
+            this.c = this.d;
+        }
+    }
+
+    public final void k(Camera.Parameters parameters) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, parameters) == null) {
+            String str = parameters.get("zoom-supported");
+            if (str != null && !Boolean.parseBoolean(str)) {
+                return;
+            }
+            int i = 27;
+            String str2 = parameters.get("max-zoom");
+            if (str2 != null) {
+                try {
+                    int parseDouble = (int) (Double.parseDouble(str2) * 10.0d);
+                    if (27 > parseDouble) {
+                        i = parseDouble;
+                    }
+                } catch (NumberFormatException unused) {
+                }
+            }
+            String str3 = parameters.get("taking-picture-zoom-max");
+            if (str3 != null) {
+                try {
+                    int parseInt = Integer.parseInt(str3);
+                    if (i > parseInt) {
+                        i = parseInt;
+                    }
+                } catch (NumberFormatException unused2) {
+                }
+            }
+            String str4 = parameters.get("mot-zoom-values");
+            if (str4 != null) {
+                i = b(str4, i);
+            }
+            String str5 = parameters.get("mot-zoom-step");
+            if (str5 != null) {
+                try {
+                    int parseDouble2 = (int) (Double.parseDouble(str5.trim()) * 10.0d);
+                    if (parseDouble2 > 1) {
+                        i -= i % parseDouble2;
+                    }
+                } catch (NumberFormatException unused3) {
+                }
+            }
+            if (str2 != null || str4 != null) {
+                parameters.set("zoom", String.valueOf(i / 10.0d));
+            }
+            if (str3 != null) {
+                parameters.set("taking-picture-zoom", i);
+            }
         }
     }
 }

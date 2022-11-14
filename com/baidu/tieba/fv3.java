@@ -1,76 +1,145 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fv3 extends kw3 {
+public class fv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap<String, List<yv3>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777542, "Lcom/baidu/tieba/fv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777542, "Lcom/baidu/tieba/fv3;");
-                return;
-            }
-        }
-        boolean z = ok1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fv3() {
-        super("getDownloadConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public synchronized void a(String str, yv3 yv3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, yv3Var) == null) {
+            synchronized (this) {
+                if (e(str, yv3Var)) {
+                    return;
+                }
+                List<yv3> c = c(str);
+                if (!c.contains(yv3Var)) {
+                    c.add(yv3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(JSONObject jSONObject, ih2 ih2Var) {
+    public synchronized void b(String str, aw3 aw3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aw3Var) == null) {
+            synchronized (this) {
+                for (yv3 yv3Var : new ArrayList(c(str))) {
+                    if (yv3Var != null) {
+                        yv3Var.a(aw3Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(String str, yv3 yv3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, yv3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (yv3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<yv3> c = c(str);
+                if (c.contains(yv3Var)) {
+                    c.remove(yv3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final List<yv3> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
+            }
+            List<yv3> list = this.a.get(str);
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<yv3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public final boolean e(String str, yv3 yv3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (jSONObject == null) {
-                ih2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, yv3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && yv3Var != null) {
+                return false;
             }
-            if (jSONObject.has("wifiResumeDownloadFlag")) {
-                ov3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
-            }
-            if (jSONObject.has("install_guide_switch")) {
-                tv3.r(jSONObject.optBoolean("install_guide_switch"));
-            }
-            if (jSONObject.has("install_guide_count")) {
-                tv3.q(jSONObject.optInt("install_guide_count"));
-            }
-            if (jSONObject.has("get_install_result")) {
-                tv3.s(jSONObject.optBoolean("get_install_result"));
-            }
-            ih2Var.a(null);
-            return null;
+            return true;
         }
-        return (ew1) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

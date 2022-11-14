@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+        g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
     }
 
     public void a() {

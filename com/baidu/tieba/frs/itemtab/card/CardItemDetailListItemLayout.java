@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hr6;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.tr6;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -144,8 +144,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !wi.isEmpty(this.a.d) && (w9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !xi.isEmpty(this.a.d) && (x9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(hr6 hr6Var) {
+    public void setData(tr6 tr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hr6Var) == null) {
-            this.a.setText(hr6Var.a);
-            this.b.setText(hr6Var.b);
-            this.d = hr6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr6Var) == null) {
+            this.a.setText(tr6Var.a);
+            this.b.setText(tr6Var.b);
+            this.d = tr6Var.c;
         }
     }
 
@@ -242,12 +242,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f0a15);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f0a17);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03f4, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091651);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092528);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090812);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03f5, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091658);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092537);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090813);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -255,13 +255,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kw4.d(this.a).v(R.color.CAM_X0108);
-            if (wi.isEmpty(this.d)) {
-                kw4 d = kw4.d(this.b);
+            pw4.d(this.a).v(R.color.CAM_X0108);
+            if (xi.isEmpty(this.d)) {
+                pw4 d = pw4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                kw4 d2 = kw4.d(this.b);
+                pw4 d2 = pw4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }

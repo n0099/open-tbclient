@@ -69,9 +69,9 @@ public final class R {
         public static final int bgColor_overlay = 0x7f060421;
         public static final int bgColor_overlay_black = 0x7f060422;
         public static final int bgColor_svprogressdefaultview = 0x7f060423;
-        public static final int roundColor_svprogresshuddefault = 0x7f06092c;
-        public static final int roundProgressColor_svprogresshuddefault = 0x7f06092d;
-        public static final int textColor_svprogresshuddefault_msg = 0x7f060afb;
+        public static final int roundColor_svprogresshuddefault = 0x7f06092d;
+        public static final int roundProgressColor_svprogresshuddefault = 0x7f06092e;
+        public static final int textColor_svprogresshuddefault_msg = 0x7f060afc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -147,15 +147,15 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000a;
         public static final int STROKE = 0x7f09001c;
-        public static final int circleProgressBar = 0x7f090655;
+        public static final int circleProgressBar = 0x7f090656;
 
         /* renamed from: ivBigLoading */
-        public static final int obfuscated = 0x7f09101b;
-        public static final int ivSmallLoading = 0x7f09101d;
-        public static final int sv_outmost_container = 0x7f092008;
+        public static final int obfuscated = 0x7f09101f;
+        public static final int ivSmallLoading = 0x7f091021;
+        public static final int sv_outmost_container = 0x7f092014;
 
         /* renamed from: tvMsg */
-        public static final int obfuscated = 0x7f092394;
+        public static final int obfuscated = 0x7f0923a1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -197,8 +197,8 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int layout_svprogresshud = 0x7f0d051e;
-        public static final int view_svprogressdefault = 0x7f0d090b;
+        public static final int layout_svprogresshud = 0x7f0d051f;
+        public static final int view_svprogressdefault = 0x7f0d090f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {

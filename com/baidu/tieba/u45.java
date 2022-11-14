@@ -1,22 +1,241 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
-import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class u45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public String a;
+    public List<String> b;
+    public c c;
+    public boolean d;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<Object, Integer, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public b a;
+        public volatile NetWork b;
+        public final /* synthetic */ u45 c;
+
+        /* loaded from: classes6.dex */
+        public class a implements Comparator<Map.Entry<String, Integer>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: a */
+            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                    return (int) (xg.e(String.valueOf(entry.getValue()), 0) - xg.e(String.valueOf(entry2.getValue()), 0));
+                }
+                return invokeLL.intValue;
+            }
+        }
+
+        public c(u45 u45Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u45Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = u45Var;
+            this.a = null;
+            this.b = null;
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                try {
+                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
+                    String postNetData = this.b.postNetData();
+                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        JSONObject jSONObject = new JSONObject(postNetData);
+                        if (jSONObject.optInt("error_code") == 0) {
+                            String optString = jSONObject.optString("urls");
+                            this.c.b = this.c.j(optString);
+                            if (this.c.b != null && this.c.b.size() > 0) {
+                                HashMap hashMap = new HashMap();
+                                int i = 0;
+                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
+                                    String str = (String) this.c.b.get(i2);
+                                    z45 z45Var = new z45();
+                                    z45Var.a(str);
+                                    if (z45Var.d()) {
+                                        hashMap.put(str, Integer.valueOf(z45Var.b()));
+                                    }
+                                }
+                                if (hashMap.size() > 0) {
+                                    this.c.b = new ArrayList();
+                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
+                                    Collections.sort(arrayList, new a(this));
+                                    StringBuilder sb = new StringBuilder(50);
+                                    for (Map.Entry entry : arrayList) {
+                                        this.c.b.add(entry.getKey());
+                                        if (i != 0) {
+                                            sb.append(",");
+                                        }
+                                        i++;
+                                        sb.append((String) entry.getKey());
+                                    }
+                                    optString = sb.toString();
+                                }
+                                py4.k().x("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
+                                py4.k().y("KeyOfSharedPrefIpList", optString);
+                                return null;
+                            }
+                            return null;
+                        }
+                        return null;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (Void) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onCancelled(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.b != null) {
+                    this.b.cancelNetConnect();
+                    this.b = null;
+                }
+                this.c.c = null;
+                super.cancel(true);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static u45 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-422997677, "Lcom/baidu/tieba/u45$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-422997677, "Lcom/baidu/tieba/u45$d;");
+                    return;
+                }
+            }
+            a = new u45(null);
+        }
+    }
 
     public u45() {
         Interceptable interceptable = $ic;
@@ -31,106 +250,125 @@ public class u45 {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = false;
+        this.d = false;
+        this.b = null;
     }
 
-    public int b() {
+    public static u45 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
+        }
+        return (u45) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return py4.k().l("KeyOfSharedPrefImCount", 0);
         }
         return invokeV.intValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    return 5000;
-                }
-                return 10000;
-            }
-            return 3000;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public void a(String str) {
-        int lastIndexOf;
-        String str2;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = false;
-            this.b = 0;
-            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return;
-            }
-            String str3 = null;
-            try {
-                str2 = str.substring(5, lastIndexOf);
-            } catch (Exception e) {
-                e = e;
-                str2 = null;
-            }
-            try {
-                str3 = str.substring(lastIndexOf + 1);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return;
-            }
-            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    Socket socket = new Socket();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                        try {
-                            socket.connect(new InetSocketAddress(str2, wg.e(String.valueOf(str3), 8000)), c());
-                            if (socket.isConnected()) {
-                                i++;
-                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.a = true;
-                            }
-                            try {
-                                socket.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.getMessage());
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e5) {
-                        BdLog.e(e5.getMessage());
-                        socket.close();
-                    }
-                }
-                if (this.a && i > 0) {
-                    this.b = i2 / i;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = false;
         }
+    }
+
+    public /* synthetic */ u45(a aVar) {
+        this();
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
+            this.a = str;
+            py4.k().y("KeyOfSharedPrefValidIp", str);
+        }
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
+            this.d = true;
+            c cVar = new c(this, bVar);
+            this.c = cVar;
+            cVar.setSelfExecute(true);
+            this.c.execute(new Object[0]);
+        }
+    }
+
+    public List<String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                if (System.currentTimeMillis() - py4.k().m("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
+                    py4.k().y("KeyOfSharedPrefIpList", "");
+                    return null;
+                }
+                this.b = j(py4.k().q("KeyOfSharedPrefIpList", null));
+            }
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int e = e();
+            if (e >= 10) {
+                py4.k().w("KeyOfSharedPrefImCount", 0);
+                py4.k().y("KeyOfSharedPrefValidIp", "");
+                this.a = null;
+                return null;
+            }
+            if (this.a == null) {
+                this.a = py4.k().q("KeyOfSharedPrefValidIp", null);
+            }
+            if (!xi.isEmpty(this.a)) {
+                py4.k().w("KeyOfSharedPrefImCount", e + 1);
+            } else {
+                this.a = null;
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<String> j(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList(3);
+                for (String str2 : split) {
+                    arrayList.add(str2);
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
     }
 }

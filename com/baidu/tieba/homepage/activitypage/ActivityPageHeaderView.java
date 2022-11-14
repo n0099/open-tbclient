@@ -9,33 +9,33 @@ import com.baidu.card.view.GridIconLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy6;
-import com.baidu.tieba.es4;
-import com.baidu.tieba.fq4;
-import com.baidu.tieba.g57;
-import com.baidu.tieba.iq4;
-import com.baidu.tieba.mh5;
-import com.baidu.tieba.ng5;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.fs4;
+import com.baidu.tieba.gq4;
+import com.baidu.tieba.jq4;
+import com.baidu.tieba.oy6;
+import com.baidu.tieba.r57;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.ug5;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.xw4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
+public class ActivityPageHeaderView extends LinearLayout implements th5<oy6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public AutoBannerLayout b;
     public GridIconLayout c;
     public String d;
-    public iq4 e;
-    public sw4<es4> f;
+    public jq4 e;
+    public xw4<fs4> f;
 
-    @Override // com.baidu.tieba.mh5
+    @Override // com.baidu.tieba.th5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,17 +43,17 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements iq4<es4> {
+    public class a implements jq4<fs4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.iq4
+        @Override // com.baidu.tieba.jq4
         /* renamed from: a */
-        public void d(View view2, es4 es4Var, int i, long j) {
+        public void d(View view2, fs4 fs4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, es4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, fs4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
@@ -76,18 +76,18 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.iq4
+        @Override // com.baidu.tieba.jq4
         /* renamed from: b */
-        public void c(View view2, es4 es4Var, int i, long j) {
+        public void c(View view2, fs4 fs4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, es4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                g57.a("c13751", es4Var, i + 1, this.a.d);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, fs4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                r57.a("c13751", fs4Var, i + 1, this.a.d);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements sw4<es4> {
+    public class b implements xw4<fs4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -110,29 +110,29 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.baidu.tieba.sw4
+        @Override // com.baidu.tieba.xw4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                es4 es4Var = new es4();
-                es4Var.e(str);
-                g57.a("c13750", es4Var, i, this.a.d);
+                fs4 fs4Var = new fs4();
+                fs4Var.e(str);
+                r57.a("c13750", fs4Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sw4
+        @Override // com.baidu.tieba.xw4
         /* renamed from: c */
-        public void a(int i, es4 es4Var) {
+        public void a(int i, fs4 fs4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, es4Var) == null) {
-                g57.b("c13750", es4Var, i, this.a.d);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fs4Var) == null) {
+                r57.b("c13750", fs4Var, i, this.a.d);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements fq4 {
+    public class c implements gq4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -155,7 +155,7 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.baidu.tieba.fq4
+        @Override // com.baidu.tieba.gq4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z && this.a.b != null) {
@@ -165,7 +165,7 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements fq4 {
+    public class d implements gq4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -188,11 +188,11 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.baidu.tieba.fq4
+        @Override // com.baidu.tieba.gq4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                g57.c("c13751", this.a.d);
+                r57.c("c13751", this.a.d);
             }
         }
     }
@@ -221,7 +221,7 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
         d();
     }
 
-    @Override // com.baidu.tieba.oh5
+    @Override // com.baidu.tieba.vh5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -250,46 +250,46 @@ public class ActivityPageHeaderView extends LinearLayout implements mh5<dy6> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             setDescendantFocusability(262144);
-            this.a = (TbPageContext) w9.a(getContext());
+            this.a = (TbPageContext) x9.a(getContext());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nh5
+    @Override // com.baidu.tieba.uh5
     /* renamed from: e */
-    public ng5 a(dy6 dy6Var) {
+    public ug5 a(oy6 oy6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dy6Var)) == null) {
-            if (dy6Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oy6Var)) == null) {
+            if (oy6Var == null) {
                 return null;
             }
-            setPadding(0, xi.g(getContext(), R.dimen.tbds44), 0, xi.g(getContext(), R.dimen.tbds60));
+            setPadding(0, yi.g(getContext(), R.dimen.tbds44), 0, yi.g(getContext(), R.dimen.tbds60));
             if (this.b == null) {
                 AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
                 this.b = autoBannerLayout;
                 autoBannerLayout.setMarqueenTime(3000L);
                 this.b.setOnCoverViewCallback(this.f);
-                this.b.setBannerHeight(xi.g(getContext(), R.dimen.tbds328));
-                int g = xi.g(getContext(), R.dimen.tbds44);
+                this.b.setBannerHeight(yi.g(getContext(), R.dimen.tbds328));
+                int g = yi.g(getContext(), R.dimen.tbds44);
                 this.b.setPadding(g, 0, g, 0);
                 addView(this.b);
                 this.b.setIWindowChangedListener(new c(this));
             }
-            this.b.a(dy6Var.f);
+            this.b.a(oy6Var.f);
             if (this.c == null) {
                 GridIconLayout gridIconLayout = new GridIconLayout(getContext());
                 this.c = gridIconLayout;
                 gridIconLayout.setOnItemCoverListener(this.e);
                 addView(this.c);
                 this.c.setIWindowChangedListener(new d(this));
-                this.c.setPadding(0, xi.g(getContext(), R.dimen.tbds61), 0, 0);
-                this.c.setVerticalSpace(xi.g(getContext(), R.dimen.tbds61));
+                this.c.setPadding(0, yi.g(getContext(), R.dimen.tbds61), 0, 0);
+                this.c.setVerticalSpace(yi.g(getContext(), R.dimen.tbds61));
                 this.c.setMaxItem(10);
             }
-            this.c.a(dy6Var.g);
-            return new ng5();
+            this.c.a(oy6Var.g);
+            return new ug5();
         }
-        return (ng5) invokeL.objValue;
+        return (ug5) invokeL.objValue;
     }
 }

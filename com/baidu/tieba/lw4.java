@@ -1,35 +1,88 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import android.graphics.RectF;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class lw4 {
+public final class lw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Path a(RectF rectF, float[] fArr) {
-        InterceptResult invokeLL;
+    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
-            Path path = new Path();
-            path.addRoundRect(rectF, fArr, Path.Direction.CW);
-            return path;
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            for (DialogStrategiesData dialogStrategiesData : list) {
+                Iterator<T> it = list2.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), dialogStrategiesData.getDialogName())) {
+                            break;
+                        }
+                    } else {
+                        obj = null;
+                        break;
+                    }
+                }
+                DialogStrategiesData dialogStrategiesData2 = (DialogStrategiesData) obj;
+                if (dialogStrategiesData2 != null) {
+                    DialogStrategiesData.StrategiesConfigData c = c(dialogStrategiesData2, "FREQUENCE_STRATEGY");
+                    boolean z = false;
+                    if (c != null && d(c, c(dialogStrategiesData, "FREQUENCE_STRATEGY"))) {
+                        z = true;
+                    }
+                    if (z) {
+                        jw4 jw4Var = jw4.a;
+                        String dialogName = dialogStrategiesData.getDialogName();
+                        Intrinsics.checkNotNullExpressionValue(dialogName, "ori.dialogName");
+                        jw4Var.b(dialogName);
+                    }
+                }
+            }
         }
-        return (Path) invokeLL.objValue;
     }
 
-    public static float[] b(float f) {
-        InterceptResult invokeF;
+    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
+        InterceptResult invokeLL;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            float[] fArr = new float[8];
-            Arrays.fill(fArr, f);
-            return fArr;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
+            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
+            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
+            Iterator<T> it = dialogStrategy.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    obj = it.next();
+                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
+                        break;
+                    }
+                } else {
+                    obj = null;
+                    break;
+                }
+            }
+            return (DialogStrategiesData.StrategiesConfigData) obj;
         }
-        return (float[]) invokeF.objValue;
+        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
+    }
+
+    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
+            if (strategiesConfigData2 != null) {
+                if (Intrinsics.areEqual(strategiesConfigData.A().get("startTimestamp"), strategiesConfigData2.A().get("startTimestamp")) && Intrinsics.areEqual(strategiesConfigData.A().get("endTimestamp"), strategiesConfigData2.A().get("endTimestamp"))) {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

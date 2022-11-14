@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import java.util.Comparator;
+import com.baidu.yunjiasu.tornadosdk.Pinger;
 /* compiled from: lambda */
-/* loaded from: classes4.dex */
-public final /* synthetic */ class em9 implements Comparator {
+/* loaded from: classes3.dex */
+public final /* synthetic */ class em9 implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ em9 a = new em9();
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,10 +16,10 @@ public final /* synthetic */ class em9 implements Comparator {
     private /* synthetic */ em9() {
     }
 
-    @Override // java.util.Comparator
-    public final int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    @Override // android.os.Handler.Callback
+    public final boolean handleMessage(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ls9.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m72pingHandler$lambda0(message) : invokeL.booleanValue;
     }
 }

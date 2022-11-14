@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.qc5;
-import com.baidu.tieba.rc5;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.bd5;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.df;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.xc5;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MvcJsonHttpResponsedMessage<D extends uc5> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage<D extends bd5> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,7 +109,7 @@ public class MvcJsonHttpResponsedMessage<D extends uc5> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof uc5) {
+            if (createData instanceof bd5) {
                 D d = (D) createData;
                 this.data = d;
                 d.initByJson(jSONObject);
@@ -118,10 +118,10 @@ public class MvcJsonHttpResponsedMessage<D extends uc5> extends MvcHttpResponsed
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, ag agVar) {
+    public void logStatInBackground(int i, bg bgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, agVar) == null) {
-            super.logStatInBackground(i, agVar);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bgVar) == null) {
+            super.logStatInBackground(i, bgVar);
         }
     }
 
@@ -134,26 +134,26 @@ public class MvcJsonHttpResponsedMessage<D extends uc5> extends MvcHttpResponsed
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof qc5)) {
-                    qc5 qc5Var = (qc5) mvcHttpMessage.getRequestData();
-                    String cacheKey = qc5Var.getCacheKey();
-                    String y = qc5Var.y();
-                    if (qc5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof xc5)) {
+                    xc5 xc5Var = (xc5) mvcHttpMessage.getRequestData();
+                    String cacheKey = xc5Var.getCacheKey();
+                    String y = xc5Var.y();
+                    if (xc5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(y) && bArr != null) {
-                        if (qc5Var.o()) {
-                            hv4.f();
-                            cf<byte[]> e = hv4.e(y, str);
+                        if (xc5Var.o()) {
+                            iv4.f();
+                            df<byte[]> e = iv4.e(y, str);
                             if (e == null) {
                                 return;
                             }
                             e.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof rc5) {
-                            hv4.f();
-                            cf<String> h = hv4.h(y, str);
+                        } else if (mvcHttpMessage.getRequestData() instanceof yc5) {
+                            iv4.f();
+                            df<String> h = iv4.h(y, str);
                             if (h == null) {
                                 return;
                             }

@@ -61,7 +61,7 @@ public class ForumEmotionItemView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0260a {
+        public static class C0267a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -69,7 +69,7 @@ public class ForumEmotionItemView extends LinearLayout {
             public TextView c;
             public View d;
 
-            public C0260a(View view2) {
+            public C0267a(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,9 +86,9 @@ public class ForumEmotionItemView extends LinearLayout {
                 }
                 this.a = view2;
                 view2.setEnabled(false);
-                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c5);
-                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908ea);
-                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908b2);
+                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c6);
+                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908eb);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908b3);
                 this.d = findViewById;
                 findViewById.setVisibility(8);
             }
@@ -99,7 +99,7 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080c0d);
+                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080c12);
                     this.b.K(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
@@ -183,16 +183,16 @@ public class ForumEmotionItemView extends LinearLayout {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C0260a c0260a;
+            C0267a c0267a;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0257, (ViewGroup) null);
-                    c0260a = new C0260a(view2);
-                    view2.setTag(c0260a);
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0258, (ViewGroup) null);
+                    c0267a = new C0267a(view2);
+                    view2.setTag(c0267a);
                 } else {
-                    c0260a = (C0260a) view2.getTag();
+                    c0267a = (C0267a) view2.getTag();
                 }
                 EmotionPackageData.SingleEmotionData singleEmotionData = this.a.get(i);
                 if (i == 0 && this.c) {
@@ -200,7 +200,7 @@ public class ForumEmotionItemView extends LinearLayout {
                 } else {
                     z = false;
                 }
-                c0260a.a(singleEmotionData, z, this.d, i);
+                c0267a.a(singleEmotionData, z, this.d, i);
                 return view2;
             }
             return (View) invokeILL.objValue;
@@ -232,20 +232,20 @@ public class ForumEmotionItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b0, this);
-            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090a7c);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090a7e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090a7a);
-            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a7b);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a80);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a82);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a78);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a81);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a79);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091339);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a76);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b1, this);
+            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090a7d);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090a7f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090a7b);
+            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a7c);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a81);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a83);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a79);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a82);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a7a);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09133e);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a77);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08126e));
+            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08127e));
             a aVar = new a(this.m);
             this.l = aVar;
             this.a.setAdapter((ListAdapter) aVar);

@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class b75 extends p65 {
+public class b75 implements i95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
+    public static final HashMap<String, Integer> a;
+    public static final ArrayList<Integer> b;
+    public static final HashMap<String, Integer> c;
+    public static final HashMap<String, String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
 
     static {
         InterceptResult invokeClinit;
@@ -35,81 +34,152 @@ public class b75 extends p65 {
                 return;
             }
         }
-        u = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
+        a = new HashMap<>(200);
+        b = new ArrayList<>(180);
+        c = new HashMap<>(180);
+        d = new HashMap<>(180);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b75(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public b75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        g(context, z);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b75(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            try {
+                Class.forName("com.baidu.tieba.y65");
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+            try {
+                Class.forName("com.baidu.tieba.ma6");
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+            }
+            try {
+                Class.forName("com.baidu.tieba.oa6");
+            } catch (Throwable th3) {
+                BdLog.e(th3);
             }
         }
-        g(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
+    }
+
+    @Override // com.baidu.tieba.i95
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g();
+            return b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d.isEmpty()) {
+            i();
         }
     }
 
-    public final void g(Context context, boolean z) {
+    @Override // com.baidu.tieba.i95
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            g();
+            int h = h(i);
+            for (Map.Entry<String, Integer> entry : c.entrySet()) {
+                if (entry.getValue().intValue() == h) {
+                    return entry.getKey();
+                }
+            }
+            return null;
         }
+        return (String) invokeI.objValue;
     }
 
-    public void h(boolean z) {
+    @Override // com.baidu.tieba.i95
+    public String d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            g();
+            for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                if (entry.getValue().intValue() == i) {
+                    return entry.getKey();
+                }
+            }
+            return null;
         }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.i95
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            g();
+            Integer num = a.get(str);
+            if ("video_icon".equals(str)) {
+                return Integer.valueOf((int) R.drawable.ico_link_video).intValue();
+            }
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.i95
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            g();
+            return d.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i95
+    public int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            g();
+            Integer num = c.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            g();
+            if (i >= 0 && i < b.size()) {
+                return b.get(i).intValue();
+            }
+            return 0;
+        }
+        return invokeI.intValue;
     }
 }

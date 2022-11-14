@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g47;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.r47;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -107,16 +107,16 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.h = xi.g(getContext(), R.dimen.tbds94);
-            this.i = 0 - xi.g(getContext(), R.dimen.tbds18);
+            this.h = yi.g(getContext(), R.dimen.tbds94);
+            this.i = 0 - yi.g(getContext(), R.dimen.tbds18);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f8, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d6);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d1);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d4);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d5);
-            setPadding(0, 0, 0, xi.g(context, R.dimen.tbds44));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d7);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d5);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d6);
+            setPadding(0, 0, 0, yi.g(context, R.dimen.tbds44));
             b();
         }
     }
@@ -148,25 +148,25 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(g47 g47Var) {
+    public void setData(r47 r47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, g47Var) != null) || g47Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, r47Var) != null) || r47Var == null) {
             return;
         }
-        if (!g47Var.a()) {
+        if (!r47Var.a()) {
             setVisibility(8);
             return;
         }
-        if (g47Var.c > 0) {
-            ky4.k().x(ky4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + g47Var.c);
+        if (r47Var.c > 0) {
+            py4.k().x(py4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + r47Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(g47Var.d)) {
-            this.d.setText(g47Var.d);
+        if (this.d != null && !StringUtils.isNull(r47Var.d)) {
+            this.d.setText(r47Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout != null && g47Var.b != null) {
+        if (linearLayout != null && r47Var.b != null) {
             linearLayout.removeAllViews();
-            List<String> list = g47Var.b;
+            List<String> list = r47Var.b;
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!StringUtils.isNull(str)) {
@@ -177,10 +177,10 @@ public class ConcernUnreadTipView extends RelativeLayout {
                         layoutParams.leftMargin = this.i;
                     }
                     frameLayout.setLayoutParams(layoutParams);
-                    HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090f59);
+                    HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090f5d);
                     headImageView.setIsRound(true);
                     headImageView.setDrawBorder(false);
-                    SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0917a7), R.drawable.bg_unread_tip_head_border);
+                    SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0917ae), R.drawable.bg_unread_tip_head_border);
                     this.c.addView(frameLayout);
                     headImageView.setPageId(this.g);
                     headImageView.K(str, 12, false);

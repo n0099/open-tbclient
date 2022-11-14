@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
 public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;

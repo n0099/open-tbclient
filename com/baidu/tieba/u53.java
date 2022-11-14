@@ -1,31 +1,64 @@
 package com.baidu.tieba;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u53 extends b63 {
+public class u53 extends c63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes6.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mq1 a;
+
+        public a(u53 u53Var, mq1 mq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u53Var, mq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mq1Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u53(b53 b53Var) {
-        super(b53Var, "/swanAPI/performancePanel");
+    public u53(c53 c53Var) {
+        super(c53Var, "/swanAPI/pageScrollTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b53Var};
+            Object[] objArr = {c53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,43 +72,44 @@ public class u53 extends b63 {
         }
     }
 
-    @Override // com.baidu.tieba.b63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+    @Override // com.baidu.tieba.c63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
         InterceptResult invokeLLLL;
+        int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
-            if (!rp2.U().N() && !b63.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
-                return false;
-            } else if (e43Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
+            if (f43Var != null && context != null) {
+                JSONObject a2 = c63.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    f12.i("PageScrollToAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
                     return false;
                 }
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String optString = optJSONObject.optString("slaveId");
-                            String optString2 = optJSONObject.optString("actionName");
-                            long optLong = optJSONObject.optLong("timestamp", -1L);
-                            if (b63.b) {
-                                Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
-                            }
-                            vy2.b().d(optString, optString2, optLong);
+                int optInt = a2.optInt("scrollTop", -1);
+                int optInt2 = a2.optInt("duration", -1);
+                if (optInt > -1 && optInt2 > -1) {
+                    mq1 i = sp2.U().i();
+                    if (i != null) {
+                        if (i instanceof NgWebView) {
+                            f = ct1.z(i, wh3.f(context, optInt));
+                        } else {
+                            f = wh3.f(context, optInt);
                         }
+                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
+                        ofInt.setDuration(optInt2);
+                        ofInt.addUpdateListener(new a(this, i));
+                        ofInt.start();
                     }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                     return true;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
+                f12.c("PageScrollToAction", "illegal scrollTop or duration");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
                 return false;
             }
+            f12.c("PageScrollToAction", "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }

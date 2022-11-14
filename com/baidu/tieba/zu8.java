@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
+import tbclient.GetBgByCategory.ThemeBgInMain;
 import tbclient.ThemeBgProp;
 /* loaded from: classes6.dex */
 public class zu8 {
@@ -50,14 +50,14 @@ public class zu8 {
         return (String) invokeV.objValue;
     }
 
-    public void c(ThemeBubbleInMain themeBubbleInMain) {
+    public void c(ThemeBgInMain themeBgInMain) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBubbleInMain) != null) || themeBubbleInMain == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) != null) || themeBgInMain == null) {
             return;
         }
-        this.a = themeBubbleInMain.bubble_category;
+        this.a = themeBgInMain.bg_category;
         this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
+        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
             this.b.add(new DressItemData(themeBgProp));
         }
     }

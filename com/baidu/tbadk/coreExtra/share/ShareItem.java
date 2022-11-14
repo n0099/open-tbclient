@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -243,10 +243,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && wi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
+                    if (i == 1 && postData != null && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
                     }
-                    if (i == 2 && wi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {

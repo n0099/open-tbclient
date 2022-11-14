@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +13,16 @@ public class tt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zr8 b;
+    public fu4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt8(MainTabActivity mainTabActivity) {
-        super(2921509);
+    public tt8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,14 +34,25 @@ public class tt8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
+        }
+        if (this.b == null && !(customResponsedMessage.getData() instanceof fu4)) {
+            return;
+        }
+        if (customResponsedMessage.getData() != null) {
+            this.b = (fu4) customResponsedMessage.getData();
+        }
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            xr8 xr8Var = this.a.v;
+            fu4 fu4Var = this.b;
+            xr8Var.j(fu4Var.a, fu4Var.b, fu4Var.c);
         }
     }
 }

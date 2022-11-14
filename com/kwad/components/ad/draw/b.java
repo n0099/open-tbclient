@@ -242,11 +242,11 @@ public final class b extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0425, this);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
+            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0426, this);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091209);
             this.mRootContainer = adBaseFrameLayout;
-            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091244);
-            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091249);
+            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09125f);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setOnClickListener(this.aP);

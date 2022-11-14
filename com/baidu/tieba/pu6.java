@@ -1,341 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbConfig;
+import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.view.FrsForumToolDialogView;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.AddBawuPopInfo;
-import tbclient.PopInfo;
 /* loaded from: classes5.dex */
-public class pu6 {
+public abstract class pu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uu6 a;
+    public Intent b;
+    public int c;
+    public a d;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ pn8 b;
-
-        public a(AlertDialog alertDialog, pn8 pn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, pn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alertDialog;
-            this.b = pn8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            AlertDialog alertDialog;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (alertDialog = this.a) != null) {
-                alertDialog.dismiss();
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_CANCEL);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (this.b.getForum() != null) {
-                    statisticItem.param("fid", this.b.getForum().getId());
-                    statisticItem.param("fname", this.b.getForum().getName());
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
-                TiebaStatic.log(statisticItem);
-            }
-        }
+    public interface a {
+        void onStateChanged(int i);
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iv4 a;
+    public abstract void c();
 
-        public b(iv4 iv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iv4Var;
-        }
+    public abstract void d();
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                iv4 iv4Var = this.a;
-                if (iv4Var != null) {
-                    iv4Var.dismiss();
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iv4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ FrsFragment c;
-        public final /* synthetic */ String d;
-
-        public c(iv4 iv4Var, int i, FrsFragment frsFragment, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv4Var, Integer.valueOf(i), frsFragment, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iv4Var;
-            this.b = i;
-            this.c = frsFragment;
-            this.d = str;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                iv4 iv4Var = this.a;
-                if (iv4Var != null) {
-                    iv4Var.dismiss();
-                }
-                int i = this.b;
-                if (i == 1) {
-                    UrlManager.getInstance().dealOneLink(this.c.getPageContext(), new String[]{TbConfig.BAWUTEAME_ADDRESS + "?fn=" + this.c.c() + "&fid=" + this.c.k()});
-                } else if (i == 2) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("forum_id", this.c.k());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.c.getActivity(), "ForumDetailPage", hashMap)));
-                } else if (i == 3 && !TextUtils.isEmpty(this.d)) {
-                    UrlManager.getInstance().dealOneLink(this.c.getPageContext(), new String[]{this.d});
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsFragment a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ NavigationBarCoverTip c;
-
-        public d(FrsFragment frsFragment, String str, NavigationBarCoverTip navigationBarCoverTip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsFragment, str, navigationBarCoverTip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = frsFragment;
-            this.b = str;
-            this.c = navigationBarCoverTip;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                new StatisticItem("c13439").eventStat();
-                FrsFragment frsFragment = this.a;
-                if (frsFragment != null && !TextUtils.isEmpty(frsFragment.k()) && !TextUtils.isEmpty(this.b) && this.a.getActivity() != null) {
-                    NavigationBarCoverTip navigationBarCoverTip = this.c;
-                    if (navigationBarCoverTip != null) {
-                        navigationBarCoverTip.e();
-                    }
-                    if (ky4.k().l("key_bawu_task_toast", 0) == -1) {
-                        i = 1;
-                    } else {
-                        i = 0;
-                    }
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/bawutask?fid=" + this.a.k() + "&fn=" + this.b + "&noread=" + i});
-                }
-            }
-        }
-    }
-
-    public static boolean a(pn8 pn8Var, FrsFragment frsFragment) {
-        InterceptResult invokeLL;
+    public pu6(uu6 uu6Var, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, pn8Var, frsFragment)) == null) {
-            if (pn8Var != null && pn8Var.getUserData() != null && frsFragment != null) {
-                int is_manager = pn8Var.getUserData().getIs_manager();
-                boolean h = ky4.k().h("key_forum_tool_find_dialog_show", false);
-                if (is_manager == 1 && !h) {
-                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f06e8), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f9b), "", frsFragment);
-                    ky4.k().u("key_forum_tool_find_dialog_show", true);
-                    if (frsFragment != null) {
-                        frsFragment.y4(true);
-                    }
-                    return true;
-                } else if (!h && is_manager == 2) {
-                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f06e7), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f9b), "", frsFragment);
-                    ky4.k().u("key_forum_tool_find_dialog_show", true);
-                    if (frsFragment != null) {
-                        frsFragment.y4(true);
-                    }
-                    return true;
-                } else {
-                    AddBawuPopInfo addBawuPopInfo = pn8Var.bawuPopInfo;
-                    if (addBawuPopInfo != null) {
-                        c(3, addBawuPopInfo.content, addBawuPopInfo.img_url, addBawuPopInfo.jump_url, frsFragment);
-                        if (frsFragment != null) {
-                            frsFragment.y4(true);
-                        }
-                        return true;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uu6Var, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void b(NavigationBarCoverTip navigationBarCoverTip, FrsFragment frsFragment, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, navigationBarCoverTip, frsFragment, str) == null) && navigationBarCoverTip != null && frsFragment != null && frsFragment.getActivity() != null) {
-            View inflate = View.inflate(frsFragment.getActivity(), R.layout.obfuscated_res_0x7f0d0951, null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092706);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091ecf);
-            if (TextUtils.isEmpty(str)) {
-                textView.setText("吧主您好，本吧考核新制度上线啦");
-            } else {
-                textView.setText(str + "吧吧主您好，本吧考核新制度上线啦");
-            }
-            tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f03ba));
-            kz4 kz4Var = new kz4();
-            kz4Var.s();
-            tBSpecificationBtn.setConfig(kz4Var);
-            tBSpecificationBtn.k();
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
-            tBSpecificationBtn.setOnClickListener(new d(frsFragment, str, navigationBarCoverTip));
-            navigationBarCoverTip.n(frsFragment.getActivity(), inflate, 30000);
-            new StatisticItem("c13438").eventStat();
-            int l = ky4.k().l("key_bawu_task_toast", 0);
-            if (l >= 0) {
-                ky4.k().w("key_bawu_task_toast", l + 1);
-            }
+        this.c = 0;
+        this.a = uu6Var;
+        this.b = intent;
+        su6 c = ru6.d().c(this.b.getStringExtra("info_forum_name_text"));
+        c.b();
+        c.a();
+        if (c.c()) {
+            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
-    public static void c(int i, String str, String str2, String str3, FrsFragment frsFragment) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, frsFragment}) != null) || frsFragment == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        iv4 iv4Var = new iv4(frsFragment.getActivity());
-        iv4Var.setContentViewSize(2);
-        iv4Var.setCanceledOnTouchOutside(false);
-        FrsForumToolDialogView frsForumToolDialogView = new FrsForumToolDialogView(frsFragment.getActivity());
-        frsForumToolDialogView.setStartLoadUrl(i, str2);
-        frsForumToolDialogView.setContent(str);
-        frsForumToolDialogView.setCancleButtonListener(new b(iv4Var));
-        frsForumToolDialogView.setConfirmButtonListener(new c(iv4Var, i, frsFragment, str3));
-        iv4Var.setContentView(frsForumToolDialogView);
-        iv4Var.create(frsFragment.getPageContext()).show();
+        return invokeV.intValue;
     }
 
-    public static boolean d(pn8 pn8Var, FrsFragment frsFragment) {
-        InterceptResult invokeLL;
-        PopInfo popInfo;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pn8Var, frsFragment)) == null) {
-            if (frsFragment == null || ky4.k().h(ky4.o("key_frs_shield_thread_dialog"), false) || pn8Var.getUserData() == null || pn8Var.getUserData().getIs_manager() <= 0 || (popInfo = pn8Var.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
-                return false;
-            }
-            ImageView imageView = new ImageView(frsFragment.getActivity());
-            imageView.setImageResource(SkinManager.getResourceId(R.drawable.pic_frs_popup_shield));
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f041a, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(frsFragment.getActivity());
-            tBAlertBuilder.u(pn8Var.frsMaskPopInfo.title);
-            tBAlertBuilder.o(pn8Var.frsMaskPopInfo.v_title);
-            tBAlertBuilder.m(true);
-            tBAlertBuilder.i(imageView);
-            tBAlertBuilder.r(aVar);
-            tBAlertBuilder.h(false);
-            aVar.a(new a(tBAlertBuilder.w(), pn8Var));
-            ky4.k().u(ky4.o("key_frs_shield_thread_dialog"), true);
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_SHOW);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (pn8Var.getForum() != null) {
-                statisticItem.param("fid", pn8Var.getForum().getId());
-                statisticItem.param("fname", pn8Var.getForum().getName());
-            }
-            TiebaStatic.log(statisticItem);
-            if (frsFragment != null) {
-                frsFragment.y4(true);
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
         }
-        return invokeLL.booleanValue;
     }
 }

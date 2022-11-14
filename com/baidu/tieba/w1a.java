@@ -3,19 +3,22 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public final class w1a<E> extends t1a<E> {
+public final class w1a<T> extends xz9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final f0a<? super T> e;
+    public final f0a<Throwable> f;
+    public final e0a g;
 
-    public w1a() {
+    public w1a(f0a<? super T> f0aVar, f0a<Throwable> f0aVar2, e0a e0aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f0aVar, f0aVar2, e0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,55 +28,32 @@ public final class w1a<E> extends t1a<E> {
                 return;
             }
         }
-        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
-        f(linkedQueueNode);
-        e(linkedQueueNode);
-        linkedQueueNode.soNext(null);
+        this.e = f0aVar;
+        this.f = f0aVar2;
+        this.g = e0aVar;
     }
 
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sz9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.call();
         }
-        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sz9
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                e(lvNext);
-                return andNullValue;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.f.call(th);
         }
-        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sz9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                b().soNext(linkedQueueNode);
-                f(linkedQueueNode);
-                return true;
-            }
-            throw new NullPointerException("null elements not allowed");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.call(t);
         }
-        return invokeL.booleanValue;
     }
 }

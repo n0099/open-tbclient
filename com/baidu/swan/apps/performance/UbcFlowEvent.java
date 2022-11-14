@@ -3,7 +3,7 @@ package com.baidu.swan.apps.performance;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ok1;
+import com.baidu.tieba.pk1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        g = ok1.a;
+        g = pk1.a;
     }
 
     public boolean b() {

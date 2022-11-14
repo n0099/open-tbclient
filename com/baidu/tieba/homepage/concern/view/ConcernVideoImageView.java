@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,10 +99,10 @@ public class ConcernVideoImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f9, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906da);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906db);
             this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-            int l = xi.l(getContext()) - xi.g(getContext(), R.dimen.obfuscated_res_0x7f070261);
+            int l = yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070261);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.height = (l * 9) / 16;
             layoutParams.width = l;

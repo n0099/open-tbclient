@@ -1,10 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import android.app.Dialog;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes3.dex */
-public interface a8a {
-    void a(CancelType cancelType);
+public class a8a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(DialogInterface dialogInterface);
+    public static void a(Dialog dialog, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        }
+    }
+
+    public static void b(Dialog dialog, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
+            if (dialog != null && dialog.isShowing()) {
+                dialog.cancel();
+            }
+        }
+    }
 }

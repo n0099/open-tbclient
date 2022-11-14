@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.kb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<za7> mDatas;
+    public List<kb7> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -57,26 +57,26 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                     this.mDatas = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        za7 za7Var = new za7();
+                        kb7 kb7Var = new kb7();
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        za7Var.h(jSONObject2.optLong("user_id"));
-                        za7Var.j(jSONObject2.optString("user_name"));
-                        za7Var.k(jSONObject2.optString("portrait"));
-                        za7Var.g(jSONObject2.optString("message"));
+                        kb7Var.h(jSONObject2.optLong("user_id"));
+                        kb7Var.j(jSONObject2.optString("user_name"));
+                        kb7Var.k(jSONObject2.optString("portrait"));
+                        kb7Var.g(jSONObject2.optString("message"));
                         if (jSONObject2.optInt("type") == 0) {
-                            za7Var.l(0);
+                            kb7Var.l(0);
                         } else {
-                            za7Var.l(1);
+                            kb7Var.l(1);
                         }
-                        za7Var.i(1);
-                        this.mDatas.add(za7Var);
+                        kb7Var.i(1);
+                        this.mDatas.add(kb7Var);
                     }
                 }
             }
         }
     }
 
-    public List<za7> getDatas() {
+    public List<kb7> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

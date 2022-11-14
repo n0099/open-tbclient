@@ -1,22 +1,71 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pm0 extends yf1<vm0> {
+public class pm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public int c;
+    public BroadcastReceiver d;
+    public mm0 e;
 
     /* loaded from: classes5.dex */
-    public class a implements vm0 {
+    public class a implements tm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pm0 a;
+
+        /* renamed from: com.baidu.tieba.pm0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0397a extends BroadcastReceiver {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a this$1;
+
+            public C0397a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$1 = aVar;
+            }
+
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context, Intent intent) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && NetUtil.a(aj0.b())) {
+                    om0.c().b();
+                    try {
+                        aj0.b().unregisterReceiver(this);
+                    } catch (Exception unused) {
+                    }
+                    this.this$1.a.d = null;
+                }
+            }
+        }
 
         public a(pm0 pm0Var) {
             Interceptable interceptable = $ic;
@@ -30,56 +79,63 @@ public class pm0 extends yf1<vm0> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pm0Var;
+        }
+
+        @Override // com.baidu.tieba.tm0
+        public void a(ADConfigError aDConfigError) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) && this.a.e != null && !this.a.e.j() && aDConfigError != null && !TextUtils.isEmpty(aDConfigError.reason)) {
+                if (NetUtil.a(aj0.b())) {
+                    om0.c().b();
+                } else if (this.a.d == null) {
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                    this.a.d = new C0397a(this);
+                    aj0.b().registerReceiver(this.a.d, intentFilter);
                 }
             }
         }
-
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public um0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return km0.d();
-            }
-            return (um0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public wm0 request() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return nm0.c();
-            }
-            return (wm0) invokeV.objValue;
-        }
     }
 
-    public pm0() {
+    public pm0(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = i;
+        this.c = i2;
+        this.b = z;
+    }
+
+    public void d() {
+        mm0 mm0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mm0Var = this.e) != null) {
+            mm0Var.m(null);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public vm0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mm0 mm0Var = new mm0(this.a, this.b, this.c);
+            this.e = mm0Var;
+            mm0Var.m(new a(this));
+            b21.c(this.e, "adc_async_request", 0);
         }
-        return (vm0) invokeV.objValue;
     }
 }

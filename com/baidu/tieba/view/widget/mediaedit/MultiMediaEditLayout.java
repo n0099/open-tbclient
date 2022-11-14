@@ -25,15 +25,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a29;
-import com.baidu.tieba.c29;
-import com.baidu.tieba.ij9;
-import com.baidu.tieba.t29;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.e39;
+import com.baidu.tieba.l29;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.tj9;
 import com.baidu.tieba.view.widget.mediaedit.VideoClipLayout;
 import com.baidu.tieba.view.widget.mediaedit.adapter.MultiMediaAdapter;
 import com.baidu.tieba.view.widget.mediaedit.listener.DragMultiMediaItemCallback;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes6.dex */
-public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapter.a, View.OnClickListener, VideoClipLayout.g, t29 {
+public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapter.a, View.OnClickListener, VideoClipLayout.g, e39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -71,7 +71,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
     public int j;
     public VideoClipLayout k;
     public VideoClipLayout l;
-    public a29 m;
+    public l29 m;
     public View n;
     public int o;
     public long p;
@@ -160,7 +160,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zg.a().post(new a(this));
+                ah.a().post(new a(this));
             }
         }
     }
@@ -203,26 +203,26 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             if (childAdapterPosition == 0) {
                 MultiMediaEditLayout multiMediaEditLayout = this.a;
                 if (!multiMediaEditLayout.D && !multiMediaEditLayout.C) {
-                    rect.left = (int) ij9.i(R.dimen.obfuscated_res_0x7f070207);
+                    rect.left = (int) tj9.i(R.dimen.obfuscated_res_0x7f070207);
                 } else {
                     MultiMediaEditLayout multiMediaEditLayout2 = this.a;
                     if (multiMediaEditLayout2.D || multiMediaEditLayout2.C) {
                         if (this.a.y == 0) {
-                            rect.left = ((int) ij9.i(R.dimen.obfuscated_res_0x7f070207)) + (this.a.z * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a)));
-                        } else if (this.a.A > this.a.y * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c))) {
-                            rect.left = ((((int) ij9.i(R.dimen.obfuscated_res_0x7f070207)) + this.a.A) - (this.a.y * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c)))) + (this.a.z * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a)));
+                            rect.left = ((int) tj9.i(R.dimen.obfuscated_res_0x7f070207)) + (this.a.z * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a)));
+                        } else if (this.a.A > this.a.y * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                            rect.left = ((((int) tj9.i(R.dimen.obfuscated_res_0x7f070207)) + this.a.A) - (this.a.y * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c)))) + (this.a.z * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a)));
                         }
                     }
                 }
             } else {
-                rect.left = -((int) ij9.i(R.dimen.obfuscated_res_0x7f0701f0));
+                rect.left = -((int) tj9.i(R.dimen.obfuscated_res_0x7f0701f0));
             }
             if (childAdapterPosition == i - 1) {
                 MultiMediaEditLayout multiMediaEditLayout3 = this.a;
-                if ((multiMediaEditLayout3.D || multiMediaEditLayout3.C) && this.a.y > 0 && xi.l(this.a.getContext()) - this.a.A >= (this.a.b.getItemCount() - this.a.y) * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c))) {
-                    rect.right = (xi.l(this.a.getContext()) - this.a.A) - (((this.a.b.getItemCount() - this.a.y) + this.a.z) * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c)));
+                if ((multiMediaEditLayout3.D || multiMediaEditLayout3.C) && this.a.y > 0 && yi.l(this.a.getContext()) - this.a.A >= (this.a.b.getItemCount() - this.a.y) * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                    rect.right = (yi.l(this.a.getContext()) - this.a.A) - (((this.a.b.getItemCount() - this.a.y) + this.a.z) * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c)));
                 } else {
-                    rect.right = (int) ij9.i(R.dimen.obfuscated_res_0x7f070207);
+                    rect.right = (int) tj9.i(R.dimen.obfuscated_res_0x7f070207);
                 }
             }
         }
@@ -311,9 +311,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a39, getResources().getColor(R.color.CAM_X0302), null));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a3e, getResources().getColor(R.color.CAM_X0302), null));
         } else {
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a39));
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3e));
         }
     }
 
@@ -343,9 +343,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         if ((interceptable != null && interceptable.invokeCommon(1048620, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.f == null) {
             return;
         }
-        int i = R.drawable.obfuscated_res_0x7f080a1d;
+        int i = R.drawable.obfuscated_res_0x7f080a22;
         if (z) {
-            i = R.drawable.obfuscated_res_0x7f080a1e;
+            i = R.drawable.obfuscated_res_0x7f080a23;
         }
         if (z2) {
             this.f.setImageDrawable(WebPManager.getPureDrawable(i, getResources().getColor(R.color.CAM_X0302), null));
@@ -383,17 +383,17 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         this.A = 0;
         this.C = false;
         this.D = false;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c1, this);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0915e0);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0a);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f31);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f02);
-        this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0915d4);
-        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091f45);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d2);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092440);
-        this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090ed7);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f01);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c2, this);
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0915e7);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0d);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f34);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f05);
+        this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0915db);
+        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091f51);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e1);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09244f);
+        this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090eda);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f04);
         this.e = imageView;
         imageView.setOnClickListener(this);
         GenericDraweeHierarchy hierarchy = this.i.getHierarchy();
@@ -402,7 +402,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         roundingParams = roundingParams == null ? new RoundingParams() : roundingParams;
         roundingParams.setCornersRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds3));
         hierarchy.setRoundingParams(roundingParams);
-        this.n = findViewById(R.id.obfuscated_res_0x7f0912cc);
+        this.n = findViewById(R.id.obfuscated_res_0x7f0912d1);
         MultiMediaAdapter multiMediaAdapter = new MultiMediaAdapter();
         this.b = multiMediaAdapter;
         multiMediaAdapter.j(this);
@@ -422,35 +422,35 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
 
     @Override // com.baidu.tieba.view.widget.mediaedit.VideoClipLayout.g
     public void a(float f) {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048576, this, f) == null) && (a29Var = this.m) != null) {
-            a29Var.c(this.o + f);
+        if ((interceptable == null || interceptable.invokeF(1048576, this, f) == null) && (l29Var = this.m) != null) {
+            l29Var.c(this.o + f);
         }
     }
 
     @Override // com.baidu.tieba.view.widget.mediaedit.VideoClipLayout.g
     public void g(double d) {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) && (a29Var = this.m) != null) {
-            a29Var.l(this.o + d);
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) && (l29Var = this.m) != null) {
+            l29Var.l(this.o + d);
         }
     }
 
     @Override // com.baidu.tieba.view.widget.mediaedit.VideoClipLayout.g
     public void h(long j) {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048591, this, j) == null) && (a29Var = this.m) != null) {
-            a29Var.b(this.o + j);
+        if ((interceptable == null || interceptable.invokeJ(1048591, this, j) == null) && (l29Var = this.m) != null) {
+            l29Var.b(this.o + j);
         }
     }
 
-    public void setIMultiMediaEditView(a29 a29Var) {
+    public void setIMultiMediaEditView(l29 l29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, a29Var) == null) {
-            this.m = a29Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, l29Var) == null) {
+            this.m = l29Var;
         }
     }
 
@@ -556,7 +556,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         }
     }
 
-    @Override // com.baidu.tieba.t29
+    @Override // com.baidu.tieba.e39
     public void c(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
@@ -598,23 +598,23 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 } else {
                     this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
                 }
-                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14ef, Float.valueOf(f)));
+                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14f6, Float.valueOf(f)));
                 return;
             }
-            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14f2, Float.valueOf(f)));
+            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14f9, Float.valueOf(f)));
             this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
             if (view2 == this.c) {
-                a29 a29Var2 = this.m;
-                if (a29Var2 != null) {
-                    a29Var2.d(this.j);
+                l29 l29Var2 = this.m;
+                if (l29Var2 != null) {
+                    l29Var2.d(this.j);
                 }
             } else if (view2 == this.d) {
                 if (this.m != null) {
@@ -637,16 +637,16 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                     }
                 }
             } else if (view2 == this.f) {
-                a29 a29Var3 = this.m;
-                if (a29Var3 != null) {
-                    a29Var3.m();
+                l29 l29Var3 = this.m;
+                if (l29Var3 != null) {
+                    l29Var3.m();
                 }
-            } else if (view2 == this.e && (a29Var = this.m) != null) {
-                a29Var.k();
+            } else if (view2 == this.e && (l29Var = this.m) != null) {
+                l29Var.k();
             }
-            a29 a29Var4 = this.m;
-            if (a29Var4 != null) {
-                a29Var4.onClick();
+            l29 l29Var4 = this.m;
+            if (l29Var4 != null) {
+                l29Var4.onClick();
             }
         }
     }
@@ -670,9 +670,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
     }
 
     @Override // com.baidu.tieba.view.widget.mediaedit.adapter.MultiMediaAdapter.a
-    public void e(int i, View view2, c29 c29Var) {
+    public void e(int i, View view2, n29 n29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i, view2, c29Var) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, view2, n29Var) == null) {
             this.w = true;
             this.e.setVisibility(8);
             q(i, false);
@@ -681,15 +681,15 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             this.l.setVisibility(0);
             this.k.setVisibility(8);
             this.g.setVisibility(4);
-            this.i.setImageURI(Uri.fromFile(new File(c29Var.a().path)));
-            a29 a29Var = this.m;
-            if (a29Var != null) {
-                a29Var.j(i, c29Var);
+            this.i.setImageURI(Uri.fromFile(new File(n29Var.a().path)));
+            l29 l29Var = this.m;
+            if (l29Var != null) {
+                l29Var.j(i, n29Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.t29
+    @Override // com.baidu.tieba.e39
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -763,19 +763,19 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
 
     @Override // com.baidu.tieba.view.widget.mediaedit.VideoClipLayout.g
     public void onPause() {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (a29Var = this.m) != null) {
-            a29Var.i();
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (l29Var = this.m) != null) {
+            l29Var.i();
         }
     }
 
     @Override // com.baidu.tieba.view.widget.mediaedit.VideoClipLayout.g
     public void onStart() {
-        a29 a29Var;
+        l29 l29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (a29Var = this.m) != null) {
-            a29Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (l29Var = this.m) != null) {
+            l29Var.h();
         }
     }
 
@@ -842,8 +842,8 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            for (c29 c29Var : this.b.e()) {
-                c29Var.c(false);
+            for (n29 n29Var : this.b.e()) {
+                n29Var.c(false);
             }
             this.b.e().get(0).c(true);
         }
@@ -858,14 +858,14 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 if (childAt != null) {
                     int childAdapterPosition = this.a.getChildAdapterPosition(childAt);
                     if (childAdapterPosition > i) {
-                        float l = xi.l(getContext());
+                        float l = yi.l(getContext());
                         if (z) {
                             arrayList.add(ObjectAnimator.ofFloat(childAt, Key.TRANSLATION_X, l, 0.0f));
                         } else {
                             arrayList.add(ObjectAnimator.ofFloat(childAt, Key.TRANSLATION_X, 0.0f, l));
                         }
                     } else if (childAdapterPosition < i) {
-                        float f = -xi.l(getContext());
+                        float f = -yi.l(getContext());
                         if (z) {
                             arrayList.add(ObjectAnimator.ofFloat(childAt, Key.TRANSLATION_X, f, 0.0f));
                         } else {
@@ -892,7 +892,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         }
     }
 
-    @Override // com.baidu.tieba.t29
+    @Override // com.baidu.tieba.e39
     public void setDragMode(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
@@ -911,16 +911,16 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             try {
                 Field declaredField = this.B.getClass().getDeclaredField("mInitialTouchX");
                 declaredField.setAccessible(true);
-                this.z = ((((int) ((Float) declaredField.get(this.B)).floatValue()) - this.A) - ((int) ij9.i(R.dimen.obfuscated_res_0x7f070207))) / ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a));
+                this.z = ((((int) ((Float) declaredField.get(this.B)).floatValue()) - this.A) - ((int) tj9.i(R.dimen.obfuscated_res_0x7f070207))) / ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a));
                 this.b.notifyDataSetChanged();
-                int l = xi.l(getContext());
-                if (this.A + (this.z * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a))) > this.y * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                int l = yi.l(getContext());
+                if (this.A + (this.z * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a))) > this.y * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c))) {
                     this.a.scrollToPosition(i);
-                    this.a.smoothScrollBy((-this.z) * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
+                    this.a.smoothScrollBy((-this.z) * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
                 }
-                if (this.A < this.y * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019c)) && l - this.A < (this.b.getItemCount() - this.y) * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a))) {
+                if (this.A < this.y * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019c)) && l - this.A < (this.b.getItemCount() - this.y) * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a))) {
                     this.a.scrollToPosition(i);
-                    this.a.smoothScrollBy((-this.z) * ((int) ij9.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
+                    this.a.smoothScrollBy((-this.z) * ((int) tj9.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
                 }
                 if (this.E == null) {
                     this.E = new Timer();
@@ -958,20 +958,20 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048618, this, i, i2) == null) && !this.x && !this.w) {
             if (i == -1) {
-                for (c29 c29Var : this.b.e()) {
-                    c29Var.c(false);
+                for (n29 n29Var : this.b.e()) {
+                    n29Var.c(false);
                 }
                 this.b.notifyDataSetChanged();
             }
-            c29 c29Var2 = (c29) ListUtils.getItem(this.b.e(), i);
-            if (c29Var2 != null) {
-                c29Var2.c(false);
-                this.b.notifyItemChanged(i, c29Var2);
+            n29 n29Var2 = (n29) ListUtils.getItem(this.b.e(), i);
+            if (n29Var2 != null) {
+                n29Var2.c(false);
+                this.b.notifyItemChanged(i, n29Var2);
             }
-            c29 c29Var3 = (c29) ListUtils.getItem(this.b.e(), i2);
-            if (c29Var3 != null) {
-                c29Var3.c(true);
-                this.b.notifyItemChanged(i2, c29Var3);
+            n29 n29Var3 = (n29) ListUtils.getItem(this.b.e(), i2);
+            if (n29Var3 != null) {
+                n29Var3.c(true);
+                this.b.notifyItemChanged(i2, n29Var3);
             }
         }
     }

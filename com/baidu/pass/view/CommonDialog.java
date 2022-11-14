@@ -118,8 +118,8 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
                 View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916a3);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a78);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916aa);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a82);
                 View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
                 textView.setText(this.c);
                 if (TextUtils.isEmpty(this.b)) {

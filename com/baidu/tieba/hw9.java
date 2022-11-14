@@ -1,157 +1,235 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public final class hw9 {
+public class hw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
-    public int T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final yv9 c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final ew9 k;
-    public final ew9 l;
-    public final ew9 m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
 
-    public hw9() {
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.c = new yv9();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new ew9();
-        this.l = new ew9();
-        this.m = new ew9();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.T = 0;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
     }
 
-    public static void a(hw9 hw9Var) throws IOException {
+    public static String h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, hw9Var) == null) {
-            int i = hw9Var.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
+                        }
                 }
-                hw9Var.a = 11;
-                yv9.b(hw9Var.c);
-                return;
             }
-            throw new IllegalStateException("State MUST be initialized");
+            return "成功";
         }
+        return (String) invokeI.objValue;
     }
 
-    public static int b(yv9 yv9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838271, "Lcom/baidu/tieba/hw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838271, "Lcom/baidu/tieba/hw9;");
+                return;
+            }
+        }
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+    }
+
+    public static int a(Context context) {
         InterceptResult invokeL;
+        String[][] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yv9Var)) == null) {
-            if (yv9.i(yv9Var, 1) == 0) {
-                return 16;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (gw9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (gw9.e(context, intent)) {
+                                    return 0;
+                                }
+                            }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
+                        }
+                    }
+                }
+                if (!z) {
+                    return 1;
+                }
+                return 2;
+            } catch (Exception unused2) {
+                return 1;
             }
-            int i = yv9.i(yv9Var, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = yv9.i(yv9Var, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
         }
         return invokeL.intValue;
     }
 
-    public static void c(hw9 hw9Var, InputStream inputStream) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, hw9Var, inputStream) == null) {
-            if (hw9Var.a == 0) {
-                yv9.e(hw9Var.c, inputStream);
-                int b = b(hw9Var.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    hw9Var.P = i;
-                    hw9Var.O = i - 16;
-                    hw9Var.a = 1;
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
                 }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+            } catch (Exception e) {
+                e = e;
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+            try {
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
+                }
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), fw9.a(context), g(z), str2);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", gw9.b(context, context.getPackageName()));
+            bundle.putString("appver", gw9.c(context));
+            bundle.putString("appdeviceid", fw9.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (gw9.e(context, intent)) {
+                    return intent;
+                }
+            }
+            return null;
+        }
+        return (Intent) invokeL.objValue;
     }
 }

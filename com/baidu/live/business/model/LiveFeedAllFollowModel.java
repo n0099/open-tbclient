@@ -7,8 +7,8 @@ import com.baidu.live.business.model.LiveFeedAllFollowModel;
 import com.baidu.live.business.model.data.LiveFeedFollowLivingData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.wb0;
 import com.baidu.tieba.xb0;
+import com.baidu.tieba.yb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +106,7 @@ public final class LiveFeedAllFollowModel {
     public final void requestFollowLiving(final OnFollowLivingDataLoadCallback onFollowLivingDataLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onFollowLivingDataLoadCallback) == null) {
-            xb0.f(FEED_PAGE_FOLLOW_LIVING, new LinkedHashMap(), new wb0<LiveFeedFollowLivingData>(onFollowLivingDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedAllFollowModel$requestFollowLiving$1
+            yb0.f(FEED_PAGE_FOLLOW_LIVING, new LinkedHashMap(), new xb0<LiveFeedFollowLivingData>(onFollowLivingDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedAllFollowModel$requestFollowLiving$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ LiveFeedAllFollowModel.OnFollowLivingDataLoadCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -157,14 +157,14 @@ public final class LiveFeedAllFollowModel {
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-                @Override // com.baidu.tieba.wb0
+                @Override // com.baidu.tieba.xb0
                 public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedFollowLivingData liveFeedFollowLivingData, Map map, List list) {
                     onNetResponse2(netResponse, liveFeedFollowLivingData, (Map<String, String>) map, (List<String>) list);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.wb0
+                @Override // com.baidu.tieba.xb0
                 public LiveFeedFollowLivingData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

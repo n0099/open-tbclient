@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.pu4;
+import com.baidu.tieba.pw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,9 +70,9 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0390, (ViewGroup) this, true);
-            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d89);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d8a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) this, true);
+            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d8b);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d8c);
             setOrientation(1);
             setGravity(1);
         }
@@ -130,17 +130,17 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            kw4.d(this.b).v(R.color.CAM_X0105);
+            pw4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
-    public void setData(ou4 ou4Var) {
+    public void setData(pu4 pu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ou4Var) != null) || ou4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu4Var) != null) || pu4Var == null) {
             return;
         }
         b();
-        this.a.K(ou4Var.a(), 10, false);
-        this.b.setText(ou4Var.b());
+        this.a.K(pu4Var.a(), 10, false);
+        this.b.setText(pu4Var.b());
     }
 }

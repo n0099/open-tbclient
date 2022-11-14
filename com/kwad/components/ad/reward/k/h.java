@@ -363,17 +363,17 @@ public final class h extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b3);
-            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911ae);
-            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b5);
-            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09119d);
-            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b0);
-            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b2);
-            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f091198);
-            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09119b);
-            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09119a);
-            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09119c);
+            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b8);
+            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b3);
+            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911ba);
+            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911a2);
+            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b5);
+            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b7);
+            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09119d);
+            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911b4);
+            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f0911a0);
+            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911a1);
             ViewGroup viewGroup = this.pV;
             if (viewGroup != null) {
                 viewGroup.setOnClickListener(this);

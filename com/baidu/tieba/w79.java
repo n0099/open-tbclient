@@ -1,233 +1,28 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class w79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final b59 b;
-    @NonNull
-    public final y79 c;
-    @Nullable
-    public EditText d;
-    @Nullable
-    public EditText e;
-    public final Runnable f;
-    public final NewWriteModel.d g;
+    public final EditorTools a;
+    public final Map<Integer, y79> b;
 
-    /* loaded from: classes6.dex */
-    public class b implements NewWriteModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w79 a;
-
-        /* loaded from: classes6.dex */
-        public class a implements iv4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.iv4.e
-            public void onClick(iv4 iv4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
-                    iv4Var.dismiss();
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.w79$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0453b implements iv4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public C0453b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.iv4.e
-            public void onClick(iv4 iv4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
-                    iv4Var.dismiss();
-                    this.a.a.a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.a.a.a.getPageActivity(), 0, 26, 1)));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
-                }
-            }
-        }
-
-        public b(w79 w79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w79Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, w25 w25Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, w25Var, writeData, antiData}) != null) || postWriteCallBackData == null) {
-                return;
-            }
-            this.a.b.m(null);
-            if (z) {
-                return;
-            }
-            if (postWriteCallBackData.isSensitiveError()) {
-                this.a.b.n(postWriteCallBackData.getErrorString());
-                this.a.b.m(postWriteCallBackData.getSensitiveWords());
-                this.a.b.h(this.a.d, this.a.e);
-            } else if (postWriteCallBackData.isErrorLinkCountExceedLimit()) {
-                if (this.a.a.getPageActivity() == null) {
-                    return;
-                }
-                if (wi.isEmpty(postWriteCallBackData.getErrorString())) {
-                    DefaultNavigationBarCoverTip.t(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f048a), null).v();
-                } else {
-                    DefaultNavigationBarCoverTip.t(this.a.a.getPageActivity(), postWriteCallBackData.getErrorString(), null).v();
-                }
-            } else if (postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                if (this.a.a.getPageActivity() == null) {
-                    return;
-                }
-                iv4 iv4Var = new iv4(this.a.a.getPageActivity());
-                if (wi.isEmpty(postWriteCallBackData.getErrorString())) {
-                    iv4Var.setMessage(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d39));
-                } else {
-                    iv4Var.setMessage(postWriteCallBackData.getErrorString());
-                }
-                iv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0376, new a(this));
-                iv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0d3b, new C0453b(this));
-                iv4Var.create(this.a.a).show();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
-            } else if ((w25Var == null || writeData == null || w25Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && !aw8.d(postWriteCallBackData.getErrorCode())) {
-                this.a.c.b(postWriteCallBackData);
-            } else if (w25Var != null && writeData != null && w25Var.c() != null) {
-                if (writeData.isCanNoForum()) {
-                    writeData.setForumName("");
-                    writeData.setForumId("0");
-                }
-                writeData.setVcodeMD5(w25Var.b());
-                writeData.setVcodeUrl(w25Var.c());
-                writeData.setVcodeExtra(w25Var.a());
-                if (ak5.b(w25Var.d())) {
-                    this.a.a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageActivity(), 12006, writeData, false, w25Var.d())));
-                } else {
-                    this.a.a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getPageActivity(), writeData, 12006)));
-                }
-            } else if (postWriteCallBackData.getErrorCode() == 227001) {
-                this.a.a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w79 a;
-
-        public a(w79 w79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w79Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g.callback(false, xq8.d, xq8.e, xq8.f, xq8.g);
-            }
-        }
-    }
-
-    public w79(@NonNull TbPageContext<?> tbPageContext, @NonNull b59 b59Var) {
+    public w79(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, b59Var};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -237,38 +32,35 @@ public class w79 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-        this.a = tbPageContext;
-        this.b = b59Var;
-        this.c = new y79(tbPageContext);
+        this.b = new HashMap();
+        this.a = editorTools;
     }
 
-    public void i(@Nullable EditText editText) {
+    public void b(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editText) == null) {
-            this.e = editText;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
+                }
+            }
         }
     }
 
-    public void j(@Nullable EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, editText) == null) {
-            this.d = editText;
-        }
-    }
-
-    public void g() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zg.a().removeCallbacks(this.f);
+            for (Map.Entry<Integer, y79> entry : this.b.entrySet()) {
+                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
+            }
         }
     }
 
-    public void h() {
+    public void c(int i, @NonNull y79 y79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zg.a().postDelayed(this.f, 500L);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, y79Var) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
         }
+        this.b.put(Integer.valueOf(i), y79Var);
     }
 }

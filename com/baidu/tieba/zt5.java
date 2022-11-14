@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.Intent;
 import android.util.Log;
-import androidx.constraintlayout.motion.utils.Easing;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,52 +19,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public final class zt5 implements wn1 {
+public class zt5 implements cp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements BdUniDispatchSchemeController.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
+    @Override // com.baidu.tieba.cp1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
+    }
 
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
-                tbWebViewActivityConfig.setIsFromSchema(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-            }
+    @Override // com.baidu.tieba.cp1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.cp1
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+    }
+
+    public de5 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (de5) invokeV.objValue;
     }
 
     static {
@@ -85,8 +80,7 @@ public final class zt5 implements wn1 {
                 return;
             }
         }
-        a = ok1.a;
-        b = NewUrlSchemaHelper.SCHEME;
+        b = pk1.a;
     }
 
     public zt5() {
@@ -103,184 +97,70 @@ public final class zt5 implements wn1 {
         }
     }
 
-    public static String b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        String str5;
-        String str6;
-        Object opt;
+    public List<String> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (TextUtils.isEmpty(next) || (opt = jSONObject.opt(next)) == null) {
-                    return null;
-                }
-                String obj = opt.toString();
-                sb.append(next + "=" + Uri.encode(obj) + "&");
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                str4 = "/" + str4;
-            }
-            if (TextUtils.equals(str3, "NA")) {
-                str5 = "";
-            } else {
-                str5 = "/" + str3;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = str5 + str4;
-            }
-            String str7 = b;
-            if (TextUtils.isEmpty(str2)) {
-                if (!TextUtils.isEmpty(str)) {
-                    str7 = str7 + str;
-                }
-            } else {
-                String substring = str2.substring(1, str2.length());
-                if (TextUtils.isEmpty(str)) {
-                    str6 = str7 + substring;
-                } else {
-                    str6 = str7 + str + "/" + substring;
-                }
-                str7 = str6;
-            }
-            StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
-            String str8 = str7 + "?" + ((Object) sb2);
-            if (a) {
-                Log.i("DefaultInnerSkip", "encodeParams: " + ((Object) sb2));
-            }
-            return str8;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("a001");
+            return arrayList;
         }
-        return (String) invokeLLLLL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static boolean d(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.cp1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && context != null) {
-                if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
-                    Uri parse = Uri.parse(str);
-                    if (BdUniDispatchSchemeController.isUniScheme(parse)) {
-                        BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new a(context));
-                    } else {
-                        TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
-                        tbWebViewActivityConfig.setUri(parse);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-                    }
-                    return true;
-                }
-                if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
-                    Uri parse2 = Uri.parse(str);
-                    if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                        mb5.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
-                        return true;
-                    }
-                }
-                return UtilHelper.dealOneScheme(context, str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wn1
-    public xf3 a(Context context, String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
-            if (context == null) {
-                xf3 xf3Var = new xf3();
-                xf3Var.f("Context exception");
-                return xf3Var;
-            } else if (TextUtils.isEmpty(str5)) {
-                return c(str5);
-            } else {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "NA";
-                }
-                if ("icashwebview".equals(str4) && !StringUtils.isNull(str5)) {
-                    try {
-                        String optString = new JSONObject(str5).optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            e(optString);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    xf3 xf3Var2 = new xf3();
-                    xf3Var2.f("invoke failed");
-                    return xf3Var2;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str5);
-                    jSONObject.put("launchMode", Easing.STANDARD_NAME);
-                    String b2 = b(str, str2, str3, str4, jSONObject);
-                    boolean d = d(context, b2);
-                    if (a) {
-                        Log.i("DefaultInnerSkip", "result = " + d + "\n拼接后的uri is: " + b2);
-                    }
-                    if (d) {
-                        return null;
-                    }
-                    xf3 xf3Var3 = new xf3();
-                    xf3Var3.f("invoke failed");
-                    return xf3Var3;
-                } catch (JSONException e2) {
-                    if (a) {
-                        Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
-                    }
-                    return c(str5);
-                }
+            long m = py4.k().m("smart_app_tid", 0L);
+            String q = py4.k().q("smart_app_id", "");
+            String q2 = py4.k().q("smart_app_name", "");
+            if (this.a != 0 && m != 0) {
+                long currentTimeMillis = System.currentTimeMillis() - this.a;
+                fe5 fe5Var = new fe5();
+                fe5Var.y(currentTimeMillis);
+                fe5Var.s(g());
+                fe5Var.C(m);
+                fe5Var.i = q;
+                fe5Var.j = q2;
+                fe5Var.x(h());
+                ge5.b().j(true);
+                ge5.b().k(TbadkApplication.getInst().getApplicationContext(), fe5Var, i());
+                py4.k().x("smart_app_tid", 0L);
             }
         }
-        return (xf3) invokeCommon.objValue;
     }
 
-    public final xf3 c(String str) {
-        InterceptResult invokeL;
-        String str2;
+    @Override // com.baidu.tieba.cp1
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            xf3 xf3Var = new xf3();
-            xf3Var.k(5L);
-            xf3Var.i(1L);
-            StringBuilder sb = new StringBuilder();
-            sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
-            if (TextUtils.isEmpty(str)) {
-                str2 = " empty";
-            } else {
-                str2 = "";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + f43.M().b);
             }
-            sb.append(str2);
-            sb.append(" parameter:");
-            sb.append(str);
-            sb.append("\n");
-            sb.append(" appId:");
-            sb.append(d43.K().getAppId());
-            sb.append("\n");
-            sb.append(" curPage:");
-            sb.append(rp2.U().T());
-            sb.append("\n");
-            xf3Var.f(sb.toString());
-            return xf3Var;
+            File file = new File(om.b("libBaiduMapSDK_map_v5_4_4.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && qm.a(BdBaseApplication.getInst().getContext(), om.a("libBaiduMapSDK_map_v5_4_4.so"))) {
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", om.a("libBaiduMapSDK_map_v5_4_4.so"));
+            }
+            this.a = System.currentTimeMillis();
         }
-        return (xf3) invokeL.objValue;
     }
 
-    public final void e(String str) {
-        e43 M;
-        z03 y;
+    @Override // com.baidu.tieba.cp1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable cp2 cp2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (M = e43.M()) == null || (y = M.y()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, cp2Var) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+            }
+            if (py4.k().h("key_ai_app_guide_display", true)) {
+                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+                intent.putExtra(DealIntentService.KEY_CLASS, 38);
+                swanAppActivity.startService(intent);
+            }
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_param_url", str);
-        y.W(bundle, bu5.class);
     }
 }

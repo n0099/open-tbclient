@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oy2;
+import com.baidu.tieba.py2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,8 +52,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091b3d);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b3c);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091b47);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b46);
             this.f = textView;
             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e1));
             setState(ILoadingLayout$State.RESET);
@@ -87,7 +87,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View b = oy2.a().b(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false);
+            View b = py2.a().b(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false);
             b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e9));
             return b;
         }
@@ -117,7 +117,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b3b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b45);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }

@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.in;
 import com.baidu.tieba.sg;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar f;
 
     /* loaded from: classes5.dex */
-    public class a extends rg<hn> {
+    public class a extends sg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -55,12 +55,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((a) hnVar, str, i);
-                if (hnVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((a) inVar, str, i);
+                if (inVar == null) {
                     this.a.finish();
                 }
             }
@@ -193,15 +193,15 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d07dd);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
+            setContentView(R.layout.obfuscated_res_0x7f0d07e1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
             this.f = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f11de));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f2d);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f28);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f27);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08126e);
-            sg.h().m(this.a, 10, new a(this), null);
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f11e4));
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f39);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f34);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f33);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08127e);
+            tg.h().m(this.a, 10, new a(this), null);
             this.d.K(this.a, 10, false);
             this.d.setOnClickListener(new b(this));
             this.e.setOnClickListener(new c(this));

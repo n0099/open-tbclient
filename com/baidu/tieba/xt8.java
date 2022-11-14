@@ -1,86 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xt8 extends yv4 {
+public class xt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final or8 d;
-
-    @Override // com.baidu.tieba.yv4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    public final MainTabActivity a;
+    public final zr8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xt8(@NonNull MainTabActivity mainTabActivity, @NonNull or8 or8Var) {
-        super(mainTabActivity);
+    public xt8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2001304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = or8Var;
-        this.c = mainTabActivity;
+        this.a = mainTabActivity;
+        this.b = zr8Var;
     }
 
-    @Override // com.baidu.tieba.yv4
-    public void d(@NonNull yv4.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zr8 zr8Var;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (zr8Var = this.b) != null && zr8Var.B() != null) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
             boolean z2 = false;
-            if (this.d.B() != null && this.d.B().getCurrentTabType() != 2) {
-                aVar.a(false);
-                return;
-            }
-            boolean h = ky4.k().h(ky4.o("key_new_god_pop_is_show"), false);
-            if (TbSingleton.getInstance().getNewGodData() != null) {
+            if (intValue != 2 && oldSkinType != 2) {
                 z = true;
             } else {
                 z = false;
             }
-            if (h && z) {
+            if (z) {
+                return;
+            }
+            if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
                 z2 = true;
             }
-            aVar.a(z2);
-        }
-    }
-
-    @Override // com.baidu.tieba.yv4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.c, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
-            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            tbWebViewActivityConfig.setWebDialogName("newGod");
-            this.c.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-            ky4.k().u(ky4.o("key_new_god_pop_is_show"), false);
-            ew4.f("newGod");
+            if (z2) {
+                this.b.B().e(1);
+            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+                this.b.B().e(2);
+            } else {
+                this.b.B().e(1);
+            }
         }
     }
 }

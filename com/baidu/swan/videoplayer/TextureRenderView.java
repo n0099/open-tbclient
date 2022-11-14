@@ -13,8 +13,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bl4;
 import com.baidu.tieba.cl4;
+import com.baidu.tieba.dl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes3.dex */
-public class TextureRenderView extends TextureView implements bl4 {
+public class TextureRenderView extends TextureView implements cl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cl4 a;
+    public dl4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
-    @Override // com.baidu.tieba.bl4
+    @Override // com.baidu.tieba.cl4
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class TextureRenderView extends TextureView implements bl4 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class a implements bl4.b {
+    public static final class a implements cl4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextureRenderView a;
@@ -64,7 +64,7 @@ public class TextureRenderView extends TextureView implements bl4 {
             this.a = textureRenderView;
         }
 
-        @Override // com.baidu.tieba.bl4.b
+        @Override // com.baidu.tieba.cl4.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class TextureRenderView extends TextureView implements bl4 {
             }
         }
 
-        @Override // com.baidu.tieba.bl4.b
-        public bl4 b() {
+        @Override // com.baidu.tieba.cl4.b
+        public cl4 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.a;
             }
-            return (bl4) invokeV.objValue;
+            return (cl4) invokeV.objValue;
         }
 
         public Surface c() {
@@ -109,7 +109,7 @@ public class TextureRenderView extends TextureView implements bl4 {
         public int d;
         public volatile boolean e;
         public WeakReference<TextureRenderView> f;
-        public Map<bl4.a, Object> g;
+        public Map<cl4.a, Object> g;
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
@@ -148,7 +148,7 @@ public class TextureRenderView extends TextureView implements bl4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (bl4.a aVar2 : this.g.keySet()) {
+                for (cl4.a aVar2 : this.g.keySet()) {
                     aVar2.a(aVar);
                 }
                 return this.e;
@@ -156,7 +156,7 @@ public class TextureRenderView extends TextureView implements bl4 {
             return invokeL.booleanValue;
         }
 
-        public void a(bl4.a aVar) {
+        public void a(cl4.a aVar) {
             a aVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
@@ -176,7 +176,7 @@ public class TextureRenderView extends TextureView implements bl4 {
             }
         }
 
-        public void b(bl4.a aVar) {
+        public void b(cl4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.g.remove(aVar);
@@ -205,7 +205,7 @@ public class TextureRenderView extends TextureView implements bl4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (bl4.a aVar2 : this.g.keySet()) {
+                for (cl4.a aVar2 : this.g.keySet()) {
                     aVar2.b(aVar, 0, 0);
                 }
             }
@@ -220,7 +220,7 @@ public class TextureRenderView extends TextureView implements bl4 {
                 this.c = i;
                 this.d = i2;
                 a aVar = new a(this.f.get());
-                for (bl4.a aVar2 : this.g.keySet()) {
+                for (cl4.a aVar2 : this.g.keySet()) {
                     aVar2.c(aVar, 0, i, i2);
                 }
             }
@@ -295,16 +295,16 @@ public class TextureRenderView extends TextureView implements bl4 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.bl4
-    public void a(bl4.a aVar) {
+    @Override // com.baidu.tieba.cl4
+    public void a(cl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             this.d.b(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.bl4
-    public void b(bl4.a aVar) {
+    @Override // com.baidu.tieba.cl4
+    public void b(cl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.d.a(aVar);
@@ -314,7 +314,7 @@ public class TextureRenderView extends TextureView implements bl4 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new cl4(this);
+            this.a = new dl4(this);
             b bVar = new b(this);
             this.d = bVar;
             setSurfaceTextureListener(bVar);
@@ -339,7 +339,7 @@ public class TextureRenderView extends TextureView implements bl4 {
         }
     }
 
-    @Override // com.baidu.tieba.bl4
+    @Override // com.baidu.tieba.cl4
     public void setAspectRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -388,13 +388,13 @@ public class TextureRenderView extends TextureView implements bl4 {
         return (SurfaceTexture) invokeV.objValue;
     }
 
-    public bl4.b getSurfaceHolder() {
+    public cl4.b getSurfaceHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new a(this);
         }
-        return (bl4.b) invokeV.objValue;
+        return (cl4.b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -406,7 +406,7 @@ public class TextureRenderView extends TextureView implements bl4 {
         }
     }
 
-    @Override // com.baidu.tieba.bl4
+    @Override // com.baidu.tieba.cl4
     @TargetApi(16)
     public void release() {
         Interceptable interceptable = $ic;
@@ -437,7 +437,7 @@ public class TextureRenderView extends TextureView implements bl4 {
         }
     }
 
-    @Override // com.baidu.tieba.bl4
+    @Override // com.baidu.tieba.cl4
     public void setVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && i > 0 && i2 > 0) {

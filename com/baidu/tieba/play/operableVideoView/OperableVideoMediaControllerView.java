@@ -82,7 +82,7 @@ public class OperableVideoMediaControllerView extends VideoControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return View.inflate(context, R.layout.obfuscated_res_0x7f0d06a6, null);
+            return View.inflate(context, R.layout.obfuscated_res_0x7f0d06a7, null);
         }
         return (View) invokeL.objValue;
     }

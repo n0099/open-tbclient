@@ -108,7 +108,7 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.configuration == null) {
                 this.configuration = SapiAccountManager.getInstance().getConfignation();
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0510);
+            setContentView(R.layout.obfuscated_res_0x7f0d0511);
             a(true);
             b();
             c();
@@ -137,7 +137,7 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
                 ProgressBar progressBar = new ProgressBar(this, null, 16842872);
                 this.progressBar = progressBar;
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
-                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a14));
+                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a15));
                 this.e.addView(this.progressBar);
             } catch (Throwable th) {
                 Log.e(th);
@@ -271,8 +271,8 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f10017c);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092699);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f0926a8);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
             ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
             this.mLeftBtnIv = imageView;
             imageView.setOnClickListener(this);
@@ -309,26 +309,26 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
                 ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
             }
             if (this.a) {
-                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08105d);
-                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
-                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
+                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f5));
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08106d);
+                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
+                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f5));
+                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f5));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08105d);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08106d);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {
-                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
+                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f5));
                 }
                 TextView textView2 = this.mBottomBackTvText;
                 if (textView2 != null) {
-                    textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
+                    textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
                 }
                 ImageView imageView3 = this.mBottomDividerLine;
                 if (imageView3 != null) {
-                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
+                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f5));
                 }
             }
             a();

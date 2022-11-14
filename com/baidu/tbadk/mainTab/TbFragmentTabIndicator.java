@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -199,7 +199,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
-                return wg.e(charSequence, -1);
+                return xg.e(charSequence, -1);
             }
             return invokeL.intValue;
         }

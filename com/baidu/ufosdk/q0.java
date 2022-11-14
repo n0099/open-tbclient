@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.FeedbackEditActivity;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes6.dex */
 public class q0 implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +59,7 @@ public class q0 implements TextWatcher {
         if (editText.getText().toString().trim().length() > 30) {
             FeedbackEditActivity feedbackEditActivity = this.a;
             feedbackEditActivity.m.setText(feedbackEditActivity.F);
-            Toast.makeText(this.a, t1.a("32"), 1).show();
+            Toast.makeText(this.a, t1.a(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK), 1).show();
             FeedbackEditActivity feedbackEditActivity2 = this.a;
             feedbackEditActivity2.m.setSelection(feedbackEditActivity2.F.length());
         }

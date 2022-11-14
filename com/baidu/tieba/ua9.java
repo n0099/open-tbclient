@@ -1,125 +1,228 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes6.dex */
-public class ua9 extends InputStream {
+public class ua9<E> implements Iterable<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ta9 a;
-    public boolean b;
-    public ByteBuffer c;
-    public IOException d;
+    public final List<E> a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public ua9(ta9 ta9Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Object<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public boolean c;
+        public final /* synthetic */ ua9 d;
+
+        public b(ua9 ua9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ua9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ua9Var;
+            this.b = 0;
+            this.c = false;
+            ua9Var.j();
+            this.a = ua9Var.f();
+        }
+
+        public /* synthetic */ b(ua9 ua9Var, a aVar) {
+            this(ua9Var);
+        }
+
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.c) {
+                this.c = true;
+                this.d.h();
+            }
+        }
+
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int i = this.b;
+                while (i < this.a && this.d.i(i) == null) {
+                    i++;
+                }
+                if (i < this.a) {
+                    return true;
+                }
+                a();
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                throw new UnsupportedOperationException();
+            }
+        }
+
+        public E next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                while (true) {
+                    int i = this.b;
+                    if (i >= this.a || this.d.i(i) != null) {
+                        break;
+                    }
+                    this.b++;
+                }
+                int i2 = this.b;
+                if (i2 < this.a) {
+                    ua9 ua9Var = this.d;
+                    this.b = i2 + 1;
+                    return (E) ua9Var.i(i2);
+                }
+                a();
+                throw new NoSuchElementException();
+            }
+            return (E) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948204412, "Lcom/baidu/tieba/ua9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948204412, "Lcom/baidu/tieba/ua9;");
+            }
+        }
+    }
+
+    public ua9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ta9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = ta9Var;
+        this.a = new ArrayList();
+        this.b = 0;
+        this.c = 0;
+        this.d = false;
     }
 
-    public void d(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
-            this.d = iOException;
-            this.b = true;
-            this.c = null;
-        }
-    }
-
-    public final void a() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b) {
-                IOException iOException = this.d;
-                if (iOException == null) {
-                    return;
-                }
-                throw iOException;
-            } else if (!c()) {
-                if (this.c == null) {
-                    this.c = ByteBuffer.allocateDirect(32768);
-                }
-                this.c.clear();
-                this.a.u(this.c);
-                IOException iOException2 = this.d;
-                if (iOException2 == null) {
-                    ByteBuffer byteBuffer = this.c;
-                    if (byteBuffer != null) {
-                        byteBuffer.flip();
-                        return;
-                    }
-                    return;
-                }
-                throw iOException2;
-            }
-        }
-    }
-
-    public final boolean c() {
+    public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ByteBuffer byteBuffer = this.c;
-            if (byteBuffer != null && byteBuffer.hasRemaining()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a();
-            if (c()) {
-                return this.c.get() & 255;
-            }
-            return -1;
+            return this.a.size();
         }
         return invokeV.intValue;
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
-                if (i2 == 0) {
-                    return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (int size = this.a.size() - 1; size >= 0; size--) {
+                if (this.a.get(size) == null) {
+                    this.a.remove(size);
                 }
-                a();
-                if (c()) {
-                    int min = Math.min(this.c.limit() - this.c.position(), i2);
-                    this.c.get(bArr, i, min);
-                    return min;
-                }
-                return -1;
             }
-            throw new IndexOutOfBoundsException();
         }
-        return invokeLII.intValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i > 0 || !this.d) {
+                return;
+            }
+            this.d = false;
+            g();
+        }
+    }
+
+    @Override // java.lang.Iterable
+    public Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new b(this, null);
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b++;
+        }
+    }
+
+    public boolean e(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null && !this.a.contains(e)) {
+                this.a.add(e);
+                this.c++;
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final E i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return (E) invokeI.objValue;
     }
 }

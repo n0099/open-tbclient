@@ -74,14 +74,14 @@ public final class k extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091075);
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910ef)).setRatio(0.66f);
-            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09107b);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09107a);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910f4)).setRatio(0.66f);
+            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091080);
             this.dI = roundAngleImageView;
             roundAngleImageView.setRadius(com.kwad.sdk.b.kwai.a.a(getContext(), 3.0f));
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091077);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09108e);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e5);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107c);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091093);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ea);
         }
     }
 
@@ -127,7 +127,7 @@ public final class k extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0431 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0432 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

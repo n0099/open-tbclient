@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uq;
+import com.baidu.tieba.vq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,19 +16,19 @@ import kotlin.jvm.internal.Lambda;
 public final class BDPTask$INSTANCE$taskCompletedRequest$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ int $behavior;
-    public final /* synthetic */ uq $callback;
+    public final /* synthetic */ vq $callback;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $taskId;
     public final /* synthetic */ String $token;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$taskCompletedRequest$1(String str, String str2, int i, uq uqVar) {
+    public BDPTask$INSTANCE$taskCompletedRequest$1(String str, String str2, int i, vq vqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), uqVar};
+            Object[] objArr = {str, str2, Integer.valueOf(i), vqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -42,7 +42,7 @@ public final class BDPTask$INSTANCE$taskCompletedRequest$1 extends Lambda implem
         this.$token = str;
         this.$taskId = str2;
         this.$behavior = i;
-        this.$callback = uqVar;
+        this.$callback = vqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

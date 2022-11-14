@@ -6,11 +6,11 @@ import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.jc0;
 import com.baidu.tieba.kc0;
 import com.baidu.tieba.lc0;
 import com.baidu.tieba.mc0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.nc0;
+import com.baidu.tieba.wc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,17 +133,17 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements mc0<a<ResponseDataT>> {
+    public static final class c<T> implements nc0<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc0 a;
+        public final /* synthetic */ kc0 a;
 
-        public c(jc0 jc0Var) {
+        public c(kc0 kc0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jc0Var};
+                Object[] objArr = {kc0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -153,19 +153,19 @@ public final class LiveNetwork {
                     return;
                 }
             }
-            this.a = jc0Var;
+            this.a = kc0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.jc0 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.kc0 */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.mc0
+        @Override // com.baidu.tieba.nc0
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
-            jc0 jc0Var;
+            kc0 kc0Var;
             NetResponse netResponse;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && (jc0Var = this.a) != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && (kc0Var = this.a) != 0) {
                 Object obj = null;
                 if (aVar != 0) {
                     netResponse = aVar.b();
@@ -175,7 +175,7 @@ public final class LiveNetwork {
                 if (aVar != 0) {
                     obj = aVar.a();
                 }
-                jc0Var.onNetResponse(netResponse, obj);
+                kc0Var.onNetResponse(netResponse, obj);
             }
         }
     }
@@ -205,19 +205,19 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements lc0<a<ResponseDataT>> {
+    public static final class b<T> implements mc0<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveNetwork a;
         public final /* synthetic */ Map b;
-        public final /* synthetic */ jc0 c;
+        public final /* synthetic */ kc0 c;
 
-        public b(LiveNetwork liveNetwork, Map map, jc0 jc0Var) {
+        public b(LiveNetwork liveNetwork, Map map, kc0 kc0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {liveNetwork, map, jc0Var};
+                Object[] objArr = {liveNetwork, map, kc0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -229,11 +229,11 @@ public final class LiveNetwork {
             }
             this.a = liveNetwork;
             this.b = map;
-            this.c = jc0Var;
+            this.c = kc0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lc0
+        @Override // com.baidu.tieba.mc0
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             InterceptResult invokeV;
@@ -246,12 +246,12 @@ public final class LiveNetwork {
                 NetResponse res = iNetWork.postSync(this.b);
                 Object obj = null;
                 try {
-                    jc0 jc0Var = this.c;
-                    if (jc0Var != null) {
-                        obj = jc0Var.onParseResponseInBackground(res);
+                    kc0 kc0Var = this.c;
+                    if (kc0Var != null) {
+                        obj = kc0Var.onParseResponseInBackground(res);
                     }
                 } catch (Exception e) {
-                    vc0.e(e);
+                    wc0.e(e);
                 }
                 Intrinsics.checkExpressionValueIsNotNull(res, "res");
                 return new a<>(res, obj);
@@ -287,11 +287,11 @@ public final class LiveNetwork {
         }
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, jc0<ResponseDataT> jc0Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, kc0<ResponseDataT> kc0Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, jc0Var) == null) && (str = this.a) != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
-            kc0.a(new b(this, map, jc0Var), new c(jc0Var));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, kc0Var) == null) && (str = this.a) != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
+            lc0.a(new b(this, map, kc0Var), new c(kc0Var));
         }
     }
 }

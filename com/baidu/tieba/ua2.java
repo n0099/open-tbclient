@@ -1,90 +1,56 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ua2 extends fe2 {
+public class ua2 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ee2> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ua2() {
-        super("combine");
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948204195, "Lcom/baidu/tieba/ua2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.d = new ArrayList();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948204195, "Lcom/baidu/tieba/ua2;");
+        }
     }
 
-    @Override // com.baidu.tieba.ee2
-    public String c(c32 c32Var) {
+    public static int a(@NonNull cp2 cp2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c32Var)) == null) {
-            if (c32Var != null && this.d.size() > 0) {
-                int i = 0;
-                StringBuilder sb = new StringBuilder();
-                for (ee2 ee2Var : this.d) {
-                    sb.append(ee2Var.d("event" + i, c32Var));
-                    i++;
-                }
-                if (ee2.b) {
-                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
-                }
-                return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cp2Var)) == null) {
+            int i = a;
+            if (i != 0) {
+                return i;
             }
-            return null;
+            return cp2Var.j("preAppReadyState", 0);
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ee2
-    public void h(c32 c32Var) {
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c32Var) == null) && c32Var != null && !c32Var.isWebView() && this.d.size() > 0) {
-            if (ee2.b) {
-                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-            }
-            for (ee2 ee2Var : this.d) {
-                JSEvent e = ee2Var.e(c32Var);
-                if (e != null) {
-                    j(c32Var, e);
-                    if (ee2.b) {
-                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
         }
     }
 
-    public ua2 t(ee2 ee2Var) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ee2Var)) == null) {
-            if (ee2Var != null && !this.d.contains(ee2Var)) {
-                this.d.add(ee2Var);
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
         }
-        return (ua2) invokeL.objValue;
     }
 }

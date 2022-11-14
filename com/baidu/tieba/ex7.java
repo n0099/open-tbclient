@@ -1,130 +1,152 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.fx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes4.dex */
 public class ex7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HeadImageView a;
+    public TextView b;
+    public TbRichTextView c;
+    public ViewStub d;
+    public View e;
+    public ImageView f;
+    public View g;
+    public fx7.a h;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo F = tbRichTextData.F();
-            if (F == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(F.z())) {
-                return F.z();
-            }
-            if (F.getHeight() * F.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (F.getHeight() * F.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (F.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (F.getHeight() * sqrt)));
-            } else {
-                double width = F.getWidth() / F.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(wi.getUrlEncode(F.F()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Post a;
+        public final /* synthetic */ ex7 b;
 
-    public static void b(PostData postData, AbsPbActivity.e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, postData, eVar) != null) || postData == null || postData.X() == null || postData.X().B() == null || eVar == null || eVar.a == null || eVar.b == null || postData.X().B().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = postData.X().B().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, concurrentHashMap.get(a));
+        public a(ex7 ex7Var, Post post) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex7Var, post};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = ex7Var;
+            this.a = post;
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Post post;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
+                this.b.h.a(String.valueOf(this.a.id));
+            }
+        }
     }
 
-    public static PostData c(dx7 dx7Var, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public ex7(ViewStub viewStub, fx7.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{dx7Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewStub, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = viewStub;
+        this.h = aVar;
+    }
+
+    public void d(boolean z) {
+        View view2;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
             if (z) {
-                if (dx7Var != null && dx7Var.H() != null && dx7Var.H().size() > 0) {
-                    PostData postData = dx7Var.H().get(0);
-                    if (postData.D() != 1) {
-                        return d(dx7Var);
-                    }
-                    return postData;
-                }
-                return null;
+                i = 0;
+            } else {
+                i = 8;
             }
-            return d(dx7Var);
+            view2.setVisibility(i);
         }
-        return (PostData) invokeCommon.objValue;
     }
 
-    public static PostData d(dx7 dx7Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dx7Var)) == null) {
-            if (dx7Var != null && dx7Var.Q() != null && dx7Var.Q().getAuthor() != null) {
-                PostData postData = new PostData();
-                MetaData author = dx7Var.Q().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = dx7Var.Q().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
-                }
-                postData.F0(1);
-                postData.L0(dx7Var.Q().getFirstPostId());
-                postData.c1(dx7Var.Q().getTitle());
-                postData.b1(dx7Var.Q().getCreateTime());
-                postData.D0(author);
-                return postData;
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
+            View inflate = this.d.inflate();
+            this.e = inflate;
+            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09063f);
+            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090641);
+            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09063e);
+            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090642);
+            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090640);
+            this.c.setTextSize(TbConfig.getContentSize());
+            c();
         }
-        return (PostData) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
+            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            TbRichTextView tbRichTextView = this.c;
+            if (tbRichTextView != null) {
+                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
+        }
+    }
+
+    public boolean update(Post post, User user) {
+        InterceptResult invokeLL;
+        List<PbContent> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
+            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
+                b();
+                d(true);
+                this.b.setText(user.name_show);
+                this.f.setOnClickListener(new a(this, post));
+                this.a.K(user.portrait, 12, false);
+                this.c.setVisibility(0);
+                this.c.setText(TbRichTextView.X(post.content, false));
+                return true;
+            }
+            d(false);
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

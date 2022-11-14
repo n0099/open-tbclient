@@ -15,7 +15,7 @@ public final class lx3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public my3 a;
+    public ny3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class lx3 {
                 return;
             }
         }
-        b = ok1.a;
+        b = pk1.a;
     }
 
     public lx3() {
@@ -48,22 +48,22 @@ public final class lx3 {
     }
 
     public void c() {
-        my3 my3Var;
+        ny3 ny3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (my3Var = this.a) != null) {
-            my3Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ny3Var = this.a) != null) {
+            ny3Var.c();
         }
     }
 
-    public static lx3 d(lw1 lw1Var) {
+    public static lx3 d(mw1 mw1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, lw1Var)) == null) {
-            if (lw1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mw1Var)) == null) {
+            if (mw1Var == null) {
                 return null;
             }
             lx3 lx3Var = new lx3();
-            lx3Var.a = my3.e(lw1Var);
+            lx3Var.a = ny3.e(mw1Var);
             return lx3Var;
         }
         return (lx3) invokeL.objValue;
@@ -73,9 +73,9 @@ public final class lx3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            my3 my3Var = this.a;
-            if (my3Var != null) {
-                my3Var.b(a);
+            ny3 ny3Var = this.a;
+            if (ny3Var != null) {
+                ny3Var.b(a);
             }
         }
     }
@@ -88,7 +88,7 @@ public final class lx3 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", rt3.a(str));
+                jSONObject.put("errDes", st3.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();

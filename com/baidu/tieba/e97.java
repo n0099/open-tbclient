@@ -9,16 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetSugTopic.TopicList;
-import tbclient.GetSugTopic.TopicListModule;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes3.dex */
 public class e97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public List<f97> c;
-    public List<h97> d;
+    public List<i97> b;
+    public h97 c;
+    public List<x87> d;
+    public List<w87> e;
+    public List<TopicList> f;
+    public List<NewTopicList> g;
 
     public e97() {
         Interceptable interceptable = $ic;
@@ -30,84 +36,61 @@ public class e97 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = -1;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
     }
 
-    public String a() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<f97> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.f;
         }
         return (List) invokeV.objValue;
     }
 
-    public List<h97> c() {
-        InterceptResult invokeV;
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(TopicListModule topicListModule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) && topicListModule != null) {
-            this.a = topicListModule.module_title;
-            List<TopicList> list = topicListModule.topic_list;
-            if (list == null) {
-                return;
-            }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                f97 f97Var = new f97();
-                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
-                if (topicList != null) {
-                    f97Var.c(topicList);
-                    if (!wi.isEmptyStringAfterTrim(f97Var.b())) {
-                        this.c.add(f97Var);
-                        this.d.add(new h97(topicList));
-                    }
-                }
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                i97 i97Var = new i97();
+                i97Var.a(tabList);
+                this.b.add(i97Var);
             }
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if (dataRes.media_topic != null) {
+            h97 h97Var = new h97();
+            this.c = h97Var;
+            h97Var.a(dataRes.media_topic);
         }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                w87 w87Var = new w87();
+                w87Var.b(dataRes.topic_manual);
+                w87Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(w87Var);
+            }
         }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                x87 x87Var = new x87();
+                x87Var.b(dataRes.topic_bang);
+                x87Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(x87Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        this.g = dataRes.topic_list;
     }
 }

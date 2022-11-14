@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import androidx.annotation.Keep;
-import com.baidu.tieba.n6a;
-import com.baidu.tieba.o7a;
+import com.baidu.tieba.k7a;
+import com.baidu.tieba.o8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends o7a {
+public interface IYYPayAmountView extends o8a {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -27,21 +27,23 @@ public interface IYYPayAmountView extends o7a {
 
         void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str);
 
+        void toBannerConfigWebPage(String str);
+
         void toHelpCenterPage();
 
-        void toPayWayDialog(n6a n6aVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(k7a k7aVar, List<PayWayInfo> list, String str);
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);
@@ -57,6 +59,7 @@ public interface IYYPayAmountView extends o7a {
         public String payAmountDialogTitle;
         public PayScene payScene;
         public boolean showFaqPage;
+        public String splitOrderPayScene;
         public int targetAmount;
         public AbsViewEventHandler viewEventListener;
         public WindowParams windowParams;
@@ -76,13 +79,14 @@ public interface IYYPayAmountView extends o7a {
             }
             this.closeOnSuccess = false;
             this.showFaqPage = false;
+            this.splitOrderPayScene = "0";
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", showFaqPage=" + this.showFaqPage + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + "', clientInfoExpand='" + this.clientInfoExpand + "', windowParams='" + this.windowParams + "'}";
+                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", showFaqPage=" + this.showFaqPage + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + "', clientInfoExpand='" + this.clientInfoExpand + "', windowParams='" + this.windowParams + "', viewEventListener='" + this.viewEventListener + "', splitOrderPayScene='" + this.splitOrderPayScene + "'}";
             }
             return (String) invokeV.objValue;
         }

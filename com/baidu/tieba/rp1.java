@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface rp1 {
-    void a();
+    String a();
+
+    String b();
+
+    String getAppName();
+
+    String getSchemeHeader();
 }

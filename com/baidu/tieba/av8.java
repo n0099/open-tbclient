@@ -14,14 +14,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.BubbleListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalBackdropListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import java.util.List;
 public class av8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BubbleGroupActivity a;
+    public BackgroundGroupActivity a;
     public View b;
     public View c;
     public NavigationBar d;
@@ -74,17 +74,17 @@ public class av8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleListActivityConfig(this.a.a.getActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropListActivityConfig(this.a.a.getActivity())));
             }
         }
     }
 
-    public av8(BubbleGroupActivity bubbleGroupActivity, xu8 xu8Var) {
+    public av8(BackgroundGroupActivity backgroundGroupActivity, bv8 bv8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bubbleGroupActivity, xu8Var};
+            Object[] objArr = {backgroundGroupActivity, bv8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,30 +95,30 @@ public class av8 {
             }
         }
         this.i = 0;
-        this.a = bubbleGroupActivity;
-        this.i = xi.g(bubbleGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0168, (ViewGroup) null);
+        this.a = backgroundGroupActivity;
+        this.i = yi.g(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012e, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903cc);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092604);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092613);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0555);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092603);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0ebb);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092612);
         this.e = memberRecommendView;
-        memberRecommendView.setFromType(6);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09136b);
+        memberRecommendView.setFromType(4);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091368);
         TextView textView = new TextView(this.a.getActivity());
         this.g = textView;
-        textView.setHeight(xi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d057a, (ViewGroup) null);
+        textView.setHeight(yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d057b, (ViewGroup) null);
         this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0b1a);
+        textView2.setText(R.string.obfuscated_res_0x7f0f0b1b);
         this.h.setOnClickListener(new a(this));
-        this.j = new yu8(this.a.getPageContext(), xu8Var);
+        this.j = new yu8(this.a.getPageContext(), bv8Var);
         TextView textView3 = new TextView(this.a.getActivity());
-        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + xi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
         this.f.x(textView3, 0);
         this.f.addFooterView(this.h);
         this.f.setAdapter((ListAdapter) this.j);
@@ -143,23 +143,21 @@ public class av8 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             for (zu8 zu8Var : list) {
+                arrayList.add(zu8Var.b());
                 List<DressItemData> a2 = zu8Var.a();
                 int size = a2.size();
-                if (size != 0) {
-                    arrayList.add(zu8Var.b());
-                    if (size > 4) {
-                        size = 4;
-                    }
-                    for (int i = 0; i < size; i = i + 1 + 1) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (int i2 = 0; i2 < 2; i2++) {
-                            int i3 = i + i2;
-                            if (i3 < size) {
-                                arrayList2.add(a2.get(i3));
-                            }
+                if (size > 3) {
+                    size = 3;
+                }
+                for (int i = 0; i < size; i = i + 2 + 1) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i2 = 0; i2 < 3; i2++) {
+                        int i3 = i + i2;
+                        if (i3 < size) {
+                            arrayList2.add(a2.get(i3));
                         }
-                        arrayList.add(arrayList2);
                     }
+                    arrayList.add(arrayList2);
                 }
             }
             return arrayList;
@@ -203,11 +201,9 @@ public class av8 {
         yu8 yu8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if5.a(this.a.getPageContext(), this.b);
-            if (this.a.getLayoutMode() != null) {
-                this.a.getLayoutMode().k(this.h);
-                kw4.d(this.h).v(R.color.CAM_X0108);
-            }
+            pf5.a(this.a.getPageContext(), this.b);
+            this.a.getLayoutMode().k(this.h);
+            pw4.d(this.h).v(R.color.CAM_X0108);
             NavigationBar navigationBar = this.d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -216,18 +212,18 @@ public class av8 {
             if (bdListView != null && bdListView.getVisibility() == 0 && (yu8Var = this.j) != null) {
                 yu8Var.notifyDataSetChanged();
             }
-            this.e.d();
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.e.d();
         }
     }
 
-    public final boolean h(lv8 lv8Var) {
+    public final boolean h(wv8 wv8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, lv8Var)) == null) {
-            if (lv8Var != null && !StringUtils.isNull(lv8Var.c())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wv8Var)) == null) {
+            if (wv8Var != null && !StringUtils.isNull(wv8Var.c())) {
                 this.e.setVisibility(0);
-                this.e.e(lv8Var);
+                this.e.e(wv8Var);
                 return true;
             }
             this.e.setVisibility(8);
@@ -241,18 +237,18 @@ public class av8 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c9b);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c9d);
             this.a.setNetRefreshViewTopMargin(this.i);
             this.a.showNetRefreshView(this.b, string, false);
         }
     }
 
-    public void k(lv8 lv8Var, List<zu8> list, boolean z) {
+    public void k(wv8 wv8Var, List<zu8> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, lv8Var, list, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, wv8Var, list, z) == null) {
             if (list != null && list.size() > 0) {
                 c();
-                if (h(lv8Var)) {
+                if (h(wv8Var)) {
                     this.f.removeHeaderView(this.g);
                     this.f.addHeaderView(this.g);
                 } else {

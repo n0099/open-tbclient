@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class vl2 extends yh2<pm2> {
+public class vl2 extends zh2<qm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yh2
+    @Override // com.baidu.tieba.zh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pause" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "isPlaying" : (String) invokeV.objValue;
     }
 
     public vl2() {
@@ -36,13 +36,14 @@ public class vl2 extends yh2<pm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh2
+    @Override // com.baidu.tieba.zh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull pm2 pm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qm2 qm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pm2Var) == null) {
-            pm2Var.pause();
-            d(pm2Var, command.what, null, false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qm2Var) == null) {
+            command.ret = qm2Var.isPlaying() ? 1 : 0;
+            String str = command.what;
+            d(qm2Var, str, "isPlaying: " + qm2Var.isPlaying(), false);
         }
     }
 }

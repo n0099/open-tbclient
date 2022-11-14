@@ -1,104 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.model.VideoHolyCardModel;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ax8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ax8 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoHolyCardModel a;
-    public boolean b;
-    public boolean c;
-    public VideoHolyCardModel.c d;
+    public Context a;
+    public VlogEditManager b;
+    public int c;
+    public int d;
+    public TextWordsEntity.TextStyleEntity e;
+    public TextWordsEntity.TextFontEntity f;
+    public int g;
+    public String h;
 
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ax8 ax8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ax8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !BdNetTypeUtil.isMobileNet()) {
-                return;
-            }
-            this.a.b();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements VideoHolyCardModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax8 a;
-
-        public b(ax8 ax8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ax8Var;
-        }
-
-        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
-            }
-            this.a.b = z;
-        }
-    }
-
-    public ax8() {
+    public ax8(Context context, VlogEditManager vlogEditManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, vlogEditManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,63 +50,175 @@ public class ax8 {
                 return;
             }
         }
-        this.d = new b(this);
-        e();
-        if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b();
-        }
+        this.g = -1;
+        this.h = "";
+        this.a = context;
+        this.b = vlogEditManager;
     }
 
-    public static ax8 c() {
-        InterceptResult invokeV;
+    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        TextWordsEntity.TextStyleEntity textStyleEntity2;
+        TextWordsEntity.TextFontEntity textFontEntity2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (ax8.class) {
-                    if (e == null) {
-                        e = new ax8();
-                    }
-                }
-            }
-            return e;
-        }
-        return (ax8) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == null) {
-                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-                this.a = videoHolyCardModel;
-                videoHolyCardModel.E(this.d);
-            }
-            this.a.C();
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2000994));
-        }
-    }
-
-    public void f(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.b || this.c) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) != null) || multiMediaData == null) {
             return;
         }
-        xi.O(context, R.string.obfuscated_res_0x7f0f06f2);
-        this.c = true;
+        if (108 == i && TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", tj9.l(R.string.obfuscated_res_0x7f0f14f8));
+        }
+        if (this.g != -1 && !TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", str);
+        }
+        if (textStyleEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
+        } else {
+            try {
+                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
+                if (!TextUtils.isEmpty(ext)) {
+                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
+                } else {
+                    textStyleEntity2 = this.e;
+                }
+                textStyleEntity = textStyleEntity2;
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+        }
+        if (textFontEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
+        } else {
+            try {
+                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
+                if (!TextUtils.isEmpty(ext2)) {
+                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
+                } else {
+                    textFontEntity2 = this.f;
+                }
+                textFontEntity = textFontEntity2;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
+        String videoTmpDir = FileHelper.getVideoTmpDir();
+        String str2 = System.currentTimeMillis() + ".jpg";
+        Bitmap h = xw8.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
+        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
+            FileUtils.delete(new File(multiMediaData.path));
+        }
+        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
+        multiMediaData.path = videoTmpDir + File.separator + str2;
+        int i2 = multiMediaData.width;
+        int i3 = multiMediaData.height;
+        multiMediaData.width = h.getWidth();
+        int height = h.getHeight();
+        multiMediaData.height = height;
+        if (this.g == -1) {
+            multiMediaData.scaleType = "adaptive";
+            multiMediaData.type = 0;
+            multiMediaData.start = this.b.getCurrentPlayTime();
+            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
+            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
+            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.addCoverStickerData(multiMediaData);
+            } else {
+                this.b.addStickerData(multiMediaData, this.h);
+            }
+        } else {
+            float f = multiMediaData.x + (i2 / 2.0f);
+            float f2 = multiMediaData.y + (i3 / 2.0f);
+            multiMediaData.x = f - (multiMediaData.width / 2.0f);
+            multiMediaData.y = f2 - (height / 2.0f);
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.replaceCoverStickerData(multiMediaData);
+            } else {
+                this.b.replaceStickerData(this.g, multiMediaData, this.h);
+            }
+        }
+        h.recycle();
+    }
+
+    public void b(MultiMediaData multiMediaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) && multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+            FileUtils.delete(new File(multiMediaData.path));
+        }
+    }
+
+    public boolean d(MultiMediaData multiMediaData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
+            if (multiMediaData == null) {
+                return false;
+            }
+            String ext = multiMediaData.getExt("text");
+            if (TextUtils.isEmpty(ext)) {
+                return false;
+            }
+            return ext.equals(tj9.l(R.string.obfuscated_res_0x7f0f14f8));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void g(TextWordsEntity.TextFontEntity textFontEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, textFontEntity) == null) {
+            this.f = textFontEntity;
+        }
+    }
+
+    public void h(TextWordsEntity.TextStyleEntity textStyleEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, textStyleEntity) == null) {
+            this.e = textStyleEntity;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void c(@NonNull List<MultiMediaData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setUpEditLayer("cover_sticker");
+            this.b.addCoverStickerDataList(list);
+            for (MultiMediaData multiMediaData : list) {
+                f(0);
+                a(116, null, multiMediaData, null, null);
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context context = xw8.d().getContext();
+            Context context2 = this.a;
+            if (context == context2 && context2 != null) {
+                xw8.d().i(null);
+                this.a = null;
+            }
+        }
+    }
+
+    public void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            this.c = i;
+            this.d = i2;
+        }
     }
 }

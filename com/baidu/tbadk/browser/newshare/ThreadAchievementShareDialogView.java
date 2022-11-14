@@ -33,14 +33,14 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq4;
 import com.baidu.tieba.bq4;
-import com.baidu.tieba.gj5;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.kj5;
-import com.baidu.tieba.li5;
-import com.baidu.tieba.m18;
+import com.baidu.tieba.cq4;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.rj5;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.si5;
+import com.baidu.tieba.x18;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,9 +65,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public m18 n;
+    public x18 n;
     public TbPageContext o;
-    public iv4 p;
+    public jv4 p;
     public Bitmap q;
     public View r;
     public ImageView s;
@@ -317,7 +317,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class h extends gj5<ShareItem> {
+    public class h extends nj5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -345,7 +345,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gj5
+        @Override // com.baidu.tieba.nj5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -358,7 +358,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class i implements li5<ShareItem> {
+    public class i implements si5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -384,7 +384,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.li5
+        @Override // com.baidu.tieba.si5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -434,7 +434,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             }
             statisticItem.param("obj_source", this.z);
             TiebaStatic.log(statisticItem);
-            kj5.b(new h(this, bitmap, i2), new i(this, i2));
+            rj5.b(new h(this, bitmap, i2), new i(this, i2));
         }
     }
 
@@ -455,12 +455,12 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         int l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            int g2 = xi.g(this.c, R.dimen.tbds44);
-            int g3 = xi.g(this.c, R.dimen.tbds54);
+            int g2 = yi.g(this.c, R.dimen.tbds44);
+            int g3 = yi.g(this.c, R.dimen.tbds54);
             if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                l = xi.j(this.c);
+                l = yi.j(this.c);
             } else {
-                l = xi.l(this.c);
+                l = yi.l(this.c);
             }
             return ((l - (g2 * 2)) - g3) / 6;
         }
@@ -504,15 +504,15 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean h(TbPageContext tbPageContext, iv4 iv4Var) {
+    public boolean h(TbPageContext tbPageContext, jv4 jv4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, iv4Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, jv4Var)) == null) {
             this.o = tbPageContext;
-            this.p = iv4Var;
+            this.p = jv4Var;
             l(this.c);
             if (this.a.getParams() != null && !ListUtils.isEmpty(this.a.getParams().getThread_list())) {
-                this.u.addView(new zp4(this.c, this.a).a());
+                this.u.addView(new aq4(this.c, this.a).a());
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
                 statisticItem.param("obj_source", 1);
@@ -520,9 +520,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                 this.z = 2;
             } else if (this.a.getParams() != null) {
                 if (this.a.getParams().getVideo_info() != null) {
-                    this.u.addView(new bq4(this.c, this.a).a());
+                    this.u.addView(new cq4(this.c, this.a).a());
                 } else {
-                    this.u.addView(new aq4(this.c, this.a).a());
+                    this.u.addView(new bq4(this.c, this.a).a());
                 }
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem2 = new StatisticItem("c10898");
@@ -567,7 +567,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         Drawable drawable = absSvgType.getDrawable();
-        int g2 = xi.g(getContext(), R.dimen.tbds88);
+        int g2 = yi.g(getContext(), R.dimen.tbds88);
         drawable.setBounds(0, 0, g2, g2);
         textView.setCompoundDrawables(null, drawable, null, null);
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
@@ -596,28 +596,28 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0927, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bf6);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092b, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bf7);
             this.d = linearLayout;
-            this.r = linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9f);
+            this.r = linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa9);
             SkinManager.setBackgroundResource(this.d, R.drawable.bg_frs_private_dialog);
             SkinManager.setBackgroundResource(this.r, R.drawable.pic_announcement_round);
-            this.u = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091a9e);
+            this.u = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091aa8);
             this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090058);
-            this.v = (HeadImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090d60);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924f6);
+            this.v = (HeadImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090d62);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092505);
             this.k = textView;
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
             this.v.setIsRound(true);
             this.v.setPlaceHolder(2);
             this.v.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.t = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091f00);
-            this.s = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091ee8);
-            this.w = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091b6f);
-            this.x = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091b6c);
-            this.y = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091b6d);
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090676);
+            this.t = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091f0c);
+            this.s = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091ef4);
+            this.w = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091b79);
+            this.x = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091b76);
+            this.y = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091b77);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090677);
             this.A = imageView;
             imageView.setOnClickListener(new a(this));
             SkinManager.setImageResource(this.A, R.drawable.icon_popup_shut_n);
@@ -625,29 +625,29 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.x, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.t, R.drawable.bg_frs_private_dialog);
-            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bf8);
+            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bf9);
             this.e = textView2;
             o(textView2, new SvgMaskType(R.drawable.obfuscated_res_0x7f0807fa));
             this.e.setOnClickListener(new b(this));
-            TextView textView3 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c01);
+            TextView textView3 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c02);
             this.f = textView3;
-            o(textView3, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083e));
+            o(textView3, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083f));
             this.f.setOnClickListener(new c(this));
-            TextView textView4 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bf9);
+            TextView textView4 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bfa);
             this.g = textView4;
-            o(textView4, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083a));
+            o(textView4, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083b));
             this.g.setOnClickListener(new d(this));
-            TextView textView5 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bfe);
+            TextView textView5 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bff);
             this.h = textView5;
-            o(textView5, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083c));
+            o(textView5, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083d));
             this.h.setOnClickListener(new e(this));
-            TextView textView6 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bfc);
+            TextView textView6 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bfd);
             this.i = textView6;
-            o(textView6, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083b));
+            o(textView6, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083c));
             this.i.setOnClickListener(new f(this));
-            TextView textView7 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c02);
+            TextView textView7 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c03);
             this.j = textView7;
-            o(textView7, new SvgMaskType(R.drawable.obfuscated_res_0x7f08083f));
+            o(textView7, new SvgMaskType(R.drawable.obfuscated_res_0x7f080840));
             this.j.setOnClickListener(new g(this));
         }
     }
@@ -658,7 +658,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new m18(this.o);
+            this.n = new x18(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

@@ -1,28 +1,103 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface as0 extends wr0, yr0 {
-    public static final a a = c71.a;
+public class as0 extends vr0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public px0 O;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        as0 a(Context context, int i);
-
-        as0 b(Context context, int i, @Nullable bs0 bs0Var);
+    @Override // com.baidu.tieba.ur0, com.baidu.tieba.tr0
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 23;
+        }
+        return invokeV.intValue;
     }
 
-    void a(xr0 xr0Var);
+    @Override // com.baidu.tieba.ur0
+    public void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
-    void attachToContainer(@NonNull ViewGroup viewGroup);
+    @Override // com.baidu.tieba.ur0
+    public boolean s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void c(@NonNull zp0 zp0Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as0(@NonNull mv0 mv0Var, @Nullable Context context) {
+        super(mv0Var, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mv0Var, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((mv0) objArr2[0], (Context) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+    @Override // com.baidu.tieba.gs0, com.baidu.tieba.tr0
+    public void G0(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            px0 px0Var = new px0();
+            this.O = px0Var;
+            b(px0Var);
+            hx0 hx0Var = this.b;
+            if (hx0Var != null) {
+                hx0Var.f0(Boolean.FALSE);
+            }
+            v().setClickable(false);
+            w0(true);
+        }
+    }
 
-    void release();
+    @Override // com.baidu.tieba.tr0
+    public boolean X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return V();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tr0, com.baidu.tieba.vw0
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            int i = this.a.d;
+            if (i > 0) {
+                o0(i);
+            }
+        }
+    }
 }

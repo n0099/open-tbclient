@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x65 extends p65 {
+public class x65 extends v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x65(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054a), 39, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0548), 9, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,11 +30,11 @@ public class x65 extends p65 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809d2;
-        this.h = R.drawable.obfuscated_res_0x7f0809d2;
+        this.d = R.drawable.obfuscated_res_0x7f0809d1;
+        this.h = R.drawable.icon_pure_post_more_at64;
         this.i = false;
         this.j = true;
-        this.k = false;
-        this.p = new int[]{69};
+        this.k = true;
+        this.p = new int[]{16};
     }
 }

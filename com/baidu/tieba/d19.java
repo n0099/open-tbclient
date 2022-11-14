@@ -1,111 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.VideoTemplate.DataRes;
-import tbclient.VideoTemplateContent;
 /* loaded from: classes3.dex */
-public class d19 {
+public class d19 extends TimePickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c19> a;
+    public int a;
     public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public boolean c;
 
-    public d19() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d19(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = i;
+        this.b = i2;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            if (i == -1) {
+                this.c = true;
+            } else {
+                int i3 = this.a;
+                if (i3 >= 0 && (i2 = this.b) >= 0) {
+                    updateTime(i3, i2);
+                }
+            }
+            super.onClick(dialogInterface, i);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.updateTime(i, i2);
+            this.a = i;
+            this.b = i2;
+            this.c = false;
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<c19> c() {
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onRestoreInstanceState(bundle);
+            updateTime(0, 0);
+            this.a = bundle.getInt("hour_key");
+            int i = bundle.getInt("min_key");
+            this.b = i;
+            updateTime(this.a, i);
+        }
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.b = dataRes.topic_id.intValue();
-            this.c = dataRes.topic_name;
-            this.d = dataRes.back_url;
-            this.e = dataRes.video_template_url;
-            this.f = dataRes.activity_url;
-            List<VideoTemplateContent> list = dataRes.video_template_content;
-            if (list != null) {
-                this.a = new ArrayList();
-                for (int i = 0; i < list.size(); i++) {
-                    c19 c19Var = new c19();
-                    c19Var.a(list.get(i));
-                    this.a.add(c19Var);
-                }
+            try {
+                bundle = super.onSaveInstanceState();
+            } catch (Exception unused) {
+                bundle = null;
             }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putInt("hour_key", this.a);
+            bundle.putInt("min_key", this.b);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.c) {
+                updateTime(this.a, this.b);
+            }
+            super.onStop();
         }
     }
 }

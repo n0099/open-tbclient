@@ -1,326 +1,37 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CandidateSearchActivityConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.widget.SelectRuleView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.barselect.BarVoteActivity;
-import com.baidu.tieba.barselect.VoteAdapter;
-import com.baidu.tieba.barselect.view.FloatMyRecordCard;
-import com.baidu.tieba.barselect.view.SearchView;
-import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.barselect.view.VoteStatusCard;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ManagerElection;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class y16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FloatMyRecordCard A;
-    public TextView B;
-    public int C;
-    public PbListView D;
-    public NoNetworkView E;
-    public NoDataView F;
-    public da5 G;
-    public ViewGroup H;
-    public View.OnClickListener I;
-    public View.OnClickListener J;
-    public boolean K;
-    public VoteStatusCard.c L;
-    public RecyclerView.OnScrollListener M;
-    public BdListView.p N;
-    public int a;
-    public BarVoteActivity b;
-    public int c;
-    public int d;
-    public int e;
-    public float f;
-    public int g;
-    public e26 h;
-    public LinearLayoutManager i;
-    public RelativeLayout j;
-    public View k;
-    public ViewGroup l;
-    public TbImageView m;
-    public View n;
-    public View o;
-    public NavigationBar p;
-    public View q;
-    public TextView r;
-    public BdRecyclerView s;
-    public VoteStatusCard t;
-    public VoteCandidateCard u;
-    public View v;
-    public TextView w;
-    public SelectRuleView x;
-    public SearchView y;
-    public VoteAdapter z;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<kn> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<xn> f;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y16 a;
-
-        public a(y16 y16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y16Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                if (this.a.G != null) {
-                    this.a.G.dettachView(this.a.k);
-                    this.a.G = null;
-                }
-                this.a.b.A1();
-                if (this.a.s != null) {
-                    this.a.s.setVisibility(0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements VoteStatusCard.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y16 a;
-
-        public b(y16 y16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y16Var;
-        }
-
-        @Override // com.baidu.tieba.barselect.view.VoteStatusCard.c
-        public void onRefresh() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.refresh();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y16 a;
-
-        public c(y16 y16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y16Var;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-                this.a.g = i;
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
-                super.onScrolled(recyclerView, i, i2);
-                if ((this.a.g == 1 || this.a.g == 2) && this.a.l != null && this.a.p != null && this.a.p.getBarBgView() != null && this.a.p.getBackImageView() != null) {
-                    y16 y16Var = this.a;
-                    y16Var.f = Math.abs(y16Var.l.getTop()) / this.a.a;
-                    this.a.p.getBarBgView().setAlpha(this.a.f);
-                    this.a.q.setAlpha(this.a.f);
-                    if (this.a.f > 0.5d) {
-                        if (this.a.e == 0) {
-                            SkinManager.setImageResource(this.a.p.getBackImageView(), R.drawable.icon_return_bg_s, this.a.c);
-                            SkinManager.setViewTextColor(this.a.r, R.color.CAM_X0105, 1, this.a.c);
-                            SkinManager.setViewTextColor(this.a.p.mCenterText, R.color.CAM_X0105, 1, this.a.c);
-                            this.a.e = 1;
-                        }
-                        this.a.p.getBackImageView().setAlpha((this.a.f * 2.0f) - 1.0f);
-                        this.a.r.setAlpha((this.a.f * 2.0f) - 1.0f);
-                        this.a.p.mCenterText.setAlpha((this.a.f * 2.0f) - 1.0f);
-                    } else if (this.a.f <= 0.5d) {
-                        if (this.a.e == 1) {
-                            SkinManager.setImageResource(this.a.p.getBackImageView(), R.drawable.icon_return_bg, this.a.c);
-                            SkinManager.setViewTextColor(this.a.r, R.color.CAM_X0101, 1, this.a.c);
-                            SkinManager.setViewTextColor(this.a.p.mCenterText, R.color.CAM_X0101, 1, this.a.c);
-                            this.a.e = 0;
-                        }
-                        this.a.p.getBackImageView().setAlpha(1.0f - (this.a.f * 2.0f));
-                        this.a.r.setAlpha(1.0f - (this.a.f * 2.0f));
-                        this.a.p.mCenterText.setAlpha(1.0f - (this.a.f * 2.0f));
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y16 a;
-
-        public d(y16 y16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y16Var;
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.s != null) {
-                    this.a.s.stopScroll();
-                }
-                if (this.a.D != null && this.a.b != null) {
-                    if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (this.a.d == n26.c) {
-                            this.a.D.M(xi.g(this.a.b, R.dimen.tbds152));
-                        }
-                        this.a.s.setNextPage(this.a.D);
-                        this.a.D.C(null);
-                        if (this.a.K) {
-                            this.a.D.O();
-                            this.a.b.z1();
-                            return;
-                        }
-                        this.a.D.D(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a18));
-                        this.a.D.f();
-                        return;
-                    }
-                    this.a.s.setNextPage(null);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y16 a;
-
-        public e(y16 y16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y16Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BarVoteActivity barVoteActivity = this.a.b;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CandidateSearchActivityConfig(barVoteActivity, this.a.b.d + "")));
-            }
-        }
-    }
-
-    public y16(BarVoteActivity barVoteActivity) {
+    public y16(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {barVoteActivity};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -330,308 +41,91 @@ public class y16 {
                 return;
             }
         }
-        this.c = 3;
-        this.d = -1;
-        this.e = 0;
-        this.f = 0.0f;
-        this.J = new a(this);
-        this.L = new b(this);
-        this.M = new c(this);
-        this.N = new d(this);
-        this.b = barVoteActivity;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(barVoteActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0140, (ViewGroup) null);
-        this.j = relativeLayout;
-        this.b.addContentView(relativeLayout, new FrameLayout.LayoutParams(-1, -1));
-        BarVoteActivity barVoteActivity2 = this.b;
-        barVoteActivity2.showLoadingView(this.j, false, xi.g(barVoteActivity2, R.dimen.obfuscated_res_0x7f0702bb));
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091359);
-        this.H = (ViewGroup) this.j.findViewById(R.id.obfuscated_res_0x7f0916fc);
-        this.o = this.j.findViewById(R.id.obfuscated_res_0x7f09165c);
-        View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f09165d);
-        this.q = findViewById;
-        findViewById.setAlpha(0.0f);
-        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f092674);
-        this.p = navigationBar;
-        navigationBar.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ec));
-        if (this.p.getBarBgView() != null) {
-            this.p.getBarBgView().setAlpha(0.0f);
-        }
-        this.a = xi.g(this.b, R.dimen.tbds402);
-        this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TextView textView = (TextView) this.p.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d063f, this.b).findViewById(R.id.obfuscated_res_0x7f091c88);
-        this.r = textView;
-        textView.setText(R.string.obfuscated_res_0x7f0f02e3);
-        this.r.setOnClickListener(this.b);
-        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f092672);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b);
-        this.i = linearLayoutManager;
-        this.s.setLayoutManager(linearLayoutManager);
-        VoteAdapter voteAdapter = new VoteAdapter(barVoteActivity.getPageContext());
-        this.z = voteAdapter;
-        this.s.setAdapter(voteAdapter);
-        this.l = (ViewGroup) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0920, (ViewGroup) null, false);
-        this.l.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.m = (TbImageView) this.l.findViewById(R.id.obfuscated_res_0x7f090d5e);
-        this.m.setLayoutParams(new LinearLayout.LayoutParams(-1, (xi.l(this.b) * 884) / 1076));
-        this.s.s(this.l);
-        this.s.addOnScrollListener(this.M);
-        this.s.setOnSrollToBottomListener(this.N);
-        this.C = this.b.getResources().getDimensionPixelSize(R.dimen.tbds134);
-        View view2 = new View(this.b);
-        this.n = view2;
-        view2.setLayoutParams(new AbsListView.LayoutParams(-1, this.C));
-        this.n.setVisibility(4);
-        this.s.r(this.n);
-        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092678);
-        this.t = voteStatusCard;
-        voteStatusCard.setOnRefreshListener(this.L);
-        this.v = this.l.findViewById(R.id.obfuscated_res_0x7f090354);
-        this.w = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f090358);
-        SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f090355);
-        this.x = selectRuleView;
-        selectRuleView.setType(1);
-        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f092668);
-        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f092676);
-        this.y = searchView;
-        searchView.a(new e(this));
-        this.A = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f090a16);
-        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092680);
-        PbListView pbListView = new PbListView(this.b);
-        this.D = pbListView;
-        pbListView.b();
-        this.D.p(R.color.CAM_X0204);
-        this.D.t(xi.g(this.b, R.dimen.tbds182));
-        this.D.y();
-        this.D.H(R.dimen.tbfontsize33);
-        this.D.F(SkinManager.getColor(R.color.CAM_X0107));
-        this.D.B(R.color.CAM_X0110);
-        this.D.s();
-        this.E = (NoNetworkView) this.j.findViewById(R.id.obfuscated_res_0x7f09170e);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public void D(View.OnClickListener onClickListener) {
+    public void d(String str, int i) {
+        List<xn> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.I = onClickListener;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            A(i, false);
-        }
-    }
-
-    public void A(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (!z && this.c == i) {
-                return;
-            }
-            this.c = i;
-            da5 da5Var = this.G;
-            if (da5Var != null) {
-                da5Var.onChangeSkinType();
-            }
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201, i);
-            SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204, i);
-            NavigationBar navigationBar = this.p;
-            if (navigationBar != null) {
-                SkinManager.setBackgroundColor(navigationBar.getBarBgView(), R.color.CAM_X0207, i);
-                float f = this.f;
-                if (f > 0.5d) {
-                    SkinManager.setImageResource(this.p.getBackImageView(), R.drawable.icon_return_bg_s, i);
-                    SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1, i);
-                    SkinManager.setViewTextColor(this.p.mCenterText, R.color.CAM_X0105, 1, i);
-                } else if (f <= 0.5d) {
-                    e26 e26Var = this.h;
-                    if (e26Var != null && e26Var.a() != null && this.h.a().h() <= 2 && this.h.a().h() >= 1) {
-                        SkinManager.setImageResource(this.p.getBackImageView(), R.drawable.icon_return_bg, i);
-                        SkinManager.setViewTextColor(this.r, R.color.CAM_X0101, 1, i);
-                        SkinManager.setViewTextColor(this.p.mCenterText, R.color.CAM_X0101, 1, i);
-                    } else {
-                        SkinManager.setImageResource(this.p.getBackImageView(), R.drawable.icon_return_bg_s, i);
-                        SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1, i);
-                        SkinManager.setViewTextColor(this.p.mCenterText, R.color.CAM_X0105, 1, i);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                        alaEnterEffectData.downLoadStatus = i;
+                        b();
                     }
                 }
-                SkinManager.setBackgroundResource(this.q, R.drawable.top_view_shadow, i);
-            }
-            SkinManager.setImageResource(this.m, R.drawable.pic_recruit_firstfigure, i);
-            this.t.f(i);
-            this.u.c(i);
-            this.y.d(i);
-            SkinManager.setBackgroundResource(this.v, R.drawable.bar_select_bg_shadow_and_radius, i);
-            SkinManager.setViewTextColor(this.w, (int) R.color.CAM_X0105);
-            SelectRuleView selectRuleView = this.x;
-            if (selectRuleView != null) {
-                selectRuleView.d(i);
-            }
-            SkinManager.setViewTextColor(this.B, R.color.CAM_X0109, 1, i);
-            this.A.d(i);
-            PbListView pbListView = this.D;
-            if (pbListView != null) {
-                pbListView.F(SkinManager.getColor(i, (int) R.color.CAM_X0107));
-                this.D.d(i);
-            }
-            this.E.d(this.b.getPageContext(), i);
-            VoteAdapter voteAdapter = this.z;
-            if (voteAdapter != null) {
-                voteAdapter.notifyDataSetChanged();
             }
         }
     }
 
-    public void B() {
+    public void e(String str, boolean z) {
+        List<xn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.isOwn = z;
+                        b();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void f(String str, boolean z) {
+        List<xn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.use_status = z ? 1 : 0;
+                    } else {
+                        alaEnterEffectData.use_status = 0;
+                    }
+                    b();
+                }
+            }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.a(this.c);
+        }
+    }
+
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d == n26.c) {
-                this.D.M(xi.g(this.b, R.dimen.tbds152));
+            for (kn knVar : this.c) {
+                knVar.notifyDataSetChanged();
             }
-            this.D.C(this.b);
-            this.s.setNextPage(this.D);
-            if (this.K) {
-                this.D.N();
-                return;
-            }
-            this.D.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a18));
-            this.D.f();
         }
     }
 
-    public void C(e26 e26Var) {
-        d26 a2;
+    public void c(List<xn> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e26Var) != null) || e26Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.K = e26Var.d();
-        if (e26Var.a() != null && (a2 = e26Var.a()) != null) {
-            int h = a2.h();
-            this.d = h;
-            if (h == n26.c) {
-                this.y.setVisibility(8);
-                this.B.setVisibility(8);
-                this.u.setVisibility(8);
-            }
-        }
-        this.t.setData(e26Var);
-        VoteAdapter voteAdapter = this.z;
-        if (voteAdapter != null) {
-            this.h = e26Var;
-            voteAdapter.g(e26Var);
-        }
-        int i = this.d;
-        if (i == n26.c) {
-            this.A.setVisibility(0);
-            this.A.setData(e26Var);
-            this.v.setVisibility(8);
-        } else if (i == n26.b) {
-            this.u.setData(VoteCandidateCard.A, e26Var);
-            this.A.setVisibility(8);
-            this.y.setRank(e26Var.a().c());
-            if (e26Var.e() != null) {
-                ManagerElection e2 = e26Var.e();
-                if (ListUtils.isEmpty(e2.vote_condition_pic) && ListUtils.isEmpty(e2.vote_condition_title) && ListUtils.isEmpty(e2.vote_condition)) {
-                    this.v.setVisibility(8);
-                } else {
-                    this.v.setVisibility(0);
-                    this.x.setData(e2.vote_condition_pic, e2.vote_condition_title, e2.vote_condition);
-                }
-            } else {
-                this.v.setVisibility(8);
-            }
-        } else {
-            this.A.setVisibility(8);
-            this.v.setVisibility(8);
-        }
-        B();
-        A(TbadkCoreApplication.getInst().getSkinType(), true);
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            BdRecyclerView bdRecyclerView = this.s;
-            if (bdRecyclerView != null) {
-                bdRecyclerView.setVisibility(8);
-            }
-            this.b.hideLoadingView(w());
-            if (this.F != null) {
-                x();
-            }
-            if (this.G == null) {
-                this.G = new da5(this.b, this.J);
-            }
-            this.G.k(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-            this.G.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7f));
-            this.G.attachView(this.k, true);
-            this.G.p();
-            this.G.onChangeSkinType();
-        }
-    }
-
-    public void F(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            da5 da5Var = this.G;
-            if (da5Var != null) {
-                da5Var.dettachView(this.k);
-                this.G = null;
-            }
-            this.b.hideLoadingView(w());
-            if (this.F == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.b, this.H, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.e.c(str), null);
-                this.F = a2;
-                a2.setOnClickListener(this.I);
-            }
-            this.F.setTextOption(NoDataViewFactory.e.c(str));
-            this.F.f(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.F.setVisibility(0);
-        }
-    }
-
-    public BdRecyclerView u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.s;
-        }
-        return (BdRecyclerView) invokeV.objValue;
-    }
-
-    public PbListView v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.D;
-        }
-        return (PbListView) invokeV.objValue;
-    }
-
-    public View w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void x() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (noDataView = this.F) != null) {
-            noDataView.setVisibility(8);
-        }
-    }
-
-    public void y() {
-        VoteStatusCard voteStatusCard;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (voteStatusCard = this.t) != null) {
-            voteStatusCard.e();
-        }
+        this.b.setData(list);
+        this.f = this.b.getData();
     }
 }

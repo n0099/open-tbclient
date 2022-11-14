@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w41;
-import com.baidu.tieba.y41;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.x41;
 import com.baidu.tieba.z41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdVideoLoadingView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w41 a;
+    public x41 a;
     public a b;
 
     /* loaded from: classes2.dex */
@@ -72,7 +72,7 @@ public class BdVideoLoadingView extends ImageView {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setLoadingRenderer(new z41(context));
+            setLoadingRenderer(new a51(context));
         }
     }
 
@@ -83,12 +83,12 @@ public class BdVideoLoadingView extends ImageView {
         }
     }
 
-    public void setLoadingRenderer(y41 y41Var) {
+    public void setLoadingRenderer(z41 z41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, y41Var) == null) {
-            w41 w41Var = new w41(y41Var);
-            this.a = w41Var;
-            setImageDrawable(w41Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, z41Var) == null) {
+            x41 x41Var = new x41(z41Var);
+            this.a = x41Var;
+            setImageDrawable(x41Var);
         }
     }
 
@@ -102,10 +102,10 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void c() {
-        w41 w41Var;
+        x41 x41Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (w41Var = this.a) != null) {
-            w41Var.start();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (x41Var = this.a) != null) {
+            x41Var.start();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.a();
@@ -114,10 +114,10 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void d() {
-        w41 w41Var;
+        x41 x41Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (w41Var = this.a) != null) {
-            w41Var.stop();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (x41Var = this.a) != null) {
+            x41Var.stop();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.b();

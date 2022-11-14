@@ -54,7 +54,7 @@ public class d extends com.baidu.platform.base.e {
             this.a.a("ie", IMAudioTransRequest.CHARSET);
             this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "6");
-            this.a.a("extinfo", "32");
+            this.a.a("extinfo", PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK);
             this.a.a("mrs", "1");
             this.a.a("rp_format", "json");
             this.a.a("rp_filter", "mobile");

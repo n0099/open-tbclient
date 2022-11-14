@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,24 +25,12 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         }
     }
 
-    @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.core.TbadkCoreApplication
-    public void doAfterSuperOnCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.doAfterSuperOnCreate();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                return;
-            }
-            ue5.b().F(System.currentTimeMillis());
-        }
-    }
-
     @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setPageStayOpen(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
+            bf5.b().F(System.currentTimeMillis());
         }
     }
 
@@ -54,8 +40,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
-            TbadkApplication.sApp = this;
-            ue5.b().t(currentTimeMillis);
+            bf5.b().t(currentTimeMillis);
         }
     }
 }

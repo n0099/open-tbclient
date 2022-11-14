@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq8;
-import com.baidu.tieba.qo6;
-import com.baidu.tieba.z26;
+import com.baidu.tieba.cp6;
+import com.baidu.tieba.l36;
+import com.baidu.tieba.mq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends z26<qo6> {
+public class FrsGameStrategyItemView extends l36<cp6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -33,11 +33,11 @@ public class FrsGameStrategyItemView extends z26<qo6> {
     public TextView n;
     public TextView o;
 
-    @Override // com.baidu.tieba.z26
+    @Override // com.baidu.tieba.l36
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d030e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d030f : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -98,7 +98,7 @@ public class FrsGameStrategyItemView extends z26<qo6> {
         r();
     }
 
-    @Override // com.baidu.tieba.z26
+    @Override // com.baidu.tieba.l36
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -112,26 +112,26 @@ public class FrsGameStrategyItemView extends z26<qo6> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b40);
+            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b41);
             this.k = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08089a);
-            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b53);
-            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b4f);
-            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b4e);
-            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b4d);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08089f);
+            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b54);
+            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b50);
+            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b4f);
+            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b4e);
             m(this.i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z26
+    @Override // com.baidu.tieba.l36
     /* renamed from: s */
-    public void l(qo6 qo6Var) {
+    public void l(cp6 cp6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, qo6Var) == null) && qo6Var != null && qo6Var.getThreadData() != null) {
-            ThreadData threadData = qo6Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, cp6Var) == null) && cp6Var != null && cp6Var.getThreadData() != null) {
+            ThreadData threadData = cp6Var.getThreadData();
             this.m.setText(threadData.getTitle());
-            bq8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            mq8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
             } else {
@@ -140,7 +140,7 @@ public class FrsGameStrategyItemView extends z26<qo6> {
             String numberUniformFormat = StringHelper.numberUniformFormat(threadData.getView_num());
             String formatTimeShort = StringHelper.getFormatTimeShort(threadData.getAuditTime());
             if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-                this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f071f), numberUniformFormat, formatTimeShort));
+                this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0720), numberUniformFormat, formatTimeShort));
             }
             String str = null;
             if (threadData.getThreadType() == 40) {

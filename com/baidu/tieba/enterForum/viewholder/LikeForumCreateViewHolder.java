@@ -39,11 +39,11 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cc9);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cd5);
         this.a = findViewById;
-        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091651);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a68);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a9a);
+        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091658);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a69);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a9b);
     }
 
     public void a() {

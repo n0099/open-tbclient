@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +42,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.mRoundLayoutRadius = g;
         this.mRadius = new float[]{g, g, g, g, g, g, g, g};
         init();
@@ -67,7 +67,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.mRoundLayoutRadius = g;
         this.mRadius = new float[]{g, g, g, g, g, g, g, g};
         init();
@@ -92,7 +92,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.mRoundLayoutRadius = g;
         this.mRadius = new float[]{g, g, g, g, g, g, g, g};
         init();

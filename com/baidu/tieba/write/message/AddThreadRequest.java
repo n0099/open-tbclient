@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.vi5;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class AddThreadRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            vi5.c(builder, true, true, true);
+            cj5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);
@@ -132,7 +132,7 @@ public class AddThreadRequest extends NetMessage {
             builder.is_article = this.requestData.get(WriteActivityConfig.IS_ARTICLE);
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_xiuxiu_thread = Integer.valueOf(wg.e(this.requestData.get("is_xiuxiu_thread"), 0));
+            builder.is_xiuxiu_thread = Integer.valueOf(xg.e(this.requestData.get("is_xiuxiu_thread"), 0));
             if (!TextUtils.isEmpty(this.requestData.get("is_question"))) {
                 try {
                     builder.is_question = Integer.valueOf(Integer.parseInt(this.requestData.get("is_question")));

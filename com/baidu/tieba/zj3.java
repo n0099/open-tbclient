@@ -1,37 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static bk3 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bk3 a;
 
-    @NonNull
-    public static bk3 a() {
-        InterceptResult invokeV;
+    public zj3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new bk3("0");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return (bk3) invokeV.objValue;
+        this.a = new bk3();
     }
 
-    public static void b(@NonNull String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            bk3 bk3Var = a;
-            if (bk3Var == null) {
-                a = new bk3(str);
-            } else {
-                bk3Var.n(str);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
         }
     }
 }

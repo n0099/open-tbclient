@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i35;
+import com.baidu.tieba.bf5;
+import com.baidu.tieba.n35;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.pi5;
-import com.baidu.tieba.r45;
-import com.baidu.tieba.ue5;
+import com.baidu.tieba.u35;
+import com.baidu.tieba.w45;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,8 +57,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            pi5.c();
-            ue5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            wi5.c();
+            bf5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -71,9 +71,9 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            i35.d().p();
-            ue5.b().y(System.currentTimeMillis() - currentTimeMillis);
-            n9.g().r(20);
+            n35.d().p();
+            bf5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            n9.g().s(20);
         }
     }
 
@@ -82,18 +82,18 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
             if (!TextUtils.isEmpty(loadString)) {
-                p35 p35Var = new p35();
-                p35Var.e(loadString);
-                r45 a = r45.a();
+                u35 u35Var = new u35();
+                u35Var.e(loadString);
+                w45 a = w45.a();
                 boolean z = true;
-                if (p35Var.b() != 1) {
+                if (u35Var.b() != 1) {
                     z = false;
                 }
                 a.g(z);
-                a.h(p35Var.c());
-                a.i(p35Var.d() * 1000);
-                if (p35Var.a() != null) {
-                    a.j(p35Var.a());
+                a.h(u35Var.c());
+                a.i(u35Var.d() * 1000);
+                if (u35Var.a() != null) {
+                    a.j(u35Var.a());
                 }
             }
         }

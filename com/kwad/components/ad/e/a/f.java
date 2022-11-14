@@ -237,10 +237,10 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091240);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091090);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091092);
-            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
+            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091245);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091097);
+            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091092);
         }
     }
 

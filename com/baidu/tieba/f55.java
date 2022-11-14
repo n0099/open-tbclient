@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes4.dex */
 public class f55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
     public f55() {
         Interceptable interceptable = $ic;
@@ -38,110 +26,31 @@ public class f55 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static List<f55> i(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("alaTabColor");
-                Iterator<String> keys = jSONObject2.keys();
-                ArrayList arrayList = new ArrayList();
-                while (keys.hasNext()) {
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(keys.next());
-                    f55 f55Var = new f55();
-                    f55Var.h(jSONObject3);
-                    arrayList.add(f55Var);
-                }
-                return arrayList;
-            } catch (JSONException e) {
+                jSONObject.optString("icon_url");
+                jSONObject.optString("icon_link");
+                jSONObject.optString("content");
+                jSONObject.optInt("tail_type");
+            } catch (Exception e) {
                 e.printStackTrace();
-                return null;
             }
         }
-        return (List) invokeL.objValue;
     }
 
-    public final void h(JSONObject jSONObject) {
+    public void b(TailInfo tailInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
+            try {
+                String str = tailInfo.icon_url;
+                String str2 = tailInfo.icon_link;
+                String str3 = tailInfo.content;
+                tailInfo.tail_type.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        jSONObject.optInt("id");
-        this.a = jSONObject.optString("name");
-        this.e = jSONObject.optString("color");
-        this.f = jSONObject.optString("color_night");
-        this.g = jSONObject.optString("color_dark");
-        jSONObject.optLong("start_time");
-        jSONObject.optLong("end_time");
-        this.b = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-        this.c = jSONObject.optString("img_url_night");
-        this.d = jSONObject.optString("img_url_dark");
-        jSONObject.optString(BigdayActivityConfig.JUMP_URL);
     }
 }

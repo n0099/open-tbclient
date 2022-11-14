@@ -1,113 +1,175 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.database.Cursor;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.df;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes3.dex */
 public class ej {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303528, "Lcom/baidu/tieba/ej;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements Comparator<df.b<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448303528, "Lcom/baidu/tieba/ej;");
-                return;
-            }
-        }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            String str = null;
-            if (inputStream == null) {
-                return null;
-            }
-            try {
-                try {
-                    byte[] bArr = new byte[1024];
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str = a(messageDigest.digest());
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return str;
-            } finally {
-                yi.e(inputStream);
             }
         }
-        return (String) invokeL.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(df.b<?> bVar, df.b<?> bVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                long j = bVar.c;
+                long j2 = bVar2.c;
+                if (j == j2) {
+                    return 0;
+                }
+                if (j > j2) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public static String c(String str) {
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    @SuppressLint({"Range"})
+    public static List<df.b<byte[]>> a(df<byte[]> dfVar) {
         InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dfVar)) == null) {
+            LinkedList linkedList = new LinkedList();
             try {
-                return d(str.getBytes("UTF-8"));
-            } catch (Exception unused) {
+                cursor = c(dfVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
                 return null;
             }
+            while (cursor.moveToNext()) {
+                try {
+                    df.b bVar = new df.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        wg.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        wg.a(cursor);
+                    }
+                }
+            }
+            wg.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static String d(byte[] bArr) {
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
+    @SuppressLint({"Range"})
+    public static List<df.b<String>> b(df<String> dfVar) {
         InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dfVar)) == null) {
+            LinkedList linkedList = new LinkedList();
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e);
+                cursor = c(dfVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
                 return null;
             }
+            while (cursor.moveToNext()) {
+                try {
+                    df.b bVar = new df.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        wg.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        wg.a(cursor);
+                    }
+                }
+            }
+            wg.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public static Cursor c(df<?> dfVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dfVar)) == null) {
+            if (dfVar == null || !(dfVar instanceof df.c)) {
+                return null;
+            }
+            df.c cVar = (df.c) dfVar;
+            if (!(cVar.c() instanceof bf)) {
+                return null;
+            }
+            ue n = ((bf) cVar.c()).n();
+            return n.q(n.h().f(), cVar.j());
+        }
+        return (Cursor) invokeL.objValue;
     }
 }

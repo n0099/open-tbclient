@@ -1,47 +1,59 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class k97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<kn> a;
 
-    public static nf5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
+    public k97(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        gj6 gj6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                nf5 nf5Var = new nf5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(nf5Var);
-                return nf5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (nf5) invokeIL.objValue;
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, gj6.class, tbPageContext);
+        if (runTask != null && (gj6Var = (gj6) runTask.getData()) != null) {
+            this.a.add(gj6Var);
+        }
+        this.a.add(new l97(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new j97(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.a(this.a);
     }
 
-    public static of5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            of5 of5Var = new of5(i);
-            of5Var.setResponsedClass(cls);
-            of5Var.h(z);
-            of5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(of5Var);
-            return of5Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
+            return;
         }
-        return (of5) invokeCommon.objValue;
+        for (kn knVar : this.a) {
+            if (knVar instanceof gj6) {
+                ((gj6) knVar).C(tbPageTag);
+            }
+        }
     }
 }

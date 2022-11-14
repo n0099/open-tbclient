@@ -3,18 +3,15 @@ package com.baidu.tieba;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,27 +20,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class l85 extends g65 {
+public class l85 extends o85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public boolean c;
 
     /* loaded from: classes4.dex */
-    public class a implements f65 {
+    public class a implements l65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k85 a;
+        public final /* synthetic */ m85 a;
         public final /* synthetic */ EditorTools b;
         public final /* synthetic */ l85 c;
 
-        public a(l85 l85Var, k85 k85Var, EditorTools editorTools) {
+        public a(l85 l85Var, m85 m85Var, EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l85Var, k85Var, editorTools};
+                Object[] objArr = {l85Var, m85Var, editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,198 +48,87 @@ public class l85 extends g65 {
                 }
             }
             this.c = l85Var;
-            this.a = k85Var;
+            this.a = m85Var;
             this.b = editorTools;
         }
 
-        @Override // com.baidu.tieba.f65
-        public void B(e65 e65Var) {
-            p65 n;
-            q65 q65Var;
+        @Override // com.baidu.tieba.l65
+        public void B(k65 k65Var) {
+            m85 m85Var;
+            int size;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, e65Var) != null) || e65Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, k65Var) != null) || (m85Var = this.a) == null || m85Var.b() == null || k65Var == null) {
                 return;
             }
-            int i = e65Var.a;
+            int i = k65Var.a;
             if (i != 4) {
-                if (i != 16) {
+                if (i != 5) {
                     if (i != 7) {
                         if (i != 8) {
-                            if (i != 10) {
-                                if (i == 11) {
-                                    this.a.e0(null);
-                                    EditorTools editorTools = this.b;
-                                    if (editorTools != null && (n = editorTools.n(6)) != null && (q65Var = n.m) != null) {
-                                        q65Var.B(new e65(52, 0, null));
+                            if (i != 14) {
+                                if (i == 15) {
+                                    int intValue = ((Integer) k65Var.c).intValue();
+                                    if (this.a.v() != null && this.a.v().getChosedFiles() != null && (size = this.a.v().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.v(), intValue)));
                                         return;
                                     }
                                     return;
                                 }
                                 return;
                             }
-                            Object obj = e65Var.c;
-                            if (obj instanceof VoiceData.VoiceModel) {
-                                this.a.e0((VoiceData.VoiceModel) obj);
-                                this.a.w(null);
-                                return;
+                            if (this.a.v() != null) {
+                                this.a.v().setMaxImagesAllowed(1);
                             }
+                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getContext().getPageActivity(), this.a.v().toJsonString(), true, true);
+                            if (!StringUtils.isNull(this.c.m(), true)) {
+                                albumActivityConfig.getIntent().putExtra("from", this.c.m());
+                            }
+                            if (this.c.l() != null && !StringUtils.isNull(this.c.l().getId(), true)) {
+                                albumActivityConfig.getIntent().putExtra("forum_id", this.c.l().getId());
+                            }
+                            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                            yi.z(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                             return;
-                        } else if (!this.c.h(this.a.getContext(), 11001)) {
+                        } else if (!this.c.k(this.a.getContext(), 11001)) {
                             return;
                         } else {
-                            this.a.G();
-                            TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
+                            this.a.G(null, null);
                             return;
                         }
                     }
-                    this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d5f);
-                    this.c.a = true;
+                    this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d61);
+                    return;
+                } else if (!this.b.u()) {
+                    TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    return;
+                } else {
                     return;
                 }
-                if (this.c.a) {
-                    this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d5f);
-                }
-                if (!this.c.h(this.a.getContext(), 11025)) {
-                    return;
-                }
-                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12005, true);
-                if (this.a.v() != null) {
-                    atListActivityConfig.setSelectedAtList(this.a.v().u());
-                }
-                EditorTools editorTools2 = this.b;
-                if (editorTools2 != null) {
-                    atListActivityConfig.setFromTid(editorTools2.getTid());
-                    atListActivityConfig.setFromFid(String.valueOf(this.b.getFid()));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                EditorTools editorTools3 = this.b;
-                if (editorTools3 != null) {
-                    statisticItem.addParam("tid", editorTools3.getTid());
-                    statisticItem.addParam("fid", this.b.getFid());
-                }
-                TiebaStatic.log(statisticItem);
-                return;
             }
-            Object obj2 = e65Var.c;
-            if (obj2 instanceof m85) {
-                this.a.a0((m85) obj2);
-                this.a.Z(((m85) e65Var.c).c);
-            } else if (obj2 instanceof String) {
-                this.a.T((String) obj2);
-            } else if (obj2 instanceof SpanGroupManager) {
-                this.a.T(obj2.toString());
-                this.a.Z((SpanGroupManager) e65Var.c);
-            }
-            this.c.a = false;
+            this.a.e0(k65Var.c.toString());
         }
     }
 
-    public l85(boolean z) {
+    public l85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = false;
-        this.c = false;
-        this.c = z;
-    }
-
-    @Override // com.baidu.tieba.g65
-    public i65 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            int i = 5;
-            editorTools.setBarMaxLauCount(5);
-            editorTools.setBackgroundColorId(0);
-            if (!this.c) {
-                i = 2;
-            }
-            editorTools.setBarLauncherType(i);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.D(false);
-            k85 k85Var = new k85(editorTools);
-            k85Var.s = this.c;
-            return k85Var;
-        }
-        return (i65) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g65
-    public void c(i65 i65Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i65Var) != null) || i65Var == null) {
-            return;
-        }
-        EditorTools b = i65Var.b();
-        a aVar = new a(this, (k85) i65Var, b);
-        b.setActionListener(4, aVar);
-        b.setActionListener(7, aVar);
-        b.setActionListener(16, aVar);
-        b.setActionListener(8, aVar);
-        b.setActionListener(10, aVar);
-        b.setActionListener(11, aVar);
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
         }
     }
 
-    @Override // com.baidu.tieba.g65
-    public void d(i65 i65Var) {
-        CustomResponsedMessage runTask;
-        p65 p65Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i65Var) == null) {
-            EditorTools b = i65Var.b();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            b.h(arrayList);
-            p65 n = b.n(5);
-            if (n != null) {
-                n.e(false);
-                n.f(false);
-                n.l = 1;
-            }
-            if (!this.c) {
-                if (tq8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), p65.class)) != null && (p65Var = (p65) runTask.getData()) != null) {
-                    p65Var.l = 2;
-                    b.d(p65Var);
-                }
-                b.d(new r65(b.getContext(), 4));
-            }
-            h85 h85Var = new h85(b.getContext(), this.c, false, 12005);
-            if (!wi.isEmpty(this.b)) {
-                h85Var.m(this.b);
-            }
-            b.d(h85Var);
-            b.f();
-            b.A(new e65(35, 5, Boolean.FALSE));
-            b.q();
-        }
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean k(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, tbPageContext, i)) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
                 return true;
@@ -254,5 +137,64 @@ public class l85 extends g65 {
             return false;
         }
         return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o85, com.baidu.tieba.m65
+    public o65 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(true);
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBarLauncherType(5);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0201);
+            editorTools.D(false);
+            editorTools.setMoreButtonAtEnd(true);
+            m85 m85Var = new m85(editorTools);
+            m85Var.b0(n());
+            m85Var.t = true;
+            return m85Var;
+        }
+        return (o65) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.o85, com.baidu.tieba.m65
+    public void c(o65 o65Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o65Var) != null) || !(o65Var instanceof m85)) {
+            return;
+        }
+        EditorTools b = o65Var.b();
+        a aVar = new a(this, (m85) o65Var, b);
+        b.setActionListener(5, aVar);
+        b.setActionListener(4, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(14, aVar);
+        b.setActionListener(15, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(32, aVar);
+        b.setActionListener(45, aVar);
+    }
+
+    @Override // com.baidu.tieba.o85, com.baidu.tieba.m65
+    public void d(o65 o65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o65Var) == null) {
+            EditorTools b = o65Var.b();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.d(new g75(b.getContext(), 1));
+            b.d(new n85(b.getContext(), true, false, 12004));
+            b.h(arrayList);
+            v65 n = b.n(5);
+            if (n != null) {
+                n.l = 2;
+                n.e(false);
+            }
+            b.f();
+            b.A(new k65(35, 5, Boolean.FALSE));
+        }
     }
 }

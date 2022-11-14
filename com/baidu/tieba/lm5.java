@@ -1,148 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lm5 extends BitmapDrawable {
+public class lm5 extends km5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Context b;
-    public Rect c;
-    public String d;
-    public Matrix e;
-    public int f;
-    public int g;
-    public float h;
-    public float i;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    public lm5(Context context, int i) {
+    public lm5(TbPageContext tbPageContext, ViewGroup viewGroup, am5 am5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, viewGroup, am5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
+        this.d = viewGroup;
+        im5 im5Var = new im5(tbPageContext, new bm5(am5Var));
+        this.b = im5Var;
+        im5Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
+    }
+
+    @Override // com.baidu.tieba.km5
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
+            return;
+        }
+        this.a = false;
+        MultiDelPostMenuView multiDelPostMenuView = this.c;
+        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+            this.d.removeView(this.c);
+        }
+        hm5 hm5Var = this.b;
+        if (hm5Var != null) {
+            hm5Var.dismiss();
+        }
         this.c = null;
         this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0.9f;
-        this.i = 0.75f;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(i);
+        this.b = null;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        hn hnVar;
-        String str;
-        String str2;
+    @Override // com.baidu.tieba.km5
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.a > 0 && this.b != null) {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            e95 k = e95.k();
-            if (k != null && (str2 = this.d) != null) {
-                hnVar = k.m(str2);
-            } else {
-                hnVar = null;
-            }
-            if (hnVar == null) {
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
-                if (resBitmap != null) {
-                    hnVar = new hn(resBitmap, false, (String) null);
-                }
-                if (k != null && hnVar != null && (str = this.d) != null) {
-                    k.d(str, hnVar);
-                }
-            }
-            if (hnVar != null) {
-                int r = hnVar.r();
-                int m = hnVar.m();
-                if (r > 0 && m > 0 && this.c != null) {
-                    canvas.save();
-                    canvas.clipRect(super.getBounds());
-                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
-                        hnVar.e(canvas, 0.0f, 0.0f, null);
-                    } else {
-                        if (this.e == null) {
-                            Matrix matrix = new Matrix();
-                            this.e = matrix;
-                            matrix.postTranslate(this.f, this.g);
-                            Rect rect = this.c;
-                            float f = (rect.right - rect.left) / r;
-                            float f2 = (rect.bottom - rect.top) / m;
-                            if (f >= f2) {
-                                f = f2;
-                            }
-                            if (f < 1.0f) {
-                                this.e.postScale(f, f);
-                            }
-                        }
-                        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                            float f3 = this.i;
-                            colorMatrix.setScale(f3, f3, f3, 1.0f);
-                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                            hnVar.f(canvas, this.e, paint);
-                        } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                            float f4 = this.h;
-                            colorMatrix.setScale(f4, f4, f4, 1.0f);
-                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                            hnVar.f(canvas, this.e, paint);
-                        } else {
-                            hnVar.f(canvas, this.e, null);
-                        }
-                    }
-                    canvas.restore();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
+            multiDelPostMenuView.setDelCount(i);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
+    @Override // com.baidu.tieba.km5
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.c = new Rect(i, i2, i3, i4);
-            this.e = null;
-            super.setBounds(i, i2, i3, i4);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
+            return;
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.c = new Rect(rect);
-            this.e = null;
-            super.setBounds(rect);
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

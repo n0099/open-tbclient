@@ -217,10 +217,10 @@ public class OneKeyLoginView extends LinearLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e5, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e6, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091de3);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091de2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091def);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dee);
             this.c = textView;
             textView.setOnClickListener(new a(this));
         }

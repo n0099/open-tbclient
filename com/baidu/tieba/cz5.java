@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class cz5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadData a;
-    public ThreadData b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,6 +31,7 @@ public class cz5 extends BaseCardInfo {
                 return;
             }
         }
+        b = BdUniqueId.gen();
         c = BdUniqueId.gen();
     }
 
@@ -48,12 +49,16 @@ public class cz5 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadAlaInfo() != null && this.a.getThreadAlaInfo().live_type == 1) {
+                return c;
+            }
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }

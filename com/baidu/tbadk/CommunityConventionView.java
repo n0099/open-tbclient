@@ -50,8 +50,8 @@ public class CommunityConventionView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mContext = context;
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ed, this);
-            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f092691);
-            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f090715);
+            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0926a0);
+            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f090716);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -125,7 +125,7 @@ public class CommunityConventionView extends LinearLayout {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a68, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a6d, R.color.CAM_X0107, null);
             SkinManager.setViewTextColor(this.mConventionTitle, (int) R.color.CAM_X0107);
         }
     }

@@ -1,201 +1,122 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
-public class at6 extends xs6 {
+public class at6 extends kn<zn8, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TBSpecificationBtn d;
-    public TBSpecificationBtn e;
-    public ImageView f;
+    public ThemeColorInfo a;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn8 a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ at6 d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-936445655, "Lcom/baidu/tieba/at6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-936445655, "Lcom/baidu/tieba/at6$a;");
+        public a(at6 at6Var, zn8 zn8Var, ViewGroup viewGroup, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at6Var, zn8Var, viewGroup, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.SIGN_BTN.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[LogicField.SPEED_ICON.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[LogicField.SERVICE_AREA.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[LogicField.TOP_AREA.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
+            this.d = at6Var;
+            this.a = zn8Var;
+            this.b = viewGroup;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
+                this.d.getOnAdapterItemClickListener().b(view2, this.a, zn8.e, this.b, this.c, view2.getId());
             }
         }
     }
 
-    public at6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at6(@NonNull Context context) {
+        super(context, zn8.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-            o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f78);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.findViewById(R.id.obfuscated_res_0x7f090b77).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f0926be).setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6, com.baidu.tieba.zs6
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return (T) super.a(logicField);
-                    }
-                    return (T) this.f;
-                }
-                return (T) Collections.singletonList(this.e);
-            }
-            return (T) Collections.singletonList(this.d);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xs6, com.baidu.tieba.zs6
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
-            switch (a.a[logicField.ordinal()]) {
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    return 0;
-                case 8:
-                    return 8;
-                default:
-                    return super.l(logicField);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.ft6
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                this.d.setVisibility(8);
-                this.e.setVisibility(0);
                 return;
             }
-            this.d.setVisibility(0);
-            this.e.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.ft6
-    public void h(View.OnClickListener onClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-            this.e.setOnClickListener(onClickListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0333, viewGroup, false), this.a);
+        }
+        return (FrsLikeRecommendHolder) invokeL.objValue;
+    }
+
+    public void u(ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
+            this.a = themeColorInfo;
         }
     }
 
-    public final void o() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zn8 zn8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        t(i, view2, viewGroup, zn8Var, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, zn8 zn8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092400);
-            this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02b1));
-            this.d.setTextSize(R.dimen.T_X08);
-            jz4 jz4Var = new jz4();
-            jz4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
-            this.d.setConfig(jz4Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092444);
-            this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
-            jz4 jz4Var2 = new jz4();
-            jz4Var2.u(R.color.CAM_X0105);
-            jz4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-            jz4Var2.i(R.drawable.obfuscated_res_0x7f08096f, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.e.setConfig(jz4Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11cf));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zn8Var, frsLikeRecommendHolder})) == null) {
+            if (zn8Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(zn8Var);
+                frsLikeRecommendHolder.c(new a(this, zn8Var, viewGroup, i));
+                frsLikeRecommendHolder.b();
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

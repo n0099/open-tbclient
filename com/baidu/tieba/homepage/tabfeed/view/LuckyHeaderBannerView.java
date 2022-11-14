@@ -21,12 +21,12 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public TbImageView a;
 
     /* loaded from: classes4.dex */
-    public class a implements TbImageView.g {
+    public class a implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LuckyHeaderBannerView a;
 
-        @Override // com.baidu.tbadk.widget.TbImageView.g
+        @Override // com.baidu.tbadk.widget.TbImageView.f
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -51,7 +51,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
             this.a = luckyHeaderBannerView;
         }
 
-        @Override // com.baidu.tbadk.widget.TbImageView.g
+        @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
@@ -86,10 +86,10 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04be, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04bf, this);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             setClipChildren(false);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ef7);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090efa);
             this.a = tbImageView;
             tbImageView.setUseNightOrDarkMask(false);
             this.a.setPlaceHolderAutoChangeSkinType(3);

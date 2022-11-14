@@ -502,7 +502,7 @@ public final class d extends b {
             float a = a(cB, av);
             com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
             this.gh.gj.setRatio(a);
-            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f091108);
+            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f09110d);
             viewGroup.setVisibility(0);
             viewGroup.post(new Runnable(this, cB, av, viewGroup) { // from class: com.kwad.components.ad.interstitial.b.d.22
                 public static /* synthetic */ Interceptable $ic;
@@ -1690,15 +1690,15 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09126c);
+            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091271);
             this.gT = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.gT.setVisibility(4);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0910b6);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091243);
-            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091253);
-            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091110);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0910bb);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091248);
+            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091258);
+            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091115);
             Context context = getContext();
             this.mContext = context;
             if (context != null) {

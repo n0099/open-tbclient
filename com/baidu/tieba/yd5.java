@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class yd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static yd5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<String> a;
     public List<String> b;
-    public String c;
-    public long d;
-    public long e;
-    public String f;
-    public long g;
-    public long h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public int u;
-    public int v;
-    public pd5 w;
 
     public yd5() {
         Interceptable interceptable = $ic;
@@ -50,259 +36,163 @@ public class yd5 {
                 return;
             }
         }
-        this.a = false;
-        this.u = 0;
+        this.a = i(py4.k().q("key_need_add_source_stat_list", ""));
+        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(Context context, StatisticItem statisticItem, fe5 fe5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.q;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, fe5Var) == null) && fe5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            wd5 k = fe5Var.k();
+            if (k == null || k.f()) {
+                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            }
+            if (k != null && !k.f()) {
+                c(statisticItem, k);
+            }
+            TbPageExtraHelper.printLog(statisticItem.toString());
         }
-        return (String) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void c(StatisticItem statisticItem, wd5 wd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.u;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, wd5Var) == null) && statisticItem != null && wd5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            String a = wd5Var.a();
+            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+                statisticItem.param("page_key", a);
+            }
+            String a2 = xd5.a(wd5Var.d(), a, 6);
+            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+                statisticItem.param("page_source", a2);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public String c() {
+    public static yd5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (yd5.class) {
+                    if (c == null) {
+                        c = new yd5();
+                    }
+                }
+            }
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (yd5) invokeV.objValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        wd5 currentVisiblePageExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
+            return;
         }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
+        String a = currentVisiblePageExtra.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.n;
+        String b = currentVisiblePageExtra.b();
+        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
+        ArrayList<String> d = currentVisiblePageExtra.d();
+        String a2 = xd5.a(d, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof ce5)) {
+            List<String> currentPageSourceKeyList = ((ce5) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = xd5.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
+            }
         }
-        return invokeV.longValue;
-    }
-
-    public List<String> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
         }
-        return (List) invokeV.objValue;
+        TbPageExtraHelper.printLog(statisticItem.toString());
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    public final <T> List<T> d(T[] tArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
+                ArrayList arrayList = new ArrayList(tArr.length);
+                for (T t : tArr) {
+                    if (t != null && !TextUtils.isEmpty(t.toString())) {
+                        arrayList.add(t);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
-        return invokeV.longValue;
+        return (List) invokeL.objValue;
     }
 
-    public String j() {
-        InterceptResult invokeV;
+    public boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pd5 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.w;
-        }
-        return (pd5) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.v;
-        }
-        return invokeV.intValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.p;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !xi.isEmpty(str)) {
+                for (String str2 : this.b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void A(pd5 pd5Var) {
+    public boolean h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pd5Var) == null) {
-            this.w = pd5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !xi.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
+            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+                a(statisticItem);
+            }
         }
     }
 
-    public void B(int i) {
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.v = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (xi.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
         }
+        return (List) invokeL.objValue;
     }
 
-    public void C(long j) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.q = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.u = i;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void w(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            this.g = j;
-        }
-    }
-
-    public void x(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    public void y(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            this.h = j;
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.m = str;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            py4.k().y("key_need_add_source_stat_list", str);
         }
     }
 }

@@ -1,63 +1,207 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.GuardedBy;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CacheStatistic;
-import com.fun.ad.sdk.FunAdFactory;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdLoadListener;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.http.PostRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.IOException;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ss9 implements FunAdFactory {
+public class ss9 implements Reporter {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, LinkedHashMap<in9, FunAdLoader>> a;
-    public final Object b;
-    @GuardedBy("mInitializeLock")
-    public final LinkedList<a> c;
-    @GuardedBy("mInitializeLock")
-    public int d;
-    @GuardedBy("mInitializeLock")
-    public tm9 e;
+    public final Handler a;
+    public final String b;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public interface c {
+        boolean a();
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public final FunAdSlot b;
-        public final FunAdLoadListener c;
+        public final int f;
+        public final int g;
+        public final int h;
 
-        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(ss9 ss9Var, String str, JSONObject jSONObject, int i, int i2, int i3) {
+            super(ss9Var, str, jSONObject);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, funAdSlot, funAdLoadListener};
+                Object[] objArr = {ss9Var, str, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ss9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = i;
+            this.g = i2;
+            this.h = i3;
+        }
+
+        @Override // com.baidu.tieba.ss9.b
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xn9.e(this.f, this.g, this.h);
+            }
+        }
+    }
+
+    public ss9(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        HandlerThread handlerThread = new HandlerThread("rep");
+        handlerThread.start();
+        f fVar = new f(handlerThread.getLooper());
+        this.a = fVar;
+        this.b = str;
+        fVar.obtainMessage(101, xn9.j(), 0).sendToTarget();
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(str2, obj);
+            } catch (JSONException unused) {
+            }
+            logEvent(str, jSONObject);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
+            logEvent(str, new JSONObject(map));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss9 h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ss9 ss9Var, String str, JSONObject jSONObject) {
+            super(ss9Var, str, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss9Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ss9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = ss9Var;
+            xn9.n();
+        }
+
+        @Override // com.baidu.tieba.ss9.b
+        public void c() {
+            d dVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xn9.f("key_rpt_suc_c", xn9.k() + 1);
+                ss9 ss9Var = this.h;
+                ss9Var.getClass();
+                int g = xn9.g();
+                int i = xn9.i();
+                if (g <= 0 && i <= 0) {
+                    dVar = null;
+                } else {
+                    int k = xn9.k();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("fai", g);
+                        jSONObject.put("suc", k);
+                        jSONObject.put("mis", i);
+                    } catch (JSONException unused) {
+                    }
+                    dVar = new d(ss9Var, "k_rpt", jSONObject, g, k, i);
+                }
+                if (dVar != null) {
+                    dVar.d();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ss9.e
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                xn9.f("key_rpt_fai_c", xn9.g() + 1);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final JSONObject b;
+        public final long c;
+        public JSONObject d;
+        public final /* synthetic */ ss9 e;
+
+        public b(ss9 ss9Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss9Var, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,245 +211,207 @@ public final class ss9 implements FunAdFactory {
                     return;
                 }
             }
-            this.a = context;
-            this.b = funAdSlot;
-            this.c = funAdLoadListener;
+            this.e = ss9Var;
+            this.a = str;
+            this.b = jSONObject;
+            this.c = System.currentTimeMillis();
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
+            }
+        }
+
+        @Override // com.baidu.tieba.ss9.c
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "Event{key=" + this.a + ", content=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x003b  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean d() {
+            boolean z;
+            Response perform;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+                    }
+                    perform = new PostRequest(this.e.b, new RequestParams(this.d)).perform();
+                } catch (IOException e) {
+                    LogPrinter.e(e);
+                }
+                if (perform != null) {
+                    if (perform.getResponseCode() == 200) {
+                        z = true;
+                        if (!z) {
+                            c();
+                        } else {
+                            b();
+                        }
+                        return z;
+                    }
+                }
+                z = false;
+                if (!z) {
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162128, "Lcom/baidu/tieba/ss9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class e extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int f;
+        public final /* synthetic */ ss9 g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(ss9 ss9Var, String str, JSONObject jSONObject) {
+            super(ss9Var, str, jSONObject);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948162128, "Lcom/baidu/tieba/ss9;");
-                return;
-            }
-        }
-        f = !ss9.class.desiredAssertionStatus();
-    }
-
-    public ss9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        this.b = new Object();
-        this.c = new LinkedList<>();
-        this.d = 0;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void destroyAd(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this.b) {
-                this.c.clear();
-            }
-            synchronized (this.a) {
-                in9 b = zm9.b(str);
-                if (b == null) {
-                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss9Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ss9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                LinkedHashMap<in9, FunAdLoader> linkedHashMap = this.a.get(str);
-                if (linkedHashMap == null) {
-                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+            }
+            this.g = ss9Var;
+            this.f = 0;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ss9.b
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.f;
+                this.f = i + 1;
+                if (i >= 3) {
+                    LogPrinter.e("Give up report event:" + this, new Object[0]);
+                    e();
                     return;
                 }
-                HashSet hashSet = new HashSet();
-                for (Map.Entry<in9, FunAdLoader> entry : linkedHashMap.entrySet()) {
-                    in9 key = entry.getKey();
-                    entry.getValue().destroy();
-                    if (!b.equals(key)) {
-                        LogPrinter.d("Remove redundant loader for sid:%s", str);
-                        hashSet.add(key);
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
                     }
+                    this.d.put(HostAppInfo.RETRY_I, this.f);
+                } catch (JSONException unused) {
                 }
-                Iterator it = hashSet.iterator();
-                while (it.hasNext()) {
-                    linkedHashMap.remove((in9) it.next());
-                }
+                ss9 ss9Var = this.g;
+                ss9Var.a.sendMessageDelayed(ss9Var.a.obtainMessage(102, this), 2000L);
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public List<CacheStatistic> getCacheStatistics(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 != null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                for (FunAdLoader funAdLoader : a2) {
-                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
-                    if (!cacheStatistics.isEmpty()) {
-                        return cacheStatistics;
+    /* loaded from: classes5.dex */
+    public static class f extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(@NonNull Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 101) {
+                    if (i == 102) {
+                        ((c) message.obj).a();
+                        return;
                     }
+                    return;
+                }
+                int i2 = message.arg1;
+                int k = xn9.k();
+                int g = xn9.g();
+                int i3 = (i2 - k) - g;
+                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(k), Integer.valueOf(g), Integer.valueOf(i3));
+                if (i3 > 0) {
+                    xn9.f("key_rpt_mis_c", i3);
                 }
             }
-            return new ArrayList();
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public FunNativeAd2 getNativeAd2(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, JSONObject jSONObject) {
+        Object eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
+            if (gn9.g(str, jSONObject)) {
+                LogPrinter.d("filter key:%s content:%s", str, jSONObject);
+                return;
             }
-            for (FunAdLoader funAdLoader : a2) {
-                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
-                if (nativeAd2 != null) {
-                    return nativeAd2;
-                }
-            }
-            return null;
-        }
-        return (FunNativeAd2) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public boolean isAdReady(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                return false;
-            }
-            for (FunAdLoader funAdLoader : a2) {
-                if (funAdLoader.isReady()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.b) {
-                i = this.d;
-            }
-            if (i == -1) {
-                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
-                funAdLoadListener.onError(funAdSlot.getSid());
-            } else if (i == 0) {
-                synchronized (this.b) {
-                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
-                }
-            } else if (i != 1) {
-                throw new RuntimeException("Unknown st:" + i);
+            if ("ad".equals(str)) {
+                eVar = new a(this, str, jSONObject);
             } else {
-                List<FunAdLoader> a2 = a(funAdSlot.getSid());
-                if (a2 == null) {
-                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
-                    funAdLoadListener.onError(funAdSlot.getSid());
-                    return;
-                }
-                Iterator<FunAdLoader> it = a2.iterator();
-                FunAdLoader next = it.next();
-                while (it.hasNext()) {
-                    it.next().recycleListener();
-                }
-                next.load(context, funAdSlot, funAdLoadListener);
+                eVar = new e(this, str, jSONObject);
             }
+            this.a.sendMessageDelayed(this.a.obtainMessage(102, eVar), 0L);
         }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, funAdInteractionListener) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                funAdInteractionListener.onAdError(str);
-                return;
-            }
-            Iterator<FunAdLoader> it = a2.iterator();
-            while (it.hasNext()) {
-                FunAdLoader next = it.next();
-                if (!it.hasNext()) {
-                    next.show(activity, viewGroup, str, funAdInteractionListener);
-                    return;
-                } else if (next.isReady()) {
-                    next.show(activity, viewGroup, str, funAdInteractionListener);
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                funAdInteractionListener.onAdError(str);
-                return null;
-            }
-            for (FunAdLoader funAdLoader : a2) {
-                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
-                if (showSplash != null) {
-                    return showSplash;
-                }
-            }
-            return null;
-        }
-        return (FunSplashAd) invokeLLLL.objValue;
-    }
-
-    public final List<FunAdLoader> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                in9 b = zm9.b(str);
-                if (b == null) {
-                    return null;
-                }
-                LinkedHashMap<in9, FunAdLoader> linkedHashMap = this.a.get(str);
-                if (linkedHashMap == null) {
-                    linkedHashMap = new LinkedHashMap<>();
-                    this.a.put(str, linkedHashMap);
-                }
-                if (linkedHashMap.get(b) == null) {
-                    linkedHashMap.put(b, b.a.a(this.e));
-                }
-                ArrayList arrayList = new ArrayList(linkedHashMap.values());
-                Collections.reverse(arrayList);
-                return arrayList;
-            }
-        }
-        return (List) invokeL.objValue;
     }
 }

@@ -1,59 +1,138 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xv7 extends WebChromeClient {
+public class xv7 extends uv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public op8 b;
+    public ViewStub o;
+    public ViewStub p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public TextView v;
+    public TextView w;
 
-    public xv7(PayVcodeActivity payVcodeActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xv7(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = payVcodeActivity;
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092633);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = ((yi.j(tbPageContext.getPageActivity()) / 2) + yi.g(tbPageContext.getPageActivity(), R.dimen.tbds239)) - yi.g(tbPageContext.getPageActivity(), R.dimen.tbds140);
+        this.o.setLayoutParams(layoutParams);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09250c);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092630);
+        this.p = viewStub2;
+        viewStub2.inflate();
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223e);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091781);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223f);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090172);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092240);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad0);
     }
 
-    public void a(op8 op8Var) {
+    @Override // com.baidu.tieba.uv7
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, op8Var) == null) {
-            this.b = op8Var;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            pw4 d = pw4.d(this.q);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X03);
+            d.A(R.string.F_X02);
+            pw4 d2 = pw4.d(this.r);
+            d2.v(R.color.CAM_X0108);
+            d2.z(R.dimen.tbds29);
+            d2.A(R.string.F_X01);
+            pw4 d3 = pw4.d(this.t);
+            d3.v(R.color.CAM_X0108);
+            d3.z(R.dimen.tbds29);
+            d3.A(R.string.F_X01);
+            pw4 d4 = pw4.d(this.v);
+            d4.v(R.color.CAM_X0108);
+            d4.z(R.dimen.tbds29);
+            d4.A(R.string.F_X01);
+            pw4 d5 = pw4.d(this.s);
+            d5.v(R.color.CAM_X0302);
+            d5.z(R.dimen.tbds29);
+            d5.A(R.string.F_X01);
+            pw4 d6 = pw4.d(this.u);
+            d6.v(R.color.CAM_X0302);
+            d6.z(R.dimen.tbds29);
+            d6.A(R.string.F_X01);
+            pw4 d7 = pw4.d(this.w);
+            d7.v(R.color.CAM_X0302);
+            d7.z(R.dimen.tbds29);
+            d7.A(R.string.F_X01);
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        PayVcodeActivity payVcodeActivity;
+    @Override // com.baidu.tieba.uv7
+    public void c(vv7 vv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            op8 op8Var = this.b;
-            if ((op8Var != null && op8Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !bh.f(payVcodeActivity.getPageContext())) {
-                return true;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv7Var) != null) || vv7Var == null) {
+            return;
+        }
+        this.q.setText(vv7Var.a);
+        f(vv7Var.a());
+    }
+
+    @Override // com.baidu.tieba.uv7
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            super.d(onClickListener);
+            this.s.setOnClickListener(onClickListener);
+            this.u.setOnClickListener(onClickListener);
+            this.w.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        this.s.setText(R.string.obfuscated_res_0x7f0f0d2e);
+                        return;
+                    }
+                    return;
+                }
+                this.s.setText(R.string.obfuscated_res_0x7f0f0d2d);
+                return;
             }
-            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            this.s.setText(R.string.obfuscated_res_0x7f0f0d2c);
         }
-        return invokeLLLLL.booleanValue;
     }
 }

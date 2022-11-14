@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import com.baidu.tieba.hp2;
-import com.baidu.tieba.ln2;
+import com.baidu.tieba.ip2;
+import com.baidu.tieba.mn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class QuotaSaver$config$2 extends Lambda implements Function0<hp2.a> {
+public final class QuotaSaver$config$2 extends Lambda implements Function0<ip2.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$config$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,14 +56,14 @@ public final class QuotaSaver$config$2 extends Lambda implements Function0<hp2.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final hp2.a invoke() {
+    public final ip2.a invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hp2.a aVar = new hp2.a();
-            ln2.H0().a(aVar);
-            return new hp2.a(aVar.D());
+            ip2.a aVar = new ip2.a();
+            mn2.H0().a(aVar);
+            return new ip2.a(aVar.D());
         }
-        return (hp2.a) invokeV.objValue;
+        return (ip2.a) invokeV.objValue;
     }
 }

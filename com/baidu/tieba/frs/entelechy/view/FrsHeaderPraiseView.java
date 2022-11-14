@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -132,18 +132,18 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031c, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031d, this);
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = findViewById(R.id.obfuscated_res_0x7f090835);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09081c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bee);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bed);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090beb);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090836);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09081d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bef);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bee);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bec);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -176,7 +176,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.setBorderWidth(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
                     headImageView.K(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
                         layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));

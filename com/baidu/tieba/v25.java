@@ -12,6 +12,8 @@ public class v25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
+    public String c;
 
     public v25() {
         Interceptable interceptable = $ic;
@@ -36,15 +38,37 @@ public class v25 {
         return (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        try {
-            this.a = jSONObject.optString("checkurl", null);
-        } catch (Exception e) {
-            e.printStackTrace();
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static v25 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            v25 v25Var = new v25();
+            if (jSONObject != null) {
+                v25Var.a = jSONObject.optString("scene_name");
+                jSONObject.optString("style");
+                v25Var.b = jSONObject.optString("title");
+                v25Var.c = jSONObject.optString("text");
+            }
+            return v25Var;
+        }
+        return (v25) invokeL.objValue;
     }
 }

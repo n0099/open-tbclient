@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.e8a;
-import com.baidu.tieba.n6a;
-import com.baidu.tieba.o7a;
-import com.baidu.tieba.q6a;
+import com.baidu.tieba.k7a;
+import com.baidu.tieba.m7a;
+import com.baidu.tieba.n7a;
+import com.baidu.tieba.o8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,18 +15,26 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends o7a, e8a {
+public interface IYYPayWayView extends o8a {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(q6a q6aVar, n6a n6aVar, AppCustomExpand appCustomExpand);
+        void a(n7a n7aVar, k7a k7aVar, AppCustomExpand appCustomExpand);
+
+        void b(n7a n7aVar, k7a k7aVar, AppCustomExpand appCustomExpand);
+
+        void c(m7a m7aVar);
 
         void onRefreshViewFail(int i, String str);
 
         void toHelpCenterPage();
     }
+
+    void a();
+
+    boolean d();
 
     void setCallback(a aVar);
 
@@ -104,7 +112,7 @@ public interface IYYPayWayView extends o7a, e8a {
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
         public String b;
-        public n6a c;
+        public k7a c;
         public AppCustomExpand d;
         public Map<String, String> e;
         public boolean f;
@@ -112,6 +120,7 @@ public interface IYYPayWayView extends o7a, e8a {
         public PayFlowType h;
         public WindowParams i;
         public boolean j;
+        public String k;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -134,7 +143,7 @@ public interface IYYPayWayView extends o7a, e8a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.h + ", showFaqPage=" + this.j + ", appCustomExpand=" + this.d + ", closeOnSuccess='" + this.f + "', clientInfoExpand='" + this.e + "', windowParams='" + this.i + "'}";
+                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.h + ", showFaqPage=" + this.j + ", appCustomExpand=" + this.d + ", closeOnSuccess='" + this.f + "', clientInfoExpand='" + this.e + "', windowParams='" + this.i + "', viewEventListener='" + this.g + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.k + "'}";
             }
             return (String) invokeV.objValue;
         }

@@ -53,11 +53,11 @@ public final class i extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b6)).setRatio(0.56f);
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091075);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107b);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091077);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e5);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910bb)).setRatio(0.56f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09107a);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091080);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107c);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ea);
         }
     }
 
@@ -86,7 +86,7 @@ public final class i extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d042f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0430 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

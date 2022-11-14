@@ -1,35 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.searchbox.http.request.PostStringRequest;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+@Autowired
 /* loaded from: classes5.dex */
 public class qb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
-        String remove;
-        int parseInt;
+    @Inject
+    public static qg4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, map) != null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return pn2.a();
         }
-        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
-            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
-            postStringRequestBuilder.readTimeout(parseInt);
-            postStringRequestBuilder.writeTimeout(parseInt);
-            postStringRequestBuilder.connectionTimeout(parseInt);
-        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
-            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
-            postByteRequestBuilder.readTimeout(parseInt);
-            postByteRequestBuilder.writeTimeout(parseInt);
-            postByteRequestBuilder.connectionTimeout(parseInt);
+        return (qg4) invokeV.objValue;
+    }
+
+    @Inject
+    public static ob4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return un2.a();
         }
+        return (ob4) invokeV.objValue;
+    }
+
+    @Inject
+    public static xc4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return wn2.a();
+        }
+        return (xc4) invokeV.objValue;
     }
 }

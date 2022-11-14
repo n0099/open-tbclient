@@ -130,7 +130,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_back);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092693);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0926a2);
             this.b = webView;
             webView.setWebChromeClient(new WebChromeClient());
             this.b.setWebViewClient(new WebViewClient());

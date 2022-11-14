@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.ArrayList;
 import java.util.List;
 @Keep
@@ -24,6 +25,7 @@ public class GetChargeOrderStatusResult {
     public List<GiftBagsInfo> giftbags;
     public int hasGotSalePromotion;
     public String message;
+    public List<SplitRecordItem> splitRecordItemList;
     public int status;
 
     public GetChargeOrderStatusResult() {
@@ -40,6 +42,7 @@ public class GetChargeOrderStatusResult {
             }
         }
         this.giftbags = new ArrayList();
+        this.splitRecordItemList = new ArrayList();
     }
 
     public long getAmount() {
@@ -105,12 +108,12 @@ public class GetChargeOrderStatusResult {
         return invokeV.booleanValue;
     }
 
-    public GetChargeOrderStatusResult(String str, int i, String str2, int i2, int i3, long j, long j2, boolean z, List<GiftBagsInfo> list) {
+    public GetChargeOrderStatusResult(String str, int i, String str2, int i2, int i3, long j, long j2, boolean z, List<GiftBagsInfo> list, List<SplitRecordItem> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), list};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -121,6 +124,7 @@ public class GetChargeOrderStatusResult {
             }
         }
         this.giftbags = new ArrayList();
+        this.splitRecordItemList = new ArrayList();
         this.expand = str;
         this.status = i;
         this.message = str2;
@@ -130,6 +134,7 @@ public class GetChargeOrderStatusResult {
         this.currencyAmount = j2;
         this.finish = z;
         this.giftbags = list;
+        this.splitRecordItemList = list2;
     }
 
     public void setAmount(long j) {
@@ -185,7 +190,7 @@ public class GetChargeOrderStatusResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "GetChargeOrderStatusResult{status=" + this.status + ", hasGotSalePromotion=" + this.hasGotSalePromotion + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", finish=" + this.finish + ", message=" + this.message + ", giftbags=" + this.giftbags + '}';
+            return "GetChargeOrderStatusResult{status=" + this.status + ", hasGotSalePromotion=" + this.hasGotSalePromotion + ", currencyType=" + this.currencyType + ", splitRecordItemList=" + this.splitRecordItemList + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", finish=" + this.finish + ", message=" + this.message + ", giftbags=" + this.giftbags + '}';
         }
         return (String) invokeV.objValue;
     }

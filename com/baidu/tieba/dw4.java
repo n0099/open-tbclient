@@ -1,207 +1,226 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class dw4 {
+public class dw4 extends cw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<DialogStrategiesData> c;
-    public static volatile dw4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Map<String, List<DialogStrategiesData>> a;
-    public final Set<String> b;
+    public final TbPageContext<?> f;
+    public z25 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718952, "Lcom/baidu/tieba/dw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dw4 a;
+
+        public a(dw4 dw4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947718952, "Lcom/baidu/tieba/dw4;");
-                return;
+            this.a = dw4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
             }
         }
-        c = Collections.emptyList();
     }
 
-    public dw4() {
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dw4 a;
+
+        public b(dw4 dw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dw4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dw4 a;
+
+        public c(dw4 dw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dw4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a.f, new String[]{this.a.g.c()});
+                this.a.d.c().dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dw4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new LinkedHashSet();
+        this.f = tbPageContext;
     }
 
-    public static dw4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zv4
+    public void d(zv4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (dw4.class) {
-                    if (d == null) {
-                        d = new dw4();
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (gw4.k() && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            if (LaunchStatsUtils.getLaunchType() == 0) {
+                z25 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
+                this.g = upgradePopWindowConfig;
+                if (upgradePopWindowConfig.i() && this.g.h().contains("app") && UpgradePopWindowHelper.isDue(this.g)) {
+                    py4.k().y(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
+                    if (aVar != null) {
+                        aVar.a(true);
+                        return;
                     }
                 }
             }
-            return d;
-        }
-        return (dw4) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "key_yun_dialog_strategies@" + TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public List<DialogStrategiesData> a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a == null) {
-                this.a = new LinkedHashMap();
-            }
-            List<DialogStrategiesData> list = this.a.get(str);
-            if (list == null && this.a.isEmpty()) {
-                List<DialogStrategiesData> e = e();
-                if (e != null && !ListUtils.isEmpty(e)) {
-                    for (DialogStrategiesData dialogStrategiesData : e) {
-                        List<String> dialogTime = dialogStrategiesData.getDialogTime();
-                        if (!ListUtils.isEmpty(dialogTime)) {
-                            this.b.addAll(dialogTime);
-                        }
-                    }
-                    for (String str2 : this.b) {
-                        d(this.a, e, str2);
-                    }
-                }
-                list = this.a.get(str);
-            }
-            if (list == null || ListUtils.isEmpty(list)) {
-                return c;
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
-            try {
-                List<DialogStrategiesData> entityList = DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class);
-                if (!ListUtils.isEmpty(entityList)) {
-                    if (this.a == null) {
-                        this.a = new LinkedHashMap();
-                    }
-                    this.a.clear();
-                    for (DialogStrategiesData dialogStrategiesData : entityList) {
-                        List<String> dialogTime = dialogStrategiesData.getDialogTime();
-                        if (!ListUtils.isEmpty(dialogTime)) {
-                            this.b.addAll(dialogTime);
-                        }
-                    }
-                    for (String str : this.b) {
-                        d(this.a, entityList, str);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
+            if (aVar != null) {
+                aVar.a(false);
             }
         }
     }
 
-    public final void d(Map<String, List<DialogStrategiesData>> map, List<DialogStrategiesData> list, String str) {
+    @Override // com.baidu.tieba.cw4
+    public void g(TBAlertBuilder tBAlertBuilder) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, map, list, str) != null) || map == null) {
-            return;
-        }
-        for (DialogStrategiesData dialogStrategiesData : list) {
-            if (map.containsKey(str)) {
-                if (dialogStrategiesData.getDialogTime().contains(str)) {
-                    map.get(str).add(dialogStrategiesData);
-                }
-            } else if (dialogStrategiesData.getDialogTime().contains(str)) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(dialogStrategiesData);
-                map.put(str, arrayList);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            if (this.g == null) {
+                this.g = TbSingleton.getInstance().getUpgradePopWindowConfig();
             }
-        }
-    }
-
-    public final List<DialogStrategiesData> e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            cf<String> i = hv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), c());
-            if (i != null) {
-                str = i.get(c());
+            RelativeLayout relativeLayout = new RelativeLayout(this.c);
+            View view2 = new View(this.c);
+            pw4 d = pw4.d(view2);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.c);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080826, null);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            this.d.u(this.g.d());
+            this.d.o(this.g.g());
+            this.d.m(true);
+            this.d.j(relativeLayout);
+            if (TextUtils.isEmpty(this.g.c())) {
+                this.d.r(new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             } else {
-                str = null;
+                this.d.r(new TBAlertConfig.a(this.g.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this)), new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.FORCE, new c(this)));
             }
-            if (StringUtils.isNull(str)) {
-                return c;
-            }
-            try {
-                return DataExt.toEntityList(new JSONArray(str).toString(), DialogStrategiesData.class);
-            } catch (Exception e) {
-                BdLog.e(e);
-                return c;
-            }
+            this.d.c().setCanceledOnTouchOutside(false);
         }
-        return (List) invokeV.objValue;
     }
 
-    public void f(JSONArray jSONArray) {
-        cf<String> i;
+    @Override // com.baidu.tieba.cw4
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONArray) != null) || (i = hv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), c())) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gw4.r("grayUpdate");
         }
-        if (jSONArray != null && jSONArray.length() > 0) {
-            i.a(c(), jSONArray.toString());
-            g(jSONArray);
-            return;
+    }
+
+    @Override // com.baidu.tieba.cw4
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            gw4.m("grayUpdate");
         }
-        i.remove(c());
     }
 }

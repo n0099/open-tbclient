@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface IYYLiveNPSPlugin {
     public static final String YY_ENV_CREATE_LIVE = "create_live";
@@ -52,6 +53,8 @@ public interface IYYLiveNPSPlugin {
     void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
+
+    void reportNotify(@NonNull String str, @NonNull JSONObject jSONObject);
 
     void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2);
 
@@ -181,44 +184,51 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
+        public void reportNotify(String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048590, this, str, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void startYYActivity(@NonNull Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
+            if (interceptable == null || interceptable.invokeL(1048592, this, context) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void startYYCustomerServiceActivity(Context context, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048592, this, context, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void startYYFeedbackActivity(Context context, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void startYYLiveActivity(Context context, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void updateStatInfo(YYStatInfo yYStatInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, yYStatInfo) == null) {
+            if (interceptable == null || interceptable.invokeL(1048596, this, yYStatInfo) == null) {
             }
         }
 

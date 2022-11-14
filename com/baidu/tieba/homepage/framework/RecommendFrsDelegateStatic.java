@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia5;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.la5;
 import com.baidu.tieba.oa5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.qa5;
+import com.baidu.tieba.ra5;
+import com.baidu.tieba.va5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class RecommendFrsDelegateStatic extends ia5 {
+public class RecommendFrsDelegateStatic extends oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class RecommendFrsDelegateStatic extends ia5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ja5 b;
+            pa5 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((ka5) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((ka5) customResponsedMessage.getData()).getContext() == null || (b = recommendFrsDelegateStatic.b()) == null || b.a.isAdded()) {
+            ((qa5) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
+            if (((qa5) customResponsedMessage.getData()).getContext() == null || (b = recommendFrsDelegateStatic.b()) == null || b.a.isAdded()) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -134,7 +134,7 @@ public class RecommendFrsDelegateStatic extends ia5 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements la5.b {
+    public class c implements ra5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -157,7 +157,7 @@ public class RecommendFrsDelegateStatic extends ia5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.la5.b
+        @Override // com.baidu.tieba.ra5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -186,21 +186,21 @@ public class RecommendFrsDelegateStatic extends ia5 {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    @Override // com.baidu.tieba.ia5
-    public ja5 a() {
+    @Override // com.baidu.tieba.oa5
+    public pa5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ja5 ja5Var = new ja5();
-            ja5Var.a = new RecommendFrsControlFragment();
-            ja5Var.e = 2;
-            ja5Var.b = R.string.obfuscated_res_0x7f0f0888;
-            ja5Var.f = R.raw.lottie_tab_home;
-            ja5Var.i = ja5.l;
-            ja5Var.h = oa5.d().c("homePage");
-            return ja5Var;
+            pa5 pa5Var = new pa5();
+            pa5Var.a = new RecommendFrsControlFragment();
+            pa5Var.e = 2;
+            pa5Var.b = R.string.obfuscated_res_0x7f0f0889;
+            pa5Var.f = R.raw.lottie_tab_home;
+            pa5Var.i = pa5.l;
+            pa5Var.h = va5.d().c("homePage");
+            return pa5Var;
         }
-        return (ja5) invokeV.objValue;
+        return (pa5) invokeV.objValue;
     }
 
     public RecommendFrsDelegateStatic() {
@@ -217,7 +217,7 @@ public class RecommendFrsDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -225,7 +225,7 @@ public class RecommendFrsDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -233,16 +233,16 @@ public class RecommendFrsDelegateStatic extends ia5 {
         }
     }
 
-    @Override // com.baidu.tieba.ia5
+    @Override // com.baidu.tieba.oa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) la5.e().d(1001, new c(this, context));
+            this.b = (MaintabBottomIndicator) ra5.e().d(1001, new c(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = xi.d(context, 12.0f);
+            aVar.c = yi.d(context, 12.0f);
             MessageRedDotView messageRedDotView = this.c;
             aVar.a = messageRedDotView;
             messageRedDotView.setVisibility(8);

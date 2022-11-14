@@ -213,12 +213,12 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 com.kwad.sdk.core.e.b.d("LaunchAppTaskPresenter", "initBottomActionBar screen is horizontal");
                 return;
             }
-            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09118d)).inflate();
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091183);
+            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091192)).inflate();
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091188);
             this.tw = viewGroup;
             viewGroup.setClickable(true);
             new com.kwad.sdk.widget.f(this.tw, this);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091184);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091189);
             kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a7));
             kSFrameLayout.post(new Runnable(this, kSFrameLayout, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a2)) { // from class: com.kwad.components.ad.reward.presenter.d.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -255,14 +255,14 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091183);
+            ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091188);
             this.tw = viewGroup2;
             c cVar = new c(viewGroup2);
             this.ty = cVar;
             cVar.a(this.nM.mApkDownloadHelper);
             this.ty.a(this);
             this.ty.c(this.nM.mAdTemplate, false);
-            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091182), this.tw, this.nM.mApkDownloadHelper, this);
+            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091187), this.tw, this.nM.mApkDownloadHelper, this);
             this.tx = eVar;
             eVar.a(new com.kwad.components.ad.reward.k.f(this) { // from class: com.kwad.components.ad.reward.presenter.d.b.2
                 public static /* synthetic */ Interceptable $ic;
@@ -334,8 +334,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 this.mK = iz;
                 this.nM.mK = iz;
                 com.kwad.components.ad.reward.i.a.a.a(iz, getContext(), this.nM.mAdTemplate);
-                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
-                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091073);
+                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091209);
+                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091078);
                 this.f1085tv = viewGroup;
                 if (viewGroup != null) {
                     viewGroup.setVisibility(8);
@@ -344,8 +344,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                     cVar.a(this.nM.mApkDownloadHelper);
                     this.tz.a(this);
                     this.tz.c(this.nM.mAdTemplate, false);
-                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091201)).setWidthBasedRatio(false);
-                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091200), this.f1085tv, this.nM.mApkDownloadHelper, this);
+                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091206)).setWidthBasedRatio(false);
+                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091205), this.f1085tv, this.nM.mApkDownloadHelper, this);
                     this.sV = tVar;
                     tVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
                 }

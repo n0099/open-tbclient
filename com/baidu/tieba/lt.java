@@ -1,33 +1,80 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class lt {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public lt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return b(bArr, 0, bArr.length);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(bArr, i, bArr2, 0, i2);
-                return bArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
             }
-            return new byte[0];
+            return false;
         }
-        return (byte[]) invokeLII.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static Handler a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (lt.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
+            }
+            return a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void d(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (j > 0) {
+                a().postDelayed(runnable, j);
+            } else {
+                c(runnable);
+            }
+        }
     }
 }

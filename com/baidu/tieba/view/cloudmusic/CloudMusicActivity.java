@@ -30,18 +30,18 @@ import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae6;
-import com.baidu.tieba.kf5;
-import com.baidu.tieba.o19;
-import com.baidu.tieba.p19;
-import com.baidu.tieba.q19;
-import com.baidu.tieba.qq4;
-import com.baidu.tieba.r19;
-import com.baidu.tieba.u19;
+import com.baidu.tieba.a29;
+import com.baidu.tieba.b29;
+import com.baidu.tieba.c29;
+import com.baidu.tieba.f29;
+import com.baidu.tieba.me6;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.rq4;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.view.cloudmusic.model.CloudMusicListModel;
 import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,11 +50,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u19 {
+public class CloudMusicActivity extends SuspendedActivity implements rf5, c29, f29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar k;
-    public q19 l;
+    public b29 l;
     public NoDataView m;
     public View n;
     public CommonPagerSlidingTabStrip o;
@@ -66,7 +66,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
     public Intent u;
     public final CustomMessageListener v;
 
-    @Override // com.baidu.tieba.kf5
+    @Override // com.baidu.tieba.rf5
     public boolean G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.kf5
+    @Override // com.baidu.tieba.rf5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -174,7 +174,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
                 if (!ListUtils.isEmpty(this.a.q) && this.a.q.size() > i) {
                     CloudMusicListFragment cloudMusicListFragment = (CloudMusicListFragment) this.a.q.get(i);
-                    new o19(new CloudMusicListModel(this.a.getPageContext()), cloudMusicListFragment);
+                    new z19(new CloudMusicListModel(this.a.getPageContext()), cloudMusicListFragment);
                     return cloudMusicListFragment;
                 }
                 return null;
@@ -228,7 +228,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.kf5
+    @Override // com.baidu.tieba.rf5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
             super.onDestroy();
             this.l.a();
             MusicPlayer.c().f();
-            ae6.h().d();
+            me6.h().d();
         }
     }
 
@@ -263,7 +263,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onRestart();
-            ae6.h().e();
+            me6.h().e();
         }
     }
 
@@ -276,7 +276,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.u19
+    @Override // com.baidu.tieba.f29
     public void X(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
@@ -284,7 +284,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.r19
+    @Override // com.baidu.tieba.c29
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -296,13 +296,13 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.r19
+    @Override // com.baidu.tieba.c29
     public void l0(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z && (view2 = this.n) != null) {
-                showLoadingView(view2, false, xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702bb));
+                showLoadingView(view2, false, yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702bb));
             } else {
                 hideLoadingView(this.n);
             }
@@ -315,7 +315,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onChangeSkinType(i);
             this.mSkinType = i;
-            qq4 layoutMode = getLayoutMode();
+            rq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -329,15 +329,15 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.r19
-    public void z0(q19 q19Var) {
+    @Override // com.baidu.tieba.c29
+    public void z0(b29 b29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, q19Var) == null) {
-            this.l = q19Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, b29Var) == null) {
+            this.l = b29Var;
         }
     }
 
-    @Override // com.baidu.tieba.r19
+    @Override // com.baidu.tieba.c29
     public void B(CloudMusicData cloudMusicData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cloudMusicData) == null) {
@@ -356,22 +356,22 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public kf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public rf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0031, (ViewGroup) linearLayout, true);
-            new p19(new CloudMusicModel(getPageContext()), this);
-            this.n = findViewById(R.id.obfuscated_res_0x7f09067c);
+            new a29(new CloudMusicModel(getPageContext()), this);
+            this.n = findViewById(R.id.obfuscated_res_0x7f09067d);
             this.k = navigationBar;
-            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0b5d)), (int) R.color.CAM_X0105);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c9b), null);
+            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0b5f)), (int) R.color.CAM_X0105);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c9d), null);
             this.m = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f09067e);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f09067f);
             this.o = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d5), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224), xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f09067f);
+            commonPagerSlidingTabStrip.k(yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d5), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224), yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090680);
             this.p = bdBaseViewPager;
             bdBaseViewPager.setOffscreenPageLimit(2);
             b bVar = new b(this, getSupportFragmentManager());
@@ -379,13 +379,13 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
             this.p.setAdapter(bVar);
             this.o.setViewPager(this.p);
             registerListener(this.v);
-            q19 q19Var = this.l;
-            if (q19Var != null) {
-                q19Var.b();
+            b29 b29Var = this.l;
+            if (b29Var != null) {
+                b29Var.b();
             }
             return this;
         }
-        return (kf5) invokeLL.objValue;
+        return (rf5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -406,7 +406,7 @@ public class CloudMusicActivity extends SuspendedActivity implements kf5, r19, u
         }
     }
 
-    @Override // com.baidu.tieba.kf5
+    @Override // com.baidu.tieba.rf5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

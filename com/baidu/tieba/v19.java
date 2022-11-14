@@ -1,263 +1,454 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.graphics.SurfaceTexture;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ci9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class v19 extends BaseAdapter {
+public class v19 implements ci9.b {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v19 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public List<CloudMusicData.MusicTagList.MusicList> b;
-    public c c;
-    public String d;
+    public TbPageContext a;
+    public ci9.b b;
+    public ci9.b c;
+    public ci9.b d;
+    public boolean e;
+    public ci9.f f;
+    public SurfaceTexture g;
+    public int h;
+    public boolean i;
+    public ci9.a j;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void i1(View view2, String str, int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948188075, "Lcom/baidu/tieba/v19;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948188075, "Lcom/baidu/tieba/v19;");
+        }
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements ci9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ v19 c;
+        public final /* synthetic */ v19 a;
 
-        public a(v19 v19Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+        public a(v19 v19Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v19Var, musicList, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = v19Var;
-            this.a = musicList;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
-                this.c.c.i1(view2, this.a.resource, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public View h;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                Object[] objArr = {v19Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = v19Var;
         }
 
-        public void b(int i) {
+        @Override // com.baidu.tieba.ci9.a
+        public void a(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f0802b5);
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08039a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if (obj instanceof String) {
+                    String str = (String) obj;
+                }
+                this.a.C();
+                this.a.d.k(this.a.g, this.a.f);
+                if (!this.a.i) {
+                    return;
+                }
+                this.a.i = false;
+                this.a.d.n();
             }
         }
     }
 
-    public v19(r9 r9Var) {
+    public v19(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = "";
-        this.a = r9Var;
-        this.b = new ArrayList();
-    }
-
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-            return;
-        }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.b.contains(musicList)) {
-                this.b.add(musicList);
+        this.e = false;
+        this.i = false;
+        this.j = new a(this);
+        if (Build.VERSION.SDK_INT >= 21) {
+            if (System.currentTimeMillis() - t19.b.c() >= t19.a) {
+                t19.b.k(0);
+            }
+            if (1 != t19.b.d().intValue()) {
+                this.c = s19.U(tbPageContext);
             }
         }
-        notifyDataSetChanged();
+        u19 B = u19.B(tbPageContext);
+        this.b = B;
+        this.d = B;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ci9.b
+    public void d(byte[] bArr) {
+        ci9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.b.get(i);
-        }
-        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
+            bVar.d(bArr);
         }
     }
 
-    public void e(c cVar) {
+    @Override // com.baidu.tieba.ci9.b
+    public void h(boolean z) {
+        ci9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.e = z;
+            if (z && (bVar = this.c) != null) {
+                bVar.s(this.j);
+                this.d = this.c;
+                return;
+            }
+            ci9.b bVar2 = this.c;
+            if (bVar2 != null) {
+                bVar2.release();
+            }
+            this.d = this.b;
         }
     }
 
-    public void f(int i, boolean z) {
+    @Override // com.baidu.tieba.ci9.b
+    public void i(boolean z) {
+        ci9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            getItem(i).isLoading = z;
-            notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
+            bVar.i(z);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tieba.ci9.b
+    public void j(boolean z) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
+            bVar.j(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void l(int i) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
+            bVar.l(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void m(boolean z) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
+            bVar.m(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void s(ci9.a aVar) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
+            bVar.s(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.h = i;
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                bVar.u(i);
+            }
+        }
+    }
+
+    public static v19 D(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            if (k == null) {
+                synchronized (v19.class) {
+                    if (k == null) {
+                        k = new v19(tbPageContext);
+                    } else if (tbPageContext != null) {
+                        k.a = tbPageContext;
+                    }
+                }
+            }
+            return k;
+        }
+        return (v19) invokeL.objValue;
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
+            this.b.u(this.h);
+            this.b.i(this.c.o());
+            this.b.m(this.c.a());
+            this.b.j(this.c.p());
+            this.c.q();
+            this.c.release();
+            this.d = this.b;
+            this.e = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.a();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.b();
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    @Override // com.baidu.tieba.ci9.b
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01e1, viewGroup, false);
-                bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915eb);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e8);
-                bVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                bVar.a.setIsRound(true);
-                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080303);
-                bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ec);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e5);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e7);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e6);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091339);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.e();
             }
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
-            if (musicList != null) {
-                bVar.d.setText(musicList.name);
-                bVar.a.K(musicList.image, 10, false);
-                bVar.e.setText(musicList.author);
-                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-                if (musicList.isLoading) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(4);
-                }
-                if (musicList.equals(w19.b().a())) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039c);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(0);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                    bVar.g.setOnClickListener(new a(this, musicList, i));
-                } else if (w19.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039a);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(8);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                } else {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039a);
-                    bVar.a.setDrawBorder(false);
-                    bVar.g.setVisibility(8);
-                }
-            }
-            return view2;
+            return null;
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.i = true;
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                bVar.n();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.o();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.p();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void q() {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
+            bVar.q();
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.r();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            q();
+            this.d = null;
+            ci9.b bVar = this.b;
+            if (bVar != null) {
+                bVar.release();
+            }
+            ci9.b bVar2 = this.c;
+            if (bVar2 != null) {
+                bVar2.release();
+            }
+            k = null;
+            this.f = null;
+            this.g = null;
+            this.j = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            ci9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.v();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void c(int i, int i2, int i3, int i4) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
+            bVar.c(i, i2, i3, i4);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void t(int i, int i2, int i3, int i4) {
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
+            bVar.t(i, i2, i3, i4);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public void g(int i, int i2, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+            this.b.g(i, i2, i3, z);
+            ci9.b bVar = this.c;
+            if (bVar != null) {
+                bVar.g(i, i2, i3, z);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ci9.b
+    public boolean k(SurfaceTexture surfaceTexture, ci9.f fVar) {
+        InterceptResult invokeLL;
+        ci9.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
+            this.g = surfaceTexture;
+            this.f = fVar;
+            if (this.e && (bVar = this.c) != null) {
+                if (bVar.k(surfaceTexture, fVar)) {
+                    return true;
+                }
+                C();
+                ci9.b bVar2 = this.d;
+                if (bVar2 == null) {
+                    return false;
+                }
+                boolean k2 = bVar2.k(surfaceTexture, fVar);
+                if (this.i) {
+                    this.i = false;
+                    this.d.n();
+                }
+                return k2;
+            }
+            ci9.b bVar3 = this.b;
+            this.d = bVar3;
+            if (bVar3 == null) {
+                return false;
+            }
+            return bVar3.k(surfaceTexture, fVar);
+        }
+        return invokeLL.booleanValue;
     }
 }

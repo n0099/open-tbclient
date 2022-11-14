@@ -1,61 +1,52 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class g69 extends h69<g79> {
+public class g69 extends s69<h79> implements u69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout g;
-    public TbImageView h;
-    public View i;
-    public EMTextView j;
-    public ImageView k;
-    public b l;
+    @Nullable
+    public ForumTabSelectedView g;
+    @Nullable
+    public View h;
+    public final ForumTabSelectedView.d i;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onClick();
-    }
-
-    @Override // com.baidu.tieba.m69
+    @Override // com.baidu.tieba.x69
     public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.m69
-    public void c(WriteData writeData) {
+    @Override // com.baidu.tieba.x69
+    public void e(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.m69
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
-
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements ForumTabSelectedView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g69 a;
@@ -78,18 +69,20 @@ public class g69 extends h69<g79> {
             this.a = g69Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
+        public void a(FrsTabItemData frsTabItemData) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l != null) {
-                this.a.l.onClick();
+            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
+                ((h79) this.a.d).b = frsTabItemData;
+                g69 g69Var = this.a;
+                g69Var.y(g69Var.d);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g69(@NonNull TbPageContext<?> tbPageContext) {
-        super(tbPageContext, g79.class);
+    public g69(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, h79.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,82 +99,149 @@ public class g69 extends h69<g79> {
                 return;
             }
         }
+        this.i = new a(this);
     }
 
-    public void A(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.l = bVar;
-        }
-    }
-
-    public void B(int i) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (relativeLayout = this.g) != null) {
-            relativeLayout.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.m69
+    @Override // com.baidu.tieba.x69
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            kw4 d = kw4.d(this.g);
-            d.n(R.string.J_X05);
-            d.l(R.dimen.L_X01);
-            d.k(R.color.CAM_X0112);
-            d.f(R.color.CAM_X0212);
-            kw4.d(this.i).f(R.color.CAM_X0203);
-            kw4 d2 = kw4.d(this.j);
-            d2.v(R.color.CAM_X0107);
-            d2.z(R.dimen.T_X08);
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a19, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setMaskDrawable(this.h, R.drawable.obfuscated_res_0x7f08085e, WebPManager.ResourceStateType.NORMAL);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.o(i);
+            }
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
         }
     }
 
-    @Override // com.baidu.tieba.m69
+    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
+    public void q(@NonNull List<x69<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            super.q(list);
+            for (x69<?> x69Var : list) {
+                if (x69Var instanceof b69) {
+                    w((b69) x69Var);
+                }
+            }
+        }
+    }
+
+    public final boolean C(FrsTabInfoData frsTabInfoData, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsTabInfoData, str)) == null) {
+            if (frsTabInfoData == null || ListUtils.isEmpty(frsTabInfoData.tabList)) {
+                return false;
+            }
+            int i = 0;
+            while (true) {
+                if (i < frsTabInfoData.tabList.size()) {
+                    if (str.equals(frsTabInfoData.tabList.get(i).name)) {
+                        break;
+                    }
+                    i++;
+                } else {
+                    i = -1;
+                    break;
+                }
+            }
+            if (i != -1) {
+                frsTabInfoData.tabList.remove(i);
+            }
+            if (i == -1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void c(WriteData writeData) {
+        ForumTabSelectedView forumTabSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
+            return;
+        }
+        D d = this.d;
+        if (((h79) d).a != null) {
+            writeData.setIsForumBusinessAccount(((h79) d).a.isForumBusinessAccount);
+        }
+        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
+        if (selectedTabItemData == null) {
+            return;
+        }
+        writeData.setTabId(selectedTabItemData.tabId);
+        writeData.setTabName(selectedTabItemData.name);
+        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+    }
+
+    @Override // com.baidu.tieba.u69
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
+            return;
+        }
+        SelectForumData selectForumData = (SelectForumData) obj;
+        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            frsTabInfoData.selectedTabId = -1;
+            List<FrsTabItemData> list = selectForumData.tabInfoList;
+            frsTabInfoData.tabList = list;
+            if (selectForumData.isForumBusinessAccount && list != null) {
+                FrsTabItemData frsTabItemData = new FrsTabItemData();
+                frsTabItemData.tabId = 505;
+                frsTabItemData.name = "官方";
+                frsTabInfoData.tabList.add(0, frsTabItemData);
+            }
+            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
+            if (this.g != null) {
+                C(frsTabInfoData, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06e4));
+                this.g.setData(frsTabInfoData);
+                if (this.g.getVisibility() == 0) {
+                    this.c.setVisibility(0);
+                } else {
+                    this.c.setVisibility(8);
+                }
+            }
+            ((h79) this.d).a = frsTabInfoData;
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setFrsTabInfoData(frsTabInfoData);
+                return;
+            }
+            return;
+        }
+        this.c.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.x69
     public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            this.g = new RelativeLayout(this.a.getPageActivity());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, xi.g(this.a.getPageActivity(), R.dimen.tbds117));
-            marginLayoutParams.setMargins(xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), xi.g(this.a.getPageActivity(), R.dimen.M_H_X004));
-            this.g.setLayoutParams(marginLayoutParams);
-            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-            linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            linearLayout.setOrientation(0);
-            linearLayout.setGravity(16);
-            this.h = new TbImageView(this.a.getPageActivity());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.tbds104), xi.g(this.a.getPageActivity(), R.dimen.tbds75));
-            layoutParams.setMargins(xi.g(this.a.getPageActivity(), R.dimen.tbds39), 0, 0, 0);
-            this.h.setLayoutParams(layoutParams);
-            linearLayout.addView(this.h);
-            this.i = new View(this.a.getPageActivity());
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.L_X01), xi.g(this.a.getPageActivity(), R.dimen.tbds69));
-            layoutParams2.setMargins(xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
-            this.i.setLayoutParams(layoutParams2);
-            linearLayout.addView(this.i);
-            EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
-            this.j = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f03c0);
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams3.setMargins(0, 0, xi.g(this.a.getPageActivity(), R.dimen.tbds55), 0);
-            layoutParams3.weight = 1.0f;
-            this.j.setLayoutParams(layoutParams3);
-            linearLayout.addView(this.j);
-            ImageView imageView = new ImageView(this.a.getPageActivity());
-            this.k = imageView;
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.tbds42), xi.g(this.a.getPageActivity(), R.dimen.tbds42));
-            layoutParams4.setMargins(0, 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
-            this.k.setLayoutParams(layoutParams4);
-            linearLayout.addView(this.k);
-            this.k.setOnClickListener(new a(this));
-            this.g.addView(linearLayout);
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04af, viewGroup, false);
+            this.c = inflate;
+            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090c24);
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    C(writeData.getFrsTabInfoData(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06e4));
+                    this.g.setData(this.e.getFrsTabInfoData());
+                    if (this.g.getVisibility() == 0) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                this.g.setActivity(this.a);
+                this.g.setTabSelectedListener(this.i);
+            }
+            return this.c;
         }
         return (View) invokeL.objValue;
     }

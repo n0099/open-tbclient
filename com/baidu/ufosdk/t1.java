@@ -1,12 +1,9 @@
 package com.baidu.ufosdk;
 
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
-import com.tencent.connect.common.Constants;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
@@ -49,16 +46,16 @@ public class t1 {
                 hashMap.put("25", "发送中...");
                 hashMap.put("26", "谢谢支持");
                 hashMap.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, "字");
-                hashMap.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "确认");
-                hashMap.put("29", "发送超时");
-                hashMap.put("30", "昨天");
-                hashMap.put("31", "选填：请留下您的邮箱/手机/QQ号");
-                hashMap.put("32", "联系方式不能超过30个字符");
-                hashMap.put("33", "原创文章链接未填写（最少5个字符）");
-                hashMap.put("34", "未上传问题截图");
-                hashMap.put("35", "感谢您的反馈！");
-                hashMap.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "已收到您的评价，我会继续努力哒！");
-                hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "请输入反馈内容不少于8个字");
+                hashMap.put("28", "确认");
+                hashMap.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK, "发送超时");
+                hashMap.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK, "昨天");
+                hashMap.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, "选填：请留下您的邮箱/手机/QQ号");
+                hashMap.put(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK, "联系方式不能超过30个字符");
+                hashMap.put(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK, "原创文章链接未填写（最少5个字符）");
+                hashMap.put(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK, "未上传问题截图");
+                hashMap.put(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK, "感谢您的反馈！");
+                hashMap.put("36", "已收到您的评价，我会继续努力哒！");
+                hashMap.put("37", "请输入反馈内容不少于8个字");
                 a = hashMap;
             }
             if (a.containsKey(str)) {

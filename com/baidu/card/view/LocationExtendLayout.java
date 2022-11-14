@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sx;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class LocationExtendLayout extends LinearLayout implements sx {
+public class LocationExtendLayout extends LinearLayout implements tx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -120,7 +120,7 @@ public class LocationExtendLayout extends LinearLayout implements sx {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08098a, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08098f, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
@@ -132,16 +132,16 @@ public class LocationExtendLayout extends LinearLayout implements sx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04bd, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09060f);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09060c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09060d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090610);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090611);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04be, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090610);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09060d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09060e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090611);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090612);
         }
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {

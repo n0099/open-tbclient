@@ -1,56 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.net.Uri;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class le2 extends ee2 {
+public class le2<T> extends fe2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
-    public final String d;
+    public T c;
+    public boolean d;
 
-    public le2(@Nullable String str, @Nullable String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939920, "Lcom/baidu/tieba/le2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939920, "Lcom/baidu/tieba/le2;");
+                return;
+            }
+        }
+        e = pk1.a;
+    }
+
+    public le2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = str;
-        this.d = str2;
-        this.a = "firstMeaningfulPainted";
+        this.d = true;
+        this.a = "message";
     }
 
-    @Override // com.baidu.tieba.ee2
+    @Override // com.baidu.tieba.fe2
     public void m(Map<String, Object> map) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            String str2 = "";
-            if (TextUtils.isEmpty(this.c)) {
-                str = "";
-            } else {
-                str = this.c;
+            Object obj = this.c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.d) {
+                    str = Uri.encode(str);
+                }
+                if (e) {
+                    Log.d("SwanAppWebMessage", "mData: " + this.c);
+                    Log.d("SwanAppWebMessage", "encode mData: " + str);
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
             }
-            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-            if (!TextUtils.isEmpty(this.d)) {
-                str2 = this.d;
-            }
-            map.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
         }
     }
 }

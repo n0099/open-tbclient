@@ -1,206 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.data.QuestionTagListData;
-import com.baidu.tieba.write.write.message.QuestionTagListRequestMessage;
-import com.baidu.tieba.write.write.message.QuestionTagListResponseMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class o89 {
+public class o89 extends p89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<wn> a;
-    public b b;
-    public String c;
-    public String d;
-    public boolean e;
-    public int f;
-    public final HttpMessageListener g;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, List<wn> list);
-
-        void b(boolean z);
-
-        void c(boolean z, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o89 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o89 o89Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o89Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o89Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuestionTagListResponseMessage)) {
-                return;
-            }
-            QuestionTagListData questionTagListData = ((QuestionTagListResponseMessage) httpResponsedMessage).data;
-            boolean z = false;
-            if (httpResponsedMessage.getError() == 0 && questionTagListData != null) {
-                if (!ListUtils.isEmpty(questionTagListData.b)) {
-                    this.a.a.addAll(questionTagListData.b);
-                }
-                o89 o89Var = this.a;
-                if (questionTagListData.a == 1) {
-                    z = true;
-                }
-                o89Var.e = z;
-                if (this.a.e) {
-                    o89.c(this.a);
-                }
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.e, this.a.a);
-                }
-            } else if (this.a.b != null) {
-                b bVar = this.a.b;
-                if (this.a.f != 1) {
-                    z = true;
-                }
-                bVar.c(z, TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c88));
-            }
-        }
-    }
-
-    public o89() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o89(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull w69 w69Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, w69Var, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, w69Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (w69) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = 1;
-        this.g = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST);
-        g();
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.p89, com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void M(@NonNull List<x69<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_TAG_LIST);
-            tbHttpMessageTask.setResponsedClass(QuestionTagListResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(a89.i(this.a));
+            super.M(list);
         }
     }
 
-    public static /* synthetic */ int c(o89 o89Var) {
-        int i = o89Var.f;
-        o89Var.f = i + 1;
-        return i;
-    }
-
-    public boolean h(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.p89, com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            if (!z && !this.e) {
-                return false;
-            }
-            k();
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.b(false);
-                return true;
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void i(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
-            this.f = 1;
-            this.e = false;
-            this.a.clear();
-            k();
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.b(true);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            super.O(editorTools);
+            v65 n = editorTools.n(15);
+            if (n instanceof n49) {
+                ((n49) n).n(false);
             }
         }
     }
 
-    public void l(b bVar) {
+    @Override // com.baidu.tieba.p89, com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void P(@NonNull NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f2d));
         }
     }
 
-    public void m(String str) {
+    @Override // com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.K.B(true);
         }
     }
 
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.g);
-        }
-    }
-
-    public final void k() {
+    @Override // com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new QuestionTagListRequestMessage().setSearchWords(this.c).setCategory(this.d).setPage(this.f));
+            oo8.l(this);
         }
     }
 
-    public void n() {
+    @Override // com.baidu.tieba.k89, com.baidu.tieba.l89
+    public void c0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.c0();
+            oo8.v(this.p);
+        }
+    }
+
+    @Override // com.baidu.tieba.k89, com.baidu.tieba.l89, com.baidu.tieba.z69
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.j();
+            oo8.v(null);
         }
     }
 }

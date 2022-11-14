@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.cv7;
-import com.baidu.tieba.gv7;
+import com.baidu.tieba.e97;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.nv7;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.t87;
+import com.baidu.tieba.rv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,11 +26,11 @@ import java.util.LinkedList;
 public class HotTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cv7 a;
+    public nv7 a;
     public boolean b;
 
     /* loaded from: classes5.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicListModel a;
@@ -59,12 +59,12 @@ public class HotTopicListModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x003d  */
         /* JADX WARN: Removed duplicated region for block: B:27:0x004c  */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            t87 t87Var;
+            e97 e97Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i = 0;
@@ -79,19 +79,19 @@ public class HotTopicListModel extends BdBaseModel {
                 if (z) {
                     ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
                     if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
-                        t87Var = responseHttpHotRanklistMessage.getHotRanklistData();
+                        e97Var = responseHttpHotRanklistMessage.getHotRanklistData();
                         if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                             ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
                             if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
-                                t87Var = responseSocketHotRanklistMessage.getHotRanklistData();
+                                e97Var = responseSocketHotRanklistMessage.getHotRanklistData();
                             }
                         }
-                        if (t87Var != null) {
-                            if (!ListUtils.isEmpty(t87Var.g)) {
+                        if (e97Var != null) {
+                            if (!ListUtils.isEmpty(e97Var.g)) {
                                 LinkedList linkedList = new LinkedList();
-                                int size = t87Var.g.size();
+                                int size = e97Var.g.size();
                                 while (i < size) {
-                                    linkedList.add(new gv7(t87Var.g.get(i), i));
+                                    linkedList.add(new rv7(e97Var.g.get(i), i));
                                     i++;
                                 }
                                 this.a.a.j(responsedMessage.getError(), linkedList);
@@ -104,10 +104,10 @@ public class HotTopicListModel extends BdBaseModel {
                         this.a.a.j(-1, null);
                     }
                 }
-                t87Var = null;
+                e97Var = null;
                 if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                 }
-                if (t87Var != null) {
+                if (e97Var != null) {
                 }
                 this.a.a.j(-1, null);
             }
@@ -115,13 +115,13 @@ public class HotTopicListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListModel(TbPageContext<?> tbPageContext, cv7 cv7Var) {
+    public HotTopicListModel(TbPageContext<?> tbPageContext, nv7 nv7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cv7Var};
+            Object[] objArr = {tbPageContext, nv7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,7 +133,7 @@ public class HotTopicListModel extends BdBaseModel {
             }
         }
         B();
-        this.a = cv7Var;
+        this.a = nv7Var;
     }
 
     public final void B() {

@@ -27,24 +27,27 @@ import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.bf7;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.hq8;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.io8;
-import com.baidu.tieba.j97;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.mb7;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.mq4;
+import com.baidu.tieba.mw4;
+import com.baidu.tieba.qc5;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.vp4;
+import com.baidu.tieba.tb5;
+import com.baidu.tieba.to8;
+import com.baidu.tieba.u97;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.wp8;
-import com.baidu.tieba.xw4;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.wp4;
+import com.baidu.tieba.xb7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,18 +190,19 @@ public class LaunchStatic {
         b();
         d();
         c();
-        wp8.a();
-        qe7.a();
-        j97.a();
+        hq8.a();
+        bf7.a();
+        u97.a();
         ImMemoryCacheRegister.l();
-        mb7.i();
-        vp4.h();
+        xb7.i();
+        wp4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        hw4.d();
-        xw4.a();
-        lq4.d();
+        mw4.d();
+        cx4.a();
+        mq4.d();
         a();
+        e();
     }
 
     public static void d() {
@@ -207,9 +211,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            y85.d().f();
-            io8.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, io8.a(TbConfig.GET_PAY_CONFIG, 303039));
+            e95.d().f();
+            to8.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, to8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -233,6 +237,17 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(TbadkCoreApplication.getInst());
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            try {
+                tb5.f().l(SyncDataEvent.class, new qc5());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

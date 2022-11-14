@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class cx0 extends lx0 {
+public class cx0 extends jx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kt0 o;
 
     public cx0() {
         Interceptable interceptable = $ic;
@@ -27,42 +25,32 @@ public class cx0 extends lx0 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx0(Activity activity) {
-        super(activity);
+    public void m0() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            K(new jt0());
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
     }
 
-    @Override // com.baidu.tieba.lx0
-    public void Z() {
+    public void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            kt0 kt0Var = new kt0();
+            this.o = kt0Var;
+            K(kt0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jx0, com.baidu.tieba.kx0
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tr0 bindPlayer = u();
-            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
-            IVideoUpdateStrategy n1 = bindPlayer.n1();
-            Intrinsics.checkNotNullExpressionValue(n1, "bindPlayer.strategy");
-            if (!n1.f()) {
-                BdThumbSeekBar mThumbSeekBar = this.l;
-                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
-                mThumbSeekBar.setVisibility(4);
-                return;
-            }
-            super.Z();
+            K(new st0());
+            K(new ut0());
+            K(new tt0());
+            K(new vt0());
+            n0();
+            m0();
         }
     }
 }

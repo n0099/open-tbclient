@@ -1,55 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class sg9 implements mg9 {
+public class sg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public final pg9 b;
-    public final xg9 c;
-    public final mg9.a d;
-    public volatile int e;
-    public volatile int f;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
+    public int g;
+    public String h;
 
-    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
-
-    public abstract Map<String, String> f(xg9 xg9Var);
-
-    public abstract int g();
-
-    public abstract String h();
-
-    public abstract void j(xg9 xg9Var);
-
-    public abstract void n(xg9 xg9Var);
-
-    public sg9(pg9 pg9Var, xg9 xg9Var, mg9.a aVar) {
+    public sg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pg9Var, xg9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,287 +35,95 @@ public abstract class sg9 implements mg9 {
                 return;
             }
         }
-        this.f = 0;
-        this.b = pg9Var;
-        this.c = xg9Var;
-        this.d = aVar;
-        String h = h();
-        this.a = h;
-        if (TextUtils.isEmpty(h)) {
-            this.a = getClass().getSimpleName();
-        }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = "";
+        this.g = 0;
     }
 
-    public final void a() throws DownloadException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f != 107) {
-                if (this.f != 106) {
-                    return;
-                }
-                n(this.c);
-                throw new DownloadException(106, "Download paused!");
-            }
-            throw new DownloadException(107, "Download canceled!");
-        }
-    }
-
-    @Override // com.baidu.tieba.mg9
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = 107;
-        }
-    }
-
-    @Override // com.baidu.tieba.mg9
-    public boolean isComplete() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.e == 105) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mg9
-    public boolean isDownloading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.e == 104) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mg9
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f = 106;
-        }
-    }
-
-    public final void b(Closeable closeable) throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) && closeable != null) {
-            synchronized (sg9.class) {
-                closeable.close();
-            }
-        }
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            Process.setThreadPriority(10);
-            j(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
             try {
-                this.e = 104;
-                d();
-                synchronized (this.d) {
-                    this.e = 105;
-                    this.d.onDownloadCompleted(c());
-                }
-            } catch (DownloadException e) {
-                i(e);
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optString("name");
+                this.b = jSONObject.optString("id");
+                this.c = jSONObject.optString("image");
+                this.d = jSONObject.optString("url");
+                this.e = jSONObject.optInt("progress");
+                this.f = jSONObject.optString("downloadPerSize");
+                this.g = jSONObject.optInt("status");
+                this.h = jSONObject.optString("savePath");
+                return true;
+            } catch (JSONException unused) {
+                return false;
             }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.sg9, java.lang.Object] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void d() throws DownloadException {
-        IOException e;
-        ProtocolException e2;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                URL url = new URL(this.c.d());
-                ?? r2 = 0;
-                try {
-                    try {
-                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                        try {
-                            httpURLConnection.setConnectTimeout(4000);
-                            httpURLConnection.setReadTimeout(4000);
-                            httpURLConnection.setRequestMethod("GET");
-                            k(f(this.c), httpURLConnection);
-                            int responseCode = httpURLConnection.getResponseCode();
-                            if (responseCode == g()) {
-                                m(httpURLConnection);
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                    return;
-                                }
-                                return;
-                            }
-                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                        } catch (ProtocolException e3) {
-                            e2 = e3;
-                            throw new DownloadException(108, "Protocol error", e2);
-                        } catch (IOException e4) {
-                            e = e4;
-                            throw new DownloadException(108, "IO error", e);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        r2 = url;
-                        if (r2 != 0) {
-                            r2.disconnect();
-                        }
-                        throw th;
-                    }
-                } catch (ProtocolException e5) {
-                    e2 = e5;
-                } catch (IOException e6) {
-                    e = e6;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r2 != 0) {
-                    }
-                    throw th;
-                }
-            } catch (MalformedURLException e7) {
-                throw new DownloadException(108, "Bad url.", e7);
+                jSONObject.put("name", this.a);
+                jSONObject.put("id", this.b);
+                jSONObject.put("image", this.c);
+                jSONObject.put("url", this.d);
+                jSONObject.put("progress", this.e);
+                jSONObject.put("downloadPerSize", this.f);
+                jSONObject.put("status", this.g);
+                jSONObject.put("savePath", this.h);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-    }
-
-    public final void i(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
-            switch (downloadException.getErrorCode()) {
-                case 106:
-                    synchronized (this.d) {
-                        this.e = 106;
-                        this.d.onDownloadPaused();
-                    }
-                    return;
-                case 107:
-                    synchronized (this.d) {
-                        this.e = 107;
-                        this.d.onDownloadCanceled();
-                    }
-                    return;
-                case 108:
-                    synchronized (this.d) {
-                        this.e = 108;
-                        this.d.a(downloadException);
-                    }
-                    return;
-                default:
-                    throw new IllegalArgumentException("Unknown state");
-            }
-        }
-    }
-
-    public final void k(Map<String, String> map, URLConnection uRLConnection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) && map != null) {
-            for (String str : map.keySet()) {
-                uRLConnection.setRequestProperty(str, map.get(str));
-            }
-        }
-    }
-
-    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) == null) {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                a();
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        return;
-                    }
-                    randomAccessFile.write(bArr, 0, read);
-                    long j = read;
-                    this.c.e(this.c.b() + j);
-                    synchronized (this.d) {
-                        this.b.f(this.b.b() + j);
-                        this.d.onDownloadProgress(this.b.b(), this.b.c());
-                    }
-                } catch (IOException e) {
-                    n(this.c);
-                    throw new DownloadException(108, e);
-                }
-            }
-        }
-    }
-
-    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
-        Closeable closeable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, httpURLConnection) == null) {
-            Closeable closeable2 = null;
-            try {
-                try {
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    try {
-                        long c = this.c.c() + this.c.b();
-                        try {
-                            File a = this.b.a();
-                            if (!a.exists()) {
-                                a.mkdirs();
-                            }
-                            RandomAccessFile e = e(a, this.b.d(), c);
-                            l(inputStream, e);
-                            try {
-                                b(inputStream);
-                                b(e);
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        } catch (IOException e3) {
-                            throw new DownloadException(108, "File occur IOException ", e3);
-                        } catch (Exception e4) {
-                            throw new DownloadException(108, "Occur Exception ", e4);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        closeable2 = inputStream;
-                        closeable = null;
-                        try {
-                            b(closeable2);
-                            b(closeable);
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    throw new DownloadException(108, "http get inputStream error", e6);
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                closeable = null;
-            }
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

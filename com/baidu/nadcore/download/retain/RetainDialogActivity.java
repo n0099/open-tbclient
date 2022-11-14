@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk0;
-import com.baidu.tieba.kl0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.ll0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kl0.c().f();
+            ll0.c().f();
             finish();
         }
     }
@@ -65,7 +65,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kl0.c().g();
+            ll0.c().g();
             finish();
         }
     }
@@ -75,7 +75,7 @@ public class RetainDialogActivity extends NadDialogActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return kk0.a().b();
+            return lk0.a().b();
         }
         return invokeV.intValue;
     }
@@ -85,7 +85,7 @@ public class RetainDialogActivity extends NadDialogActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return getResources().getString(R.string.obfuscated_res_0x7f0f0bd5);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f0bd7);
         }
         return (String) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public class RetainDialogActivity extends NadDialogActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return getResources().getString(R.string.obfuscated_res_0x7f0f0bd9);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f0bdb);
         }
         return (String) invokeV.objValue;
     }
@@ -113,7 +113,7 @@ public class RetainDialogActivity extends NadDialogActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.d1();
-            if (kl0.c().a()) {
+            if (ll0.c().a()) {
                 finish();
             }
         }
@@ -127,8 +127,8 @@ public class RetainDialogActivity extends NadDialogActivity {
             if (intent != null) {
                 this.C = intent.getIntExtra("percent", 50);
             }
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0bda);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f09164b)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0bdc);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091652)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
         }
     }
 }

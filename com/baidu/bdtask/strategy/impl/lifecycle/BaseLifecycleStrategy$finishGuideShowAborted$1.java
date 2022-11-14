@@ -2,7 +2,7 @@ package com.baidu.bdtask.strategy.impl.lifecycle;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.tieba.fr;
+import com.baidu.tieba.gr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public final class BaseLifecycleStrategy$finishGuideShowAborted$1 extends Lambda
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("showFinishGuide abort by ");
-            fr g = this.this$0.g(this.$subState);
+            gr g = this.this$0.g(this.$subState);
             if (g != null) {
                 str = g.e();
             } else {

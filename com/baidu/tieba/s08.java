@@ -4,35 +4,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
+import com.baidu.tieba.pb.pb.main.PbListAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class s08 extends uz7<nx7, PbNoDataItemViewHolder> {
+public class s08 extends f08<t08, PbListAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ox7 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s08(o48 o48Var, BdUniqueId bdUniqueId) {
-        super(o48Var, bdUniqueId);
+    public s08(z48 z48Var) {
+        super(z48Var, t08.o);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o48Var, bdUniqueId};
+            Object[] objArr = {z48Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((o48) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((z48) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,50 +39,37 @@ public class s08 extends uz7<nx7, PbNoDataItemViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: u */
-    public PbNoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public PbListAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06ef, viewGroup, false), this.mContext);
+            return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06ed, (ViewGroup) null), this.a.P());
         }
-        return (PbNoDataItemViewHolder) invokeL.objValue;
+        return (PbListAlaRecommendVH) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uz7, com.baidu.tieba.jn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (nx7) obj, (PbNoDataItemViewHolder) viewHolder);
-        return view2;
+    public void w(ox7 ox7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ox7Var) == null) {
+            this.g = ox7Var;
+        }
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, nx7 nx7Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f08, com.baidu.tieba.kn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t08 t08Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nx7Var, pbNoDataItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, nx7Var, pbNoDataItemViewHolder);
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            pbNoDataItemViewHolder.a.setText(nx7Var.W0);
-            int i2 = nx7Var.V0;
-            if (i2 != 0) {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, i2);
-            } else {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, R.drawable.new_pic_emotion_06);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t08Var, pbListAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, t08Var, pbListAlaRecommendVH);
+            if (t08Var == null) {
+                return null;
             }
-            SkinManager.setViewTextColor(pbNoDataItemViewHolder.a, (int) R.color.CAM_X0109);
-            if (nx7Var.X0 != 0 && view2.getLayoutParams() != null) {
-                view2.getLayoutParams().height = nx7Var.X0;
-            }
-            if (nx7Var.Y0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.b.getLayoutParams();
-                marginLayoutParams.setMargins(marginLayoutParams.leftMargin, nx7Var.Y0, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-            }
-            if (nx7Var.Z0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.a.getLayoutParams();
-                int i3 = marginLayoutParams2.leftMargin;
-                marginLayoutParams2.setMargins(i3, i3, marginLayoutParams2.rightMargin, nx7Var.Z0);
-            }
-            pbNoDataItemViewHolder.b.setVisibility(nx7Var.a1);
+            pbListAlaRecommendVH.b(t08Var);
+            pbListAlaRecommendVH.g(this.g);
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pa4;
+import com.baidu.tieba.qa4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new pa4(context).e(R.drawable.obfuscated_res_0x7f080d9c, R.drawable.obfuscated_res_0x7f080d9d);
+            PointPageIndicator e = new qa4(context).e(R.drawable.obfuscated_res_0x7f080da1, R.drawable.obfuscated_res_0x7f080da2);
             e.f((int) getResources().getDimension(R.dimen.common_grid_indicator_margin));
             this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd);

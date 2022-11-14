@@ -2,9 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.KuangFloatingViewController;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,46 +12,16 @@ public class jt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-
-    /* loaded from: classes4.dex */
-    public class a implements tq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jt8 jt8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jt8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tq4
-        public void onPermissionResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                KuangFloatingViewController.getInstance().showFloatingView();
-                TiebaStatic.log(new StatisticItem("c12264").param("obj_type", 3));
-            }
-        }
-    }
+    public final ks8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jt8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(2921380);
+    public jt8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2001437);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,18 +33,16 @@ public class jt8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !wi.isEmpty((String) customResponsedMessage.getData())) {
-            String str = (String) customResponsedMessage.getData();
-            if (KuangFloatingViewController.getInstance().init()) {
-                KuangFloatingViewController.getInstance().setInfo(str);
-                this.a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof kr8) && ((kr8) customResponsedMessage.getData()).b && this.a.A == 0 && (ks8Var = this.b) != null && ks8Var.a() != null) {
+            this.b.a().d();
         }
     }
 }

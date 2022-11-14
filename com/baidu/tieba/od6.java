@@ -1,68 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.yg9;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
-public abstract class od6 implements rd6 {
+public class od6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ud6 a;
-    public sd6 b;
-    public Thread c;
-    public boolean d;
+    public View a;
+    public FrameLayout b;
+    public ImageView c;
+    public TextView d;
+    public int e;
+    public View.OnClickListener f;
 
-    public abstract void f();
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ od6 a;
-
-        public a(od6 od6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = od6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
-            }
-        }
-    }
-
-    public od6() {
+    public od6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,158 +43,54 @@ public abstract class od6 implements rd6 {
                 return;
             }
         }
-        this.d = false;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090740);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09102f);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09074a);
+        this.e = yi.g(tbPageContext.getPageActivity(), R.dimen.tbds52);
+        this.b.setOnClickListener(this);
+        this.c.setOnClickListener(this);
+        this.d.setOnClickListener(this);
+        if (this.b.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.b.getLayoutParams()).bottomMargin = yi.g(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.b.requestLayout();
+        }
     }
 
-    @Override // com.baidu.tieba.rd6
-    public void a(ud6 ud6Var, sd6 sd6Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, ud6Var, sd6Var) != null) || sd6Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.e).into(this.b);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08060c, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
-        this.b = sd6Var;
-        if (ud6Var == null) {
-            sd6Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
-            return;
-        }
-        this.a = ud6Var;
-        this.c = new Thread(new a(this));
-        ThreadPool.b().e(this.c);
     }
 
-    public int[] b() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ud6 ud6Var = this.a;
-            int[] iArr = {ud6Var.a, ud6Var.b};
-            if (!ud6Var.g && !ud6Var.e) {
-                float f = ud6Var.d;
-                if (f != 0.0f) {
-                    yg9.a e = yg9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                    iArr[0] = e.b();
-                    iArr[1] = e.a();
-                }
-            } else {
-                yg9.a e2 = e();
-                float f2 = this.a.d;
-                if (f2 != 0.0f) {
-                    yg9.a f3 = yg9.f(f2, e2.b(), e2.a());
-                    iArr[0] = f3.b();
-                    iArr[1] = f3.a();
-                }
-                yg9.a d = yg9.d(iArr[0], iArr[1]);
-                iArr[0] = d.b();
-                iArr[1] = d.a();
-            }
-            return iArr;
+            return this.a;
         }
-        return (int[]) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
-        int i;
-        int i2;
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
-            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
-                Matrix matrix = new Matrix();
-                matrix.setRotate(i2);
-                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            } else {
-                bitmap2 = null;
-            }
-            if (bitmap2 != null) {
-                bitmap = bitmap2;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (bitmap.getHeight() / bitmap.getWidth() > f) {
-                width = (int) (bitmap.getHeight() * f);
-            } else {
-                height = (int) (bitmap.getWidth() * f);
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(createBitmap);
-            canvas.save();
-            int i3 = 0;
-            if (height != bitmap.getHeight()) {
-                i = Math.abs(height - bitmap.getHeight()) / 2;
-            } else {
-                i = 0;
-            }
-            if (width != bitmap.getWidth()) {
-                i3 = Math.abs(width - bitmap.getWidth()) / 2;
-            }
-            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
-            canvas.restore();
-            bitmap.recycle();
-            return createBitmap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.f = onClickListener;
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public String d(int i, int i2, Bitmap bitmap, boolean z) {
-        InterceptResult invokeCommon;
-        String a2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
-            if (i != 0 && i2 != 0) {
-                Bitmap h = si9.h(bitmap, i, i2, z);
-                if (this.d) {
-                    a2 = v29.b();
-                } else {
-                    a2 = v29.a();
-                }
-                String c = v29.c(a2, h, System.currentTimeMillis() + ".jpg");
-                if (h != null) {
-                    h.recycle();
-                    return c;
-                }
-                return c;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.b || view2 == this.c || view2 == this.d) && (onClickListener = this.f) != null) {
+                onClickListener.onClick(view2);
             }
-            return "";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public yg9.a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MultiMediaData multiMediaData = this.a.c;
-            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            if (multiMediaData == null) {
-                return new yg9.a(i, i2);
-            }
-            if (multiMediaData.type == 1) {
-                float f = multiMediaData.angle;
-                float f2 = multiMediaData.rotation;
-                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
-                    i = multiMediaData.width;
-                    i2 = multiMediaData.height;
-                } else {
-                    i = multiMediaData.height;
-                    i2 = multiMediaData.width;
-                }
-            }
-            return new yg9.a(i, i2);
-        }
-        return (yg9.a) invokeV.objValue;
-    }
-
-    public void g(td6 td6Var, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, td6Var, bitmap) == null) {
-            if (td6Var == null) {
-                td6Var = new td6();
-            }
-            int[] b = b();
-            td6Var.a = d(b[0], b[1], bitmap, true);
-            this.b.a(this.a.f, td6Var);
         }
     }
 }

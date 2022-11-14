@@ -68,9 +68,9 @@ public class NadLPDownloadAuditView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060a, this);
-            this.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091498);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091499);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060b, this);
+            this.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09149f);
+            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914a0);
         }
     }
 

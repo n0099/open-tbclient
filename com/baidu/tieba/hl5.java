@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import java.util.List;
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface hl5 {
-    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+    void a(View view2);
 
-    int b(int i);
+    void b(View view2);
+
+    View getView();
 }

@@ -6,21 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes5.dex */
-public class ri6 implements pw4 {
+public class ri6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.tieba.pw4
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<xn> c;
+    public String d;
 
     public ri6(String str) {
         Interceptable interceptable = $ic;
@@ -37,16 +34,42 @@ public class ri6 implements pw4 {
                 return;
             }
         }
-        this.a = str;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.pw4
-    public String getPicUrl() {
+    public ArrayList<xn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        qi6 qi6Var = new qi6(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            qi6Var.s(searchForum);
+            this.c.add(qi6Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                qi6 qi6Var2 = new qi6(this.d);
+                qi6Var2.s(searchForum2);
+                this.c.add(qi6Var2);
+            }
+        }
     }
 }

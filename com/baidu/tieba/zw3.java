@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,10 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zw3 extends kw3 {
+public class zw3 extends lw3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +34,12 @@ public class zw3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
+        c = pk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zw3() {
-        super("getSid");
+        super("ReservationGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,23 +55,88 @@ public class zw3 extends kw3 {
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(JSONObject jSONObject, ih2 ih2Var) {
+    @Override // com.baidu.tieba.lw3
+    public fw1 a(@NonNull JSONObject jSONObject, @NonNull jh2 jh2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            String k = ln2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jh2Var)) == null) {
+            if (jSONObject == null) {
+                jh2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("apkId");
+            int optInt = jSONObject.optInt("isReservation");
+            if (TextUtils.isEmpty(optString)) {
+                jh2Var.onFail(31023, "reservation apk id is empty");
+                return null;
+            } else if (optInt == 0) {
+                jh2Var.onFail(31024, "reservation status error");
+                return null;
+            } else {
+                String string = tc3.a().getString("reservation_apk_ids", "");
+                if (optInt != 1) {
+                    if (optInt == 2) {
+                        if (b(string, optString)) {
+                            jh2Var.a(null);
+                        } else {
+                            jh2Var.onFail(31025, "reservation cancel fail");
+                        }
+                    }
+                } else {
+                    d(string, optString);
+                    jh2Var.a(null);
+                }
+                return null;
+            }
+        }
+        return (fw1) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
+            boolean remove = arrayList.remove(str2);
+            if (remove) {
+                c(arrayList);
+            }
+            return remove;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void c(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < arrayList.size(); i++) {
+                stringBuffer.append(arrayList.get(i));
+                if (i < arrayList.size() - 1) {
+                    stringBuffer.append(",");
                 }
             }
-            ih2Var.a(jSONObject2);
-            return null;
+            tc3.a().putString("reservation_apk_ids", stringBuffer.toString());
         }
-        return (ew1) invokeLL.objValue;
+    }
+
+    public final void d(String str, String str2) {
+        HashSet hashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            if (TextUtils.isEmpty(str)) {
+                hashSet = new HashSet();
+            } else {
+                hashSet = new HashSet(Arrays.asList(str.split(",")));
+            }
+            hashSet.add(str2);
+            c(new ArrayList<>(hashSet));
+        }
     }
 }

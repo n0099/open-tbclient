@@ -1,10 +1,75 @@
 package com.baidu.tieba;
 
 import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gl0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "downloadCreator");
+public class gl0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static hl0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    IAdDownloader a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947797630, "Lcom/baidu/tieba/gl0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947797630, "Lcom/baidu/tieba/gl0;");
+        }
+    }
+
+    public gl0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static hl0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (gl0.class) {
+                    if (a == null) {
+                        a = (hl0) ServiceManager.getService(hl0.a);
+                    }
+                }
+            }
+            return a;
+        }
+        return (hl0) invokeV.objValue;
+    }
+
+    public static IAdDownloader b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            hl0 a2 = a();
+            if (a2 == null) {
+                return d31.a;
+            }
+            return a2.a();
+        }
+        return (IAdDownloader) invokeV.objValue;
+    }
 }

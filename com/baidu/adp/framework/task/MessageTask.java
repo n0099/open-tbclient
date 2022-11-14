@@ -3,7 +3,7 @@ package com.baidu.adp.framework.task;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bc;
+import com.baidu.tieba.cc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public abstract class MessageTask {
     public BdAsyncTaskParallel mParallel;
     public int mPriority;
     public int mRetry;
-    public bc mTimeOut;
+    public cc mTimeOut;
 
     public abstract boolean checkCmd();
 
@@ -97,13 +97,13 @@ public abstract class MessageTask {
         return invokeV.intValue;
     }
 
-    public bc getTimeOut() {
+    public cc getTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mTimeOut;
         }
-        return (bc) invokeV.objValue;
+        return (cc) invokeV.objValue;
     }
 
     public void setNeedEncrypt(boolean z) {
@@ -134,10 +134,10 @@ public abstract class MessageTask {
         }
     }
 
-    public void setTimeOut(bc bcVar) {
+    public void setTimeOut(cc ccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bcVar) == null) {
-            this.mTimeOut = bcVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ccVar) == null) {
+            this.mTimeOut = ccVar;
         }
     }
 }

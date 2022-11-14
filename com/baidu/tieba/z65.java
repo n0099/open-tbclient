@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z65 {
+public abstract class z65 implements Comparable<z65> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WriteImagesInfo a;
-    public boolean b;
 
-    public z65(WriteImagesInfo writeImagesInfo, boolean z) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(c75 c75Var);
+    }
+
+    public abstract void b(a aVar);
+
+    public abstract int c();
+
+    public abstract void d();
+
+    public z65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {writeImagesInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,7 +34,21 @@ public class z65 {
                 return;
             }
         }
-        this.a = writeImagesInfo;
-        this.b = z;
+        d();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(z65 z65Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z65Var)) == null) {
+            if (z65Var == null) {
+                return 1;
+            }
+            return c() - z65Var.c();
+        }
+        return invokeL.intValue;
     }
 }

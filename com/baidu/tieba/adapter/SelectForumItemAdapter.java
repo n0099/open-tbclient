@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,13 @@ import java.util.List;
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go5 a;
+    public so5 a;
     public int b;
     public List<SelectForumData> c;
     public View.OnClickListener d;
     public View.OnClickListener e;
     @Nullable
-    public pp5.e f;
+    public bq5.e f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -146,20 +146,20 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905d9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905dc);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905da);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905dd);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905da);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905dd);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905dc);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905de);
         }
     }
 
-    public SelectForumItemAdapter(go5 go5Var) {
+    public SelectForumItemAdapter(so5 so5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {go5Var};
+            Object[] objArr = {so5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,7 +171,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
         this.d = new a(this);
         this.e = new b(this);
-        this.a = go5Var;
+        this.a = so5Var;
     }
 
     public void i(List<SelectForumData> list) {
@@ -181,7 +181,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public void j(pp5.e eVar) {
+    public void j(bq5.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
             this.f = eVar;
@@ -210,7 +210,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         int i2 = 0;
         cVar.a.setShowInnerBorder(false);
         cVar.a.setStrokeColorResId(R.color.CAM_X0401);
-        cVar.a.setStrokeWith(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        cVar.a.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         cVar.a.K(selectForumData.avatarUrl, 10, false);
         cVar.b.setText(selectForumData.forumName);
         SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
@@ -224,9 +224,9 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
             cVar.d.setVisibility(8);
             cVar.e.setVisibility(0);
             if (selectForumData.isInterestForumSelected) {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f080a17, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f080a16, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
             }
         } else {
             TextView textView = cVar.d;

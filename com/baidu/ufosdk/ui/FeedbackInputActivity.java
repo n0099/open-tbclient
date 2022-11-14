@@ -57,7 +57,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -66,7 +65,6 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,6 +92,7 @@ import com.baidu.ufosdk.u0;
 import com.baidu.ufosdk.v0;
 import com.baidu.ufosdk.v1;
 import com.baidu.ufosdk.w0;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -529,8 +528,8 @@ public class FeedbackInputActivity extends Activity {
             return invokeI.longValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:321:0x19e4  */
-        /* JADX WARN: Removed duplicated region for block: B:322:0x19ea  */
+        /* JADX WARN: Removed duplicated region for block: B:321:0x19e2  */
+        /* JADX WARN: Removed duplicated region for block: B:322:0x19e8  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -2876,7 +2875,7 @@ public class FeedbackInputActivity extends Activity {
                     if (aVar.b.K == 1) {
                         if (message.obj != null) {
                             if (TextUtils.isEmpty(aVar.b.J)) {
-                                Toast.makeText(aVar.b.getApplicationContext(), t1.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR), 1).show();
+                                Toast.makeText(aVar.b.getApplicationContext(), t1.a("36"), 1).show();
                             } else {
                                 Toast.makeText(aVar.b.getApplicationContext(), aVar.b.J, 0).show();
                             }
@@ -2889,7 +2888,7 @@ public class FeedbackInputActivity extends Activity {
                         hashMap6.put("ask", 0);
                         aVar.b.o.add(hashMap6);
                     } else if (TextUtils.isEmpty(aVar.b.J)) {
-                        Toast.makeText(aVar.b.getApplicationContext(), t1.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR), 1).show();
+                        Toast.makeText(aVar.b.getApplicationContext(), t1.a("36"), 1).show();
                     } else {
                         Toast.makeText(aVar.b.getApplicationContext(), aVar.b.J, 0).show();
                     }
@@ -4176,7 +4175,7 @@ public class FeedbackInputActivity extends Activity {
                     c1Var2.a(c1Var2.u);
                 }
                 if (TextUtils.isEmpty(feedbackInputActivity.J)) {
-                    Toast.makeText(feedbackInputActivity.getApplicationContext(), t1.a("60"), 0).show();
+                    Toast.makeText(feedbackInputActivity.getApplicationContext(), t1.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK), 0).show();
                 } else {
                     Toast.makeText(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.J, 0).show();
                 }
@@ -4250,31 +4249,31 @@ public class FeedbackInputActivity extends Activity {
                                         if (length != 4) {
                                             if (length == 5) {
                                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(0);
-                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cd);
+                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ce);
                                                 checkBox.setVisibility(0);
                                                 checkBox.setText(jSONArray.optString(4));
                                             }
                                         } else {
                                             g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cc);
+                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cd);
                                             checkBox2.setVisibility(0);
                                             checkBox2.setText(jSONArray.optString(3));
                                         }
                                     } else {
                                         g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cb);
+                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cc);
                                         checkBox3.setVisibility(0);
                                         checkBox3.setText(jSONArray.optString(2));
                                     }
                                 } else {
                                     g1Var.b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ca);
+                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cb);
                                     checkBox4.setVisibility(0);
                                     checkBox4.setText(jSONArray.optString(1));
                                 }
                             } else {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905c9);
+                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ca);
                                 checkBox5.setVisibility(0);
                                 checkBox5.setText(jSONArray.optString(0));
                             }
@@ -4283,7 +4282,7 @@ public class FeedbackInputActivity extends Activity {
                             }
                             if (jSONArray.length() == 3) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cc)).setVisibility(4);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cd)).setVisibility(4);
                             }
                             if (jSONArray.length() == 2) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
@@ -4292,7 +4291,7 @@ public class FeedbackInputActivity extends Activity {
                             if (jSONArray.length() == 1) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
                                 g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ca)).setVisibility(4);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cb)).setVisibility(4);
                             }
                         } else {
                             g1Var.b.findViewById(R.id.ll_checkboxs).setVisibility(8);
@@ -4943,7 +4942,7 @@ public class FeedbackInputActivity extends Activity {
             Toast.makeText(this, t1.a("21"), 1).show();
         } else {
             if (p1.d(this) < 35000) {
-                Toast.makeText(this, t1.a(BaseUtils.METHOD_SENDMESSAGE), 1).show();
+                Toast.makeText(this, t1.a("55"), 1).show();
                 System.gc();
                 return;
             }

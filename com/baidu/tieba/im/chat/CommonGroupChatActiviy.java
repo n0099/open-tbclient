@@ -32,9 +32,9 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PvCacheModel;
-import com.baidu.tieba.je7;
-import com.baidu.tieba.le7;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.sb;
+import com.baidu.tieba.ue7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,11 +47,11 @@ import org.json.JSONObject;
 public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb v;
+    public sb v;
     public CustomMessageListener w;
 
     /* loaded from: classes4.dex */
-    public class a extends rb {
+    public class a extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonGroupChatActiviy a;
@@ -270,7 +270,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
             String valueOf = String.valueOf(groupData.getGroupId());
             if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-                new je7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+                new ue7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
                 TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
                 PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
             }
@@ -289,7 +289,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082a), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082b), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -308,7 +308,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082b), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082c), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -355,7 +355,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0032, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.rf
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -369,7 +369,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             super.q(view2, i, i2, j);
             if (i != 2) {
                 if (i != 4) {
-                    if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !le7.w(msg2) || content == null) {
+                    if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !we7.w(msg2) || content == null) {
                         return;
                     }
                     JSONObject jSONObject = null;
@@ -390,11 +390,11 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         return;
                     }
                     return;
-                } else if (!f1() || (msg = this.c.getMsg(i2)) == null || !le7.y(msg)) {
+                } else if (!f1() || (msg = this.c.getMsg(i2)) == null || !we7.y(msg)) {
                     return;
                 } else {
-                    String i3 = le7.i(msg.getContent(), true);
-                    String i4 = le7.i(msg.getContent(), false);
+                    String i3 = we7.i(msg.getContent(), true);
+                    String i4 = we7.i(msg.getContent(), false);
                     if (i3 == null) {
                         return;
                     }
@@ -414,7 +414,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.rf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.sf
     public void y(View view2, int i, int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {

@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+import tbclient.FrsPage.BusinessPromot;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public class mo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
+    public boolean a;
+    public TiebaPlusInfo b;
 
     public mo8() {
         Interceptable interceptable = $ic;
@@ -33,85 +30,65 @@ public class mo8 {
         }
     }
 
-    public String a() {
+    public TiebaPlusInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (TiebaPlusInfo) invokeV.objValue;
     }
 
-    public int b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void c(BusinessPromot businessPromot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
+            this.a = businessPromot.is_download.booleanValue();
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = businessPromot.download_developer;
+            builder.title = businessPromot.download_appname;
+            builder.app_privacy = businessPromot.download_privacy_policy;
+            builder.download_url = businessPromot.download_url;
+            builder.app_icon = businessPromot.download_img;
+            builder.app_version = businessPromot.download_version;
+            builder.app_power = businessPromot.download_user_power;
+            builder.app_package = businessPromot.download_package_name;
+            builder.app_id = businessPromot.download_appid;
+            builder.item_id = businessPromot.download_item_id;
+            this.b = builder.build(true);
         }
-        return invokeV.intValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void d(HeadImgs headImgs) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(ActHot actHot) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, actHot) != null) || actHot == null) {
-            return;
-        }
-        String str = actHot.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.b = wg.e(split[0], 1);
-                this.c = wg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
+            if (headImgs.download_is_thirdpage.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
+            this.a = z;
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = headImgs.download_developer;
+            builder.title = headImgs.download_appname;
+            builder.app_privacy = headImgs.download_privacy_policy;
+            builder.download_url = headImgs.download_url;
+            builder.app_icon = headImgs.download_img;
+            builder.app_version = headImgs.download_version;
+            builder.app_power = headImgs.download_user_power;
+            builder.app_package = headImgs.download_package_name;
+            builder.app_id = headImgs.download_appid;
+            builder.item_id = String.valueOf(headImgs.download_item_id);
+            this.b = builder.build(true);
         }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        this.a = actHot.img_src;
-        this.d = actHot.link;
-        this.e = actHot.author_name;
-        this.f = actHot.img_des;
-        actHot.img_type.intValue();
     }
 }

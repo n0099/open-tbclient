@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap6;
-import com.baidu.tieba.ep6;
+import com.baidu.tieba.mp6;
+import com.baidu.tieba.qp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnItemClickListener {
+public class FoldedGridView extends BdGridView implements qp6, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
     public int b;
     public int c;
     public boolean d;
-    public ap6 e;
+    public mp6 e;
     public a f;
     public int g;
     public Drawable h;
@@ -60,7 +60,7 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
         i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cb);
     }
 
-    @Override // com.baidu.tieba.ep6
+    @Override // com.baidu.tieba.qp6
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = !this.d;
             a(this.a);
-            ap6 ap6Var = this.e;
-            if (ap6Var != null) {
-                ap6Var.k(this.d);
+            mp6 mp6Var = this.e;
+            if (mp6Var != null) {
+                mp6Var.k(this.d);
                 this.e.notifyDataSetChanged();
                 invalidate();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ep6
+    @Override // com.baidu.tieba.qp6
     public int getArrowIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
         c();
     }
 
-    @Override // com.baidu.tieba.ep6
+    @Override // com.baidu.tieba.qp6
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(view2 instanceof FrameLayout)) {
@@ -242,14 +242,14 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
         }
     }
 
-    public void setFoldAdapter(ap6 ap6Var) {
+    public void setFoldAdapter(mp6 mp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ap6Var) == null) {
-            this.e = ap6Var;
-            if (ap6Var != null) {
-                ap6Var.i(this);
+        if (interceptable == null || interceptable.invokeL(1048587, this, mp6Var) == null) {
+            this.e = mp6Var;
+            if (mp6Var != null) {
+                mp6Var.i(this);
             }
-            setAdapter((ListAdapter) ap6Var);
+            setAdapter((ListAdapter) mp6Var);
         }
     }
 
@@ -260,7 +260,7 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
         }
     }
 
-    @Override // com.baidu.tieba.ep6
+    @Override // com.baidu.tieba.qp6
     public View getArrowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,16 +280,16 @@ public class FoldedGridView extends BdGridView implements ep6, AdapterView.OnIte
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
-        ap6 ap6Var;
+        mp6 mp6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (view2 == this.a) {
-                ap6 ap6Var2 = this.e;
-                if (ap6Var2 != null && ap6Var2.h()) {
+                mp6 mp6Var2 = this.e;
+                if (mp6Var2 != null && mp6Var2.h()) {
                     e();
                 }
-            } else if (this.f != null && (ap6Var = this.e) != null) {
-                int f = ap6Var.f(i2);
+            } else if (this.f != null && (mp6Var = this.e) != null) {
+                int f = mp6Var.f(i2);
                 this.e.j(f);
                 this.f.a(f, this.e.getItem(i2));
             }

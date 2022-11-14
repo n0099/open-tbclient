@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes6.dex */
-public class vo7 {
+public class vo7 implements uw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public io7 b;
-    public LinkedHashMap<String, lo7> c;
+    public String a;
+    public String b;
 
-    public vo7(DataRes dataRes) {
+    public vo7(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,43 +29,30 @@ public class vo7 {
                 return;
             }
         }
-        if (dataRes == null) {
+        if (vipBannerItem == null) {
             return;
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new uo7(dataRes);
-        new wo7(dataRes.special_list);
-        new no7(dataRes.cooperate_list);
-        new ro7(dataRes.theme_list);
-        new jo7(dataRes.banner_list);
-        new zo7(dataRes.task_list);
-        new yo7(dataRes.rank, dataRes.user);
-        new po7(dataRes.daily_list);
-        io7 io7Var = new io7();
-        this.b = io7Var;
-        io7Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    lo7 lo7Var = new lo7(vipBasicList);
-                    if (lo7Var.c != 3 || lo7Var.a().size() >= 2) {
-                        this.c.put(lo7Var.d, lo7Var);
-                    }
-                }
-            }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
+    }
+
+    @Override // com.baidu.tieba.uw4
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 != null && list3.size() > 0) {
-            this.a = new ArrayList<>();
-            for (String str3 : dataRes.card_order) {
-                if (!StringUtils.isNull(str3)) {
-                    this.a.add(str3);
-                }
-            }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uw4
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

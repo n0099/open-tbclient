@@ -422,7 +422,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10cf, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10d5, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

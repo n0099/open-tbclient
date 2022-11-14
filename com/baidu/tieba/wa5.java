@@ -1,27 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
 import java.util.List;
-import java.util.Map;
+import tbclient.VideoRedIcon.RedIcon;
+import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes6.dex */
 public interface wa5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+    List<RedIcon> getDataList();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
-    }
-
-    wa5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, st4 st4Var, long j);
-
-    void c(@Nullable a aVar);
+    VideoRedIconResIdl getResData();
 }

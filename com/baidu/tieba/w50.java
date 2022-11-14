@@ -4,13 +4,17 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.Signature;
 import android.os.IBinder;
+import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u50;
+import com.baidu.tieba.v50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.openid.IOpenID;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class w50 {
     public static /* synthetic */ Interceptable $ic;
@@ -20,16 +24,15 @@ public class w50 {
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class[] a;
-        public final /* synthetic */ u50.a b;
-        public final /* synthetic */ Context c;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ v50.a b;
 
-        public a(Class[] clsArr, u50.a aVar, Context context) {
+        public a(Context context, v50.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {clsArr, aVar, context};
+                Object[] objArr = {context, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,31 +42,88 @@ public class w50 {
                     return;
                 }
             }
-            this.a = clsArr;
+            this.a = context;
             this.b = aVar;
-            this.c = context;
         }
 
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE] complete} */
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Signature[] signatureArr;
+            String str;
+            Parcel obtain;
+            Parcel obtain2;
+            MessageDigest messageDigest;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
                 return;
             }
+            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+            String packageName = this.a.getPackageName();
+            try {
+                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
+            } catch (Exception e) {
+                this.b.a(false, null);
+                e.printStackTrace();
+                signatureArr = null;
+            }
             try {
                 try {
-                    Object invoke = this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder);
-                    this.b.a(true, (String) invoke.getClass().getMethod("getOAID", new Class[0]).invoke(invoke, new Object[0]));
-                } finally {
-                    try {
-                        this.c.unbindService(this);
-                    } catch (Throwable unused) {
+                    if (signatureArr != null && signatureArr.length > 0) {
+                        byte[] byteArray = signatureArr[0].toByteArray();
+                        try {
+                            messageDigest = MessageDigest.getInstance("SHA1");
+                        } catch (Exception e2) {
+                            this.b.a(false, null);
+                            e2.printStackTrace();
+                        }
+                        if (messageDigest != null) {
+                            byte[] digest = messageDigest.digest(byteArray);
+                            StringBuilder sb = new StringBuilder();
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                            }
+                            str = sb.toString();
+                            obtain = Parcel.obtain();
+                            obtain2 = Parcel.obtain();
+                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                            obtain.writeString(packageName);
+                            obtain.writeString(str);
+                            obtain.writeString("OUID");
+                            iBinder.transact(1, obtain, obtain2, 0);
+                            obtain2.readException();
+                            String readString = obtain2.readString();
+                            obtain.recycle();
+                            obtain2.recycle();
+                            this.b.a(true, readString);
+                            return;
+                        }
                     }
+                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                    obtain.writeString(packageName);
+                    obtain.writeString(str);
+                    obtain.writeString("OUID");
+                    iBinder.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    String readString2 = obtain2.readString();
+                    obtain.recycle();
+                    obtain2.recycle();
+                    this.b.a(true, readString2);
+                    return;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    this.b.a(false, null);
+                    obtain.recycle();
+                    obtain2.recycle();
+                    return;
                 }
-            } catch (Throwable unused2) {
-                this.b.a(false, null);
+            } catch (Throwable th) {
+                obtain.recycle();
+                obtain2.recycle();
+                throw th;
             }
+            str = null;
+            obtain = Parcel.obtain();
+            obtain2 = Parcel.obtain();
         }
 
         @Override // android.content.ServiceConnection
@@ -74,27 +134,20 @@ public class w50 {
         }
     }
 
-    public static void a(Context context, u50.a aVar) {
+    public static void a(Context context, v50.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
             if (context == null) {
                 aVar.a(false, null);
                 return;
             }
-            Intent intent = new Intent();
-            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            Class[] clsArr = new Class[1];
             try {
-                clsArr[0] = Class.forName("com.samsung.android.deviceidservice.IDeviceIdService$Stub");
+                a aVar2 = new a(context, aVar);
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+                context.bindService(intent, aVar2, 1);
             } catch (Throwable unused) {
-            }
-            if (clsArr[0] == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                context.bindService(intent, new a(clsArr, aVar, context), 1);
-            } catch (Throwable unused2) {
                 aVar.a(false, null);
             }
         }

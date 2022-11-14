@@ -29,15 +29,16 @@ import com.baidu.searchbox.live.interfaces.service.LiveYalogService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.searchbox.live.interfaces.yalog.LiveYalogApi;
 import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService;
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r91;
-import com.baidu.tieba.t91;
+import com.baidu.tieba.s91;
 import com.baidu.tieba.u91;
+import com.baidu.tieba.v91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,6 +49,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveYYPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -58,6 +60,7 @@ public class LiveYYPluginManager {
     public static final String TAG = "LiveYYPluginManager";
     public static final String USE_FROM_DISPATCH_YY_ROUTER = "dispatchYYLiveRouter";
     public static final String USE_FROM_LOAD_YY_PLUGIN = "loadYYPlugin";
+    public static final String USE_FROM_PREPARE_CREATE_LIVE = "prepareCreateLive";
     public static final String USE_FROM_START_PAYMENT = "startPayment";
     public static final String USE_FROM_START_YY_CUSTOMER_PAGE = "startYYCustomerServiceActivity";
     public static final String USE_FROM_START_YY_FEED_BACK_PAGE = "startYYFeedbackActivity";
@@ -76,6 +79,7 @@ public class LiveYYPluginManager {
     public LiveNpsLoadingCallback loadingCallback;
     public PluginLoadCallback mCurrentCallback;
     public Handler mHandler;
+    public volatile boolean mLiveNpsPreload;
     public boolean mLoadingShowing;
     public YYStatInfo mStatInfo;
     public Consumer<Boolean> mSubDismissCallback;
@@ -163,9 +167,26 @@ public class LiveYYPluginManager {
     public void logPluginVersionCode() {
         BundleInfo bundleInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65566, this) == null) && NPSPackageManager.getInstance().getBundleStatus("com.baidu.searchbox.yylive.entrance") == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo("com.baidu.searchbox.yylive.entrance")) != null) {
+        if ((interceptable == null || interceptable.invokeV(65568, this) == null) && NPSPackageManager.getInstance().getBundleStatus("com.baidu.searchbox.yylive.entrance") == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo("com.baidu.searchbox.yylive.entrance")) != null) {
             Log.d("NPS", "NPS Installed live plugin version code " + bundleInfo.getVersionCode());
             Log.e("NPS", "iscancel" + this.isLoadingCanceled);
+        }
+    }
+
+    public void cancelLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            pluginYaLog("cancelLoading");
+            HashMap hashMap = new HashMap();
+            hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
+            NpsLoadChainLog.getInstance().yyCompletionEvent("npsPluginCancel", new JSONObject(hashMap));
+            this.isLoadingCanceled = true;
+            Consumer<Boolean> consumer = this.mSubDismissCallback;
+            if (consumer != null) {
+                consumer.accept(Boolean.TRUE);
+            }
+            this.mSubDismissCallback = null;
+            this.mLoadingShowing = false;
         }
     }
 
@@ -191,6 +212,7 @@ public class LiveYYPluginManager {
         this.yalogService = (LiveYalogService) ServiceManager.getService(LiveYalogService.Companion.getSERVICE_REFERENCE());
         this.yalogApi = null;
         this.fromDownLoad = false;
+        this.mLiveNpsPreload = false;
         this.isLoadingCanceled = false;
         this.isFirst = true;
         this.handler = new Handler(Looper.getMainLooper());
@@ -203,7 +225,7 @@ public class LiveYYPluginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void dLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, this, str) == null) {
             NpsLoadChainLog.getInstance().dLog(str);
         }
     }
@@ -211,7 +233,7 @@ public class LiveYYPluginManager {
     private boolean isYYPlugin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -227,8 +249,8 @@ public class LiveYYPluginManager {
 
     private void preLoadYY(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65569, this, j) == null) {
-            NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, new IInvokeCallback(this, j) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+        if (interceptable == null || interceptable.invokeJ(65571, this, j) == null) {
+            NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, new IInvokeCallback(this, j) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -259,6 +281,10 @@ public class LiveYYPluginManager {
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         LiveYYPluginManager liveYYPluginManager = this.this$0;
                         liveYYPluginManager.dLog("LiveYYPluginManager onResult code = " + i + ", msg = " + str + ", clazz = " + obj + ", time = " + (System.currentTimeMillis() - this.val$startTime));
+                        if (i != 14) {
+                            return;
+                        }
+                        this.this$0.mLiveNpsPreload = true;
                     }
                 }
             });
@@ -267,14 +293,14 @@ public class LiveYYPluginManager {
 
     public void setLoadingCallback(LiveNpsLoadingCallback liveNpsLoadingCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, liveNpsLoadingCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, liveNpsLoadingCallback) == null) {
             this.loadingCallback = liveNpsLoadingCallback;
         }
     }
 
     public void updateStatInfo(YYStatInfo yYStatInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, yYStatInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, yYStatInfo) == null) {
             this.mStatInfo = yYStatInfo;
         }
     }
@@ -282,29 +308,100 @@ public class LiveYYPluginManager {
     private int compareVersion(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65557, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65559, this, i, i2)) == null) {
             return (i / 1000) - (i2 / 1000);
         }
         return invokeII.intValue;
     }
 
+    public void reportUBCNotify(String str, JSONObject jSONObject) {
+        IYYLiveNPSPlugin iYYLiveNPSPlugin;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) && (iYYLiveNPSPlugin = this.mYYLiveNPSPlugin) != null) {
+            try {
+                iYYLiveNPSPlugin.reportNotify(str, jSONObject);
+            } catch (Throwable th) {
+                pluginYaLog("版本不兼容 error = " + Log.getStackTraceString(th));
+            }
+        }
+    }
+
+    public void prepareYYEnv(Context context, String str, YYEnvResultCallback yYEnvResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, yYEnvResultCallback) == null) {
+            IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
+            if (iYYLiveNPSPlugin == null) {
+                loadNPSPluginImpl(new PluginLoadCallback(this, str, yYEnvResultCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LiveYYPluginManager this$0;
+                    public final /* synthetic */ YYEnvResultCallback val$callback;
+                    public final /* synthetic */ String val$env;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str, yYEnvResultCallback};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$env = str;
+                        this.val$callback = yYEnvResultCallback;
+                    }
+
+                    @Override // com.baidu.searchbox.live.nps.LiveYYPluginManager.PluginLoadCallback
+                    public void onResult(int i, String str2, Object obj, String str3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, obj, str3}) == null) {
+                            if (i == 14) {
+                                try {
+                                    this.this$0.mYYLiveNPSPlugin = (IYYLiveNPSPlugin) ((Class) obj).newInstance();
+                                    if (!this.this$0.isLoadingCanceled) {
+                                        this.this$0.mYYLiveNPSPlugin.prepareYYEnv(this.val$env, this.val$callback);
+                                        return;
+                                    }
+                                    return;
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return;
+                                }
+                            }
+                            this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
+                        }
+                    }
+                }, USE_FROM_PREPARE_CREATE_LIVE, "", context, true);
+            } else {
+                iYYLiveNPSPlugin.prepareYYEnv(str, yYEnvResultCallback);
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.12
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new s91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.s91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.s91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -328,7 +425,7 @@ public class LiveYYPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            }, new u91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -351,11 +448,11 @@ public class LiveYYPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.t91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
+                @Override // com.baidu.tieba.u91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, v91 v91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
-                        u91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, v91Var) == null) && v91Var != null) {
+                        v91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -365,7 +462,7 @@ public class LiveYYPluginManager {
     public static LiveYYPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             return SingletonHolder.INSTANCE;
         }
         return (LiveYYPluginManager) invokeV.objValue;
@@ -374,7 +471,7 @@ public class LiveYYPluginManager {
     private boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
             AppInfoService appInfoService = this.appService;
             if (appInfoService != null) {
                 return appInfoService.isDebug();
@@ -382,20 +479,6 @@ public class LiveYYPluginManager {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void cancelLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pluginYaLog("cancelLoading");
-            this.isLoadingCanceled = true;
-            Consumer<Boolean> consumer = this.mSubDismissCallback;
-            if (consumer != null) {
-                consumer.accept(Boolean.TRUE);
-            }
-            this.mSubDismissCallback = null;
-            this.mLoadingShowing = false;
-        }
     }
 
     public void cancelStartYYLiveActivity() {
@@ -454,7 +537,7 @@ public class LiveYYPluginManager {
         int i;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, this)) == null) {
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
             if (bundleGroup == null) {
                 if (isDebug()) {
@@ -570,7 +653,7 @@ public class LiveYYPluginManager {
 
     private void loadNPSPluginImpl(PluginLoadCallback pluginLoadCallback, String str, String str2, Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, this, new Object[]{pluginLoadCallback, str, str2, context, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65566, this, new Object[]{pluginLoadCallback, str, str2, context, Boolean.valueOf(z)}) == null) {
             loadNPSPluginImpl(pluginLoadCallback, str, str2, context, true, false, z);
         }
     }
@@ -589,10 +672,10 @@ public class LiveYYPluginManager {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65565, this, new Object[]{pluginLoadCallback, str, str2, context, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65567, this, new Object[]{pluginLoadCallback, str, str2, context, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             NpsLoadChainLog.getInstance().dLog("LiveYYPluginManager loadNPSPluginImpl " + str + GlideException.IndentedAppendable.INDENT + str2);
             this.mCurrentCallback = pluginLoadCallback;
-            IInvokeCallback iInvokeCallback = new IInvokeCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.7
+            IInvokeCallback iInvokeCallback = new IInvokeCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -629,11 +712,12 @@ public class LiveYYPluginManager {
                         }
                         LiveYYPluginManager liveYYPluginManager2 = this.this$0;
                         liveYYPluginManager2.dLog("LiveYYPluginManager 一级加载结束~ invokeSucc = " + z4);
+                        NpsLoadChainLog.getInstance().endLoadClazzLiveNps(z4, i4);
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            this.this$0.mHandler.post(new Runnable(this, i4, str3, obj) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.7.1
+                            this.this$0.mHandler.post(new Runnable(this, i4, str3, obj) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.8.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass7 this$1;
+                                public final /* synthetic */ AnonymousClass8 this$1;
                                 public final /* synthetic */ int val$i;
                                 public final /* synthetic */ Object val$o;
                                 public final /* synthetic */ String val$s;
@@ -675,7 +759,7 @@ public class LiveYYPluginManager {
                     }
                 }
             };
-            IInvokeCallback iInvokeCallback2 = new IInvokeCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.8
+            IInvokeCallback iInvokeCallback2 = new IInvokeCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -713,6 +797,7 @@ public class LiveYYPluginManager {
                         }
                         LiveYYPluginManager liveYYPluginManager2 = this.this$0;
                         liveYYPluginManager2.dLog("LiveYYPluginManager 一级安装结束~ invokeSucc = " + z4);
+                        NpsLoadChainLog.getInstance().endLoadClazzLiveNps(z4, i4);
                         if (this.this$0.fromDownLoad) {
                             str4 = "download";
                         } else {
@@ -720,10 +805,10 @@ public class LiveYYPluginManager {
                         }
                         String str5 = str4;
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            this.this$0.mHandler.post(new Runnable(this, i4, str3, obj, str5) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.8.1
+                            this.this$0.mHandler.post(new Runnable(this, i4, str3, obj, str5) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.9.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass8 this$1;
+                                public final /* synthetic */ AnonymousClass9 this$1;
                                 public final /* synthetic */ int val$i;
                                 public final /* synthetic */ String val$loadType;
                                 public final /* synthetic */ Object val$o;
@@ -797,7 +882,7 @@ public class LiveYYPluginManager {
             if (isAvailable) {
                 this.fromDownLoad = false;
                 if (NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance").getBundleByType(2) != null) {
-                    ExecutorUtilsExt.postOnElastic(new Runnable(this, z3, iInvokeCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.9
+                    ExecutorUtilsExt.postOnElastic(new Runnable(this, z3, iInvokeCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.10
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ LiveYYPluginManager this$0;
@@ -831,16 +916,25 @@ public class LiveYYPluginManager {
                                 return;
                             }
                             this.this$0.dLog("开始安装 YY 一级");
+                            NpsLoadChainLog.getInstance().startInstallLiveNps();
                             int prepareBundle = NPSPackageManager.getInstance().prepareBundle("com.baidu.searchbox.yylive.entrance");
                             LiveYYPluginManager liveYYPluginManager = this.this$0;
                             liveYYPluginManager.pluginYaLog("Top plugin is available and has downloaded plugin, prepareBundle result = " + prepareBundle + ", and loadClazz");
                             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
                             npsLoadChainLog.setPluginVersion(this.this$0.getPluginInstallVersion() + "");
                             this.this$0.dLog("YY 一级安装结束~成功");
-                            this.this$0.mHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.9.1
+                            NpsLoadChainLog.getInstance().endInstallLiveNps(true, prepareBundle);
+                            this.this$0.dLog("开始加载YY一级插件");
+                            if (!this.this$0.mLiveNpsPreload) {
+                                NpsLoadChainLog.getInstance().startLoadClazzLiveNps();
+                            } else {
+                                this.this$0.dLog("已预加载YY一级插件");
+                                NpsLoadChainLog.getInstance().startLoadClazzLiveNpsPreload();
+                            }
+                            this.this$0.mHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.10.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass9 this$1;
+                                public final /* synthetic */ AnonymousClass10 this$1;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -864,11 +958,11 @@ public class LiveYYPluginManager {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        AnonymousClass9 anonymousClass9 = this.this$1;
-                                        if (!anonymousClass9.val$enterPage) {
+                                        AnonymousClass10 anonymousClass10 = this.this$1;
+                                        if (!anonymousClass10.val$enterPage) {
                                             return;
                                         }
-                                        anonymousClass9.this$0.pluginYaLog("Top plugin is available and has downloaded plugin, downloadUpdatePackage~");
+                                        anonymousClass10.this$0.pluginYaLog("Top plugin is available and has downloaded plugin, downloadUpdatePackage~");
                                         this.this$1.this$0.downloadUpdatePackage();
                                     }
                                 }
@@ -883,6 +977,13 @@ public class LiveYYPluginManager {
                     downloadUpdatePackage();
                 }
                 pluginYaLog("Top plugin is available but no downloaded plugin, directly loadClazz");
+                dLog("开始加载YY一级插件");
+                if (this.mLiveNpsPreload) {
+                    dLog("已预加载YY一级插件");
+                    NpsLoadChainLog.getInstance().startLoadClazzLiveNpsPreload();
+                } else {
+                    NpsLoadChainLog.getInstance().startLoadClazzLiveNps();
+                }
                 NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, iInvokeCallback);
                 return;
             }
@@ -892,8 +993,9 @@ public class LiveYYPluginManager {
             }
             this.fromDownLoad = false;
             dLog("下载 YY 一级 = com.baidu.searchbox.yylive.entrance");
+            NpsLoadChainLog.getInstance().startDownloadLiveNps();
             pluginYaLog("Top plugin is not available and installBundle~");
-            NPSPackageManager.getInstance().installBundle("com.baidu.searchbox.yylive.entrance", new IInstallCallback(this, z, str, iInvokeCallback2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.10
+            NPSPackageManager.getInstance().installBundle("com.baidu.searchbox.yylive.entrance", new IInstallCallback(this, z, str, iInvokeCallback2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -942,7 +1044,9 @@ public class LiveYYPluginManager {
                             return;
                         }
                         this.this$0.dLog("YY 一级下载结束");
+                        NpsLoadChainLog.getInstance().endDownloadLiveNps(j, j2);
                         this.this$0.dLog("开始安装 YY 一级");
+                        NpsLoadChainLog.getInstance().startInstallLiveNps();
                     }
                 }
 
@@ -959,20 +1063,27 @@ public class LiveYYPluginManager {
                             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
                             npsLoadChainLog.setPluginVersion(this.this$0.getPluginInstallVersion() + "");
                             this.this$0.dLog("YY 一级插件安装结束~成功");
+                            NpsLoadChainLog.getInstance().endInstallLiveNps(true, i4);
                             this.this$0.dLog("开始加载 YY 一级");
+                            NpsLoadChainLog.getInstance().startLoadClazzLiveNps();
                             this.this$0.pluginYaLog("Install top plugin Success loadClazz");
                             NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, this.val$installedLoadProxyCallback);
                         } else if (i4 == 3 && NPSPackageManager.getInstance().getBundleStatus("com.baidu.searchbox.yylive.entrance") == 43) {
                             NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
                             npsLoadChainLog2.setPluginVersion(this.this$0.getPluginInstallVersion() + "");
                             this.this$0.dLog("YY 一级安装结束~成功");
+                            NpsLoadChainLog.getInstance().endInstallLiveNps(true, i4);
                             this.this$0.dLog("开始加载YY 一级");
+                            NpsLoadChainLog.getInstance().startLoadClazzLiveNps();
                             this.this$0.pluginYaLog("Install top plugin no data and is available, so loadClazz");
                             NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, this.val$installedLoadProxyCallback);
                         } else {
                             this.this$0.pluginYaLog("Install top plugin Fail, so not loadClazz");
                             LiveYYPluginManager liveYYPluginManager2 = this.this$0;
                             liveYYPluginManager2.dLog("YY 一级安装结束~失败 rerCode = " + i4);
+                            if (i4 != 34) {
+                                NpsLoadChainLog.getInstance().endInstallLiveNps(false, i4);
+                            }
                             if (this.val$needYYLoading) {
                                 if (i4 == 34) {
                                     if (this.this$0.loadingCallback != null) {
@@ -991,47 +1102,55 @@ public class LiveYYPluginManager {
         }
     }
 
-    private void npsLoadChainInitOther() {
+    /* JADX DEBUG: Type inference failed for r5v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
+    /* JADX WARN: Multi-variable type inference failed */
+    private String parseEntry(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
-            NpsLoadChainLog.getInstance().initAndStart();
-            NpsLoadChainLog.getInstance().setEntry("YY-Other");
-            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
-            npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
-        }
-    }
-
-    private void showLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            pluginYaLog("showLoading, " + this.loadingCallback);
-            LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
-            if (liveNpsLoadingCallback != null) {
-                liveNpsLoadingCallback.onLoadingProgress(0L, 100L);
-                this.loadingCallback.onLoadingStart();
-                this.mLoadingShowing = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, this, str)) == null) {
+            LiveNPSPluginManagerOld.getInstance();
+            String paramsStr = LiveNPSPluginManagerOld.getParamsStr(str);
+            LiveNPSPluginManagerOld.getInstance();
+            HashMap<String, String> stringToMap = LiveNPSPluginManagerOld.stringToMap(paramsStr);
+            boolean containsKey = stringToMap.containsKey("params");
+            Map map = stringToMap;
+            if (containsKey) {
+                try {
+                    JSONObject jSONObject = new JSONObject(stringToMap.get("params"));
+                    LiveNPSPluginManagerOld.getInstance();
+                    map = LiveNPSPluginManagerOld.paramsJsonToMap(jSONObject);
+                } catch (Exception unused) {
+                    map = null;
+                }
             }
-        }
-    }
-
-    public void stopLoadingBySubPlugin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            pluginYaLog("stopLoadingBySubPlugin, " + this.mSubDismissCallback);
-            LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
-            if (liveNpsLoadingCallback != null) {
-                liveNpsLoadingCallback.onLoadingProgress(100L, 100L);
-                this.loadingCallback.onLoadingEnd(-1);
-                this.mLoadingShowing = false;
+            String str2 = "";
+            if (map == null) {
+                return "";
             }
-            this.mSubDismissCallback = null;
+            String str3 = map.get("tab");
+            String str4 = map.get("tag");
+            String str5 = map.get("source");
+            StringBuilder sb = new StringBuilder();
+            if (str3 == null) {
+                str3 = "";
+            }
+            sb.append(str3);
+            sb.append("-");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            sb.append(str2);
+            sb.append("-");
+            sb.append(str5);
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pluginYaLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65570, this, str) == null) {
             LiveYalogApi liveYalogApi = this.yalogApi;
             if (liveYalogApi != null) {
                 liveYalogApi.w("3036", "load-livenps-plugin", str);
@@ -1044,7 +1163,7 @@ public class LiveYYPluginManager {
 
     public void showLoadingBySubPlugin(Consumer<Boolean> consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, consumer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, consumer) == null) {
             pluginYaLog("showLoadingBySubPlugin, " + this.loadingCallback);
             if (!this.mLoadingShowing) {
                 showLoading();
@@ -1054,13 +1173,100 @@ public class LiveYYPluginManager {
         }
     }
 
+    public void startYYActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
+            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
+            npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + this.mYYLiveNPSPlugin);
+            IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
+            if (iYYLiveNPSPlugin == null) {
+                loadNPSPluginImpl(new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LiveYYPluginManager this$0;
+                    public final /* synthetic */ Context val$context;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
+                    }
+
+                    @Override // com.baidu.searchbox.live.nps.LiveYYPluginManager.PluginLoadCallback
+                    public void onResult(int i, String str, Object obj, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, obj, str2}) == null) {
+                            if (i == 14) {
+                                try {
+                                    this.this$0.mYYLiveNPSPlugin = (IYYLiveNPSPlugin) ((Class) obj).newInstance();
+                                    if (!this.this$0.isLoadingCanceled) {
+                                        this.this$0.mYYLiveNPSPlugin.startYYActivity(this.val$context);
+                                    }
+                                    this.this$0.logPluginVersionCode();
+                                    return;
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return;
+                                }
+                            }
+                            this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
+                        }
+                    }
+                }, USE_FROM_START_YY_TEST_PAGE, "", context, true);
+                return;
+            }
+            iYYLiveNPSPlugin.startYYActivity(context);
+            logPluginVersionCode();
+        }
+    }
+
+    private void showLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+            pluginYaLog("showLoading, " + this.loadingCallback);
+            LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
+            if (liveNpsLoadingCallback != null) {
+                liveNpsLoadingCallback.onLoadingProgress(0L, 100L);
+                this.loadingCallback.onLoadingStart();
+                this.mLoadingShowing = true;
+            }
+        }
+    }
+
+    public void stopLoadingBySubPlugin() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            pluginYaLog("stopLoadingBySubPlugin, " + this.mSubDismissCallback);
+            LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
+            if (liveNpsLoadingCallback != null) {
+                liveNpsLoadingCallback.onLoadingProgress(100L, 100L);
+                this.loadingCallback.onLoadingEnd(-1);
+                this.mLoadingShowing = false;
+            }
+            this.mSubDismissCallback = null;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void showNormalToast(int i, int i2) {
         ToastService toastService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65571, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(65573, this, i, i2) == null) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.handler.post(new Runnable(this, i, i2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.16
+                this.handler.post(new Runnable(this, i, i2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.17
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1107,7 +1313,7 @@ public class LiveYYPluginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void stopLoading(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65572, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65574, this, i, str) == null) {
             pluginYaLog("stopLoading, " + str);
             if (!this.markClosedByPlugin && !USE_FROM_DISPATCH_YY_ROUTER.equals(str) && !USE_FROM_START_YY_CUSTOMER_PAGE.equals(str) && !USE_FROM_START_YY_FEED_BACK_PAGE.equals(str)) {
                 LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
@@ -1148,7 +1354,7 @@ public class LiveYYPluginManager {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
             if (this.mYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.3
+                loadNPSPluginImpl(new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1238,7 +1444,7 @@ public class LiveYYPluginManager {
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, str, str2, Boolean.valueOf(z), pluginLoadCallback, map}) == null) && "com.baidu.searchbox.yylive.entrance".equals(str)) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveYYPluginManager loadPlugin " + str + GlideException.IndentedAppendable.INDENT + str2);
-            PluginLoadCallback pluginLoadCallback2 = new PluginLoadCallback(this, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.6
+            PluginLoadCallback pluginLoadCallback2 = new PluginLoadCallback(this, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1311,10 +1517,13 @@ public class LiveYYPluginManager {
         if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iLiveDiskClearCacheCallback}) != null) || NPSPackageManager.getInstance().getBundleInfo("com.baidu.searchbox.yylive.entrance") == null) {
             return;
         }
-        npsLoadChainInitOther();
+        NpsLoadChainLog.getInstance().initAndStart();
+        NpsLoadChainLog.getInstance().setEntry("YY-DiskCleaner");
+        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
+        npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
         IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
         if (iYYLiveNPSPlugin == null) {
-            loadNPSPluginImpl(new PluginLoadCallback(this, j, i, i2, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.11
+            loadNPSPluginImpl(new PluginLoadCallback(this, j, i, i2, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1374,10 +1583,10 @@ public class LiveYYPluginManager {
 
     public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             dLog("startPayment--调起YY收银台，插件版本号 = " + getPluginInstallVersion());
             if (this.mYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(new PluginLoadCallback(this, context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.15
+                loadNPSPluginImpl(new PluginLoadCallback(this, context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.16
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1462,70 +1671,9 @@ public class LiveYYPluginManager {
         }
     }
 
-    public void startYYActivity(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
-            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
-            npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + this.mYYLiveNPSPlugin);
-            npsLoadChainInitOther();
-            IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
-            if (iYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ LiveYYPluginManager this$0;
-                    public final /* synthetic */ Context val$context;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$context = context;
-                    }
-
-                    @Override // com.baidu.searchbox.live.nps.LiveYYPluginManager.PluginLoadCallback
-                    public void onResult(int i, String str, Object obj, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, obj, str2}) == null) {
-                            if (i == 14) {
-                                try {
-                                    this.this$0.mYYLiveNPSPlugin = (IYYLiveNPSPlugin) ((Class) obj).newInstance();
-                                    if (!this.this$0.isLoadingCanceled) {
-                                        this.this$0.mYYLiveNPSPlugin.startYYActivity(this.val$context);
-                                    }
-                                    this.this$0.logPluginVersionCode();
-                                    return;
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    return;
-                                }
-                            }
-                            this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
-                        }
-                    }
-                }, USE_FROM_START_YY_TEST_PAGE, "", context, true);
-                return;
-            }
-            iYYLiveNPSPlugin.startYYActivity(context);
-            logPluginVersionCode();
-        }
-    }
-
     public void startYYCustomerServiceActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
             dLog("startYYCustomerServiceActivity--进入YY客服页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-CustomerService");
@@ -1590,7 +1738,7 @@ public class LiveYYPluginManager {
 
     public void startYYFeedbackActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
             dLog("startYYFeedbackActivity--进入YY反馈页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-Feedback");
@@ -1655,15 +1803,19 @@ public class LiveYYPluginManager {
 
     public void startYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048596, this, context, str) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + str + GlideException.IndentedAppendable.INDENT + this.mYYLiveNPSPlugin);
             if (YYStaticConfig.conf == null) {
                 YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLiveBegin", Long.valueOf(System.currentTimeMillis()));
+            NpsLoadChainLog.getInstance().initAndStart();
+            NpsLoadChainLog.getInstance().setEntry(parseEntry(str));
+            NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
+            npsLoadChainLog2.setPluginVersion(getPluginInstallVersion() + "");
             if (this.mYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.5
+                loadNPSPluginImpl(new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveYYPluginManager this$0;
@@ -1733,7 +1885,7 @@ public class LiveYYPluginManager {
 
     public void updatePluginLoadProgress(String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) && YYPluginProgressInvokeService.Companion.getSUB_PLUGIN_PROGRESS().equals(str) && this.loadingCallback != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) && YYPluginProgressInvokeService.Companion.getSUB_PLUGIN_PROGRESS().equals(str) && this.loadingCallback != null) {
             dLog("updatePluginLoadProgress, current = " + j + ", total = " + j2);
             long j3 = (j2 / 2) + (j / 2);
             if ((j3 * 100) / j2 < 50) {

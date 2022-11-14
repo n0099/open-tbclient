@@ -1,125 +1,149 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.uv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ld6 implements sd6 {
+public class ld6 extends sv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nd6 a;
-    public boolean b;
-    public boolean c;
-    public kd6 d;
-    public boolean e;
+    public TbPageContext k;
+    public Context l;
+    public ViewEventCenter m;
+    public final uv4 n;
+    public gb6 o;
+    public final List<qv4> p;
+    public final uv4.e q;
 
-    public ld6(boolean z) {
+    /* loaded from: classes4.dex */
+    public class a implements uv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ld6 a;
+
+        public a(ld6 ld6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ld6Var;
+        }
+
+        @Override // com.baidu.tieba.uv4.e
+        public void n0(uv4 uv4Var, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, uv4Var, i, view2) == null) {
+                this.a.dismiss();
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    yi.O(this.a.l, R.string.obfuscated_res_0x7f0f0c82);
+                } else if (i == 2) {
+                    this.a.m.dispatchMvcEvent(new ed5(4, this.a.o, null, null));
+                } else if (i == 1) {
+                    this.a.m.dispatchMvcEvent(new ed5(13, this.a.o, null, null));
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld6(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.e = false;
-        this.a = new nd6();
-        this.e = z;
+        this.q = new a(this);
+        this.k = tbPageContext;
+        this.l = tbPageContext.getPageActivity();
+        this.m = viewEventCenter;
+        this.p = new ArrayList();
+        uv4 uv4Var = new uv4(this.l);
+        this.n = uv4Var;
+        uv4Var.n(this.q);
+        h(this.n);
     }
 
-    @Override // com.baidu.tieba.sd6
-    public void a(String str, td6 td6Var) {
-        kd6 kd6Var;
-        kd6 kd6Var2;
-        float f;
-        float f2;
+    public void r(gb6 gb6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, td6Var) != null) || td6Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, gb6Var) == null) {
+            this.o = gb6Var;
+            o();
         }
-        if (this.b) {
-            File file = new File(td6Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(td6Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f3 = height * 1.0f;
-                float f4 = f3 / width;
-                if (f4 > 1.0f) {
-                    f = 1.7777778f;
-                } else {
-                    f = 0.75f;
-                }
-                float f5 = 0.0f;
-                if (f4 > f) {
-                    float f6 = f * width;
-                    f2 = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f3 / f;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f2 = 0.0f;
-                }
-                td6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+    }
+
+    public final void o() {
+        List<qv4> list;
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.o != null && (list = this.p) != null && this.n != null) {
+            list.clear();
+            if (this.o.l() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-        if ("default".equals(str)) {
-            if (!this.c && (kd6Var2 = this.d) != null) {
-                kd6Var2.g0(td6Var.a);
+            if (z) {
+                i = R.string.obfuscated_res_0x7f0f0383;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f1496;
             }
-        } else if ("manual".equals(str) && (kd6Var = this.d) != null) {
-            kd6Var.g0(td6Var.a);
+            this.p.add(new qv4(1, p(i, new Object[0]), this.n));
+            this.p.add(new qv4(2, p(R.string.obfuscated_res_0x7f0f04bb, new Object[0]), this.n));
+            this.n.j(this.p);
         }
     }
 
-    public void b(ud6 ud6Var, String str) {
+    public final String p(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ud6Var, str) == null) {
-            this.a.a(str, this.e).a(ud6Var, this);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
+            Context context = this.l;
+            if (context == null) {
+                return null;
+            }
+            return context.getString(i, objArr);
         }
+        return (String) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.sd6
-    public void onError(String str, String str2) {
+    public void q() {
+        uv4 uv4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void e(kd6 kd6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kd6Var) == null) {
-            this.d = kd6Var;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uv4Var = this.n) != null) {
+            uv4Var.i();
         }
     }
 }

@@ -1,101 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.view.View;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Locale;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "BdPlayerUtils")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class rz0 {
+public class rz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static final int a(View view2, float f) {
-        InterceptResult invokeLF;
-        float f2;
-        Context context;
-        Resources resources;
-        DisplayMetrics displayMetrics;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
-            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                f2 = displayMetrics.density;
-            } else {
-                f2 = 1.0f;
+    /* loaded from: classes5.dex */
+    public static class b implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             }
-            return (int) ((f * f2) + 0.5f);
         }
-        return invokeLF.intValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                xj0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                xj0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
+            }
+        }
     }
 
-    @JvmOverloads
-    public static final int d(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                vz0.f("parseInt catch exception:", e);
-                return i;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            b(new b(null), 31);
         }
-        return invokeLI.intValue;
     }
 
-    public static final String b(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void b(@Nullable CyberPlayerManager.InstallListener installListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
-            }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
-                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
-                return format;
-            }
-            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
-            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
-            return format2;
+        if (interceptable == null || interceptable.invokeLI(65537, null, installListener, i) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
+            a01.a(aj0.a().g(), h01.m(), i, hashMap, installListener, null);
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
-        }
-        return d(str, i);
     }
 }

@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class k3 {
@@ -36,7 +35,7 @@ public class k3 {
                 if (TextUtils.isEmpty(a) || a.contains("arm64")) {
                     return 0;
                 }
-                return !a.contains(WebKitFactory.OS_64) ? 1 : 0;
+                return !a.contains("64") ? 1 : 0;
             } catch (Exception unused) {
                 return 0;
             }

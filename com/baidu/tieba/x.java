@@ -23,27 +23,27 @@ import java.util.Map;
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<h10> a;
+    public List<i10> a;
     public Context b;
     public Map<String, Integer> c;
 
     /* loaded from: classes6.dex */
-    public class a extends y00 {
+    public class a extends z00 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h10 a;
+        public final /* synthetic */ i10 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ File c;
         public final /* synthetic */ File d;
         public final /* synthetic */ String e;
         public final /* synthetic */ x f;
 
-        public a(x xVar, h10 h10Var, String str, File file, File file2, String str2) {
+        public a(x xVar, i10 i10Var, String str, File file, File file2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xVar, h10Var, str, file, file2, str2};
+                Object[] objArr = {xVar, i10Var, str, file, file2, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,14 +54,14 @@ public class x {
                 }
             }
             this.f = xVar;
-            this.a = h10Var;
+            this.a = i10Var;
             this.b = str;
             this.c = file;
             this.d = file2;
             this.e = str2;
         }
 
-        @Override // com.baidu.tieba.y00
+        @Override // com.baidu.tieba.z00
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -73,31 +73,31 @@ public class x {
                     sb.append("---");
                     sb.append(this.e);
                     Log.e("RtcDownSo", sb.toString());
-                    i10.e(this.d, this.e);
-                    i10.b(this.d.getAbsolutePath());
+                    j10.e(this.d, this.e);
+                    j10.b(this.d.getAbsolutePath());
                     this.f.h(this.a, this.b, this.e);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    i10.b(this.d.getAbsolutePath());
-                    if (i10.c(this.e)) {
-                        i10.a(new File(this.e));
+                    j10.b(this.d.getAbsolutePath());
+                    if (j10.c(this.e)) {
+                        j10.a(new File(this.e));
                     }
                     this.f.e(this.a, this.b, 108, "unzip exception");
                 }
             }
         }
 
-        @Override // com.baidu.tieba.y00
+        @Override // com.baidu.tieba.z00
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
                 downloadException.printStackTrace();
-                i10.b(this.c.getAbsolutePath());
+                j10.b(this.c.getAbsolutePath());
                 this.f.e(this.a, this.b, downloadException.getErrorCode(), downloadException.getErrorMessage());
             }
         }
 
-        @Override // com.baidu.tieba.y00
+        @Override // com.baidu.tieba.z00
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -105,7 +105,7 @@ public class x {
             }
         }
 
-        @Override // com.baidu.tieba.y00
+        @Override // com.baidu.tieba.z00
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -154,7 +154,7 @@ public class x {
     }
 
     public void o() {
-        List<h10> list;
+        List<i10> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (list = this.a) != null) {
             list.clear();
@@ -176,7 +176,7 @@ public class x {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return w00.i().l(str);
+            return x00.i().l(str);
         }
         return invokeL.booleanValue;
     }
@@ -184,16 +184,16 @@ public class x {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            g10.o(str);
+            h10.o(str);
         }
     }
 
-    public final void e(h10 h10Var, String str, int i, String str2) {
+    public final void e(i10 i10Var, String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, h10Var, str, i, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, i10Var, str, i, str2) == null) {
             this.c.put(str, 2);
-            if (h10Var != null) {
-                h10Var.onDownloadFail(str, i, str2);
+            if (i10Var != null) {
+                i10Var.onDownloadFail(str, i, str2);
             }
             if (this.a != null) {
                 for (int i2 = 0; i2 < this.a.size(); i2++) {
@@ -203,11 +203,11 @@ public class x {
         }
     }
 
-    public final void f(h10 h10Var, String str, float f) {
+    public final void f(i10 i10Var, String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{h10Var, str, Float.valueOf(f)}) == null) {
-            if (h10Var != null) {
-                h10Var.onDownloadProgress(f);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{i10Var, str, Float.valueOf(f)}) == null) {
+            if (i10Var != null) {
+                i10Var.onDownloadProgress(f);
             }
             if (this.a != null) {
                 for (int i = 0; i < this.a.size(); i++) {
@@ -217,12 +217,12 @@ public class x {
         }
     }
 
-    public final void h(h10 h10Var, String str, String str2) {
+    public final void h(i10 i10Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, h10Var, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, i10Var, str, str2) == null) {
             this.c.put(str, 3);
-            if (h10Var != null) {
-                h10Var.onDownloadSuccess(str, str2);
+            if (i10Var != null) {
+                i10Var.onDownloadSuccess(str, str2);
             }
             if (this.a != null) {
                 for (int i = 0; i < this.a.size(); i++) {
@@ -232,11 +232,11 @@ public class x {
         }
     }
 
-    public final void g(h10 h10Var, String str) {
+    public final void g(i10 i10Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h10Var, str) == null) {
-            if (h10Var != null) {
-                h10Var.onDownloadStart(str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, i10Var, str) == null) {
+            if (i10Var != null) {
+                i10Var.onDownloadStart(str);
             }
             if (this.a != null) {
                 for (int i = 0; i < this.a.size(); i++) {
@@ -250,52 +250,52 @@ public class x {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            return g10.m(this.b, str, str2);
+            return h10.m(this.b, str, str2);
         }
         return invokeLL.booleanValue;
     }
 
-    public final void i(String str, String str2, Looper looper, h10 h10Var) {
+    public final void i(String str, String str2, Looper looper, i10 i10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, looper, h10Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, looper, i10Var) == null) {
             if (!m(str)) {
-                i10.a(new File(str2));
+                j10.a(new File(str2));
             }
             File file = new File(str2);
             if (!file.exists()) {
                 file.mkdirs();
             }
             this.c.put(str, 1);
-            String d = g10.d(this.b, str, str2);
+            String d = h10.d(this.b, str, str2);
             File file2 = new File(d + ".temp");
             File file3 = new File(d + ".zip");
             Log.d("RtcDownSo", "start down folder=" + str2 + "name=" + file2.getName());
-            w00.i().h(str, str2, file2.getName(), looper, new a(this, h10Var, str, file2, file3, d));
+            x00.i().h(str, str2, file2.getName(), looper, new a(this, i10Var, str, file2, file3, d));
         }
     }
 
-    public void j(@NonNull String str, boolean z, h10 h10Var) {
+    public void j(@NonNull String str, boolean z, i10 i10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), h10Var}) == null) {
-            String b2 = g10.b(this.b);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), i10Var}) == null) {
+            String b2 = h10.b(this.b);
             if (TextUtils.isEmpty(str)) {
-                h10Var.onDownloadFail(str, 108, "download url is empty.");
+                i10Var.onDownloadFail(str, 108, "download url is empty.");
             } else if (l(str, b2)) {
-                if (h10Var != null) {
-                    h10Var.onDownloadSuccess(str, g10.d(this.b, str, b2));
+                if (i10Var != null) {
+                    i10Var.onDownloadSuccess(str, h10.d(this.b, str, b2));
                 }
             } else if (z) {
                 if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
                     Log.d("RtcDownSo", "start down so main thread");
-                    i(str, b2, Looper.getMainLooper(), h10Var);
+                    i(str, b2, Looper.getMainLooper(), i10Var);
                     return;
                 }
                 Looper.prepare();
                 Log.d("RtcDownSo", "start down so sub thread");
-                i(str, b2, Looper.myLooper(), h10Var);
+                i(str, b2, Looper.myLooper(), i10Var);
                 Looper.loop();
             } else {
-                i(str, b2, Looper.getMainLooper(), h10Var);
+                i(str, b2, Looper.getMainLooper(), i10Var);
             }
         }
     }

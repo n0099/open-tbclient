@@ -18,9 +18,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.np5;
-import com.baidu.tieba.sx;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements sx {
+public class EllipsizeTagTitleView extends View implements tx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -84,13 +84,13 @@ public class EllipsizeTagTitleView extends View implements sx {
                 return;
             }
         }
-        B = xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = xi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -269,7 +269,7 @@ public class EllipsizeTagTitleView extends View implements sx {
         canvas.drawText(this.u, this.y.left + this.h, (f + (this.p / 2.0f)) - this.q, this.w);
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
@@ -398,7 +398,7 @@ public class EllipsizeTagTitleView extends View implements sx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.EllipsizeTagTitleView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zp5.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -429,7 +429,7 @@ public class EllipsizeTagTitleView extends View implements sx {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;

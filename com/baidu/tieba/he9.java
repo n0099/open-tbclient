@@ -1,101 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zd9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public final class he9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final he9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
+    public final Set<a> a;
+    public boolean b;
 
     /* loaded from: classes4.dex */
-    public class a extends le9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+    public interface a {
+        void U();
 
-        public a(he9 he9Var, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
+        void a(Activity activity);
+
+        void b();
+
+        void onActivityDestroyed(Activity activity);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820973, "Lcom/baidu/tieba/he9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he9Var, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = lVar;
-        }
-
-        @Override // com.baidu.tieba.le9
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new rd9().c(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947820973, "Lcom/baidu/tieba/he9;");
+                return;
             }
         }
+        c = new he9();
     }
 
     public he9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
+        this.a = new LinkedHashSet();
     }
 
-    public final void a(String str) {
-        zd9 zd9Var;
+    public static he9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
-            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (he9) invokeV.objValue;
+    }
+
+    public final Set<a> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this.a) {
-                Long remove = this.a.remove(str);
-                if (remove == null) {
-                    return;
-                }
-                try {
-                    lVar.setStartTime(String.valueOf(remove));
-                    lVar.t(str);
-                    lVar.z(String.valueOf(System.currentTimeMillis()));
-                    zd9Var = zd9.a.a;
-                    lVar.setPath(zd9Var.b());
-                    lVar.x(ie9.e().I());
-                } catch (Exception e) {
-                    re9.a(e.toString());
-                    je9.b(e.toString());
-                }
-                ke9.c(new a(this, lVar));
+                this.a.clear();
             }
         }
     }
 
-    public final void b(String str) {
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             synchronized (this.a) {
-                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                String.valueOf(System.currentTimeMillis());
+                this.a.add(aVar);
             }
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
+            try {
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new oe9(this));
+            } catch (Exception unused) {
+                cf9.b("registerActivityLifecycleCallbacks encounter exception");
+            }
+            this.b = true;
         }
     }
 }

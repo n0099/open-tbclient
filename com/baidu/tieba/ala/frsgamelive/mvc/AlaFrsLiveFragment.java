@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel;
-import com.baidu.tieba.ck6;
-import com.baidu.tieba.qy5;
-import com.baidu.tieba.ty5;
-import com.baidu.tieba.uy4;
-import com.baidu.tieba.uy5;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wn;
-import com.baidu.tieba.zu5;
+import com.baidu.tieba.cz5;
+import com.baidu.tieba.fz5;
+import com.baidu.tieba.gz5;
+import com.baidu.tieba.lv5;
+import com.baidu.tieba.ok6;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.xn;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, ck6 {
+public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, ok6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -54,7 +54,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public String c;
     public boolean d;
     public AlaFrsLiveModel e;
-    public ty5 f;
+    public fz5 f;
     public int g;
     public boolean h;
     public boolean i;
@@ -62,10 +62,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public CustomMessageListener k;
     public int l;
     public AlaFrsLiveModel.b m;
-    public zu5 n;
-    public uy4.g o;
+    public lv5 n;
+    public zy4.g o;
     public BdMultiColumnListView.OnScrollToBottomListener p;
-    public uy5 q;
+    public gz5 q;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -103,9 +103,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 if (split.length != 2) {
                     return;
                 }
-                if ("FrsGameLive".equals(split[0]) && 9 == wg.e(split[1], 0)) {
+                if ("FrsGameLive".equals(split[0]) && 9 == xg.e(split[1], 0)) {
                     this.a.x();
-                } else if ("FrsGameLiveLive".equals(split[0]) && 2 == wg.e(split[1], 0)) {
+                } else if ("FrsGameLiveLive".equals(split[0]) && 2 == xg.e(split[1], 0)) {
                     this.a.x();
                 }
             }
@@ -151,7 +151,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     }
                     this.a.h = false;
                     AlaFrsLiveFragment alaFrsLiveFragment2 = this.a;
-                    alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.f.k(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0712), null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0710), false, this.a.getNetRefreshListener());
+                    alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.f.k(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0713), null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0711), false, this.a.getNetRefreshListener());
                     return;
                 }
                 AlaFrsLiveFragment alaFrsLiveFragment3 = this.a;
@@ -183,7 +183,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes3.dex */
-    public class c implements zu5 {
+    public class c implements lv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsLiveFragment a;
@@ -206,7 +206,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             this.a = alaFrsLiveFragment;
         }
 
-        @Override // com.baidu.tieba.zu5
+        @Override // com.baidu.tieba.lv5
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
@@ -217,7 +217,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes3.dex */
-    public class d implements uy4.g {
+    public class d implements zy4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsLiveFragment a;
@@ -240,7 +240,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             this.a = alaFrsLiveFragment;
         }
 
-        @Override // com.baidu.tieba.uy4.g
+        @Override // com.baidu.tieba.zy4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.e != null) {
@@ -295,7 +295,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes3.dex */
-    public class f implements uy5 {
+    public class f implements gz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsLiveFragment a;
@@ -318,7 +318,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             this.a = alaFrsLiveFragment;
         }
 
-        @Override // com.baidu.tieba.uy5
+        @Override // com.baidu.tieba.gz5
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.e != null && this.a.e.L() != i) {
@@ -360,11 +360,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public final void H1() {
-        ty5 ty5Var;
+        fz5 fz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ty5Var = this.f) != null && ty5Var.j() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (fz5Var = this.f) != null && fz5Var.j() != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.b, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f067a));
+            sb.append(UtilHelper.getFixedBarText(this.b, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f067b));
             this.f.j().setCenterTextTitle(sb.toString());
         }
     }
@@ -378,8 +378,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             AlaFrsLiveModel alaFrsLiveModel = this.e;
             if (alaFrsLiveModel != null && !ListUtils.isEmpty(alaFrsLiveModel.getData())) {
                 LinkedList linkedList = new LinkedList();
-                for (wn wnVar : this.e.getData()) {
-                    if ((wnVar instanceof ThreadData) && (threadData = (ThreadData) wnVar) != null && threadData.getThreadAlaInfo() != null) {
+                for (xn xnVar : this.e.getData()) {
+                    if ((xnVar instanceof ThreadData) && (threadData = (ThreadData) xnVar) != null && threadData.getThreadAlaInfo() != null) {
                         linkedList.add(Long.valueOf(threadData.getThreadAlaInfo().live_id));
                     }
                 }
@@ -471,9 +471,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             super.onChangeSkinType(i);
             this.l = i;
-            ty5 ty5Var = this.f;
-            if (ty5Var != null) {
-                ty5Var.q(i);
+            fz5 fz5Var = this.f;
+            if (fz5Var != null) {
+                fz5Var.q(i);
             }
         }
     }
@@ -495,7 +495,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         }
     }
 
-    @Override // com.baidu.tieba.ck6
+    @Override // com.baidu.tieba.ok6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -566,10 +566,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public final void x() {
-        ty5 ty5Var;
+        fz5 fz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (ty5Var = this.f) != null) {
-            ty5Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (fz5Var = this.f) != null) {
+            fz5Var.h();
         }
     }
 
@@ -578,9 +578,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            ty5 ty5Var = new ty5(getPageContext(), this.d, getPageContext().getOrignalPage().getUniqueId(), this.a, this.i);
-            this.f = ty5Var;
-            ty5Var.o();
+            fz5 fz5Var = new fz5(getPageContext(), this.d, getPageContext().getOrignalPage().getUniqueId(), this.a, this.i);
+            this.f = fz5Var;
+            fz5Var.o();
             this.f.u(1);
             this.f.v(this.n);
             this.f.y(this.o);
@@ -607,9 +607,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     this.e.setForumGameLabel(this.c);
                     this.e.Q(this.g);
                     this.e.P();
-                    ty5 ty5Var = this.f;
-                    if (ty5Var != null) {
-                        showLoadingView(ty5Var.k(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
+                    fz5 fz5Var = this.f;
+                    if (fz5Var != null) {
+                        showLoadingView(fz5Var.k(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
                     }
                     AlaSquareRefreshManager alaSquareRefreshManager = new AlaSquareRefreshManager();
                     this.j = alaSquareRefreshManager;
@@ -631,8 +631,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048598, this, list) == null) && !ListUtils.isEmpty(list) && (alaFrsLiveModel = this.e) != null && !ListUtils.isEmpty(alaFrsLiveModel.getData())) {
             LinkedList linkedList = new LinkedList();
-            for (wn wnVar : this.e.getData()) {
-                if ((wnVar instanceof ThreadData) && (threadData = (ThreadData) wnVar) != null && threadData.getThreadAlaInfo() != null) {
+            for (xn xnVar : this.e.getData()) {
+                if ((xnVar instanceof ThreadData) && (threadData = (ThreadData) xnVar) != null && threadData.getThreadAlaInfo() != null) {
                     Long l = null;
                     Iterator<Long> it = list.iterator();
                     while (true) {
@@ -684,8 +684,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (wn wnVar : this.e.getData()) {
-                if (wnVar != null && (wnVar instanceof qy5) && (threadData2 = ((qy5) wnVar).a) != null) {
+            for (xn xnVar : this.e.getData()) {
+                if (xnVar != null && (xnVar instanceof cz5) && (threadData2 = ((cz5) xnVar).a) != null) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(A1(threadData2));
                 }
             }

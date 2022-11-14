@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq4;
+import com.baidu.tieba.rq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            qq4 layoutMode = getLayoutMode();
+            rq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -126,12 +126,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.obfuscated_res_0x7f0d064b);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09168d);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d064c);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09168f);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091694);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (x1()) {
-                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09170f)).inflate();
+                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091716)).inflate();
             }
         }
     }
@@ -142,9 +142,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (x1()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09170e);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091715);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09170f);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091716);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;

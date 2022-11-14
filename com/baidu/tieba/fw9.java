@@ -1,47 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.open.deviceidentifiertest.VirtualDevice;
 /* loaded from: classes4.dex */
 public final class fw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
 
-    public fw9() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                if (a == null) {
+                    a = new VirtualDevice().getDeviceID(context);
+                }
+                return a;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
             }
         }
-    }
-
-    public static void a(fw9 fw9Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, fw9Var, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = fw9Var.b;
-                byte[] bArr = fw9Var.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
-        }
-    }
-
-    public static void b(fw9 fw9Var, byte[] bArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, fw9Var, bArr, iArr) == null) {
-            fw9Var.a = bArr;
-            fw9Var.b = iArr;
-        }
+        return (String) invokeL.objValue;
     }
 }

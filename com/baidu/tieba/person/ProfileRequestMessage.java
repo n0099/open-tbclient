@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.vi5;
-import com.baidu.tieba.w58;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.br4;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.h68;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,10 +26,13 @@ public class ProfileRequestMessage extends NetMessage {
     public String friend_uid_portrait;
     public boolean from_db;
     public Integer has_plist;
+    public String historyForumIds;
+    public String historyForumNames;
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public w58 mPersonCenterData;
+    public h68 mPersonCenterData;
+    public Integer needUsergrowthTask;
     public Integer need_post_count;
     public Integer page;
     public Integer pn;
@@ -54,6 +57,9 @@ public class ProfileRequestMessage extends NetMessage {
                 return;
             }
         }
+        this.historyForumIds = "";
+        this.historyForumNames = "";
+        this.needUsergrowthTask = 0;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -74,15 +80,18 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int l = xi.l(TbadkCoreApplication.getInst().getApp());
-                int j = xi.j(TbadkCoreApplication.getInst().getApp());
-                int e = ar4.c().e();
+                int l = yi.l(TbadkCoreApplication.getInst().getApp());
+                int j = yi.j(TbadkCoreApplication.getInst().getApp());
+                int e = br4.c().e();
                 builder.scr_w = Integer.valueOf(l);
                 builder.scr_h = Integer.valueOf(j);
-                builder.scr_dip = Double.valueOf(xi.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e);
+                builder.history_forum_ids = this.historyForumIds;
+                builder.history_forum_names = this.historyForumNames;
+                builder.need_usergrowth_task = this.needUsergrowthTask;
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    vi5.a(builder, true);
+                    cj5.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -103,13 +112,13 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public w58 getPersonCenterData() {
+    public h68 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mPersonCenterData;
         }
-        return (w58) invokeV.objValue;
+        return (h68) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -229,100 +238,121 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
+    public void setHistoryForumIds(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.historyForumIds = str;
+        }
+    }
+
+    public void setHistoryForumNames(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.historyForumNames = str;
+        }
+    }
+
     public void setIs_from_usercenter(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, num) == null) {
             this.is_from_usercenter = num;
+        }
+    }
+
+    public void setNeedUsergrowthTask(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, num) == null) {
+            this.needUsergrowthTask = num;
         }
     }
 
     public void setPage(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, num) == null) {
             this.page = num;
         }
     }
 
-    public void setPersonCenterData(w58 w58Var) {
+    public void setPersonCenterData(h68 h68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, w58Var) == null) {
-            this.mPersonCenterData = w58Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, h68Var) == null) {
+            this.mPersonCenterData = h68Var;
         }
     }
 
     public void setSelf(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.isSelf = z;
         }
     }
 
     public void set_error_hint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             this.error_hint = z;
         }
     }
 
     public void set_friend_uid(Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, l) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, l) == null) {
             this.friend_uid = l;
         }
     }
 
     public void set_friend_uid_portrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             this.friend_uid_portrait = str;
         }
     }
 
     public void set_from_db(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             this.from_db = z;
         }
     }
 
     public void set_has_plist(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, num) == null) {
             this.has_plist = num;
         }
     }
 
     public void set_is_guest(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, num) == null) {
             this.is_guest = num;
         }
     }
 
     public void set_need_post_count(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, num) == null) {
             this.need_post_count = num;
         }
     }
 
     public void set_pn(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, num) == null) {
             this.pn = num;
         }
     }
 
     public void set_rn(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, num) == null) {
             this.rn = num;
         }
     }
 
     public void set_uid(Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, l) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, l) == null) {
             this.uid = l;
         }
     }

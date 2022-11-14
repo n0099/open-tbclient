@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
 /* loaded from: classes4.dex */
-public class gt5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public Map<String, String> e;
-    public String f;
-    public String g;
-    public String h;
+public interface gt5 {
+    public static final boolean a;
 
-    public gt5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+    void a();
+
+    boolean b();
+
+    String c();
+
+    AdLoadState d();
+
+    void destroy();
+
+    void e(rp4 rp4Var);
+
+    String f();
+
+    void show();
+
+    static {
+        boolean z;
+        if (!TbadkCoreApplication.getInst().isDebugMode() && !tq4.h()) {
+            z = false;
+        } else {
+            z = true;
         }
+        a = z;
     }
 }

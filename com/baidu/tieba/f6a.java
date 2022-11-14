@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,31 +8,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class f6a implements g5a {
+public class f6a implements c9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public m6a c;
-    public PayUIKitConfig d;
+    public s5a c;
+    public AbsViewEventHandler d;
 
-    public f6a(int i, int i2, m6a m6aVar, PayUIKitConfig payUIKitConfig) {
+    @Override // com.baidu.tieba.c9a
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public f6a(int i, int i2, s5a s5aVar, AbsViewEventHandler absViewEventHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), m6aVar, payUIKitConfig};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), s5aVar, absViewEventHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -42,70 +44,20 @@ public class f6a implements g5a {
                 return;
             }
         }
-        RLog.info("PayViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i + " userChannel:" + i2);
         this.a = i;
         this.b = i2;
-        this.c = m6aVar;
-        this.d = payUIKitConfig;
+        this.c = s5aVar;
+        this.d = absViewEventHandler;
     }
 
-    @Override // com.baidu.tieba.g5a
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, c5a c5aVar) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.c9a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, c5aVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.d, viewParams, this.c, c5aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
+            this.c.d(cancelType, this.d);
+            x6a.a(this.a, this.b, cancelType);
         }
-        return (IYYPayAmountView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g5a
-    public IYYPayWayView e(Activity activity, IYYPayWayView.b bVar, c5a c5aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, bVar, c5aVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, this.d, c5aVar);
-        }
-        return (IYYPayWayView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g5a
-    public IYYPayResultView f(Activity activity, IYYPayResultView.c cVar, c5a c5aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, cVar, c5aVar)) == null) {
-            return new YYPayResultView(activity, this.d, this.c, this.a, this.b, cVar, c5aVar);
-        }
-        return (IYYPayResultView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g5a
-    public q7a b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.d);
-        }
-        return (q7a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g5a
-    public p7a c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.d);
-        }
-        return (p7a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g5a
-    public r7a d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.d);
-        }
-        return (r7a) invokeL.objValue;
     }
 }

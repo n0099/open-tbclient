@@ -1,380 +1,188 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.util.SparseArray;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b38 {
+public class b38 extends z28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public OriginalThreadCardView f;
+    public int g;
+    public int h;
 
-    public static int m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            if (i != -4) {
-                if (i != -3) {
-                    if (i != -2) {
-                        if (i != -1) {
-                            switch (i) {
-                                case 4:
-                                    return 5;
-                                case 5:
-                                    return 7;
-                                case 6:
-                                    return 6;
-                                case 7:
-                                    return 9;
-                                case 8:
-                                    return 8;
-                                default:
-                                    return 0;
-                            }
-                        }
-                        return 1;
-                    }
-                    return 2;
-                }
-                return 3;
-            }
-            return 4;
-        }
-        return invokeI.intValue;
-    }
+    /* loaded from: classes3.dex */
+    public class a implements OriginalThreadCardView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b38 a;
 
-    public static boolean a(List<pv4> list, tv4 tv4Var, PostData postData, tx7 tx7Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{list, tv4Var, postData, tx7Var, Boolean.valueOf(z)})) == null) {
-            if (list == null || postData == null || tx7Var == null || !z || !tx7Var.q() || !TbadkCoreApplication.isLogin() || k(postData) || tx7Var.p()) {
-                return false;
-            }
-            pv4 pv4Var = new pv4(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0325), tv4Var);
-            list.add(pv4Var);
-            aw8.f(pv4Var.d, postData);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
+        /* renamed from: com.baidu.tieba.b38$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0215a extends sr4 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-    public static boolean b(List<pv4> list, tv4 tv4Var, PostData postData, PbModel pbModel) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, tv4Var, postData, pbModel)) == null) {
-            if (list != null && postData != null && pbModel != null && pbModel.S1() != null) {
-                dx7 S1 = pbModel.S1();
-                if (S1.m0() && TbadkCoreApplication.isLogin() && !k(postData) && !S1.l0()) {
-                    pv4 pv4Var = new pv4(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0325), tv4Var);
-                    list.add(pv4Var);
-                    aw8.f(pv4Var.d, postData);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static List<pv4> c(List<pv4> list, AgreeData agreeData, SparseArray<?> sparseArray, tv4 tv4Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, tv4Var)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    pv4 pv4Var = new pv4(-1, f18.u(R.string.obfuscated_res_0x7f0f0363, new Object[0]), tv4Var);
-                    pv4Var.d.setTag(sparseArray);
-                    arrayList.add(pv4Var);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                        pv4 pv4Var2 = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0364, new Object[0]), tv4Var);
-                        pv4Var2.d.setTag(sparseArray);
-                        arrayList.add(pv4Var2);
-                    }
-                } else {
-                    pv4 pv4Var3 = new pv4(-1, f18.u(R.string.obfuscated_res_0x7f0f0362, new Object[0]), tv4Var);
-                    pv4Var3.d.setTag(sparseArray);
-                    arrayList.add(pv4Var3);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                        pv4 pv4Var4 = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0365, new Object[0]), tv4Var);
-                        pv4Var4.d.setTag(sparseArray);
-                        arrayList.add(pv4Var4);
-                    }
-                }
-            } else {
-                pv4 pv4Var5 = new pv4(-1, f18.u(R.string.obfuscated_res_0x7f0f0362, new Object[0]), tv4Var);
-                pv4Var5.d.setTag(sparseArray);
-                arrayList.add(pv4Var5);
-                if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                    pv4 pv4Var6 = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0364, new Object[0]), tv4Var);
-                    pv4Var6.d.setTag(sparseArray);
-                    arrayList.add(pv4Var6);
-                }
-            }
-            pv4 pv4Var7 = new pv4(-3, f18.u(R.string.obfuscated_res_0x7f0f102b, new Object[0]), tv4Var);
-            pv4Var7.d.setTag(sparseArray);
-            arrayList.add(pv4Var7);
-            pv4 pv4Var8 = new pv4(-4, f18.u(R.string.obfuscated_res_0x7f0f1179, new Object[0]), tv4Var);
-            pv4Var8.d.setTag(sparseArray);
-            arrayList.add(pv4Var8);
-            list.addAll(0, arrayList);
-            return list;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public static List<pv4> d(List<pv4> list, AgreeData agreeData, SparseArray<?> sparseArray, tv4 tv4Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, list, agreeData, sparseArray, tv4Var)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                        pv4 pv4Var = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0087, new Object[0]), tv4Var);
-                        pv4Var.d.setTag(sparseArray);
-                        arrayList.add(pv4Var);
-                    }
-                } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                    pv4 pv4Var2 = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0365, new Object[0]), tv4Var);
-                    pv4Var2.d.setTag(sparseArray);
-                    arrayList.add(pv4Var2);
-                }
-            } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09181f) == null || ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09181f)).booleanValue()) {
-                pv4 pv4Var3 = new pv4(-2, f18.u(R.string.obfuscated_res_0x7f0f0087, new Object[0]), tv4Var);
-                pv4Var3.d.setTag(sparseArray);
-                arrayList.add(pv4Var3);
-            }
-            pv4 pv4Var4 = new pv4(-3, f18.u(R.string.obfuscated_res_0x7f0f102b, new Object[0]), tv4Var);
-            pv4Var4.d.setTag(sparseArray);
-            arrayList.add(0, pv4Var4);
-            pv4 pv4Var5 = new pv4(-4, f18.u(R.string.obfuscated_res_0x7f0f1179, new Object[0]), tv4Var);
-            pv4Var5.d.setTag(sparseArray);
-            arrayList.add(1, pv4Var5);
-            list.addAll(0, arrayList);
-            return list;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public static void e(Activity activity, @Nullable r9<?> r9Var, iv4.e eVar, iv4.e eVar2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, r9Var, eVar, eVar2) == null) {
-            iv4 iv4Var = new iv4(activity);
-            iv4Var.setMessageId(R.string.obfuscated_res_0x7f0f04b6);
-            iv4Var.setPositiveButton(R.string.dialog_ok, eVar);
-            iv4Var.setNegativeButton(R.string.dialog_cancel, eVar2);
-            iv4Var.setCancelable(true);
-            iv4Var.create(r9Var);
-            iv4Var.show();
-        }
-    }
-
-    public static List<pv4> f(List<pv4> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            if (list == null) {
-                return list;
-            }
-            for (pv4 pv4Var : list) {
-                pv4Var.l(h(pv4Var));
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static boolean i(PbModel pbModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, pbModel)) == null) {
-            if (pbModel != null && pbModel.S1() != null && pbModel.S1().m0()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean j(tx7 tx7Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tx7Var)) == null) {
-            if (tx7Var != null && tx7Var.q()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static SpannableStringBuilder g(PostData postData) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, postData)) == null) {
-            if (postData == null) {
-                return null;
-            }
-            if (postData.X() != null) {
-                str = postData.X().toString();
-            } else {
-                str = "";
-            }
-            SpannableString n = n(postData.s().getName_show() + ZeusCrashHandler.NAME_SEPERATOR, SkinManager.getColor(R.color.CAM_X0109));
-            SpannableString n2 = n(str, SkinManager.getColor(R.color.CAM_X0107));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) n);
-            spannableStringBuilder.append((CharSequence) n2);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public static Drawable h(pv4 pv4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pv4Var)) == null) {
-            switch (pv4Var.f()) {
-                case -4:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809be, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a8, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -2:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f0364, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ac, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ad, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -1:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f0362, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b5, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b6, SkinManager.getColor(R.color.CAM_X0301), null);
-                case 0:
-                default:
+            @Override // com.baidu.tieba.sr4
+            public pt4 getNegFeedBackData() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     return null;
-                case 1:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ae, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 2:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bd, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a9, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 4:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f0ac4, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a6, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a7, SkinManager.getColor(R.color.CAM_X0305), null);
-                case 5:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f1044, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bc, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (!f18.u(R.string.obfuscated_res_0x7f0f0b68, new Object[0]).equals(pv4Var.g())) {
-                        return null;
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ba, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 6:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f1044, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bc, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (!f18.u(R.string.obfuscated_res_0x7f0f04ba, new Object[0]).equals(pv4Var.g())) {
-                        return null;
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ab, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 7:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 8:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b1, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 9:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080994, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 10:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f04c5, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ab, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (!f18.u(R.string.obfuscated_res_0x7f0f04ba, new Object[0]).equals(pv4Var.g())) {
-                        return null;
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ab, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 11:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a5, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 12:
-                    if (f18.u(R.string.obfuscated_res_0x7f0f0b64, new Object[0]).equals(pv4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b8, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (!f18.u(R.string.obfuscated_res_0x7f0f14f4, new Object[0]).equals(pv4Var.g())) {
-                        return null;
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b9, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 13:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080993, SkinManager.getColor(R.color.CAM_X0107), null);
+                }
+                return (pt4) invokeV.objValue;
             }
-        }
-        return (Drawable) invokeL.objValue;
-    }
 
-    public static boolean k(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, postData)) == null) {
-            if (postData != null && postData.s() != null && !StringUtils.isNull(postData.s().getUserId()) && postData.s().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                return true;
+            @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+            public BdUniqueId getType() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return null;
+                }
+                return (BdUniqueId) invokeV.objValue;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
 
-    public static List<pv4> l(List<pv4> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, list, z)) == null) {
-            if (list != null && !z) {
-                Iterator<pv4> it = list.iterator();
-                while (it.hasNext()) {
-                    pv4 next = it.next();
-                    if (next.f() == 2 || next.f() == 1 || next.f() == 3) {
-                        it.remove();
+            public C0215a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.a = aVar;
             }
-            return list;
+
+            @Override // com.baidu.tieba.sr4
+            public ThreadData getThreadData() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    OriginalThreadInfo originalThreadInfo = this.a.a.d;
+                    if (originalThreadInfo != null) {
+                        return originalThreadInfo.b();
+                    }
+                    return null;
+                }
+                return (ThreadData) invokeV.objValue;
+            }
         }
-        return (List) invokeLZ.objValue;
+
+        public a(b38 b38Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b38Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b38Var;
+        }
+
+        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
+        public void a(OriginalThreadInfo originalThreadInfo) {
+            b38 b38Var;
+            l46 l46Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) && (l46Var = (b38Var = this.a).b) != null) {
+                l46Var.a(b38Var.f, new C0215a(this));
+            }
+        }
     }
 
-    public static SpannableString n(String str, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b38(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
-            return spannableString;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (SpannableString) invokeLI.objValue;
+        this.h = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07020f);
+        this.g = i;
+    }
+
+    @Override // com.baidu.tieba.z28
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.d = originalThreadInfo;
+            OriginalThreadCardView originalThreadCardView = this.f;
+            if (originalThreadCardView != null) {
+                originalThreadCardView.i(originalThreadInfo);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.z28
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                OriginalThreadCardView originalThreadCardView = new OriginalThreadCardView(this.a.getPageActivity());
+                this.f = originalThreadCardView;
+                originalThreadCardView.m = this.g;
+                originalThreadCardView.setSubClickListener(new a(this));
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+                int i = this.h;
+                layoutParams.bottomMargin = i;
+                layoutParams.leftMargin = i;
+                layoutParams.rightMargin = i;
+                this.f.setLayoutParams(layoutParams);
+                this.f.s();
+            }
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z28
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            OriginalThreadCardView originalThreadCardView = this.f;
+            if (originalThreadCardView != null) {
+                originalThreadCardView.s();
+            }
+        }
     }
 }

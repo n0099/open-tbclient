@@ -25,18 +25,18 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc;
 import com.baidu.tieba.dc;
-import com.baidu.tieba.el;
-import com.baidu.tieba.gq4;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.ec;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.fl;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.in;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.v9;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.ti5;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes3.dex */
-public class GifView extends TbClipImageView implements Runnable, View.OnClickListener, el {
+public class GifView extends TbClipImageView implements Runnable, View.OnClickListener, fl {
     public static /* synthetic */ Interceptable $ic;
     public static Bitmap g1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,15 +62,15 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public final Rect L0;
     public final Rect M0;
     public boolean N0;
-    public gq4 O0;
+    public hq4 O0;
     public View.OnClickListener P0;
     public boolean Q0;
     public boolean R0;
     public boolean S0;
-    public hn T0;
+    public in T0;
     public String U0;
     public int V0;
-    public z85 W0;
+    public f95 W0;
     public int X0;
     public Handler Y0;
     public boolean Z0;
@@ -78,10 +78,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public int b1;
     public boolean c1;
     public BdUniqueId d1;
-    public rg<hn> e1;
+    public sg<in> e1;
     public TbRichTextView.w f1;
     public int w0;
-    public dc x0;
+    public ec x0;
     public Bitmap y0;
     public int z0;
 
@@ -119,7 +119,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            dc gif;
+            ec gif;
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.a.getGif()) != null && message.what == 1) {
@@ -156,7 +156,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes3.dex */
-    public class b extends rg<hn> {
+    public class b extends sg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GifView a;
@@ -179,7 +179,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             this.a = gifView;
         }
 
-        @Override // com.baidu.tieba.rg
+        @Override // com.baidu.tieba.sg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) {
@@ -188,13 +188,13 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(hn hnVar, String str, int i) {
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((b) hnVar, str, i);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((b) inVar, str, i);
                 this.a.O();
-                this.a.setGif(hnVar);
+                this.a.setGif(inVar);
             }
         }
     }
@@ -270,7 +270,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         this.Q0 = false;
         this.R0 = false;
         this.S0 = false;
-        this.X0 = R.drawable.obfuscated_res_0x7f080c04;
+        this.X0 = R.drawable.obfuscated_res_0x7f080c09;
         this.Y0 = new a(this, Looper.getMainLooper());
         this.b1 = 20;
         this.c1 = true;
@@ -361,9 +361,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.T0 = null;
-            dc dcVar = this.x0;
-            if (dcVar != null) {
-                dcVar.close();
+            ec ecVar = this.x0;
+            if (ecVar != null) {
+                ecVar.close();
             }
             if (this.a1 != null) {
                 this.a1 = null;
@@ -397,13 +397,13 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     }
 
     public void e0() {
-        dc dcVar;
+        ec ecVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             N();
             F();
-            if (this.R0 && (dcVar = this.x0) != null && dcVar != null) {
-                dcVar.close();
+            if (this.R0 && (ecVar = this.x0) != null && ecVar != null) {
+                ecVar.close();
                 this.x0 = null;
             }
         }
@@ -420,7 +420,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.S0 = false;
-            dc gif = getGif();
+            ec gif = getGif();
             if (gif == null) {
                 return;
             }
@@ -439,27 +439,27 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public hn getBdImage() {
+    public in getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.T0;
         }
-        return (hn) invokeV.objValue;
+        return (in) invokeV.objValue;
     }
 
-    public dc getGif() {
+    public ec getGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            dc dcVar = this.x0;
-            if (dcVar == null) {
+            ec ecVar = this.x0;
+            if (ecVar == null) {
                 c0();
                 return null;
             }
-            return dcVar;
+            return ecVar;
         }
-        return (dc) invokeV.objValue;
+        return (ec) invokeV.objValue;
     }
 
     public GifInfo getGifInfo() {
@@ -476,11 +476,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            hn hnVar = this.T0;
-            if (hnVar == null) {
+            in inVar = this.T0;
+            if (inVar == null) {
                 return 0;
             }
-            return hnVar.m();
+            return inVar.m();
         }
         return invokeV.intValue;
     }
@@ -490,11 +490,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            hn hnVar = this.T0;
-            if (hnVar == null) {
+            in inVar = this.T0;
+            if (inVar == null) {
                 return 0;
             }
-            return hnVar.r();
+            return inVar.r();
         }
         return invokeV.intValue;
     }
@@ -504,7 +504,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return lw4.b(this.V0);
+            return qw4.b(this.V0);
         }
         return (float[]) invokeV.objValue;
     }
@@ -523,15 +523,15 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             SkinManager.setImageResource(this, this.X0);
-            z85 z85Var = this.W0;
-            if (z85Var != null) {
-                z85Var.onLoadFail();
+            f95 f95Var = this.W0;
+            if (f95Var != null) {
+                f95Var.onLoadFail();
             }
         }
     }
 
     public void k0() {
-        dc gif;
+        ec gif;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || (gif = getGif()) == null) {
             return;
@@ -563,7 +563,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.tieba.el
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.tieba.fl
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -636,10 +636,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setBgImage(hn hnVar) {
+    public void setBgImage(in inVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, hnVar) == null) {
-            this.T0 = hnVar;
+        if (interceptable == null || interceptable.invokeL(1048611, this, inVar) == null) {
+            this.T0 = inVar;
         }
     }
 
@@ -671,7 +671,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         if ((interceptable != null && interceptable.invokeL(1048616, this, str) != null) || (GetFileData = FileHelper.GetFileData(str)) == null) {
             return;
         }
-        hn a2 = cc.a.b().a(GetFileData, 0, GetFileData.length);
+        in a2 = dc.a.b().a(GetFileData, 0, GetFileData.length);
         this.R0 = true;
         setGif(a2);
     }
@@ -694,10 +694,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setLoadCallback(z85 z85Var) {
+    public void setLoadCallback(f95 f95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, z85Var) == null) {
-            this.W0 = z85Var;
+        if (interceptable == null || interceptable.invokeL(1048621, this, f95Var) == null) {
+            this.W0 = f95Var;
         }
     }
 
@@ -710,11 +710,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setOnInterceptClickListener(gq4 gq4Var) {
+    public void setOnInterceptClickListener(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, gq4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, hq4Var) == null) {
             super.setOnClickListener(this);
-            this.O0 = gq4Var;
+            this.O0 = hq4Var;
         }
     }
 
@@ -773,10 +773,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             this.E0 = false;
             this.I0 = false;
             if (this.a1 != null) {
-                sg.h().d(this.a1.mSharpText, this.b1, this.e1);
+                tg.h().d(this.a1.mSharpText, this.b1, this.e1);
             }
             if (!TextUtils.isEmpty(this.U0)) {
-                sg.h().d(this.U0, this.b1, this.e1);
+                tg.h().d(this.U0, this.b1, this.e1);
             }
         }
     }
@@ -785,7 +785,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.S0 = false;
-            dc gif = getGif();
+            ec gif = getGif();
             if (gif == null) {
                 return;
             }
@@ -812,12 +812,12 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 h0();
                 return;
             }
-            z85 z85Var = this.W0;
-            if (z85Var != null) {
-                z85Var.a();
+            f95 f95Var = this.W0;
+            if (f95Var != null) {
+                f95Var.a();
             }
-            boolean c2 = mi5.c();
-            v9 c3 = w9.c(getContext());
+            boolean c2 = ti5.c();
+            w9 c3 = x9.c(getContext());
             if (c3 != null) {
                 bdUniqueId = c3.getUniqueId();
                 z = c3.isScroll();
@@ -844,22 +844,22 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             } else {
                 str = gifInfo3.mStaticUrl;
             }
-            sg h = sg.h();
+            tg h = tg.h();
             GifInfo gifInfo4 = this.a1;
             String str3 = gifInfo4.mSharpText;
-            hn hnVar = (hn) h.n(str3, this.b1, gifInfo4.mGid, str3, Boolean.valueOf(c2), str);
-            if (hnVar != null) {
+            in inVar = (in) h.n(str3, this.b1, gifInfo4.mGid, str3, Boolean.valueOf(c2), str);
+            if (inVar != null) {
                 O();
-                setGif(hnVar);
+                setGif(inVar);
             } else if (this.a1.mLoadFailed) {
                 setGif(null);
                 h0();
-            } else if (!sg.h().j(this.b1) && this.c1) {
+            } else if (!tg.h().j(this.b1) && this.c1) {
                 setHasNoImage(true, this.w0);
             } else if (z) {
             } else {
                 M();
-                sg h2 = sg.h();
+                tg h2 = tg.h();
                 GifInfo gifInfo5 = this.a1;
                 String str4 = gifInfo5.mSharpText;
                 h2.k(str4, this.b1, this.e1, 0, 0, this.d1, gifInfo5.mGid, str4, Boolean.valueOf(c2), str);
@@ -904,11 +904,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setGif(hn hnVar) {
+    public void setGif(in inVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, hnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, inVar) == null) {
             setBackgroundDrawable(null);
-            this.T0 = hnVar;
+            this.T0 = inVar;
             this.E0 = false;
             this.F0 = false;
             this.I0 = false;
@@ -916,7 +916,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             if (gifInfo != null) {
                 gifInfo.mLoadFailed = false;
             }
-            if (hnVar == null) {
+            if (inVar == null) {
                 this.E0 = true;
                 this.B0 = false;
                 GifInfo gifInfo2 = this.a1;
@@ -924,33 +924,33 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                     gifInfo2.mLoadFailed = true;
                 }
                 h0();
-                dc dcVar = this.x0;
-                if (dcVar != null) {
-                    dcVar.close();
+                ec ecVar = this.x0;
+                if (ecVar != null) {
+                    ecVar.close();
                     return;
                 }
                 return;
             }
-            z85 z85Var = this.W0;
-            if (z85Var != null) {
-                z85Var.onLoadSuccess();
+            f95 f95Var = this.W0;
+            if (f95Var != null) {
+                f95Var.onLoadSuccess();
             }
-            if (hnVar.l() == null) {
-                if (!hnVar.s()) {
+            if (inVar.l() == null) {
+                if (!inVar.s()) {
                     this.B0 = true;
-                    hnVar.h(this);
+                    inVar.h(this);
                     this.F0 = false;
                 }
-                dc dcVar2 = this.x0;
-                if (dcVar2 != null) {
-                    dcVar2.close();
+                ec ecVar2 = this.x0;
+                if (ecVar2 != null) {
+                    ecVar2.close();
                 }
-            } else if (this.x0 != null && hnVar.l().equals(this.x0)) {
-                if (this.z0 >= hnVar.l().getFrameCount()) {
+            } else if (this.x0 != null && inVar.l().equals(this.x0)) {
+                if (this.z0 >= inVar.l().getFrameCount()) {
                     this.z0 = 0;
                 }
-                hnVar.l().c(this.z0);
-                hnVar.l().a(this.y0, null);
+                inVar.l().c(this.z0);
+                inVar.l().a(this.y0, null);
                 setImageBitmap(this.y0);
                 if (this.N0) {
                     g0();
@@ -958,12 +958,12 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             } else {
                 this.B0 = false;
                 try {
-                    if (this.y0 == null || (this.y0.getWidth() != hnVar.l().getWidth() && this.y0.getHeight() != hnVar.l().getHeight())) {
-                        this.y0 = Bitmap.createBitmap(hnVar.l().getWidth(), hnVar.l().getHeight(), Bitmap.Config.ARGB_8888);
+                    if (this.y0 == null || (this.y0.getWidth() != inVar.l().getWidth() && this.y0.getHeight() != inVar.l().getHeight())) {
+                        this.y0 = Bitmap.createBitmap(inVar.l().getWidth(), inVar.l().getHeight(), Bitmap.Config.ARGB_8888);
                     }
-                    this.x0 = hnVar.l();
-                    hnVar.l().c(0);
-                    hnVar.l().a(this.y0, null);
+                    this.x0 = inVar.l();
+                    inVar.l().c(0);
+                    inVar.l().a(this.y0, null);
                     setImageBitmap(this.y0);
                     if (this.N0) {
                         d0();
@@ -988,11 +988,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 h0();
                 return;
             }
-            z85 z85Var = this.W0;
-            if (z85Var != null) {
-                z85Var.a();
+            f95 f95Var = this.W0;
+            if (f95Var != null) {
+                f95Var.a();
             }
-            v9 c2 = w9.c(getContext());
+            w9 c2 = x9.c(getContext());
             if (c2 != null) {
                 bdUniqueId = c2.getUniqueId();
                 z = c2.isScroll();
@@ -1016,15 +1016,15 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             F();
             this.U0 = str;
             this.a1 = null;
-            hn hnVar = (hn) sg.h().n(str, i, new Object[0]);
-            if (hnVar != null) {
+            in inVar = (in) tg.h().n(str, i, new Object[0]);
+            if (inVar != null) {
                 O();
-                setGif(hnVar);
-            } else if (!sg.h().j(this.b1) && this.c1) {
+                setGif(inVar);
+            } else if (!tg.h().j(this.b1) && this.c1) {
                 setHasNoImage(true, this.w0);
             } else if (z) {
             } else {
-                sg.h().m(this.U0, i, this.e1, this.d1);
+                tg.h().m(this.U0, i, this.e1, this.d1);
             }
         }
     }
@@ -1034,28 +1034,28 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, view2) == null) {
-            gq4 gq4Var = this.O0;
-            if (gq4Var != null && gq4Var.a(view2)) {
+            hq4 hq4Var = this.O0;
+            if (hq4Var != null && hq4Var.a(view2)) {
                 return;
             }
             if (this.a1 != null) {
-                boolean c2 = mi5.c();
+                boolean c2 = ti5.c();
                 GifInfo gifInfo = this.a1;
                 if (c2) {
                     str = gifInfo.mDynamicUrl;
                 } else {
                     str = gifInfo.mStaticUrl;
                 }
-                sg h = sg.h();
+                tg h = tg.h();
                 GifInfo gifInfo2 = this.a1;
                 String str2 = gifInfo2.mSharpText;
-                hn hnVar = (hn) h.n(str2, this.b1, gifInfo2.mGid, str2, Boolean.valueOf(c2), str);
-                if (hnVar != null) {
+                in inVar = (in) h.n(str2, this.b1, gifInfo2.mGid, str2, Boolean.valueOf(c2), str);
+                if (inVar != null) {
                     this.a1.mLoadFailed = false;
-                    setGif(hnVar);
+                    setGif(inVar);
                 } else {
                     M();
-                    sg h2 = sg.h();
+                    tg h2 = tg.h();
                     GifInfo gifInfo3 = this.a1;
                     String str3 = gifInfo3.mSharpText;
                     h2.k(str3, this.b1, this.e1, 0, 0, this.d1, gifInfo3.mGid, str3, Boolean.valueOf(c2), str);
@@ -1063,13 +1063,13 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 }
             }
             if (!TextUtils.isEmpty(this.U0)) {
-                hn hnVar2 = (hn) sg.h().n(this.U0, this.b1, new Object[0]);
-                if (hnVar2 != null) {
+                in inVar2 = (in) tg.h().n(this.U0, this.b1, new Object[0]);
+                if (inVar2 != null) {
                     this.E0 = false;
-                    setGif(hnVar2);
+                    setGif(inVar2);
                 } else {
                     M();
-                    sg.h().m(this.U0, this.b1, this.e1, this.d1);
+                    tg.h().m(this.U0, this.b1, this.e1, this.d1);
                     return;
                 }
             }
@@ -1135,7 +1135,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     /* JADX WARN: Type inference failed for: r5v2, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r5v6, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r5v7 */
-    /* JADX WARN: Type inference failed for: r5v9, types: [com.baidu.tieba.cc] */
+    /* JADX WARN: Type inference failed for: r5v9, types: [com.baidu.tieba.dc] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1188,7 +1188,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 i2 = 0;
             }
             if (bArr != null && bArr.length >= interceptable) {
-                hn a2 = cc.a.b().a(bArr, 0, interceptable);
+                in a2 = dc.a.b().a(bArr, 0, interceptable);
                 this.R0 = true;
                 setGif(a2);
             }

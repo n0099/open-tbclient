@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c45;
+import com.baidu.tieba.a11;
+import com.baidu.tieba.ah8;
+import com.baidu.tieba.h45;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.ni;
-import com.baidu.tieba.pg8;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z01;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int u0;
     public int v0;
     public int w0;
-    public pg8 x0;
+    public ah8 x0;
 
     static {
         InterceptResult invokeClinit;
@@ -228,11 +228,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(pg8 pg8Var) {
+    public void setShareData(ah8 ah8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, pg8Var) == null) {
-            this.x0 = pg8Var;
-            setData(pg8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, ah8Var) == null) {
+            this.x0 = ah8Var;
+            setData(ah8Var.getThreadData());
         }
     }
 
@@ -255,7 +255,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
             try {
-                return new JSONObject(new String(pi.d(str))).getString(str2);
+                return new JSONObject(new String(qi.d(str))).getString(str2);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
@@ -266,11 +266,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void B(View view2) {
-        pg8 pg8Var;
+        ah8 ah8Var;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (pg8Var = this.x0) != null) {
-            i0(pg8Var.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (ah8Var = this.x0) != null) {
+            i0(ah8Var.getThreadData(), "share", 0);
             j0(this.x0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.E)) {
                 return;
@@ -322,9 +322,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.x = c45.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
-                        ni.a(this.a.x);
-                        xi.P(this.b.E, view3.getResources().getString(R.string.obfuscated_res_0x7f0f045e));
+                        shareItem2.x = h45.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
+                        oi.a(this.a.x);
+                        yi.P(this.b.E, view3.getResources().getString(R.string.obfuscated_res_0x7f0f045f));
                     }
                 }
             });
@@ -376,7 +376,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public final void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            y0 = xi.g(this.E, R.dimen.tbds44);
+            y0 = yi.g(this.E, R.dimen.tbds44);
             setManageVisible(false);
             setSelectVisible(false);
             setShowFlag(11);
@@ -550,7 +550,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-            z01.b(clogBuilder);
+            a11.b(clogBuilder);
         }
     }
 

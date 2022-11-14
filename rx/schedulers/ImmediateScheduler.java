@@ -1,6 +1,6 @@
 package rx.schedulers;
 
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.uz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes9.dex */
-public final class ImmediateScheduler extends jz9 {
+public final class ImmediateScheduler extends uz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jz9
-    public jz9.a createWorker() {
+    @Override // com.baidu.tieba.uz9
+    public uz9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (jz9.a) invokeV.objValue;
+        return (uz9.a) invokeV.objValue;
     }
 
     public ImmediateScheduler() {

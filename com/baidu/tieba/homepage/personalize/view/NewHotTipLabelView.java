@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.v07;
+import com.baidu.tieba.g17;
+import com.baidu.tieba.i25;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,9 +103,9 @@ public class NewHotTipLabelView extends EMTextView {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                String o = ky4.o("key_new_hot_topic_update_time");
-                d25 hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig();
-                if (hotNotifyConfig != null && v07.b(4320000L) && v07.a(hotNotifyConfig.b(), o)) {
+                String o = py4.o("key_new_hot_topic_update_time");
+                i25 hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig();
+                if (hotNotifyConfig != null && g17.b(4320000L) && g17.a(hotNotifyConfig.b(), o)) {
                     this.a.setData(hotNotifyConfig);
                 }
             }
@@ -206,31 +206,31 @@ public class NewHotTipLabelView extends EMTextView {
             } else {
                 setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080806));
             }
-            kw4 d = kw4.d(this);
+            pw4 d = pw4.d(this);
             d.v(R.color.CAM_X0310);
             d.z(R.dimen.T_X10);
             d.A(R.string.F_X01);
         }
     }
 
-    public void setData(d25 d25Var) {
+    public void setData(i25 i25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, d25Var) != null) || d25Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, i25Var) != null) || i25Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(d25Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(i25Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0c85);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0c87);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);
     }
 
     public void c() {
-        d25 hotNotifyConfig;
+        i25 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            v07.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            g17.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

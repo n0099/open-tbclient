@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface y51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
-    public static final y51 b = new a();
+    public static final y51 a = new a();
 
-    void a(Context context, String str);
+    boolean a(int i);
 
     /* loaded from: classes6.dex */
     public static class a implements y51 {
@@ -19,10 +20,13 @@ public interface y51 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.y51
-        public void a(Context context, String str) {
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return false;
             }
+            return invokeI.booleanValue;
         }
 
         public a() {
@@ -37,6 +41,42 @@ public interface y51 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static y51 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-307676778, "Lcom/baidu/tieba/y51$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-307676778, "Lcom/baidu/tieba/y51$b;");
+                    return;
+                }
+            }
+            a = w51.e();
+        }
+
+        @NonNull
+        public static y51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = y51.a;
+                }
+                return a;
+            }
+            return (y51) invokeV.objValue;
         }
     }
 }

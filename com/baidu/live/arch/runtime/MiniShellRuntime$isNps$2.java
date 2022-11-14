@@ -59,7 +59,7 @@ public final class MiniShellRuntime$isNps$2 extends Lambda implements Function0<
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, boolean] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [boolean, java.lang.Boolean] */
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2() {

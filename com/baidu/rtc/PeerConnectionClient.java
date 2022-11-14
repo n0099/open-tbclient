@@ -13,7 +13,7 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.SdpPrefer;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
-import com.baidu.tieba.zy9;
+import com.baidu.tieba.kz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -213,7 +213,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onConnectionChange(PeerConnection.PeerConnectionState peerConnectionState) {
-            zy9.$default$onConnectionChange(this, peerConnectionState);
+            kz9.$default$onConnectionChange(this, peerConnectionState);
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -226,7 +226,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onTrack(RtpTransceiver rtpTransceiver) {
-            zy9.$default$onTrack(this, rtpTransceiver);
+            kz9.$default$onTrack(this, rtpTransceiver);
         }
 
         public PCObserver(PeerConnectionClient peerConnectionClient) {
@@ -1733,7 +1733,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.bg1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.cg1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

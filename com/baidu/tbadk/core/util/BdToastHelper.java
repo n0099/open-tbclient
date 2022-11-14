@@ -1,15 +1,17 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,6 +27,8 @@ public class BdToastHelper {
     public static final int ICON_TYPE_PRAISE = 3;
     public static final int ICON_TYPE_USER_GROW = 4;
     public static final int ICON_TYPE_VIP_DOUBLE = 5;
+    public static final int ICON_TYPE_WORLD_CUP_BALL = 7;
+    public static final int ICON_TYPE_WORLD_CUP_FLAG = 6;
     public static BdToastData mBdToastData;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,16 +49,25 @@ public class BdToastHelper {
     public static BdToastData getBdToastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return mBdToastData;
         }
         return (BdToastData) invokeV.objValue;
     }
 
+    public static void showToastByUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), null, str, true);
+            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            tbWebViewActivityConfig.start();
+        }
+    }
+
     public static SpannableString getToastSpannableString(BdToastData bdToastData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bdToastData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bdToastData)) == null) {
             if (bdToastData != null && bdToastData.getContent() != null) {
                 List<BdToastData.ContentBean> content = bdToastData.getContent();
                 StringBuilder sb = new StringBuilder();
@@ -84,7 +97,7 @@ public class BdToastHelper {
 
     public static void setToastIcon(BdToast bdToast, BdToastData bdToastData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, bdToast, bdToastData) == null) && bdToast != null && bdToastData != null) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdToast, bdToastData) == null) && bdToast != null && bdToastData != null) {
             if (bdToastData.getIconType() == 1) {
                 bdToast.f(BdToast.ToastIcon.SUCCESS);
             } else if (bdToastData.getIconType() == 2) {
@@ -92,25 +105,71 @@ public class BdToastHelper {
             } else if (bdToastData.getIconType() == 3) {
                 bdToast.e(R.drawable.obfuscated_res_0x7f0807f7);
             } else if (bdToastData.getIconType() == 4) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f080844, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.obfuscated_res_0x7f080846, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
             } else if (bdToastData.getIconType() == 5) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f08084c, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.obfuscated_res_0x7f08084e, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+            } else if (bdToastData.getIconType() == 6) {
+                bdToast.g(R.drawable.obfuscated_res_0x7f08088f, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
+            } else if (bdToastData.getIconType() == 7) {
+                bdToast.g(R.drawable.obfuscated_res_0x7f08088e, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
             }
         }
     }
 
     public static void toast(BdToastData bdToastData) {
-        SpannableString toastSpannableString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdToastData) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, bdToastData) == null) {
             mBdToastData = bdToastData;
-            if (bdToastData != null && (toastSpannableString = getToastSpannableString(bdToastData)) != null) {
+            if (bdToastData == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(bdToastData.getUrl()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
+                if (yi.E()) {
+                    showToastByUrl(bdToastData.getUrl());
+                    return;
+                } else {
+                    ah.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ BdToastData val$data;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {bdToastData};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.val$data = bdToastData;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                BdToastHelper.showToastByUrl(this.val$data.getUrl());
+                            }
+                        }
+                    });
+                    return;
+                }
+            }
+            SpannableString toastSpannableString = getToastSpannableString(bdToastData);
+            if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                if (xi.E()) {
+                if (yi.E()) {
                     b.i();
                 } else {
-                    zg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    ah.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;

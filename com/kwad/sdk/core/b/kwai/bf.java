@@ -19,7 +19,7 @@ import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.components.core.webview.jshandler.y;
 import com.kwad.components.splash.SplashPreloadManager;
 import com.kwad.components.splash.monitor.SplashMonitorInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bf {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {

@@ -4,149 +4,29 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.yy;
+import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx extends bx implements sx, rx<ThreadData> {
+public class wx extends ax<sr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RelativeLayout e;
-    public final LinearLayout f;
-    public View g;
-    public View h;
-    public View i;
-    public ImageView j;
-    public TextView k;
-    public ThreadData l;
-    public boolean m;
-    public boolean n;
-    public CustomMessageListener o;
+    public View f;
+    public ThreadLinkView g;
+    public TextView h;
+    public sr4 i;
 
-    @Override // com.baidu.tieba.bx
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.bx
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wx a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wx wxVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wxVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wxVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ThreadData) && ((ThreadData) customResponsedMessage.getData()) == this.a.l) {
-                this.a.r();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wx a;
-
-        public b(wx wxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wxVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.l != null && this.a.k != null && !this.a.l.isTransportThread() && this.a.n) {
-                if (!this.a.l.isMarkToDel() && li6.f().i()) {
-                    if (li6.f().a(this.a.l)) {
-                        this.a.l.setMarkToDel(true);
-                    }
-                } else if (!this.a.l.isMarkToMove() && ki6.h().j()) {
-                    if (ki6.h().a(this.a.l)) {
-                        this.a.l.setMarkToMove(true);
-                    }
-                } else {
-                    li6.f().l(this.a.l);
-                    this.a.l.setMarkToDel(false);
-                    ki6.h().l(this.a.l);
-                    this.a.l.setMarkToMove(false);
-                }
-                this.a.r();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.a.l));
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wx(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,154 +36,57 @@ public class wx extends bx implements sx, rx<ThreadData> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = false;
-        this.n = true;
-        this.o = new a(this, 2921402);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d5, (ViewGroup) null);
-        this.g = inflate;
-        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0915dd);
-        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0915d7);
-        this.h.setAlpha(0.5f);
-        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0915dc);
-        this.i = findViewById;
-        findViewById.setAlpha(0.5f);
-        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0914cc);
-        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0915d8);
-        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0914ce);
-        g(this.g);
-        this.g.setFocusable(true);
-        this.g.setOnClickListener(new b(this));
-        h(-1);
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).registerListener(this.o);
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).registerListener(this.o);
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
+            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
+        } else {
+            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) null, true);
         }
+        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f091354);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09134f);
     }
 
-    public void q(boolean z) {
+    @Override // com.baidu.tieba.ax
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.m = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08096e, R.color.CAM_X0107, null);
-            } else {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08096b, R.color.CAM_X0304, null);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.g.b();
+            sr4 sr4Var = this.i;
+            if (sr4Var != null && sr4Var.getThreadData() != null) {
+                w36.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
-            kw4 d = kw4.d(this.h);
-            d.n(R.string.J_X06);
-            if (this.m) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            d.m(i2);
-            d.f(R.color.CAM_X0201);
-            kw4 d2 = kw4.d(this.i);
-            d2.n(R.string.J_X06);
-            d2.m(2);
-            d2.f(R.color.CAM_X0201);
-            kw4.d(this.k).A(R.string.F_X01);
-            TextView textView = this.k;
-            if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                i3 = R.drawable.selector_comment_and_prise_item_text_color;
-            } else {
-                i3 = R.color.CAM_X0302;
-            }
-            SkinManager.setViewTextColor(textView, i3);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rx
-    /* renamed from: p */
-    public void a(ThreadData threadData) {
-        boolean z;
+    @Override // com.baidu.tieba.sx
+    /* renamed from: s */
+    public void a(sr4 sr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            this.l = threadData;
-            if (threadData.getType() != ThreadData.TYPE_FAKE_VIDEO && ((threadData == null || threadData.getAuthor() == null || !threadData.getAuthor().isForumBusinessAccount() || threadData.isSelf()) && threadData != null && (!threadData.isTiePlusCantDeleteUnion() || threadData.isSelf()))) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.n = z;
-            if (!li6.f().i() && !ki6.h().j()) {
-                this.d.o(new yy.a(4, Boolean.TRUE));
-                this.g.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) {
+            if (sr4Var != null && sr4Var.getThreadData() != null) {
+                this.i = sr4Var;
+                ThreadData threadData = sr4Var.getThreadData();
+                w36.j(threadData, this.h);
+                this.g.setData(threadData);
                 return;
             }
-            this.g.setVisibility(0);
-            this.d.o(new yy.a(4, Boolean.FALSE));
-            r();
-        }
-    }
-
-    public final void r() {
-        ThreadData threadData;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (threadData = this.l) == null) {
-            return;
-        }
-        View view2 = this.h;
-        int i2 = 4;
-        if (!threadData.isMarkToDel() && !this.l.isMarkToMove() && this.n) {
-            i = 4;
-        } else {
-            i = 0;
-        }
-        view2.setVisibility(i);
-        this.i.setVisibility((this.l.isMarkToDel() || this.l.isMarkToMove()) ? 0 : 0);
-        if (this.m) {
-            this.e.setVisibility(0);
-            if (this.n) {
-                this.j.setVisibility(0);
-                this.k.setVisibility(0);
-                boolean isMarkToDel = this.l.isMarkToDel();
-                int i3 = R.color.CAM_X0304;
-                if (!isMarkToDel && !this.l.isMarkToMove()) {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08096e, R.color.CAM_X0107, null);
-                } else {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08096b, R.color.CAM_X0304, null);
-                }
-                TextView textView = this.k;
-                if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                    i3 = R.drawable.selector_comment_and_prise_item_text_color;
-                }
-                SkinManager.setViewTextColor(textView, i3);
-                return;
-            }
-            this.j.setVisibility(8);
-            this.k.setVisibility(8);
-            return;
-        }
-        this.e.setVisibility(8);
-        this.j.setVisibility(8);
-        this.k.setVisibility(8);
-    }
-
-    public void t(int i, oy oyVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, oyVar) == null) {
-            this.f.setWeightSum(i);
-            if (this.f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(oyVar.f, oyVar.d, oyVar.g, oyVar.e);
-            }
+            k().setVisibility(8);
         }
     }
 }

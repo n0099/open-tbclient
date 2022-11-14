@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.dn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -405,7 +405,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (cn.a(f2, f, false) + this.d);
+                this.h.g = (int) (dn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -427,7 +427,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (cn.a(f2, f, false) + this.d);
+                this.h.g = (int) (dn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -450,7 +450,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (cn.a(f2, f, false) + this.d);
+                this.h.g = (int) (dn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -473,7 +473,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (cn.a(f2, f, false) + this.d);
+                this.h.g = (int) (dn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-104, this.f);
             }

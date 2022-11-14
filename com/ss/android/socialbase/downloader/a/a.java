@@ -151,7 +151,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
     public boolean b() {
         int i = this.f;
         int i2 = i;

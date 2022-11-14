@@ -7,10 +7,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ax1 extends uz1 {
+public class ax1 extends vz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ax1(String str) {
@@ -34,16 +33,15 @@ public class ax1 extends uz1 {
         try {
             a(new JSONObject(str));
         } catch (JSONException e) {
-            e12.d("Camera", "parsing CameraTakePhotoModel occurs exception", e);
+            f12.d("Camera", "parsing CameraModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.uz1, com.baidu.tieba.du2
+    @Override // com.baidu.tieba.vz1, com.baidu.tieba.eu2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.a(jSONObject);
-            this.j = jSONObject.optString("quality");
         }
     }
 }

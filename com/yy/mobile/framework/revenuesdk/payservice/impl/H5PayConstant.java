@@ -15,6 +15,9 @@ public class H5PayConstant {
     public static final String EXTRA_PAY_FLOW_TYPE_ID = "EXTRA_PAY_FLOW_TYPE_ID";
     public static final String EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME = "EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME";
     public static final String EXTRA_RIGHT = "EXTRA_RIGHT";
+    public static final String EXTRA_RIGHT_ICON = "EXTRA_RIGHT_ICON";
+    public static final String EXTRA_RIGHT_ICON_TITLE = "EXTRA_RIGHT_ICON_TITLE";
+    public static final String EXTRA_RIGHT_ICON_URL = "EXTRA_RIGHT_ICON_URL";
     public static final String EXTRA_RIGHT_URL = "EXTRA_RIGHT_URL";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
     public static final String EXTRA_URL = "EXTRA_URL";

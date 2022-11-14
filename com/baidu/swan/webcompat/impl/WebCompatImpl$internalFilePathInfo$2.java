@@ -1,6 +1,6 @@
 package com.baidu.swan.webcompat.impl;
 
-import com.baidu.tieba.d43;
+import com.baidu.tieba.e43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$internalFilePathInfo$2 extends Lambda implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d43 K = d43.K();
+            e43 K = e43.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
             File filesDir = K.getFilesDir();
             Intrinsics.checkNotNullExpressionValue(filesDir, "Swan.get().filesDir");

@@ -556,8 +556,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void bW() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0470, (ViewGroup) adBaseFrameLayout, false);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091209);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0471, (ViewGroup) adBaseFrameLayout, false);
             this.eP = viewGroup;
             viewGroup.setVisibility(0);
             Resources resources = this.eP.getResources();
@@ -565,9 +565,9 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363);
             int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070368);
             int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070362);
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0471, (ViewGroup) adBaseFrameLayout, false);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0472, (ViewGroup) adBaseFrameLayout, false);
             this.eV = frameLayout;
-            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091214);
+            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091219);
             this.eV.setVisibility(4);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
             layoutParams.leftMargin = dimensionPixelSize;
@@ -626,11 +626,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f091211);
-            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f091210);
-            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f09120e);
-            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f09120c);
-            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f09120d);
+            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f091216);
+            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f091215);
+            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f091213);
+            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f091211);
+            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f091212);
             this.eQ.setOnClickListener(this);
             this.eR.setOnClickListener(this);
             this.eT.setOnClickListener(this);

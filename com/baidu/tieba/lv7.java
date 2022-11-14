@@ -1,168 +1,251 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.callback.OneKeyLoginCallback;
-import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.sapi2.views.logindialog.view.AgreementView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment;
+import com.baidu.tieba.newinterest.fragment.InterestSelectionStyleAFragment;
+import com.baidu.tieba.newinterest.fragment.InterestedForumStyleAFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class lv7 extends iv7 {
+public class lv7 implements View.OnClickListener, BaseInterestSelectionFragment.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragmentActivity a;
+    public int b;
+    public boolean c;
+    public ArrayList<Integer> d;
+    public String[] e;
+    public boolean f;
+    public View g;
+    public View h;
+    public TextView i;
+    public NavigationBar j;
+    public BaseInterestedForumFragment k;
+    public BaseInterestSelectionFragment l;
 
-    /* loaded from: classes5.dex */
-    public class a extends OneKeyLoginCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv7 a;
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-            }
-        }
-
-        public a(lv7 lv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lv7Var;
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                this.a.f();
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0d32), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lv7(TbPageContext tbPageContext, jv7 jv7Var) {
-        super(tbPageContext, jv7Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+    public lv7(BaseFragmentActivity baseFragmentActivity, int i, boolean z, ArrayList<Integer> arrayList, String[] strArr, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, jv7Var};
+            Object[] objArr = {baseFragmentActivity, Integer.valueOf(i), Boolean.valueOf(z), arrayList, strArr, Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (jv7) objArr2[1], (String) objArr2[2]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = baseFragmentActivity;
+        this.b = i;
+        this.c = z;
+        this.d = arrayList;
+        this.e = strArr;
+        this.f = z2;
+        f();
+        g();
     }
 
-    @Override // com.baidu.tieba.iv7
-    public void j(kv7 kv7Var) {
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment.a
+    public void a(List<av7> list) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kv7Var) == null) {
-            this.e = kv7Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.iv7
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091470) {
-                s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09177a) {
-                t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090172) {
-                r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac6) {
-                u();
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            InterestedForumStyleAFragment x1 = InterestedForumStyleAFragment.x1(this.b, this.e);
+            this.k = x1;
+            x1.t1(list);
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f090701, this.k).addToBackStack(null).commitAllowingStateLoss();
+            if (b().getFragments().size() == 1) {
+                i = 1;
+            } else {
+                i = 2;
             }
+            hv7.a(i, 1, this.b, c(list), "");
         }
     }
 
-    public final void r() {
+    public String c(List<av7> list) {
+        InterceptResult invokeL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d29), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (av7 av7Var : list) {
+                if (av7Var != null) {
+                    if (sb.length() > 0) {
+                        sb.append("|");
+                    }
+                    if (TextUtils.isEmpty(av7Var.a())) {
+                        a = av7Var.d();
+                    } else {
+                        a = av7Var.a();
+                    }
+                    sb.append(a);
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void s() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l();
-            PassportSDK passportSDK = PassportSDK.getInstance();
-            BaseActivity baseActivity = this.b;
-            passportSDK.loadOneKeyLogin(baseActivity, qv7.j(baseActivity, this.e.c), new a(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d2d), "http://privacy.baidu.com/mdetail?id=288", false).start();
-        }
-    }
-
-    public final void t() {
-        kv7 kv7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (kv7Var = this.e) == null) {
-            return;
-        }
-        int a2 = kv7Var.a();
-        if (a2 != 1) {
-            if (a2 != 2) {
-                if (a2 == 3) {
-                    BaseActivity baseActivity = this.b;
-                    new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d2c), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            int i = 1;
+            if (view2 == this.h && this.a != null) {
+                BaseInterestedForumFragment baseInterestedForumFragment = this.k;
+                if (baseInterestedForumFragment != null && baseInterestedForumFragment.isVisible()) {
+                    b().popBackStack();
+                    hv7.c(1, this.b);
                     return;
                 }
-                return;
+                e();
+            } else if (view2 == this.i) {
+                e();
+                if (b().getFragments().size() != 1) {
+                    i = 2;
+                }
+                hv7.a(i, 2, this.b, "", "");
             }
-            BaseActivity baseActivity2 = this.b;
-            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0d2b), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
-            return;
         }
-        BaseActivity baseActivity3 = this.b;
-        new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0d2a), AgreementView.s, false).start();
+    }
+
+    public final FragmentManager b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getSupportFragmentManager();
+        }
+        return (FragmentManager) invokeV.objValue;
+    }
+
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.i.setOnClickListener(this);
+            this.h.setOnClickListener(this);
+            BaseInterestSelectionFragment baseInterestSelectionFragment = this.l;
+            if (baseInterestSelectionFragment != null) {
+                baseInterestSelectionFragment.t1(this);
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b().getFragments().size() == 1) {
+            hv7.c(1, this.b);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 1);
+            TiebaStatic.log(statisticItem);
+            if (this.f) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.a).createNormalCfg(0)));
+            } else {
+                this.a.finish();
+            }
+        }
+    }
+
+    public final List<av7> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (ListUtils.isEmpty(this.d)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Iterator<Integer> it = this.d.iterator();
+            while (it.hasNext()) {
+                av7 av7Var = new av7();
+                av7Var.i(it.next().intValue());
+                arrayList.add(av7Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void f() {
+        BaseInterestedForumFragment baseInterestedForumFragment;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d003e, (ViewGroup) null);
+            this.g = inflate;
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09168f);
+            this.j = navigationBar;
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11fa));
+            this.i = addTextButton;
+            addTextButton.setId(R.id.obfuscated_res_0x7f090472);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0108);
+            this.h = this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            boolean z = this.c;
+            if (z) {
+                this.k = InterestedForumStyleAFragment.v1(this.b, z, this.e);
+                List<av7> j = j();
+                if (j != null) {
+                    this.k.t1(j);
+                }
+                BaseInterestedForumFragment baseInterestedForumFragment2 = this.k;
+                this.h.setVisibility(4);
+                baseInterestedForumFragment = baseInterestedForumFragment2;
+            } else {
+                InterestSelectionStyleAFragment u1 = InterestSelectionStyleAFragment.u1(this.b, this.e);
+                this.l = u1;
+                baseInterestedForumFragment = u1;
+            }
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f090701, baseInterestedForumFragment).commitAllowingStateLoss();
+            TiebaStatic.log(new StatisticItem("c13681"));
+        }
     }
 }

@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fj7;
+import com.baidu.tieba.hj7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.ui7;
-import com.baidu.tieba.wi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SingleLineCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final ui7 buttonInfo;
+    public final fj7 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -69,9 +69,9 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int b = wi7.b(optJSONObject.optString("tColor", ""));
-            int b2 = wi7.b(optJSONObject.optString("tColorN", ""));
-            if (!wi7.a(b) && !wi7.a(b2)) {
+            int b = hj7.b(optJSONObject.optString("tColor", ""));
+            int b2 = hj7.b(optJSONObject.optString("tColorN", ""));
+            if (!hj7.a(b) && !hj7.a(b2)) {
                 this.iconTitleColor = b;
                 this.iconTitleColorNight = b2;
             } else {
@@ -96,13 +96,13 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             this.params.add(optJSONArray.optString(i3));
         }
-        this.paramColor = wi7.b(jSONObject.optString("pColor", ""));
-        this.paramColorNight = wi7.b(jSONObject.optString("pColorNight", ""));
-        this.titleColor = wi7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = wi7.b(jSONObject.optString("tColorNight", ""));
-        this.bgColor = wi7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = wi7.b(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = ui7.a(jSONObject.optJSONObject("moreButton"));
+        this.paramColor = hj7.b(jSONObject.optString("pColor", ""));
+        this.paramColorNight = hj7.b(jSONObject.optString("pColorNight", ""));
+        this.titleColor = hj7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = hj7.b(jSONObject.optString("tColorNight", ""));
+        this.bgColor = hj7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = hj7.b(jSONObject.optString("bgColorNight", ""));
+        this.buttonInfo = fj7.a(jSONObject.optJSONObject("moreButton"));
         if (jSONObject.optInt("showLeftLine") == 1) {
             z = true;
         } else {
@@ -139,13 +139,13 @@ public class SingleLineCard extends BaseCardInfo {
         return invokeV.intValue;
     }
 
-    public ui7 getButtonInfo() {
+    public fj7 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.buttonInfo;
         }
-        return (ui7) invokeV.objValue;
+        return (fj7) invokeV.objValue;
     }
 
     public int getGravity() {

@@ -3,8 +3,8 @@ package com.baidu.nadcore.requester;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.n01;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.o01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
-    public static final n01 a;
+    public static final o01 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -108,11 +108,11 @@ public class NadRequester {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements n01 {
+    public static class a implements o01 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.n01
+        @Override // com.baidu.tieba.o01
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
@@ -147,17 +147,17 @@ public class NadRequester {
                 return;
             }
         }
-        n01 n01Var = (n01) ServiceManager.getService(n01.a);
-        if (n01Var == null) {
-            n01Var = new a();
+        o01 o01Var = (o01) ServiceManager.getService(o01.a);
+        if (o01Var == null) {
+            o01Var = new a();
         }
-        a = n01Var;
+        a = o01Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (zi0.a().z()) {
+            if (aj0.a().z()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

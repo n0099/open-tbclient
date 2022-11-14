@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ow4;
+import com.baidu.tieba.fj5;
 import com.baidu.tieba.pw4;
-import com.baidu.tieba.yi5;
+import com.baidu.tieba.tw4;
+import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
+public class DownloadFlowAdapter<T extends uw4> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> a;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public yi5 f;
+    public fj5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = yi5.c();
+        this.f = fj5.c();
         i();
     }
 
@@ -98,9 +98,9 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
             Iterator<T> it = arrayList.iterator();
             while (it.hasNext()) {
                 it.next();
-                View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0719, (ViewGroup) null);
+                View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d071d, (ViewGroup) null);
                 inflate.setOnClickListener(this.d);
-                inflate.findViewById(R.id.obfuscated_res_0x7f091c97).setOnClickListener(this.e);
+                inflate.findViewById(R.id.obfuscated_res_0x7f091ca2).setOnClickListener(this.e);
                 this.a.add(inflate);
             }
         }
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(yi5.j)) {
+                        if (next.getValue().equals(fj5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(yi5.k)) {
+                        if (next.getValue().equals(fj5.k)) {
                         }
                     }
                 }
@@ -168,9 +168,9 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
         }
     }
 
-    public void g(List<T> list, ow4 ow4Var) {
+    public void g(List<T> list, tw4 tw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, ow4Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, tw4Var) == null) && list != null && !list.isEmpty()) {
             e(list);
             f(this.b);
             notifyDataSetChanged();
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
     }
 
     public void i() {
-        yi5 yi5Var;
+        fj5 fj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (yi5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (fj5Var = this.f) == null) {
             return;
         }
-        this.g = yi5Var.e();
+        this.g = fj5Var.e();
         notifyDataSetChanged();
     }
 
@@ -221,26 +221,26 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
             View view2 = (View) ListUtils.getItem(arrayList, i);
             ApkDownloadInfoData apkDownloadInfoData = (ApkDownloadInfoData) ListUtils.getItem(this.b, i);
             if (view2 != null && this.b.size() != 0 && apkDownloadInfoData != null) {
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c98);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091020);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a8);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091056);
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a7);
-                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c97);
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ca3);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091024);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b7);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09105a);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
+                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ca2);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, 1, TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1, TbadkCoreApplication.getInst().getSkinType());
-                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f3), R.color.CAM_X0101, 1, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092402), R.color.CAM_X0101, 1, TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(imageView, R.color.CAM_X0301);
                 SkinManager.setBackgroundColor(relativeLayout2, R.color.CAM_X0302);
                 tbImageView.setConrers(15);
-                kw4 d = kw4.d(relativeLayout);
+                pw4 d = pw4.d(relativeLayout);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                kw4 d2 = kw4.d(imageView);
+                pw4 d2 = pw4.d(imageView);
                 d2.n(R.string.J_X07);
                 d2.f(R.color.CAM_X0301);
-                kw4 d3 = kw4.d(relativeLayout2);
+                pw4 d3 = pw4.d(relativeLayout2);
                 d3.n(R.string.J_X07);
                 d3.f(R.color.CAM_X0302);
                 tbImageView.K(apkDownloadInfoData.getmApkImgUrl(), 10, false);
@@ -249,12 +249,12 @@ public class DownloadFlowAdapter<T extends pw4> extends PagerAdapter {
                     int i2 = apkDownloadInfoData.getStatus().status;
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            textView2.setText(R.string.obfuscated_res_0x7f0f0b91);
+                            textView2.setText(R.string.obfuscated_res_0x7f0f0b93);
                         } else {
-                            textView2.setText(R.string.obfuscated_res_0x7f0f0b90);
+                            textView2.setText(R.string.obfuscated_res_0x7f0f0b92);
                         }
                     } else {
-                        textView2.setText(R.string.obfuscated_res_0x7f0f0b8f);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f0b91);
                     }
                 }
                 if (c(apkDownloadInfoData.getApkPackageName())) {

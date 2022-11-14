@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn8;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.qn8;
+import com.baidu.tieba.sz4;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,8 +78,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = xi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -104,8 +104,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = xi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -153,8 +153,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = xi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -182,7 +182,7 @@ public class HeadCustomImageView extends RelativeLayout {
             if (this.c != null && TbSingleton.getInstance().getLightEmotionInfo() != null && TbSingleton.getInstance().getLightEmotionInfo().size() != 0) {
                 Rect rect = new Rect();
                 this.c.getGlobalVisibleRect(rect);
-                nz4.b(this.n, rect.centerX(), rect.bottom, this.u, 1, this.t, this.v);
+                sz4.b(this.n, rect.centerX(), rect.bottom, this.u, 1, this.t, this.v);
                 return true;
             }
             return false;
@@ -227,7 +227,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(fn8.a(fn8.f(str), 0.3f));
+            this.a.setBackgroundColor(qn8.a(qn8.f(str), 0.3f));
         }
     }
 
@@ -235,14 +235,14 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.n = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038c, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
-            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5c);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d5b);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d59);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5a);
-            int g = xi.g(context, R.dimen.tbds90);
+            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5e);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d5d);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d5b);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5c);
+            int g = yi.g(context, R.dimen.tbds90);
             this.e = g;
             this.d.setRoundLayoutRadius(new float[]{g, g, g, g, g, g, g, g});
             RoundRelativeLayout roundRelativeLayout = this.c;

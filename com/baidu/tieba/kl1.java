@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tw2;
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface kl1 {
-    void a(String str, tw2.k kVar);
+    List<c63> a(c53 c53Var);
+
+    List<c63> b(c53 c53Var);
+
+    List<c63> c(c53 c53Var);
 }

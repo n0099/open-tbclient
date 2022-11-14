@@ -37,7 +37,7 @@ public class VideoEncoderWrapper {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new VideoEncoder.Callback() { // from class: com.baidu.tieba.py9
+            return new VideoEncoder.Callback() { // from class: com.baidu.tieba.az9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

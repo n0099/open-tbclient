@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes4.dex */
-public class gd7 {
+public class gd7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gd7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public gd7() {
         Interceptable interceptable = $ic;
@@ -27,35 +31,32 @@ public class gd7 {
         }
     }
 
-    public static gd7 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (gd7.class) {
-                    if (b == null) {
-                        b = new gd7();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                iv4.f();
+                df<byte[]> d = iv4.d("tb.im_recommend_detail");
+                if (d == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
                 }
+                byte[] bArr = d.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
             }
-            return b;
+            return new CustomResponsedMessage<>(2001306, null);
         }
-        return (gd7) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

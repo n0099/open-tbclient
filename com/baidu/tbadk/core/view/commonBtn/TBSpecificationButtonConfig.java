@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -205,13 +205,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public final Drawable b(int i) {

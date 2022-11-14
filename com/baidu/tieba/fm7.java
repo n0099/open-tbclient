@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fm7 extends yf1<AbConfigService> {
+public class fm7 extends zf1<AccountManagerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class fm7 extends yf1<AbConfigService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
+    @Override // com.baidu.tieba.zf1
     /* renamed from: a */
-    public AbConfigService createService() throws ServiceNotFoundException {
+    public AccountManagerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new gm7();
         }
-        return (AbConfigService) invokeV.objValue;
+        return (AccountManagerService) invokeV.objValue;
     }
 }

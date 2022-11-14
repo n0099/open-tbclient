@@ -10,11 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pr0 extends qr0 {
+public class pr0 extends as0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public zw0 P;
 
-    @Override // com.baidu.tieba.qr0, com.baidu.tieba.tr0, com.baidu.tieba.sr0
+    @Override // com.baidu.tieba.as0, com.baidu.tieba.ur0, com.baidu.tieba.tr0
     public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -25,19 +27,19 @@ public class pr0 extends qr0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pr0(@NonNull lv0 lv0Var, @Nullable Context context) {
-        super(lv0Var, context);
+    public pr0(@NonNull mv0 mv0Var, @Nullable Context context) {
+        super(mv0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lv0Var, context};
+            Object[] objArr = {mv0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((lv0) objArr2[0], (Context) objArr2[1]);
+                super((mv0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,12 +47,22 @@ public class pr0 extends qr0 {
         }
     }
 
-    @Override // com.baidu.tieba.qr0, com.baidu.tieba.fs0, com.baidu.tieba.sr0
+    @Override // com.baidu.tieba.as0, com.baidu.tieba.gs0, com.baidu.tieba.tr0
     public void G0(@Nullable Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            b(new qx0());
-            v().setClickable(false);
+            super.G0(context);
+            b(new rx0());
+            I1("ad_video_tail_frame_layer");
+        }
+    }
+
+    public void I1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            ex0 ex0Var = new ex0(str);
+            this.P = ex0Var;
+            b(ex0Var);
         }
     }
 }

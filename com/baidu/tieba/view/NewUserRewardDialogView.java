@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.nm;
+import com.baidu.tieba.nw4;
+import com.baidu.tieba.om;
+import com.baidu.tieba.pw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,17 +151,17 @@ public class NewUserRewardDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0669, this);
-            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f0916d2);
-            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0916d7);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d4);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916d3);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d6);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d066a, this);
+            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f0916d9);
+            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0916de);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916df);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916db);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916da);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916dc);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916dd);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(iw4.z(R.string.J_X06));
+            this.b.setRoundLayoutRadius(nw4.z(R.string.J_X06));
         }
     }
 
@@ -172,12 +172,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            kw4 d = kw4.d(this.f);
+            pw4 d = pw4.d(this.f);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0902);
             d.n(R.string.J_X01);
             d.v(R.color.CAM_X0105);
-            kw4 d2 = kw4.d(this.g);
+            pw4 d2 = pw4.d(this.g);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);
@@ -220,13 +220,13 @@ public class NewUserRewardDialogView extends LinearLayout {
         this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(nm.b("post_1_times.mp4"));
+            this.a.setSourcePath(om.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(nm.b("reply_1_times.mp4"));
+            this.a.setSourcePath(om.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(nm.b("post_7_times.mp4"));
+            this.a.setSourcePath(om.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(nm.b("reply_7_times.mp4"));
+            this.a.setSourcePath(om.b("reply_7_times.mp4"));
         }
         this.a.play();
     }

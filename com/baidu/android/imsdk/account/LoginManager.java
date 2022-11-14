@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -364,10 +364,10 @@ public class LoginManager {
                     return;
                 }
             }
-            Handler handler = b80.c;
+            Handler handler = c80.c;
             if (handler != null) {
                 handler.removeCallbacks(this.imLoginRunable);
-                b80.c.postDelayed(this.imLoginRunable, 3000L);
+                c80.c.postDelayed(this.imLoginRunable, 3000L);
             }
         }
     }
@@ -401,11 +401,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + b80.e);
+                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + c80.e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (b80.e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (c80.e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i);
-                    } else if (!b80.e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!c80.e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }

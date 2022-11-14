@@ -11,9 +11,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hd7;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.wc7;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wc7 a;
+    public hd7 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -168,9 +168,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            wc7 wc7Var = this.a;
-            if (wc7Var != null) {
-                wc7Var.j(i);
+            hd7 hd7Var = this.a;
+            if (hd7Var != null) {
+                hd7Var.j(i);
             }
         }
     }
@@ -212,7 +212,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new wc7(this);
+            this.a = new hd7(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             y1(bundle);
             this.a.a();
@@ -254,21 +254,21 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void U(UserInfoBigVip userInfoBigVip, boolean z) {
-        wc7 wc7Var;
+        hd7 hd7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, userInfoBigVip, z) == null) && (wc7Var = this.a) != null && userInfoBigVip != null) {
-            wc7Var.g();
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, userInfoBigVip, z) == null) && (hd7Var = this.a) != null && userInfoBigVip != null) {
+            hd7Var.g();
             this.a.p(userInfoBigVip, z);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void h0(View view2, BdSwitchView.SwitchState switchState) {
-        wc7 wc7Var;
+        hd7 hd7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (wc7Var = this.a) != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (hd7Var = this.a) != null && this.b != null) {
             boolean z = false;
-            if (view2 == wc7Var.c()) {
+            if (view2 == hd7Var.c()) {
                 RecommendDetailModel recommendDetailModel = this.b;
                 if (switchState != BdSwitchView.SwitchState.OFF) {
                     z = true;
@@ -287,18 +287,18 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        wc7 wc7Var;
+        hd7 hd7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (!StringUtils.isNull(str) && (wc7Var = this.a) != null) {
-                wc7Var.g();
+            if (!StringUtils.isNull(str) && (hd7Var = this.a) != null) {
+                hd7Var.g();
                 this.a.b();
             }
             if (this.a != null && (recommendDetailModel = this.b) != null && recommendDetailModel.I() && !this.b.G() && StringUtils.isNull(str)) {
-                if (xi.F()) {
-                    this.a.o(R.string.obfuscated_res_0x7f0f0c9b);
+                if (yi.F()) {
+                    this.a.o(R.string.obfuscated_res_0x7f0f0c9d);
                 } else {
-                    this.a.o(R.string.obfuscated_res_0x7f0f07c2);
+                    this.a.o(R.string.obfuscated_res_0x7f0f07c3);
                 }
             }
         }

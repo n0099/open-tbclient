@@ -10,10 +10,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.account.AccountRestoreActivity;
-import com.baidu.tieba.to0;
 import com.baidu.tieba.uo0;
 import com.baidu.tieba.vo0;
-import com.baidu.tieba.wh0;
+import com.baidu.tieba.wo0;
+import com.baidu.tieba.xh0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,11 +62,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vo0 vo0Var = (vo0) this.a.j().p(vo0.class);
-                if (vo0Var != null) {
+                wo0 wo0Var = (wo0) this.a.j().p(wo0.class);
+                if (wo0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    vo0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    wo0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
                 }
                 this.a.h().finish();
             }
@@ -129,9 +129,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onRelease();
-            wh0.e(this.d);
+            xh0.e(this.d);
             this.d = null;
-            wh0.e(this.e);
+            xh0.e(this.e);
             this.e = null;
         }
     }
@@ -151,20 +151,20 @@ public final class TopBarComponent extends AbsComponentPlugin {
         if ((interceptable != null && interceptable.invokeL(1048579, this, viewGroup) != null) || this.d != null) {
             return;
         }
-        to0 a2 = uo0.a();
+        uo0 a2 = vo0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.b();
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0610, viewGroup, true);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, viewGroup, true);
         Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
         AdImageView adImageView = null;
         if (inflate != null) {
-            frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091502);
+            frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091509);
         } else {
             frameLayout = null;
         }
         this.d = frameLayout;
         if (inflate != null) {
-            adImageView = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091503);
+            adImageView = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09150a);
         }
         this.e = adImageView;
         if (adImageView != null) {

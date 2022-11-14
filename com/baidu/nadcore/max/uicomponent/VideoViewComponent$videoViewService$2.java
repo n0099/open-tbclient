@@ -3,7 +3,7 @@ package com.baidu.nadcore.max.uicomponent;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.max.uiwidget.basic.VideoViewHolder;
-import com.baidu.tieba.yo0;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
     }
 
     /* loaded from: classes2.dex */
-    public static final class a implements yo0 {
+    public static final class a implements zo0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoViewComponent$videoViewService$2 a;
@@ -65,7 +65,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             this.a = videoViewComponent$videoViewService$2;
         }
 
-        @Override // com.baidu.tieba.yo0
+        @Override // com.baidu.tieba.zo0
         public int getVideoHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.yo0
+        @Override // com.baidu.tieba.zo0
         public FrameLayout h() {
             InterceptResult invokeV;
             VideoViewHolder videoViewHolder;
@@ -87,7 +87,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             return (FrameLayout) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.yo0
+        @Override // com.baidu.tieba.zo0
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yo0
+        @Override // com.baidu.tieba.zo0
         public int l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

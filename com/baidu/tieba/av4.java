@@ -6,13 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.BirthdayInfo;
 /* loaded from: classes3.dex */
 public class av4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public int b;
+    public String b;
+    public int c;
+    public int d;
 
     public av4() {
         Interceptable interceptable = $ic;
@@ -33,20 +35,20 @@ public class av4 {
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optLong("channel_id", 0L);
-            jSONObject.optString("channel_name");
-            jSONObject.optString("channel_avatar");
-        } catch (Exception unused) {
-        }
+        this.a = jSONObject.optLong("birthday_time", 0L);
+        this.d = jSONObject.optInt("birthday_show_status", 0);
+        this.b = jSONObject.optString("constellation", "");
+        this.c = jSONObject.optInt("age", 0);
     }
 
-    public void b(VideoChannelInfo videoChannelInfo) {
+    public void b(BirthdayInfo birthdayInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) && videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.a = videoChannelInfo.channel_id.longValue();
-            String str = videoChannelInfo.channel_name;
-            String str2 = videoChannelInfo.channel_avatar;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) != null) || birthdayInfo == null) {
+            return;
         }
+        this.a = birthdayInfo.birthday_time.longValue();
+        this.d = birthdayInfo.birthday_show_status.intValue();
+        this.b = birthdayInfo.constellation;
+        this.c = birthdayInfo.age.intValue();
     }
 }

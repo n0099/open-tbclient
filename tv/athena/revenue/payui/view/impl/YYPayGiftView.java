@@ -15,11 +15,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g7a;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.r7a;
-import com.baidu.tieba.s7a;
-import com.baidu.tieba.u6a;
+import com.baidu.tieba.d8a;
+import com.baidu.tieba.l8a;
+import com.baidu.tieba.q7a;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.u8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayGiftView extends LinearLayout implements r7a {
+public class YYPayGiftView extends LinearLayout implements r8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,27 +42,27 @@ public class YYPayGiftView extends LinearLayout implements r7a {
     public GridView d;
     public View e;
     public TextView f;
-    public r7a.a g;
+    public r8a.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public s7a k;
+    public u8a k;
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, windowParams) == null) {
@@ -124,19 +124,19 @@ public class YYPayGiftView extends LinearLayout implements r7a {
         this.a = i;
         this.b = i2;
         this.i = payUIKitConfig;
-        b(context);
-        u6a.d(this.a, this.b, "17", "", "", "");
+        c(context);
+        q7a.d(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.r7a
-    public void setCallback(r7a.a aVar) {
+    @Override // com.baidu.tieba.r8a
+    public void setCallback(r8a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.r7a
+    @Override // com.baidu.tieba.r8a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, giftBagsInfo) == null) {
@@ -145,37 +145,37 @@ public class YYPayGiftView extends LinearLayout implements r7a {
         }
     }
 
-    public final void b(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, l7a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06c4, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090452);
+            LayoutInflater.from(new ContextThemeWrapper(context, l8a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06c7, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090453);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c99);
-            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090d20);
-            s7a s7aVar = new s7a(context, this.j, this.i);
-            this.k = s7aVar;
-            this.d.setAdapter((ListAdapter) s7aVar);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091ca4);
+            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090d21);
+            u8a u8aVar = new u8a(context, this.j, this.i);
+            this.k = u8aVar;
+            this.d.setAdapter((ListAdapter) u8aVar);
         }
     }
 
-    public final void c() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !TextUtils.isEmpty(this.h.successButtonMsg)) {
             this.c.setText(this.h.successButtonMsg);
         }
     }
 
-    public final void d() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !TextUtils.isEmpty(this.h.successTitle)) {
             this.f.setText(this.h.successTitle);
         }
     }
 
-    @Override // com.baidu.tieba.o7a
+    @Override // com.baidu.tieba.o8a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -190,9 +190,9 @@ public class YYPayGiftView extends LinearLayout implements r7a {
                 this.j.clear();
                 this.j.addAll(this.h.giftbag);
                 this.k.notifyDataSetChanged();
-                g7a.a(this.j.size(), this.e, this.d);
-                d();
-                c();
+                d8a.a(this.j.size(), this.e, this.d);
+                f();
+                e();
                 return;
             }
             RLog.error("YYPayGiftView", "refreshView error giftbag empty", new Object[0]);

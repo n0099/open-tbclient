@@ -1,82 +1,58 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class qi7 {
+public class qi7 implements no4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static pi7 a(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    @Override // com.baidu.tieba.no4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof pi7)) {
-                return null;
-            }
-            return (pi7) iLegoAdvert;
-        }
-        return (pi7) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
     }
 
-    public static void b(pi7 pi7Var) {
+    public qi7() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, pi7Var) == null) && pi7Var != null && pi7Var.getParallelCharge() != null) {
-            a11.b(pi7Var.getParallelCharge().b);
-            Iterator<String> it = pi7Var.getParallelCharge().c.iterator();
-            while (it.hasNext()) {
-                a11.b(it.next());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(AdvertAppInfo advertAppInfo) {
+    @Override // com.baidu.tieba.no4
+    public void b(HashMap<String, String> hashMap, oo4 oo4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, oo4Var) == null) && oo4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            String str = hashMap.get("fid");
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
-            z01.b(clogBuilder);
+            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(xg.g(str, 0L))));
+            TbadkCoreApplication.getInst().addLikeForum(str2);
         }
-    }
-
-    public static boolean d(pi7 pi7Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pi7Var)) == null) {
-            if (pi7Var == null || pi7Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = pi7Var.getParallelCharge().a;
-            a11.b(str);
-            if (!TextUtils.isEmpty(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Iterator<String> it = pi7Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!z && TextUtils.isEmpty(next)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                a11.b(next);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ public class ThreadCardImgClickToPBSwitch extends BaseNormalSwitch {
     public static final String KEY_SWITCH = "12_24_tupiandianji_X";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.jf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class ThreadCardImgClickToPBSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (ky4.k().l(KEY_SWITCH, 1) == 1) {
+            if (py4.k().l(KEY_SWITCH, 1) == 1) {
                 return true;
             }
             return false;

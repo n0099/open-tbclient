@@ -113,7 +113,7 @@ public class AuthWidgetActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0515);
+                setContentView(R.layout.obfuscated_res_0x7f0d0516);
                 String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
                 this.t = stringExtra;
                 this.u = SapiUtils.urlParamsToMap(stringExtra).get("u");

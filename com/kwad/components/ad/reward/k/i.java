@@ -53,21 +53,21 @@ public final class i extends d implements View.OnClickListener {
         this.vf = dialogFragment;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0462, viewGroup, false);
+        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0463, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a3);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a5);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a1);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a4);
-            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a2);
-            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f09119e);
-            this.f1082vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a0);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a8);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911aa);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a6);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a9);
+            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a7);
+            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a3);
+            this.f1082vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a5);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a4);
             this.kP.setOnClickListener(this);
             this.f1082vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);

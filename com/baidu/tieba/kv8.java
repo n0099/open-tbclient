@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetThemeList.ThemeList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes4.dex */
 public class kv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public long c;
-    public String d;
+    public List<DressItemData> b;
 
     public kv8() {
         Interceptable interceptable = $ic;
@@ -30,13 +32,13 @@ public class kv8 {
         }
     }
 
-    public String a() {
+    public List<DressItemData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
     public String b() {
@@ -48,32 +50,15 @@ public class kv8 {
         return (String) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c(ThemeBubbleInMain themeBubbleInMain) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(ThemeList themeList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, themeList) != null) || themeList == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBubbleInMain) != null) || themeBubbleInMain == null) {
             return;
         }
-        this.a = themeList.name;
-        this.b = themeList.icon;
-        this.c = themeList.last_update_time.longValue();
-        this.d = themeList.type;
+        this.a = themeBubbleInMain.bubble_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
+        }
     }
 }

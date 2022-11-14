@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.Paint;
-import com.baidu.tieba.c66;
+import com.baidu.tieba.o66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class RenderSystem$debugPaint$2 extends Lambda implements Function0
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c66.a()) {
+            if (o66.a()) {
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setColor(-65536);

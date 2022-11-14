@@ -37,15 +37,15 @@ public final class o extends d implements View.OnClickListener {
                 return;
             }
         }
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d044e, viewGroup, false);
+        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d044f, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09113d);
-            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f09113e);
+            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091142);
+            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f091143);
             this.vU.setOnClickListener(this);
             this.vV.setOnClickListener(this);
         }

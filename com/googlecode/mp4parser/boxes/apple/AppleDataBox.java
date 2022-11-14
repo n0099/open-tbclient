@@ -1,11 +1,9 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import androidx.room.RoomMasterTable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
-import com.tencent.connect.common.Constants;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -92,46 +88,46 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("25", "Polish");
         language.put("26", "Hungarian");
         language.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, "Estonian");
-        language.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "Lettish");
-        language.put("29", "Sami");
-        language.put("30", "Faroese");
-        language.put("31", "Farsi");
-        language.put("32", "Russian");
-        language.put("33", "Simplified_Chinese");
-        language.put("34", "Flemish");
-        language.put("35", "Irish");
-        language.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "Albanian");
-        language.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Romanian");
-        language.put("38", "Czech");
-        language.put("39", "Slovak");
-        language.put("40", "Slovenian");
-        language.put("41", "Yiddish");
-        language.put(RoomMasterTable.DEFAULT_ID, "Serbian");
-        language.put("43", "Macedonian");
-        language.put("44", "Bulgarian");
-        language.put("45", "Ukrainian");
-        language.put("46", "Belarusian");
-        language.put("47", "Uzbek");
-        language.put("48", "Kazakh");
-        language.put("49", "Azerbaijani");
-        language.put("50", "AzerbaijanAr");
-        language.put("51", "Armenian");
-        language.put("52", "Georgian");
-        language.put("53", "Moldavian");
-        language.put("54", "Kirghiz");
-        language.put(BaseUtils.METHOD_SENDMESSAGE, "Tajiki");
-        language.put("56", "Turkmen");
-        language.put("57", "Mongolian");
-        language.put("58", "MongolianCyr");
-        language.put("59", "Pashto");
-        language.put("60", "Kurdish");
-        language.put("61", "Kashmiri");
-        language.put("62", "Sindhi");
-        language.put("63", "Tibetan");
-        language.put(WebKitFactory.OS_64, "Nepali");
-        language.put("65", "Sanskrit");
-        language.put("66", "Marathi");
-        language.put("67", "Bengali");
+        language.put("28", "Lettish");
+        language.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK, "Sami");
+        language.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK, "Faroese");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, "Farsi");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK, "Russian");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK, "Simplified_Chinese");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK, "Flemish");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK, "Irish");
+        language.put("36", "Albanian");
+        language.put("37", "Romanian");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK, "Czech");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK, "Slovak");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK, "Slovenian");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK, "Yiddish");
+        language.put("42", "Serbian");
+        language.put(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK, "Macedonian");
+        language.put(PayUVEventType.PAY_WAY_FULL_PAGE_CLOSE_BTN_CLICK, "Bulgarian");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, "Ukrainian");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, "Belarusian");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, "Uzbek");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, "Kazakh");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, "Azerbaijani");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, "AzerbaijanAr");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, "Armenian");
+        language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, "Georgian");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, "Moldavian");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, "Kirghiz");
+        language.put("55", "Tajiki");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, "Turkmen");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, "Mongolian");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, "MongolianCyr");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, "Pashto");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, "Kurdish");
+        language.put(PayUVEventType.PAY_SIGN_DIALOG_SHOW, "Kashmiri");
+        language.put(PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, "Sindhi");
+        language.put(PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, "Tibetan");
+        language.put("64", "Nepali");
+        language.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, "Sanskrit");
+        language.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, "Marathi");
+        language.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, "Bengali");
         language.put("68", "Assamese");
         language.put("69", "Gujarati");
         language.put("70", "Punjabi");
@@ -215,7 +211,7 @@ public abstract class AppleDataBox extends AbstractBox {
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
             writeDataLength4ccTypeCountryLanguage(byteBuffer);
             byteBuffer.put(writeData());
         }
@@ -253,7 +249,7 @@ public abstract class AppleDataBox extends AbstractBox {
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return getDataLength() + 16;
         }
         return invokeV.longValue;

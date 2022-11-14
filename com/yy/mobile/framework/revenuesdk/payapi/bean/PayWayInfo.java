@@ -13,6 +13,7 @@ public class PayWayInfo {
     public String name;
     public String payChannel;
     public String payMethod;
+    public double perFreePassAmount;
     public String tips;
 
     public PayWayInfo() {
@@ -33,7 +34,7 @@ public class PayWayInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PayWayInfo{id='" + this.id + "', name='" + this.name + "', tips='" + this.tips + "', payChannel='" + this.payChannel + "', payMethod='" + this.payMethod + "'}";
+            return "PayWayInfo{id='" + this.id + "', name='" + this.name + "', tips='" + this.tips + "', payChannel='" + this.payChannel + "', payMethod='" + this.payMethod + "', perFreePassAmount='" + this.perFreePassAmount + "'}";
         }
         return (String) invokeV.objValue;
     }

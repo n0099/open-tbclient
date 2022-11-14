@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ta1;
+import com.baidu.tieba.ua1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -217,7 +217,7 @@ public class CircleImageView extends ImageView {
         this.e = new Paint();
         this.f = -16777216;
         this.g = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ta1.sapi_sdk_circle_image_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ua1.sapi_sdk_circle_image_view, i, 0);
         this.g = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.f = obtainStyledAttributes.getColor(0, -16777216);
         obtainStyledAttributes.recycle();

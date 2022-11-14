@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.vi5;
+import com.baidu.tieba.cj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.records = this.msgRecords;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                vi5.a(builder, true);
+                cj5.a(builder, true);
             }
             AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
             builder2.data = builder.build(false);

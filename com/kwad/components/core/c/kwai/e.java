@@ -392,7 +392,7 @@ public final class e extends c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910d7);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910dc);
         }
     }
 

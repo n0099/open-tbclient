@@ -20,17 +20,17 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jq5;
-import com.baidu.tieba.qi7;
+import com.baidu.tieba.bj7;
+import com.baidu.tieba.ci8;
+import com.baidu.tieba.eh8;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.fr5;
+import com.baidu.tieba.kh8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.AdAppInfoView;
-import com.baidu.tieba.rh8;
-import com.baidu.tieba.sq5;
-import com.baidu.tieba.tg8;
-import com.baidu.tieba.tq5;
-import com.baidu.tieba.tr4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zg8;
+import com.baidu.tieba.ur4;
+import com.baidu.tieba.vq5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class AdEnhanceButtonView extends FrameLayout {
     public int f;
     public int g;
     public View h;
-    public rh8 i;
+    public ci8 i;
     public AdvertAppInfo j;
     public AdCard k;
 
@@ -248,7 +248,7 @@ public class AdEnhanceButtonView extends FrameLayout {
                 View view2 = this.b.q() ? this.b.b : this.b.d;
                 if (view2.getBackground() instanceof GradientDrawable) {
                     GradientDrawable gradientDrawable = (GradientDrawable) view2.getBackground();
-                    gradientDrawable.setColor(zg8.g(animatedFraction, SkinManager.getColor(R.color.CAM_X0614), this.a));
+                    gradientDrawable.setColor(kh8.g(animatedFraction, SkinManager.getColor(R.color.CAM_X0614), this.a));
                     gradientDrawable.setCornerRadius(AdEnhanceButtonView.l);
                 }
             }
@@ -307,7 +307,7 @@ public class AdEnhanceButtonView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements tq5.a {
+    public class f implements fr5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdEnhanceButtonView a;
@@ -330,13 +330,13 @@ public class AdEnhanceButtonView extends FrameLayout {
             this.a = adEnhanceButtonView;
         }
 
-        @Override // com.baidu.tieba.tq5.a
+        @Override // com.baidu.tieba.fr5.a
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                jq5.a(this.a.k.getButtonCmdScheme());
-                qi7.c(this.a.j);
+                vq5.a(this.a.k.getButtonCmdScheme());
+                bj7.c(this.a.j);
                 return false;
             }
             return invokeL.booleanValue;
@@ -395,11 +395,11 @@ public class AdEnhanceButtonView extends FrameLayout {
                 return;
             }
         }
-        l = xi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds21);
-        m = xi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds86);
-        n = xi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds102);
-        o = xi.g(TbadkApplication.getInst().getContext(), R.dimen.M_H_X002);
-        p = xi.g(TbadkApplication.getInst().getContext(), R.dimen.M_H_X004);
+        l = yi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds21);
+        m = yi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds86);
+        n = yi.g(TbadkApplication.getInst().getContext(), R.dimen.tbds102);
+        o = yi.g(TbadkApplication.getInst().getContext(), R.dimen.M_H_X002);
+        p = yi.g(TbadkApplication.getInst().getContext(), R.dimen.M_H_X004);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -494,7 +494,7 @@ public class AdEnhanceButtonView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            return zg8.h(this.k.enhanceModel.a, SkinManager.getColor(R.color.CAM_X0302));
+            return kh8.h(this.k.enhanceModel.a, SkinManager.getColor(R.color.CAM_X0302));
         }
         return invokeV.intValue;
     }
@@ -542,9 +542,9 @@ public class AdEnhanceButtonView extends FrameLayout {
                 return;
             }
             setVisibility(0);
-            tr4 tr4Var = this.k.appInfoModel;
-            if (tr4Var != null) {
-                this.a.setAppInfo(tr4Var);
+            ur4 ur4Var = this.k.appInfoModel;
+            if (ur4Var != null) {
+                this.a.setAppInfo(ur4Var);
                 this.a.setVisibility(0);
             }
             String str = this.k.operate.a;
@@ -568,22 +568,22 @@ public class AdEnhanceButtonView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0069, this);
             this.a = (AdAppInfoView) findViewById(R.id.obfuscated_res_0x7f0902ac);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090849);
-            this.c = (ApkDownloadView) findViewById(R.id.obfuscated_res_0x7f090848);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b0);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09084a);
+            this.c = (ApkDownloadView) findViewById(R.id.obfuscated_res_0x7f090849);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b1);
             this.a.setTextSize(R.dimen.T_X08);
             this.a.setTextColor(R.color.CAM_X0620);
             this.c.setTextColorInitSkin(R.color.CAM_X0101);
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             this.c.setTextSize(R.dimen.T_X08);
             this.c.setForegroundSkin(R.color.black_alpha15);
-            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0812ae);
+            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0812be);
             this.c.setRatio(0);
             this.c.c();
         }
     }
 
-    public final void m(@NonNull tg8.a aVar) {
+    public final void m(@NonNull eh8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             s();
@@ -607,12 +607,12 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void k(@NonNull tg8 tg8Var) {
-        List<tg8.a> list;
+    public final void k(@NonNull eh8 eh8Var) {
+        List<eh8.a> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, tg8Var) == null) && (list = tg8Var.b) != null && list.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, eh8Var) == null) && (list = eh8Var.b) != null && list.size() > 0) {
             this.e = new ArrayList();
-            for (tg8.a aVar : list) {
+            for (eh8.a aVar : list) {
                 if (aVar != null) {
                     p(aVar);
                 }
@@ -643,7 +643,7 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void p(@NonNull tg8.a aVar) {
+    public final void p(@NonNull eh8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             int i = aVar.a;
@@ -662,7 +662,7 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void n(@NonNull tg8.a aVar) {
+    public final void n(@NonNull eh8.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, aVar) != null) || aVar.c <= 0) {
             return;
@@ -687,9 +687,9 @@ public class AdEnhanceButtonView extends FrameLayout {
                 }
                 return;
             }
-            rh8 rh8Var = this.i;
-            if (rh8Var != null) {
-                rh8Var.b();
+            ci8 ci8Var = this.i;
+            if (ci8Var != null) {
+                ci8Var.b();
             }
         }
     }
@@ -703,7 +703,7 @@ public class AdEnhanceButtonView extends FrameLayout {
             }
             this.c.setInitText(adCard.operate.a);
             this.c.setOnClickInterceptListener(new f(this));
-            new sq5(this.c, zg8.d(this.k));
+            new er5(this.c, kh8.d(this.k));
         }
     }
 

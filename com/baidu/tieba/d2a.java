@@ -1,48 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes3.dex */
-public abstract class d2a<E> extends e2a<E> {
+public abstract class d2a<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
+    public final AtomicReferenceArray<E> a;
+    public final int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654038, "Lcom/baidu/tieba/d2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947654038, "Lcom/baidu/tieba/d2a;");
-                return;
-            }
-        }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = d3a.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = d3a.a.a(Object[].class) + (32 << (e - c));
+    public final int b(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
     }
 
     public d2a(int i) {
@@ -51,63 +28,36 @@ public abstract class d2a<E> extends e2a<E> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int b = g2a.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
+        int b = r2a.b(i);
+        this.b = b - 1;
+        this.a = new AtomicReferenceArray<>(b);
     }
 
-    public final long a(long j) {
+    public final int a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return b(j, this.a);
+            return this.b & ((int) j);
         }
-        return invokeJ.longValue;
+        return invokeJ.intValue;
     }
 
-    public final E d(long j) {
-        InterceptResult invokeJ;
+    public final E c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            return e(this.b, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return d(this.a, i);
         }
-        return (E) invokeJ.objValue;
-    }
-
-    public final long b(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return d + ((j & j2) << e);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
-            return (E) d3a.a.e(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
-            return (E) d3a.a.f(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
+        return (E) invokeI.objValue;
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -127,23 +77,25 @@ public abstract class d2a<E> extends e2a<E> {
     public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             throw new UnsupportedOperationException();
         }
         return (Iterator) invokeV.objValue;
     }
 
-    public final void f(E[] eArr, long j, E e2) {
+    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            d3a.a.j(eArr, j, e2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
+            return atomicReferenceArray.get(i);
         }
+        return (E) invokeLI.objValue;
     }
 
-    public final void g(E[] eArr, long j, E e2) {
+    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            d3a.a.h(eArr, j, e2);
+        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
+            atomicReferenceArray.lazySet(i, e);
         }
     }
 }

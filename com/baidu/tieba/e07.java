@@ -1,213 +1,92 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class e07 {
+public class e07 extends ax<lu4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public final List<g25> c;
-    public final List<g25> d;
-    public boolean e;
+    public ConcernRecommendLayout f;
+    public int g;
 
-    public e07() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e07(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1;
-        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        j();
+        this.g = 3;
+        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
+        this.f = concernRecommendLayout;
+        concernRecommendLayout.setPageContext(tbPageContext);
+        this.f.setPageUniqueId(bdUniqueId);
     }
 
-    public g25 a(int i, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sx
+    /* renamed from: s */
+    public void a(lu4 lu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            g25 g25Var = new g25();
-            g25Var.a = i;
-            g25Var.b = str;
-            g25Var.c = str2;
-            g25Var.d = str3;
-            return g25Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lu4Var) == null) {
+            this.f.setData(lu4Var);
         }
-        return (g25) invokeCommon.objValue;
     }
 
-    public g25 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        boolean z;
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            g25 g25Var = new g25();
-            g25Var.a = i;
-            g25Var.b = str;
-            g25Var.c = str2;
-            if (i == 5) {
-                z = true;
-            } else {
-                z = false;
-            }
-            g25Var.i(z);
-            return g25Var;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f.setHasBorder(z);
         }
-        return (g25) invokeILL.objValue;
     }
 
-    public boolean c() {
+    public void u(jq4<MetaData> jq4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jq4Var) == null) {
+            this.f.setOnItemCoverListener(jq4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.ax
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                q(this.f, 3);
             }
-            List<g25> i = i();
-            int size = i.size();
-            if (size != this.c.size()) {
-                return true;
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
-                    return true;
-                }
-            }
-            return false;
+            this.g = i;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final List<g25> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f13a7), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f13a3), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a2), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139f), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a0), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a1), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139d), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139c), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a6), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f13a4), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public List<g25> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<g25> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<g25> i = i();
-            if (!ListUtils.isEmpty(i)) {
-                this.c.addAll(i);
-            }
-        }
-    }
-
-    public final String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return TbadkCoreApplication.getInst().getString(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final List<g25> i() {
-        InterceptResult invokeV;
-        int length;
-        g25 g25Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONArray jSONArray = new JSONArray(ky4.k().q("key_index_tab_info_list", "[]"));
-                List<g25> arrayList2 = new ArrayList<>();
-                if (jSONArray.length() == 0) {
-                    this.e = true;
-                    arrayList2 = d();
-                } else {
-                    this.e = false;
-                }
-                if (this.e) {
-                    length = arrayList2.size();
-                } else {
-                    length = jSONArray.length();
-                }
-                for (int i = 0; i < length; i++) {
-                    if (this.e) {
-                        g25Var = arrayList2.get(i);
-                    } else {
-                        g25Var = new g25();
-                        g25Var.h(jSONArray.getJSONObject(i));
-                    }
-                    if (!g25Var.e()) {
-                        if (g25Var.f() && arrayList.size() < 2) {
-                            arrayList.add(g25Var);
-                        } else {
-                            this.d.add(g25Var);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

@@ -1,91 +1,249 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.r59;
+import com.baidu.tieba.write.write.WriteImageGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class s59 extends h69<t69> {
+public class s59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View g;
+    public TbPageContext<?> a;
+    public WriteImageGridView b;
+    public WriteImagesInfo c;
+    public r59 d;
+    public n95 e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public PostPrefixData k;
+    public int l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public b p;
+    public r59.f q;
 
-    @Override // com.baidu.tieba.m69
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements r59.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s59 a;
+
+        public a(s59 s59Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s59Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s59Var;
+        }
+
+        @Override // com.baidu.tieba.r59.f
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.c == null) {
+                return;
+            }
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
+            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setCanSelectVideo(false);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(false);
+            albumFloatActivityConfig.setCanEditImage(false);
+            AntiData antiData = new AntiData();
+            antiData.voice_message = this.a.h;
+            antiData.setIfVoice(this.a.m);
+            albumFloatActivityConfig.setStatisticFrom(this.a.l);
+            albumFloatActivityConfig.setExtraData(antiData, this.a.k, this.a.i, this.a.j);
+            albumFloatActivityConfig.setFromWrite(3);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+
+        @Override // com.baidu.tieba.r59.f
+        public void b(int i) {
+            int count;
+            ImageFileInfo imageInfoAt;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.c != null && (count = ListUtils.getCount(this.a.c.getChosedFiles())) != 0 && i >= 0 && i < count && (imageInfoAt = this.a.c.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
+                this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
+            }
+        }
+
+        @Override // com.baidu.tieba.r59.f
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.c != null && this.a.c.getChosedFiles() != null && i >= 0 && i < this.a.c.getChosedFiles().size()) {
+                ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
+                if (remove.isTempFile()) {
+                    lc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                }
+                s59 s59Var = this.a;
+                s59Var.d.g(s59Var.c);
+                this.a.d.notifyDataSetChanged();
+                if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
+                    if (this.a.p != null) {
+                        this.a.p.b();
+                    }
+                    if (!this.a.n) {
+                        this.a.b.setVisibility(8);
+                    }
+                }
+                if (this.a.p != null) {
+                    this.a.p.a();
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.m69
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m69
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s59(@NonNull TbPageContext<?> tbPageContext) {
-        super(tbPageContext, t69.class);
+    public s59(TbPageContext<?> tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new n95();
+        this.f = AlbumActivityConfig.FROM_WRITE;
+        this.g = "";
+        this.h = null;
+        this.n = false;
+        this.q = new a(this);
+        this.a = tbPageContext;
+        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f092704);
+        r59 r59Var = new r59(view2.getContext(), this.e, null, this.q);
+        this.d = r59Var;
+        this.b.setAdapter((ListAdapter) r59Var);
     }
 
-    @Override // com.baidu.tieba.m69
-    public void onChangeSkinType(int i) {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            kw4.d(this.g).f(R.color.CAM_X0210);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.n = z;
+            this.d.f(z);
         }
     }
 
-    public void z(int i) {
-        View view2;
+    public void r(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (view2 = this.g) != null) {
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.p = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.m69
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            this.g = new View(this.a.getPageActivity());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, xi.g(this.a.getPageActivity(), R.dimen.L_X01));
-            marginLayoutParams.setMargins(xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0);
-            this.g.setLayoutParams(marginLayoutParams);
-            return this.g;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d.h(z);
         }
-        return (View) invokeL.objValue;
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d.i(z);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public GridView o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void q(String str, String str2, String str3, PostPrefixData postPrefixData, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, postPrefixData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.h = str;
+            this.i = str2;
+            this.j = str3;
+            this.k = postPrefixData;
+            this.l = i;
+            this.m = z;
+        }
+    }
+
+    public void u(WriteImagesInfo writeImagesInfo, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, writeImagesInfo, str, str2) == null) {
+            this.f = str;
+            this.g = str2;
+            this.c = writeImagesInfo;
+            this.d.g(writeImagesInfo);
+            this.d.notifyDataSetChanged();
+            v();
+        }
+    }
+
+    public final void v() {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.n) {
+                this.b.setVisibility(0);
+            } else if (!this.o && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
+            }
+        }
     }
 }

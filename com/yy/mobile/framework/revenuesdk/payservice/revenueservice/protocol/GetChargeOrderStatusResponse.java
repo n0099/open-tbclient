@@ -12,6 +12,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
@@ -36,6 +37,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public String message;
     public int result;
     public String seq;
+    public List<SplitRecordItem> splitRecordItemList;
     public int status;
     public long uid;
     public int usedChannel;
@@ -57,6 +59,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         }
         this.cmd = RevenueServerConst.GetChargeOrderStatusResponse;
         this.giftbags = new ArrayList();
+        this.splitRecordItemList = new ArrayList();
         parserResponse(str);
     }
 
@@ -64,7 +67,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new GetChargeOrderStatusResult(this.expand, this.status, this.message, this.hasGotSalePromotion, this.currencyType, this.amount, this.currencyAmount, this.finish, this.giftbags);
+            return new GetChargeOrderStatusResult(this.expand, this.status, this.message, this.hasGotSalePromotion, this.currencyType, this.amount, this.currencyAmount, this.finish, this.giftbags, this.splitRecordItemList);
         }
         return (GetChargeOrderStatusResult) invokeV.objValue;
     }
@@ -125,10 +128,35 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
+    public List<SplitRecordItem> optSplitRecordItemList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SplitRecordItem splitRecordItem = new SplitRecordItem();
+                    splitRecordItem.type = optJSONObject.optInt("type");
+                    splitRecordItem.id = optJSONObject.optString("id");
+                    splitRecordItem.name = optJSONObject.optString("name");
+                    splitRecordItem.value = optJSONObject.optString("value");
+                    arrayList.add(splitRecordItem);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
     public void parserResponse(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             if (str != null && !"".equals(str.trim())) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -148,6 +176,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
                         this.amount = jSONObject.optLong(PayUiEventContent.AMOUNT);
                         this.finish = jSONObject.optBoolean("finish", false);
                         this.giftbags.addAll(optGiftBagsInfoList(jSONObject.optJSONArray("giftbags")));
+                        this.splitRecordItemList.addAll(optSplitRecordItemList(jSONObject.optJSONArray("splitDetailList")));
                         return;
                     }
                     throw new Exception(this.cmd + " != " + optInt);

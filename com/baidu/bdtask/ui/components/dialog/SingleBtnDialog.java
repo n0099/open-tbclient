@@ -22,7 +22,7 @@ public final class SingleBtnDialog extends a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07ac : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07b0 : invokeV.intValue;
     }
 
     public SingleBtnDialog() {
@@ -46,8 +46,8 @@ public final class SingleBtnDialog extends a {
             super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e5);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907e6);
+                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e6);
+                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907e7);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
                 b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new SingleBtnDialog$initExtraView$1(this, a));

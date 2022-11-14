@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wd9;
-import com.baidu.tieba.zd9;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public final class yd9 implements wd9.a {
+public final class yd9 {
     public static /* synthetic */ Interceptable $ic;
+    public static yd9 c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wd9.a
-    public final void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.wd9.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
     public yd9() {
         Interceptable interceptable = $ic;
@@ -38,27 +28,54 @@ public final class yd9 implements wd9.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicInteger();
     }
 
-    @Override // com.baidu.tieba.wd9.a
-    public final void a(Activity activity) {
-        zd9 zd9Var;
+    public static synchronized yd9 a() {
+        InterceptResult invokeV;
+        yd9 yd9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            zd9Var = zd9.a.a;
-            zd9Var.c(new WeakReference<>(activity));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (yd9.class) {
+                if (c == null) {
+                    b(td9.h().getContext());
+                }
+                yd9Var = c;
+            }
+            return yd9Var;
         }
+        return (yd9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wd9.a
-    public final void onActivityDestroyed(Activity activity) {
-        zd9 zd9Var;
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            zd9Var = zd9.a.a;
-            zd9Var.d(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    ue9.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public static synchronized void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (yd9.class) {
+                if (c == null) {
+                    c = new yd9();
+                    d = new wd9(context);
+                }
+            }
         }
     }
 }

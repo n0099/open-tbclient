@@ -9,14 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vq2 implements du2 {
+public class vq2 extends rq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xq2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public yq2 z;
 
     public vq2() {
         Interceptable interceptable = $ic;
@@ -28,22 +24,16 @@ public class vq2 implements du2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.vz1, com.baidu.tieba.eu2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xq2 xq2Var = this.a;
-            if (xq2Var != null && xq2Var.isValid() && this.d != -1) {
+            if (this.z != null) {
                 return true;
             }
             return false;
@@ -51,30 +41,22 @@ public class vq2 implements du2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.rq2, com.baidu.tieba.vz1, com.baidu.tieba.eu2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        xq2 xq2Var = new xq2();
-        this.a = xq2Var;
-        xq2Var.a(jSONObject);
-        if (!this.a.isValid()) {
-            return;
+        super.a(jSONObject);
+        jSONObject.optString("cb");
+        double optDouble = jSONObject.optDouble("latitude");
+        double optDouble2 = jSONObject.optDouble("longitude");
+        jSONObject.optString("guideKey");
+        jSONObject.optString("guideIcon");
+        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
+            yq2 yq2Var = new yq2();
+            this.z = yq2Var;
+            yq2Var.a(jSONObject);
         }
-        this.b = rq2.a(jSONObject.optString("color"), 0);
-        this.c = rq2.a(jSONObject.optString("fillColor"), -16777216);
-        this.d = jSONObject.optInt("radius", -1);
-        this.e = Math.abs(rq2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
     }
 }

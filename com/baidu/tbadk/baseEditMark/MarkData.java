@@ -13,12 +13,13 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -113,7 +114,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!wi.isEmpty(this.mAuthorName)) {
+            if (!xi.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -462,7 +463,7 @@ public class MarkData implements Serializable {
                 }
                 int optInt = jSONObject.optInt("thread_type");
                 this.threadType = optInt;
-                this.mIsPhotoLiveThread = "33".equals(String.valueOf(optInt));
+                this.mIsPhotoLiveThread = PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK.equals(String.valueOf(optInt));
                 int optInt2 = jSONObject.optInt("mark_status");
                 JSONArray optJSONArray = jSONObject.optJSONArray("media");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -488,7 +489,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (wi.isEmpty(this.portrait)) {
+                if (xi.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

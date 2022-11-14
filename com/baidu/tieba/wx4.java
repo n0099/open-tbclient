@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
-public interface wx4 {
-    IconPopData getIconPopData();
+public @interface wx4 {
+    boolean isAsync() default false;
 
-    LevePopData getLevePopData();
-
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
+    String value() default "";
 }

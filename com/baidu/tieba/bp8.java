@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,11 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
+    public BdUniqueId a;
+    public AgreeData b;
 
     public bp8() {
         Interceptable interceptable = $ic;
@@ -28,6 +26,7 @@ public class bp8 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = null;
+        this.b = null;
     }
 }

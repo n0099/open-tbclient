@@ -77,6 +77,8 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_GAME_PLAY_ORDER_PAGE = "com.baidu.tieba://unidispatch/GameOrderDetail";
     public static final String SCHEMA_GAME_PLAY_PERSON_CHAT = "com.baidu.tieba://unidispatch/UserChat";
     public static final String SCHEMA_GAME_PLAY_SKILL_DETAIL = "com.baidu.tieba://unidispatch/GameSkillDetail";
+    public static final String SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE = "com.baidu.tieba://unidispatch/UnPaidListPage";
+    public static final String SCHEMA_GAME_PLAY_UNPAID_PAGE = "com.baidu.tieba://unidispatch/UnPaidOrder";
     public static final String SCHEMA_GAME_RECOMMENT_PAGE = "tbmaintab://tieba.baidu.com";
     public static final String SCHEMA_LIVE_MY_CONCERN_LIST = "com.baidu.tieba://unidispatch/liveconcernlist";
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
@@ -128,6 +130,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_GOTO_WALLET_SDK_DUXIAOMAN = "duxiaoman.com/cloan";
     public static final String SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH = "icash.baidu.com/cloan";
     public static final String SCHEMA_TYPE_HAS_EMOTION = "emoticonhas://";
+    public static final String SCHEMA_TYPE_HOMEPAGE_ANYTAB = "com.baidu.tieba://unidispatch/hometab";
     public static final String SCHEMA_TYPE_HOMEPAGE_LIVETAB = "tieba://homepage_livetab?";
     public static final String SCHEMA_TYPE_HOT_TOPIC_LIST = "hottopiclist:";
     public static final String SCHEMA_TYPE_HOT_TOPIC_LIST_NEW = "tieba.baidu.com/mo/q/hotMessage/list";

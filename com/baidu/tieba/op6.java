@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
-import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,21 +13,17 @@ import java.util.List;
 public class op6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public List<ThreadData> c;
-    public ScoreCardInfo d;
-    public List<FeatureCardHot> e;
-    public List<FeatureCardTopic> f;
-    public List<pp6> g;
-    public List<FeatureCardCompetition> h;
-    public List<FeatureCardGod> i;
-    public List<FeatureCardGame> j;
+    public r9 a;
+    public BdTypeListView b;
+    public final List<kn> c;
+    public np6 d;
 
-    public op6() {
+    public op6(r9 r9Var, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,11 +34,44 @@ public class op6 {
             }
         }
         this.c = new ArrayList();
-        this.e = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new ArrayList();
+        this.a = r9Var;
+        this.b = bdTypeListView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            np6 np6Var = new np6((TbPageContext) this.a, cp6.b);
+            this.d = np6Var;
+            this.c.add(np6Var);
+            this.b.a(this.c);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof on)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void c(ho hoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hoVar) == null) {
+            for (kn knVar : this.c) {
+                if (knVar != null) {
+                    knVar.setOnAdapterItemClickListener(hoVar);
+                }
+            }
+        }
+    }
+
+    public void d(List<xn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
+        }
     }
 }

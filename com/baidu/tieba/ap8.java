@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.tbadk.core.data.AbstractData;
-import com.baidu.tbadk.data.MetaData;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ap8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
-    public List<AbstractData> b;
+    public AbsDelegateAdapterList a;
+    public Context b;
 
-    public ap8() {
+    public ap8(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, absDelegateAdapterList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,30 +30,25 @@ public class ap8 {
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.b = context;
+        this.a = absDelegateAdapterList;
     }
 
-    public void a(JSONObject jSONObject) {
+    public AbsDelegateAdapterList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("id");
-                MetaData metaData = new MetaData();
-                this.a = metaData;
-                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
-                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.b = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        AbstractData abstractData = new AbstractData();
-                        abstractData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(abstractData);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (AbsDelegateAdapterList) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
     }
 }

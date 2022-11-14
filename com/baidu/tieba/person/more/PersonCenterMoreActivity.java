@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o68;
-import com.baidu.tieba.o78;
-import com.baidu.tieba.rp4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.z36;
+import com.baidu.tieba.l46;
+import com.baidu.tieba.sp4;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z68;
+import com.baidu.tieba.z78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o68 a;
+    public z68 a;
     public Bundle b;
-    public o78 c;
-    public z36 d;
+    public z78 c;
+    public l46 d;
 
     /* loaded from: classes5.dex */
-    public class a extends z36<o78> {
+    public class a extends l46<z78> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,12 +61,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z36
+        @Override // com.baidu.tieba.l46
         /* renamed from: d */
-        public void a(View view2, o78 o78Var) {
+        public void a(View view2, z78 z78Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, o78Var) == null) {
-                this.b.c = o78Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z78Var) == null) {
+                this.b.c = z78Var;
                 if (this.b.c == null || this.b.D1()) {
                     return;
                 }
@@ -110,9 +110,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            o68 o68Var = this.a;
-            if (o68Var != null) {
-                o68Var.d();
+            z68 z68Var = this.a;
+            if (z68Var != null) {
+                z68Var.d();
             }
         }
     }
@@ -146,14 +146,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                xi.O(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f046e);
+                yi.O(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f046f);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            rp4.x(getPageContext().getPageActivity(), true, str);
+            sp4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -166,10 +166,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0710);
-            o68 o68Var = new o68(getPageContext(), this.b, this.d);
-            this.a = o68Var;
-            o68Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d0714);
+            z68 z68Var = new z68(getPageContext(), this.b, this.d);
+            this.a = z68Var;
+            z68Var.c();
         }
     }
 

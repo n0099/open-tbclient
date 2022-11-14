@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webview.container.base.AbsContainer;
+import android.widget.FrameLayout;
 /* loaded from: classes6.dex */
-public interface zo0 extends yi0 {
-    AbsContainer b();
+public interface zo0 extends zi0 {
+    int getVideoHeight();
 
-    void e(int i);
+    FrameLayout h();
+
+    boolean k();
+
+    int l();
 }

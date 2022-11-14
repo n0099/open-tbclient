@@ -3,10 +3,10 @@ package com.baidu.bdtask.ui.components.dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.tieba.dr;
-import com.baidu.tieba.hu;
+import com.baidu.tieba.er;
 import com.baidu.tieba.iu;
-import com.baidu.tieba.ns;
+import com.baidu.tieba.ju;
+import com.baidu.tieba.os;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,20 +55,20 @@ public final class SingleBtnDialog$initExtraView$1 extends Lambda implements Fun
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        ns b;
-        iu d;
-        iu d2;
+        os b;
+        ju d;
+        ju d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hu v = BDPTask.m.v();
+            iu v = BDPTask.m.v();
             if (v != null && (d2 = v.d()) != null) {
-                d2.b(this.$data.getTaskInfoSingleKey(), dr.c.a());
+                d2.b(this.$data.getTaskInfoSingleKey(), er.c.a());
             }
-            hu v2 = BDPTask.m.v();
+            iu v2 = BDPTask.m.v();
             if (v2 != null && (d = v2.d()) != null) {
                 d.a(this.$data.getTaskInfoSingleKey());
             }
-            hu v3 = BDPTask.m.v();
+            iu v3 = BDPTask.m.v();
             if (v3 != null && (b = v3.b()) != null) {
                 b.a(this.$data.getBackBtnSchema(), 1);
             }

@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ua0 {
-    void a(Context context, String str);
+    void P();
 
-    void b(Context context);
+    void U(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    void c();
+    void b(int i);
 
-    void d();
+    void e();
 
-    void e(Context context);
+    void h0(List<? extends LiveRoomEntity> list);
 
-    void f(Context context, int i);
+    void j(va0 va0Var);
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void k0();
 
-    void h();
+    void m(List<String> list);
 
-    void i(String str);
+    void o(SearchResultBean searchResultBean);
 
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+    void showToast(String str);
 
-    void onDetach();
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(ua0 ua0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                ua0Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-        }
-    }
+    void x0(List<String> list);
 }

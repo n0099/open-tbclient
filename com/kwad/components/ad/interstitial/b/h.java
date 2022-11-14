@@ -442,9 +442,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0910b6);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091243);
-            this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091253);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0910bb);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091248);
+            this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091258);
             this.dN.setVisibility(4);
             this.mContext = getContext();
         }

@@ -1,110 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPrivateReflectAbility;
-import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-@Autowired
 /* loaded from: classes4.dex */
 public class k91 {
     public static /* synthetic */ Interceptable $ic;
+    public static k91 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public mf1<IPackageGetter> a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements IPrivateReflectAbility {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kf1 b2 = kf1.b();
+            this.a = b2;
+            b2.a(new IPackageGetter_PackageGetter_Provider());
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867814, "Lcom/baidu/tieba/k91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947867814, "Lcom/baidu/tieba/k91;");
+                return;
             }
         }
-
-        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
-        public Class<?> forName(String str) throws ClassNotFoundException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return pa1.a(str);
-            }
-            return (Class) invokeL.objValue;
-        }
-
-        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
-        public Field getField(Class<?> cls, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, str)) == null) {
-                return pa1.b(cls, str);
-            }
-            return (Field) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
-        public Method getMethod(Class<?> cls, String str, Class<?>... clsArr) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, clsArr)) == null) {
-                return pa1.c(cls, str, clsArr);
-            }
-            return (Method) invokeLLL.objValue;
-        }
+        b = new k91();
     }
 
-    public static Class<?> a(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
+    public k91() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return c().forName(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (Class) invokeL.objValue;
+        c();
     }
 
-    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
-            return c().getMethod(cls, str, clsArr);
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    @Inject(force = false)
-    public static IPrivateReflectAbility c() {
+    public static k91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new a();
+            return b;
         }
-        return (IPrivateReflectAbility) invokeV.objValue;
+        return (k91) invokeV.objValue;
     }
 
-    public static boolean d() {
+    public IPackageGetter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if ((c() instanceof a) && Build.VERSION.SDK_INT >= 28) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        return invokeV.booleanValue;
+        return (IPackageGetter) invokeV.objValue;
     }
 }

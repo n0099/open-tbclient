@@ -150,8 +150,8 @@ public class CardLiveLottieView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0498, this);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091cc8);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0499, this);
+            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091cd4);
             this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09020b);
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09020d);
             this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09020c);

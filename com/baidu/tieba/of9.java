@@ -1,29 +1,14 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface of9 {
-    int a() throws IOException;
-
-    int b() throws IOException;
-
-    boolean c();
-
-    void close();
-
-    void d();
-
-    int e() throws IOException;
-
-    boolean f();
-
-    byte[] g();
-
-    long getCurrentPosition();
-
-    long getDuration();
-
-    void h(long j);
-
-    void seek(long j);
+public class of9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 }

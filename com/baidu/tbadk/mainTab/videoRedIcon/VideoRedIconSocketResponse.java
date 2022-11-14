@@ -3,7 +3,7 @@ package com.baidu.tbadk.mainTab.videoRedIcon;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pa5;
+import com.baidu.tieba.wa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconSocketResponse extends SocketResponsedMessage implements pa5 {
+public class VideoRedIconSocketResponse extends SocketResponsedMessage implements wa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
@@ -39,7 +39,7 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         }
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.wa5
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.wa5
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

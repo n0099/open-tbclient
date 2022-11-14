@@ -140,9 +140,9 @@ public class NadRewardVolumeView extends AdImageView {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.d = z;
             if (z) {
-                i = R.drawable.obfuscated_res_0x7f080e1d;
+                i = R.drawable.obfuscated_res_0x7f080e22;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080e1c;
+                i = R.drawable.obfuscated_res_0x7f080e21;
             }
             setImageDrawable(getContext().getResources().getDrawable(i));
             invalidate();

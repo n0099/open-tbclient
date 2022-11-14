@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes6.dex */
-public class v87 extends f46 {
+public class v87 implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wn> a;
+    public long a;
+    public int b;
+    public long c;
+    public long d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +34,7 @@ public class v87 extends f46 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public v87() {
@@ -48,48 +47,32 @@ public class v87 extends f46 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<wn> list = this.a;
-            if (list != null && list.size() != 0) {
-                return this.a.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void parserProtobuf(List<RelateForum> list) {
+    public void a(CommonInteraction commonInteraction) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
-            this.showTopDivider = true;
-            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffb);
-            this.a = new ArrayList();
-            for (RelateForum relateForum : list) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    RelateForumItemData relateForumItemData = new RelateForumItemData();
-                    relateForumItemData.parserProtobuf(relateForum);
-                    this.a.add(relateForumItemData);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, commonInteraction) != null) || commonInteraction == null) {
+            return;
         }
+        String str = commonInteraction.module_name;
+        String str2 = commonInteraction.ques_desc;
+        this.a = commonInteraction.total_num.longValue();
+        this.b = commonInteraction.has_clicked.intValue();
+        String str3 = commonInteraction.before_click_pic;
+        String str4 = commonInteraction.after_click_pic;
+        this.c = commonInteraction.pk_id.longValue();
+        this.d = commonInteraction.user_pk_id.longValue();
     }
 }

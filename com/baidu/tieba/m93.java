@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m93 extends p93<JSONObject> {
+public class m93 extends q93<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -36,33 +36,33 @@ public class m93 extends p93<JSONObject> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b93
+    @Override // com.baidu.tieba.c93
     /* renamed from: P */
     public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return c93.c(jSONObject);
+            return d93.c(jSONObject);
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.p93
-    public HttpRequest w(p93 p93Var) {
+    @Override // com.baidu.tieba.q93
+    public HttpRequest w(q93 q93Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, p93Var)) == null) {
-            return ln2.o().g(this.m, p93Var.B());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, q93Var)) == null) {
+            return mn2.o().M(this.m, q93Var.B());
         }
         return (HttpRequest) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.b93
+    @Override // com.baidu.tieba.c93
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e43 M = e43.M();
+            f43 M = f43.M();
             if (M != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -78,12 +78,12 @@ public class m93 extends p93<JSONObject> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p93
+    @Override // com.baidu.tieba.q93
     public SwanInterfaceType z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return SwanInterfaceType.SWAN_ID;
+            return SwanInterfaceType.OPEN_ID;
         }
         return (SwanInterfaceType) invokeV.objValue;
     }

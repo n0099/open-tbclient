@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.squareup.wire.Message;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface uj7 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+    boolean a();
 
-    void b(long j, String str, String str2, int i);
+    int b();
 
-    void c(long j, String str, Message message, boolean z);
+    void c(boolean z, Message message, boolean z2, int i);
+
+    List<ICardInfo> d();
+
+    boolean hasMore();
 }

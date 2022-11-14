@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -549,11 +548,11 @@ public class NativeLoader {
             if (str.contains("arm") && str.contains("v7")) {
                 f = a.b;
             }
-            if (str.contains("arm") && str.contains(WebKitFactory.OS_64) && d()) {
+            if (str.contains("arm") && str.contains("64") && d()) {
                 f = a.c;
             }
             if (str.contains("x86")) {
-                if (str.contains(WebKitFactory.OS_64)) {
+                if (str.contains("64")) {
                     f = a.e;
                 } else {
                     f = a.d;

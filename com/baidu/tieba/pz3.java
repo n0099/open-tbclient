@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,31 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pz3 extends mb2 {
+public class pz3 extends nb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mb2
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mb2
-    public EventTarget D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ob2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    @Override // com.baidu.tieba.pb2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
     public int getInvokeSourceType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,24 +26,17 @@ public class pz3 extends mb2 {
     }
 
     /* loaded from: classes5.dex */
-    public static class a extends ic2 {
+    public class a implements V8Engine.WorkerFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public final /* synthetic */ pz3 a;
 
-        @Override // com.baidu.tieba.jc2
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan-game-worker.js" : (String) invokeV.objValue;
-        }
-
-        public a(String str) {
+        public a(pz3 pz3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {pz3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,38 +46,68 @@ public class pz3 extends mb2 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = pz3Var;
         }
 
-        @Override // com.baidu.tieba.jc2
-        public String getInitBasePath() {
+        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
+        public V8Engine onCreateWorker() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                qz3 qz3Var = new qz3(this.a.getInitBasePath());
+                qz3Var.H0();
+                qz3Var.u(new zb2(qz3Var));
+                qz3Var.G0(new ac2(qz3Var));
+                return qz3Var.l0();
             }
-            return (String) invokeV.objValue;
+            return (V8Engine) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz3(@NonNull String str) {
-        super("worker", new a(str), null);
+    public pz3(@NonNull String str, @NonNull kc2 kc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, kc2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, kc2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (jc2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((String) objArr2[0], (kc2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        V8Engine v8Engine = this.a;
+        if (v8Engine == null) {
+            return;
+        }
+        v8Engine.setWorkerFactoryDelegate(new a(this));
+    }
+
+    @Override // com.baidu.tieba.nb2
+    @NonNull
+    public EventTarget A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new my3(this);
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nb2
+    public EventTarget D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new py3(this);
+        }
+        return (EventTarget) invokeV.objValue;
     }
 }

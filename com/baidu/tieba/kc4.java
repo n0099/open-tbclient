@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class kc4 extends ec4<fd4> {
+public class kc4 extends fc4<fd4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +30,23 @@ public class kc4 extends ec4<fd4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
+    @Override // com.baidu.tieba.fc4
+    /* renamed from: f */
+    public ContentValues c(fd4 fd4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fd4Var)) == null) {
+            ContentValues a = super.a(fd4Var);
+            a.put("independent", Integer.valueOf(fd4Var.r ? 1 : 0));
+            a.put("sub_pkg_name", fd4Var.p);
+            a.put("app_id", fd4Var.o);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fc4
     /* renamed from: g */
     public fd4 d(Cursor cursor) {
         InterceptResult invokeL;
@@ -45,7 +60,7 @@ public class kc4 extends ec4<fd4> {
         return (fd4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ec4
+    @Override // com.baidu.tieba.fc4
     public List<fd4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -62,41 +77,23 @@ public class kc4 extends ec4<fd4> {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
-    /* renamed from: f */
-    public ContentValues c(fd4 fd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fd4Var)) == null) {
-            ContentValues a = super.a(fd4Var);
-            a.put("max_age", Long.valueOf(fd4Var.o));
-            a.put("token", fd4Var.p);
-            a.put("domains", fd4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, fd4Var.r);
-            a.put("app_name", fd4Var.s);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
     public final fd4 h(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
+                int columnIndex = cursor.getColumnIndex("independent");
+                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
+                int columnIndex3 = cursor.getColumnIndex("app_id");
                 fd4 fd4Var = new fd4();
                 if (b(cursor, fd4Var)) {
-                    fd4Var.o = cursor.getLong(columnIndex);
+                    boolean z = true;
+                    if (cursor.getInt(columnIndex) != 1) {
+                        z = false;
+                    }
+                    fd4Var.r = z;
                     fd4Var.p = cursor.getString(columnIndex2);
-                    fd4Var.q = cursor.getString(columnIndex3);
-                    fd4Var.r = cursor.getString(columnIndex4);
-                    fd4Var.s = cursor.getString(columnIndex5);
+                    fd4Var.o = cursor.getString(columnIndex3);
                     return fd4Var;
                 }
                 return null;

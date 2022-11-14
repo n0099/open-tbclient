@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vo0;
+import com.baidu.tieba.wo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,8 +56,8 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.Z0(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d060b);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091cc9);
+            setContentView(R.layout.obfuscated_res_0x7f0d060c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091cd5);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
@@ -82,11 +82,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            vo0 vo0Var = (vo0) componentArchManager3.p(vo0.class);
-            if (vo0Var != null) {
+            wo0 wo0Var = (wo0) componentArchManager3.p(wo0.class);
+            if (wo0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                vo0Var.a(str, "");
+                wo0Var.a(str, "");
             }
             t1(false);
         }

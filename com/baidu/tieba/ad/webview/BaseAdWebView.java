@@ -20,10 +20,10 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.o31;
-import com.baidu.tieba.sq4;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.mk0;
+import com.baidu.tieba.p31;
+import com.baidu.tieba.tq4;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,12 +43,12 @@ public abstract class BaseAdWebView extends WebView {
     public String c;
     public boolean d;
     public d e;
-    public lk0 f;
+    public mk0 f;
     public e g;
 
     /* loaded from: classes3.dex */
     public interface d {
-        void i1(lk0 lk0Var);
+        void i1(mk0 mk0Var);
     }
 
     /* loaded from: classes3.dex */
@@ -56,7 +56,7 @@ public abstract class BaseAdWebView extends WebView {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    public abstract void b(@NonNull lk0 lk0Var, boolean z);
+    public abstract void b(@NonNull mk0 mk0Var, boolean z);
 
     public abstract String getUserAgent();
 
@@ -185,7 +185,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                yp4.a("BaseAdWebView", webView);
+                zp4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -390,16 +390,16 @@ public abstract class BaseAdWebView extends WebView {
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (sq4.e()) {
+            if (tq4.e()) {
                 Log.e(h, "init webview succeed");
             }
         }
     }
 
-    public void d(@NonNull lk0 lk0Var) {
+    public void d(@NonNull mk0 mk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lk0Var) == null) {
-            this.f = lk0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mk0Var) == null) {
+            this.f = mk0Var;
         }
     }
 
@@ -445,19 +445,19 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         if (this.f == null) {
-            if (!sq4.e()) {
+            if (!tq4.e()) {
                 return;
             }
             throw new IllegalArgumentException("cache key is null");
         }
-        if (sq4.e()) {
+        if (tq4.e()) {
             Log.e(h, "start downloading.....");
             String str4 = h;
             Log.e(str4, "download url：" + str);
         }
         this.f.g = str;
-        String e2 = o31.e(str, str2, str3);
-        if (o31.b(o31.c(e2), str3) == 3) {
+        String e2 = p31.e(str, str2, str3);
+        if (p31.b(p31.c(e2), str3) == 3) {
             z = true;
         } else {
             z = false;
@@ -473,9 +473,9 @@ public abstract class BaseAdWebView extends WebView {
                 e2 = str;
             }
         }
-        lk0 lk0Var = this.f;
-        lk0Var.d = e2;
-        b(lk0Var, z);
+        mk0 mk0Var = this.f;
+        mk0Var.d = e2;
+        b(mk0Var, z);
     }
 
     @Override // android.webkit.WebView

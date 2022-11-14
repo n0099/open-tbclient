@@ -1,43 +1,74 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class iw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static byte[] a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            return i;
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
+            }
+            return sb.toString().getBytes();
         }
-        return invokeI.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    public static byte[] b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            bg bgVar = new bg();
+            bgVar.b().s(str);
+            bgVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
+            bgVar.b().c("", bArr);
+            new yf(bgVar).m(3, -1, -1);
+            int i = bgVar.c().b;
+            byte[] bArr2 = bgVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
             try {
-                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                if (declaredField != null) {
-                    declaredField.set(layoutParams, Integer.valueOf(i));
-                    window.setAttributes(layoutParams);
+                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
+                    return false;
                 }
-            } catch (IllegalAccessException e) {
+                return true;
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (NoSuchFieldException e2) {
-                e2.printStackTrace();
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 }

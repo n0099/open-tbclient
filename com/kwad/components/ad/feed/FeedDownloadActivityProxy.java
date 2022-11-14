@@ -169,10 +169,10 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
     private void intiView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f0910b6);
+            KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f0910bb);
             this.mAdContainer = ksAdContainer;
             ksAdContainer.setOnClickListener(this);
-            TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f0910c8);
+            TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f0910d0);
             this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
             tailFrameBarAppPortraitVertical.c(this.mAdTemplate);
             this.mAppTailFrameView.u(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
@@ -286,7 +286,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
                 return;
             }
             getActivity().setTheme(16973838);
-            setContentView(R.layout.obfuscated_res_0x7f0d040b);
+            setContentView(R.layout.obfuscated_res_0x7f0d040c);
             intiView();
         }
     }

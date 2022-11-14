@@ -1,75 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.faceshop.UserCollectModel;
+import com.baidu.tieba.faceshop.UserDiyModel;
+import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
+import com.baidu.tieba.newfaceshop.NewFaceSyncDownloadModel;
+import com.baidu.tieba.newfaceshop.NewFaceSyncUploadModel;
+import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class qt7 extends BaseAdapter {
+public class qt7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qt7 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImageFileInfo> a;
-    public LinkedHashMap<String, ImageFileInfo> b;
-    public h95 c;
-    public BaseFragmentActivity d;
-    public pt7 e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public boolean k;
-    public String l;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
+    public NewFaceSyncUploadModel a;
+    public NewFaceSyncDownloadModel b;
+    public NewFaceGroupDownloadModel c;
+    public of6 d;
+    public rf6 e;
+    public boolean f;
+    public boolean g;
 
     /* loaded from: classes5.dex */
-    public class b {
+    public class b implements rt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public HeadImageView b;
-        public ImageView c;
-        public final /* synthetic */ qt7 d;
+        public final /* synthetic */ qt7 a;
 
         /* loaded from: classes5.dex */
-        public class a implements View.OnClickListener {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ GetCloudFaceGroupMessage a;
+            public final /* synthetic */ b b;
 
-            public a(b bVar) {
+            public a(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {bVar, getCloudFaceGroupMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -79,34 +60,53 @@ public class qt7 extends BaseAdapter {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.b = bVar;
+                this.a = getCloudFaceGroupMessage;
             }
 
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof ImageFileInfo)) {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) view2.getTag(view2.getId());
-                    if (this.a.d.b.containsKey(imageFileInfo.getFilePath())) {
-                        this.a.d.b.remove(imageFileInfo.getFilePath());
-                        SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f08065f);
-                        if (this.a.d.e != null) {
-                            this.a.d.e.h();
-                        }
-                    } else if (this.a.d.e != null) {
-                        if (this.a.d.e.k()) {
-                            this.a.d.b.put(imageFileInfo.getFilePath(), imageFileInfo);
-                            SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f080660);
-                            this.a.d.e.t();
-                            return;
-                        }
-                        Activity pageActivity = this.a.d.d.getPageContext().getPageActivity();
-                        if (!TextUtils.isEmpty(this.a.d.l)) {
-                            BdToast.b(pageActivity, this.a.d.l).i();
-                        } else {
-                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f0600)).i();
-                        }
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    nt7.a("【表情云同步】：3 - 开始：处理收藏的表情");
+                    this.b.a.d.f(this.a.getCollectEmotionList());
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.qt7$b$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0409b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ GetCloudFaceGroupMessage a;
+            public final /* synthetic */ b b;
+
+            public RunnableC0409b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, getCloudFaceGroupMessage};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
+                }
+                this.b = bVar;
+                this.a = getCloudFaceGroupMessage;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    nt7.a("【表情云同步】：3 - 开始：处理diy的表情");
+                    this.b.a.e.f(this.a.getDiyEmotionList());
                 }
             }
         }
@@ -126,31 +126,76 @@ public class qt7 extends BaseAdapter {
                     return;
                 }
             }
-            this.d = qt7Var;
+            this.a = qt7Var;
         }
 
-        public final void b(View view2) {
+        @Override // com.baidu.tieba.rt7
+        public void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb7);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e88);
-                view2.setOnClickListener(new a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, getCloudFaceGroupMessage) == null) {
+                if (getCloudFaceGroupMessage != null) {
+                    if (getCloudFaceGroupMessage.getCollectUpdateTime() > qt7.l()) {
+                        if (getCloudFaceGroupMessage.getCollectEmotionList() != null) {
+                            mt7.b().a(new a(this, getCloudFaceGroupMessage));
+                        } else {
+                            this.a.g = false;
+                        }
+                    } else {
+                        this.a.g = false;
+                        if (getCloudFaceGroupMessage.getCollectUpdateTime() < qt7.l()) {
+                            nt7.a("【表情云同步】：上传本地的收藏的状态");
+                            new UserCollectModel().z();
+                        }
+                        mf6.t().o();
+                    }
+                    if (getCloudFaceGroupMessage.getDiyUpdateTime() > qt7.m()) {
+                        if (getCloudFaceGroupMessage.getDiyEmotionList() != null) {
+                            mt7.b().a(new RunnableC0409b(this, getCloudFaceGroupMessage));
+                        } else {
+                            this.a.g = false;
+                        }
+                    } else {
+                        this.a.g = false;
+                        if (getCloudFaceGroupMessage.getDiyUpdateTime() < qt7.m()) {
+                            nt7.a("【表情云同步】：上传本地的diy的状态");
+                            new UserDiyModel().z();
+                        }
+                        qf6.q().m();
+                    }
+                    if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() > qt7.n()) {
+                        if (getCloudFaceGroupMessage.getFaceGroupData() != null) {
+                            nt7.a("【表情云同步】：3 - 开始：处理收藏的表情包");
+                            this.a.r(getCloudFaceGroupMessage.getFaceGroupData());
+                            return;
+                        }
+                        this.a.f = false;
+                        return;
+                    }
+                    this.a.f = false;
+                    if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() < qt7.n()) {
+                        this.a.z();
+                    }
+                    pt7.i().e();
+                    return;
+                }
+                this.a.g = false;
+                this.a.f = false;
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements d95 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ qt7 a;
 
-        public a(qt7 qt7Var, ViewGroup viewGroup) {
+        public a(qt7 qt7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qt7Var, viewGroup};
+                Object[] objArr = {qt7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -160,25 +205,175 @@ public class qt7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = viewGroup;
+            this.a = qt7Var;
         }
 
-        @Override // com.baidu.tieba.d95
-        public void a(hn hnVar, String str, boolean z) {
-            HeadImageView headImageView;
+        @Override // java.lang.Runnable
+        public void run() {
+            List<MyEmotionGroupData> f;
+            String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, hnVar, str, z) == null) && (headImageView = (HeadImageView) this.a.findViewWithTag(str)) != null && hnVar != null) {
-                headImageView.invalidate();
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (f = pt7.i().f()) == null) {
+                return;
+            }
+            if (!f.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                int i = 0;
+                for (int i2 = 0; i2 < f.size() && i < 30; i2++) {
+                    MyEmotionGroupData myEmotionGroupData = f.get(i2);
+                    if (myEmotionGroupData != null) {
+                        sb.append(myEmotionGroupData.getGroupId());
+                        if (i2 < f.size() - 1) {
+                            sb.append("_");
+                        }
+                        i++;
+                    }
+                }
+                str = sb.toString();
+            } else {
+                str = "all_delete";
+            }
+            this.a.a.z(str);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ qt7 b;
+
+        public c(qt7 qt7Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt7Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qt7Var;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pt7.i().b(true);
+                List<MyEmotionGroupData> f = pt7.i().f();
+                ArrayList arrayList = new ArrayList();
+                if (f != null) {
+                    for (MyEmotionGroupData myEmotionGroupData : f) {
+                        arrayList.add(myEmotionGroupData.getGroupId());
+                    }
+                }
+                this.b.i(this.a, arrayList);
             }
         }
     }
 
-    public qt7(BaseFragmentActivity baseFragmentActivity, List<ImageFileInfo> list) {
+    /* loaded from: classes5.dex */
+    public class d implements st7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ qt7 c;
+
+        @Override // com.baidu.tieba.st7
+        public void onProgress(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
+
+        public d(qt7 qt7Var, AtomicInteger atomicInteger, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt7Var, atomicInteger, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = qt7Var;
+            this.a = atomicInteger;
+            this.b = list;
+        }
+
+        @Override // com.baidu.tieba.st7
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.decrementAndGet() != 0) {
+                return;
+            }
+            this.c.s(this.b);
+        }
+
+        @Override // com.baidu.tieba.st7
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.a.decrementAndGet() != 0) {
+                return;
+            }
+            this.c.s(this.b);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ qt7 b;
+
+        public e(qt7 qt7Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt7Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qt7Var;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.b.s(this.a);
+        }
+    }
+
+    public qt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -188,159 +383,207 @@ public class qt7 extends BaseAdapter {
                 return;
             }
         }
-        this.d = baseFragmentActivity;
-        this.a = list;
-        this.b = new LinkedHashMap<>();
-        this.f = (int) baseFragmentActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027a);
-        int l = xi.l(baseFragmentActivity.getPageContext().getPageActivity());
-        this.g = l;
-        this.h = (l - xi.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be)) / 3;
-        int g = xi.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302) / 3;
-        this.i = g;
-        this.j = (g * 2) + 1;
-        this.c = new h95();
+        this.a = new NewFaceSyncUploadModel();
+        this.b = new NewFaceSyncDownloadModel();
+        this.c = new NewFaceGroupDownloadModel();
+        this.d = new of6();
+        this.e = new rf6();
     }
 
-    public void e(Map<String, ImageFileInfo> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.b.putAll(map);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: h */
-    public ImageFileInfo getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<ImageFileInfo> list = this.a;
-            if (list != null && i <= list.size() - 1) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (ImageFileInfo) invokeI.objValue;
-    }
-
-    public void j(pt7 pt7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, pt7Var) == null) {
-            this.e = pt7Var;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public LinkedHashMap<String, ImageFileInfo> f() {
+    public static long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            py4 k = py4.k();
+            return k.m("face_collect_update_time" + k(), 0L);
         }
-        return (LinkedHashMap) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public h95 g() {
+    public static long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            py4 k = py4.k();
+            return k.m("face_diy_update_time" + k(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            py4 k = py4.k();
+            return k.m("face_group_update_time" + k(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static void u(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
+            py4 k = py4.k();
+            k.x("face_collect_update_time" + k(), j);
+        }
+    }
+
+    public static void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65551, null, j) == null) {
+            py4 k = py4.k();
+            k.x("face_diy_update_time" + k(), j);
+        }
+    }
+
+    public static void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65552, null, j) == null) {
+            py4 k = py4.k();
+            k.x("face_group_update_time" + k(), j);
+        }
+    }
+
+    public final void r(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            mt7.b().a(new c(this, list));
+        }
+    }
+
+    public final void s(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            nt7.a("【表情云同步】：5 - 收藏表情包：根据云端数据进行排序");
+            if (pt7.i().j(list, false)) {
+                w(System.currentTimeMillis());
+            }
+            this.f = false;
+        }
+    }
+
+    public final void t(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            if (yi.E()) {
+                mt7.b().a(new e(this, list));
+            } else {
+                s(list);
+            }
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                return "";
+            }
+            return String.valueOf(Math.abs(TbadkCoreApplication.getCurrentAccount().hashCode()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static qt7 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (h == null) {
+                synchronized (qt7.class) {
+                    if (h == null) {
+                        h = new qt7();
+                    }
+                }
+            }
+            return h;
+        }
+        return (qt7) invokeV.objValue;
+    }
+
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (h95) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ImageFileInfo> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.k;
+            return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        b bVar;
+    public boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bVar = new b(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0534, (ViewGroup) null);
-                bVar.b(view3);
-                view3.setTag(bVar);
-            } else {
-                view3 = view2;
-                bVar = (b) view2.getTag();
-            }
-            bVar.a = view3;
-            int paddingTop = view3.getPaddingTop();
-            int i2 = i % 3;
-            if (i2 == 0) {
-                bVar.a.setPadding(0, paddingTop, this.j, 0);
-            } else if (i2 == 1) {
-                View view4 = bVar.a;
-                int i3 = this.i;
-                view4.setPadding(i3, paddingTop, i3, 0);
-            } else {
-                bVar.a.setPadding(this.j, paddingTop, 0, 0);
-            }
-            bVar.b.getLayoutParams().height = this.h;
-            bVar.b.setTag(null);
-            bVar.b.setRadius(1);
-            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080c0d);
-            bVar.b.K(null, 12, false);
-            bVar.b.invalidate();
-            ImageFileInfo imageFileInfo = this.a.get(i);
-            if (imageFileInfo != null) {
-                imageFileInfo.clearPageActions();
-                int i4 = this.f;
-                imageFileInfo.addPageAction(q95.g(i4, i4));
-                hn c = this.c.c(imageFileInfo, false);
-                bVar.b.setTag(imageFileInfo.toCachedKey(false));
-                if (c != null) {
-                    bVar.b.invalidate();
-                } else {
-                    this.c.e(imageFileInfo, new a(this, viewGroup), false, this.k);
-                }
-                if (this.b.containsKey(imageFileInfo.getFilePath())) {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080660);
-                } else {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f08065f);
-                }
-                view3.setTag(view3.getId(), imageFileInfo);
-            }
-            return view3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return (View) invokeILL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            nt7.a("【表情云同步】：1 - 开始，请求\"c/e/meme/getAllMeme\"接口");
+            this.f = true;
+            this.g = true;
+            this.b.z(new b(this));
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            mt7.b().a(new a(this));
+        }
+    }
+
+    public final void i(List<String> list, List<String> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
+            if (list2 != null) {
+                ArrayList arrayList = new ArrayList();
+                for (String str : list2) {
+                    if (!TextUtils.isEmpty(str) && !list.contains(str)) {
+                        arrayList.add(str);
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    nt7.a("【表情云同步】：5 - 收藏表情包：删除云端没有的表情包");
+                    pt7.i().c(arrayList, false);
+                }
+            }
+            j(list, list2);
+        }
+    }
+
+    public final void j(List<String> list, List<String> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                ArrayList<String> arrayList = new ArrayList();
+                for (String str : list) {
+                    if (!list2.contains(str)) {
+                        arrayList.add(str);
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    nt7.a("【表情云同步】：5 - 收藏表情包：下载本地没有的表情包");
+                    AtomicInteger atomicInteger = new AtomicInteger(arrayList.size());
+                    for (String str2 : arrayList) {
+                        this.c.z(str2, Boolean.FALSE, new d(this, atomicInteger, list));
+                    }
+                    return;
+                }
+                t(list);
+                return;
+            }
+            this.f = false;
+        }
     }
 }

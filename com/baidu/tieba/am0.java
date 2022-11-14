@@ -3,73 +3,19 @@ package com.baidu.tieba;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class am0 extends yf1<dm0> {
+public class am0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements dm0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final zl0 b;
-
-        public a(am0 am0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {am0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new zl0();
-        }
-
-        @Override // com.baidu.tieba.dm0
-        public <T extends cm0> void a(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && t != null) {
-                this.b.b(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.dm0
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.b.g(obj);
-            }
-        }
-
-        @Override // com.baidu.tieba.dm0
-        public <T extends cm0> void b(@NonNull Object obj, @NonNull fm0<T> fm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, fm0Var) == null) {
-                this.b.d(obj, fm0Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.dm0
-        public <T extends cm0> void c(@NonNull Object obj, int i, @NonNull fm0<T> fm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, fm0Var) == null) {
-                this.b.c(obj, i, fm0Var);
-            }
-        }
-    }
+    public final ConcurrentHashMap<Class<?>, ArrayList<im0>> a;
+    public final ConcurrentHashMap<Object, ArrayList<im0>> b;
 
     public am0() {
         Interceptable interceptable = $ic;
@@ -81,19 +27,135 @@ public class am0 extends yf1<dm0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+    }
+
+    public final void a(@NonNull im0 im0Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, im0Var) == null) {
+            synchronized (this) {
+                ArrayList<im0> arrayList = this.a.get(im0Var.b);
+                boolean z2 = true;
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                    this.a.put(im0Var.b, arrayList);
+                } else {
+                    Iterator<im0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (it.next().a == im0Var.a) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (!z) {
+                    arrayList.add(im0Var);
+                }
+                ArrayList<im0> arrayList2 = this.b.get(im0Var.a);
+                if (arrayList2 == null) {
+                    arrayList2 = new ArrayList<>();
+                    this.b.put(im0Var.a, arrayList2);
+                } else {
+                    Iterator<im0> it2 = arrayList2.iterator();
+                    while (it2.hasNext()) {
+                        if (it2.next().d == im0Var.d) {
+                            break;
+                        }
+                    }
+                }
+                z2 = false;
+                if (!z2) {
+                    arrayList2.add(im0Var);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public dm0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public <T extends dm0> void b(@Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+            return;
         }
-        return (dm0) invokeV.objValue;
+        synchronized (this) {
+            ArrayList<im0> arrayList = this.a.get(t.getClass());
+            if (arrayList != null) {
+                Iterator<im0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    im0 next = it.next();
+                    f(next, next.d, t);
+                }
+            }
+        }
+    }
+
+    public <T extends dm0> void c(@NonNull Object obj, int i, @NonNull gm0<T> gm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, gm0Var) == null) {
+            a(new im0(i, obj, gm0Var.a(), gm0Var));
+        }
+    }
+
+    public <T extends dm0> void d(@NonNull Object obj, @NonNull gm0<T> gm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, gm0Var) == null) {
+            c(obj, 0, gm0Var);
+        }
+    }
+
+    public final void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                ArrayList<im0> arrayList = this.b.get(obj);
+                if (arrayList != null) {
+                    Iterator<im0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        im0 next = it.next();
+                        ArrayList<im0> arrayList2 = this.a.get(next.b);
+                        if (arrayList2 != null) {
+                            arrayList2.remove(next);
+                        }
+                    }
+                    arrayList.clear();
+                    this.b.remove(obj);
+                }
+            }
+        }
+    }
+
+    public final <T extends dm0> void f(im0 im0Var, gm0<T> gm0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, im0Var, gm0Var, t) == null) {
+            int i = im0Var.c;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            yl0.b().a(im0Var, gm0Var, t);
+                            return;
+                        }
+                        return;
+                    }
+                    zl0.b().a(im0Var, gm0Var, t);
+                    return;
+                }
+                hm0.b().a(im0Var, gm0Var, t);
+                return;
+            }
+            gm0Var.onEvent(t);
+        }
+    }
+
+    public void g(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            e(obj);
+        }
     }
 }

@@ -97,10 +97,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240f);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092416);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee8);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092460);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092425);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eeb);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246f);
         }
     }
 
@@ -179,7 +179,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ba, viewGroup, false));
+            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06bb, viewGroup, false));
         }
         return (c) invokeLI.objValue;
     }

@@ -1,75 +1,62 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes5.dex */
-public class pc3 extends oc3 {
+public abstract class pc3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Bundle c(oc3 oc3Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057193, "Lcom/baidu/tieba/pc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948057193, "Lcom/baidu/tieba/pc3;");
+                return;
+            }
+        }
+        a = pk1.a;
+    }
 
     public pc3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oc3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(nc3 nc3Var) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public final Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nc3Var)) == null) {
-            Bundle bundle = new Bundle();
-            mc3 b = sc3.b(nc3Var.a);
-            if (b == null) {
-                if (!oc3.a) {
-                    return bundle;
-                }
-                throw new IllegalArgumentException("illegal sp.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return Bundle.EMPTY;
             }
-            int i = nc3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (oc3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                bundle.putFloat("result_value", b.getFloat(nc3Var.c, Float.parseFloat(nc3Var.d)));
-                            }
-                        } else {
-                            bundle.putString("result_value", b.getString(nc3Var.c, nc3Var.d));
-                        }
-                    } else {
-                        bundle.putBoolean("result_value", b.getBoolean(nc3Var.c, Boolean.parseBoolean(nc3Var.d)));
-                    }
-                } else {
-                    bundle.putLong("result_value", b.getLong(nc3Var.c, Long.parseLong(nc3Var.d)));
-                }
-            } else {
-                bundle.putInt("result_value", b.getInt(nc3Var.c, Integer.parseInt(nc3Var.d)));
-            }
-            if (oc3.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + nc3Var);
-            }
-            return bundle;
+            return c(oc3.b(bundle));
         }
         return (Bundle) invokeL.objValue;
     }

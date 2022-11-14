@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -47,22 +48,36 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
             }
         }
 
-        public String getType() {
+        public static StrategiesConfigData z() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                StrategiesConfigData strategiesConfigData = new StrategiesConfigData();
+                strategiesConfigData.a = "UNIQUE_STRATEGY";
+                return strategiesConfigData;
+            }
+            return (StrategiesConfigData) invokeV.objValue;
+        }
+
+        public Map<String, Object> A() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Map<String, Object> z() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.b == null) {
+                    this.b = new HashMap();
+                }
                 return this.b;
             }
             return (Map) invokeV.objValue;
+        }
+
+        public String getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
     }
 

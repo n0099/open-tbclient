@@ -11,9 +11,6 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tieba.ec7;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.gj5;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
@@ -22,8 +19,11 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import com.baidu.tieba.kj5;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.pc7;
+import com.baidu.tieba.rb7;
+import com.baidu.tieba.rj5;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mCustomListener;
     public GroupData mGroup;
-    public final rb mSocketListener;
+    public final sb mSocketListener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonGroupMsglistModel(MsglistActivity msglistActivity) {
@@ -58,7 +58,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             }
         }
         this.mGroup = null;
-        this.mSocketListener = new rb(this, 0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
+        this.mSocketListener = new sb(this, 0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupMsglistModel this$0;
@@ -242,7 +242,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getGroup() != null) {
-                return ec7.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+                return pc7.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
             }
             return 0L;
         }
@@ -291,7 +291,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     public void deleteMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) && this.mGroup != null && chatMessage != null) {
-            kj5.c(new gj5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+            rj5.c(new nj5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CommonGroupMsglistModel this$0;
@@ -318,12 +318,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.gj5
+                @Override // com.baidu.tieba.nj5
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(gb7.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId())));
+                        return Boolean.valueOf(rb7.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId())));
                     }
                     return (Boolean) invokeV.objValue;
                 }
@@ -335,7 +335,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     public void markDeleteMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) && this.mGroup != null && chatMessage != null) {
-            kj5.c(new gj5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+            rj5.c(new nj5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CommonGroupMsglistModel this$0;
@@ -362,12 +362,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.gj5
+                @Override // com.baidu.tieba.nj5
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(gb7.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId())));
+                        return Boolean.valueOf(rb7.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId())));
                     }
                     return (Boolean) invokeV.objValue;
                 }

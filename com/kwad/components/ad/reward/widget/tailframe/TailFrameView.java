@@ -35,7 +35,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d048a);
+            super(R.layout.obfuscated_res_0x7f0d048b);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d048b);
+            super(R.layout.obfuscated_res_0x7f0d048c);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,9 +101,9 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091265);
-                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091266);
-                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091267);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09126a);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09126b);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09126c);
             }
         }
 
@@ -125,7 +125,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d048c);
+            super(R.layout.obfuscated_res_0x7f0d048d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092558);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092567);
             }
         }
 
@@ -187,7 +187,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d048d);
+            super(R.layout.obfuscated_res_0x7f0d048e);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

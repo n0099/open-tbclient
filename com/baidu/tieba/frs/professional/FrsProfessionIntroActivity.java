@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -121,7 +121,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = g;
@@ -163,28 +163,28 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04af);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aea);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091af5);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091aeb);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091af2);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091af3);
+            setContentView(R.layout.obfuscated_res_0x7f0d04b0);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091af4);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091aff);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091af5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091afc);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091afd);
             this.d = findViewById(R.id.obfuscated_res_0x7f090419);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091aee);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091af8);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f69));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091aed);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f6e));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091af7);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f67);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091aec);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091af9);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091aef);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091af0);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091af1);
-            this.m = findViewById(R.id.obfuscated_res_0x7f091af6);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091af7);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091af8);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f77);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091af6);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091b03);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091af9);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091afa);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091afb);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091b00);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091b01);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091b02);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);

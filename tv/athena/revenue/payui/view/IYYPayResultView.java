@@ -1,7 +1,9 @@
 package tv.athena.revenue.payui.view;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o7a;
+import com.baidu.tieba.k7a;
+import com.baidu.tieba.n7a;
+import com.baidu.tieba.o8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends o7a {
+public interface IYYPayResultView extends o8a {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a();
+        void a(k7a k7aVar);
 
-        boolean b();
+        void b();
+
+        boolean c();
     }
+
+    void a();
 
     void setCallback(a aVar);
 
@@ -140,6 +152,15 @@ public interface IYYPayResultView extends o7a {
         public b a;
         public AbsViewEventHandler b;
         public WindowParams c;
+        public List<SplitRecordItem> d;
+        public k7a e;
+        public PayFlowType f;
+        public n7a g;
+        public IPayCallback<CurrencyChargeMessage> h;
+        public boolean i;
+        public IYYPayWayView.b j;
+        public String k;
+        public PayCallBackBean l;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -153,6 +174,15 @@ public interface IYYPayResultView extends o7a {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "ViewParams{payResult=" + this.a + ", viewEventListener=" + this.b + ", windowParams=" + this.c + ", splitRecordItemList=" + this.d + ", payAmount=" + this.e + ", payWay='" + this.g + "', payCallback='" + this.h + "', isQuickPay='" + this.i + "', payWayViewParams='" + this.j + "', splitOrderScene='" + this.k + "', payFlowType='" + this.f + "', payCallBackBean='" + this.l + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 }

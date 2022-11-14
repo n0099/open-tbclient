@@ -1,77 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
+import androidx.multidex.MultiDex;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.baidu.turbonet.base.BuildConfig;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes6.dex */
-public abstract class va9 extends OutputStream {
+public class va9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IOException a;
-    public boolean b;
-    public boolean c;
 
-    public abstract void e() throws IOException;
-
-    public abstract UploadDataProvider f();
-
-    public abstract void g() throws IOException;
-
-    public va9() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            } catch (SecurityException unused) {
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void a() throws IOException {
-        IOException iOException;
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
             return;
         }
-        throw iOException;
+        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
+            ta9.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+            return;
+        }
+        MultiDex.install(context);
+        ta9.h("base_multidex", "Completed multidex installation.", new Object[0]);
     }
 
-    public void c() throws IOException {
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.c) {
-                if (!this.b) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
+                if (invoke != null && (invoke instanceof Boolean)) {
+                    if (((Boolean) invoke).booleanValue()) {
+                        return false;
+                    }
                 }
-                throw new IOException("Stream has been closed.");
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
             }
-            a();
-            throw new IOException("Writing after request completed.");
+            String a = a(context);
+            if (a == null) {
+                return true;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null && applicationInfo.metaData != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    return !bundle.getBoolean(a + ".ignore_multidex", false);
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            return true;
         }
-    }
-
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void h(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.a = iOException;
-            this.c = true;
-        }
+        return invokeL.booleanValue;
     }
 }

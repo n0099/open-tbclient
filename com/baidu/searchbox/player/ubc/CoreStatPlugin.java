@@ -184,7 +184,7 @@ public class CoreStatPlugin extends AbsPlugin {
                 extStatisticsLogClone.putOpt(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, Integer.valueOf(i));
                 extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i));
                 extStatisticsLogClone.putOpt("errorInfo", str);
-                this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));
+                this.mUBCService.onEvent("36", BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

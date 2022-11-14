@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i71;
+import com.baidu.tieba.j71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -202,7 +202,7 @@ public class MaskViewGroup extends ViewGroup {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, i71.NadShadowViewGroup);
+            TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, j71.NadShadowViewGroup);
             this.g = obtainStyledAttributes.getColor(3, -16777216);
             this.h = obtainStyledAttributes.getDimension(4, 0.0f);
             this.i = obtainStyledAttributes.getDimension(5, 0.0f);

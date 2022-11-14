@@ -320,20 +320,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
             this.mTitleView = textView;
             int i = this.mTextAppearance;
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f09);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ff1);
+            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f15);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ffd);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
-            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d26);
-            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fa);
+            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d28);
+            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fb);
         }
     }
 

@@ -1,38 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.view.View;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface bl4 {
+public class bl4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(b bVar);
-
-        void b(b bVar, int i, int i2);
-
-        void c(b bVar, int i, int i2, int i3);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(MediaPlayer mediaPlayer);
-
-        bl4 b();
-    }
-
-    void a(a aVar);
-
-    void b(a aVar);
-
-    Bitmap getBitmap();
-
-    View getView();
-
-    void release();
-
-    void setAspectRatio(int i);
-
-    void setVideoSize(int i, int i2);
 }

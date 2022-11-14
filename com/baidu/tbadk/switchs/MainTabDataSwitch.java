@@ -3,9 +3,9 @@ package com.baidu.tbadk.switchs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.cx4;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.jf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (type == 2 && cx4.a().b) {
+            if (type == 2 && hx4.a().b) {
                 return true;
             }
             return false;
@@ -104,7 +104,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = ky4.k().l("key_launch_up_main_tab_data", 1);
+                type = py4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;

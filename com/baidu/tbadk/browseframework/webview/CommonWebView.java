@@ -24,11 +24,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.mp8;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.rp4;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.sp4;
+import com.baidu.tieba.xp8;
+import com.baidu.tieba.zp4;
+import com.baidu.tieba.zp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +50,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public mp8 m;
+    public xp8 m;
     public CommonTbJsBridge n;
-    public op8 o;
+    public zp8 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -97,7 +97,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements op8 {
+    public class a implements zp8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -120,15 +120,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.op8
+        @Override // com.baidu.tieba.zp8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                mp8 mp8Var = commonWebView.m;
-                if (mp8Var != null) {
-                    return mp8Var.b(commonWebView.getWebView(), str, jsPromptResult);
+                xp8 xp8Var = commonWebView.m;
+                if (xp8Var != null) {
+                    return xp8Var.b(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -169,7 +169,7 @@ public class CommonWebView extends WebView {
                     return true;
                 }
                 try {
-                    rp4.l(this.a.a, str);
+                    sp4.l(this.a.a, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -228,7 +228,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                yp4.a("BaseWebView", webView);
+                zp4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -338,7 +338,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -351,7 +351,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -364,7 +364,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -486,10 +486,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(op8 op8Var) {
+    public void setOnJsPromptCallback(zp8 zp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, op8Var) == null) {
-            this.o = op8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zp8Var) == null) {
+            this.o = zp8Var;
         }
     }
 
@@ -604,10 +604,10 @@ public class CommonWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            rp4.a(getSettings());
+            sp4.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new mp8();
+            this.m = new xp8();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -615,7 +615,7 @@ public class CommonWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            rp4.g(getContext());
+            sp4.g(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

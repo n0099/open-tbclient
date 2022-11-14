@@ -3,23 +3,19 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.room.RoomMasterTable;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.jni.A;
 import com.kuaishou.weapon.p0.jni.Engine;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -91,15 +87,15 @@ public class m2 {
                 jSONObject.put("2", j0Var.e());
                 jSONObject.put("3", j0Var.g());
                 jSONObject.put("24", j0Var.h());
-                jSONObject.put("35", c0.a() ? 1 : 0);
-                jSONObject.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, c0.a(this.a) ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_LINK_ITME_CLICK, c0.a() ? 1 : 0);
+                jSONObject.put("36", c0.a(this.a) ? 1 : 0);
                 Object a2 = i0.a(this.a);
                 if (a2 != null) {
                     jSONObject.put("4", a2);
                 }
                 a0 a0Var = new a0();
                 JSONArray a3 = a0Var.a(this.a);
-                jSONObject.put("49", a3);
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, a3);
                 jSONObject.put("146", a0Var.d());
                 jSONObject.put("154", a0Var.b());
                 jSONObject.put("168", j3.a(a3));
@@ -115,7 +111,7 @@ public class m2 {
                 boolean d = d0Var.d(this.a);
                 jSONObject.put("8", d ? 1 : 0);
                 if (d) {
-                    jSONObject.put("61", d0Var.c(this.a));
+                    jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_SHOW, d0Var.c(this.a));
                 }
                 jSONObject.put("181", d0Var.e(this.a) ? 1 : 0);
                 jSONObject.put("9", d0Var.a(this.a));
@@ -124,28 +120,28 @@ public class m2 {
                 f0 f0Var = new f0();
                 jSONObject.put("26", f0Var.a("cpuinfo") ? 1 : 0);
                 jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, f0Var.a("meminfo") ? 1 : 0);
-                jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, f0Var.b(k1.a) ? 1 : 0);
-                jSONObject.put("29", f0Var.b(HardwareInfoUtils.MEM_INFO_FILE) ? 1 : 0);
+                jSONObject.put("28", f0Var.b(k1.a) ? 1 : 0);
+                jSONObject.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK, f0Var.b(HardwareInfoUtils.MEM_INFO_FILE) ? 1 : 0);
                 jSONObject.put("96", f0Var.a());
                 jSONObject.put("134", f0Var.b());
                 p0 p0Var = new p0();
                 Set<String> f = p0Var.f();
                 Set<String> g = p0Var.g();
                 if (g != null) {
-                    jSONObject.put("30", 1);
-                    jSONObject.put("32", new JSONArray((Collection) g));
+                    jSONObject.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK, 1);
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK, new JSONArray((Collection) g));
                 } else {
-                    jSONObject.put("30", 0);
+                    jSONObject.put(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK, 0);
                 }
                 if (f != null) {
-                    jSONObject.put("31", 1);
-                    jSONObject.put("33", new JSONArray((Collection) f));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, 1);
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK, new JSONArray((Collection) f));
                 } else {
-                    jSONObject.put("31", 0);
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, 0);
                 }
                 Object e = p0Var.e();
                 if (e != null) {
-                    jSONObject.put("34", e);
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK, e);
                     if (f != null || g != null) {
                         HashSet hashSet = new HashSet();
                         if (f != null) {
@@ -167,11 +163,11 @@ public class m2 {
                     }
                 }
                 o0 o0Var = new o0();
-                jSONObject.put("65", o0Var.f() ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, o0Var.f() ? 1 : 0);
                 boolean e2 = o0Var.e();
-                jSONObject.put("66", e2 ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, e2 ? 1 : 0);
                 if (e2) {
-                    jSONObject.put("67", o0Var.g() ? 1 : 0);
+                    jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, o0Var.g() ? 1 : 0);
                 }
                 jSONObject.put("68", o0Var.c() ? 1 : 0);
                 jSONObject.put("69", o0Var.b());
@@ -184,7 +180,7 @@ public class m2 {
                 jSONObject2.put("03014", h1.B(this.a));
                 jSONObject2.put("03020", v1.a(this.a));
                 jSONObject2.put("03030", g1.f(this.a));
-                jSONObject.put("51", jSONObject2);
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, jSONObject2);
                 p0 p0Var2 = new p0();
                 jSONObject.put(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, p0Var2.b());
                 jSONObject.put("155", p0Var2.c());
@@ -213,43 +209,43 @@ public class m2 {
                 if (Engine.loadSuccess) {
                     t0 t0Var = new t0(this.a, 100);
                     jSONObject.put("6", t0Var.c("6"));
-                    JSONArray b3 = t0Var.b(t0Var.a(), "41");
+                    JSONArray b3 = t0Var.b(t0Var.a(), PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK);
                     if (b3 != null && b3.length() > 0) {
-                        JSONArray c = t0Var.c(t0Var.a(), "41");
-                        JSONArray a4 = t0Var.a(t0Var.a(), "41");
-                        jSONObject.put(RoomMasterTable.DEFAULT_ID, c);
-                        jSONObject.put("43", a4);
-                        jSONObject.put("41", t0Var.a(t0Var.a(b3, c), a4));
+                        JSONArray c = t0Var.c(t0Var.a(), PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK);
+                        JSONArray a4 = t0Var.a(t0Var.a(), PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK);
+                        jSONObject.put("42", c);
+                        jSONObject.put(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK, a4);
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK, t0Var.a(t0Var.a(b3, c), a4));
                     }
-                    jSONObject.put("47", t0Var.c("47"));
-                    jSONObject.put("48", t0Var.c("48"));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK));
                     jSONObject.put("23", t0Var.c("23"));
-                    jSONObject.put(PayConfig.PAYMENT_POS_KEY_MANGA, t0Var.c(PayConfig.PAYMENT_POS_KEY_MANGA));
-                    jSONObject.put("38", t0Var.c("38"));
-                    jSONObject.put("40", t0Var.d("40"));
-                    jSONObject.put("45", t0Var.d("45"));
-                    jSONObject.put("46", t0Var.e("46"));
+                    jSONObject.put("37", t0Var.c("37"));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK, t0Var.d(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, t0Var.d(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, t0Var.e(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK));
                     jSONObject.put("91", t0Var.c("91"));
-                    jSONObject.put("62", t0Var.a("62"));
-                    jSONObject.put("63", t0Var.a("63"));
-                    jSONObject.put(WebKitFactory.OS_64, t0Var.a(WebKitFactory.OS_64));
+                    jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, t0Var.a(PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, t0Var.a(PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK));
+                    jSONObject.put("64", t0Var.a("64"));
                     jSONObject.put("85", t0Var.b("85"));
-                    jSONObject.put("50", t0Var.c("50"));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK));
                     jSONObject.put("70", t0Var.a("70"));
-                    jSONObject.put("39", t0Var.c("39"));
-                    jSONObject.put("52", t0Var.c("52"));
-                    jSONObject.put("53", t0Var.c("53"));
-                    jSONObject.put("54", t0Var.c("54"));
-                    jSONObject.put(BaseUtils.METHOD_SENDMESSAGE, t0Var.c(BaseUtils.METHOD_SENDMESSAGE));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK));
+                    jSONObject.put("55", t0Var.c("55"));
                     jSONObject.put("73", t0Var.c("73"));
                     jSONObject.put("74", t0Var.c("74"));
                     jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, t0Var.c(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE));
                     if (a.a(f3.X, 1) == 1 && Build.VERSION.SDK_INT < 23) {
                         s0 s0Var = new s0(this.a);
-                        String a5 = s0Var.a("57");
+                        String a5 = s0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW);
                         if (!TextUtils.isEmpty(a5)) {
-                            jSONObject.put("57", a5);
-                            jSONObject.put("56", s0Var.a("56"));
+                            jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, a5);
+                            jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, s0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK));
                         }
                     }
                     jSONObject.put("77", t0Var.c("77"));
@@ -351,8 +347,8 @@ public class m2 {
                         jSONObject.put("189", y0Var.a("189"));
                     }
                 }
-                jSONObject.put("58", f0.a(this.a));
-                jSONObject.put("60", c0.b(this.a) ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, f0.a(this.a));
+                jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, c0.b(this.a) ? 1 : 0);
                 jSONObject.put("11000", Engine.loadSuccess ? 1 : 0);
                 jSONObject.put("11002", Engine.soVersion);
                 jSONObject.put("11008", a.a(f3.i, q1.e));

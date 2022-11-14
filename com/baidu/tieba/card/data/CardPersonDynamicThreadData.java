@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ot4;
-import com.baidu.tieba.rr4;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.sr4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends rr4 {
+public class CardPersonDynamicThreadData extends sr4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends rr4 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.rr4
-    public ot4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.sr4
+    public pt4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (ot4) invokeV.objValue;
+        return (pt4) invokeV.objValue;
     }
 
     /* loaded from: classes3.dex */
@@ -640,7 +640,7 @@ public class CardPersonDynamicThreadData extends rr4 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.rr4
+    @Override // com.baidu.tieba.sr4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -650,7 +650,7 @@ public class CardPersonDynamicThreadData extends rr4 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -807,10 +807,10 @@ public class CardPersonDynamicThreadData extends rr4 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && wg.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && xg.g(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = wg.g(this.a, 0L);
+            multipleForum2.forum_id = xg.g(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }

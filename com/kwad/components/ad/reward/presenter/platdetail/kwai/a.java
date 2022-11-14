@@ -358,10 +358,10 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f09124d);
-            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910c5);
-            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f091195);
-            this.rX = findViewById(R.id.obfuscated_res_0x7f0910c3);
+            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091252);
+            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ca);
+            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f09119a);
+            this.rX = findViewById(R.id.obfuscated_res_0x7f0910c8);
         }
     }
 

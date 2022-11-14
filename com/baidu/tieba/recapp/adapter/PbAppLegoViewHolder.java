@@ -4,22 +4,22 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ec8;
-import com.baidu.tieba.ej7;
-import com.baidu.tieba.lf8;
+import com.baidu.tieba.pc8;
+import com.baidu.tieba.pj7;
+import com.baidu.tieba.wf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
+public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements pc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ej7<?> a;
-    public lf8 b;
+    public pj7<?> a;
+    public wf8 b;
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbAppLegoViewHolder(ej7<?> ej7Var) {
-        super((View) ej7Var);
+    public PbAppLegoViewHolder(pj7<?> pj7Var) {
+        super((View) pj7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ej7Var};
+            Object[] objArr = {pj7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,21 +47,21 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
                 return;
             }
         }
-        this.a = ej7Var;
+        this.a = pj7Var;
     }
 
     public void a(int i) {
-        lf8 lf8Var;
+        wf8 wf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (lf8Var = this.b) != null) {
-            lf8Var.autoPlay(i);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (wf8Var = this.b) != null) {
+            wf8Var.autoPlay(i);
         }
     }
 
-    public void e(lf8 lf8Var) {
+    public void e(wf8 wf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lf8Var) == null) {
-            this.b = lf8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wf8Var) == null) {
+            this.b = wf8Var;
         }
     }
 
@@ -69,11 +69,11 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return false;
             }
-            return lf8Var.canPlay();
+            return wf8Var.canPlay();
         }
         return invokeV.booleanValue;
     }
@@ -82,9 +82,9 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var != null) {
-                return lf8Var.getPlayStatus();
+            wf8 wf8Var = this.b;
+            if (wf8Var != null) {
+                return wf8Var.getPlayStatus();
             }
             return -2;
         }
@@ -92,106 +92,106 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements ec8 {
     }
 
     public void d() {
-        lf8 lf8Var;
+        wf8 wf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (lf8Var = this.b) != null) {
-            lf8Var.release();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (wf8Var = this.b) != null) {
+            wf8Var.release();
         }
     }
 
     public void f() {
-        ej7<?> ej7Var;
+        pj7<?> pj7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ej7Var = this.a) != null) {
-            ej7Var.f();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (pj7Var = this.a) != null) {
+            pj7Var.f();
         }
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return 0;
             }
-            return (int) lf8Var.getCurrentPosition();
+            return (int) wf8Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return "";
             }
-            return lf8Var.getPlayUrl();
+            return wf8Var.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return null;
             }
-            return lf8Var.getVideoContainer();
+            return wf8Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return false;
             }
-            return lf8Var.isPlayStarted();
+            return wf8Var.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            lf8 lf8Var = this.b;
-            if (lf8Var == null) {
+            wf8 wf8Var = this.b;
+            if (wf8Var == null) {
                 return false;
             }
-            return lf8Var.isPlaying();
+            return wf8Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public void startPlay() {
-        lf8 lf8Var;
+        wf8 wf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (lf8Var = this.b) != null) {
-            lf8Var.startPlay();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (wf8Var = this.b) != null) {
+            wf8Var.startPlay();
         }
     }
 
-    @Override // com.baidu.tieba.ec8
+    @Override // com.baidu.tieba.pc8
     public void stopPlay() {
-        lf8 lf8Var;
+        wf8 wf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (lf8Var = this.b) != null) {
-            lf8Var.stopPlay();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (wf8Var = this.b) != null) {
+            wf8Var.stopPlay();
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface za1 {
-    void onPayResult(int i, String str);
+    void a(boolean z, JSONObject jSONObject);
 }

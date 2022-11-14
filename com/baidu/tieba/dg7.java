@@ -1,30 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.imMessageCenter.mention.base.MessageCardBottomView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,44 +20,72 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dg7 extends z26<ag7> {
+public class dg7 {
     public static /* synthetic */ Interceptable $ic;
-    public static lj5<String> B;
+    public static dg7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public OriginalThreadCardView.b A;
-    public HeadImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public TextView n;
-    public TextView o;
-    public View p;
-    public TextView q;
-    public OriginalThreadCardView r;
-    public MessageCardBottomView s;
-    public View t;
-    public TbPageContext u;
-    public int v;
-    public ag7 w;
-    public String x;
-    public int y;
-    public int z;
+    public final HttpMessageListener a;
+    public long b;
+    public final Handler c;
 
-    @Override // com.baidu.tieba.z26
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a8 : invokeV.intValue;
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dg7 dg7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            cg7 msgData;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002500 || !(httpResponsedMessage instanceof MsgReminderHttpRespMessage) || (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) == null) {
+                return;
+            }
+            if (msgData.b() >= 0) {
+                l35.h0().Z(msgData.b());
+            }
+            if (msgData.e() >= 0) {
+                l35.h0().f0(msgData.e());
+            }
+            if (msgData.d() >= 0) {
+                l35.h0().c0(msgData.d());
+            }
+            if (msgData.a() >= 0) {
+                l35.h0().Y(msgData.a());
+            }
+            if (msgData.c() >= 0) {
+                l35.h0().a0(msgData.c());
+            }
+        }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements OriginalThreadCardView.b {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dg7 a;
 
-        public a(dg7 dg7Var) {
+        public b(dg7 dg7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,24 +103,17 @@ public class dg7 extends z26<ag7> {
             this.a = dg7Var;
         }
 
-        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
-        public void a(OriginalThreadInfo originalThreadInfo) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) {
-                if (this.a.w != null && this.a.w.B() != null) {
-                    StatisticItem param = new StatisticItem(this.a.w.B()).param("obj_locate", 2);
-                    if (this.a.w.getType() != ag7.F && this.a.w.getType() != ag7.A) {
-                        param.param("obj_type", 2);
-                    } else {
-                        param.param("obj_type", 1);
-                    }
-                    TiebaStatic.log(param);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                int i = message.arg1;
+                this.a.b = System.currentTimeMillis();
+                boolean z = !MessageManager.getInstance().getSocketClient().u();
+                if (i == 2 || (z && BdNetTypeUtil.isNetWorkAvailable())) {
+                    this.a.h();
                 }
-                if (this.a.e() != null) {
-                    z36<ag7> e = this.a.e();
-                    dg7 dg7Var = this.a;
-                    e.a(dg7Var.r, dg7Var.w);
-                }
+                this.a.g(1, 600000L);
             }
         }
     }
@@ -123,201 +131,97 @@ public class dg7 extends z26<ag7> {
                 return;
             }
         }
-        B = new lj5<>();
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dg7(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public dg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.v = 3;
-        this.A = new a(this);
-        this.u = tbPageContext;
-        this.y = xi.g(tbPageContext.getContext(), R.dimen.tbds42);
-        this.z = xi.g(this.u.getContext(), R.dimen.tbds48);
-        u();
+        this.a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
+        this.b = 0L;
+        this.c = new b(this);
+        MessageManager.getInstance().registerListener(this.a);
     }
 
-    @Override // com.baidu.tieba.z26
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public void i() {
+        long j;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.v != i) {
-            this.v = i;
-            k().setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.k, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0110);
-            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.p, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0107);
-            OriginalThreadCardView originalThreadCardView = this.r;
-            if (originalThreadCardView != null) {
-                originalThreadCardView.s();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            if (currentTimeMillis <= 0) {
+                currentTimeMillis = 0;
             }
-            MessageCardBottomView messageCardBottomView = this.s;
-            if (messageCardBottomView != null) {
-                messageCardBottomView.h();
+            if (currentTimeMillis >= 600000) {
+                i = 2;
+                j = 10000;
+            } else {
+                j = 600000 - currentTimeMillis;
+                i = 1;
             }
-            SkinManager.setBackgroundResource(this.t, R.drawable.icon_news_red_dot);
+            g(i, j);
+            this.b = System.currentTimeMillis();
         }
     }
 
-    public void w(String str) {
+    public final void g(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.x = str;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            Message obtainMessage = this.c.obtainMessage(1);
+            obtainMessage.arg1 = i;
+            this.c.sendMessageDelayed(obtainMessage, j);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static synchronized dg7 e() {
+        InterceptResult invokeV;
+        dg7 dg7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (this.w == null && this.u == null) {
-                return;
-            }
-            if (view2 == this.i || view2 == this.j) {
-                if (this.w.A() == null) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            synchronized (dg7.class) {
+                if (d == null) {
+                    d = new dg7();
                 }
-                String userId = this.w.A().getUserId();
-                String userName = this.w.A().getUserName();
-                if (userId != null && userId.length() > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.u.getContext(), userId, userName)));
-                }
+                dg7Var = d;
             }
-            if (e() != null) {
-                e().a(view2, this.w);
-            }
+            return dg7Var;
+        }
+        return (dg7) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.removeMessages(1);
         }
     }
 
-    public final CharSequence s(TextView textView, SpannableString spannableString) {
-        InterceptResult invokeLL;
-        TbPageContext tbPageContext;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, textView, spannableString)) == null) {
-            if (textView != null && spannableString != null && (tbPageContext = this.u) != null) {
-                return TextUtils.ellipsize(spannableString, textView.getPaint(), ((xi.l(tbPageContext.getPageActivity()) - (this.u.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201) * 2)) - textView.getCompoundPaddingLeft()) * 2.0f, TextUtils.TruncateAt.END);
-            }
-            return null;
-        }
-        return (CharSequence) invokeLL.objValue;
-    }
-
-    public final void t(@NonNull View view2, @NonNull ag7 ag7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, ag7Var) == null) {
-            if (StringHelper.equals(B.a(), ag7Var.t())) {
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0313);
-            } else {
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0205);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = 0L;
+            d();
+            i();
         }
     }
 
-    public final void u() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View k = k();
-            this.i = (HeadImageView) k.findViewById(R.id.obfuscated_res_0x7f0919fe);
-            this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0924f6);
-            this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0909b5);
-            this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091a81);
-            this.m = k.findViewById(R.id.obfuscated_res_0x7f09081a);
-            this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f092225);
-            this.o = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090579);
-            this.p = k.findViewById(R.id.obfuscated_res_0x7f090576);
-            this.q = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090578);
-            this.r = (OriginalThreadCardView) k.findViewById(R.id.obfuscated_res_0x7f091799);
-            this.s = (MessageCardBottomView) k.findViewById(R.id.obfuscated_res_0x7f090575);
-            this.t = k.findViewById(R.id.obfuscated_res_0x7f0916be);
-            this.r.setUsePlaceHolder(false);
-            this.i.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.s.getReplyContainer().setOnClickListener(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z26
-    /* renamed from: v */
-    public void l(ag7 ag7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, ag7Var) == null) && ag7Var != null && ag7Var.A() != null) {
-            this.w = ag7Var;
-            MetaData A = ag7Var.A();
-            this.i.setVisibility(0);
-            boolean z = true;
-            this.i.setPlaceHolder(1);
-            this.i.setIsRound(true);
-            UtilHelper.showHeadImageViewBigV(this.i, A, 0);
-            this.i.setTag(null);
-            this.i.setPageId(this.u.getUniqueId());
-            this.i.K(ag7Var.A().getAvater(), 12, false);
-            this.j.setText(StringHelper.cutChineseAndEnglishWithSuffix(UtilHelper.getUserName(A), 14, StringHelper.STRING_MORE));
-            if (ag7Var.A().getIsMyFans() == 1) {
-                this.k.setVisibility(0);
-            } else {
-                this.k.setVisibility(8);
-            }
-            if (!wi.isEmpty(ag7Var.s())) {
-                this.m.setVisibility(0);
-                this.l.setVisibility(0);
-                this.l.setText(ag7Var.s());
-            } else {
-                this.m.setVisibility(8);
-                this.l.setVisibility(8);
-            }
-            this.n.setText(StringHelper.getFormatTime(ag7Var.getTime()));
-            TextView textView = this.o;
-            TbFaceManager i = TbFaceManager.i();
-            Context applicationContext = this.u.getPageActivity().getApplicationContext();
-            String title = ag7Var.getTitle();
-            int i2 = this.z;
-            textView.setText(s(textView, i.s(applicationContext, title, i2, i2)));
-            if (wi.isEmpty(ag7Var.getSubTitle())) {
-                this.p.setVisibility(8);
-                this.q.setVisibility(8);
-            } else {
-                TextView textView2 = this.q;
-                TbFaceManager i3 = TbFaceManager.i();
-                Context applicationContext2 = this.u.getPageActivity().getApplicationContext();
-                String subTitle = ag7Var.getSubTitle();
-                int i4 = this.y;
-                textView2.setText(s(textView2, i3.s(applicationContext2, subTitle, i4, i4)));
-                this.q.setVisibility(0);
-                this.p.setVisibility(0);
-            }
-            this.r.setCardFrom(this.x);
-            this.r.i(ag7Var.r());
-            this.r.setSubClickListener(this.A);
-            this.s.setData(ag7Var.c(), (ag7Var.getType() == ag7.A || ag7Var.getType() == ag7.B || ag7Var.getType() == ag7.C) ? false : false);
-            if (ag7Var.E()) {
-                this.t.setVisibility(0);
-            } else {
-                this.t.setVisibility(8);
-            }
-            t(k(), ag7Var);
-            m(this.u, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
         }
     }
 }

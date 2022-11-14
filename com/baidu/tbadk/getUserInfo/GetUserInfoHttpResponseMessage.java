@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.x85;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.d95;
+import com.baidu.tieba.e95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x85 mData;
+    public d95 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoHttpResponseMessage(int i) {
@@ -46,9 +46,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            x85 x85Var = this.mData;
-            if (x85Var != null && x85Var.a() != null) {
-                y85.d().i(this.mData.a());
+            d95 d95Var = this.mData;
+            if (d95Var != null && d95Var.a() != null) {
+                e95.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -71,18 +71,18 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            x85 x85Var = new x85();
-            this.mData = x85Var;
-            x85Var.b(getUserInfoResIdl.data);
+            d95 d95Var = new d95();
+            this.mData = d95Var;
+            d95Var.b(getUserInfoResIdl.data);
         }
     }
 
-    public x85 getData() {
+    public d95 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mData;
         }
-        return (x85) invokeV.objValue;
+        return (d95) invokeV.objValue;
     }
 }

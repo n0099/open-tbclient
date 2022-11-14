@@ -23,24 +23,24 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax8;
-import com.baidu.tieba.dr7;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.gr7;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.dd8;
+import com.baidu.tieba.ed8;
+import com.baidu.tieba.fd8;
+import com.baidu.tieba.gd8;
+import com.baidu.tieba.hd8;
+import com.baidu.tieba.id8;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.kd8;
+import com.baidu.tieba.lx8;
+import com.baidu.tieba.or7;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.qc8;
+import com.baidu.tieba.rc8;
+import com.baidu.tieba.rr7;
 import com.baidu.tieba.sc8;
-import com.baidu.tieba.tc8;
-import com.baidu.tieba.tj5;
-import com.baidu.tieba.uc8;
-import com.baidu.tieba.vc8;
-import com.baidu.tieba.wc8;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xc8;
-import com.baidu.tieba.yc8;
-import com.baidu.tieba.zc8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,17 +54,17 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TbCyberVideoView extends CyberVideoView implements gc8 {
+public class TbCyberVideoView extends CyberVideoView implements rc8 {
     public static /* synthetic */ Interceptable $ic;
-    public static gr7 w0;
+    public static rr7 w0;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean J;
     public String K;
     public String L;
     public boolean M;
     public boolean N;
-    public xc8 O;
-    public dr7 P;
+    public id8 O;
+    public or7 P;
     public String Q;
     public String R;
     public PowerManager.WakeLock S;
@@ -74,10 +74,10 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
     public boolean W;
     public boolean a0;
     public int b0;
-    public hc8 c0;
+    public sc8 c0;
     public boolean d0;
-    public wc8 e0;
-    public zc8 f0;
+    public hd8 e0;
+    public kd8 f0;
     public TbVideoViewContainer.a g0;
     public boolean h0;
     public CyberPlayerManager.OnPreparedListener i0;
@@ -145,9 +145,9 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    public void setVideoModel(sc8 sc8Var) {
+    public void setVideoModel(dd8 dd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, sc8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, dd8Var) == null) {
         }
     }
 
@@ -198,7 +198,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
                 if (this.a.f0 != null) {
                     this.a.f0.onPrepared();
                 }
-                if (this.a.J && (c = tc8.d().c(this.a.L)) > 0) {
+                if (this.a.J && (c = ed8.d().c(this.a.L)) > 0) {
                     this.a.seekTo(c);
                 }
                 if (!this.a.M) {
@@ -247,7 +247,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
                     this.a.P = null;
                 }
                 this.a.setVideoStatus(OnStatusChangedListener.VideoStatus.VIDEO_COMPLETE);
-                tc8.d().e(this.a.L);
+                ed8.d().e(this.a.L);
                 if (this.a.getCyberPlayer().isLooping()) {
                     return;
                 }
@@ -292,7 +292,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
                 if (this.a.getCurrentPosition() > 0 && this.a.E()) {
-                    tc8.d().update(this.a.L, this.a.getCurrentPosition());
+                    ed8.d().update(this.a.L, this.a.getCurrentPosition());
                 }
                 TbVideoViewSet.c().e(this.a.L);
                 if (this.a.f0 != null) {
@@ -457,9 +457,9 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, gr7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, rr7.class);
         if (runTask != null) {
-            w0 = (gr7) runTask.getData();
+            w0 = (rr7) runTask.getData();
         }
     }
 
@@ -546,8 +546,8 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             super.setOnErrorListener(this.q0);
             super.setOnSeekCompleteListener(this.r0);
             super.setOnInfoListener(this.s0);
-            this.O = new xc8();
-            this.c0 = new hc8();
+            this.O = new id8();
+            this.c0 = new sc8();
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
         }
     }
@@ -557,19 +557,19 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         if (interceptable == null || interceptable.invokeL(1048579, this, uri) == null) {
             super.stopPlayback();
             setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
-            vc8 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
+            gd8 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
             if (pcdnConfigData != null && pcdnConfigData.c()) {
                 if (!pcdnConfigData.a(uri)) {
                     this.b0 = 2;
                     return;
-                } else if (yc8.e() != 0 && yc8.e() != -1) {
+                } else if (jd8.e() != 0 && jd8.e() != -1) {
                     String str = "1";
                     setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                     if (!pcdnConfigData.b()) {
                         str = "0";
                     }
                     setOption(CyberPlayerManager.OPT_ENABLE_P2P, str);
-                    setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(yc8.e()));
+                    setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(jd8.e()));
                     this.W = true;
                     this.a0 = pcdnConfigData.b();
                     this.b0 = 1;
@@ -650,21 +650,21 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public dr7 getVideoMonitor() {
+    public or7 getVideoMonitor() {
         InterceptResult invokeV;
-        gr7 gr7Var;
+        rr7 rr7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            dr7 dr7Var = this.P;
-            if (dr7Var != null) {
-                return dr7Var;
+            or7 or7Var = this.P;
+            if (or7Var != null) {
+                return or7Var;
             }
-            if (!StringUtils.isNull(this.L) && (gr7Var = w0) != null) {
-                this.P = gr7Var.a(this.K, this.L, null);
+            if (!StringUtils.isNull(this.L) && (rr7Var = w0) != null) {
+                this.P = rr7Var.a(this.K, this.L, null);
             }
             return this.P;
         }
-        return (dr7) invokeV.objValue;
+        return (or7) invokeV.objValue;
     }
 
     public final void B() {
@@ -705,7 +705,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.tieba.gc8
+    @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.tieba.rc8
     public int getCurrentPositionSync() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -718,14 +718,14 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gc8
-    public hc8 getMediaProgressObserver() {
+    @Override // com.baidu.tieba.rc8
+    public sc8 getMediaProgressObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.c0;
         }
-        return (hc8) invokeV.objValue;
+        return (sc8) invokeV.objValue;
     }
 
     public String getOriginUrl() {
@@ -737,7 +737,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public int getPcdnState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -747,16 +747,16 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         return invokeV.intValue;
     }
 
-    public fc8 getPlayer() {
+    public qc8 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             if (this.e0 == null) {
-                this.e0 = new wc8(getCyberPlayer());
+                this.e0 = new hd8(getCyberPlayer());
             }
             return this.e0;
         }
-        return (fc8) invokeV.objValue;
+        return (qc8) invokeV.objValue;
     }
 
     public int getPlayerHeight() {
@@ -858,7 +858,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, aVar) == null) {
@@ -866,28 +866,28 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    @Override // com.baidu.tieba.gc8
-    public void setOperableVideoContainer(zc8 zc8Var) {
+    @Override // com.baidu.tieba.rc8
+    public void setOperableVideoContainer(kd8 kd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, zc8Var) == null) {
-            this.f0 = zc8Var;
+        if (interceptable == null || interceptable.invokeL(1048610, this, kd8Var) == null) {
+            this.f0 = kd8Var;
         }
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void setPlayMode(String str) {
-        xc8 xc8Var;
+        id8 id8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, str) == null) && (xc8Var = this.O) != null) {
-            xc8Var.l(str);
+        if ((interceptable == null || interceptable.invokeL(1048611, this, str) == null) && (id8Var = this.O) != null) {
+            id8Var.l(str);
         }
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
-            if (wi.isEmpty(str)) {
+            if (xi.isEmpty(str)) {
                 str = "-1";
             }
             HashMap hashMap = new HashMap();
@@ -902,7 +902,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, threadData) == null) {
             if (this.O == null) {
-                this.O = new xc8();
+                this.O = new id8();
             }
             this.O.m(threadData);
         }
@@ -915,16 +915,16 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    @Override // com.baidu.tieba.gc8
-    public void setVideoStatData(uc8 uc8Var) {
+    @Override // com.baidu.tieba.rc8
+    public void setVideoStatData(fd8 fd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, uc8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, fd8Var) == null) {
             if (this.O == null) {
-                this.O = new xc8();
+                this.O = new id8();
             }
-            this.O.o(uc8Var);
-            if (uc8Var != null) {
-                this.Q = uc8Var.a;
+            this.O.o(fd8Var);
+            if (fd8Var != null) {
+                this.Q = fd8Var.a;
             }
         }
     }
@@ -936,10 +936,10 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         }
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void setVideoPath(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048617, this, str, str2) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLL(1048617, this, str, str2) != null) || xi.isEmpty(str)) {
             return;
         }
         this.K = str2;
@@ -974,10 +974,10 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (wi.isEmpty(str)) {
+            if (xi.isEmpty(str)) {
                 return str;
             }
-            if (ax8.c().d()) {
+            if (lx8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -995,14 +995,14 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isPlaying() && E()) {
-                tc8.d().update(this.L, getCurrentPositionSync());
+                ed8.d().update(this.L, getCurrentPositionSync());
             }
             this.M = false;
             super.pause();
             H();
-            xc8 xc8Var = this.O;
-            if (xc8Var != null) {
-                xc8Var.e();
+            id8 id8Var = this.O;
+            if (id8Var != null) {
+                id8Var.e();
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -1011,9 +1011,9 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            dr7 dr7Var = this.P;
-            if (dr7Var != null) {
-                dr7Var.f();
+            or7 or7Var = this.P;
+            if (or7Var != null) {
+                or7Var.f();
             }
         }
     }
@@ -1022,16 +1022,16 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            tj5.e(this.T, false);
+            ak5.e(this.T, false);
             if (isPlaying() && E()) {
-                tc8.d().update(this.L, getCurrentPositionSync());
+                ed8.d().update(this.L, getCurrentPositionSync());
             }
             this.M = false;
             super.pause();
             H();
-            xc8 xc8Var = this.O;
-            if (xc8Var != null) {
-                xc8Var.e();
+            id8 id8Var = this.O;
+            if (id8Var != null) {
+                id8Var.e();
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -1040,9 +1040,9 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            dr7 dr7Var = this.P;
-            if (dr7Var != null) {
-                dr7Var.f();
+            or7 or7Var = this.P;
+            if (or7Var != null) {
+                or7Var.f();
             }
         }
     }
@@ -1055,11 +1055,11 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
                 return;
             }
             if (this.L != null && isPlaying()) {
-                tj5.e(this.T, false);
+                ak5.e(this.T, false);
             }
             this.M = false;
             if (isPlaying() && E()) {
-                tc8.d().update(this.L, getCurrentPositionSync());
+                ed8.d().update(this.L, getCurrentPositionSync());
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -1070,13 +1070,13 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             }
             super.pause();
             H();
-            xc8 xc8Var = this.O;
-            if (xc8Var != null) {
-                xc8Var.j();
+            id8 id8Var = this.O;
+            if (id8Var != null) {
+                id8Var.j();
             }
             this.c0.n();
-            dr7 dr7Var = this.P;
-            if (dr7Var != null && dr7Var.d(this.Q, this.R)) {
+            or7 or7Var = this.P;
+            if (or7Var != null && or7Var.d(this.Q, this.R)) {
                 this.P = null;
             }
         }
@@ -1087,7 +1087,7 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             if (!this.U) {
-                tj5.e(this.T, true);
+                ak5.e(this.T, true);
                 setVolume(1.0f, 1.0f);
             }
             this.M = true;
@@ -1102,9 +1102,9 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             if (this.u0 == OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_PAUSING_BUFFER) {
                 setVideoStatus(OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER);
             }
-            xc8 xc8Var = this.O;
-            if (xc8Var != null) {
-                xc8Var.i();
+            id8 id8Var = this.O;
+            if (id8Var != null) {
+                id8Var.i();
             }
             this.c0.m();
             try {
@@ -1126,11 +1126,11 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             if (this.L != null && isPlaying()) {
-                tj5.e(this.T, false);
+                ak5.e(this.T, false);
             }
             this.M = false;
             if (isPlaying() && E()) {
-                tc8.d().update(this.L, getCurrentPositionSync());
+                ed8.d().update(this.L, getCurrentPositionSync());
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -1141,61 +1141,61 @@ public class TbCyberVideoView extends CyberVideoView implements gc8 {
             }
             super.stopPlayback();
             TbVideoViewSet.c().e(this.L);
-            xc8 xc8Var = this.O;
-            if (xc8Var != null) {
-                xc8Var.j();
+            id8 id8Var = this.O;
+            if (id8Var != null) {
+                id8Var.j();
             }
             this.c0.n();
-            dr7 dr7Var = this.P;
-            if (dr7Var != null && dr7Var.d(this.Q, this.R)) {
+            or7 or7Var = this.P;
+            if (or7Var != null && or7Var.d(this.Q, this.R)) {
                 this.P = null;
             }
         }
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void a(long j, long j2, long j3) {
-        dr7 dr7Var;
+        or7 or7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) && (dr7Var = this.P) != null) {
-            dr7Var.a(j, j2, j3);
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) && (or7Var = this.P) != null) {
+            or7Var.a(j, j2, j3);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048616, this, str) != null) || wi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048616, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         G();
-        if (!UbsABTestHelper.isVideoSetUrlAgainABTest() && wi.isEquals(this.L, str)) {
+        if (!UbsABTestHelper.isVideoSetUrlAgainABTest() && xi.isEquals(this.L, str)) {
             return;
         }
         this.L = str;
         String A = A(str);
-        gr7 gr7Var = w0;
-        if (gr7Var != null) {
-            dr7 a2 = gr7Var.a(this.K, this.L, null);
+        rr7 rr7Var = w0;
+        if (rr7Var != null) {
+            or7 a2 = rr7Var.a(this.K, this.L, null);
             this.P = a2;
             if (a2 != null) {
                 a2.b(CyberPlayerManager.hasCacheFile(A));
             }
         }
         this.c0.l(this);
-        xc8 xc8Var = this.O;
-        if (xc8Var != null) {
-            xc8Var.h();
+        id8 id8Var = this.O;
+        if (id8Var != null) {
+            id8Var.h();
         }
         D(Uri.parse(A));
-        dr7 dr7Var = this.P;
-        if (dr7Var != null) {
-            dr7Var.j();
+        or7 or7Var = this.P;
+        if (or7Var != null) {
+            or7Var.j();
         }
         super.setVideoPath(A);
     }
 
-    @Override // com.baidu.tieba.gc8
+    @Override // com.baidu.tieba.rc8
     public void setVolume(float f2, float f3) {
         boolean z;
         Interceptable interceptable = $ic;

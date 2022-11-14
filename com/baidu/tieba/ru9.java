@@ -1,199 +1,371 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import androidx.exifinterface.media.ExifInterface;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ListAdapter;
+import android.widget.WrapperListAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.StringTokenizer;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
+import com.huewu.pla.lib.internal.PLA_ListView;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public final class ru9 {
+public class ru9 implements WrapperListAdapter, Filterable {
     public static /* synthetic */ Interceptable $ic;
+    public static final ArrayList<PLA_ListView.a> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Path b;
+    public final ListAdapter a;
+    public ArrayList<PLA_ListView.a> b;
+    public ArrayList<PLA_ListView.a> c;
+    public boolean d;
+    public final boolean e;
 
-    public ru9(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134259, "Lcom/baidu/tieba/ru9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948134259, "Lcom/baidu/tieba/ru9;");
+                return;
+            }
+        }
+        f = new ArrayList<>();
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter == null) {
+                return true;
+            }
+            if (this.d && listAdapter.areAllItemsEnabled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int b;
+        int c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a != null) {
+                b = b() + c();
+                c = this.a.getCount();
+            } else {
+                b = b();
+                c = c();
+            }
+            return b + c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Filterable
+    public Filter getFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.e) {
+                return ((Filterable) this.a).getFilter();
+            }
+            return null;
+        }
+        return (Filter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null) {
+                return listAdapter.getViewTypeCount();
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.WrapperListAdapter
+    public ListAdapter getWrappedAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return (ListAdapter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null) {
+                return listAdapter.hasStableIds();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && !listAdapter.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ru9(ArrayList<PLA_ListView.a> arrayList, ArrayList<PLA_ListView.a> arrayList2, ListAdapter listAdapter) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {arrayList, arrayList2, listAdapter};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.a = listAdapter;
+        this.e = listAdapter instanceof Filterable;
+        if (arrayList == null) {
+            this.b = f;
+        } else {
+            this.b = arrayList;
+        }
+        if (arrayList2 == null) {
+            this.c = f;
+        } else {
+            this.c = arrayList2;
+        }
+        if (a(this.b) && a(this.c)) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
     }
 
-    public final void a(Path path) {
-        boolean z;
-        Set set;
+    public final boolean a(ArrayList<PLA_ListView.a> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.b;
-            if (path2 != null) {
-                path.set(path2);
-                return;
-            }
-            Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
-            String str = "";
-            while (stringTokenizer.hasMoreTokens()) {
-                String segment = stringTokenizer.nextToken();
-                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
-                if (segment.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    set = su9.a;
-                    if (set.contains(segment)) {
-                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
-                            b(path3, segment, new StringTokenizer("", ""));
-                        }
-                        str = segment;
-                    } else {
-                        b(path3, str, new StringTokenizer(segment, " "));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<PLA_ListView.a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    if (!it.next().c) {
+                        return false;
                     }
                 }
+                return true;
             }
-            this.b = path3;
-            path.set(path3);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            int c = c();
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
+                return this.a.getItemId(i2);
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            int c = c();
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
+                return this.a.getItemViewType(i2);
+            }
+            return -2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
+            listAdapter.registerDataSetObserver(dataSetObserver);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
-        xu9 xu9Var;
-        boolean z;
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
-            float f = 0.0f;
-            float f2 = 0.0f;
-            float f3 = 0.0f;
-            float f4 = 0.0f;
-            float f5 = 0.0f;
-            float f6 = 0.0f;
-            int i = 0;
-            while (stringTokenizer.hasMoreTokens()) {
-                try {
-                    String s = stringTokenizer.nextToken();
-                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
-                    if (s.length() == 0) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
+            listAdapter.unregisterDataSetObserver(dataSetObserver);
+        }
+    }
+
+    public boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+            boolean z = false;
+            for (int i = 0; i < this.c.size(); i++) {
+                if (this.c.get(i).a == view2) {
+                    this.c.remove(i);
+                    if (a(this.b) && a(this.c)) {
                         z = true;
-                    } else {
-                        z = false;
                     }
-                    if (!z) {
-                        if (i == 0) {
-                            f = Float.parseFloat(s);
-                        }
-                        if (i == 1) {
-                            f2 = Float.parseFloat(s);
-                        }
-                        if (i == 2) {
-                            f3 = Float.parseFloat(s);
-                        }
-                        if (i == 3) {
-                            f4 = Float.parseFloat(s);
-                        }
-                        if (i == 4) {
-                            f5 = Float.parseFloat(s);
-                        }
-                        if (i == 5) {
-                            f6 = Float.parseFloat(s);
-                        }
-                        i++;
-                    }
-                } catch (Exception unused) {
+                    this.d = z;
+                    return true;
                 }
             }
-            float f7 = f;
-            float f8 = f2;
-            float f9 = f3;
-            float f10 = f4;
-            xu9 xu9Var2 = new xu9(0.0f, 0.0f, 0.0f);
-            if (Intrinsics.areEqual(str, "M")) {
-                path.moveTo(f7, f8);
-                xu9Var2 = new xu9(f7, f8, 0.0f);
-            } else if (Intrinsics.areEqual(str, "m")) {
-                path.rMoveTo(f7, f8);
-                xu9Var = new xu9(xu9Var2.a() + f7, xu9Var2.b() + f8, 0.0f);
-                if (!Intrinsics.areEqual(str, "L")) {
-                    path.lineTo(f7, f8);
-                } else if (Intrinsics.areEqual(str, "l")) {
-                    path.rLineTo(f7, f8);
-                }
-                if (!Intrinsics.areEqual(str, "C")) {
-                    path.cubicTo(f7, f8, f9, f10, f5, f6);
-                } else if (Intrinsics.areEqual(str, "c")) {
-                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
-                }
-                if (!Intrinsics.areEqual(str, "Q")) {
-                    path.quadTo(f7, f8, f9, f10);
-                } else if (Intrinsics.areEqual(str, "q")) {
-                    path.rQuadTo(f7, f8, f9, f10);
-                }
-                if (!Intrinsics.areEqual(str, "H")) {
-                    path.lineTo(f7, xu9Var.b());
-                } else if (Intrinsics.areEqual(str, "h")) {
-                    path.rLineTo(f7, 0.0f);
-                }
-                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-                    path.lineTo(xu9Var.a(), f7);
-                } else if (Intrinsics.areEqual(str, "v")) {
-                    path.rLineTo(0.0f, f7);
-                }
-                if (!Intrinsics.areEqual(str, "Z")) {
-                    path.close();
-                    return;
-                } else if (Intrinsics.areEqual(str, "z")) {
-                    path.close();
-                    return;
-                } else {
-                    return;
-                }
-            }
-            xu9Var = xu9Var2;
-            if (!Intrinsics.areEqual(str, "L")) {
-            }
-            if (!Intrinsics.areEqual(str, "C")) {
-            }
-            if (!Intrinsics.areEqual(str, "Q")) {
-            }
-            if (!Intrinsics.areEqual(str, "H")) {
-            }
-            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-            }
-            if (!Intrinsics.areEqual(str, "Z")) {
-            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            boolean z = false;
+            for (int i = 0; i < this.b.size(); i++) {
+                if (this.b.get(i).a == view2) {
+                    this.b.remove(i);
+                    if (a(this.b) && a(this.c)) {
+                        z = true;
+                    }
+                    this.d = z;
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).b;
+            }
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.getItem(i2);
+            }
+            return this.c.get(i2 - i3).b;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).c;
+            }
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.isEnabled(i2);
+            }
+            return this.c.get(i2 - i3).c;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).a;
+            }
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.getView(i2, view2, viewGroup);
+            }
+            return this.c.get(i2 - i3).a;
+        }
+        return (View) invokeILL.objValue;
     }
 }

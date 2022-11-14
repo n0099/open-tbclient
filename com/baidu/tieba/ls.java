@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public interface ls {
-    void a(String str, ks ksVar);
+    void a(Bitmap bitmap);
+
+    void onError();
 }

@@ -67,8 +67,8 @@ public class a extends Dialog {
             this.g = (TextView) findViewById(R.id.pass_bio_dialog_time_left);
             this.h = (TextView) findViewById(R.id.pass_bio_dialog_time_center);
             this.i = (TextView) findViewById(R.id.pass_bio_dialog_time_right);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a78);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a3);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a82);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0916aa);
             this.l = (TextView) findViewById(R.id.neutral_btn);
             this.m = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
             this.c = (LinearLayout) findViewById(R.id.pass_bio_dialog_ll_content);

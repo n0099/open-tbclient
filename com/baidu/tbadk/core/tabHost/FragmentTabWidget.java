@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,7 +21,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.qn8;
+import com.baidu.tieba.ta5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,6 +35,7 @@ public class FragmentTabWidget extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
     public String B;
+    public ta5 C;
     public final Rect a;
     public final Rect b;
     public final Rect c;
@@ -192,6 +196,21 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
+    private void setNavigationBarBg(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
+            Context context = getContext();
+            if (context instanceof Activity) {
+                int color = SkinManager.getColor(i);
+                String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
+                if (StringUtils.isNotNull(dynamicStyleNavBarColor)) {
+                    color = qn8.f(dynamicStyleNavBarColor);
+                }
+                UtilHelper.setNavigationBarBg((Activity) context, color);
+            }
+        }
+    }
+
     @Override // android.view.ViewGroup
     public void addView(View view2) {
         Interceptable interceptable = $ic;
@@ -244,46 +263,71 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
+    public void setDynamicStyleData(ta5 ta5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, ta5Var) == null) {
+            this.C = ta5Var;
+        }
+    }
+
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.B = str;
         }
     }
 
     public void setOnSizeChangedListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, dVar) == null) {
             this.h = dVar;
         }
     }
 
     public void setShouldDrawDividerLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             this.z = z;
         }
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             this.u = z;
         }
     }
 
     public void setShouldDrawTopLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.v = z;
         }
     }
 
     public void setTabSelectionListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, bVar) == null) {
             this.g = bVar;
         }
+    }
+
+    private String getDynamicStyleNavBarColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (this.C != null) {
+                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                    return this.C.f();
+                }
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    return this.C.d();
+                }
+                return this.C.e();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void c(View view2, int i, boolean z) {
@@ -433,8 +477,8 @@ public class FragmentTabWidget extends LinearLayout {
             paint.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-            this.l = xi.d(getContext(), 1.0f);
-            this.m = xi.d(getContext(), 2.0f);
+            this.l = yi.d(getContext(), 1.0f);
+            this.m = yi.d(getContext(), 2.0f);
             this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;
@@ -459,9 +503,15 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void h(boolean z, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.e = i;
+            if (this.C != null) {
+                i2 = R.color.transparent;
+            } else {
+                i2 = i;
+            }
             if (z) {
                 this.p = SkinManager.getColor(4, (int) R.color.CAM_X0105);
                 this.o = SkinManager.getColor(4, (int) R.color.CAM_X0204);
@@ -470,11 +520,8 @@ public class FragmentTabWidget extends LinearLayout {
                 this.o = SkinManager.getColor(R.color.CAM_X0204);
             }
             if (this.e != 0 && this.d == 0) {
-                SkinManager.setBackgroundColor(this, i);
-                Context context = getContext();
-                if (context instanceof Activity) {
-                    UtilHelper.setNavigationBarBg((Activity) context, SkinManager.getColor(i));
-                }
+                SkinManager.setBackgroundColor(this, i2);
+                setNavigationBarBg(i);
             }
         }
     }

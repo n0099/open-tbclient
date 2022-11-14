@@ -3,14 +3,14 @@ package com.baidu.swan.config.core;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo3;
 import com.baidu.tieba.fo3;
 import com.baidu.tieba.go3;
 import com.baidu.tieba.ho3;
 import com.baidu.tieba.io3;
 import com.baidu.tieba.jo3;
-import com.baidu.tieba.lo3;
+import com.baidu.tieba.ko3;
 import com.baidu.tieba.mo3;
+import com.baidu.tieba.no3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", io3.class, jo3.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", go3.class, ho3.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, eo3.class, fo3.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", lo3.class, mo3.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", jo3.class, ko3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", ho3.class, io3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, fo3.class, go3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", mo3.class, no3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

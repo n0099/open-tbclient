@@ -1,115 +1,100 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nl5 {
+public class nl5 implements pg<il5> {
     public static /* synthetic */ Interceptable $ic;
-    public static nl5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public am5 a;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006322, "Lcom/baidu/tieba/nl5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948006322, "Lcom/baidu/tieba/nl5;");
-        }
+    public il5 e(il5 il5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, il5Var)) == null) ? il5Var : (il5) invokeL.objValue;
     }
 
-    public nl5() {
+    public il5 i(il5 il5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, il5Var)) == null) ? il5Var : (il5) invokeL.objValue;
+    }
+
+    public nl5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = i;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.pg
+    public /* bridge */ /* synthetic */ il5 a(il5 il5Var) {
+        il5 il5Var2 = il5Var;
+        e(il5Var2);
+        return il5Var2;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.pg
+    public /* bridge */ /* synthetic */ il5 c(il5 il5Var) {
+        il5 il5Var2 = il5Var;
+        i(il5Var2);
+        return il5Var2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pg
+    /* renamed from: f */
+    public void b(il5 il5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, il5Var) == null) && il5Var != null && il5Var.b() != null) {
+            il5Var.b().recycle();
         }
     }
 
-    public static nl5 b() {
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new nl5();
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
-        return (nl5) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void a() {
-        am5 am5Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pg
+    /* renamed from: h */
+    public il5 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (am5Var = this.a) != null && am5Var.b() != null) {
-            this.a.b().dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new il5(this.a);
         }
-    }
-
-    public boolean c(sl5 sl5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sl5Var)) == null) {
-            am5 am5Var = this.a;
-            if (am5Var != null && am5Var.b() != null) {
-                return this.a.b().c(sl5Var);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d(int i) {
-        am5 am5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (am5Var = this.a) != null && am5Var.b() != null) {
-            this.a.b().b(i);
-        }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            am5 am5Var = this.a;
-            if (am5Var != null && am5Var.b() != null) {
-                return this.a.b().a(str);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, ql5 ql5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, ql5Var) == null) {
-            am5 am5Var = this.a;
-            if (am5Var == null || !am5Var.a) {
-                this.a = new bm5(tbPageContext, viewGroup, ql5Var);
-            }
-            if (this.a.b() != null) {
-                this.a.b().show();
-            }
-        }
+        return (il5) invokeV.objValue;
     }
 }

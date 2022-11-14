@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a4a;
-import com.baidu.tieba.gz9;
-import com.baidu.tieba.hz9;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.mz9;
-import com.baidu.tieba.nz9;
+import com.baidu.tieba.d0a;
+import com.baidu.tieba.j0a;
+import com.baidu.tieba.k0a;
+import com.baidu.tieba.l4a;
+import com.baidu.tieba.rz9;
 import com.baidu.tieba.sz9;
+import com.baidu.tieba.t3a;
+import com.baidu.tieba.u3a;
+import com.baidu.tieba.xz9;
 import com.baidu.tieba.yz9;
-import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,38 +23,38 @@ import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes9.dex */
-public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
+public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements rz9.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gz9<T1> a;
-    public final gz9<T2> b;
-    public final yz9<? super T1, ? extends gz9<D1>> c;
-    public final yz9<? super T2, ? extends gz9<D2>> d;
-    public final zz9<? super T1, ? super gz9<T2>, ? extends R> e;
+    public final rz9<T1> a;
+    public final rz9<T2> b;
+    public final j0a<? super T1, ? extends rz9<D1>> c;
+    public final j0a<? super T2, ? extends rz9<D2>> d;
+    public final k0a<? super T1, ? super rz9<T2>, ? extends R> e;
 
     /* loaded from: classes9.dex */
-    public final class ResultManager extends HashMap<Integer, hz9<T2>> implements nz9 {
+    public final class ResultManager extends HashMap<Integer, sz9<T2>> implements yz9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3035156013812425335L;
         public transient /* synthetic */ FieldHolder $fh;
         public final RefCountSubscription cancel;
-        public final a4a group;
+        public final l4a group;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
         public final Map<Integer, T2> rightMap;
-        public final mz9<? super R> subscriber;
+        public final xz9<? super R> subscriber;
         public final /* synthetic */ OnSubscribeGroupJoin this$0;
 
-        public Map<Integer, hz9<T2>> leftMap() {
+        public Map<Integer, sz9<T2>> leftMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (Map) invokeV.objValue;
         }
 
         /* loaded from: classes9.dex */
-        public final class a extends mz9<D1> {
+        public final class a extends xz9<D1> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int e;
@@ -81,9 +81,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onCompleted() {
-                hz9<T2> remove;
+                sz9<T2> remove;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
                     this.f = false;
@@ -97,7 +97,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -105,7 +105,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onNext(D1 d1) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d1) == null) {
@@ -115,7 +115,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
         }
 
         /* loaded from: classes9.dex */
-        public final class b extends mz9<T1> {
+        public final class b extends xz9<T1> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultManager e;
@@ -138,7 +138,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 this.e = resultManager;
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -146,7 +146,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onCompleted() {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
@@ -165,7 +165,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onNext(T1 t1) {
                 int i;
                 ArrayList<Object> arrayList;
@@ -173,14 +173,14 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t1) == null) {
                     try {
                         PublishSubject D = PublishSubject.D();
-                        i3a i3aVar = new i3a(D);
+                        t3a t3aVar = new t3a(D);
                         synchronized (this.e) {
                             ResultManager resultManager = this.e;
                             i = resultManager.leftIds;
                             resultManager.leftIds = i + 1;
-                            this.e.leftMap().put(Integer.valueOf(i), i3aVar);
+                            this.e.leftMap().put(Integer.valueOf(i), t3aVar);
                         }
-                        gz9 a = gz9.a(new a(D, this.e.cancel));
+                        rz9 a = rz9.a(new a(D, this.e.cancel));
                         a aVar = new a(this.e, i);
                         this.e.group.a(aVar);
                         this.e.this$0.c.call(t1).B(aVar);
@@ -190,17 +190,17 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                         }
                         this.e.subscriber.onNext(call);
                         for (Object obj : arrayList) {
-                            i3aVar.onNext(obj);
+                            t3aVar.onNext(obj);
                         }
                     } catch (Throwable th) {
-                        sz9.f(th, this);
+                        d0a.f(th, this);
                     }
                 }
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class c extends mz9<D2> {
+        public final class c extends xz9<D2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int e;
@@ -227,7 +227,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
@@ -239,7 +239,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -247,7 +247,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onNext(D2 d2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
@@ -257,7 +257,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
         }
 
         /* loaded from: classes9.dex */
-        public final class d extends mz9<T2> {
+        public final class d extends xz9<T2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultManager e;
@@ -280,7 +280,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 this.e = resultManager;
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -288,7 +288,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onCompleted() {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
@@ -307,10 +307,10 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<hz9> arrayList;
+                ArrayList<sz9> arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t2) == null) {
                     try {
@@ -326,22 +326,22 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                         synchronized (this.e) {
                             arrayList = new ArrayList(this.e.leftMap().values());
                         }
-                        for (hz9 hz9Var : arrayList) {
-                            hz9Var.onNext(t2);
+                        for (sz9 sz9Var : arrayList) {
+                            sz9Var.onNext(t2);
                         }
                     } catch (Throwable th) {
-                        sz9.f(th, this);
+                        d0a.f(th, this);
                     }
                 }
             }
         }
 
-        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, mz9<? super R> mz9Var) {
+        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, xz9<? super R> xz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {onSubscribeGroupJoin, mz9Var};
+                Object[] objArr = {onSubscribeGroupJoin, xz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -353,16 +353,16 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
             }
             this.this$0 = onSubscribeGroupJoin;
             this.rightMap = new HashMap();
-            this.subscriber = mz9Var;
-            this.group = new a4a();
+            this.subscriber = xz9Var;
+            this.group = new l4a();
             this.cancel = new RefCountSubscription(this.group);
         }
 
-        public void complete(List<hz9<T2>> list) {
+        public void complete(List<sz9<T2>> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null) {
-                for (hz9<T2> hz9Var : list) {
-                    hz9Var.onCompleted();
+                for (sz9<T2> sz9Var : list) {
+                    sz9Var.onCompleted();
                 }
                 this.subscriber.onCompleted();
                 this.cancel.unsubscribe();
@@ -382,7 +382,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
         }
 
         public void errorAll(Throwable th) {
-            ArrayList<hz9> arrayList;
+            ArrayList<sz9> arrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 synchronized (this) {
@@ -390,8 +390,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                     leftMap().clear();
                     this.rightMap.clear();
                 }
-                for (hz9 hz9Var : arrayList) {
-                    hz9Var.onError(th);
+                for (sz9 sz9Var : arrayList) {
+                    sz9Var.onError(th);
                 }
                 this.subscriber.onError(th);
                 this.cancel.unsubscribe();
@@ -410,7 +410,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
             }
         }
 
-        @Override // com.baidu.tieba.nz9
+        @Override // com.baidu.tieba.yz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -420,7 +420,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.nz9
+        @Override // com.baidu.tieba.yz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -430,43 +430,43 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T> implements gz9.a<T> {
+    public static final class a<T> implements rz9.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RefCountSubscription a;
-        public final gz9<T> b;
+        public final rz9<T> b;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public final class C0722a extends mz9<T> {
+        public final class C0722a extends xz9<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final mz9<? super T> e;
-            public final nz9 f;
+            public final xz9<? super T> e;
+            public final yz9 f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0722a(a aVar, mz9<? super T> mz9Var, nz9 nz9Var) {
-                super(mz9Var);
+            public C0722a(a aVar, xz9<? super T> xz9Var, yz9 yz9Var) {
+                super(xz9Var);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, mz9Var, nz9Var};
+                    Object[] objArr = {aVar, xz9Var, yz9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
-                        super((mz9) newInitContext.callArgs[0]);
+                        super((xz9) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.e = mz9Var;
-                this.f = nz9Var;
+                this.e = xz9Var;
+                this.f = yz9Var;
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -475,7 +475,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -484,7 +484,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.hz9
+            @Override // com.baidu.tieba.sz9
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
@@ -493,12 +493,12 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
             }
         }
 
-        public a(gz9<T> gz9Var, RefCountSubscription refCountSubscription) {
+        public a(rz9<T> rz9Var, RefCountSubscription refCountSubscription) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gz9Var, refCountSubscription};
+                Object[] objArr = {rz9Var, refCountSubscription};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -509,36 +509,36 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements gz9.a<R> {
                 }
             }
             this.a = refCountSubscription;
-            this.b = gz9Var;
+            this.b = rz9Var;
         }
 
-        public void call(mz9<? super T> mz9Var) {
+        public void call(xz9<? super T> xz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mz9Var) == null) {
-                nz9 a = this.a.a();
-                C0722a c0722a = new C0722a(this, mz9Var, a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, xz9Var) == null) {
+                yz9 a = this.a.a();
+                C0722a c0722a = new C0722a(this, xz9Var, a);
                 c0722a.b(a);
                 this.b.B(c0722a);
             }
         }
 
-        @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+        @Override // com.baidu.tieba.rz9.a, com.baidu.tieba.f0a
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((mz9) ((mz9) obj));
+            call((xz9) ((xz9) obj));
         }
     }
 
-    public void call(mz9<? super R> mz9Var) {
+    public void call(xz9<? super R> xz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mz9Var) == null) {
-            ResultManager resultManager = new ResultManager(this, new j3a(mz9Var));
-            mz9Var.b(resultManager);
+        if (interceptable == null || interceptable.invokeL(1048576, this, xz9Var) == null) {
+            ResultManager resultManager = new ResultManager(this, new u3a(xz9Var));
+            xz9Var.b(resultManager);
             resultManager.init();
         }
     }
 
-    @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+    @Override // com.baidu.tieba.rz9.a, com.baidu.tieba.f0a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((mz9) ((mz9) obj));
+        call((xz9) ((xz9) obj));
     }
 }

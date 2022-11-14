@@ -18,12 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a75;
-import com.baidu.tieba.ab7;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.ia7;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalMsglistView;
 import com.baidu.tieba.im.chat.ISendVoiceView;
@@ -31,9 +27,13 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
-import com.baidu.tieba.o85;
-import com.baidu.tieba.p65;
-import com.baidu.tieba.q65;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.ta7;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.v65;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,7 +118,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements f65 {
+    public class b implements l65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarMsglistView a;
@@ -141,10 +141,10 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.a = officialBarMsglistView;
         }
 
-        @Override // com.baidu.tieba.f65
-        public void B(e65 e65Var) {
+        @Override // com.baidu.tieba.l65
+        public void B(k65 k65Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e65Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
                 this.a.y(true);
             }
         }
@@ -331,46 +331,46 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f068e);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f068f);
             if (string != null) {
-                this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0386, talkableActivity);
+                this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0387, talkableActivity);
                 this.mNavigationBar.showBottomLine();
-                TextView textView = (TextView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f090d2a);
+                TextView textView = (TextView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f090d2c);
                 this.a = textView;
                 textView.setText(string);
             }
-            LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09175c)).inflate();
+            LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091763)).inflate();
             this.c = linearLayout;
             linearLayout.setVisibility(0);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091760);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091767);
             this.b = imageView;
             imageView.setVisibility(0);
             this.g = new d[3];
             d dVar = new d();
             dVar.a = false;
-            dVar.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091537);
-            dVar.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091538);
-            dVar.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091539);
+            dVar.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09153e);
+            dVar.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09153f);
+            dVar.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091540);
             this.g[0] = dVar;
             d dVar2 = new d();
             dVar2.a = false;
-            dVar2.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09153f);
-            dVar2.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091540);
-            dVar2.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091541);
+            dVar2.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091546);
+            dVar2.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091547);
+            dVar2.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091548);
             this.g[1] = dVar2;
             d dVar3 = new d();
             dVar3.a = false;
-            dVar3.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091542);
-            dVar3.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091543);
-            dVar3.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091544);
+            dVar3.b = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091549);
+            dVar3.c = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09154a);
+            dVar3.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09154b);
             this.g[2] = dVar3;
             for (int i = 0; i < 3; i++) {
                 this.g[i].b.setOnClickListener(talkableActivity);
             }
-            LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09175b)).inflate();
+            LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091762)).inflate();
             this.d = linearLayout2;
             linearLayout2.setVisibility(0);
-            LinearLayout linearLayout3 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09175d)).inflate();
+            LinearLayout linearLayout3 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091764)).inflate();
             this.e = linearLayout3;
             linearLayout3.setVisibility(8);
             EditorTools editorTools = this.mTool;
@@ -394,44 +394,44 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.mTool.setDeskBackgroundColorId(R.color.CAM_X0206);
             this.mTool.setMoreDeskBgColorId(R.color.CAM_X0206);
             this.mTool.C(true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, p65.class, talkableActivity.getActivity());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, v65.class, talkableActivity.getActivity());
             if (runTask != null && runTask.getData() != null) {
-                p65 p65Var = (p65) runTask.getData();
-                this.mSendTool = p65Var;
-                q65 q65Var = p65Var.m;
-                if (q65Var != null && (q65Var instanceof ISendVoiceView)) {
-                    ISendVoiceView iSendVoiceView = (ISendVoiceView) q65Var;
+                v65 v65Var = (v65) runTask.getData();
+                this.mSendTool = v65Var;
+                w65 w65Var = v65Var.m;
+                if (w65Var != null && (w65Var instanceof ISendVoiceView)) {
+                    ISendVoiceView iSendVoiceView = (ISendVoiceView) w65Var;
                     this.mSendVoiceView = iSendVoiceView;
                     if (iSendVoiceView instanceof View) {
                         ((View) iSendVoiceView).setOnTouchListener(((AbsMsglistView) this).mContext);
                     }
                 }
-                p65 p65Var2 = this.mSendTool;
-                p65Var2.l = 1;
-                this.mTool.d(p65Var2);
+                v65 v65Var2 = this.mSendTool;
+                v65Var2.l = 1;
+                this.mTool.d(v65Var2);
             }
-            this.mTool.d(new a75(talkableActivity.getActivity(), 2));
+            this.mTool.d(new g75(talkableActivity.getActivity(), 2));
             ArrayList arrayList = new ArrayList();
             arrayList.add(6);
             arrayList.add(10);
             arrayList.add(5);
             this.mTool.h(arrayList);
-            p65 n = this.mTool.n(5);
+            v65 n = this.mTool.n(5);
             if (n != null) {
                 n.l = 3;
             }
-            b75 b75Var = new b75(talkableActivity.getActivity(), false);
-            b75Var.h(true);
-            q65 q65Var2 = b75Var.m;
-            if (q65Var2 != null && (q65Var2 instanceof EditText)) {
-                ((EditText) q65Var2).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f));
+            h75 h75Var = new h75(talkableActivity.getActivity(), false);
+            h75Var.h(true);
+            w65 w65Var2 = h75Var.m;
+            if (w65Var2 != null && (w65Var2 instanceof EditText)) {
+                ((EditText) w65Var2).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f));
             }
-            this.mTool.d(b75Var);
-            o85 o85Var = new o85(talkableActivity.getActivity());
-            o85Var.g(R.string.obfuscated_res_0x7f0f115a);
-            this.mTool.d(o85Var);
+            this.mTool.d(h75Var);
+            u85 u85Var = new u85(talkableActivity.getActivity());
+            u85Var.g(R.string.obfuscated_res_0x7f0f1160);
+            this.mTool.d(u85Var);
             if (this.h) {
-                this.mTool.d(new ia7(talkableActivity.getActivity()));
+                this.mTool.d(new ta7(talkableActivity.getActivity()));
             }
             this.mTool.f();
             this.mInputControl.addView(this.mTool, new ViewGroup.LayoutParams(-1, -2));
@@ -440,7 +440,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.mTool.setActionListener(4, this.mActionListener);
             this.mTool.setActionListener(14, this.mActionListener);
             if (TbadkCoreApplication.getInst().isFaceShopNew()) {
-                this.mTool.A(new e65(2, 5, "N"));
+                this.mTool.A(new k65(2, 5, "N"));
             }
             if (this.h) {
                 this.mTool.setActionListener(30, new b(this));
@@ -461,13 +461,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void w(List<ab7> list) {
+    public void w(List<lb7> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, list) == null) && list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                ab7 ab7Var = list.get(i);
-                this.g[i].c.setText(ab7Var.d());
-                if (ab7Var.a() != 0) {
+                lb7 lb7Var = list.get(i);
+                this.g[i].c.setText(lb7Var.d());
+                if (lb7Var.a() != 0) {
                     this.g[i].d.setVisibility(8);
                 }
             }

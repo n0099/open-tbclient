@@ -1,99 +1,112 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PlaceOrder.DataRes;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Esport;
+import tbclient.EsportRank;
+import tbclient.EsportStatic;
 /* loaded from: classes5.dex */
-public class ox6 {
+public class ox6 implements xn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public long d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public long i;
-    public int j;
-    public int k;
-    public long l;
-    public int m;
+    public int a;
+    public List<nx6> b;
+    public String c;
+    public String d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047676, "Lcom/baidu/tieba/ox6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047676, "Lcom/baidu/tieba/ox6;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
 
     public ox6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public PaymentConfirmRequestData a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-            paymentConfirmRequestData.setTdou_num(this.i);
-            paymentConfirmRequestData.setOpen_id(this.l);
-            paymentConfirmRequestData.setOrder_id(this.g);
-            paymentConfirmRequestData.setScene_id(this.b);
-            paymentConfirmRequestData.setGoods_name(this.a);
-            paymentConfirmRequestData.setGoods_pic(this.e);
-            paymentConfirmRequestData.setTerminal("" + this.f);
-            paymentConfirmRequestData.setGoods_num((long) this.j);
-            paymentConfirmRequestData.setGoods_unit(this.h);
-            paymentConfirmRequestData.setGoods_duration(this.d);
-            paymentConfirmRequestData.setGoods_user_level(this.c);
-            paymentConfirmRequestData.setPay_type(this.k);
-            paymentConfirmRequestData.setCurrency(this.m);
-            return paymentConfirmRequestData;
+            return this.a;
         }
-        return (PaymentConfirmRequestData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void c(DataRes dataRes) {
+    public List<nx6> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        dataRes.timestamp.intValue();
-        this.a = dataRes.goods_name;
-        this.b = dataRes.scene_id.intValue();
-        this.c = dataRes.goods_user_level.intValue();
-        this.d = dataRes.goods_duration.intValue();
-        this.e = dataRes.goods_pic;
-        this.f = dataRes.terminal.intValue();
-        this.g = dataRes.order_id;
-        this.h = dataRes.goods_unit;
-        this.i = dataRes.tdou_num.intValue();
-        dataRes.goods_price.intValue();
-        this.j = dataRes.goods_num.intValue();
-        this.k = dataRes.pay_type.intValue();
-        dataRes.user_id.longValue();
-        dataRes.tb_timestamp.intValue();
-        this.l = dataRes.open_id.longValue();
-        dataRes.gift_count.intValue();
-        this.m = dataRes.currency.intValue();
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(Esport esport) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) && esport != null) {
+            this.a = esport.floor_no.intValue();
+            EsportStatic esportStatic = esport._static;
+            if (esportStatic != null) {
+                this.c = esportStatic.img;
+                this.d = esportStatic.url;
+            }
+            this.b = new ArrayList();
+            if (!StringUtils.isNull(this.c)) {
+                nx6 nx6Var = new nx6();
+                nx6Var.i(this.c);
+                nx6Var.j(this.d);
+                this.b.add(nx6Var);
+            }
+            if (!ListUtils.isEmpty(esport.billboard)) {
+                for (EsportRank esportRank : esport.billboard) {
+                    nx6 nx6Var2 = new nx6();
+                    nx6Var2.h(esportRank);
+                    this.b.add(nx6Var2);
+                }
+            }
+        }
     }
 }

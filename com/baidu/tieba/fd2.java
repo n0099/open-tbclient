@@ -2,17 +2,16 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.collection.ArraySet;
-import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fd2 implements dd2 {
+public class fd2 implements ed2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] a;
+    public final String[] a;
 
     public fd2() {
         Interceptable interceptable = $ic;
@@ -27,22 +26,22 @@ public class fd2 implements dd2 {
                 return;
             }
         }
-        this.a = new String[]{an2.i(), an2.l(), an2.r(), an2.b.f(), x12.f(), x12.d(), i12.c(), an2.f.f(), an2.f.d(), wh2.d};
+        this.a = new String[]{mn2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), mn2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    @Override // com.baidu.tieba.dd2
+    @Override // com.baidu.tieba.ed2
     public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
             for (String str : this.a) {
-                String K = ik4.K(str);
+                String K = jk4.K(str);
                 if (!TextUtils.isEmpty(K)) {
                     arraySet.add(K);
                 }
             }
-            e12.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            f12.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;

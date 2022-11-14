@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.e19;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import com.baidu.tieba.t09;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        n = xi.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        o = xi.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        n = yi.g(TbadkApplication.getInst(), R.dimen.tbds348);
+        o = yi.g(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             int i = 0;
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                t09.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                e19.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText U = TbRichTextView.U(jSONArray, false);
                 g(d(U.toString()));
                 this.j.setText(U);
@@ -155,18 +155,18 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public final void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029b, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0921a0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) this, true);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0921ad);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
             this.j.R = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091e1e);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091e2a);
             this.k = editorScrollView;
-            editorScrollView.setPadding(0, xi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
+            editorScrollView.setPadding(0, yi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);
-            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = xi.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = yi.g(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -175,9 +175,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float i = xi.i(getContext());
-            int j = xi.j(getContext());
-            int l = xi.l(getContext());
+            float i = yi.i(getContext());
+            int j = yi.j(getContext());
+            int l = yi.l(getContext());
             double d = i;
             int i2 = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
             if (i2 == 0 && l >= 1920 && j >= 2049) {

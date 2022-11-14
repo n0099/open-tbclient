@@ -9,8 +9,8 @@ import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.n31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,7 +68,7 @@ public final class ExtensionsKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            return m31.c.a(context, i);
+            return n31.c.a(context, i);
         }
         return invokeIL.intValue;
     }
@@ -104,7 +104,7 @@ public final class ExtensionsKt {
                 Result.Companion companion2 = Result.Companion;
                 m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
             }
-            Integer valueOf = Integer.valueOf(ContextCompat.getColor(zi0.b(), i));
+            Integer valueOf = Integer.valueOf(ContextCompat.getColor(aj0.b(), i));
             if (Result.m704isFailureimpl(m698constructorimpl)) {
                 m698constructorimpl = valueOf;
             }

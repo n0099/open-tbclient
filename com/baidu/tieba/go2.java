@@ -1,19 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface go2 {
-    void a(Activity activity, String str, String str2);
+    boolean a(Context context, vq2 vq2Var, oq2 oq2Var, f43 f43Var);
 
-    boolean b(Context context);
+    boolean b(Context context, qq2 qq2Var, oq2 oq2Var, f43 f43Var);
 
-    void c(Activity activity, String str, za1 za1Var);
+    boolean c(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
 
-    void d(Context context, JSONObject jSONObject, za1 za1Var);
+    void d(lq1 lq1Var);
 
-    void e(Activity activity, String str, za1 za1Var);
+    boolean e(Context context, pq2 pq2Var, oq2 oq2Var, f43 f43Var);
 
-    void f(Activity activity, String str, lb1<JSONObject> lb1Var);
+    void f(lq1 lq1Var);
+
+    boolean g(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean h(Context context, tq2 tq2Var, oq2 oq2Var, f43 f43Var);
+
+    void i(lq1 lq1Var);
+
+    boolean j(Context context, uq2 uq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean k(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean l(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean m(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean n(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
+
+    boolean update(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var);
 }

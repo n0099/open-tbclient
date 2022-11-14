@@ -1,64 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.RecomVertical.DataRes;
-import tbclient.RecomVertical.DislikeReason;
-import tbclient.RecomVertical.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class q07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public boolean c;
 
-    public static void a(DataRes dataRes, List<wn> list) {
-        g46 g46Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public q07() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) && dataRes != null && list != null) {
-            LongSparseArray longSparseArray = new LongSparseArray();
-            for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
-                if (threadPersonalized2 != null) {
-                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                wn wnVar = (wn) ListUtils.getItem(list, i);
-                if ((wnVar instanceof g46) && (threadData = (g46Var = (g46) wnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(wg.g(threadData.getTid(), 0L))) != null) {
-                    g46Var.J(threadPersonalized.source);
-                    g46Var.M(threadPersonalized.weight);
-                    g46Var.F(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        g46Var.H(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                    if (list2 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list2) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        g46Var.feedBackReasonMap = sparseArray;
-                        g46Var.G(threadPersonalized.extra);
-                    }
-                }
+        }
+        this.a = -1;
+        this.b = false;
+        this.c = false;
+    }
+
+    public void a(n07 n07Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, n07Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i != -1 && this.c) {
+                n07Var.a(i);
             }
         }
     }
 
-    public static void b(DataRes dataRes, List<wn> list) {
+    public void b(int i, n07 n07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
-            a(dataRes, list);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, n07Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                n07Var.a(i);
+            }
         }
     }
 }

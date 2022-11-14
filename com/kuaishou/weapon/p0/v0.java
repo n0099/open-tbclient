@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.jni.Engine;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
@@ -144,7 +145,7 @@ public class v0 {
                 try {
                     String string = jSONObject.getString(str);
                     int i = 0;
-                    if (TextUtils.equals(str, "46")) {
+                    if (TextUtils.equals(str, PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK)) {
                         if (TextUtils.isEmpty(string) || string.length() <= 3) {
                             return null;
                         }
@@ -155,7 +156,7 @@ public class v0 {
                             i++;
                         }
                         return jSONArray2;
-                    } else if (TextUtils.equals(str, "45")) {
+                    } else if (TextUtils.equals(str, PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW)) {
                         String a = j.a("aae31bed33c490b6613a", "0701");
                         String a2 = j.a("99e111e83fc4d0a7662b", "0701");
                         if (TextUtils.isEmpty(string) || string.length() <= 3) {

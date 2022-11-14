@@ -1,38 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class kj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final Handler a;
+    public final int b;
+    public final long c;
+    public int d;
+    @Nullable
+    public Runnable e;
 
     /* loaded from: classes4.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public gj5<T> a;
-        public li5<T> b;
+        public final /* synthetic */ Callable a;
+        public final /* synthetic */ kj5 b;
 
-        public a(gj5<T> gj5Var, li5<T> li5Var) {
+        public a(kj5 kj5Var, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gj5Var, li5Var};
+                Object[] objArr = {kj5Var, callable};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,85 +47,81 @@ public class kj5 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.a = gj5Var;
-            this.b = li5Var;
+            this.b = kj5Var;
+            this.a = callable;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public T doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    if (this.a == null) {
-                        return null;
-                    }
-                    return this.a.doInBackground();
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            li5<T> li5Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && (li5Var = this.b) != null) {
-                li5Var.onReturnDataInUI(t);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c(this.a);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915027, "Lcom/baidu/tieba/kj5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947915027, "Lcom/baidu/tieba/kj5;");
+    public kj5(int i, int i2, @NonNull TimeUnit timeUnit) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = BdUniqueId.gen();
-        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = i;
+        this.c = timeUnit.toMillis(i2);
     }
 
-    public static void a() {
+    @NonNull
+    public static kj5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BdAsyncTask.removeAllTask(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new kj5(10, 1000, TimeUnit.MILLISECONDS);
+        }
+        return (kj5) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Runnable runnable = this.e;
+            if (runnable != null) {
+                this.a.removeCallbacks(runnable);
+                this.e = null;
+            }
+            this.d = 0;
         }
     }
 
-    public static <T> void b(gj5<T> gj5Var, li5<T> li5Var) {
+    public void c(Callable<Boolean> callable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, gj5Var, li5Var) == null) && gj5Var != null) {
-            a aVar = new a(gj5Var, li5Var);
-            aVar.setParallel(b);
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
-        }
-    }
-
-    public static <T> void c(gj5<T> gj5Var, li5<T> li5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, gj5Var, li5Var) == null) && gj5Var != null) {
-            a aVar = new a(gj5Var, li5Var);
-            aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callable) == null) {
+            try {
+                if (this.d < this.b) {
+                    this.d++;
+                    if (!callable.call().booleanValue()) {
+                        a aVar = new a(this, callable);
+                        this.e = aVar;
+                        this.a.postDelayed(aVar, this.c);
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
+            }
         }
     }
 }

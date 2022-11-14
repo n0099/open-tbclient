@@ -1,9 +1,13 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface ce5 {
-    void a();
+    String getCurrentPageKey();
 
-    void b();
+    List<String> getCurrentPageSourceKeyList();
 
-    void onError(String str);
+    List<String> getNextPageSourceKeyList();
+
+    de5 getPageStayFilter();
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface m10 {
-    String a();
+    String getAppName();
 }

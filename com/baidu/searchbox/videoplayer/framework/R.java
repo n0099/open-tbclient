@@ -145,16 +145,16 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int bdvideoplayer_seekbar = 0x7f09037a;
         public static final int bt_retry = 0x7f09042e;
-        public static final int center = 0x7f0905eb;
-        public static final int left = 0x7f0912ec;
-        public static final int main_duration_text = 0x7f0914b4;
-        public static final int main_progress_text = 0x7f0914b9;
-        public static final int main_view_seekbar = 0x7f0914c5;
-        public static final int play_error_layout_retry = 0x7f091a32;
-        public static final int progress = 0x7f091afd;
-        public static final int right = 0x7f091c67;
-        public static final int time = 0x7f092225;
-        public static final int tv_error = 0x7f0923d6;
+        public static final int center = 0x7f0905ec;
+        public static final int left = 0x7f0912f1;
+        public static final int main_duration_text = 0x7f0914bb;
+        public static final int main_progress_text = 0x7f0914c0;
+        public static final int main_view_seekbar = 0x7f0914cc;
+        public static final int play_error_layout_retry = 0x7f091a3c;
+        public static final int progress = 0x7f091b07;
+        public static final int right = 0x7f091c71;
+        public static final int time = 0x7f092232;
+        public static final int tv_error = 0x7f0923e5;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

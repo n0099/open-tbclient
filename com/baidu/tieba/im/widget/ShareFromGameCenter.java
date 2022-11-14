@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,23 +86,23 @@ public class ShareFromGameCenter extends LinearLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d5, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d9, this);
             setOrientation(1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed2);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c9f);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f52);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c86);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c8d);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ede);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ca0);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f5e);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c8e);
             this.c = headImageView;
             headImageView.setDefaultResource(R.drawable.pic_avatar_ba_140);
             this.c.setAutoChangeStyle(false);
             this.d = (Button) findViewById(R.id.obfuscated_res_0x7f09002f);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092103);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092110);
             this.e = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092102);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
         }
     }
 
@@ -118,8 +118,8 @@ public class ShareFromGameCenter extends LinearLayout {
                 this.b.setTextColor(this.k.getResources().getColor(R.color.CAM_X0106));
                 this.f.setBackgroundDrawable(this.k.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.setMargins(xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                layoutParams.height = xi.g(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+                layoutParams.setMargins(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
+                layoutParams.height = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
                 this.g.setLayoutParams(layoutParams);
             }
             this.a.setText(this.j.getTitle());
@@ -130,16 +130,16 @@ public class ShareFromGameCenter extends LinearLayout {
             this.d.setTextColor(this.k.getResources().getColor(R.color.CAM_X0105));
             this.d.setBackgroundResource(R.drawable.btn_appdownload);
             if (!TextUtils.isEmpty(this.j.getButton())) {
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, xi.g(getContext(), R.dimen.obfuscated_res_0x7f070253));
-                int g = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams2.setMargins(g, xi.g(getContext(), R.dimen.obfuscated_res_0x7f07025f), g, g);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.obfuscated_res_0x7f070253));
+                int g = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams2.setMargins(g, yi.g(getContext(), R.dimen.obfuscated_res_0x7f07025f), g, g);
                 this.d.setLayoutParams(layoutParams2);
                 this.d.setVisibility(0);
                 this.d.setText(this.j.getButton());
             } else {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                int g2 = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams3.setMargins(g2, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5), g2, g2);
+                int g2 = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams3.setMargins(g2, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5), g2, g2);
                 this.d.setVisibility(8);
                 this.h.setLayoutParams(layoutParams3);
             }
@@ -150,7 +150,7 @@ public class ShareFromGameCenter extends LinearLayout {
             this.e.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
             this.e.K(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", zp8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", kq8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 

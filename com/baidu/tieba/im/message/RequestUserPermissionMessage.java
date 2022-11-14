@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.forumId = Integer.valueOf(wg.e(String.valueOf(getForumId()), 0));
+                builder.forumId = Integer.valueOf(xg.e(String.valueOf(getForumId()), 0));
                 QueryUserPermissionReqIdl.Builder builder2 = new QueryUserPermissionReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

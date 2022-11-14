@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jk4;
-import com.baidu.tieba.ma4;
+import com.baidu.tieba.kk4;
+import com.baidu.tieba.na4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import java.util.List;
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ma4> a;
-    public List<ma4> b;
+    public List<na4> a;
+    public List<na4> b;
     public int c;
     public Context d;
 
@@ -52,8 +52,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909e6);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e6e);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909e7);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e7a);
         }
     }
 
@@ -142,7 +142,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d082a, viewGroup, false);
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d082e, viewGroup, false);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -155,11 +155,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void g(List<List<ma4>> list, boolean z, int i) {
+    public void g(List<List<na4>> list, boolean z, int i) {
         int max;
         float f;
-        List<ma4> list2;
-        List<ma4> list3;
+        List<na4> list2;
+        List<na4> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.a.clear();
@@ -184,10 +184,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             } else {
                 f = 5.0f;
             }
-            if (jk4.d()) {
+            if (kk4.d()) {
                 Context context = this.d;
-                if ((context instanceof Activity) && jk4.e((Activity) context)) {
-                    max = jk4.a((Activity) this.d);
+                if ((context instanceof Activity) && kk4.e((Activity) context)) {
+                    max = kk4.a((Activity) this.d);
                 }
             }
             this.c = (int) (max / f);

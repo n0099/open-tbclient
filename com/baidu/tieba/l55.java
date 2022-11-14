@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
-import tbclient.NovelInfo;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l55 {
     public static /* synthetic */ Interceptable $ic;
+    public static l55 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
 
     public l55() {
         Interceptable interceptable = $ic;
@@ -35,132 +27,96 @@ public class l55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
     }
 
-    public String a() {
+    public static synchronized l55 a() {
         InterceptResult invokeV;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = 0;
-            while (Pattern.compile("\\n").matcher(this.j).find()) {
-                i++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (l55.class) {
+                if (d == null) {
+                    d = new l55();
+                }
+                l55Var = d;
             }
-            return i;
+            return l55Var;
         }
-        return invokeV.intValue;
+        return (l55) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "1".equals(this.e);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
-                return false;
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("2g");
+                String optString2 = optJSONObject.optString("3g");
+                String optString3 = optJSONObject.optString("4g");
+                String optString4 = optJSONObject.optString("wifi");
+                if (optString != null) {
+                    this.a.put("2g", optString);
+                }
+                if (optString2 != null) {
+                    this.a.put("3g", optString2);
+                }
+                if (optString3 != null) {
+                    this.a.put("4g", optString3);
+                }
+                if (optString4 != null) {
+                    this.a.put("wifi", optString4);
+                }
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(NovelInfo novelInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
-            this.a = novelInfo.novel_id.longValue();
-            String str = novelInfo.img;
-            this.b = novelInfo.name;
-            String str2 = novelInfo.author;
-            String str3 = novelInfo.desc;
-            this.c = novelInfo.discount_price;
-            novelInfo.percent.longValue();
-            this.d = novelInfo.h5_url;
-            this.e = novelInfo.is_pay;
-            this.f = novelInfo.chapters.longValue();
-            this.g = novelInfo.member_text;
-            this.h = novelInfo.member_img;
-            this.i = novelInfo.buy_url;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                this.e = "1";
-            } else {
-                this.e = "0";
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+            if (optJSONObject2 != null) {
+                String optString5 = optJSONObject2.optString("2g");
+                String optString6 = optJSONObject2.optString("3g");
+                String optString7 = optJSONObject2.optString("4g");
+                String optString8 = optJSONObject2.optString("wifi");
+                if (optString5 != null) {
+                    this.b.put("2g", optString5);
+                }
+                if (optString6 != null) {
+                    this.b.put("3g", optString6);
+                }
+                if (optString7 != null) {
+                    this.b.put("4g", optString7);
+                }
+                if (optString8 != null) {
+                    this.b.put("wifi", optString8);
+                }
             }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+            if (optJSONObject3 != null) {
+                String optString9 = optJSONObject3.optString("2g");
+                String optString10 = optJSONObject3.optString("3g");
+                String optString11 = optJSONObject3.optString("4g");
+                String optString12 = optJSONObject3.optString("wifi");
+                if (optString9 != null) {
+                    this.c.put("2g", optString9);
+                }
+                if (optString10 != null) {
+                    this.c.put("3g", optString10);
+                }
+                if (optString11 != null) {
+                    this.c.put("4g", optString11);
+                }
+                if (optString12 != null) {
+                    this.c.put("wifi", optString12);
+                }
+            }
+            jSONObject.optString("is_on");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

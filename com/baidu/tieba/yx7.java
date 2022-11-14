@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yx7 implements wn {
+public class yx7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId c1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    @DrawableRes
+    public int W0;
+    public String X0;
+    public int Y0;
+    public int Z0;
+    public int a1;
+    public int b1;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +36,7 @@ public class yx7 implements wn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c1 = BdUniqueId.gen();
     }
 
     public yx7() {
@@ -42,16 +49,18 @@ public class yx7 implements wn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b1 = 0;
     }
 
-    @Override // com.baidu.tieba.wn
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return c1;
         }
         return (BdUniqueId) invokeV.objValue;
     }

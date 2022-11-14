@@ -268,7 +268,7 @@ public final class a extends d implements View.OnClickListener {
             }
         }
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d045f, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0460, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -310,12 +310,12 @@ public final class a extends d implements View.OnClickListener {
     private void d(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
-            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f0910ba);
-            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910b8);
-            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910bd);
-            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910bb);
-            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910bc);
-            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910b9);
+            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f0910bf);
+            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910bd);
+            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910c2);
+            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910c0);
+            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910c1);
+            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910be);
             this.om = button;
             button.setOnClickListener(this);
         }

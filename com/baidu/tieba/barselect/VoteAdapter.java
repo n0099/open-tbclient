@@ -5,9 +5,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.c26;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.l26;
+import com.baidu.tieba.o26;
+import com.baidu.tieba.q26;
+import com.baidu.tieba.x26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public e26 b;
-    public List<c26> c;
+    public q26 b;
+    public List<o26> c;
     public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
@@ -49,12 +49,12 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public void g(e26 e26Var) {
+    public void g(q26 q26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e26Var) == null) {
-            this.b = e26Var;
-            if (e26Var != null) {
-                this.c = e26Var.b();
+        if (interceptable == null || interceptable.invokeL(1048579, this, q26Var) == null) {
+            this.b = q26Var;
+            if (q26Var != null) {
+                this.c = q26Var.b();
             }
             this.d = -1;
             notifyDataSetChanged();
@@ -66,9 +66,9 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<c26> list = this.c;
+            List<o26> list = this.c;
             if (list != null && list.size() > i && this.c.get(i).i() == 1 && i == 0) {
-                return l26.c;
+                return x26.c;
             }
             return 0;
         }
@@ -89,7 +89,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<c26> list = this.c;
+            List<o26> list = this.c;
             if (list != null) {
                 return list.size();
             }

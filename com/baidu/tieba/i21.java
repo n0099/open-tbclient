@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i21 {
+public class i21 implements k21 {
     public static /* synthetic */ Interceptable $ic;
-    public static i21 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public j21 a;
 
     public i21() {
         Interceptable interceptable = $ic;
@@ -24,38 +21,23 @@ public class i21 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new g21();
-        if (!z11.a()) {
-            this.a = new h21();
         }
     }
 
-    public static i21 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k21
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (i21.class) {
-                    if (b == null) {
-                        b = new i21();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            p21.f().m(runnable, str, i, j);
         }
-        return (i21) invokeV.objValue;
     }
 
-    @NonNull
-    public j21 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k21
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            p21.f().q(runnable, str, j);
         }
-        return (j21) invokeV.objValue;
     }
 }

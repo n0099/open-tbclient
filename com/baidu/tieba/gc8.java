@@ -1,32 +1,73 @@
 package com.baidu.tieba;
 
-import android.widget.MediaController;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gc8 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public class gc8 extends ea5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int j;
+    public static final int k;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int getCurrentPositionSync();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947789229, "Lcom/baidu/tieba/gc8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947789229, "Lcom/baidu/tieba/gc8;");
+                return;
+            }
+        }
+        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+    }
 
-    hc8 getMediaProgressObserver();
+    public final void g() {
+        TbImageView tbImageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            int i = j;
+            layoutParams.width = i;
+            layoutParams.height = i;
+            layoutParams.topMargin = k;
+            this.c.setLayoutParams(layoutParams);
+        }
+    }
 
-    int getPcdnState();
-
-    void setLooping(boolean z);
-
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
-
-    void setOperableVideoContainer(zc8 zc8Var);
-
-    void setPlayMode(String str);
-
-    void setStageType(String str);
-
-    void setVideoPath(String str, String str2);
-
-    void setVideoStatData(uc8 uc8Var);
-
-    void setVolume(float f, float f2);
-
-    void stopPlayback();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gc8(Context context, View.OnClickListener onClickListener) {
+        super(context, onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onClickListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        g();
+    }
 }

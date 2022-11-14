@@ -13,6 +13,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.utils.ai;
+import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -431,7 +432,7 @@ public final class a {
     public static void k(@Nullable AdTemplate adTemplate, int i) {
         u.b bVar = new u.b();
         bVar.abI = i;
-        b(adTemplate, 321, bVar, null);
+        b(adTemplate, BuildConfig.VERSION_CODE, bVar, null);
     }
 
     public static void k(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {

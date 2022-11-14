@@ -336,12 +336,12 @@ public class SendSmsView extends LinearLayout {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e6, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e7, this);
             setOrientation(1);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f091d74);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ddc);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f091d80);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d96);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ded);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091de8);
             this.c.setOnClickListener(new a(this));
             this.b.addTextChangedListener(new b(this));
             this.d.setOnClickListener(new c(this));
@@ -352,7 +352,7 @@ public class SendSmsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setTextColor(Color.parseColor("#CCFFFFFF"));
-            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ed1));
+            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ed6));
         }
     }
 

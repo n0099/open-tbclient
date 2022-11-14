@@ -105,10 +105,10 @@ public final class d extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0453, this);
-            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f1);
-            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f09113c);
-            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ee);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0454, this);
+            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091141);
+            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f3);
         }
     }
 

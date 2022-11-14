@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.wl9;
+import com.baidu.tieba.hm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            wl9 wl9Var;
+            hm9 hm9Var;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        wl9 c = wl9.c(this.a, this.b, this.c, false);
+                        hm9 c = hm9.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            wl9Var = c;
+                            hm9Var = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new wl9(1L, this.b);
+                                c = new hm9(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                wl9Var = wl9.c(this.a, this.b, this.c, false);
-                                if (wl9Var != null) {
-                                    this.b = wl9Var.a();
+                                hm9Var = hm9.c(this.a, this.b, this.c, false);
+                                if (hm9Var != null) {
+                                    this.b = hm9Var.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                wl9Var = null;
+                                hm9Var = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (wl9Var != null) {
-                            i4 = i * wl9Var.d();
+                        if (hm9Var != null) {
+                            i4 = i * hm9Var.d();
                         }
                         aVar = new a(d, i4);
                     }

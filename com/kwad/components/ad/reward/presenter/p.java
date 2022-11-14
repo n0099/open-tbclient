@@ -530,7 +530,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911ee);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911f3);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

@@ -2,7 +2,7 @@ package com.baidu.tieba.write.write.work.videoview;
 
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Integer.valueOf(xi.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
+            return Integer.valueOf(yi.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
         }
         return (Integer) invokeV.objValue;
     }

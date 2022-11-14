@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,8 +95,8 @@ public class PickEmotionView extends FrameLayout {
             this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.topMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
             addView(this.b, layoutParams);
         }
     }

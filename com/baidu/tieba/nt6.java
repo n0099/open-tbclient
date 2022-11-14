@@ -1,80 +1,115 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SportScheduleInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
-public class nt6 {
+public abstract class nt6 implements pt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public String l;
-    public final View.OnClickListener m;
+    public FrsFragment a;
+    public Context b;
+    public View c;
+    public View.OnClickListener d;
+    public NavigationBar e;
+    public View f;
+    public ImageView g;
+    public boolean h;
+
+    @Override // com.baidu.tieba.pt6
+    @CallSuper
+    public void b(@NonNull ThemeElement themeElement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pt6
+    public void d(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pt6
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
+
+    public abstract void k();
+
+    @Override // com.baidu.tieba.pt6
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nt6 a;
 
-        public a(nt6 nt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-564266692, "Lcom/baidu/tieba/nt6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-564266692, "Lcom/baidu/tieba/nt6$a;");
                     return;
                 }
             }
-            this.a = nt6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !wi.isEmpty(this.a.k)) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
-                TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.BACK_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LogicField.BACK_IV.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    public nt6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
+    public nt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsSportsRecommendFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,67 +119,97 @@ public class nt6 {
                 return;
             }
         }
-        this.m = new a(this);
-        if (frsSportsRecommendFragment != null && view2 != null) {
-            this.a = frsSportsRecommendFragment.getPageContext();
-            BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090c11);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c19);
-            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c12);
-            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c17);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c13);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c18);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c16);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c15);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c14);
-            this.d.setPageId(uniqueId);
-            this.e.setPageId(uniqueId);
+        this.h = true;
+        qn8.b();
+    }
+
+    @Override // com.baidu.tieba.pt6
+    @NonNull
+    public NavigationBar e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            gj5.b(this.e);
+            return this.e;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f = addSystemImageButton;
+            addSystemImageButton.setOnClickListener(this.d);
+            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0926cf);
         }
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.pt6
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            int i = a.a[logicField.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return null;
+                }
+                return (T) this.g;
+            }
+            return (T) this.f;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pt6
+    @CallSuper
+    public void c(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            if (f < 0.5f) {
+                if (!this.h) {
+                    j(true);
+                    this.h = true;
+                }
+            } else if (this.h) {
+                j(false);
+                this.h = false;
+            }
         }
     }
 
-    public void e(SportScheduleInfo sportScheduleInfo, String str) {
+    @Override // com.baidu.tieba.pt6
+    @CallSuper
+    public void f(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
-            if (sportScheduleInfo == null) {
-                this.b.setVisibility(8);
-                this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f0774);
-                return;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            FrameLayout contentLayout = this.e.getContentLayout();
+            if (z) {
+                i = R.color.CAM_X0201;
+            } else {
+                i = R.color.black_alpha0;
             }
-            this.b.setVisibility(0);
-            this.c.setVisibility(8);
-            this.d.K(sportScheduleInfo.home_team_icon, 10, false);
-            this.e.K(sportScheduleInfo.guest_team_icon, 10, false);
-            String str2 = sportScheduleInfo.home_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
-                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
-            }
-            String str3 = sportScheduleInfo.guest_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
-                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
-            }
-            this.f.setText(str2);
-            this.g.setText(str3);
-            this.h.setText(sportScheduleInfo.match_top_info);
-            this.i.setText(sportScheduleInfo.match_middle_info);
-            this.j.setText(sportScheduleInfo.match_bottom_info);
-            this.k = sportScheduleInfo.msg_url;
-            this.l = str;
-            this.b.setOnClickListener(this.m);
+            SkinManager.setBackgroundColor(contentLayout, i);
         }
+    }
+
+    @Override // com.baidu.tieba.pt6
+    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) != null) || this.c != null) {
+            return;
+        }
+        this.a = frsFragment;
+        this.b = view2.getContext();
+        this.c = view2;
+        this.d = onClickListener;
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092613);
+        this.e = navigationBar;
+        navigationBar.getBarBgView().setAlpha(1.0f);
+        i();
+        k();
     }
 }

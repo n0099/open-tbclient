@@ -1,59 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tieba.ku6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class mu6 {
+public class mu6 implements gu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ku6.e b;
+    public List<dl6> c;
+    public View d;
+    public View e;
+    public TabMenuPopView f;
+    public ku6 g;
+    public TabMenuPopView.c h;
 
-    public static void a(oo5 oo5Var, ForumData forumData, List<wn> list, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{oo5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        wo5 wo5Var = new wo5(oo5Var, 5);
-        wo5Var.G(list);
-        if (forumData != null) {
-            wo5Var.w(forumData.getId());
-            wo5Var.v(forumData.getFirst_class());
-            wo5Var.E(forumData.getSecond_class());
-        }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            wo5Var.B(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
-        }
-        wo5Var.A(z);
-        wo5Var.C(i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, wo5Var));
-    }
+    /* loaded from: classes5.dex */
+    public class a implements TabMenuPopView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mu6 a;
 
-    public static void b(oo5 oo5Var, FrsViewData frsViewData, List<wn> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65537, null, oo5Var, frsViewData, list, i) == null) && frsViewData != null) {
-            a(oo5Var, frsViewData.getForum(), list, false, i);
-        }
-    }
-
-    public static void c(ro8 ro8Var, List<wn> list, List<wn> list2) {
-        int[] iArr;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, ro8Var, list, list2) == null) && ro8Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
-            for (int i : ro8.f) {
-                wn wnVar = (wn) ListUtils.getItem(list, i);
-                if (wnVar != null && (indexOf = list2.indexOf(wnVar)) >= 0) {
-                    ro8Var.a(i, indexOf);
+        public a(mu6 mu6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mu6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = mu6Var;
         }
+
+        @Override // com.baidu.tieba.frs.TabMenuPopView.c
+        public void a(View view2, dl6 dl6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, dl6Var) == null) {
+                if (this.a.g != null) {
+                    this.a.g.c();
+                }
+                this.a.b.a(dl6Var.b);
+            }
+        }
+    }
+
+    public mu6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = new a(this);
+    }
+
+    @Override // com.baidu.tieba.gu6
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return this.d.getMeasuredHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gu6
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu6
+    public void a(Context context, ku6 ku6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, ku6Var) == null) && context != null && ku6Var != null) {
+            this.a = context;
+            this.g = ku6Var;
+            this.b = ku6Var.d();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0863, (ViewGroup) null);
+            this.d = inflate;
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0922f5);
+            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905c8);
+            this.f = tabMenuPopView;
+            tabMenuPopView.setOnItemClickCallBack(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.gu6
+    public void setData(List<dl6> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
+            return;
+        }
+        this.c = list;
+        dl6 dl6Var = new dl6();
+        dl6Var.b = 0;
+        dl6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f026e);
+        dl6Var.c = false;
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+        this.f.setData(this.c, dl6Var);
     }
 }

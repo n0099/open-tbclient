@@ -2,7 +2,7 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.in3;
+import com.baidu.tieba.jn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -269,7 +269,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (in3) null);
+                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (jn3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -560,7 +560,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, jn3 jn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -586,7 +586,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, in3 in3Var) {
+    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, jn3 jn3Var) {
         this(builder);
     }
 

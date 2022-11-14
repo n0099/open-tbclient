@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.pr7;
+import com.baidu.tieba.as7;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,8 +41,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        pr7.b().g();
-        if (!ky4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+        as7.b().g();
+        if (!py4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }
         try {
@@ -51,7 +51,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
             intent2.putExtra("is_notify", true);
             intent2.setFlags(603979776);
             PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-            String string = context.getString(R.string.obfuscated_res_0x7f0f040c);
+            String string = context.getString(R.string.obfuscated_res_0x7f0f040d);
             NotificationHelper.showNotification(context, 28, context.getString(R.string.obfuscated_res_0x7f0f029e), string, string, service, false);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {

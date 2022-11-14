@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wi2 extends yh2<ok2> {
+public class wi2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile wi2 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.yh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
-    }
+    public Map<String, qk2> a;
 
     public wi2() {
         Interceptable interceptable = $ic;
@@ -32,22 +28,64 @@ public class wi2 extends yh2<ok2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static wi2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (wi2.class) {
+                    if (b == null) {
+                        b = new wi2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (wi2) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (b != null) {
+                b.b();
+            }
+            b = null;
+        }
+    }
+
+    public final synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                f12.i("RtcRoomWidgetManager", "release");
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    ((qk2) it.next()).onRelease();
+                }
+                this.a.clear();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ok2 ok2Var) {
+    public synchronized void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ok2Var) == null) {
-            String str = command.what;
-            d(ok2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                ok2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this) {
+                f12.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    qk2 qk2Var = (qk2) it.next();
+                    if (TextUtils.equals(qk2Var.b(), str)) {
+                        qk2Var.onRelease();
+                    }
+                }
             }
         }
     }

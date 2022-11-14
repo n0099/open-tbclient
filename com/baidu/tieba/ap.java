@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
+import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ap extends p65 {
+public class ap extends v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b31), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b33), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,16 +34,17 @@ public class ap extends p65 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809ee;
-        this.e = R.drawable.obfuscated_res_0x7f080836;
-        this.i = true;
+        this.d = R.drawable.obfuscated_res_0x7f0809f2;
+        this.e = R.drawable.obfuscated_res_0x7f08082d;
+        this.i = false;
+        this.j = true;
         this.n = 6;
         this.o = true;
-        this.m = VoiceRecordButton.x(context);
+        this.m = new NewVoiceRecordButton(context);
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.tieba.p65
+    @Override // com.baidu.tieba.v65
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +52,7 @@ public class ap extends p65 {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ee);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f5);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

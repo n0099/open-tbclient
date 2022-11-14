@@ -2,7 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.interest.InterestPanelShowManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +14,15 @@ public class it8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public eu4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public it8(MainTabActivity mainTabActivity, or8 or8Var) {
-        super(2921333);
+    public it8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+        super(2921673);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, or8Var};
+            Object[] objArr = {mainTabActivity, zr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,19 +40,10 @@ public class it8 extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            return;
-        }
-        if (this.b == null && !(customResponsedMessage.getData() instanceof eu4)) {
-            return;
-        }
-        if (customResponsedMessage.getData() != null) {
-            this.b = (eu4) customResponsedMessage.getData();
-        }
-        if (this.b != null && TbadkCoreApplication.isLogin()) {
-            mr8 mr8Var = this.a.v;
-            eu4 eu4Var = this.b;
-            mr8Var.j(eu4Var.a, eu4Var.b, eu4Var.c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            InterestPanelShowManager.a().e(this.a, true);
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
     }
 }

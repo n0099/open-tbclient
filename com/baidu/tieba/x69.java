@@ -1,26 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class x69 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+public interface x69<D> {
+    void a(@NonNull WriteData writeData);
 
-    public x69() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(WriteData writeData);
+
+    void d();
+
+    void e(@NonNull WriteData writeData);
+
+    boolean g();
+
+    void h(@Nullable String str, @NonNull WriteData writeData);
+
+    void j(@NonNull z69 z69Var);
+
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<x69<?>> list);
+
+    void r(k65 k65Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

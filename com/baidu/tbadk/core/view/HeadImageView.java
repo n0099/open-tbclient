@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -138,7 +138,7 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.G0 = R.drawable.obfuscated_res_0x7f08126e;
+        this.G0 = R.drawable.obfuscated_res_0x7f08127e;
         this.H0 = R.color.CAM_X0209;
         this.I0 = R.drawable.ic_icon_mask_shen20_n;
         this.J0 = 0;
@@ -149,7 +149,7 @@ public class HeadImageView extends TbClipImageView {
     private void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.x0 = xi.g(getContext(), R.dimen.tbds36);
+            this.x0 = yi.g(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -270,7 +270,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.w0 = xi.g(getContext(), i);
+                this.w0 = yi.g(getContext(), i);
             }
             invalidate();
         }
@@ -287,7 +287,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.x0 = xi.g(getContext(), i);
+                this.x0 = yi.g(getContext(), i);
             }
             invalidate();
         }
@@ -379,7 +379,7 @@ public class HeadImageView extends TbClipImageView {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f11ff));
+            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f1205));
         }
     }
 

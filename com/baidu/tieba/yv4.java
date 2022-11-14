@@ -1,66 +1,112 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.mm4;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class yv4 implements Comparable<yv4> {
+public class yv4 extends zv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Activity b;
+    public final TbPageContext c;
+    public final UserData d;
+    public final mm4.m e;
+    public gn4 f;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z);
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yv4 a;
+
+        public a(yv4 yv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yv4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yv4Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
+            }
+        }
     }
 
-    public abstract void b();
-
-    public abstract void d(a aVar);
-
-    public abstract void e();
-
-    public yv4(@NonNull Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yv4(TbPageContext tbPageContext, Activity activity, UserData userData, mm4.m mVar) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext, activity, userData, mVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = activity;
+        this.c = tbPageContext;
+        this.d = userData;
+        this.e = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(yv4 yv4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zv4
+    public void b() {
+        gn4 gn4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yv4Var)) == null) {
-            return this.a - yv4Var.a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gn4Var = this.f) != null) {
+            gn4Var.b();
         }
-        return invokeL.intValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.zv4
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zv4.j();
+            gn4 c = gn4.c();
+            this.f = c;
+            c.b();
+            this.f.d(new a(this));
+            this.f.e(this.c, this.b, this.d, this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.zv4
+    public void d(@NonNull zv4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (gw4.k()) {
+                aVar.a(false);
+            } else {
+                aVar.a(true);
+            }
         }
     }
 }

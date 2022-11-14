@@ -13,9 +13,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk0;
-import com.baidu.tieba.z01;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.a11;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.lk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -177,15 +177,15 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09240e);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09242d);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09241d);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09243c);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
-            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091425);
-            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091424);
+            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09142b);
+            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09142a);
             LayoutInflater.from(this).inflate(C1(), (ViewGroup) this.x, true);
-            this.w.setBackground(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de9));
-            this.w.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080deb));
-            this.y.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dec));
+            this.w.setBackground(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dee));
+            this.w.setDividerDrawable(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df0));
+            this.y.setDividerDrawable(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df1));
             if (G1()) {
                 this.u.setText(I1());
                 this.u.setOnClickListener(new a(this));
@@ -203,10 +203,10 @@ public abstract class NadDialogActivity extends BaseActivity {
 
     public final void J1(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(zi0.b())) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(aj0.b())) {
             return;
         }
-        z01.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        a11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -214,7 +214,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.Z0(bundle);
-            setContentView(kk0.a().a());
+            setContentView(lk0.a().a());
             Intent intent = getIntent();
             this.B = intent;
             if (intent != null) {

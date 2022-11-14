@@ -1,25 +1,45 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hm5 {
+public abstract class hm5 implements gm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public km5 a;
+    public zl5 b;
 
-    public static void a(View view2, Runnable runnable) {
+    @Override // com.baidu.tieba.gm5
+    public abstract void dismiss();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h(em5 em5Var);
+
+    public hm5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.postDelayed(runnable, 16L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(View view2, Drawable drawable) {
+    public void d(km5 km5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) {
-            view2.setBackgroundDrawable(drawable);
+        if (interceptable == null || interceptable.invokeL(1048576, this, km5Var) == null) {
+            this.a = km5Var;
         }
     }
 }

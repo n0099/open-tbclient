@@ -17,25 +17,25 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ao;
-import com.baidu.tieba.el;
-import com.baidu.tieba.kn;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.v9;
+import com.baidu.tieba.bo;
+import com.baidu.tieba.fl;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.nn;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.x9;
 import com.baidu.tieba.yn;
+import com.baidu.tieba.zn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
+public class BdRecyclerView extends RecyclerView implements zn<BdRecyclerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerAdapter a;
-    public v9 b;
+    public w9 b;
     public i c;
     public j d;
     public BdListView.m e;
@@ -44,15 +44,15 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
     public BdListView.s h;
     public BdListView.o i;
     public long j;
-    public kn k;
-    public kn l;
+    public ln k;
+    public ln l;
     public View m;
     public boolean n;
     public boolean o;
     public Runnable p;
     public Runnable q;
     public Runnable r;
-    public ao s;
+    public bo s;
 
     /* loaded from: classes.dex */
     public interface i<T> {
@@ -65,7 +65,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.zn
     public BdRecyclerView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,11 +164,11 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            v9 c;
+            w9 c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
                 if (this.a.b == null) {
-                    c = w9.c(this.a.getContext());
+                    c = x9.c(this.a.getContext());
                 } else {
                     c = this.a.b;
                 }
@@ -298,8 +298,8 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof el) {
-                ((el) view2).refresh();
+            if (view2 instanceof fl) {
+                ((fl) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -349,11 +349,11 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
 
         @Override // java.lang.Runnable
         public void run() {
-            v9 c;
+            w9 c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.b == null) {
-                    c = w9.c(this.a.getContext());
+                    c = x9.c(this.a.getContext());
                 } else {
                     c = this.a.b;
                 }
@@ -365,7 +365,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
     }
 
     /* loaded from: classes.dex */
-    public class d implements ao {
+    public class d implements bo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -388,7 +388,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.baidu.tieba.ao
+        @Override // com.baidu.tieba.bo
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -397,17 +397,17 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
             }
         }
 
-        @Override // com.baidu.tieba.ao
-        public xn getAdapter() {
+        @Override // com.baidu.tieba.bo
+        public yn getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return (xn) invokeV.objValue;
+                return (yn) invokeV.objValue;
             }
             return this.a.a;
         }
 
-        @Override // com.baidu.tieba.ao
+        @Override // com.baidu.tieba.bo
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -417,7 +417,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.ao
+        @Override // com.baidu.tieba.bo
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -429,7 +429,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
     }
 
     /* loaded from: classes.dex */
-    public class e implements mn.a {
+    public class e implements nn.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -452,7 +452,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.baidu.tieba.mn.a
+        @Override // com.baidu.tieba.nn.a
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -687,7 +687,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         bdRecyclerAdapter.g(view2);
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.zn
     public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -782,10 +782,10 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         }
     }
 
-    public void setScrollable(v9 v9Var) {
+    public void setScrollable(w9 w9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, v9Var) == null) {
-            this.b = v9Var;
+        if (interceptable == null || interceptable.invokeL(1048609, this, w9Var) == null) {
+            this.b = w9Var;
         }
     }
 
@@ -852,7 +852,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         }
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.zn
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -865,7 +865,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.zn
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -875,7 +875,7 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.zn
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -885,22 +885,22 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    public xn getListAdapter() {
+    public yn getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return (xn) getAdapter();
+            return (yn) getAdapter();
         }
-        return (xn) invokeV.objValue;
+        return (yn) invokeV.objValue;
     }
 
-    public ao getPreLoadHandle() {
+    public bo getPreLoadHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.s;
         }
-        return (ao) invokeV.objValue;
+        return (bo) invokeV.objValue;
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
@@ -964,21 +964,21 @@ public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
         }
     }
 
-    public void setNextPage(kn knVar) {
+    public void setNextPage(ln lnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, knVar) == null) {
-            kn knVar2 = this.l;
-            if (knVar2 != null && knVar2 == knVar) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, lnVar) == null) {
+            ln lnVar2 = this.l;
+            if (lnVar2 != null && lnVar2 == lnVar) {
                 return;
             }
-            kn knVar3 = this.l;
-            if (knVar3 != null && knVar3 != knVar) {
-                y(knVar3.b());
+            ln lnVar3 = this.l;
+            if (lnVar3 != null && lnVar3 != lnVar) {
+                y(lnVar3.b());
                 this.l = null;
             }
-            if (knVar != null) {
-                this.a.h(knVar.b(), null, true, 0);
-                this.l = knVar;
+            if (lnVar != null) {
+                this.a.h(lnVar.b(), null, true, 0);
+                this.l = lnVar;
             }
         }
     }

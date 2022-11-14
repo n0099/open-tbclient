@@ -37,11 +37,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.mm5;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,14 +135,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 return;
             }
         }
-        V = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
-        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        W = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds410);
-        a0 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds595);
-        b0 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds540);
-        c0 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
-        d0 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds340);
-        e0 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds548);
+        V = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        W = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds410);
+        a0 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds595);
+        b0 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds540);
+        c0 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        d0 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds340);
+        e0 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds548);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -271,7 +271,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeL(1048586, this, shareThreadMsgData) == null) {
             if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {
                 this.R.setVisibility(0);
-                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1416), shareThreadMsgData.getAuthor_name_show()));
+                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f141d), shareThreadMsgData.getAuthor_name_show()));
                 return;
             }
             this.R.setVisibility(8);
@@ -281,10 +281,10 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public final void b(ShareForumMsgData shareForumMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareForumMsgData) == null) {
-            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f067a));
+            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f067b));
             if (!StringUtils.isNull(shareForumMsgData.getSlogan())) {
                 this.e.setVisibility(0);
-                this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06db), shareForumMsgData.getSlogan()));
+                this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06dc), shareForumMsgData.getSlogan()));
             } else {
                 this.e.setVisibility(8);
             }
@@ -371,7 +371,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.i.setVisibility(8);
                 this.h.setVisibility(0);
                 this.h.K(shareThreadMsgData.getForum_avatar(), 10, false);
-                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f067a));
+                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f067b));
                 return;
             }
             this.i.setVisibility(0);
@@ -389,14 +389,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            kw4 d = kw4.d(this.d);
+            pw4 d = pw4.d(this.d);
             d.A(R.string.F_X02);
             d.v(R.color.CAM_X0105);
-            kw4.d(this.e).v(R.color.CAM_X0107);
-            kw4.d(this.f).v(R.color.CAM_X0109);
-            kw4.d(this.j).v(R.color.CAM_X0107);
-            kw4.d(this.R).v(R.color.CAM_X0109);
-            kw4 d2 = kw4.d(this.z);
+            pw4.d(this.e).v(R.color.CAM_X0107);
+            pw4.d(this.f).v(R.color.CAM_X0109);
+            pw4.d(this.j).v(R.color.CAM_X0107);
+            pw4.d(this.R).v(R.color.CAM_X0109);
+            pw4 d2 = pw4.d(this.z);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }
@@ -549,7 +549,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             }
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             textView.setText(StringHelper.stringForVideoTime(shareThreadMsgData.getVideo_duration() * 1000));
-            textView2.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ed3), StringHelper.numFormatOverWan(shareThreadMsgData.getPlay_count())));
+            textView2.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ed8), StringHelper.numFormatOverWan(shareThreadMsgData.getPlay_count())));
         }
     }
 
@@ -576,7 +576,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 threadData.threadType = 40;
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
                 threadData.setTitle(shareThreadMsgData.title);
-            } else if (!StringUtils.isNull(mm5.E(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+            } else if (!StringUtils.isNull(wm5.E(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                 threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
             } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
@@ -593,96 +593,96 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04a0, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04a1, (ViewGroup) this, true);
             setOnClickListener(this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ecc);
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f0f);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed8);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f12);
             this.c = barImageView;
             barImageView.setShowOval(true);
             this.c.setStrokeWith(V);
             this.c.setStrokeColorResId(R.color.CAM_X0401);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setPlaceHolder(1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090aab);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a61);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a70);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091efa);
-            BarImageView barImageView2 = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f11);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090aac);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a62);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a71);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f06);
+            BarImageView barImageView2 = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f14);
             this.h = barImageView2;
             barImageView2.setShowOval(true);
             this.h.setStrokeWith(V);
             this.h.setStrokeColorResId(R.color.CAM_X0401);
             this.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.h.setPlaceHolder(1);
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f090f3f);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f090f43);
             this.i = headPendantClickableView;
             headPendantClickableView.getHeadView().setIsRound(true);
             this.i.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.i.getHeadView().setDefaultResource(17170445);
             this.i.getHeadView().setPlaceHolder(1);
             this.i.setIsclearmode(true);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0921de);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092200);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0921eb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09220d);
             this.k = textView;
             textView.setMaxLines(1);
             this.k.setEllipsize(TextUtils.TruncateAt.END);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d9);
-            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921f5);
-            this.z = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921f4);
-            this.Q = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09220a);
-            this.R = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fa);
-            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a01);
-            this.o = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a06);
-            this.q = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eee);
-            this.r = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eef);
-            this.s = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ef0);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e6);
+            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092202);
+            this.z = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092201);
+            this.Q = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092217);
+            this.R = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
+            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a0a);
+            this.o = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a0f);
+            this.q = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ef1);
+            this.r = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ef2);
+            this.s = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ef3);
             setStrokeWith(this.q);
             setStrokeWith(this.r);
             setStrokeWith(this.s);
             setStrokeWith(this.p);
             setStrokeWith(this.o);
-            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09257a);
-            this.t = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925d2);
-            this.u = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09256c);
+            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092589);
+            this.t = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925e1);
+            this.u = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09257b);
             setStrokeWith(this.t);
             setStrokeWith(this.u);
-            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f092596);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092598);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f09255d);
-            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f090f25);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091798);
+            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925a5);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a7);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f09256c);
+            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f090f28);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09179f);
             this.A = textView2;
             textView2.setMaxLines(1);
             this.A.setEllipsize(TextUtils.TruncateAt.END);
-            this.B = (TextView) findViewById(R.id.obfuscated_res_0x7f091794);
-            this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091796);
-            this.D = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09179d);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0917a0);
+            this.B = (TextView) findViewById(R.id.obfuscated_res_0x7f09179b);
+            this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09179d);
+            this.D = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a4);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0917a7);
             this.E = tbImageView;
             setStrokeWith(tbImageView);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09179c);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0917a3);
             this.F = tbImageView2;
             setStrokeWith(tbImageView2);
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091790);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091797);
             this.H = tbImageView3;
             setStrokeWith(tbImageView3);
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091791);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091798);
             this.G = tbImageView4;
             setStrokeWith(tbImageView4);
-            TbImageView tbImageView5 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09178c);
+            TbImageView tbImageView5 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091793);
             this.I = tbImageView5;
             setStrokeWith(tbImageView5);
-            TbImageView tbImageView6 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09178d);
+            TbImageView tbImageView6 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091794);
             this.J = tbImageView6;
             setStrokeWith(tbImageView6);
-            TbImageView tbImageView7 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09178e);
+            TbImageView tbImageView7 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091795);
             this.K = tbImageView7;
             setStrokeWith(tbImageView7);
-            this.L = (ImageView) findViewById(R.id.obfuscated_res_0x7f09179e);
-            this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f09179f);
-            this.N = (TextView) findViewById(R.id.obfuscated_res_0x7f09179b);
-            this.O = (TextView) findViewById(R.id.obfuscated_res_0x7f09178f);
-            this.P = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09179a);
+            this.L = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917a5);
+            this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a6);
+            this.N = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a2);
+            this.O = (TextView) findViewById(R.id.obfuscated_res_0x7f091796);
+            this.P = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f0917a1);
             p("");
         }
     }

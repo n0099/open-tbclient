@@ -6,15 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.TiebaPlusInfo;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes3.dex */
 public class bo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TiebaPlusInfo b;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
     public bo8() {
         Interceptable interceptable = $ic;
@@ -26,69 +28,73 @@ public class bo8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public TiebaPlusInfo a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return (TiebaPlusInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void c(BusinessPromot businessPromot) {
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
-            this.a = businessPromot.is_download.booleanValue();
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = businessPromot.download_developer;
-            builder.title = businessPromot.download_appname;
-            builder.app_privacy = businessPromot.download_privacy_policy;
-            builder.download_url = businessPromot.download_url;
-            builder.app_icon = businessPromot.download_img;
-            builder.app_version = businessPromot.download_version;
-            builder.app_power = businessPromot.download_user_power;
-            builder.app_package = businessPromot.download_package_name;
-            builder.app_id = businessPromot.download_appid;
-            builder.item_id = businessPromot.download_item_id;
-            this.b = builder.build(true);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-    }
-
-    public void d(HeadImgs headImgs) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
-            if (headImgs.download_is_thirdpage.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
             }
-            this.a = z;
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = headImgs.download_developer;
-            builder.title = headImgs.download_appname;
-            builder.app_privacy = headImgs.download_privacy_policy;
-            builder.download_url = headImgs.download_url;
-            builder.app_icon = headImgs.download_img;
-            builder.app_version = headImgs.download_version;
-            builder.app_power = headImgs.download_user_power;
-            builder.app_package = headImgs.download_package_name;
-            builder.app_id = headImgs.download_appid;
-            builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.b = builder.build(true);
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
         }
+        if (starInfo.trade == null) {
+            z = false;
+        }
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

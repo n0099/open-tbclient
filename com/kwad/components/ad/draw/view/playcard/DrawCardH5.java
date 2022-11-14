@@ -113,11 +113,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0423, this);
-            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ab);
-            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a1);
-            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ad);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910d9);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0424, this);
+            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b0);
+            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b2);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910de);
         }
     }
 

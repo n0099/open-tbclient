@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.hf5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,8 +45,8 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (FixNpsAnrSwitch.getIsOn() && xi.q() > 1) {
-                zg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
+            if (FixNpsAnrSwitch.getIsOn() && yi.q() > 1) {
+                ah.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitFlutterNpsPluginTask this$0;
@@ -86,12 +86,12 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void initFlutterPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new af5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new hf5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitFlutterNpsPluginTask this$0;
 
-                @Override // com.baidu.tieba.af5
+                @Override // com.baidu.tieba.hf5
                 public void onFail() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -116,11 +116,11 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.af5
+                @Override // com.baidu.tieba.hf5
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        zg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
+                        ah.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;

@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.camera2.CameraCharacteristics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,78 +13,90 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class w19 {
     public static /* synthetic */ Interceptable $ic;
-    public static w19 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
+    public final Matrix a;
+    public RectF b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948217866, "Lcom/baidu/tieba/w19;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948217866, "Lcom/baidu/tieba/w19;");
-        }
-    }
-
-    public w19() {
+    public w19(CameraCharacteristics cameraCharacteristics, RectF rectF) {
+        int intValue;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cameraCharacteristics, rectF};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
-    }
-
-    public static synchronized w19 b() {
-        InterceptResult invokeV;
-        w19 w19Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (w19.class) {
-                if (b == null) {
-                    b = new w19();
-                }
-                w19Var = b;
+        if (a(rectF)) {
+            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
+            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+            if (num == null) {
+                intValue = 90;
+            } else {
+                intValue = num.intValue();
             }
-            return w19Var;
+            this.b = new RectF(rect);
+            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
+            if (num2 != null && num2.intValue() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = b(z, intValue, rectF);
+            return;
         }
-        return (w19) invokeV.objValue;
+        throw new IllegalArgumentException("previewRect");
     }
 
-    public CloudMusicData.MusicTagList.MusicList a() {
-        InterceptResult invokeV;
+    public final boolean a(RectF rectF) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get(4096);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
+            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
+                return true;
+            }
+            return false;
         }
-        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void c() {
+    public RectF c(RectF rectF) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
+            RectF rectF2 = new RectF();
+            this.a.mapRect(rectF2, rectF);
+            return rectF2;
         }
+        return (RectF) invokeL.objValue;
     }
 
-    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
+    public final Matrix b(boolean z, int i, RectF rectF) {
+        InterceptResult invokeCommon;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
-            this.a.put(4096, musicList);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
+            Matrix matrix = new Matrix();
+            if (z) {
+                f = -1.0f;
+            } else {
+                f = 1.0f;
+            }
+            matrix.setScale(f, 1.0f);
+            matrix.postRotate(-i);
+            matrix.mapRect(rectF);
+            Matrix matrix2 = new Matrix();
+            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
+            matrix.setConcat(matrix2, matrix);
+            return matrix;
         }
+        return (Matrix) invokeCommon.objValue;
     }
 }

@@ -1,192 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.cr4;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SimpleUser;
 /* loaded from: classes5.dex */
 public class pq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View.OnClickListener a;
+    public BaseActivity b;
+    public LinearLayout c;
+    public LinearLayout d;
+    public TbSettingTextTipView e;
+    public TbSettingTextTipView f;
+    public TextView g;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public pq5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (!wi.isEmpty(str) && str.indexOf("cuid=") <= -1) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str);
-                if (str.indexOf("?") > 0) {
-                    sb.append("&");
-                } else {
-                    sb.append("?");
-                }
-                if (!UtilHelper.isNativeAdURL(str)) {
-                    sb.append("cuid=");
-                    sb.append(TbadkCoreApplication.getInst().getCuid());
-                    sb.append("&cuid_galaxy2=");
-                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    sb.append("&c3_aid=");
-                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
-                    sb.append("&cuid_gid=");
-                    sb.append(TbadkCoreApplication.getInst().getCuidGid());
-                }
-                sb.append("&timestamp=");
-                sb.append(System.currentTimeMillis());
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!wi.isEmpty(str) && str.indexOf("_client_version=") > -1) {
-                return str;
-            }
-            return str + "&_client_version=" + TbConfig.getVersion();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(Context context) {
-        CookieManager cookieManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            cr4.b c = cr4.b().c(TbadkCoreApplication.getCurrentBduss());
-            try {
-                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
-                cookieManager = CookieManager.getInstance();
-            } catch (Throwable th) {
-                BdLog.e(th);
-                cookieManager = null;
-            }
-            if (cookieManager == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (c != null) {
-                cookieManager.setAcceptCookie(true);
-                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
-                String a = gr4.a(TbadkCoreApplication.getCurrentAccountInfo());
-                StringBuilder sb = new StringBuilder();
-                if (!StringUtils.isNull(a)) {
-                    sb.append("STOKEN=");
-                    sb.append(a);
-                    sb.append("; domain=.tieba.baidu.com;");
-                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
-                }
-            } else {
-                try {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        cookieManager.removeAllCookies(null);
-                        CookieManager.getInstance().flush();
-                    } else {
-                        cookieManager.removeAllCookie();
-                        CookieSyncManager.createInstance(context);
-                        CookieSyncManager.getInstance().sync();
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            }
-            try {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    CookieManager.getInstance().flush();
-                } else {
-                    CookieSyncManager.getInstance().sync();
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
+        }
+        this.b = baseActivity;
+        this.a = onClickListener;
+        b();
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.removeAllViews();
+            this.b = null;
         }
     }
 
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                str = "http://".concat(str);
-            }
-            if (str.contains("?")) {
-                str3 = "&st_type=" + str2;
-            } else {
-                str3 = "?st_type=" + str2;
-            }
-            return str.concat(str3);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
+            this.c = linearLayout;
+            this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f090701);
+            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090353);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092469);
+            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090057);
+            this.e.a();
+            this.f.a();
+            this.e.setOnClickListener(this.a);
+            this.f.setOnClickListener(this.a);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static void e() {
+    public void d(SimpleUser simpleUser) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
             return;
         }
-        new PvThread("open_webview", true).start();
+        this.f.setTip(simpleUser.block_msg);
     }
 
-    public static void f(Context context, String str) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
-            String b = b(a(str));
-            try {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.setData(Uri.parse(b));
-                if (!(context instanceof Activity)) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            rq4 layoutMode = this.b.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
             }
-        }
-    }
-
-    public static void g(Context context, String str, String str2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, bundle) == null) {
-            h(context, str2, str, true, true, true, bundle);
-        }
-    }
-
-    public static void h(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
-            e();
-            try {
-                if (StringUtils.isNull(str2)) {
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            layoutMode.l(z);
+            this.b.getLayoutMode().k(this.c);
+            pw4 d = pw4.d(this.g);
+            d.v(R.color.CAM_X0109);
+            d.f(R.color.CAM_X0204);
         }
     }
 }

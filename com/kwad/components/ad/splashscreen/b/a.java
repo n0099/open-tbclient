@@ -71,7 +71,7 @@ public final class a extends e implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.yu = findViewById(R.id.obfuscated_res_0x7f09121d);
+            this.yu = findViewById(R.id.obfuscated_res_0x7f091222);
         }
     }
 

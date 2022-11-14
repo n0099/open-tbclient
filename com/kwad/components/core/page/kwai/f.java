@@ -226,8 +226,8 @@ public final class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f09111d);
-            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126a);
+            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f091122);
+            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126f);
             this.Fv.setBackgroundColor(0);
         }
     }

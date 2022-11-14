@@ -14,12 +14,14 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.MyBalanceInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.PayOrderResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.ChargeCurrencyResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.ErrorResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.GetBannerConfigResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.GetChargeCurrencyConfigResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.GetChargeOrderStatusResponse;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.GetSplitOrderConfigResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol.GetUserAccountResponse;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.util.Arrays;
@@ -111,32 +113,36 @@ public final class ProtocolDecoder {
             if (i != 2005) {
                 if (i != 2061) {
                     if (i != 2071) {
-                        if (i != 40423898) {
-                            if (i != 2021) {
-                                if (i != 2022) {
-                                    StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                                    String format = String.format("decode  null", Arrays.copyOf(new Object[0], 0));
-                                    Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
-                                    RLog.info("ProtocolDecoder", format);
-                                    return decodeError(i, "", -1, str);
+                        if (i != 2079) {
+                            if (i != 40423898) {
+                                if (i != 2021) {
+                                    if (i != 2022) {
+                                        StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                                        String format = String.format("decode  null", Arrays.copyOf(new Object[0], 0));
+                                        Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
+                                        RLog.info("ProtocolDecoder", format);
+                                        return decodeError(i, "", -1, str);
+                                    }
+                                    ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
+                                    PayOrderResult payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
+                                    StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+                                    String format2 = String.format("ChargeCurrencyResponse response.seq = %s", Arrays.copyOf(new Object[]{chargeCurrencyResponse.seq}, 1));
+                                    Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
+                                    RLog.debug("ProtocolDecoder", format2);
+                                    return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, chargeCurrencyResponse.message);
                                 }
-                                ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
-                                PayOrderResult payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
-                                StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-                                String format2 = String.format("ChargeCurrencyResponse response.seq = %s", Arrays.copyOf(new Object[]{chargeCurrencyResponse.seq}, 1));
-                                Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
-                                RLog.debug("ProtocolDecoder", format2);
-                                return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, chargeCurrencyResponse.message);
+                                GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
+                                ProductListResult productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList, getChargeCurrencyConfigResponse.defaultCid, getChargeCurrencyConfigResponse.bubbleActMsg);
+                                StringCompanionObject stringCompanionObject3 = StringCompanionObject.INSTANCE;
+                                String format3 = String.format("GetChargeCurrencyConfigResponse response.seq = %s", Arrays.copyOf(new Object[]{getChargeCurrencyConfigResponse.seq}, 1));
+                                Intrinsics.checkExpressionValueIsNotNull(format3, "java.lang.String.format(format, *args)");
+                                RLog.debug("ProtocolDecoder", format3);
+                                return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
                             }
-                            GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
-                            ProductListResult productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList, getChargeCurrencyConfigResponse.defaultCid, getChargeCurrencyConfigResponse.bubbleActMsg);
-                            StringCompanionObject stringCompanionObject3 = StringCompanionObject.INSTANCE;
-                            String format3 = String.format("GetChargeCurrencyConfigResponse response.seq = %s", Arrays.copyOf(new Object[]{getChargeCurrencyConfigResponse.seq}, 1));
-                            Intrinsics.checkExpressionValueIsNotNull(format3, "java.lang.String.format(format, *args)");
-                            RLog.debug("ProtocolDecoder", format3);
-                            return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
+                            return newResponse(RevenueServerConst.CurrencyChargeMessage, "", parseCurrencyChargeMessage(str));
                         }
-                        return newResponse(RevenueServerConst.CurrencyChargeMessage, "", parseCurrencyChargeMessage(str));
+                        GetSplitOrderConfigResponse getSplitOrderConfigResponse = new GetSplitOrderConfigResponse(str);
+                        return newResponse(RevenueServerConst.GetChargeCurrencySplitRequest, getSplitOrderConfigResponse.seq, new SplitOrderConfigResult(getSplitOrderConfigResponse.needSplit, getSplitOrderConfigResponse.splitId, getSplitOrderConfigResponse.hintMsg, getSplitOrderConfigResponse.splitRecordItemList, getSplitOrderConfigResponse.bottomGuideMsg), getSplitOrderConfigResponse.result, getSplitOrderConfigResponse.message);
                     }
                     GetBannerConfigResponse getBannerConfigResponse = new GetBannerConfigResponse(str);
                     return newResponse(RevenueServerConst.GetBannerConfigRequest, getBannerConfigResponse.seq, getBannerConfigResponse.getResponse(), getBannerConfigResponse.result, getBannerConfigResponse.message);

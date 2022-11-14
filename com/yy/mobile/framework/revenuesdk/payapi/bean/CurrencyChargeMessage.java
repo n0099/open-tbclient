@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import java.util.Map;
 @Keep
 /* loaded from: classes8.dex */
@@ -25,6 +26,7 @@ public class CurrencyChargeMessage {
     public String orderId;
     public String payChannel;
     public String payMethod;
+    public List<SplitRecordItem> splitRecordItemList;
     public int status;
     public String traceid;
     public long uid;
@@ -50,7 +52,7 @@ public class CurrencyChargeMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CurrencyChargeMessage{appid=" + this.appid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", message=" + this.message + ", finish=" + this.finish + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + "', status='" + this.status + "', cid='" + this.cid + "', traceid='" + this.traceid + "', appClientExpand='" + this.appClientExpand + "', payMethod='" + this.payMethod + "', payChannel='" + this.payChannel + "', giftBagsInfo='" + this.giftBagsInfo + "'}";
+            return "CurrencyChargeMessage{appid=" + this.appid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", message=" + this.message + ", finish=" + this.finish + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + "', status='" + this.status + "', cid='" + this.cid + "', traceid='" + this.traceid + "', appClientExpand='" + this.appClientExpand + "', payMethod='" + this.payMethod + "', payChannel='" + this.payChannel + "', giftBagsInfo='" + this.giftBagsInfo + "', splitRecordItemList='" + this.splitRecordItemList + "'}";
         }
         return (String) invokeV.objValue;
     }
