@@ -1,50 +1,168 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.tieba.image.liveroom.LiveRoomRecommendListAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.lang.ref.WeakReference;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class lh7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
+public class lh7 implements ImagePagerAdapter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public List<String> c;
-    public tg8 d;
-    public List<AdvertAppInfo> e;
-    public boolean f;
-    public mf8 g;
+    public LiveRoomRecommendListAdapter a;
+    public int b;
+    public TbPageContext c;
+    public LiveRemindNormalConfigData d;
+    public String e;
+    public String f;
+    public String g;
     public boolean h;
-    public long i;
-    public int j;
-    public boolean k;
-    public Map<String, ImageUrlData> l;
-    public TbPageContext<?> m;
+    public List<String> i;
+    public CustomMessageListener j;
 
-    public lh7(List<String> list, String str, String str2, boolean z, boolean z2, TbPageContext<?> tbPageContext, DragImageView.h hVar, @Nullable Map<String, ImageUrlData> map) {
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lh7 a;
+
+        public a(lh7 lh7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lh7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                dh7.c(2, this.a.e, this.a.g, TbadkCoreApplication.getCurrentAccount(), this.a.f, null);
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends StaggeredGridLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.recyclerview.widget.StaggeredGridLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean canScrollVertically() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(lh7 lh7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<lh7> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(lh7 lh7Var) {
+            super(2921733);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(lh7Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            lh7 lh7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (lh7Var = this.a.get()) == null || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921733 || customResponsedMessage.hasError() || customResponsedMessage.getError() != 0) {
+                return;
+            }
+            lh7Var.d = dy4.a().b;
+        }
+    }
+
+    public lh7(List<String> list, TbPageContext tbPageContext, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, hVar, map};
+            Object[] objArr = {list, tbPageContext, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,22 +172,48 @@ public class lh7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
                 return;
             }
         }
-        this.k = false;
-        this.c = list;
-        this.a = str;
-        this.b = str2;
-        this.f = z2;
-        this.m = tbPageContext;
-        try {
-            tg8 tg8Var = (tg8) gg8.l().h(IAdBaseAsyncController.Type.PIC_PAGE, this);
-            this.d = tg8Var;
-            tg8Var.h(tbPageContext, hVar, z);
-        } catch (ClassCastException e) {
-            if (tq4.e()) {
-                throw new RuntimeException(e);
-            }
+        this.b = 0;
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.j = new c(this);
+        this.i = list;
+        this.c = tbPageContext;
+        this.a = new LiveRoomRecommendListAdapter(tbPageContext, str, str2, str3);
+        this.d = dy4.a().b;
+        this.g = str2;
+        this.e = str;
+        this.f = str3;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public void c(ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i) == null) {
+            MessageManager.getInstance().unRegisterListener(this.j);
         }
-        this.l = map;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+            this.a.i(i);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void k(List<kh7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.j(list);
+        }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
@@ -77,245 +221,61 @@ public class lh7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i >= this.c.size()) {
+            if (!this.h) {
                 return null;
             }
-            String str = (String) gj7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
+            String str = (String) ListUtils.getItem(this.i, i);
+            if (!TextUtils.isEmpty(str) && !str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
-            boolean z = true;
-            if (i != this.c.size() - 1) {
-                z = false;
-            }
-            this.k = z;
-            View b = this.d.b(str, z);
-            if (b == null) {
-                return null;
-            }
-            if (b.getParent() != null && (b.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) b.getParent()).removeView(b);
-            }
-            viewGroup.addView(b);
-            AdvertAppInfo d = this.d.d(str);
-            if (d != null && (this.m.getPageActivity() instanceof ei0)) {
-                d.r = gi0.b(d.r, (ei0) this.m.getPageActivity(), b);
-            }
-            return b;
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0783, viewGroup, false);
+            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09039f), R.drawable.obfuscated_res_0x7f08095e, R.color.CAM_X0101, null);
+            qw4 d = qw4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a0));
+            d.v(R.color.CAM_X0101);
+            d.z(R.dimen.T_X08);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09039e).setOnClickListener(new a(this));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0903a2);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
+            layoutParams.topMargin = this.b;
+            linearLayout.setLayoutParams(layoutParams);
+            viewGroup.addView(inflate);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a5);
+            bdRecyclerView.setLayoutManager(new b(this, 2, 1));
+            bdRecyclerView.addItemDecoration(new LiveRoomRecommendListAdapter.LiveRoomItemDecoration());
+            bdRecyclerView.setAdapter(this.a);
+            MessageManager.getInstance().registerListener(this.j);
+            return inflate;
         }
         return (View) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.e = list;
-            if (!this.h) {
-                return;
-            }
-            f(list);
-        }
-    }
-
-    public void g(@NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            e(advertAppInfo, gj7.i(this.c), true);
-            mf8 mf8Var = this.g;
-            if (mf8Var != null) {
-                mf8Var.a(null);
-            }
-        }
-    }
-
-    public boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            String str = (String) gj7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return this.d.f(str);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            String str = (String) gj7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            this.d.j(str);
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public void c(ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i) != null) || i >= this.c.size()) {
-            return;
-        }
-        String str = (String) gj7.d(this.c, i);
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.d.o(str);
-    }
-
-    public void o(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.i = j - 1;
-            this.j = i;
-        }
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d.getAdCount();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d.onDestroy();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.h = true;
-            f(this.e);
-        }
-    }
-
-    public final void e(@NonNull AdvertAppInfo advertAppInfo, int i, boolean z) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{advertAppInfo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !this.f) {
-            return;
-        }
-        if (i < 0) {
-            this.d.k(advertAppInfo);
-            return;
-        }
-        boolean z2 = false;
-        int i3 = gj7.i(this.c);
-        String f = kf8.f(advertAppInfo);
-        if (i >= i3) {
-            if (!kf8.j((String) gj7.d(this.c, i3 - 1)) && (z || !this.d.n())) {
-                this.k = true;
-                i = i3;
-                z2 = true;
-            } else {
-                this.d.k(advertAppInfo);
-                return;
-            }
-        }
-        if (z2) {
-            i2 = this.j + d();
-        } else {
-            i2 = (int) (i + this.i);
-        }
-        advertAppInfo.position = i2;
-        if (kf8.l(advertAppInfo)) {
-            if (i >= i3) {
-                this.d.k(advertAppInfo);
-            }
-            String str = (String) gj7.d(this.c, i);
-            if (!TextUtils.isEmpty(str)) {
-                this.d.e(str, advertAppInfo);
-                return;
-            }
-            return;
-        }
-        gj7.b(this.c, f, i);
-        String str2 = (String) gj7.d(this.c, i);
-        if (!TextUtils.isEmpty(str2)) {
-            this.d.e(str2, advertAppInfo);
-        }
-    }
-
-    public final void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && !gj7.e(list) && !gj7.e(this.c)) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                AdvertAppInfo next = it.next();
-                if (next != null) {
-                    if (d() == ko5.a().c() - 1 && ko5.a().g()) {
-                        if (!i()) {
-                            break;
-                        } else if (xg.e(next.f, -1) - 1 <= gj7.i(this.c)) {
-                            g(next);
-                            break;
-                        }
-                    }
-                    e(next, xg.e(next.f, -1) - 1, false);
-                    it.remove();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (StringUtils.isNull(str)) {
+                    new AlaTabFeedActivityConfig(this.c.getPageActivity()).start();
+                    return;
+                } else {
+                    UrlManager.getInstance().dealOneLink(this.c, new String[]{str}, true);
+                    return;
                 }
             }
-            mf8 mf8Var = this.g;
-            if (mf8Var != null) {
-                mf8Var.a(null);
-            }
+            LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
+            liveStartClickDataEvent.viewTag = str;
+            ub5.i(liveStartClickDataEvent);
         }
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
-        ImageUrlData imageUrlData;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<String> list = this.c;
-            String str = (String) gj7.d(list, list.size() - 1);
-            Map<String, ImageUrlData> map = this.l;
-            if (map != null && str != null) {
-                imageUrlData = map.get(str);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LiveRemindNormalConfigData liveRemindNormalConfigData = this.d;
+            if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
+                g(h35.a(this.d.getNormalIconScheme(), 4));
             } else {
-                imageUrlData = null;
+                g("");
             }
-            if (imageUrlData != null && imageUrlData.overAllIndex == this.j) {
-                return true;
-            }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void n(@Nullable mf8 mf8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, mf8Var) != null) || !this.f) {
-            return;
-        }
-        AdvertAppInfo.v.set(true);
-        this.h = false;
-        this.g = mf8Var;
-        this.d.l();
-        di5 di5Var = new di5();
-        di5Var.c = this.a;
-        di5Var.d = this.b;
-        this.d.g(di5Var);
     }
 }

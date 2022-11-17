@@ -101,7 +101,7 @@ public class an4 {
             missionEvent.tid = j;
             missionEvent.pageId = i;
             missionEvent.actionType = str;
-            tb5.i(missionEvent);
+            ub5.i(missionEvent);
         }
     }
 
@@ -124,7 +124,7 @@ public class an4 {
             missionEvent.pageId = i2;
             missionEvent.pageType = i;
             missionEvent.actionType = str;
-            tb5.i(missionEvent);
+            ub5.i(missionEvent);
         }
     }
 
@@ -177,7 +177,7 @@ public class an4 {
         }
     }
 
-    public static pv4 i(CompleteTaskToastData completeTaskToastData) {
+    public static qv4 i(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         TbPageContext d;
         Interceptable interceptable = $ic;
@@ -185,13 +185,13 @@ public class an4 {
             if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
                 return null;
             }
-            pv4 f = pv4.f(d.getPageActivity(), completeTaskToastData.message);
+            qv4 f = qv4.f(d.getPageActivity(), completeTaskToastData.message);
             f.g(completeTaskToastData.duration);
             f.h(a);
             f.i(completeTaskToastData);
             f.j();
             return f;
         }
-        return (pv4) invokeL.objValue;
+        return (qv4) invokeL.objValue;
     }
 }

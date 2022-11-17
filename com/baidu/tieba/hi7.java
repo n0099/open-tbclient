@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface hi7 {
-    void a(yj7 yj7Var, int i);
+    void setUniqueId(BdUniqueId bdUniqueId);
 }

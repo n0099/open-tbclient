@@ -14,13 +14,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.cu9;
-import com.baidu.tieba.eu9;
+import com.baidu.tieba.bu9;
+import com.baidu.tieba.du9;
 import com.baidu.tieba.fu9;
 import com.baidu.tieba.gu9;
 import com.baidu.tieba.hu9;
-import com.baidu.tieba.ju9;
+import com.baidu.tieba.iu9;
+import com.baidu.tieba.ku9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = true;
             this.d = p.b;
-            cu9.d().e(this).c(this, new ju9(this));
+            du9.d().e(this).c(this, new ku9(this));
         }
     }
 
@@ -110,33 +110,33 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (!this.e) {
-                cu9.d().g();
+                du9.d().g();
             }
             super.onDestroy();
         }
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ju9.a(com.google.ar.core.p):void, com.baidu.tieba.ju9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ku9.a(com.google.ar.core.p):void, com.baidu.tieba.ku9.b(java.lang.Exception):void] */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.j(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ju9.a(com.google.ar.core.p):void, com.baidu.tieba.ju9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ku9.a(com.google.ar.core.p):void, com.baidu.tieba.ku9.b(java.lang.Exception):void] */
     public static /* synthetic */ p e(InstallActivity installActivity, p pVar) {
         installActivity.d = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ju9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ku9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean f(InstallActivity installActivity) {
         return installActivity.g;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ju9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ku9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void g(InstallActivity installActivity) {
         installActivity.i();
     }
@@ -144,8 +144,8 @@ public class InstallActivity extends Activity {
     public final void j(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            cu9.d().a = exc;
-            cu9.d().g();
+            du9.d().a = exc;
+            du9.d().g();
             this.e = true;
             super.finish();
         }
@@ -172,8 +172,8 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new gu9(this, width, i, height));
-            ofFloat.addListener(new hu9(this));
+            ofFloat.addUpdateListener(new hu9(this, width, i, height));
+            ofFloat.addListener(new iu9(this));
             ofFloat.start();
         }
     }
@@ -209,11 +209,11 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new eu9(this));
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new fu9(this));
             if (!k()) {
                 findViewById(R.id.__arcore_cancelButton).setVisibility(8);
             }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new fu9(this));
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new gu9(this));
             TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
             if (this.b.ordinal() != 1) {
                 textView.setText(R.string.__arcore_install_app);
@@ -239,7 +239,7 @@ public class InstallActivity extends Activity {
                     } else if (this.d == p.a) {
                         this.g = true;
                     } else {
-                        j(cu9.d().a);
+                        j(du9.d().a);
                     }
                 }
             }
@@ -280,7 +280,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    cu9.d().e(this).e(this, new au9(atomicReference));
+                    du9.d().e(this).e(this, new bu9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal != 0) {
                         if (ordinal == 3) {

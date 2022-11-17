@@ -30,12 +30,12 @@ public class pm0 {
 
         /* renamed from: com.baidu.tieba.pm0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0397a extends BroadcastReceiver {
+        public class C0398a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0397a(a aVar) {
+            public C0398a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class pm0 {
                 } else if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0397a(this);
+                    this.a.d = new C0398a(this);
                     aj0.b().registerReceiver(this.a.d, intentFilter);
                 }
             }

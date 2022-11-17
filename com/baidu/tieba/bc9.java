@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface bc9 {
-    void a(boolean z, vb9 vb9Var);
+    void setUBCConfigStatisticData(JSONObject jSONObject);
 }

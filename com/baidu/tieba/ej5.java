@@ -1,98 +1,157 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ej5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] b;
+    public static ej5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CustomMessageListener a;
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
-            }
-            if (!xi.isEquals(ek5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
-                str = URLDecoder.decode(str);
-            }
-            String c = ek5.c(str, "topic_id=");
-            String c2 = ek5.c(str, "topic_name=");
-            String c3 = ek5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            String c4 = ek5.c(str, "nonavigationbar=");
-            if ((c != null || c2 != null) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
-    }
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ej5 a;
 
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (ek5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ej5 ej5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ej5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return Boolean.FALSE;
             }
-            return Boolean.FALSE;
+            this.a = ej5Var;
         }
-        return (Boolean) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.a.d();
+            }
+        }
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return ek5.c(str, "topic_id=");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736281, "Lcom/baidu/tieba/ej5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947736281, "Lcom/baidu/tieba/ej5;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        b = new byte[1];
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public ej5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return ek5.c(str, "hottopic_detail_hybrid-");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        BdNetTypeUtil.init();
     }
 
-    public static void e(TbPageContext tbPageContext, String str, String str2) {
+    public static ej5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (b) {
+                    if (c == null) {
+                        c = new ej5();
+                    }
+                }
+            }
+            return c;
         }
-        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-        sb.append("1");
-        sb.append("&nonavigationbar=");
-        sb.append("1");
-        sb.append("&from=");
-        sb.append("1");
-        if (str != null) {
-            sb.append("&topic_id=");
-            sb.append(str);
+        return (ej5) invokeV.objValue;
+    }
+
+    public final CustomMessageListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this, 2000994);
         }
-        if (str2 != null) {
-            sb.append("&topic_name=");
-            sb.append(str2);
+        return (CustomMessageListener) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = c();
+                    MessageManager.getInstance().registerListener(this.a);
+                }
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e.getMessage());
+            }
         }
-        sb.append("&skin=");
-        sb.append(SkinManager.getCurrentSkinTypeString());
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
+                if (isNetWorkAvailable) {
+                    if (BdNetTypeUtil.isWifiNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        qh8.e().f();
+                    } else if (BdNetTypeUtil.isMobileNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
+                }
+                NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
     }
 }

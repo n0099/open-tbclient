@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,15 +12,56 @@ public class qs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zr8 b;
-    public final ks8 c;
+    public final as8 b;
+    public final Runnable c;
 
-    public qs8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qs8 a;
+
+        public a(qs8 qs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qs8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                if (this.a.b != null && this.a.b.B() != null && this.a.b.B().getCurrentTabType() == 22) {
+                    videoRedIconRequest.setCallFrom("video_tab");
+                }
+                this.a.a.sendMessage(videoRedIconRequest);
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    ah.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
+                }
+            }
+        }
+    }
+
+    public qs8(MainTabActivity mainTabActivity, as8 as8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zr8Var};
+            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,63 +71,15 @@ public class qs8 {
                 return;
             }
         }
+        this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = zr8Var;
-        this.c = mainTabActivity.e;
+        this.b = as8Var;
     }
 
-    public void a() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zr8 zr8Var = this.b;
-            if (zr8Var != null && zr8Var.A() != null && this.b.A().getAnimationView() != null && this.b.A().getAnimationView().getVisibility() != 0) {
-                this.b.A().setLottieView(false);
-            }
-            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
-                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
-                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
-                    if (!StringUtils.isNull(h5Url)) {
-                        py4 k = py4.k();
-                        if (k.h("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
-                            py4 k2 = py4.k();
-                            k2.u("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
-                        }
-                    }
-                }
-                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
-                    if (!StringUtils.isNull(myTabText)) {
-                        zr8 zr8Var2 = this.b;
-                        if (zr8Var2 != null) {
-                            zr8Var2.P(myTabText);
-                        }
-                    } else {
-                        zr8 zr8Var3 = this.b;
-                        if (zr8Var3 != null) {
-                            zr8Var3.P(null);
-                        }
-                    }
-                } else {
-                    zr8 zr8Var4 = this.b;
-                    if (zr8Var4 != null) {
-                        zr8Var4.P(null);
-                    }
-                }
-            } else {
-                zr8 zr8Var5 = this.b;
-                if (zr8Var5 != null) {
-                    zr8Var5.P(null);
-                }
-            }
-            if (TbSingleton.getInstance().canShowPermDialog()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
-            }
-            nr4.b().l("1", "");
-            ks8 ks8Var = this.c;
-            if (ks8Var != null && ks8Var.i() != null) {
-                this.c.i().a();
-            }
+            ah.a().removeCallbacks(this.c);
         }
     }
 }

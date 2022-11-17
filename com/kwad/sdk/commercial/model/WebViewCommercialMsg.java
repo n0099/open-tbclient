@@ -11,7 +11,7 @@ import com.qq.e.comm.constants.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebViewCommercialMsg extends a implements b, Serializable {
     public static final long serialVersionUID = -1007322423487775751L;
     public BusinessType biz;

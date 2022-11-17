@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nq4;
+import com.baidu.tieba.oq4;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nq4 a;
+    public oq4 a;
     public final qb b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -108,13 +108,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, nq4 nq4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, oq4 oq4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, nq4Var};
+            Object[] objArr = {bdBaseFragmentActivity, oq4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,7 +127,7 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = nq4Var;
+        this.a = oq4Var;
         registerListener(aVar);
     }
 
@@ -153,9 +153,9 @@ public class ClientConfigModel extends BdBaseModel {
                 }
                 return;
             }
-            nq4 nq4Var = this.a;
-            if (nq4Var != null) {
-                nq4Var.a(dataRes);
+            oq4 oq4Var = this.a;
+            if (oq4Var != null) {
+                oq4Var.a(dataRes);
             }
         }
     }

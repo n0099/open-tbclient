@@ -13,8 +13,8 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d5a;
-import com.baidu.tieba.x8a;
+import com.baidu.tieba.e5a;
+import com.baidu.tieba.y8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +135,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= x8a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= y8a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
@@ -392,7 +392,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void g(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d5a.Pay_Ui_Banner, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e5a.Pay_Ui_Banner, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06cb, (ViewGroup) this, true);

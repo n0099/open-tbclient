@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.da6;
+import com.baidu.tieba.aq8;
 import com.baidu.tieba.ea6;
-import com.baidu.tieba.ey4;
 import com.baidu.tieba.fa6;
-import com.baidu.tieba.ja6;
+import com.baidu.tieba.fy4;
+import com.baidu.tieba.ga6;
 import com.baidu.tieba.ka6;
+import com.baidu.tieba.la6;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xp8;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.yp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,14 +46,14 @@ public class EasterEggH5Service extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public xp8 jsBridge;
-    public ja6 mHttpRule;
-    public ka6 mSocketRule;
+    public yp8 jsBridge;
+    public ka6 mHttpRule;
+    public la6 mSocketRule;
     public BdUniqueId mTag;
     public String mUrl;
     public BaseWebView mWebView;
-    public ea6 model;
-    public da6 onHitEventListener;
+    public fa6 model;
+    public ea6 onHitEventListener;
     public CustomMessageListener onSearchEventListener;
     public CustomMessageListener onWriteReadListener;
 
@@ -83,7 +83,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements da6 {
+    public class a implements ea6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -106,7 +106,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.da6
+        @Override // com.baidu.tieba.ea6
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) && this.a.mWebView != null) {
@@ -221,7 +221,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ea6.b {
+    public class d implements fa6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -244,15 +244,15 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.ea6.b
-        public void a(boolean z, fa6 fa6Var) {
+        @Override // com.baidu.tieba.fa6.b
+        public void a(boolean z, ga6 ga6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, fa6Var) == null) {
-                if (z && fa6Var != null && !xi.isEmpty(fa6Var.a()) && fa6Var.c()) {
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, ga6Var) == null) {
+                if (z && ga6Var != null && !xi.isEmpty(ga6Var.a()) && ga6Var.c()) {
                     if (this.a.mWebView != null) {
-                        this.a.mWebView.loadUrl(fa6Var.a());
+                        this.a.mWebView.loadUrl(ga6Var.a());
                     }
-                    HashMap<String, String> b = fa6Var.b();
+                    HashMap<String, String> b = ga6Var.b();
                     if (b != null) {
                         this.a.mHttpRule.c(b);
                         this.a.mSocketRule.c(b);
@@ -299,7 +299,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements zp8 {
+    public class f implements aq8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -322,7 +322,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.zp8
+        @Override // com.baidu.tieba.aq8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -364,13 +364,13 @@ public class EasterEggH5Service extends Service {
             MessageManager.getInstance().registerListener(this.onSearchEventListener);
             this.onWriteReadListener.setTag(this.mTag);
             MessageManager.getInstance().registerListener(this.onWriteReadListener);
-            ja6 ja6Var = new ja6(0);
-            this.mHttpRule = ja6Var;
-            ja6Var.b(this.onHitEventListener);
-            MessageManager.getInstance().addMessageRule(this.mHttpRule);
             ka6 ka6Var = new ka6(0);
-            this.mSocketRule = ka6Var;
+            this.mHttpRule = ka6Var;
             ka6Var.b(this.onHitEventListener);
+            MessageManager.getInstance().addMessageRule(this.mHttpRule);
+            la6 la6Var = new la6(0);
+            this.mSocketRule = la6Var;
+            la6Var.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mSocketRule);
         }
     }
@@ -380,7 +380,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new xp8();
+                this.jsBridge = new yp8();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);
@@ -391,7 +391,7 @@ public class EasterEggH5Service extends Service {
                 this.jsBridge.a(easterEggBridge);
                 this.mWebView.setOnJsPromptCallback(new f(this));
             } catch (Throwable th) {
-                ey4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+                fy4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
                 TbadkCoreApplication.getInst().onLowMemory();
                 stopSelf();
             }
@@ -428,9 +428,9 @@ public class EasterEggH5Service extends Service {
             super.onCreate();
             initWebView();
             initListenerAndRule();
-            ea6 ea6Var = new ea6();
-            this.model = ea6Var;
-            ea6Var.d(new d(this));
+            fa6 fa6Var = new fa6();
+            this.model = fa6Var;
+            fa6Var.d(new d(this));
             this.model.e();
         }
     }
@@ -439,9 +439,9 @@ public class EasterEggH5Service extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ea6 ea6Var = this.model;
-            if (ea6Var != null) {
-                ea6Var.c();
+            fa6 fa6Var = this.model;
+            if (fa6Var != null) {
+                fa6Var.c();
             }
             EasterEggBridge easterEggBridge = this.eggBridge;
             if (easterEggBridge != null) {

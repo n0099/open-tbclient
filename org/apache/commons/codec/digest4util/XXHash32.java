@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class XXHash32 implements Checksum {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_SIZE = 16;

@@ -30,7 +30,7 @@ public class vy extends hx {
     public int i;
     public int j;
     public Context k;
-    public sr4 l;
+    public tr4 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
@@ -97,9 +97,9 @@ public class vy extends hx {
         }
 
         @Override // com.baidu.tieba.bz
-        public void a(sr4 sr4Var) {
+        public void a(tr4 tr4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sr4Var) == null) && this.a.q != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, tr4Var) == null) && this.a.q != null) {
                 this.a.q.a(this.a.l);
             }
         }
@@ -176,11 +176,11 @@ public class vy extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(l46<sr4> l46Var) {
+    public void p(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, l46Var) == null) {
-            super.p(l46Var);
-            this.m.setOnCardSubClickListener(l46Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, m46Var) == null) {
+            super.p(m46Var);
+            this.m.setOnCardSubClickListener(m46Var);
         }
     }
 
@@ -240,9 +240,9 @@ public class vy extends hx {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, tr4Var) == null) {
             int l = yi.l(TbadkCoreApplication.getInst());
             if (l != this.n) {
                 s = yi.l(TbadkCoreApplication.getInst());
@@ -256,11 +256,11 @@ public class vy extends hx {
                 this.j = i / 3;
                 this.n = l;
             }
-            this.l = sr4Var;
-            if (sr4Var != null && sr4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = tr4Var;
+            if (tr4Var != null && tr4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 boolean z = false;
                 this.m.setVisibility(0);
-                this.m.a(sr4Var);
+                this.m.a(tr4Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

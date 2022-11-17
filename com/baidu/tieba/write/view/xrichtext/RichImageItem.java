@@ -17,11 +17,11 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in;
-import com.baidu.tieba.j95;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.x95;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +127,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements j95 {
+    public class c implements k95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -150,7 +150,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.j95
+        @Override // com.baidu.tieba.k95
         public void a(in inVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLZ(1048576, this, inVar, str, z) != null) || inVar == null) {
@@ -363,12 +363,12 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = w95.g(i, i * 2);
+            ImageOperation g = x95.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                in d2 = new n95().d(this.d, new c(this), true);
+                in d2 = new o95().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }

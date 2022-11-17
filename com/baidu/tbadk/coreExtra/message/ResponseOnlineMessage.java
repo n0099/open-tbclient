@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ba5;
+import com.baidu.tieba.ca5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,10 +93,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                ba5.b(1001, 0, 2, 0, 0);
+                ca5.b(1001, 0, 2, 0, 0);
                 return updateClientInfoResIdl;
             }
-            ba5.b(1001, 0, 1, 0, 0);
+            ca5.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {

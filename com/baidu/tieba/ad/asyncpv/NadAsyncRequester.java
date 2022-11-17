@@ -19,22 +19,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.aj0;
-import com.baidu.tieba.ar5;
+import com.baidu.tieba.br5;
 import com.baidu.tieba.dr0;
-import com.baidu.tieba.ei5;
 import com.baidu.tieba.er0;
 import com.baidu.tieba.fi5;
-import com.baidu.tieba.fr4;
-import com.baidu.tieba.gj7;
-import com.baidu.tieba.hr4;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.gr4;
+import com.baidu.tieba.hj7;
+import com.baidu.tieba.ir4;
 import com.baidu.tieba.kr0;
 import com.baidu.tieba.lr0;
 import com.baidu.tieba.qj0;
-import com.baidu.tieba.rb5;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.sb5;
 import com.baidu.tieba.sq0;
-import com.baidu.tieba.wp5;
+import com.baidu.tieba.tb5;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class NadAsyncRequester {
                 if (str == null) {
                     return null;
                 }
-                return ar5.a(str);
+                return br5.a(str);
             }
             return (List) invokeLLI.objValue;
         }
@@ -202,7 +202,7 @@ public class NadAsyncRequester {
             replace = sampleId.replace(SignatureImpl.SEP, ',');
         }
         d("eid", replace);
-        d("app_transmit_data", fi5.a());
+        d("app_transmit_data", gi5.a());
         d("is_https", "1");
         d("flr", "1");
         d(TbConfig.SW_APID, "0");
@@ -268,8 +268,8 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (wp5.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(e(AdExtParam.KEY_IADEX, ei5.e()));
+            if (xp5.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(e(AdExtParam.KEY_IADEX, fi5.e()));
                 String f = qj0.c().f(false);
                 if (!TextUtils.isEmpty(f)) {
                     jSONArray.put(e("oaid_v", f));
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.10.0.23"));
-            if (!gj7.f(map)) {
+            if (!hj7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }
@@ -298,12 +298,12 @@ public class NadAsyncRequester {
             if (currentAccountInfo != null) {
                 b2 = currentAccountInfo.getBDUSS();
             } else if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b2 = rb5.b();
+                b2 = sb5.b();
             } else {
                 return;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b2)) {
-                currentAccountInfo = fr4.e();
+                currentAccountInfo = gr4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -311,7 +311,7 @@ public class NadAsyncRequester {
             }
             if (!TextUtils.isEmpty(b2)) {
                 c(kr0Var, HttpRequest.BDUSS, b2);
-                String a2 = hr4.a(currentAccountInfo);
+                String a2 = ir4.a(currentAccountInfo);
                 if (!StringUtils.isNull(a2)) {
                     c(kr0Var, "stoken", a2);
                 }
@@ -324,7 +324,7 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(sb5.d("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(tb5.d("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }

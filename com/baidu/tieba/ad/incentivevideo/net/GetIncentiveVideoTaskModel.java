@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.fy4;
-import com.baidu.tieba.lr5;
-import com.baidu.tieba.oi5;
-import com.baidu.tieba.rr5;
-import com.baidu.tieba.vq5;
+import com.baidu.tieba.gy4;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.pi5;
+import com.baidu.tieba.sr5;
+import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,12 +67,12 @@ public class GetIncentiveVideoTaskModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            rr5 adIncentiveVideoTaskData;
+            sr5 adIncentiveVideoTaskData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && !oi5.a() && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003547 && (httpResponsedMessage instanceof GetIncentiveVideoTaskResMsg) && (adIncentiveVideoTaskData = ((GetIncentiveVideoTaskResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) != null && !StringUtils.isNull(adIncentiveVideoTaskData.c())) {
-                vq5.a(adIncentiveVideoTaskData.c());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && !pi5.a() && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003547 && (httpResponsedMessage instanceof GetIncentiveVideoTaskResMsg) && (adIncentiveVideoTaskData = ((GetIncentiveVideoTaskResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) != null && !StringUtils.isNull(adIncentiveVideoTaskData.c())) {
+                wq5.a(adIncentiveVideoTaskData.c());
                 int i = 1;
-                lr5.i().m(1);
+                mr5.i().m(1);
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_INVOKE_SDK).param("obj_source", this.a.E());
                 if (this.a.a == 6) {
                     i = 2;
@@ -116,8 +116,8 @@ public class GetIncentiveVideoTaskModel extends BdBaseModel {
             int i = this.a;
             if (i == 3 || i == 2 || i == 4 || i == 5) {
                 Context context = this.b;
-                if (context instanceof fy4) {
-                    return ((fy4) context).g0();
+                if (context instanceof gy4) {
+                    return ((gy4) context).g0();
                 }
             }
             return "";
@@ -151,8 +151,8 @@ public class GetIncentiveVideoTaskModel extends BdBaseModel {
             int i = this.a;
             if (i == 3 || i == 2 || i == 4 || i == 5) {
                 Context context = this.b;
-                if (context instanceof fy4) {
-                    return ((fy4) context).L0();
+                if (context instanceof gy4) {
+                    return ((gy4) context).L0();
                 }
             }
             return "";

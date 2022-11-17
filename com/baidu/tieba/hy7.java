@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
+import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
+import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class hy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<PostData> a;
-    public final List<Long> b;
-    public String c;
-    public int d;
+    public TbPageContext a;
 
-    public hy7() {
+    public hy7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,17 +34,23 @@ public class hy7 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.d = 0;
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
+        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, uo8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
+            threadPublishReqMessage.tid = j;
+            threadPublishReqMessage.fid = j2;
+            threadPublishReqMessage.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
         }
-        return invokeV.intValue;
     }
 }

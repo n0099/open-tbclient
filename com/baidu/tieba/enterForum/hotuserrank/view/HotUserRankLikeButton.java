@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oz4;
+import com.baidu.tieba.pz4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.q05
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.r05
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                oz4 oz4Var = new oz4();
-                oz4Var.t(R.color.CAM_X0109);
-                setConfig(oz4Var);
+                pz4 pz4Var = new pz4();
+                pz4Var.t(R.color.CAM_X0109);
+                setConfig(pz4Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
@@ -95,9 +95,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f053a));
                 }
             } else {
-                oz4 oz4Var2 = new oz4();
-                oz4Var2.r(R.color.CAM_X0302);
-                setConfig(oz4Var2);
+                pz4 pz4Var2 = new pz4();
+                pz4Var2.r(R.color.CAM_X0302);
+                setConfig(pz4Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
             }

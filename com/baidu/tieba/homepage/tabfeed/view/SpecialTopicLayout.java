@@ -33,8 +33,8 @@ import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.r57;
+import com.baidu.tieba.kq4;
+import com.baidu.tieba.s57;
 import com.baidu.tieba.sx;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.yi;
@@ -60,7 +60,7 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
     public View i;
     public String j;
     public int k;
-    public jq4<SpecialColumnItemData> l;
+    public kq4<SpecialColumnItemData> l;
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
         public transient /* synthetic */ FieldHolder $fh;
         public TbPageContext<?> a;
         public ArrayList<SpecialColumnItemData> b;
-        public jq4<SpecialColumnItemData> c;
+        public kq4<SpecialColumnItemData> c;
 
         /* loaded from: classes4.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -205,10 +205,10 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
             this.a = tbPageContext;
         }
 
-        public void h(jq4<SpecialColumnItemData> jq4Var) {
+        public void h(kq4<SpecialColumnItemData> kq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, jq4Var) == null) {
-                this.c = jq4Var;
+            if (interceptable == null || interceptable.invokeL(1048579, this, kq4Var) == null) {
+                this.c = kq4Var;
             }
         }
 
@@ -263,7 +263,7 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
     }
 
     /* loaded from: classes4.dex */
-    public class a implements jq4<SpecialColumnItemData> {
+    public class a implements kq4<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialTopicLayout a;
@@ -287,21 +287,21 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jq4
+        @Override // com.baidu.tieba.kq4
         /* renamed from: a */
         public void d(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
-            r57.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            s57.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0013, code lost:
             if (r8 != 4) goto L14;
          */
-        @Override // com.baidu.tieba.jq4
+        @Override // com.baidu.tieba.kq4
         /* renamed from: b */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -318,10 +318,10 @@ public class SpecialTopicLayout extends LinearLayout implements tx, sx<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                r57.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                s57.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            r57.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            s57.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 

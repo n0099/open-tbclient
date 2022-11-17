@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,26 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes3.dex */
-public class a0a {
+public final class a0a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a0a a;
+    public static final a0a b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public uz9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (uz9) invokeV.objValue;
-    }
-
-    public e0a c(e0a e0aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e0aVar)) == null) ? e0aVar : (e0a) invokeL.objValue;
-    }
+    public final AtomicReference<b0a> a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +28,7 @@ public class a0a {
                 return;
             }
         }
-        a = new a0a();
+        b = new a0a();
     }
 
     public a0a() {
@@ -55,16 +41,30 @@ public class a0a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
     }
 
     public static a0a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+            return b;
         }
         return (a0a) invokeV.objValue;
+    }
+
+    public b0a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, b0a.a());
+            }
+            return this.a.get();
+        }
+        return (b0a) invokeV.objValue;
     }
 }

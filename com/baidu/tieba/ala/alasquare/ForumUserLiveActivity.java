@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.mv5;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.nv5;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements mv5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements nv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -27,7 +27,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements mv5 {
     public LiveTabYYSubFragment c;
     public String d;
 
-    @Override // com.baidu.tieba.mv5
+    @Override // com.baidu.tieba.nv5
     public boolean w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements mv5 {
         }
     }
 
-    @Override // com.baidu.tieba.mv5
+    @Override // com.baidu.tieba.nv5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements mv5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            pw4.d(this.b).f(R.color.CAM_X0202);
+            qw4.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);

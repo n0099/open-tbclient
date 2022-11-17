@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tj5;
+import com.baidu.tieba.uj5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -337,10 +337,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (tj5.d(replace) > 28) {
+            if (uj5.d(replace) > 28) {
                 this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1657), 14));
             }
-            String l = tj5.l(replace, 28);
+            String l = uj5.l(replace, 28);
             if (!l.equals(editable.toString())) {
                 this.a.a.setText(l);
                 this.a.a.setSelection(l.length());

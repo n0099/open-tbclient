@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.a99;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.b99;
+import com.baidu.tieba.sf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a99 k;
+    public b99 k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void Z0() {
@@ -88,15 +88,15 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            a99 a99Var = this.k;
-            if (a99Var != null) {
-                a99Var.onDestroy();
+            b99 b99Var = this.k;
+            if (b99Var != null) {
+                b99Var.onDestroy();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public rf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public sf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -109,10 +109,10 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str == null) {
                     str = "";
                 }
-                this.k = new a99(linearLayout, navigationBar, this, str);
+                this.k = new b99(linearLayout, navigationBar, this, str);
             }
             return this.k;
         }
-        return (rf5) invokeLL.objValue;
+        return (sf5) invokeLL.objValue;
     }
 }

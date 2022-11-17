@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb5;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rr8;
+import com.baidu.tieba.sr8;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -143,7 +143,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             }
         }
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rr8.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sr8.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         e(context);
@@ -535,9 +535,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return;
             }
             o();
-            if (lb5.b().d()) {
-                lb5.b().n(false);
-                lb5.b().l(false);
+            if (mb5.b().d()) {
+                mb5.b().n(false);
+                mb5.b().l(false);
             }
             if (i == 1) {
                 ImageView imageView2 = this.c;

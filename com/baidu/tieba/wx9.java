@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface wx9 {
-    wx9 a();
+public interface wx9 extends qx9, vx9 {
+    void c(String str);
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    void h(short s);
 }

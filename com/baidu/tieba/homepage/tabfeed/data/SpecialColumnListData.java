@@ -7,8 +7,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.qt4;
+import com.baidu.tieba.tr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes4.dex */
-public class SpecialColumnListData extends sr4 implements Parcelable {
+public class SpecialColumnListData extends tr4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -41,17 +41,17 @@ public class SpecialColumnListData extends sr4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sr4
-    public pt4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.tr4
+    public qt4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (pt4) invokeV.objValue;
+        return (qt4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sr4
+    @Override // com.baidu.tieba.tr4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

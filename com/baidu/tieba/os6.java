@@ -1,93 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
-public class os6 extends PriorityOrganizer.Task {
+public class os6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
+    public FrsModelController a;
+    public MvcSocketResponsedMessage<bo8, ?> b;
+    public MvcSocketMessage<FrsRequestData, bo8> c;
+    public MvcNetMessage<FrsRequestData, bo8> d;
+    public io8 e;
 
-    public os6(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public os6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.n = frsActivity;
-        this.m = frsFragment;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.u3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a;
+            if (frsModelController == null) {
+                return false;
+            }
+            frsModelController.F0(this.b, this.c, this.d);
+            io8 io8Var = this.e;
+            if (io8Var != null) {
+                io8Var.b();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            t();
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = frsModelController;
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
+    public void b(io8 io8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = false;
-            if (gw4.k()) {
-                return false;
-            }
-            ao8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
-                for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
-                    if (frsTabInfo.tab_id.intValue() == 502 && py4.k().h("first_into_tab_profession", true)) {
-                        return false;
-                    }
-                }
-            }
-            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
-                z = true;
-            }
-            if (z) {
-                boolean j = ev6.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
-                this.m.u4(j);
-                this.m.y4(j);
-                return j;
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, io8Var) == null) {
+            this.e = io8Var;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void c(MvcSocketMessage<FrsRequestData, bo8> mvcSocketMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
+            this.c = mvcSocketMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, bo8> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcSocketResponsedMessage<bo8, ?> mvcSocketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
+            this.b = mvcSocketResponsedMessage;
+        }
     }
 }

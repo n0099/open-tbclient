@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.SpinnerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.y8a;
+import com.baidu.tieba.z8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 public final class PluginCenterBannerGallery extends AdGallery {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y8a j;
+    public z8a j;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new y8a(context);
+        this.j = new z8a(context);
     }
 
     public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
@@ -92,7 +92,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new y8a(context);
+        this.j = new z8a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new y8a(context);
+        this.j = new z8a(context);
     }
 
     public final List<BannerConfigItem.BannerInfo> getData() {

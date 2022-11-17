@@ -1,16 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class oc9 extends zf1<UBCManager> {
+public class oc9 implements ad9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public cd9 a;
+    public IPCService b;
+    public dd9 c;
 
     public oc9() {
         Interceptable interceptable = $ic;
@@ -26,15 +33,62 @@ public class oc9 extends zf1<UBCManager> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf1
-    /* renamed from: a */
-    public UBCManager createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.ad9
+    public xc9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new pc9();
+            if (this.a == null) {
+                this.a = new cd9();
+            }
+            return this.a;
         }
-        return (UBCManager) invokeV.objValue;
+        return (xc9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad9
+    public zc9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
+        }
+        return (zc9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad9
+    public zb9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return vc9.b();
+        }
+        return (zb9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad9
+    public dc9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return vc9.c();
+        }
+        return (dc9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad9
+    public yc9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new dd9();
+            }
+            return this.c;
+        }
+        return (yc9) invokeV.objValue;
     }
 }

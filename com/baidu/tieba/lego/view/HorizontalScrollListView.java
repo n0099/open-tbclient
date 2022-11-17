@@ -26,13 +26,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi7;
-import com.baidu.tieba.e46;
-import com.baidu.tieba.hj7;
-import com.baidu.tieba.ji7;
-import com.baidu.tieba.ko8;
+import com.baidu.tieba.ci7;
+import com.baidu.tieba.f46;
+import com.baidu.tieba.ij7;
+import com.baidu.tieba.ki7;
 import com.baidu.tieba.lego.card.model.HorRankCard;
-import com.baidu.tieba.oi7;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -153,9 +153,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.j)) {
                 return;
             }
-            e46.b().d(true);
-            ji7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
-            ko8.c(this.b.h, this.a.j);
+            f46.b().d(true);
+            ki7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
+            lo8.c(this.b.h, this.a.j);
         }
     }
 
@@ -191,7 +191,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            oi7 a = oi7.a();
+            pi7 a = pi7.a();
             HorRankCard.a aVar = this.a;
             a.e(aVar, aVar.f, null, null);
         }
@@ -386,21 +386,21 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 itemViewHolder.k.setVisibility(0);
                 itemViewHolder.k.setText(String.valueOf(aVar.a));
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    if (!hj7.a(aVar.l)) {
+                    if (!ij7.a(aVar.l)) {
                         itemViewHolder.k.setBackgroundColor(aVar.l);
                     } else {
                         if (i <= 3) {
                             i2 = i;
                         }
-                        SkinManager.setBackgroundColor(itemViewHolder.k, bi7.a[i2]);
+                        SkinManager.setBackgroundColor(itemViewHolder.k, ci7.a[i2]);
                     }
-                } else if (!hj7.a(aVar.k)) {
+                } else if (!ij7.a(aVar.k)) {
                     itemViewHolder.k.setBackgroundColor(aVar.k);
                 } else {
                     if (i <= 3) {
                         i2 = i;
                     }
-                    SkinManager.setBackgroundColor(itemViewHolder.k, bi7.a[i2]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, ci7.a[i2]);
                 }
             }
             itemViewHolder.f.setRadius(0);

@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.df;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                iv4.f();
-                df<String> g = iv4.g("tb_face_package");
+                jv4.f();
+                df<String> g = jv4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,8 +126,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    iv4.f();
-                    df<String> g = iv4.g("tb_face_package");
+                    jv4.f();
+                    df<String> g = jv4.g("tb_face_package");
                     if (g != null) {
                         String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
                         if (!xi.isEmpty(str)) {

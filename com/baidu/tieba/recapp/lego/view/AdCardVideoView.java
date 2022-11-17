@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag8;
-import com.baidu.tieba.ih8;
-import com.baidu.tieba.kh8;
+import com.baidu.tieba.bg8;
+import com.baidu.tieba.jh8;
+import com.baidu.tieba.lh8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.wf8;
-import com.baidu.tieba.xr4;
+import com.baidu.tieba.xf8;
+import com.baidu.tieba.yr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class AdCardVideoView extends AdCardBaseView implements ag8 {
+public class AdCardVideoView extends AdCardBaseView implements bg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView b0;
@@ -131,22 +131,22 @@ public class AdCardVideoView extends AdCardBaseView implements ag8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ag8
-    public wf8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.bg8
+    public xf8 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b0;
         }
-        return (wf8) invokeV.objValue;
+        return (xf8) invokeV.objValue;
     }
 
     public boolean q0(AdCard adCard) {
         InterceptResult invokeL;
-        ih8 ih8Var;
+        jh8 jh8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (ih8Var = adCard.verticalVideoStyle) == null || !ih8Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (jh8Var = adCard.verticalVideoStyle) == null || !jh8Var.a()) {
                 return false;
             }
             return true;
@@ -175,10 +175,10 @@ public class AdCardVideoView extends AdCardBaseView implements ag8 {
                 } else {
                     str = advertAppInfo.j;
                 }
-                xr4 xr4Var = advertAppInfo.i;
-                if (xr4Var != null) {
-                    i = xr4Var.b;
-                    str = xr4Var.a;
+                yr4 yr4Var = advertAppInfo.i;
+                if (yr4Var != null) {
+                    i = yr4Var.b;
+                    str = yr4Var.a;
                 }
                 this.b0.setStatisticInfo(advertAppInfo, i, str);
             }
@@ -192,11 +192,11 @@ public class AdCardVideoView extends AdCardBaseView implements ag8 {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.d0 = i;
-                this.e0 = kh8.b(i);
+                this.e0 = lh8.b(i);
             } else {
                 int i2 = this.B;
                 this.d0 = i2;
-                this.e0 = kh8.a(i2);
+                this.e0 = lh8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
             layoutParams.height = this.e0;
@@ -204,11 +204,11 @@ public class AdCardVideoView extends AdCardBaseView implements ag8 {
             if (adCard.goodsStyle == 14 && !q0(adCard)) {
                 int i3 = this.B / 2;
                 this.f0 = i3;
-                this.g0 = kh8.b(i3);
+                this.g0 = lh8.b(i3);
             } else {
                 int i4 = this.B;
                 this.f0 = i4;
-                this.g0 = kh8.a(i4);
+                this.g0 = lh8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.f0;

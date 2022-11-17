@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fr5;
+import com.baidu.tieba.gr5;
 import com.baidu.tieba.mk0;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements fr5 {
+public class ApkDownloadBannerView extends LinearLayout implements gr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements fr5 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.fr5
+    @Override // com.baidu.tieba.gr5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -127,13 +127,13 @@ public class aa1 {
 
         /* renamed from: com.baidu.tieba.aa1$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0205b implements Runnable {
+        public class RunnableC0206b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ b b;
 
-            public RunnableC0205b(b bVar, int i) {
+            public RunnableC0206b(b bVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,7 +229,7 @@ public class aa1 {
         public void onPackageDownloadFail(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                q91.a().b().run(new RunnableC0205b(this, i));
+                q91.a().b().run(new RunnableC0206b(this, i));
             }
         }
 

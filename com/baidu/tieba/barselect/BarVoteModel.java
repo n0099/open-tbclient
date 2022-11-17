@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a36;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionRequestMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
-import com.baidu.tieba.o26;
-import com.baidu.tieba.pq8;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.p26;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.r26;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class BarVoteModel extends BdBaseModel {
     public final BdUniqueId RELOAD_TYPE;
     public final BdUniqueId SWITCH_TYPE;
     public BarVoteActivity a;
-    public q26 b;
+    public r26 b;
     public c c;
     public long d;
     public qb e;
@@ -49,7 +49,7 @@ public class BarVoteModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, String str, q26 q26Var);
+        void a(int i, String str, r26 r26Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -169,7 +169,7 @@ public class BarVoteModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            q26 voteData;
+            r26 voteData;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (responsedMessage instanceof VoteElectionHttpResMessage) {
@@ -207,7 +207,7 @@ public class BarVoteModel extends BdBaseModel {
                     }
                 } else if (responsedMessage.getOrginalMessage().getTag() == this.a.SWITCH_TYPE) {
                     if (voteData != null && voteData.a() != null) {
-                        if (voteData.a().h() == z26.c) {
+                        if (voteData.a().h() == a36.c) {
                             this.a.b = voteData;
                             BarVoteModel barVoteModel3 = this.a;
                             barVoteModel3.mPn = 1;
@@ -266,9 +266,9 @@ public class BarVoteModel extends BdBaseModel {
                     if ((orginalMessage instanceof CommitVoteReqMsg) && this.a.b.b() != null) {
                         CommitVoteReqMsg commitVoteReqMsg = (CommitVoteReqMsg) orginalMessage;
                         if (commitVoteReqMsg.candidate_uid != 0) {
-                            for (o26 o26Var : this.a.b.b()) {
-                                if (o26Var.l() == commitVoteReqMsg.candidate_uid) {
-                                    o26Var.D(o26Var.m() + 1);
+                            for (p26 p26Var : this.a.b.b()) {
+                                if (p26Var.l() == commitVoteReqMsg.candidate_uid) {
+                                    p26Var.D(p26Var.m() + 1);
                                     z = true;
                                 }
                             }
@@ -283,9 +283,9 @@ public class BarVoteModel extends BdBaseModel {
                         }
                     }
                 } else if (error == 3250023) {
-                    pq8.b(error, "", null);
+                    qq8.b(error, "", null);
                 } else if (error == 3250021) {
-                    pq8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    qq8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 } else if (error != 3250002 && error != 3250004) {
                     yi.P(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
                 } else {

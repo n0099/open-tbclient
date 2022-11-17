@@ -58,13 +58,13 @@ public class f71 implements h71<ImageView> {
 
         /* renamed from: com.baidu.tieba.f71$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0261a implements Runnable {
+        public class RunnableC0260a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0261a(a aVar, Bitmap bitmap) {
+            public RunnableC0260a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public class f71 implements h71<ImageView> {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                oj0.b(new RunnableC0261a(this, bitmap));
+                oj0.b(new RunnableC0260a(this, bitmap));
             }
         }
     }

@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class w79 {
+public class w79 implements y79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final EditorTools a;
-    public final Map<Integer, y79> b;
+    public final TbPageContext<?> a;
+    @NonNull
+    public final a79 b;
 
-    public w79(@NonNull EditorTools editorTools) {
+    public w79(@NonNull TbPageContext<?> tbPageContext, @NonNull a79 a79Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {tbPageContext, a79Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,35 +36,87 @@ public class w79 {
                 return;
             }
         }
-        this.b = new HashMap();
-        this.a = editorTools;
+        this.a = tbPageContext;
+        this.b = a79Var;
     }
 
-    public void b(int[] iArr) {
+    @Override // com.baidu.tieba.m65
+    public void B(l65 l65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
-            for (int i : iArr) {
-                if (this.b.containsKey(Integer.valueOf(i))) {
-                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, l65Var) == null) {
+            int i = l65Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.h();
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 43) {
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
+                        qy4.k().u("hot_topic_has_click", true);
+                        this.b.D(new l65(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(l65Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = l65Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = l65Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.i();
+                    return;
                 }
             }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
+            this.b.r();
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Map.Entry<Integer, y79> entry : this.b.entrySet()) {
-                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
-            }
-        }
-    }
-
-    public void c(int i, @NonNull y79 y79Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, y79Var) != null) || this.b.containsKey(Integer.valueOf(i))) {
-            return;
-        }
-        this.b.put(Integer.valueOf(i), y79Var);
     }
 }

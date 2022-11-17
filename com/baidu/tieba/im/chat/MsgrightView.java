@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.lc7;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.v38;
+import com.baidu.tieba.mc7;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.w38;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgrightView extends da7 {
+public class MsgrightView extends ea7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String Q = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class MsgrightView extends da7 {
     public TextView M;
     public CenterTextView N;
     public RelativeLayout O;
-    public v38 P;
+    public w38 P;
 
     static {
         InterceptResult invokeClinit;
@@ -101,7 +101,7 @@ public class MsgrightView extends da7 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements lc7.c {
+    public class b implements mc7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -126,14 +126,14 @@ public class MsgrightView extends da7 {
             this.a = chatMessage;
         }
 
-        @Override // com.baidu.tieba.lc7.c
+        @Override // com.baidu.tieba.mc7.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (str.contains(TbConfig.URL_UEG_REPORT)) {
-                    v38 v38Var = this.b.P;
-                    if (v38Var != null) {
-                        v38Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                    w38 w38Var = this.b.P;
+                    if (w38Var != null) {
+                        w38Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                         return;
                     }
                     return;
@@ -181,13 +181,13 @@ public class MsgrightView extends da7 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, v38 v38Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, w38 w38Var) {
         super(tbPageContext, R.layout.obfuscated_res_0x7f0d05af);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v38Var};
+            Object[] objArr = {tbPageContext, w38Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,7 +200,7 @@ public class MsgrightView extends da7 {
             }
         }
         this.P = null;
-        this.P = v38Var;
+        this.P = w38Var;
         s();
         this.I = (TextView) j(R.id.obfuscated_res_0x7f090f24);
         this.G = (ProgressBar) j(R.id.obfuscated_res_0x7f091b07);
@@ -209,10 +209,10 @@ public class MsgrightView extends da7 {
         this.N = (CenterTextView) j(R.id.obfuscated_res_0x7f092419);
         this.O = (RelativeLayout) j(R.id.obfuscated_res_0x7f091ca7);
         this.K = (FrameLayout) j(R.id.obfuscated_res_0x7f091561);
-        pw4 d = pw4.d(this.O);
+        qw4 d = qw4.d(this.O);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        pw4 d2 = pw4.d(this.N);
+        qw4 d2 = qw4.d(this.N);
         d2.z(R.dimen.T_X09);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0101);
@@ -227,7 +227,7 @@ public class MsgrightView extends da7 {
         this.o.setIsLeft(false);
     }
 
-    @Override // com.baidu.tieba.da7
+    @Override // com.baidu.tieba.ea7
     public void G(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatMessage) == null) {
@@ -248,7 +248,7 @@ public class MsgrightView extends da7 {
         }
     }
 
-    @Override // com.baidu.tieba.da7
+    @Override // com.baidu.tieba.ea7
     public void u() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -264,7 +264,7 @@ public class MsgrightView extends da7 {
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
     }
 
-    @Override // com.baidu.tieba.da7
+    @Override // com.baidu.tieba.ea7
     public void w(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
@@ -379,7 +379,7 @@ public class MsgrightView extends da7 {
                                 this.N.setText(R.string.obfuscated_res_0x7f0f0b04);
                                 break;
                             } else {
-                                lc7 f = lc7.f(TbadkCoreApplication.getInst().getContext());
+                                mc7 f = mc7.f(TbadkCoreApplication.getInst().getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.N);

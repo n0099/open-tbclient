@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fl7;
 import com.baidu.tieba.gl7;
+import com.baidu.tieba.hl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<fl7> forumInfoList;
+    public List<gl7> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List<gl7> mTopicInfoList;
+    public List<hl7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,7 +45,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<fl7> getForumInfoList() {
+    public List<gl7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -63,7 +63,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<gl7> getTopicInfoList() {
+    public List<hl7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -104,9 +104,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
             if (list != null) {
                 for (ForumInfo forumInfo : list) {
                     if (forumInfo != null) {
-                        fl7 fl7Var = new fl7();
-                        fl7Var.a(forumInfo);
-                        this.forumInfoList.add(fl7Var);
+                        gl7 gl7Var = new gl7();
+                        gl7Var.a(forumInfo);
+                        this.forumInfoList.add(gl7Var);
                     }
                 }
             }
@@ -121,9 +121,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                 if (list2 != null) {
                     for (HotTopicList hotTopicList : list2) {
                         if (hotTopicList != null) {
-                            gl7 gl7Var = new gl7();
-                            gl7Var.d(hotTopicList);
-                            this.mTopicInfoList.add(gl7Var);
+                            hl7 hl7Var = new hl7();
+                            hl7Var.d(hotTopicList);
+                            this.mTopicInfoList.add(hl7Var);
                         }
                     }
                 }

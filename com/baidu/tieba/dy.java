@@ -45,11 +45,11 @@ public class dy extends hx {
         v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    public final boolean w(sr4 sr4Var) {
+    public final boolean w(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().isVideoThreadType() && sr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -75,11 +75,11 @@ public class dy extends hx {
         }
     }
 
-    public final boolean x(sr4 sr4Var) {
+    public final boolean x(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getPollData() != null && sr4Var.getThreadData().getPollData().getOptions() != null && sr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -90,11 +90,11 @@ public class dy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
-            if (!x(sr4Var) && !w(sr4Var) && sr4Var != null && sr4Var.getThreadData() != null && ((!ListUtils.isEmpty(sr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(sr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) > 1))) {
-                this.h.a(sr4Var.getThreadData().getLinkDataList(), sr4Var.getThreadData().getGoodsDataList());
+        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
+            if (!x(tr4Var) && !w(tr4Var) && tr4Var != null && tr4Var.getThreadData() != null && ((!ListUtils.isEmpty(tr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) > 1))) {
+                this.h.a(tr4Var.getThreadData().getLinkDataList(), tr4Var.getThreadData().getGoodsDataList());
                 this.h.setVisibility(0);
                 return;
             }

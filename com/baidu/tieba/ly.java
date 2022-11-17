@@ -40,11 +40,11 @@ public class ly extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: w */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) && (smartAppBottomLayout = this.h) != null) {
-            smartAppBottomLayout.a(sr4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.a(tr4Var);
         }
     }
 

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wn8;
+import com.baidu.tieba.xn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<wn8> g;
+    public List<xn8> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<wn8> list) {
+    public void m(List<xn8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        wn8 wn8Var;
+        xn8 xn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wn8 wn8Var2 = (wn8) ListUtils.getItem(this.g, this.h);
+            xn8 xn8Var2 = (xn8) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                wn8Var = (wn8) ListUtils.getItem(this.g, 0);
+                xn8Var = (xn8) ListUtils.getItem(this.g, 0);
             } else {
-                wn8Var = (wn8) ListUtils.getItem(this.g, this.h + 1);
+                xn8Var = (xn8) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && wn8Var2 != null) {
-                String a2 = wn8Var2.a();
-                if (wn8Var2.b()) {
+            if ((this.c.getTag() instanceof TextView) && xn8Var2 != null) {
+                String a2 = xn8Var2.a();
+                if (xn8Var2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f077b, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && wn8Var != null) {
-                String a3 = wn8Var.a();
-                if (wn8Var.b()) {
+            if ((this.d.getTag() instanceof TextView) && xn8Var != null) {
+                String a3 = xn8Var.a();
+                if (xn8Var.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f077b, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

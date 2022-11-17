@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.iw4;
 import com.baidu.tieba.jw4;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.uq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class FrequenceDialogStrategy implements iw4 {
+public class FrequenceDialogStrategy implements jw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public class FrequenceDialogStrategy implements iw4 {
         }
     }
 
-    @Override // com.baidu.tieba.iw4
+    @Override // com.baidu.tieba.jw4
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -76,7 +76,7 @@ public class FrequenceDialogStrategy implements iw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.iw4
+    @Override // com.baidu.tieba.jw4
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -90,12 +90,12 @@ public class FrequenceDialogStrategy implements iw4 {
                 if (data.frequence == 0) {
                     return true;
                 }
-                if (jw4.b.l(jw4.a.a(data.dialogName), 0) >= data.frequence) {
+                if (kw4.b.l(kw4.a.a(data.dialogName), 0) >= data.frequence) {
                     return false;
                 }
                 return true;
             } catch (Exception e) {
-                if (!tq4.e() && !tq4.h() && !TbadkApplication.getInst().isDebugMode()) {
+                if (!uq4.e() && !uq4.h() && !TbadkApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
                     return false;
                 }

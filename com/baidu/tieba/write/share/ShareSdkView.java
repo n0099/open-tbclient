@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r49;
+import com.baidu.tieba.s49;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -335,23 +335,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(r49 r49Var) {
+    public void setData(s49 s49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r49Var) == null) {
-            if (r49Var == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, s49Var) == null) {
+            if (s49Var == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11ad), r49Var.f));
-            this.e.K(r49Var.d, 10, false);
-            this.f.setText(r49Var.c);
-            if (StringUtils.isNull(r49Var.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11ad), s49Var.f));
+            this.e.K(s49Var.d, 10, false);
+            this.f.setText(s49Var.c);
+            if (StringUtils.isNull(s49Var.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(r49Var.h);
+                this.g.setText(s49Var.h);
             }
             this.h.setEvent(new b(this));
-            this.h.K(r49Var.i, 42, false);
+            this.h.K(s49Var.i, 42, false);
         }
     }
 }

@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oa5;
 import com.baidu.tieba.pa5;
+import com.baidu.tieba.qa5;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.ra5;
-import com.baidu.tieba.va5;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.wa5;
+import com.baidu.tieba.xa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes6.dex */
-public class VideoChannelDelegateStatic extends oa5 {
+public class VideoChannelDelegateStatic extends pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
@@ -83,7 +83,7 @@ public class VideoChannelDelegateStatic extends oa5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ra5.b {
+    public class b implements sa5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -106,7 +106,7 @@ public class VideoChannelDelegateStatic extends oa5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.ra5.b
+        @Override // com.baidu.tieba.sa5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -186,14 +186,14 @@ public class VideoChannelDelegateStatic extends oa5 {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RedIcon redIcon;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !(responsedMessage instanceof wa5)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !(responsedMessage instanceof xa5)) {
                 return;
             }
-            wa5 wa5Var = (wa5) responsedMessage;
-            if (wa5Var.getResData() == null) {
+            xa5 xa5Var = (xa5) responsedMessage;
+            if (xa5Var.getResData() == null) {
                 return;
             }
-            List<RedIcon> dataList = wa5Var.getDataList();
+            List<RedIcon> dataList = xa5Var.getDataList();
             if (!ListUtils.isEmpty(dataList) && (redIcon = dataList.get(0)) != null && redIcon.type.intValue() == 1) {
                 TbSingleton.getInstance().setVideoChannelRecommendRedIcon(null);
                 TbSingleton.getInstance().setVideoChannelAttentionRedIcon(redIcon);
@@ -232,7 +232,7 @@ public class VideoChannelDelegateStatic extends oa5 {
         }
     }
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -242,33 +242,33 @@ public class VideoChannelDelegateStatic extends oa5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oa5
-    public pa5 a() {
+    @Override // com.baidu.tieba.pa5
+    public qa5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pa5 pa5Var = new pa5();
+            qa5 qa5Var = new qa5();
             Bundle bundle = new Bundle();
             VideoChannelFragment videoChannelFragment = new VideoChannelFragment();
             videoChannelFragment.R1(BdUniqueId.gen());
-            pa5Var.a = videoChannelFragment;
+            qa5Var.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
-            pa5Var.e = 22;
-            pa5Var.b = R.string.obfuscated_res_0x7f0f156e;
-            pa5Var.i = pa5.l;
-            pa5Var.f = R.raw.lottie_tab_video_channel;
-            pa5Var.h = va5.d().c("channel");
-            return pa5Var;
+            qa5Var.e = 22;
+            qa5Var.b = R.string.obfuscated_res_0x7f0f156e;
+            qa5Var.i = qa5.l;
+            qa5Var.f = R.raw.lottie_tab_video_channel;
+            qa5Var.h = wa5.d().c("channel");
+            return qa5Var;
         }
-        return (pa5) invokeV.objValue;
+        return (qa5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) ra5.e().d(1003, new b(this, context));
+            this.b = (MaintabBottomIndicator) sa5.e().d(1003, new b(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -281,7 +281,7 @@ public class VideoChannelDelegateStatic extends oa5 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -292,7 +292,7 @@ public class VideoChannelDelegateStatic extends oa5 {
         }
     }
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -308,10 +308,10 @@ public class VideoChannelDelegateStatic extends oa5 {
     public final void j(@NonNull RedIcon redIcon) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, redIcon) == null) {
-            pa5 pa5Var = new pa5();
-            pa5Var.g = redIcon.image;
-            pa5Var.e = 22;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, pa5Var));
+            qa5 qa5Var = new qa5();
+            qa5Var.g = redIcon.image;
+            qa5Var.e = 22;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, qa5Var));
         }
     }
 

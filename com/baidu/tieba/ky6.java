@@ -1,60 +1,69 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.m07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.squareup.wire.Message;
 /* loaded from: classes4.dex */
-public class ky6 extends o57 {
+public class ky6 implements gk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uj7 c;
+    public m07.d a;
 
-    public ky6() {
+    @Override // com.baidu.tieba.gk7
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public ky6(m07.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = dVar;
+    }
+
+    @Override // com.baidu.tieba.gk7
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            ly6 ly6Var = new ly6();
+            zj7 zj7Var = new zj7();
+            zj7Var.a = j;
+            zj7Var.b = str;
+            vj7 a = ek7.d().a(zj7Var);
+            if (a != null) {
+                a.c(z, message, z2, i);
+            }
+            ly6Var.b(a);
+            m07.d dVar = this.a;
+            if (dVar != null) {
+                dVar.e(z, ly6Var, z2, "", str, true);
             }
         }
     }
 
-    public final void a() {
-        List<Object> list;
+    @Override // com.baidu.tieba.gk7
+    public void b(long j, String str, String str2, int i) {
+        m07.d dVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null) {
-            ko8.e(list, 2);
-        }
-    }
-
-    private void update() {
-        uj7 uj7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (uj7Var = this.c) != null && uj7Var.a()) {
-            List<ICardInfo> d = this.c.d();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(d);
-            this.c.hasMore();
-            this.c.b();
-        }
-    }
-
-    public void b(uj7 uj7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uj7Var) == null) {
-            this.c = uj7Var;
-            update();
-            a();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (dVar = this.a) != null) {
+            dVar.c(str, str2, i, true, 1);
         }
     }
 }

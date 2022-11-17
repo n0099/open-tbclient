@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e95;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -163,10 +163,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (py4.k().h(str, false)) {
+            if (qy4.k().h(str, false)) {
                 return true;
             }
-            py4.k().u(str, true);
+            qy4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -191,18 +191,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.h = findViewById(R.id.obfuscated_res_0x7f090d74);
             this.i = findViewById(R.id.obfuscated_res_0x7f091ad9);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            pw4 d = pw4.d(this.f);
+            qw4 d = qw4.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            pw4 d2 = pw4.d(this.d);
+            qw4 d2 = qw4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            pw4 d3 = pw4.d(this.h);
+            qw4 d3 = qw4.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            pw4 d4 = pw4.d(this.i);
+            qw4 d4 = qw4.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -213,7 +213,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = e95.d().e().getAvater();
+            String avater = f95.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.K(avater, 10, false);
             } else {

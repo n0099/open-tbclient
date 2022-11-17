@@ -62,12 +62,12 @@ public class uy extends cx implements sx<ThreadData>, tx {
         k(align);
     }
 
-    public void l(sr4 sr4Var) {
+    public void l(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var) == null) {
-            if (sr4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
+            if (tr4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (sr4Var.isSupportBottom()) {
+            } else if (tr4Var.isSupportBottom()) {
                 oy oyVar = this.d;
                 if (oyVar != null) {
                     oyVar.n(this);

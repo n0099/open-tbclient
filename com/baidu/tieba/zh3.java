@@ -133,12 +133,12 @@ public final class zh3 {
 
         /* renamed from: com.baidu.tieba.zh3$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0486b implements Runnable {
+        public class RunnableC0489b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0486b(b bVar) {
+            public RunnableC0489b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,7 +200,7 @@ public final class zh3 {
                         return;
                     }
                 }
-                zh3.e0(new RunnableC0486b(this));
+                zh3.e0(new RunnableC0489b(this));
             }
         }
     }

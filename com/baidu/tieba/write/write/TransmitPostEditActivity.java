@@ -53,21 +53,21 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.tieba.ch;
-import com.baidu.tieba.e25;
+import com.baidu.tieba.f25;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.n49;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.q59;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.o49;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.r59;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uj5;
-import com.baidu.tieba.v65;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.vj5;
+import com.baidu.tieba.w65;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
-import com.baidu.tieba.x65;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -122,7 +122,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.de5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
                 }
-                if (uj5.a() || this.a.U2()) {
+                if (vj5.a() || this.a.U2()) {
                     return;
                 }
                 if (this.a.V2()) {
@@ -309,7 +309,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view2.requestFocus();
-                    this.a.S.A(new k65(5, -1, null));
+                    this.a.S.A(new l65(5, -1, null));
                     this.a.E.requestFocus();
                     return false;
                 }
@@ -500,7 +500,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new q59(getPageContext());
+                this.V = new r59(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -798,18 +798,18 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.S.d(new x65(getActivity(), 2));
+            this.S.d(new y65(getActivity(), 2));
             if (this.U == null) {
-                n49 n49Var = new n49(getActivity(), this.k);
-                this.U = n49Var;
-                n49Var.h();
+                o49 o49Var = new o49(getActivity(), this.k);
+                this.U = o49Var;
+                o49Var.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);
             }
             this.S.d(this.U);
             this.S.h(arrayList);
-            v65 n = this.S.n(5);
+            w65 n = this.S.n(5);
             if (n != null) {
                 n.l = 1;
             }
@@ -1055,11 +1055,11 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
-    public void o2(@NonNull k65 k65Var) {
+    public void o2(@NonNull l65 l65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, k65Var) == null) {
-            if (k65Var.a == 31) {
-                Object obj = k65Var.c;
+        if (interceptable == null || interceptable.invokeL(1048610, this, l65Var) == null) {
+            if (l65Var.a == 31) {
+                Object obj = l65Var.c;
                 if (obj instanceof Integer) {
                     int i = 0;
                     int intValue = ((Integer) obj).intValue();
@@ -1077,7 +1077,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     }
                 }
             }
-            int i2 = k65Var.a;
+            int i2 = l65Var.a;
             if (i2 == 29) {
                 this.p.setVideoInfo(null);
             } else if (i2 == 24) {
@@ -1085,19 +1085,19 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     showToast(R.string.obfuscated_res_0x7f0f0d61);
                     return;
                 }
-                Object obj2 = k65Var.c;
-                if (!(obj2 instanceof e25)) {
+                Object obj2 = l65Var.c;
+                if (!(obj2 instanceof f25)) {
                     return;
                 }
-                e25 e25Var = (e25) obj2;
-                if (EmotionGroupType.isSendAsPic(e25Var.getType())) {
+                f25 f25Var = (f25) obj2;
+                if (EmotionGroupType.isSendAsPic(f25Var.getType())) {
                     this.S.q();
                 }
-                l2(e25Var);
+                l2(f25Var);
             } else if (i2 != 12 && i2 != 13 && i2 != 46 && i2 != 49) {
                 if (i2 == 43) {
-                    py4.k().u("hot_topic_has_click", true);
-                    this.S.A(new k65(2, 26, null));
+                    qy4.k().u("hot_topic_has_click", true);
+                    this.S.A(new l65(2, 26, null));
                     this.n = true;
                     s2(true);
                     if (V1().isFocused()) {

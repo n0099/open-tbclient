@@ -12,7 +12,7 @@ import android.view.Surface;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cj9;
+import com.baidu.tieba.dj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -158,7 +158,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                cj9.g(e);
+                dj9.g(e);
                 return null;
             }
         }
@@ -217,7 +217,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 }, null);
                 new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
             } catch (OutOfMemoryError e) {
-                cj9.g(e);
+                dj9.g(e);
             }
             return null;
         }
@@ -270,7 +270,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         while (true) {
             int glGetError = GLES20.glGetError();
             if (glGetError != 0) {
-                cj9.d(str + ": glError " + glGetError);
+                dj9.d(str + ": glError " + glGetError);
             } else {
                 return;
             }
@@ -329,7 +329,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 System.currentTimeMillis();
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                cj9.g(e);
+                dj9.g(e);
                 return null;
             }
         }

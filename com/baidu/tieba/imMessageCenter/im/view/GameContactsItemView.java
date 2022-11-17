@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hb7;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.ib7;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public hb7 d;
+    public ib7 d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public hb7 getGameMatchUser() {
+    public ib7 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (hb7) invokeV.objValue;
+        return (ib7) invokeV.objValue;
     }
 
     public void h() {
@@ -183,7 +183,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            pw4 d = pw4.d(this.c);
+            qw4 d = qw4.d(this.c);
             d.n(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull hb7 hb7Var) {
+    public void setGameMatchUser(@NonNull ib7 ib7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, hb7Var) != null) || hb7Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, ib7Var) != null) || ib7Var.equals(this.d)) {
             return;
         }
-        this.d = hb7Var;
+        this.d = ib7Var;
         i();
     }
 }

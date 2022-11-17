@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.spanGroup;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.dj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class RequestUrlParserNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.url = this.mUrl;
             builder.link_num = Integer.valueOf(this.mLinkNum);
-            cj5.a(builder, true);
+            dj5.a(builder, true);
             UrlParserReqIdl.Builder builder2 = new UrlParserReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

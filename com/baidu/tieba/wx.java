@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx extends ax<sr4> {
+public class wx extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public sr4 i;
+    public tr4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wx(Context context) {
@@ -66,9 +66,9 @@ public class wx extends ax<sr4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            sr4 sr4Var = this.i;
-            if (sr4Var != null && sr4Var.getThreadData() != null) {
-                w36.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            tr4 tr4Var = this.i;
+            if (tr4Var != null && tr4Var.getThreadData() != null) {
+                x36.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -76,13 +76,13 @@ public class wx extends ax<sr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: s */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null) {
-                this.i = sr4Var;
-                ThreadData threadData = sr4Var.getThreadData();
-                w36.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null) {
+                this.i = tr4Var;
+                ThreadData threadData = tr4Var.getThreadData();
+                x36.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

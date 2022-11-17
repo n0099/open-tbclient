@@ -3,7 +3,7 @@ package com.baidu.tieba.im.recommend.detail;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.df;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,8 +44,8 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            iv4.f();
-            df<byte[]> d = iv4.d("tb.im_recommend_detail");
+            jv4.f();
+            df<byte[]> d = jv4.d("tb.im_recommend_detail");
             if (d != null && bArr != null && (userInfoBigVip = this.mDetailInfo) != null && userInfoBigVip.user_id != null) {
                 d.g(this.mDetailInfo.user_id + "", bArr);
             }

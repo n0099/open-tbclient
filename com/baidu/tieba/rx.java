@@ -20,7 +20,7 @@ public class rx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadlinesCardView h;
-    public sr4 i;
+    public tr4 i;
     public int j;
     public az k;
 
@@ -117,13 +117,13 @@ public class rx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: z */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sr4Var) == null) {
-            this.i = sr4Var;
-            if (y(sr4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, tr4Var) == null) {
+            this.i = tr4Var;
+            if (y(tr4Var)) {
                 this.h.setVisibility(0);
-                this.h.a(sr4Var);
+                this.h.a(tr4Var);
                 return;
             }
             this.h.setVisibility(8);
@@ -148,11 +148,11 @@ public class rx extends hx {
         }
     }
 
-    public final boolean y(sr4 sr4Var) {
+    public final boolean y(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getTaskInfoData() != null && sr4Var.getThreadData().getTaskInfoData().e() != null && sr4Var.getThreadData().getTaskInfoData().h() == 2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null && tr4Var.getThreadData().getTaskInfoData().h() == 2) {
                 return true;
             }
             return false;

@@ -6,19 +6,19 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lz5 extends oa5 {
+public class lz5 extends pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment c;
+    public AlaGameFrsLiveTabFragment c;
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,25 +41,25 @@ public class lz5 extends oa5 {
                 return;
             }
         }
-        this.c = new AlaGameFrsLiveTabVideoFragment();
+        this.c = new AlaGameFrsLiveTabFragment();
         b().a = this.c;
     }
 
-    @Override // com.baidu.tieba.oa5
-    public pa5 a() {
+    @Override // com.baidu.tieba.pa5
+    public qa5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pa5 pa5Var = new pa5();
-            pa5Var.e = 3;
-            pa5Var.b = R.string.obfuscated_res_0x7f0f0226;
-            pa5Var.i = pa5.k;
-            return pa5Var;
+            qa5 qa5Var = new qa5();
+            qa5Var.e = 2;
+            qa5Var.b = R.string.obfuscated_res_0x7f0f0226;
+            qa5Var.i = qa5.k;
+            return qa5Var;
         }
-        return (pa5) invokeV.objValue;
+        return (qa5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oa5
+    @Override // com.baidu.tieba.pa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,27 +72,35 @@ public class lz5 extends oa5 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public void g(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void g(hk6 hk6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
-            alaGameFrsLiveTabVideoFragment.t1(str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, hk6Var) != null) || hk6Var == null || !hk6Var.h(2)) {
+            return;
         }
+        hk6Var.a(this);
     }
 
     public void h(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
-            alaGameFrsLiveTabVideoFragment.u1(str);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
+            alaGameFrsLiveTabFragment.B1(str);
         }
     }
 
-    public void i(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void i(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
-            alaGameFrsLiveTabVideoFragment.v1(z);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
+            alaGameFrsLiveTabFragment.C1(str);
+        }
+    }
+
+    public void j(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
+            alaGameFrsLiveTabFragment.D1(str);
         }
     }
 }

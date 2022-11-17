@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ix extends ax<sr4> {
+public class ix extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -34,7 +34,7 @@ public class ix extends ax<sr4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public sr4 h;
+    public tr4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -206,10 +206,10 @@ public class ix extends ax<sr4> {
 
     @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        sr4 sr4Var;
+        tr4 tr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (sr4Var = this.h) != null && sr4Var.getThreadData() != null) {
-            w36.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (tr4Var = this.h) != null && tr4Var.getThreadData() != null) {
+            x36.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }
@@ -233,11 +233,11 @@ public class ix extends ax<sr4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
             int l = yi.l(TbadkCoreApplication.getInst());
             if (l != this.k) {
                 int l2 = yi.l(TbadkCoreApplication.getInst());
@@ -248,9 +248,9 @@ public class ix extends ax<sr4> {
                 r = i / 3;
                 this.k = l;
             }
-            this.h = sr4Var;
-            if (sr4Var != null && sr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(sr4Var.getThreadData());
+            this.h = tr4Var;
+            if (tr4Var != null && tr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.j.setData(tr4Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

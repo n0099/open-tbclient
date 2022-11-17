@@ -16,7 +16,7 @@ public class up3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return qu5.a();
+            return ru5.a();
         }
         return (vp3) invokeV.objValue;
     }

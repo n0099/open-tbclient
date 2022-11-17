@@ -1,21 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tieba.az4;
 /* loaded from: classes6.dex */
-public interface u57 {
-    boolean a();
+public interface u57 extends az4.g {
+    void f(ErrorData errorData);
 
-    void b();
+    void i();
 
-    void c(BdUniqueId bdUniqueId);
-
-    void destory();
-
-    List<ThreadData> l();
-
-    void r(String str, String str2, int i);
-
-    void refresh();
+    void k0(t67 t67Var);
 }

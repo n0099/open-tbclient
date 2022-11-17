@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qf5;
 import com.baidu.tieba.rf5;
+import com.baidu.tieba.sf5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public rf5 d;
+    public sf5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(rf5 rf5Var) {
+    public void setContentViewTop(sf5 sf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, rf5Var) == null) {
-            this.d = rf5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, sf5Var) == null) {
+            this.d = sf5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rf5 rf5Var = this.d;
-            if (rf5Var == null) {
+            sf5 sf5Var = this.d;
+            if (sf5Var == null) {
                 return false;
             }
-            return rf5Var.s();
+            return sf5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    rf5 rf5Var = this.d;
-                    if (rf5Var instanceof qf5) {
-                        ((qf5) rf5Var).E(f - f2);
+                    sf5 sf5Var = this.d;
+                    if (sf5Var instanceof rf5) {
+                        ((rf5) sf5Var).E(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

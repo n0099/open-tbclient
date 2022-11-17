@@ -1,27 +1,71 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qu6 {
+public abstract class qu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vu6 a;
+    public Intent b;
+    public int c;
+    public a d;
 
-    public static pu6 a(uu6 uu6Var, Intent intent) {
-        InterceptResult invokeLL;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onStateChanged(int i);
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public qu6(vu6 vu6Var, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, uu6Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new vu6(uu6Var, intent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vu6Var, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (intExtra == 2) {
-                return new ou6(uu6Var, intent);
-            }
-            return null;
         }
-        return (pu6) invokeLL.objValue;
+        this.c = 0;
+        this.a = vu6Var;
+        this.b = intent;
+        tu6 c = su6.d().c(this.b.getStringExtra("info_forum_name_text"));
+        c.b();
+        c.a();
+        if (c.c()) {
+            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+        }
     }
 }

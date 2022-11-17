@@ -27,11 +27,11 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g98;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.mb8;
+import com.baidu.tieba.h98;
+import com.baidu.tieba.hc8;
+import com.baidu.tieba.nb8;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.sb8;
+import com.baidu.tieba.tb8;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public gc8 a;
+    public hc8 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public mb8 g;
+    public nb8 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -493,7 +493,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(sb8.c(personPostModel.threadList));
+                this.h.threadList.addAll(tb8.c(personPostModel.threadList));
             }
             this.p = a1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -510,8 +510,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     n1(this.h.threadList);
                 }
             }
-            g98.d().l(System.currentTimeMillis() - currentTimeMillis);
-            g98.d().p(System.currentTimeMillis() - g98.d().g());
+            h98.d().l(System.currentTimeMillis() - currentTimeMillis);
+            h98.d().p(System.currentTimeMillis() - h98.d().g());
         }
     }
 
@@ -587,9 +587,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090636);
             this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c50);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e1);
-            mb8 mb8Var = new mb8(this, this.t);
-            this.g = mb8Var;
-            this.f.setAdapter((ListAdapter) mb8Var);
+            nb8 nb8Var = new nb8(this, this.t);
+            this.g = nb8Var;
+            this.f.setAdapter((ListAdapter) nb8Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
@@ -641,9 +641,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, view2, str, z) == null) {
             if (this.a == null) {
-                gc8 gc8Var = new gc8(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = gc8Var;
-                gc8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f100d));
+                hc8 hc8Var = new hc8(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = hc8Var;
+                hc8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f100d));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f100c));
                 this.a.f();

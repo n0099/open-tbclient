@@ -2,21 +2,23 @@ package com.baidu.tieba;
 
 import android.text.Editable;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n05 extends i05<n05> {
+public class n05 extends j05<n05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
+    public AtSelectData i;
 
     public n05() {
         Interceptable interceptable = $ic;
@@ -34,36 +36,43 @@ public class n05 extends i05<n05> {
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             o(true);
-            v();
+            s();
         }
     }
 
-    public String s() {
-        InterceptResult invokeV;
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String t() {
+    public AtSelectData u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.i;
         }
+        return (AtSelectData) invokeV.objValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "@" + this.i.getNameShow() + " ";
+        }
         return (String) invokeV.objValue;
     }
 
-    public n05(String str) {
+    public n05(AtSelectData atSelectData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {atSelectData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,23 +82,21 @@ public class n05 extends i05<n05> {
                 return;
             }
         }
-        this.i = str;
+        this.i = atSelectData;
     }
 
-    @Override // com.baidu.tieba.i05
-    public void p(Editable editable) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j05
+    /* renamed from: t */
+    public void b(n05 n05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
+        if (interceptable == null || interceptable.invokeL(1048582, this, n05Var) == null) {
+            super.b(n05Var);
+            this.i = n05Var.i;
         }
     }
 
-    public static n05 u(@NonNull n05 n05Var, @NonNull Editable editable) {
+    public static n05 w(@NonNull n05 n05Var, @NonNull Editable editable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, n05Var, editable)) == null) {
@@ -101,20 +108,7 @@ public class n05 extends i05<n05> {
         return (n05) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.i05
-    public void q(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
-        }
-    }
-
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.j05
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
@@ -122,17 +116,35 @@ public class n05 extends i05<n05> {
         }
     }
 
-    public void v() {
+    @Override // com.baidu.tieba.j05
+    public void p(Editable editable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i(s());
-            if (!ri5.g(this.c, f())) {
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a67, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-                eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                l(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-                l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#(at, ");
+            sb.append(this.i.getPortrait());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getNameShow());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getUid());
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            sb.append(" ");
+            i(sb);
+        }
+    }
+
+    @Override // com.baidu.tieba.j05
+    public void q(Editable editable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#(at, ");
+            sb.append(this.i.getPortrait());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getNameShow());
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            sb.append(" ");
+            i(sb);
         }
     }
 }

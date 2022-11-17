@@ -35,15 +35,9 @@ public class pe7 implements CustomMessageTask.CustomRunnable<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             if (customMessage != null && (customMessage instanceof RequestSearchGroupsLocalMessage)) {
-                long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
-                ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
-                responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
-                responseSearchGroupLocalMessage.setError(0);
-                String str = groupId + "";
-                iv4.f();
-                df<String> g = iv4.g("tb.im_group_search_history");
-                g.g(str, g.get(str));
-                return responseSearchGroupLocalMessage;
+                jv4.f();
+                jv4.b("tb.im_group_search_history");
+                return new ResponseSearchGroupLocalMessage(2001206);
             }
             return null;
         }

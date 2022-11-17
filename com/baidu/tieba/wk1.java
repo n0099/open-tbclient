@@ -84,11 +84,11 @@ public class wk1 extends is1 {
 
         /* renamed from: com.baidu.tieba.wk1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0457b implements Runnable {
+        public class RunnableC0461b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0457b(b bVar) {
+            public RunnableC0461b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +188,7 @@ public class wk1 extends is1 {
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
                         if (this.a) {
-                            zh3.e0(new RunnableC0457b(this));
+                            zh3.e0(new RunnableC0461b(this));
                         }
                         this.c.N(this.b, optInt, jSONObject.optString("errmsg"), false);
                         return;

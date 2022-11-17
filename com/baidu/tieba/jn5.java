@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.ViewGroup;
-import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
@@ -14,94 +14,199 @@ import java.util.Calendar;
 public class jn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context A;
-    public String B;
-    public String C;
-    public String D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public float Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public WheelView.DividerType U;
-    public pn5 a;
-    public on5 b;
-    public kn5 c;
-    public boolean[] d;
-    public Calendar e;
-    public Calendar f;
-    public Calendar g;
-    public int h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public ViewGroup y;
-    public int z;
+    public kn5 a;
 
-    public jn5(int i) {
+    public jn5(Context context, qn5 qn5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {context, qn5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new boolean[]{true, true, true, false, false, false};
-        this.j = false;
-        this.k = false;
-        this.z = 17;
-        this.E = -16417281;
-        this.F = -16417281;
-        this.G = -16777216;
-        this.H = -1;
-        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
-        this.J = 17;
-        this.K = 18;
-        this.L = 18;
-        this.M = -5723992;
-        this.N = -14013910;
-        this.O = -2763307;
-        this.P = -1;
-        this.Q = 1.6f;
-        this.S = true;
-        this.T = false;
-        Typeface typeface = Typeface.MONOSPACE;
-        this.U = WheelView.DividerType.FILL;
-        if (i == 1) {
-            this.x = R.layout.obfuscated_res_0x7f0d0752;
-        } else {
-            this.x = R.layout.obfuscated_res_0x7f0d0753;
+        kn5 kn5Var = new kn5(2);
+        this.a = kn5Var;
+        kn5Var.A = context;
+        kn5Var.a = qn5Var;
+    }
+
+    public vn5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new vn5(this.a);
         }
+        return (vn5) invokeV.objValue;
+    }
+
+    public jn5 b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
+        }
+        return (jn5) invokeZ.objValue;
+    }
+
+    public jn5 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
+        }
+        return (jn5) invokeZ.objValue;
+    }
+
+    public jn5 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 g(Calendar calendar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
+        }
+        return (jn5) invokeL.objValue;
+    }
+
+    public jn5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
+        }
+        return (jn5) invokeL.objValue;
+    }
+
+    public jn5 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 l(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
+        }
+        return (jn5) invokeF.objValue;
+    }
+
+    public jn5 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (jn5) invokeI.objValue;
+    }
+
+    public jn5 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (jn5) invokeL.objValue;
+    }
+
+    public jn5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            kn5 kn5Var = this.a;
+            kn5Var.l = str;
+            kn5Var.m = str2;
+            kn5Var.n = str3;
+            kn5Var.o = str4;
+            kn5Var.p = str5;
+            kn5Var.q = str6;
+            return this;
+        }
+        return (jn5) invokeCommon.objValue;
+    }
+
+    public jn5 k(int i, ln5 ln5Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, ln5Var)) == null) {
+            kn5 kn5Var = this.a;
+            kn5Var.x = i;
+            kn5Var.c = ln5Var;
+            return this;
+        }
+        return (jn5) invokeIL.objValue;
+    }
+
+    public jn5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            kn5 kn5Var = this.a;
+            kn5Var.r = i;
+            kn5Var.s = i2;
+            kn5Var.t = i3;
+            kn5Var.u = i4;
+            kn5Var.v = i5;
+            kn5Var.w = i6;
+            return this;
+        }
+        return (jn5) invokeCommon.objValue;
     }
 }

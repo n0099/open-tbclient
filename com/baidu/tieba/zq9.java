@@ -45,29 +45,23 @@ public class zq9 extends BaseAdRipper {
                 return null;
             }
             try {
-                Field declaredField = obj.getClass().getDeclaredField("b");
+                Field declaredField = obj.getClass().getDeclaredField("a");
                 declaredField.setAccessible(true);
                 Object obj2 = declaredField.get(obj);
                 if (obj2 == null) {
                     return null;
                 }
-                Field declaredField2 = obj2.getClass().getDeclaredField("a");
+                Field declaredField2 = obj2.getClass().getDeclaredField("c");
                 declaredField2.setAccessible(true);
                 Object obj3 = declaredField2.get(obj2);
                 if (obj3 == null) {
                     return null;
                 }
-                Field declaredField3 = obj3.getClass().getDeclaredField("i");
+                Field declaredField3 = obj3.getClass().getSuperclass().getDeclaredField("L");
                 declaredField3.setAccessible(true);
                 Object obj4 = declaredField3.get(obj3);
-                if (obj4 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj4.getClass().getDeclaredField("L");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(obj4);
-                if (obj5 instanceof JSONObject) {
-                    return aq9.a((JSONObject) obj5);
+                if (obj4 instanceof JSONObject) {
+                    return bq9.a((JSONObject) obj4);
                 }
                 return null;
             } catch (Exception unused) {

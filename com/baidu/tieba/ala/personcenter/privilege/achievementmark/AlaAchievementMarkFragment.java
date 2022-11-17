@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import com.baidu.tieba.ia5;
-import com.baidu.tieba.p16;
-import com.baidu.tieba.s16;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.q16;
+import com.baidu.tieba.t16;
+import com.baidu.tieba.w16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,16 +31,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public v16 a;
+    public w16 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public ia5 c;
-    public p16 d;
+    public ja5 c;
+    public q16 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
-    public v16.c g;
+    public w16.c g;
 
     /* loaded from: classes3.dex */
-    public class a implements p16.h {
+    public class a implements q16.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -63,10 +63,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.p16.h
-        public void a(boolean z, s16 s16Var) {
+        @Override // com.baidu.tieba.q16.h
+        public void a(boolean z, t16 t16Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, s16Var) != null) || !z) {
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, t16Var) != null) || !z) {
                 return;
             }
             this.a.u1();
@@ -164,15 +164,15 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements v16.c {
+    public class d implements w16.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
 
-        @Override // com.baidu.tieba.v16.c
-        public void a(s16 s16Var) {
+        @Override // com.baidu.tieba.w16.c
+        public void a(t16 t16Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, s16Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, t16Var) == null) {
             }
         }
 
@@ -222,9 +222,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     public final void m() {
-        v16 v16Var;
+        w16 w16Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && (v16Var = this.a) != null && v16Var.c() != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && (w16Var = this.a) != null && w16Var.c() != null) {
             this.c.dettachView(this.a.c());
         }
     }
@@ -238,9 +238,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            p16 p16Var = this.d;
-            if (p16Var != null) {
-                p16Var.p();
+            q16 q16Var = this.d;
+            if (q16Var != null) {
+                q16Var.p();
             }
             m();
         }
@@ -290,9 +290,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ia5 ia5Var = this.c;
-            if (ia5Var != null) {
-                ia5Var.onChangeSkinType();
+            ja5 ja5Var = this.c;
+            if (ja5Var != null) {
+                ja5Var.onChangeSkinType();
             }
         }
     }
@@ -303,10 +303,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new v16(getPageContext(), this.g);
+            this.a = new w16(getPageContext(), this.g);
             v1();
             u1();
-            this.d = new p16(getPageContext(), new a(this));
+            this.d = new q16(getPageContext(), new a(this));
             return this.a.c();
         }
         return (View) invokeLLL.objValue;
@@ -316,10 +316,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.c == null) {
-                this.c = new ia5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
+                this.c = new ja5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
-            v16 v16Var = this.a;
-            if (v16Var != null && v16Var.c() != null) {
+            w16 w16Var = this.a;
+            if (w16Var != null && w16Var.c() != null) {
                 this.c.attachView(this.a.c(), false);
             }
         }

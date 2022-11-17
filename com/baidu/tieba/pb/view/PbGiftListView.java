@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vt4;
+import com.baidu.tieba.wt4;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -165,60 +165,60 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
-    public void g(vt4 vt4Var, String str, String str2, long j, long j2, long j3) {
+    public void g(wt4 wt4Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{vt4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{wt4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (vt4Var != null && vt4Var.a() != null && vt4Var.a().size() > 0) {
-                if (vt4Var.a().size() > 4) {
+            if (wt4Var != null && wt4Var.a() != null && wt4Var.a().size() > 0) {
+                if (wt4Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = vt4Var.a().size();
+                    size = wt4Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.K(vt4Var.a().get(0).a, 10, false);
-                                this.d.K(vt4Var.a().get(1).a, 10, false);
-                                this.e.K(vt4Var.a().get(2).a, 10, false);
-                                this.f.K(vt4Var.a().get(3).a, 10, false);
+                                this.c.K(wt4Var.a().get(0).a, 10, false);
+                                this.d.K(wt4Var.a().get(1).a, 10, false);
+                                this.e.K(wt4Var.a().get(2).a, 10, false);
+                                this.f.K(wt4Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.K(vt4Var.a().get(0).a, 10, false);
-                            this.d.K(vt4Var.a().get(1).a, 10, false);
-                            this.e.K(vt4Var.a().get(2).a, 10, false);
+                            this.c.K(wt4Var.a().get(0).a, 10, false);
+                            this.d.K(wt4Var.a().get(1).a, 10, false);
+                            this.e.K(wt4Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.K(vt4Var.a().get(0).a, 10, false);
-                        this.d.K(vt4Var.a().get(1).a, 10, false);
+                        this.c.K(wt4Var.a().get(0).a, 10, false);
+                        this.d.K(wt4Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.K(vt4Var.a().get(0).a, 10, false);
+                    this.c.K(wt4Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (vt4Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07e3), Integer.valueOf(vt4Var.b())));
+                if (wt4Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07e3), Integer.valueOf(wt4Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);

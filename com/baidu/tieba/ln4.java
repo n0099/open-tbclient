@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ln4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class ln4 {
     public BdUniqueId c;
     public qb d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,19 +69,19 @@ public class ln4 {
                         kn4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
                     }
                     if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                        py4.k().x("pref_key_active_config_info", System.currentTimeMillis());
+                        qy4.k().x("pref_key_active_config_info", System.currentTimeMillis());
                     }
                     if (kn4Var != null && kn4Var.g != null && this.a.a != null) {
                         this.a.a.a(kn4Var);
                     }
                     if (kn4Var != null && this.a.c()) {
-                        py4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
+                        qy4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
                         wm4.b().i(kn4Var);
                         if (this.a.a != null) {
                             this.a.a.onSuccess(kn4Var);
                         }
                     }
-                    ny4.e().j(kn4Var);
+                    oy4.e().j(kn4Var);
                 } else if (this.a.a != null) {
                     this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
@@ -123,7 +123,7 @@ public class ln4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !UtilHelper.isSameDay(py4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis());
+            return !UtilHelper.isSameDay(qy4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis());
         }
         return invokeV.booleanValue;
     }
@@ -140,8 +140,8 @@ public class ln4 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            to8.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, to8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            uo8.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, uo8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
             tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -156,7 +156,7 @@ public class ln4 {
         if (!z) {
             this.b = true;
         }
-        py4.k().x("pref_key_last_active_config", System.currentTimeMillis());
+        qy4.k().x("pref_key_last_active_config", System.currentTimeMillis());
         ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
         activeConfigReqMsg.setFirstUp(z);
         activeConfigReqMsg.setSchemaUp(z2);

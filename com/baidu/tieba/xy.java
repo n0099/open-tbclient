@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xy extends ax<sr4> {
+public class xy extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x36 f;
+    public y36 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xy(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,16 +34,16 @@ public class xy extends ax<sr4> {
                 return;
             }
         }
-        this.f = new x36(tbPageContext, bdUniqueId);
+        this.f = new y36(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: s */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) && (sr4Var instanceof c56)) {
-            this.f.a((c56) sr4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) && (tr4Var instanceof d56)) {
+            this.f.a((d56) tr4Var);
         }
     }
 

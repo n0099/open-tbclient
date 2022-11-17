@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
-import com.baidu.tieba.q67;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.r67;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.t57;
-import com.baidu.tieba.t67;
-import com.baidu.tieba.to8;
 import com.baidu.tieba.u57;
+import com.baidu.tieba.u67;
+import com.baidu.tieba.uo8;
+import com.baidu.tieba.v57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
+public class TabFeedNetFeedModel extends BdBaseModel implements v57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -36,8 +36,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
     public int c;
     public String d;
     public String e;
-    public t57 f;
-    public t67 g;
+    public u57 f;
+    public u67 g;
     public qb h;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -86,11 +86,11 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
                 if (responsedMessage == null) {
                     return;
                 }
-                q67 q67Var = null;
+                r67 r67Var = null;
                 if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                    q67Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
+                    r67Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
                 } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                    q67Var = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
+                    r67Var = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
@@ -100,8 +100,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
                 if (this.a.f == null) {
                     return;
                 }
-                if (this.a.mErrorCode == 0 && q67Var != null) {
-                    this.a.I(q67Var);
+                if (this.a.mErrorCode == 0 && r67Var != null) {
+                    this.a.I(r67Var);
                 } else {
                     this.a.f.f(errorData);
                 }
@@ -110,13 +110,13 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabFeedNetFeedModel(TbPageContext tbPageContext, t57 t57Var) {
+    public TabFeedNetFeedModel(TbPageContext tbPageContext, u57 u57Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, t57Var};
+            Object[] objArr = {tbPageContext, u57Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,20 +131,20 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         this.b = false;
         this.c = 1;
         this.h = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        to8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        to8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.g = new t67();
-        this.f = t57Var;
+        uo8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        uo8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.g = new u67();
+        this.f = u57Var;
     }
 
-    public final void I(q67 q67Var) {
+    public final void I(r67 r67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q67Var) == null) {
-            if (q67Var != null) {
-                this.c = q67Var.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r67Var) == null) {
+            if (r67Var != null) {
+                this.c = r67Var.b();
             }
             if (this.f != null) {
-                this.f.k0(this.g.a(this.a, q67Var));
+                this.f.k0(this.g.a(this.a, r67Var));
             }
         }
     }
@@ -169,7 +169,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         }
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
@@ -181,21 +181,21 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         }
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            t67 t67Var = this.g;
-            if (t67Var == null) {
+            u67 u67Var = this.g;
+            if (u67Var == null) {
                 return false;
             }
-            return t67Var.c();
+            return u67Var.c();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b) {
@@ -225,7 +225,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         }
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -235,21 +235,21 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         }
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public List<ThreadData> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            t67 t67Var = this.g;
-            if (t67Var == null) {
+            u67 u67Var = this.g;
+            if (u67Var == null) {
                 return null;
             }
-            return t67Var.b();
+            return u67Var.b();
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public void refresh() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.b) {
@@ -259,7 +259,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements u57 {
         H(1);
     }
 
-    @Override // com.baidu.tieba.u57
+    @Override // com.baidu.tieba.v57
     public void r(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i) == null) {

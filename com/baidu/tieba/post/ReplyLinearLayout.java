@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.pw4;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.uv4;
+import com.baidu.tieba.tv4;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.vv4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
     public TbPageContext<?> b;
-    public sv4 c;
+    public tv4 c;
     public ForumManageModel d;
     public TBAlertBuilder e;
     public PersonPostModel.PostInfoList f;
@@ -49,12 +49,12 @@ public class ReplyLinearLayout extends LinearLayout {
     public View h;
     public final int i;
     public final int j;
-    public uv4.e k;
+    public vv4.e k;
     public q9 l;
     public final View.OnClickListener m;
 
     /* loaded from: classes5.dex */
-    public class a implements uv4.e {
+    public class a implements vv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
@@ -148,16 +148,16 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // com.baidu.tieba.uv4.e
-        public void n0(uv4 uv4Var, int i, View view2) {
+        @Override // com.baidu.tieba.vv4.e
+        public void n0(vv4 vv4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, uv4Var, i, view2) != null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, vv4Var, i, view2) != null) || this.a.b == null) {
                 return;
             }
             if (this.a.c != null) {
                 this.a.c.dismiss();
             }
-            Map map = (Map) uv4Var.e().getTag();
+            Map map = (Map) vv4Var.e().getTag();
             String[] strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091c39));
             if (strArr == null) {
                 return;
@@ -262,7 +262,7 @@ public class ReplyLinearLayout extends LinearLayout {
             }
             this.a.p("c14537", strArr[2]);
             if (this.a.c == null) {
-                this.a.c = new sv4(this.a.b);
+                this.a.c = new tv4(this.a.b);
                 this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f04bb)}, this.a.k);
             }
             this.a.c.g().e().setTag(map);
@@ -337,16 +337,16 @@ public class ReplyLinearLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
-        pw4 d = pw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c38));
+        qw4 d = qw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c38));
         d.z(R.dimen.T_X05);
         d.v(R.color.CAM_X0105);
         d.A(R.string.F_X01);
         WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c45), R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        pw4 d2 = pw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c49));
+        qw4 d2 = qw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c49));
         d2.z(R.dimen.T_X09);
         d2.v(R.color.CAM_X0109);
         d2.A(R.string.F_X01);
-        pw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c3f)).f(R.color.CAM_X0203);
+        qw4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091c3f)).f(R.color.CAM_X0203);
     }
 
     public final void n(String str, View view2) {

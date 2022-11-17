@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq4;
-import com.baidu.tieba.vw4;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.hq4;
 import com.baidu.tieba.ww4;
+import com.baidu.tieba.xw4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public Context a;
     public DownloadFlowView<ApkDownloadInfoData> b;
     public List<ApkDownloadInfoData> c;
-    public gq4 d;
+    public hq4 d;
 
     /* loaded from: classes5.dex */
-    public class a extends vw4 {
+    public class a extends ww4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -55,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.vw4, com.baidu.tieba.tw4
-        public ww4 a() {
+        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
+        public xw4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ww4 ww4Var = new ww4();
-                ww4Var.c(R.drawable.obfuscated_res_0x7f0806a4);
-                ww4Var.g(R.drawable.obfuscated_res_0x7f0806a3);
-                ww4Var.d(81);
-                ww4Var.e(R.dimen.M_H_X005);
-                ww4Var.h(R.dimen.tbds10);
-                return ww4Var;
+                xw4 xw4Var = new xw4();
+                xw4Var.c(R.drawable.obfuscated_res_0x7f0806a4);
+                xw4Var.g(R.drawable.obfuscated_res_0x7f0806a3);
+                xw4Var.d(81);
+                xw4Var.e(R.dimen.M_H_X005);
+                xw4Var.h(R.dimen.tbds10);
+                return xw4Var;
             }
-            return (ww4) invokeV.objValue;
+            return (xw4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.vw4, com.baidu.tieba.tw4
-        public zw4 c() {
+        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
+        public ax4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                zw4 zw4Var = new zw4();
-                zw4Var.a(yi.g(this.a.getContext(), R.dimen.tbds187));
-                return zw4Var;
+                ax4 ax4Var = new ax4();
+                ax4Var.a(yi.g(this.a.getContext(), R.dimen.tbds187));
+                return ax4Var;
             }
-            return (zw4) invokeV.objValue;
+            return (ax4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.vw4, com.baidu.tieba.tw4
+        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -205,10 +205,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(gq4 gq4Var) {
+    public void setIWindowChangedListener(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, gq4Var) == null) {
-            this.d = gq4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hq4Var) == null) {
+            this.d = hq4Var;
         }
     }
 
@@ -250,13 +250,13 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            zw4 zw4Var = new zw4();
+            ax4 ax4Var = new ax4();
             if (list.size() == 1) {
-                zw4Var.a(yi.g(getContext(), R.dimen.tbds187));
+                ax4Var.a(yi.g(getContext(), R.dimen.tbds187));
             } else {
-                zw4Var.a(yi.g(getContext(), R.dimen.tbds230));
+                ax4Var.a(yi.g(getContext(), R.dimen.tbds230));
             }
-            this.b.z(zw4Var);
+            this.b.z(ax4Var);
         }
     }
 

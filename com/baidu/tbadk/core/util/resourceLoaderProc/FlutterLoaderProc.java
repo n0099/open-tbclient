@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.lc;
 import com.baidu.tieba.mg;
 import com.baidu.tieba.pc;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -183,8 +183,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i3, i4);
             }
-            wi5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = wi5.d(urlbyClientServerAddr);
+            xi5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = xi5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;
@@ -276,7 +276,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr2 = bArr;
-            k95.k().i(TbConfig.getPbImageSize() + bArr2.length);
+            l95.k().i(TbConfig.getPbImageSize() + bArr2.length);
             if (!webClient.isGif && !yi.D(bArr2)) {
                 z3 = false;
             } else {

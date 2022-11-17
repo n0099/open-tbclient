@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Item;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class vl7 implements xn {
     public static /* synthetic */ Interceptable $ic;
@@ -19,9 +18,9 @@ public class vl7 implements xn {
     public Long a;
     public String b;
     public String c;
-    public List<String> d;
-    public Double e;
-    public Integer f;
+    public Integer d;
+    public Integer e;
+    public String f;
 
     static {
         InterceptResult invokeClinit;
@@ -80,22 +79,22 @@ public class vl7 implements xn {
         return (String) invokeV.objValue;
     }
 
-    public Double f() {
+    public Integer f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (Double) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 
-    public Integer g() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.f;
         }
-        return (Integer) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.xn
@@ -108,25 +107,24 @@ public class vl7 implements xn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public List<String> h() {
+    public Integer h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.d;
         }
-        return (List) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 
-    public void j(Item item) {
+    public void j(RecommendForumInfo recommendForumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
-            this.a = item.item_id;
-            this.b = item.item_name;
-            Double d = item.icon_size;
-            this.c = item.icon_url;
-            this.d = item.tags;
-            this.e = item.score;
-            this.f = item.star;
+        if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
+            this.c = recommendForumInfo.avatar;
+            this.a = recommendForumInfo.forum_id;
+            this.b = recommendForumInfo.forum_name;
+            this.d = recommendForumInfo.thread_count;
+            this.e = recommendForumInfo.member_count;
+            this.f = recommendForumInfo.slogan;
         }
     }
 }

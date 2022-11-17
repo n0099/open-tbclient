@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sr4;
-import com.baidu.tieba.sr6;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.tr4;
+import com.baidu.tieba.tr6;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.wz4;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xz4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -175,7 +175,7 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0305, null);
-                pw4.d(this.b).v(R.color.CAM_X0105);
+                qw4.d(this.b).v(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wz4(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(3, i + 1, 2)));
             }
         }
     }
@@ -283,7 +283,7 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wz4(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(3, i + 1, 1)));
             }
         }
 
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
         b();
     }
 
-    public void setData(sr4 sr4Var) {
+    public void setData(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) && (sr4Var instanceof sr6)) {
-            sr6 sr6Var = (sr6) sr4Var;
-            if (sr6Var.c() != null) {
-                this.d = sr6Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) && (tr4Var instanceof tr6)) {
+            tr6 tr6Var = (tr6) tr4Var;
+            if (tr6Var.c() != null) {
+                this.d = tr6Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -403,7 +403,7 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
             this.a = eMTextView;
             eMTextView.setGravity(16);
             this.a.setText(R.string.obfuscated_res_0x7f0f073d);
-            pw4 d2 = pw4.d(this.a);
+            qw4 d2 = qw4.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             this.a.setPadding(yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.M_H_X004), yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.M_H_X008));
@@ -426,8 +426,8 @@ public class CardItemRecommendLayout extends LinearLayout implements tx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            pw4.d(this.a).v(R.color.CAM_X0105);
-            pw4 d2 = pw4.d(this);
+            qw4.d(this.a).v(R.color.CAM_X0105);
+            qw4 d2 = qw4.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }

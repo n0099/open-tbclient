@@ -21,15 +21,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at6;
+import com.baidu.tieba.ao8;
 import com.baidu.tieba.bt6;
 import com.baidu.tieba.ct6;
 import com.baidu.tieba.dt6;
+import com.baidu.tieba.et6;
 import com.baidu.tieba.ho;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.zn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,10 +46,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public at6 f;
-    public bt6 g;
+    public bt6 f;
+    public ct6 g;
     public ValueAnimator h;
-    public ct6 i;
+    public dt6 i;
     public boolean j;
     public int k;
 
@@ -60,7 +60,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
         /* loaded from: classes4.dex */
-        public class a implements dt6 {
+        public class a implements et6 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,15 +102,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         @Override // com.baidu.tieba.ho
         public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof zn8)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof ao8)) {
                 return;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090ba0) {
                 if (this.a.g != null) {
-                    this.a.g.b((zn8) xnVar);
+                    this.a.g.b((ao8) xnVar);
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090a9e && this.a.g != null) {
-                this.a.g.c((zn8) xnVar, i, new a(this, i));
+                this.a.g.c((ao8) xnVar, i, new a(this, i));
             }
         }
     }
@@ -324,18 +324,18 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         }
     }
 
-    public void setHeightChangeListener(ct6 ct6Var) {
+    public void setHeightChangeListener(dt6 dt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ct6Var) == null) {
-            this.i = ct6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dt6Var) == null) {
+            this.i = dt6Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        at6 at6Var;
+        bt6 bt6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (at6Var = this.f) != null) {
-            at6Var.u(themeColorInfo);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (bt6Var = this.f) != null) {
+            bt6Var.u(themeColorInfo);
         }
     }
 
@@ -378,9 +378,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            bt6 bt6Var = this.g;
-            if (bt6Var != null) {
-                bt6Var.a();
+            ct6 ct6Var = this.g;
+            if (ct6Var != null) {
+                ct6Var.a();
             }
             i();
         }
@@ -412,9 +412,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba3);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090ba2);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b9f);
-            at6 at6Var = new at6(getContext());
-            this.f = at6Var;
-            at6Var.setOnAdapterItemClickListener(getItemClickListener());
+            bt6 bt6Var = new bt6(getContext());
+            this.f = bt6Var;
+            bt6Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -432,7 +432,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                pw4 d2 = pw4.d(textView);
+                qw4 d2 = qw4.d(textView);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0101);
             }
@@ -440,9 +440,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            at6 at6Var = this.f;
-            if (at6Var != null) {
-                at6Var.notifyDataSetChanged();
+            bt6 bt6Var = this.f;
+            if (bt6Var != null) {
+                bt6Var.notifyDataSetChanged();
             }
         }
     }

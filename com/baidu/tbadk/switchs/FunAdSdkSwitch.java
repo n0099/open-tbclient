@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.kf;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class FunAdSdkSwitch extends kf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (py4.k().l("pref_key_fun_ad_sdk_enable", 1) == 1) {
+            if (qy4.k().l("pref_key_fun_ad_sdk_enable", 1) == 1) {
                 return true;
             }
             return false;

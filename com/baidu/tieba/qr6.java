@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,27 +11,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import tbclient.ThreadInfo;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes5.dex */
-public class qr6 extends sr4 {
+public class qr6 extends tr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
+    public int a;
+    public List<GameCodeList> b;
 
-    @Override // com.baidu.tieba.sr4
-    public pt4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.tr4
+    public qt4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (pt4) invokeV.objValue;
+        return (qt4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sr4
+    @Override // com.baidu.tieba.tr4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class qr6 extends sr4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public qr6() {
@@ -71,7 +71,25 @@ public class qr6 extends sr4 {
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
+        this.b = new ArrayList();
+    }
+
+    public List<GameCodeList> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
@@ -79,37 +97,16 @@ public class qr6 extends sr4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public List<ThreadData> c() {
-        InterceptResult invokeV;
+    public void h(ItemGameCode itemGameCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.size() > 10) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<ThreadData> it = this.a.iterator();
-                while (it.hasNext() && arrayList.size() < 10) {
-                    arrayList.add(it.next());
-                }
-                return arrayList;
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void f(List<ThreadInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = new ArrayList();
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                this.a.add(threadData);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
         }
     }
 }

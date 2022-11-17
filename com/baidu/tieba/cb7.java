@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ab7;
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.bb7;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,19 +16,9 @@ public class cb7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements ab7.c {
+    public static class a implements bb7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ab7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,12 +33,27 @@ public class cb7 {
                 }
             }
         }
+
+        @Override // com.baidu.tieba.bb7.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                boolean isOpen = ChatStatusManager.getInst().getIsOpen(2);
+                String curId = ChatStatusManager.getInst().getCurId(2);
+                if (!TextUtils.isEmpty(str) && isOpen && str.equals(curId)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ab7.b bVar) {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, bb7.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            ab7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+            bb7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 }

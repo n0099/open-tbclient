@@ -4,11 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes6.dex */
 public class u68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public List<v68> c;
+    public String d;
+    public String e;
+    public String f;
 
     public u68() {
         Interceptable interceptable = $ic;
@@ -24,17 +33,26 @@ public class u68 {
         }
     }
 
-    public void a(BookInfo bookInfo) {
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bookInfo) != null) || bookInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
             return;
         }
-        String str = bookInfo.book_id;
-        String str2 = bookInfo.title;
-        String str3 = bookInfo.cover;
-        bookInfo.update_time.intValue();
-        bookInfo.book_type.intValue();
-        bookInfo.forum_id.longValue();
-        bookInfo.total_chapter.intValue();
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    v68 v68Var = new v68();
+                    v68Var.a(bookInfo);
+                    this.c.add(v68Var);
+                }
+            }
+        }
     }
 }

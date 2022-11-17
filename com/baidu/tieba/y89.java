@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.write.data.QuestionTagListData;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface y89 {
-    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
+    void a();
+
+    void b();
+
+    boolean c(Bitmap bitmap);
+
+    void d();
 }

@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sm8 {
+public class sm8 extends hm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<sm8> e;
+    public tm8 c;
 
     public sm8() {
         Interceptable interceptable = $ic;
@@ -33,29 +27,31 @@ public class sm8 {
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    public tm8 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String str = null;
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            if (optString != null) {
-                str = this.d + "?v=2";
-            }
-            this.d = str;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<sm8> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    sm8 sm8Var = new sm8();
-                    sm8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(sm8Var);
-                }
-                this.e = arrayList;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (tm8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hm8
+    public void d(JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
+            tm8 tm8Var = new tm8();
+            tm8Var.a(optJSONObject);
+            i(tm8Var);
+        }
+    }
+
+    public void i(tm8 tm8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tm8Var) == null) {
+            this.c = tm8Var;
+            g(null);
         }
     }
 }

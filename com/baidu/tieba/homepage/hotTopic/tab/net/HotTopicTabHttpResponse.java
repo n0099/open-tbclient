@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.b27;
-import com.baidu.tieba.j17;
+import com.baidu.tieba.c27;
+import com.baidu.tieba.k17;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b27 {
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements c27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
@@ -39,7 +39,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b
         }
     }
 
-    @Override // com.baidu.tieba.b27
+    @Override // com.baidu.tieba.c27
     public List<xn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b27
+    @Override // com.baidu.tieba.c27
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b
             if (getError() != 0 || hotThreadListResIdl.data == null) {
                 return;
             }
-            this.mHotTopicDataList = j17.c(hotThreadListResIdl);
+            this.mHotTopicDataList = k17.c(hotThreadListResIdl);
         }
     }
 }

@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a11;
-import com.baidu.tieba.hg8;
-import com.baidu.tieba.ur4;
+import com.baidu.tieba.aq5;
+import com.baidu.tieba.ig8;
+import com.baidu.tieba.vr4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public ur4 i;
+    public vr4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.obfuscated_res_0x7f0900eb) {
-                    ur4.b bVar = this.a.i.g;
+                    vr4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,7 +155,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.obfuscated_res_0x7f0900e8) {
-                        ur4.a aVar = this.a.i.h;
+                        vr4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                hg8.a(this.a.getContext(), str3, null, null, str);
+                ig8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, zp5.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, aq5.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(ur4 ur4Var) {
+    public void setAppInfo(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ur4Var) == null) {
-            if (ur4Var != null && ur4.c(ur4Var)) {
-                this.i = ur4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vr4Var) == null) {
+            if (vr4Var != null && vr4.c(vr4Var)) {
+                this.i = vr4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(ur4Var.c)) {
+                    if (!TextUtils.isEmpty(vr4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(ur4Var.c);
+                        this.a.setText(vr4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = ur4Var.e;
+                    float f = vr4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(ur4Var.e);
+                        this.b.setRating(vr4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(ur4Var.f)) {
+                    if (!TextUtils.isEmpty(vr4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(ur4Var.f);
+                        this.c.setText(vr4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(ur4Var.d)) {
+                    if (!TextUtils.isEmpty(vr4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(ur4Var.d);
+                        this.d.setText(vr4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    ur4.b bVar = ur4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(ur4Var.g.a)) {
+                    vr4.b bVar = vr4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(vr4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(ur4Var.g.a);
+                        this.e.setText(vr4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    ur4.a aVar = ur4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(ur4Var.h.a)) {
+                    vr4.a aVar = vr4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(vr4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(ur4Var.h.a);
+                        this.f.setText(vr4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

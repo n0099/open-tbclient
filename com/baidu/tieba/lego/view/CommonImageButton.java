@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj7;
-import com.baidu.tieba.oi7;
+import com.baidu.tieba.ej7;
+import com.baidu.tieba.pi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,26 +102,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(dj7 dj7Var) {
+    public void b(ej7 ej7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dj7Var) != null) || dj7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ej7Var) != null) || ej7Var == null) {
             return;
         }
-        if (!dj7Var.j()) {
-            oi7.a().d(dj7Var, dj7Var.h());
+        if (!ej7Var.j()) {
+            pi7.a().d(ej7Var, ej7Var.h());
         }
-        if (dj7Var.a()) {
-            c(dj7Var);
+        if (ej7Var.a()) {
+            c(ej7Var);
         } else {
-            d(dj7Var);
+            d(ej7Var);
         }
     }
 
-    public final void c(dj7 dj7Var) {
+    public final void c(ej7 ej7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ej7Var) == null) {
             this.d.setVisibility(8);
-            int f = dj7Var.f();
+            int f = ej7Var.f();
             if (f != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, f);
@@ -131,10 +131,10 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(dj7 dj7Var) {
+    public final void d(ej7 ej7Var) {
         String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dj7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ej7Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
             boolean z = true;
@@ -142,9 +142,9 @@ public class CommonImageButton extends FrameLayout {
                 z = false;
             }
             if (z) {
-                d = dj7Var.e();
+                d = ej7Var.e();
             } else {
-                d = dj7Var.d();
+                d = ej7Var.d();
             }
             this.d.K(d, 10, false);
         }

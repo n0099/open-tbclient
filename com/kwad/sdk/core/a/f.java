@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.n;
 import java.util.Base64;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f implements h {
     @Override // com.kwad.sdk.core.a.h
     public final void a(String str, Map<String, String> map, String str2) {

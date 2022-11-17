@@ -15,28 +15,28 @@ import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.win.opensdk.PBError;
-import com.win.opensdk.PBSplash;
-import com.win.opensdk.PBSplashListener;
+import com.win.opensdk.PBVideo;
+import com.win.opensdk.PBVideoListener;
 /* loaded from: classes4.dex */
-public class jr9 extends ReporterPidLoader<PBSplash> {
+public class jr9 extends ReporterPidLoader<PBVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements PBSplashListener {
+    public class a implements PBVideoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
-        public final /* synthetic */ PBSplash c;
+        public final /* synthetic */ PBVideo c;
         public final /* synthetic */ jr9 d;
 
-        public a(jr9 jr9Var, PBSplash pBSplash) {
+        public a(jr9 jr9Var, PBVideo pBVideo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jr9Var, pBSplash};
+                Object[] objArr = {jr9Var, pBVideo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public class jr9 extends ReporterPidLoader<PBSplash> {
                 }
             }
             this.d = jr9Var;
-            this.c = pBSplash;
+            this.c = pBVideo;
         }
 
         @Override // com.win.opensdk.PBListener
@@ -60,30 +60,11 @@ public class jr9 extends ReporterPidLoader<PBSplash> {
             }
         }
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayError(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
         @Override // com.win.opensdk.PBListener
         public void onFail(PBError pBError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                LogPrinter.e("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
                 this.d.onError(pBError.getCode(), pBError.getMsg());
             }
         }
@@ -91,34 +72,53 @@ public class jr9 extends ReporterPidLoader<PBSplash> {
         @Override // com.win.opensdk.PBListener
         public void onLoaded() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
                 this.d.onAdLoaded((jr9) this.c);
             }
         }
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onSkip() {
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdClosed() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
                 this.d.onAdClose(this.c);
             }
         }
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onTimeOver() {
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdOpened() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 LogPrinter.d();
-                this.d.onAdClose(this.c);
+                this.d.onAdShow(this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedShowFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                LogPrinter.d();
+                this.d.onAdError(this.c, 0, str);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onUserEarnedReward(boolean z, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+                LogPrinter.d();
+                this.d.onRewardedVideo(this.c, z, new String[0]);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jr9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public class jr9 extends ReporterPidLoader<PBSplash> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -140,32 +140,49 @@ public class jr9 extends ReporterPidLoader<PBSplash> {
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
             onLoadStart(funAdSlot);
-            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
-            pBSplash.setLoadTimeOut(5000L);
-            pBSplash.setSplashListener(new a(this, pBSplash));
-            pBSplash.load();
+            PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.mPid.pid);
+            pBVideo.setVideoListener(new a(this, pBVideo));
+            pBVideo.load();
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
-        PBSplash pBSplash;
+        PBVideo pBVideo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
-            pBSplash.destroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBVideo = (PBVideo) obj) != null) {
+            pBVideo.destroy();
         }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            if (pBVideo != null && pBVideo.isReady()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            PBSplash pBSplash = (PBSplash) obj;
-            onShowStart(pBSplash);
-            pBSplash.show(viewGroup);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            onShowStart(pBVideo);
+            if (!pBVideo.isReady()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                return false;
+            }
+            pBVideo.show();
             return true;
         }
         return invokeLLLL.booleanValue;

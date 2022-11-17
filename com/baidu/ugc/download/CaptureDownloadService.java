@@ -7,11 +7,11 @@ import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej9;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.fj9;
 import com.baidu.tieba.rg9;
 import com.baidu.tieba.sg9;
 import com.baidu.tieba.tg9;
+import com.baidu.tieba.ug9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
     public transient /* synthetic */ FieldHolder $fh;
-    public qg9 mDownloadManager;
+    public rg9 mDownloadManager;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -45,21 +45,21 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends tg9 {
+    public static class a extends ug9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public sg9 b;
+        public tg9 b;
         public LocalBroadcastManager c;
         public long d;
         public int e;
 
-        public a(int i, sg9 sg9Var, Context context) {
+        public a(int i, tg9 tg9Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), sg9Var, context};
+                Object[] objArr = {Integer.valueOf(i), tg9Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -70,11 +70,11 @@ public class CaptureDownloadService extends Service {
                 }
             }
             this.a = i;
-            this.b = sg9Var;
+            this.b = tg9Var;
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.baidu.tieba.tg9
+        @Override // com.baidu.tieba.ug9
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -85,7 +85,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.tg9
+        @Override // com.baidu.tieba.ug9
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
@@ -110,7 +110,7 @@ public class CaptureDownloadService extends Service {
             return invokeI.booleanValue;
         }
 
-        @Override // com.baidu.tieba.tg9
+        @Override // com.baidu.tieba.ug9
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -121,7 +121,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.tg9
+        @Override // com.baidu.tieba.ug9
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -130,7 +130,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.tg9
+        @Override // com.baidu.tieba.ug9
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -139,20 +139,20 @@ public class CaptureDownloadService extends Service {
                 }
                 this.b.f(3);
                 this.b.d(i);
-                this.b.c(ej9.a(j, j2));
+                this.b.c(fj9.a(j, j2));
                 if (i(i)) {
                     j(this.b);
                 }
             }
         }
 
-        public final void j(sg9 sg9Var) {
+        public final void j(tg9 tg9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, sg9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, tg9Var) == null) {
                 Intent intent = new Intent();
                 intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
                 intent.putExtra("extra_position", this.a);
-                intent.putExtra("extra_file_info", sg9Var.g().toString());
+                intent.putExtra("extra_file_info", tg9Var.g().toString());
                 this.c.sendBroadcast(intent);
             }
         }
@@ -191,7 +191,7 @@ public class CaptureDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mDownloadManager = qg9.h();
+            this.mDownloadManager = rg9.h();
         }
     }
 
@@ -263,30 +263,30 @@ public class CaptureDownloadService extends Service {
         }
     }
 
-    private void download(int i, sg9 sg9Var, String str) {
+    private void download(int i, tg9 tg9Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i, sg9Var, str) == null) {
-            rg9.b bVar = new rg9.b();
-            bVar.d(sg9Var.a());
-            this.mDownloadManager.f(bVar.a(), str, new a(i, sg9Var, getApplicationContext()));
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, tg9Var, str) == null) {
+            sg9.b bVar = new sg9.b();
+            bVar.d(tg9Var.a());
+            this.mDownloadManager.f(bVar.a(), str, new a(i, tg9Var, getApplicationContext()));
         }
     }
 
-    public static void start(Context context, String str, sg9 sg9Var) {
+    public static void start(Context context, String str, tg9 tg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, sg9Var) == null) {
-            start(context, 0, str, sg9Var);
+        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, tg9Var) == null) {
+            start(context, 0, str, tg9Var);
         }
     }
 
-    public static void start(Context context, int i, String str, sg9 sg9Var) {
+    public static void start(Context context, int i, String str, tg9 tg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, sg9Var) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, tg9Var) == null) {
             Intent intent = new Intent(context, CaptureDownloadService.class);
             intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
             intent.putExtra("extra_position", i);
             intent.putExtra("extra_tag", str);
-            intent.putExtra("extra_file_info", sg9Var.g().toString());
+            intent.putExtra("extra_file_info", tg9Var.g().toString());
             context.startService(intent);
         }
     }
@@ -307,8 +307,8 @@ public class CaptureDownloadService extends Service {
                 String action = intent.getAction();
                 char c = 0;
                 int intExtra = intent.getIntExtra("extra_position", 0);
-                sg9 sg9Var = new sg9();
-                sg9Var.b(intent.getStringExtra("extra_file_info"));
+                tg9 tg9Var = new tg9();
+                tg9Var.b(intent.getStringExtra("extra_file_info"));
                 String stringExtra = intent.getStringExtra("extra_tag");
                 switch (action.hashCode()) {
                     case -2000112966:
@@ -362,7 +362,7 @@ public class CaptureDownloadService extends Service {
                         pause(stringExtra);
                     }
                 } else {
-                    download(intExtra, sg9Var, stringExtra);
+                    download(intExtra, tg9Var, stringExtra);
                 }
             }
             return super.onStartCommand(intent, i, i2);

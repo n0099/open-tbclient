@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pa5;
+import com.baidu.tieba.qa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,14 +57,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void M0(pa5 pa5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void M0(qa5 qa5Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, pa5Var, fragmentTabIndicator, str) != null) || pa5Var == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, qa5Var, fragmentTabIndicator, str) != null) || qa5Var == null) {
             return;
         }
         FragmentTabHost.c cVar = new FragmentTabHost.c();
-        cVar.c = pa5Var.a;
-        fragmentTabIndicator.setText(pa5Var.b);
+        cVar.c = qa5Var.a;
+        fragmentTabIndicator.setText(qa5Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
@@ -104,24 +104,24 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
             sigleRecordsFragment.I1(1);
-            pa5 pa5Var = new pa5();
-            pa5Var.a = this.c;
-            pa5Var.b = R.string.obfuscated_res_0x7f0f05f4;
-            M0(pa5Var, O0(getPageContext().getPageActivity()), null);
+            qa5 qa5Var = new qa5();
+            qa5Var.a = this.c;
+            qa5Var.b = R.string.obfuscated_res_0x7f0f05f4;
+            M0(qa5Var, O0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
             sigleRecordsFragment2.I1(2);
-            pa5 pa5Var2 = new pa5();
-            pa5Var2.a = this.d;
-            pa5Var2.b = R.string.obfuscated_res_0x7f0f0912;
-            M0(pa5Var2, O0(getPageContext().getPageActivity()), null);
+            qa5 qa5Var2 = new qa5();
+            qa5Var2.a = this.d;
+            qa5Var2.b = R.string.obfuscated_res_0x7f0f0912;
+            M0(qa5Var2, O0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.I1(3);
-            pa5 pa5Var3 = new pa5();
-            pa5Var3.a = this.e;
-            pa5Var3.b = R.string.obfuscated_res_0x7f0f0fe0;
-            M0(pa5Var3, O0(getPageContext().getPageActivity()), null);
+            qa5 qa5Var3 = new qa5();
+            qa5Var3.a = this.e;
+            qa5Var3.b = R.string.obfuscated_res_0x7f0f0fe0;
+            M0(qa5Var3, O0(getPageContext().getPageActivity()), null);
             this.b.l(3);
             this.b.setCurrentTab(N0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }

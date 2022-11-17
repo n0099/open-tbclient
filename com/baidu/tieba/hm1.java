@@ -31,7 +31,7 @@ public class hm1 implements ko1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new kw9(inputStream);
+            return new lw9(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

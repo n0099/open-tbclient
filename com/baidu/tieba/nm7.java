@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nm7 implements BrowserProxyService {
+public class nm7 extends zf1<BrowserProxyService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +26,15 @@ public class nm7 implements BrowserProxyService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
-    public IBrowserView buildLightBrowserViewInstance() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zf1
+    /* renamed from: a */
+    public BrowserProxyService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new lm7();
+            return new om7();
         }
-        return (IBrowserView) invokeV.objValue;
+        return (BrowserProxyService) invokeV.objValue;
     }
 }

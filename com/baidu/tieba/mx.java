@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mx extends ax<sr4> {
+public class mx extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout f;
-    public sr4 g;
+    public tr4 g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -80,13 +80,13 @@ public class mx extends ax<sr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: t */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sr4Var) == null) && (cardForumHeadLayout = this.f) != null && sr4Var != null) {
-            this.g = sr4Var;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) && (cardForumHeadLayout = this.f) != null && tr4Var != null) {
+            this.g = tr4Var;
             cardForumHeadLayout.setOnClickListener();
-            this.f.setData(sr4Var.getThreadData());
+            this.f.setData(tr4Var.getThreadData());
         }
     }
 

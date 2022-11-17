@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iz4;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -104,35 +104,35 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = g;
             layoutParams2.rightMargin = g;
             addView(this.b, layoutParams2);
-            pw4 d = pw4.d(this.a);
+            qw4 d = qw4.d(this.a);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X02);
-            pw4 d2 = pw4.d(this.b);
+            qw4 d2 = qw4.d(this.b);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
         }
     }
 
-    public void setData(iz4 iz4Var) {
+    public void setData(jz4 jz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iz4Var) == null) {
-            int i = iz4Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jz4Var) == null) {
+            int i = jz4Var.g;
             int i2 = -2;
             if (i < 0) {
                 i = -2;
             }
-            int i3 = iz4Var.h;
+            int i3 = jz4Var.h;
             if (i3 >= 0) {
                 i2 = i3;
             }
             setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            this.a.setText(iz4Var.a);
-            SkinManager.setViewTextColor(this.a, iz4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = iz4Var.f;
-            this.b.setText(iz4Var.b);
-            SkinManager.setViewTextColor(this.b, iz4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = iz4Var.f + yi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, iz4Var.e);
+            this.a.setText(jz4Var.a);
+            SkinManager.setViewTextColor(this.a, jz4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = jz4Var.f;
+            this.b.setText(jz4Var.b);
+            SkinManager.setViewTextColor(this.b, jz4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = jz4Var.f + yi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, jz4Var.e);
         }
     }
 }

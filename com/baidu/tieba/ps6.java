@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.util.PriorityOrganizer;
@@ -64,23 +65,28 @@ public class ps6 extends PriorityOrganizer.Task {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (gw4.k()) {
+            boolean z = false;
+            if (hw4.k()) {
                 return false;
             }
-            ao8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            bo8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
             if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
                 for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
-                    if (frsTabInfo.tab_id.intValue() == 502 && py4.k().h("first_into_tab_profession", true)) {
+                    if (frsTabInfo.tab_id.intValue() == 502 && qy4.k().h("first_into_tab_profession", true)) {
                         return false;
                     }
                 }
             }
-            tl6 tl6Var = new tl6(this.n.getPageContext());
-            this.m.v4(tl6Var);
-            boolean j = tl6Var.j(frsResponseData);
-            this.m.t4(j);
-            this.m.y4(j);
-            return j;
+            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
+                z = true;
+            }
+            if (z) {
+                boolean j = fv6.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
+                this.m.u4(j);
+                this.m.y4(j);
+                return j;
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }

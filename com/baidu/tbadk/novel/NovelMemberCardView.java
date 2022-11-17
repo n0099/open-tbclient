@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.q55;
-import com.baidu.tieba.sd5;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.r55;
 import com.baidu.tieba.td5;
+import com.baidu.tieba.ud5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public ImageView f;
     public View g;
     public TextView h;
-    public q55 i;
+    public r55 i;
     public boolean j;
     public String k;
     public int l;
@@ -119,10 +119,10 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         e(context);
     }
 
-    public void f(q55 q55Var) {
+    public void f(r55 r55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q55Var) == null) {
-            if (q55Var.h()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r55Var) == null) {
+            if (r55Var.h()) {
                 this.b.setVisibility(8);
                 this.g.setVisibility(0);
                 this.h.setText(R.string.obfuscated_res_0x7f0f0d07);
@@ -185,7 +185,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return sd5.g(sd5.a(str, "sectionIndex", this.l));
+            return td5.g(td5.a(str, "sectionIndex", this.l));
         }
         return (String) invokeL.objValue;
     }
@@ -204,7 +204,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         if ((interceptable != null && interceptable.invokeV(65542, this) != null) || this.i == null) {
             return;
         }
-        String c = sd5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
+        String c = td5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
         ReadRecordsData readRecordsData = (ReadRecordsData) OrmObject.objectWithJsonStr(c, ReadRecordsData.class);
         if (!StringUtils.isNull(c) && readRecordsData != null && readRecordsData.A()) {
             this.k = readRecordsData.z();
@@ -221,11 +221,11 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
         this.a = skinType;
         this.c.setSkinType(skinType);
-        pw4 d = pw4.d(this.d);
+        qw4 d = qw4.d(this.d);
         d.A(R.string.F_X01);
         d.z(R.dimen.T_X05);
         d.v(R.color.CAM_X0319);
-        pw4 d2 = pw4.d(this.h);
+        qw4 d2 = qw4.d(this.h);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X05);
         d2.v(R.color.CAM_X0304);
@@ -234,19 +234,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     }
 
     public final void d(View view2) {
-        q55 q55Var;
+        r55 r55Var;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (q55Var = this.i) != null) {
-            if (q55Var.h()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (r55Var = this.i) != null) {
+            if (r55Var.h()) {
                 i = 2;
             } else {
                 i = 1;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f09174b) {
-                td5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
+                ud5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
             } else {
-                td5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
+                ud5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
             }
         }
     }
@@ -274,13 +274,13 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    public void setData(q55 q55Var) {
+    public void setData(r55 r55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, q55Var) == null) {
-            if (q55Var != null && !q55Var.i()) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, r55Var) == null) {
+            if (r55Var != null && !r55Var.i()) {
                 setVisibility(0);
-                this.i = q55Var;
-                if (!StringUtils.isNull(q55Var.d())) {
+                this.i = r55Var;
+                if (!StringUtils.isNull(r55Var.d())) {
                     this.c.K(this.i.d(), 10, false);
                 } else {
                     this.c.setVisibility(8);
@@ -346,19 +346,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     }
 
     public void j() {
-        q55 q55Var;
+        r55 r55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (q55Var = this.i) != null) {
-            f(q55Var);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (r55Var = this.i) != null) {
+            f(r55Var);
         }
     }
 
     public final void h() {
-        q55 q55Var;
+        r55 r55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (q55Var = this.i) != null && !StringUtils.isNull(q55Var.c()) && !StringUtils.isNull(this.i.a())) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (r55Var = this.i) != null && !StringUtils.isNull(r55Var.c()) && !StringUtils.isNull(this.i.a())) {
             if (this.i.h()) {
-                k(l(sd5.f(this.i.c(), "data", "cid", this.k)), true);
+                k(l(td5.f(this.i.c(), "data", "cid", this.k)), true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
                 return;
             }

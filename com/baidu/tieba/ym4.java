@@ -55,7 +55,7 @@ public class ym4 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof kr8) && ((kr8) data).b) {
+                if ((data instanceof lr8) && ((lr8) data).b) {
                     this.a.e();
                 }
             }

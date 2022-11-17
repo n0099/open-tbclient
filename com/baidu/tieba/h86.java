@@ -1,13 +1,32 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import com.baidu.tieba.p86;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface h86 {
-    void a(t66 t66Var, long j, t86 t86Var, n66 n66Var);
+public final class h86 extends g86 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(t66 t66Var);
-
-    void c(int i, int i2);
-
-    void clear();
-
-    boolean d(t66 t66Var, long j, t86 t86Var, n66 n66Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h86() {
+        super(new BottomRetainer(0.5f), new n86());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((p86) objArr[0], (p86.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

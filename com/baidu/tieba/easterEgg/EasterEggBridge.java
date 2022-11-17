@@ -2,12 +2,12 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ca6;
-import com.baidu.tieba.ga6;
+import com.baidu.tieba.da6;
 import com.baidu.tieba.ha6;
 import com.baidu.tieba.ia6;
+import com.baidu.tieba.ja6;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.yp8;
+import com.baidu.tieba.zp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EasterEggBridge implements yp8 {
+public class EasterEggBridge implements zp8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -26,7 +26,7 @@ public class EasterEggBridge implements yp8 {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ca6> mListener;
+    public List<da6> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -42,36 +42,36 @@ public class EasterEggBridge implements yp8 {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new ha6());
         addListener(new ia6());
-        addListener(new ga6());
+        addListener(new ja6());
+        addListener(new ha6());
     }
 
-    public void addListener(ca6 ca6Var) {
-        List<ca6> list;
+    public void addListener(da6 da6Var) {
+        List<da6> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ca6Var) == null) && ca6Var != null && (list = this.mListener) != null) {
-            list.add(ca6Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, da6Var) == null) && da6Var != null && (list = this.mListener) != null) {
+            list.add(da6Var);
         }
     }
 
-    public void removeListener(ca6 ca6Var) {
-        List<ca6> list;
+    public void removeListener(da6 da6Var) {
+        List<da6> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ca6Var) == null) && ca6Var != null && (list = this.mListener) != null) {
-            list.remove(ca6Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, da6Var) == null) && da6Var != null && (list = this.mListener) != null) {
+            list.remove(da6Var);
         }
     }
 
     public void clearListener() {
-        List<ca6> list;
+        List<da6> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mListener) != null) {
             list.clear();
         }
     }
 
-    @Override // com.baidu.tieba.yp8
+    @Override // com.baidu.tieba.zp8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -84,9 +84,9 @@ public class EasterEggBridge implements yp8 {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (ca6 ca6Var : this.mListener) {
-                        if (trim.equals(ca6Var.b())) {
-                            ca6Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
+                    for (da6 da6Var : this.mListener) {
+                        if (trim.equals(da6Var.b())) {
+                            da6Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }
                 } catch (JSONException unused) {

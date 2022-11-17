@@ -1,143 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public abstract class d76 extends b76 implements q0 {
+public final class d76 implements Comparator<p0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s0 e;
-    public final Comparator<p0> f;
-    public final List<p0> g;
-    public boolean h;
 
-    @Override // com.baidu.tieba.b76
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public abstract void l(p0 p0Var, float f);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d76(y66 context, s0 family, Comparator<p0> comparator) {
-        super(context);
+    public d76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, family, comparator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y66) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(family, "family");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.e = family;
-        this.f = comparator;
-        this.g = new ArrayList();
-    }
-
-    public /* synthetic */ d76(y66 y66Var, s0 s0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(y66Var, s0Var, (i & 4) != 0 ? new c76() : comparator);
-    }
-
-    @Override // com.baidu.tieba.q0
-    public void a(p0 entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.remove(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.q0
-    public void b(p0 entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.add(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.b76, com.baidu.tieba.r0
-    public void g(o0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            engine.o(this);
-            this.g.clear();
-            this.h = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.r0
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            m();
-            for (p0 p0Var : this.g) {
-                l(p0Var, f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.r0
-    public void c(o0 engine) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(p0 entity1, p0 entity2) {
+        InterceptResult invokeLL;
+        u66 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            this.g.clear();
-            z0<p0> newEntities = engine.j(this.e);
-            if (newEntities.size() > 0) {
-                List<p0> list = this.g;
-                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
-                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            g76 b = e86.b(entity2);
+            u66 u66Var = null;
+            if (b == null) {
+                a = null;
+            } else {
+                a = b.a();
             }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-            engine.f(this.e, this);
+            if (a == null) {
+                return 0;
+            }
+            g76 b2 = e86.b(entity1);
+            if (b2 != null) {
+                u66Var = b2.a();
+            }
+            if (u66Var == null) {
+                return 0;
+            }
+            return u66Var.compareTo(a);
         }
-    }
-
-    public final List<p0> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            m();
-            return this.g;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-        }
+        return invokeLL.intValue;
     }
 }

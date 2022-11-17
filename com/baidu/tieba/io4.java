@@ -272,7 +272,7 @@ public class io4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            py4 k = py4.k();
+            qy4 k = qy4.k();
             String q = k.q("key_sdk_task_expand_data_" + str, "");
             if (!TextUtils.isEmpty(q)) {
                 try {
@@ -301,7 +301,7 @@ public class io4 {
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            py4 k = py4.k();
+            qy4 k = qy4.k();
             k.y("key_sdk_task_expand_data_" + str, str2);
         }
     }

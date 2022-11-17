@@ -81,7 +81,7 @@ public class kn4 {
                 if (missionInfo != null) {
                     km4 km4Var = new km4(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        ny4.e().g(missionInfo);
+                        oy4.e().g(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         ym4.c().f(km4Var);
                     } else if (km4Var.L()) {

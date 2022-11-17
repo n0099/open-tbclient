@@ -29,7 +29,7 @@ public class et3 {
 
         /* renamed from: com.baidu.tieba.et3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0252a extends ResponseCallback<os3> {
+        public class C0255a extends ResponseCallback<os3> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -43,18 +43,18 @@ public class et3 {
 
             /* renamed from: com.baidu.tieba.et3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0253a implements Runnable {
+            public class RunnableC0256a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ os3 a;
-                public final /* synthetic */ C0252a b;
+                public final /* synthetic */ C0255a b;
 
-                public RunnableC0253a(C0252a c0252a, os3 os3Var) {
+                public RunnableC0256a(C0255a c0255a, os3 os3Var) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0252a, os3Var};
+                        Object[] objArr = {c0255a, os3Var};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -64,7 +64,7 @@ public class et3 {
                             return;
                         }
                     }
-                    this.b = c0252a;
+                    this.b = c0255a;
                     this.a = os3Var;
                 }
 
@@ -77,7 +77,7 @@ public class et3 {
                 }
             }
 
-            public C0252a(a aVar) {
+            public C0255a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class et3 {
                 if ((interceptable != null && interceptable.invokeLI(1048576, this, os3Var, i) != null) || os3Var == null) {
                     return;
                 }
-                ut3.c(new RunnableC0253a(this, os3Var));
+                ut3.c(new RunnableC0256a(this, os3Var));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -154,9 +154,9 @@ public class et3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0252a c0252a = new C0252a(this);
+                C0255a c0255a = new C0255a(this);
                 if (NetworkUtils.f(this.c.b)) {
-                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0252a);
+                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0255a);
                 }
             }
         }

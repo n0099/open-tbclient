@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i58 extends kn<iy7, VideoPbEnterForumAndTopicViewHolder> {
+public class i58 extends kn<ky7, VideoPbEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,39 +41,39 @@ public class i58 extends kn<iy7, VideoPbEnterForumAndTopicViewHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iy7 iy7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        t(i, view2, viewGroup, iy7Var, videoPbEnterForumAndTopicViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ky7 ky7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        t(i, view2, viewGroup, ky7Var, videoPbEnterForumViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public VideoPbEnterForumAndTopicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public VideoPbEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = yi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.topMargin = yi.g(this.mContext, R.dimen.M_W_X004);
-            layoutParams.rightMargin = yi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = yi.g(this.mContext, R.dimen.M_W_X004);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.mContext, frameLayout);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
+            cardForumHeadLayout.setPadding(yi.g(this.mContext, R.dimen.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, yi.g(this.mContext, R.dimen.tbds156));
+            layoutParams.leftMargin = yi.g(this.mContext, R.dimen.tbds44);
+            layoutParams.rightMargin = yi.g(this.mContext, R.dimen.tbds44);
+            layoutParams.bottomMargin = yi.g(this.mContext, R.dimen.tbds76);
+            frameLayout.addView(cardForumHeadLayout, layoutParams);
+            return new VideoPbEnterForumViewHolder(frameLayout);
         }
-        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
+        return (VideoPbEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, iy7 iy7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, ky7 ky7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iy7Var, videoPbEnterForumAndTopicViewHolder})) == null) {
-            if (iy7Var != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(iy7Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ky7Var, videoPbEnterForumViewHolder})) == null) {
+            if (ky7Var != null) {
+                videoPbEnterForumViewHolder.setData(ky7Var.a);
             }
-            videoPbEnterForumAndTopicViewHolder.a();
+            videoPbEnterForumViewHolder.a();
             return view2;
         }
         return (View) invokeCommon.objValue;

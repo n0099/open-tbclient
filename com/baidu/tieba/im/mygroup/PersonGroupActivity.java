@@ -40,15 +40,15 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c95;
+import com.baidu.tieba.d95;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.im.widget.Game2GroupShareDialogView;
-import com.baidu.tieba.ir4;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.pc7;
+import com.baidu.tieba.jr4;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.qc7;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
@@ -110,7 +110,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* loaded from: classes4.dex */
-    public class a implements jv4.e {
+    public class a implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -139,14 +139,14 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.c = game2GroupShareDialogView;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                long t = pc7.o().t(String.valueOf(this.a), 1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                long t = qc7.o().t(String.valueOf(this.a), 1);
                 MessageUtils.createGroupChatMessage(t, 9, this.b.toChatMessageContent(), this.a);
                 MessageUtils.createGroupChatMessage(t + 1, 1, this.c.getLeaveMsg(), this.a);
-                jv4Var.dismiss();
+                kv4Var.dismiss();
                 this.d.setResult(-1);
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     PersonGroupActivity personGroupActivity = this.d;
@@ -158,7 +158,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* loaded from: classes4.dex */
-    public class b implements jv4.e {
+    public class b implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Game2GroupShareDialogView a;
@@ -183,11 +183,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.a = game2GroupShareDialogView;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
                 ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getWindowToken(), 2);
             }
         }
@@ -228,11 +228,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        ir4.c(3, PersonGroupActivity.v[this.a.c]);
+                        jr4.c(3, PersonGroupActivity.v[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.j, PersonGroupActivity.t[this.a.c], PersonGroupActivity.s[this.a.c]);
                         PersonGroupActivity personGroupActivity = this.a;
                         personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080afb);
-                        this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[ir4.a(3) % 3]));
+                        this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[jr4.a(3) % 3]));
                         return;
                     }
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
@@ -409,7 +409,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c = ir4.a(3) % 3;
+                this.a.c = jr4.a(3) % 3;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                 httpMessage.addParam("opt", "group");
                 httpMessage.addParam("val", String.valueOf(this.a.c + 1));
@@ -605,8 +605,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             } else if (this.g && this.m != 23003) {
                 ImageView imageView = (ImageView) this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d093e, (View.OnClickListener) null);
                 this.j = imageView;
-                SkinManager.setNavbarIconSrc(imageView, t[ir4.a(3) - 1], s[ir4.a(3) - 1]);
-                this.c = ir4.a(3) % 3;
+                SkinManager.setNavbarIconSrc(imageView, t[jr4.a(3) - 1], s[jr4.a(3) - 1]);
+                this.c = jr4.a(3) % 3;
                 this.j.setContentDescription(getPageContext().getString(u[this.c]));
                 this.j.setOnClickListener(new g(this));
             }
@@ -732,7 +732,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, groupInfoData)) == null) {
             if (groupInfoData != null && this.m == 23003) {
                 if (2 == this.n) {
-                    k1(c95.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
+                    k1(d95.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
                     return true;
                 }
                 Intent intent = new Intent();
@@ -776,14 +776,14 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public final void k1(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{shareFromGameCenterMsgData, Long.valueOf(j), str}) == null) {
-            jv4 jv4Var = new jv4(getPageContext().getPageActivity());
-            jv4Var.setContentViewSize(1);
+            kv4 kv4Var = new kv4(getPageContext().getPageActivity());
+            kv4Var.setContentViewSize(1);
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
             game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
-            jv4Var.setContentView(game2GroupShareDialogView);
-            jv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f117f, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
-            jv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new b(this, game2GroupShareDialogView));
-            jv4Var.create(getPageContext()).show();
+            kv4Var.setContentView(game2GroupShareDialogView);
+            kv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f117f, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
+            kv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new b(this, game2GroupShareDialogView));
+            kv4Var.create(getPageContext()).show();
         }
     }
 

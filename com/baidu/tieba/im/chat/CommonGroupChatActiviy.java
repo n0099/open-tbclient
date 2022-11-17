@@ -33,8 +33,8 @@ import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PvCacheModel;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.ue7;
-import com.baidu.tieba.we7;
+import com.baidu.tieba.ve7;
+import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -270,7 +270,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
             String valueOf = String.valueOf(groupData.getGroupId());
             if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-                new ue7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+                new ve7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
                 TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
                 PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
             }
@@ -369,7 +369,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             super.q(view2, i, i2, j);
             if (i != 2) {
                 if (i != 4) {
-                    if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !we7.w(msg2) || content == null) {
+                    if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !xe7.w(msg2) || content == null) {
                         return;
                     }
                     JSONObject jSONObject = null;
@@ -390,11 +390,11 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         return;
                     }
                     return;
-                } else if (!f1() || (msg = this.c.getMsg(i2)) == null || !we7.y(msg)) {
+                } else if (!f1() || (msg = this.c.getMsg(i2)) == null || !xe7.y(msg)) {
                     return;
                 } else {
-                    String i3 = we7.i(msg.getContent(), true);
-                    String i4 = we7.i(msg.getContent(), false);
+                    String i3 = xe7.i(msg.getContent(), true);
+                    String i4 = xe7.i(msg.getContent(), false);
                     if (i3 == null) {
                         return;
                     }

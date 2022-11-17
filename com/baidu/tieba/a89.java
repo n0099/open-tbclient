@@ -1,10 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.dialog.WriteTipBubbleController;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.wo8;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +27,96 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final EditorTools b;
+    @Nullable
+    public WriteTipBubbleController c;
+    public final CustomMessageListener d;
+    public final WriteTipBubbleController.b e;
 
     /* loaded from: classes3.dex */
-    public static class a implements wo8.f {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
+        public final /* synthetic */ a89 a;
 
-        public a(EditorTools editorTools) {
+        /* loaded from: classes3.dex */
+        public class a extends oj5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.oj5
+            public String doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return UtilHelper.getClipBoardContent();
+                }
+                return (String) invokeV.objValue;
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class b implements ti5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ti5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                    return;
+                }
+                this.a.a.h(str);
+            }
+        }
+
+        public c(a89 a89Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
+                Object[] objArr = {a89Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,30 +126,71 @@ public class a89 {
                     return;
                 }
             }
-            this.a = editorTools;
+            this.a = a89Var;
         }
 
-        @Override // com.baidu.tieba.wo8.f
-        public void onRefresh() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A(new k65(2, 12, null));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a != null) {
+                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                    sj5.b(new a(this), new b(this));
+                    return;
+                }
+                this.a.h(UtilHelper.getClipBoardContent());
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements wo8.f {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
+        public final /* synthetic */ a89 a;
 
-        public b(EditorTools editorTools) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a89 a89Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
+                Object[] objArr = {a89Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a89Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements WriteTipBubbleController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a89 a;
+
+        public b(a89 a89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a89Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,185 +200,115 @@ public class a89 {
                     return;
                 }
             }
-            this.a = editorTools;
+            this.a = a89Var;
         }
 
-        @Override // com.baidu.tieba.wo8.f
-        public void onRefresh() {
+        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
+        public void a(View view2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, str) != null) || this.a.c == null) {
+                return;
+            }
+            TiebaStatic.log("c13802");
+            this.a.c.c();
+            UtilHelper.clearClipBoard();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.a.getPageActivity(), 25049, str, false, null)));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ a89 b;
+
+        public d(a89 a89Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a89Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a89Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A(new k65(2, 12, null));
+                View s = this.b.b.a.s(31);
+                WriteTipBubbleController writeTipBubbleController = this.b.c;
+                writeTipBubbleController.d(s, this.b.a.getString(R.string.obfuscated_res_0x7f0f064e) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
             }
         }
     }
 
-    public static z59 a(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public a89(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return new z59(tbPageContext);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (z59) invokeL.objValue;
+        this.d = new a(this, 2001011);
+        this.e = new b(this);
+        this.a = tbPageContext;
+        this.b = editorTools;
     }
 
-    public static b69 b(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            return new b69(tbPageContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new c(this));
         }
-        return (b69) invokeL.objValue;
     }
 
-    public static d69 d(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void f() {
+        WriteTipBubbleController writeTipBubbleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
-            return new d69(tbPageContext);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeTipBubbleController = this.c) != null) {
+            writeTipBubbleController.c();
         }
-        return (d69) invokeL.objValue;
     }
 
-    public static e69 e(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            return new e69(tbPageContext);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.registerListener(this.d);
         }
-        return (e69) invokeL.objValue;
     }
 
-    public static f69 f(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public final void h(String str) {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
-            return new f69(tbPageContext);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !xi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+            int i = 0;
+            TbPageContext<?> tbPageContext = this.a;
+            if (tbPageContext != null && tbPageContext.getPageActivity() != null && (findViewById = this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092654)) != null && findViewById.getVisibility() == 0) {
+                i = 5000;
+            }
+            if (this.c == null) {
+                this.c = new WriteTipBubbleController(this.a, this.e);
+            }
+            ah.a().postDelayed(new d(this, str), i);
         }
-        return (f69) invokeL.objValue;
-    }
-
-    public static g69 g(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
-            return new g69(tbPageContext);
-        }
-        return (g69) invokeL.objValue;
-    }
-
-    public static i69 i(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
-            return new i69(tbPageContext);
-        }
-        return (i69) invokeL.objValue;
-    }
-
-    public static j69 j(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
-            return new j69(tbPageContext);
-        }
-        return (j69) invokeL.objValue;
-    }
-
-    public static k69 k(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
-            return new k69(tbPageContext);
-        }
-        return (k69) invokeL.objValue;
-    }
-
-    public static l69 l(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
-            return new l69(tbPageContext);
-        }
-        return (l69) invokeL.objValue;
-    }
-
-    public static o69 o(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
-            return new o69(tbPageContext);
-        }
-        return (o69) invokeL.objValue;
-    }
-
-    public static p69 p(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
-            return new p69(tbPageContext);
-        }
-        return (p69) invokeL.objValue;
-    }
-
-    public static q69 q(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
-            return new q69(tbPageContext);
-        }
-        return (q69) invokeL.objValue;
-    }
-
-    public static r69 r(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
-            return new r69(tbPageContext);
-        }
-        return (r69) invokeL.objValue;
-    }
-
-    public static c69 c(@NonNull TbPageContext<?> tbPageContext, @NonNull t69 t69Var, @NonNull EditorTools editorTools, @NonNull m59 m59Var, @NonNull e89 e89Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, t69Var, editorTools, m59Var, e89Var)) == null) {
-            c69 c69Var = new c69(tbPageContext, m59Var, e89Var);
-            c69Var.T(t69Var);
-            c69Var.Z(new a(editorTools));
-            return c69Var;
-        }
-        return (c69) invokeLLLLL.objValue;
-    }
-
-    public static h69 h(@NonNull TbPageContext<?> tbPageContext, @NonNull i89 i89Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, i89Var)) == null) {
-            return new h69(tbPageContext, i89Var);
-        }
-        return (h69) invokeLL.objValue;
-    }
-
-    public static m69 m(@NonNull TbPageContext<?> tbPageContext, @NonNull t69 t69Var, @NonNull EditorTools editorTools, @NonNull i89 i89Var, @NonNull m59 m59Var, @NonNull e89 e89Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, t69Var, editorTools, i89Var, m59Var, e89Var})) == null) {
-            m69 m69Var = new m69(tbPageContext, i89Var, m59Var, e89Var);
-            m69Var.V(t69Var);
-            m69Var.X(new b(editorTools));
-            return m69Var;
-        }
-        return (m69) invokeCommon.objValue;
-    }
-
-    public static n69 n(@NonNull TbPageContext<?> tbPageContext, @NonNull t69 t69Var, @NonNull m59 m59Var, @NonNull e89 e89Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, t69Var, m59Var, e89Var)) == null) {
-            n69 n69Var = new n69(tbPageContext, m59Var, e89Var);
-            n69Var.M(t69Var);
-            return n69Var;
-        }
-        return (n69) invokeLLLL.objValue;
     }
 }

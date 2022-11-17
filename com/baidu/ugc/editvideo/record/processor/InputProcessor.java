@@ -7,9 +7,9 @@ import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tieba.fg0;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.ij9;
 import com.baidu.tieba.ng0;
-import com.baidu.tieba.uj9;
+import com.baidu.tieba.vj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class InputProcessor extends BaseEffectProcessor {
             return;
         }
         if (i2 == 0) {
-            uj9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+            vj9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InputProcessor this$0;
@@ -130,7 +130,7 @@ public class InputProcessor extends BaseEffectProcessor {
             if (fg0Var == null || fg0Var.l() == null) {
                 return i;
             }
-            MediaTrack mediaTrack = (MediaTrack) hj9.c(fg0Var.l(), 0);
+            MediaTrack mediaTrack = (MediaTrack) ij9.c(fg0Var.l(), 0);
             boolean m = ng0.m(mediaTrack, "input_blank");
             int f = !m ? fg0Var.f(mediaTrack, fg0Var.f(mediaTrack, fg0Var.f(mediaTrack, fg0Var.f(mediaTrack, fg0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {

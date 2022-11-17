@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jr8;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.kr8;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -115,11 +115,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
-            pw4 d = pw4.d(this.b);
+            qw4 d = qw4.d(this.b);
             d.v(R.color.CAM_X0101);
             d.z(R.dimen.T_X06);
             d.A(R.string.F_X01);
-            pw4 d2 = pw4.d(this.c);
+            qw4 d2 = qw4.d(this.c);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
@@ -148,7 +148,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            jr8.c();
+            kr8.c();
         }
     }
 

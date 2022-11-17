@@ -30,7 +30,7 @@ public class wn0 extends zf1<co0> {
 
         /* renamed from: com.baidu.tieba.wn0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0458a implements dr0<JSONObject> {
+        public class C0462a implements dr0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xp0 a;
@@ -45,7 +45,7 @@ public class wn0 extends zf1<co0> {
                 }
             }
 
-            public C0458a(a aVar, xp0 xp0Var, co0.b bVar, iq0 iq0Var) {
+            public C0462a(a aVar, xp0 xp0Var, co0.b bVar, iq0 iq0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public class wn0 extends zf1<co0> {
                 lr0Var.l(d(xp0Var.d()));
                 lr0Var.h(gr0.c);
                 lr0Var.d("User-Agent", aj0.c().a().h());
-                a.a(lr0Var, new C0458a(this, xp0Var, bVar, iq0Var));
+                a.a(lr0Var, new C0462a(this, xp0Var, bVar, iq0Var));
             }
         }
 

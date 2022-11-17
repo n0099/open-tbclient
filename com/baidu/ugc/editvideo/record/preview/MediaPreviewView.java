@@ -9,10 +9,10 @@ import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef9;
+import com.baidu.tieba.ff9;
 import com.baidu.tieba.fg0;
-import com.baidu.tieba.hj9;
-import com.baidu.tieba.vj9;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.wj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +135,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             public void onError(int i3, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
-                    ef9.a("v_log_preview_render_error", str, null);
+                    ff9.a("v_log_preview_render_error", str, null);
                 }
             }
         });
@@ -145,9 +145,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public void notifyOnDestroy(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
-            int b = hj9.b(this.mIEffectProcessorList);
+            int b = ij9.b(this.mIEffectProcessorList);
             for (int i = 0; i < b; i++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) hj9.c(this.mIEffectProcessorList, i);
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) ij9.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onDestroyInGlThread();
                 } else {
@@ -171,9 +171,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public void notifyOnPause(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
-            int b = hj9.b(this.mIEffectProcessorList);
+            int b = ij9.b(this.mIEffectProcessorList);
             for (int i = 0; i < b; i++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) hj9.c(this.mIEffectProcessorList, i);
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) ij9.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onPauseInGlThread();
                 } else {
@@ -196,12 +196,12 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     private void scissor(GLViewPortLocation gLViewPortLocation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, gLViewPortLocation) == null) {
-            if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > vj9.c()) {
+            if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > wj9.c()) {
                 GLES20.glEnable(3089);
                 int i = gLViewPortLocation.width;
-                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - vj9.c()) * this.mScaleX) / 2.0f));
+                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - wj9.c()) * this.mScaleX) / 2.0f));
                 int ceil2 = (int) Math.ceil((1.0f - this.mScaleY) * gLViewPortLocation.height);
-                int ceil3 = (int) Math.ceil((gLViewPortLocation.width - vj9.c()) * this.mScaleX);
+                int ceil3 = (int) Math.ceil((gLViewPortLocation.width - wj9.c()) * this.mScaleX);
                 int ceil4 = (int) Math.ceil(gLViewPortLocation.height * this.mScaleY);
                 GLES20.glScissor(ceil, ceil2, ceil3, ceil4);
                 GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
@@ -350,9 +350,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             this.mRenderer.onResume();
-            int b = hj9.b(this.mIEffectProcessorList);
+            int b = ij9.b(this.mIEffectProcessorList);
             for (int i = 0; i < b; i++) {
-                ((IEffectProcessor) hj9.c(this.mIEffectProcessorList, i)).onResume();
+                ((IEffectProcessor) ij9.c(this.mIEffectProcessorList, i)).onResume();
             }
             List<IMediaRenderer> list = this.mIMediaRendererList;
             if (list != null) {

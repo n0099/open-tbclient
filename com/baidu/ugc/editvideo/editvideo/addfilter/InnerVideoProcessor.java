@@ -9,10 +9,10 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gj9;
-import com.baidu.tieba.mj9;
-import com.baidu.tieba.tj9;
-import com.baidu.tieba.wj9;
+import com.baidu.tieba.hj9;
+import com.baidu.tieba.nj9;
+import com.baidu.tieba.uj9;
+import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -398,7 +398,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String e2 = "video/avc";
-            MediaCodecInfo m = mj9.m("video/avc");
+            MediaCodecInfo m = nj9.m("video/avc");
             if (m == null) {
                 return;
             }
@@ -408,10 +408,10 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             MediaExtractor mediaExtractor = null;
             try {
                 try {
-                    e = mj9.b(this.mSourcePath);
+                    e = nj9.b(this.mSourcePath);
                     try {
                         try {
-                            trackFormat = e.getTrackFormat(mj9.f(e));
+                            trackFormat = e.getTrackFormat(nj9.f(e));
                             if (this.mOutWidth == 0) {
                                 i = trackFormat.getInteger("width");
                             } else {
@@ -424,8 +424,8 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                            int b = ((int) (gj9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (tj9.b) {
+                            int b = ((int) (hj9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                            if (uj9.b) {
                                 trackFormat.setInteger("rotation-degrees", b);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", b);
@@ -436,13 +436,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 i = i5;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (!wj9.a(extractMetadata)) {
-                                this.mSourceVideoDuration = gj9.c(extractMetadata, 0L);
+                            if (!xj9.a(extractMetadata)) {
+                                this.mSourceVideoDuration = hj9.c(extractMetadata, 0L);
                             }
                             this.mLastProgressPercent = 0;
                             String str = e2;
                             if (this.mEncodeHevcVideo) {
-                                MediaCodecInfo m2 = mj9.m(MimeTypes.VIDEO_H265);
+                                MediaCodecInfo m2 = nj9.m(MimeTypes.VIDEO_H265);
                                 str = e2;
                                 if (m2 != null) {
                                     m = m2;
@@ -456,17 +456,17 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             } else {
                                 i3 = this.mOutBitRate;
                             }
-                            mj9.n(trackFormat, createVideoFormat, "bitrate", i3);
+                            nj9.n(trackFormat, createVideoFormat, "bitrate", i3);
                             if (this.mFrameRate == 0) {
                                 i4 = 30;
                             } else {
                                 i4 = this.mFrameRate;
                             }
-                            mj9.n(trackFormat, createVideoFormat, "frame-rate", i4);
-                            mj9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                            nj9.n(trackFormat, createVideoFormat, "frame-rate", i4);
+                            nj9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                             AtomicReference atomicReference = new AtomicReference();
                             try {
-                                e2 = mj9.d(m, createVideoFormat, atomicReference);
+                                e2 = nj9.d(m, createVideoFormat, atomicReference);
                             } catch (Exception unused) {
                                 if (i % 16 != 0) {
                                     i += 16 - (i % 16);
@@ -476,7 +476,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 }
                                 createVideoFormat.setInteger("width", i);
                                 createVideoFormat.setInteger("height", i2);
-                                e2 = mj9.d(m, createVideoFormat, atomicReference);
+                                e2 = nj9.d(m, createVideoFormat, atomicReference);
                             }
                             try {
                                 m = new InputSurface((Surface) atomicReference.get());
@@ -560,7 +560,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                     } else {
                         surface = null;
                     }
-                    mediaCodec2 = mj9.c(trackFormat, surface);
+                    mediaCodec2 = nj9.c(trackFormat, surface);
                     try {
                         doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
                         if (e != 0) {

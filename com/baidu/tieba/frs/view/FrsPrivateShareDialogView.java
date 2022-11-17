@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.kv6;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.lv6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.view.ImageOverlayView;
-import com.baidu.tieba.wj6;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.xj6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,11 +63,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public TextView q;
     public FrsViewData r;
     public TbPageContext s;
-    public jv4 t;
+    public kv4 t;
     public ForumActiveInfo u;
     public String v;
-    public wj6 w;
-    public wj6.e x;
+    public xj6 w;
+    public xj6.e x;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -103,7 +103,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements wj6.e {
+    public class b implements xj6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.wj6.e
+        @Override // com.baidu.tieba.xj6.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(kv6.c(frsViewData.getForum()));
+            e(lv6.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -304,9 +304,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                wj6 wj6Var = new wj6(this.s);
-                this.w = wj6Var;
-                wj6Var.o(this.b, this.m, null);
+                xj6 xj6Var = new xj6(this.s);
+                this.w = xj6Var;
+                xj6Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
             this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf6);
@@ -328,13 +328,13 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, jv4 jv4Var) {
+    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, kv4 kv4Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, jv4Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, kv4Var)) == null) {
             this.r = frsViewData;
             this.s = tbPageContext;
-            this.t = jv4Var;
+            this.t = kv4Var;
             this.u = frsViewData.getForumActiveInfo();
             f(this.a);
             c(frsViewData);

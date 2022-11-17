@@ -126,9 +126,9 @@ public class gy extends cx implements sx<ThreadData>, tx {
         i(new RelativeLayout.LayoutParams(-1, -1));
     }
 
-    public void n(sr4 sr4Var) {
+    public void n(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

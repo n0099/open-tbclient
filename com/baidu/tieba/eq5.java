@@ -1,108 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.TbadkCore;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class eq5 {
+public class eq5 extends zf1<TbadkCore> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
-                try {
-                    PublicKey e = gj.e(qi.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-                    if (e == null) {
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    byte[] b = b(str);
-                    if (b != null && b.length > 0) {
-                        byte[] b2 = gj.b(e, b);
-                        if (b2 != null && b2.length > 0) {
-                            String trim = new String(b2, "UTF-8").trim();
-                            String b3 = fj.b(new FileInputStream(file));
-                            if (b3 != null) {
-                                b3 = b3.trim();
-                            }
-                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
-                                if (b3.equalsIgnoreCase(trim)) {
-                                    return true;
-                                }
-                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
-                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                                return false;
-                            }
-                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
-                            return false;
-                        }
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
-                    return false;
-                } catch (Exception e2) {
-                    StatisticItem statisticItem = new StatisticItem("c10836");
-                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
-                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
-                    return false;
+    /* loaded from: classes4.dex */
+    public class a implements TbadkCore {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(eq5 eq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
-            return false;
         }
-        return invokeLL.booleanValue;
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return PermissionUtil.checkReadPhoneState(context);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilIsAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return PermissionUtil.isAgreePrivacyPolicy();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        @NonNull
+        public String tbConfigGetVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String version = TbConfig.getVersion();
+                if (version == null) {
+                    return "";
+                }
+                return version;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public eq5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                char[] charArray = str.toCharArray();
-                int length = charArray.length / 2;
-                byte[] bArr = new byte[length];
-                if (charArray.length % 2 != 0) {
-                    return null;
-                }
-                int i = 0;
-                int i2 = 0;
-                while (true) {
-                    int i3 = i + 1;
-                    if (i3 >= charArray.length || i2 >= length) {
-                        break;
-                    }
-                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
-                    i2++;
-                    i = i3 + 1;
-                }
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new IllegalArgumentException("binary string is null");
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static int c(char c) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zf1
+    /* renamed from: a */
+    public TbadkCore createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
-            int digit = Character.digit(c, 16);
-            if (digit != -1) {
-                return digit;
-            }
-            throw new RuntimeException("Illegal hexadecimal character " + c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeCommon.intValue;
+        return (TbadkCore) invokeV.objValue;
     }
 }

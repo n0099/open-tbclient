@@ -49,10 +49,10 @@ public class iy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: x */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) {
-            this.h.setData(sr4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
+            this.h.setData(tr4Var);
         }
     }
 

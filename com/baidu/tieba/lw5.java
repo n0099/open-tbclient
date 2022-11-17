@@ -1,28 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lw5 extends kn<pw5, LiveTabConcernRecommendLineHolder> {
+public class lw5 extends kn<pw5, LiveTabConcernOfflineViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public zw5 b;
-    public ax5 c;
+    public m46<pw5> b;
+
+    /* loaded from: classes5.dex */
+    public class a extends m46<pw5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lw5 b;
+
+        public a(lw5 lw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lw5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.m46
+        /* renamed from: d */
+        public void a(View view2, pw5 pw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pw5Var) == null) {
+                this.b.t(pw5Var);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lw5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), pw5.d);
+        super(tbPageContext.getPageActivity(), pw5.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,49 +80,56 @@ public class lw5 extends kn<pw5, LiveTabConcernRecommendLineHolder> {
                 return;
             }
         }
+        this.b = new a(this);
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: u */
+    public LiveTabConcernOfflineViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            zw5 zw5Var = new zw5(this.a, viewGroup);
-            this.b = zw5Var;
-            ax5 ax5Var = this.c;
-            if (ax5Var != null) {
-                zw5Var.s(ax5Var);
-            }
-            return new LiveTabConcernRecommendLineHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            yw5 yw5Var = new yw5(this.a, viewGroup);
+            yw5Var.n(this.b);
+            return new LiveTabConcernOfflineViewHolder(yw5Var);
         }
-        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+        return (LiveTabConcernOfflineViewHolder) invokeL.objValue;
     }
 
-    public void u(ax5 ax5Var) {
+    public final void t(pw5 pw5Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ax5Var) == null) {
-            this.c = ax5Var;
-            zw5 zw5Var = this.b;
-            if (zw5Var != null) {
-                zw5Var.s(ax5Var);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pw5Var) != null) || pw5Var == null) {
+            return;
+        }
+        String str = pw5Var.a;
+        if (!StringUtils.isNull(str) && xg.g(str, 0L) != 0) {
+            if (!TbadkCoreApplication.isLogin()) {
+                ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+                return;
             }
+            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageActivity()).createNormalConfig(xg.g(str, 0L), z, false)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pw5 pw5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pw5 pw5Var, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
         InterceptResult invokeCommon;
-        zw5 zw5Var;
+        yw5 yw5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pw5Var, liveTabConcernRecommendLineHolder})) == null) {
-            if (liveTabConcernRecommendLineHolder != null && (zw5Var = liveTabConcernRecommendLineHolder.a) != null) {
-                zw5Var.l(pw5Var);
-                return liveTabConcernRecommendLineHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pw5Var, liveTabConcernOfflineViewHolder})) == null) {
+            if (liveTabConcernOfflineViewHolder != null && (yw5Var = liveTabConcernOfflineViewHolder.a) != null) {
+                yw5Var.l(pw5Var);
+                return liveTabConcernOfflineViewHolder.getView();
             }
             return null;
         }

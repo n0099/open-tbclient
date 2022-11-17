@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ey extends cx implements sx<pt4>, tx {
+public class ey extends cx implements sx<qt4>, tx {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,14 +108,14 @@ public class ey extends cx implements sx<pt4>, tx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: o */
-    public void a(pt4 pt4Var) {
+    public void a(qt4 qt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pt4Var) == null) {
-            if (pt4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, qt4Var) == null) {
+            if (qt4Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(pt4Var);
+            this.e.setData(qt4Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
@@ -215,15 +215,15 @@ public class ey extends cx implements sx<pt4>, tx {
         this.f = align;
     }
 
-    public void m(sr4 sr4Var) {
+    public void m(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) && sr4Var != null && sr4Var.getNegFeedBackData() != null) {
-            if (sr4Var.getNegFeedBackData().h() <= 0 && sr4Var.getThreadData() != null) {
-                if (!sr4Var.showCardBottomOpWeight() && !sr4Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) && tr4Var != null && tr4Var.getNegFeedBackData() != null) {
+            if (tr4Var.getNegFeedBackData().h() <= 0 && tr4Var.getThreadData() != null) {
+                if (!tr4Var.showCardBottomOpWeight() && !tr4Var.isFromFrs()) {
                     l(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (sr4Var.isSupportTop()) {
+                } else if (tr4Var.isSupportTop()) {
                     t(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (sr4Var.isSupportBottom()) {
+                } else if (tr4Var.isSupportBottom()) {
                     oy oyVar = this.d;
                     if (oyVar != null) {
                         oyVar.n(this);
@@ -234,7 +234,7 @@ public class ey extends cx implements sx<pt4>, tx {
             } else if (this.g) {
                 k();
             } else {
-                p(sr4Var);
+                p(tr4Var);
             }
         }
     }
@@ -268,10 +268,10 @@ public class ey extends cx implements sx<pt4>, tx {
         }
     }
 
-    public final void p(sr4 sr4Var) {
+    public final void p(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sr4Var) == null) {
-            if (sr4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tr4Var) == null) {
+            if (tr4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);

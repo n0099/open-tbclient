@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.outback;
 
 import com.baidu.tieba.jf1;
-import com.baidu.tieba.pd5;
+import com.baidu.tieba.qd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,6 @@ public class IOutbackContext_OutbackComponentHolder_Provider implements jf1 {
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pd5() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new qd5() : invokeV.objValue;
     }
 }

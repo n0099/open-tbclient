@@ -39,13 +39,13 @@ public class gg2 {
 
         /* renamed from: com.baidu.tieba.gg2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0283a implements Runnable {
+        public class RunnableC0284a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ eg2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0283a(a aVar, eg2 eg2Var) {
+            public RunnableC0284a(a aVar, eg2 eg2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class gg2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0283a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0284a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

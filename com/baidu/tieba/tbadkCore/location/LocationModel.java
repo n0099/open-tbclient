@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.iq8;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.jq8;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tf;
-import com.baidu.tieba.to8;
+import com.baidu.tieba.uo8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -176,7 +176,7 @@ public class LocationModel extends BdBaseModel {
     public static void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            to8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            uo8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -223,7 +223,7 @@ public class LocationModel extends BdBaseModel {
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = iq8.a().b();
+            LocationData b2 = jq8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -235,8 +235,8 @@ public class LocationModel extends BdBaseModel {
     public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            iq8.a().e(z);
-            py4.k().u("no_longer_show_address", iq8.a().c());
+            jq8.a().e(z);
+            qy4.k().u("no_longer_show_address", jq8.a().c());
         }
     }
 
@@ -294,8 +294,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             C(locationData);
-            iq8.a().f(System.currentTimeMillis());
-            iq8.a().d(locationData);
+            jq8.a().f(System.currentTimeMillis());
+            jq8.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

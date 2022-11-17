@@ -2,7 +2,7 @@ package com.baidu.tieba.ad.incentivevideo.net;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rr5;
+import com.baidu.tieba.sr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class GetAdFreeTimeResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rr5 mAdIncentiveVideoTaskData;
+    public sr5 mAdIncentiveVideoTaskData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetAdFreeTimeResMsg(int i) {
@@ -43,20 +43,20 @@ public class GetAdFreeTimeResMsg extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                rr5 rr5Var = new rr5();
-                this.mAdIncentiveVideoTaskData = rr5Var;
-                rr5Var.d(optJSONObject.optString("key_time"));
+                sr5 sr5Var = new sr5();
+                this.mAdIncentiveVideoTaskData = sr5Var;
+                sr5Var.d(optJSONObject.optString("key_time"));
                 this.mAdIncentiveVideoTaskData.e(optJSONObject.optString("remain_time"));
             }
         }
     }
 
-    public rr5 getAdIncentiveVideoTaskData() {
+    public sr5 getAdIncentiveVideoTaskData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAdIncentiveVideoTaskData;
         }
-        return (rr5) invokeV.objValue;
+        return (sr5) invokeV.objValue;
     }
 }

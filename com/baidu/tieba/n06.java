@@ -6,10 +6,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
+import com.baidu.ala.atomdata.AlaFansFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n06 extends kn<d16, CardViewHolder<c26>> {
+public class n06 extends kn<d16, CardViewHolder<d26>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -82,42 +83,44 @@ public class n06 extends kn<d16, CardViewHolder<c26>> {
     public final void u(d16 d16Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, d16Var) == null) && d16Var != null && d16Var.c() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, d16Var.c().b().user_id)));
+            TiebaStatic.log("c13134");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.mContext, d16Var.c().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: v */
-    public CardViewHolder<c26> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<d26> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new c26(this.a));
+            return new CardViewHolder<>(new d26(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void t(d16 d16Var, c26 c26Var) {
+    public final void t(d16 d16Var, d26 d26Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, d16Var, c26Var) != null) || d16Var.c() == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, d16Var, d26Var) != null) || d16Var.c() == null) {
             return;
         }
-        c26Var.w(8);
-        c26Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0242));
-        c26Var.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+        d26Var.w(8);
+        d26Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0241));
+        d26Var.m(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: w */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d16 d16Var, CardViewHolder<c26> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d16 d16Var, CardViewHolder<d26> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d16Var, cardViewHolder})) == null) {
             if (cardViewHolder.a() == null) {
                 return null;
             }
+            TiebaStatic.log("c13133");
             t(d16Var, cardViewHolder.a());
             cardViewHolder.a().k().setOnClickListener(new a(this, d16Var));
             return cardViewHolder.a().k();

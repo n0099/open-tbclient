@@ -99,7 +99,7 @@ public class np4 extends Thread {
             }
             BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
             TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-            ff5.a();
+            gf5.a();
         }
     }
 }

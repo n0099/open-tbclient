@@ -40,11 +40,11 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.h35;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.uq4;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -499,7 +499,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.d;
-            if (tq4.h()) {
+            if (uq4.h()) {
                 i = 0;
             } else {
                 i = 8;
@@ -581,7 +581,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         alaLiveTipView.setViewLocate(1);
         this.a.b.setHasBubble(false);
         if (this.a.b.getVisibility() != 0) {
-            g35.f();
+            h35.f();
         }
         this.a.b.setVisibility(0);
     }
@@ -609,10 +609,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = py4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = qy4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length < 7 && !TimeHelper.isSameDay(xg.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                py4 k = py4.k();
+                qy4 k = qy4.k();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {
@@ -648,17 +648,17 @@ public class FixedAppBarLayout extends AppBarLayout {
             setImageBackgroundVisibility(8);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
             this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a44, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            pw4 d2 = pw4.d(this.a.g);
+            qw4 d2 = qw4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
             if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                pw4 d3 = pw4.d(this.a.h);
+                qw4 d3 = qw4.d(this.a.h);
                 d3.l(R.dimen.L_X01);
                 d3.k(R.color.CAM_X0113);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0211);
             } else {
-                pw4 d4 = pw4.d(this.a.h);
+                qw4 d4 = qw4.d(this.a.h);
                 d4.n(R.string.J_X01);
                 d4.f(R.color.CAM_X0211);
             }

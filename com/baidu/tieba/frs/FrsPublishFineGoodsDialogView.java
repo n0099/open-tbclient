@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.uw4;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.vw4;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,15 +28,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public xw4 g;
+    public yw4 g;
 
     /* loaded from: classes4.dex */
-    public class a implements xw4 {
+    public class a implements yw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
 
-        @Override // com.baidu.tieba.xw4
+        @Override // com.baidu.tieba.yw4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -61,10 +61,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.xw4
-        public void a(int i, uw4 uw4Var) {
+        @Override // com.baidu.tieba.yw4
+        public void a(int i, vw4 vw4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, uw4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, vw4Var) == null) {
                 this.a.c(i);
             }
         }
@@ -106,9 +106,9 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.e = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0684);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new dj6(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new dj6(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new dj6(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);

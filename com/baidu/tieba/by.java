@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class by extends ax<sr4> {
+public class by extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleVerticalLayout f;
-    public sr4 g;
+    public tr4 g;
     public int h;
     public String i;
 
@@ -52,11 +52,11 @@ public class by extends ax<sr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    w36.a(this.a.g.getThreadData().getId());
+                    x36.a(this.a.g.getThreadData().getId());
                     by byVar = this.a;
-                    w36.l(byVar.f.a, byVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    x36.l(byVar.f.a, byVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     by byVar2 = this.a;
-                    w36.l(byVar2.f.b, byVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    x36.l(byVar2.f.b, byVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -93,22 +93,22 @@ public class by extends ax<sr4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(l46<sr4> l46Var) {
+    public void p(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l46Var) == null) {
-            this.f.setSubClickListener(l46Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
+            this.f.setSubClickListener(m46Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: t */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
-            this.g = sr4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
+            this.g = tr4Var;
             this.f.setFrom(this.i);
-            this.f.a(sr4Var);
+            this.f.a(tr4Var);
         }
     }
 

@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.xz4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -194,12 +194,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements tx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                pw4 d = pw4.d(this.h);
+                qw4 d = qw4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            pw4 d2 = pw4.d(this.h);
+            qw4 d2 = qw4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }
@@ -254,9 +254,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements tx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            wz4 wz4Var = new wz4(6);
-            wz4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wz4Var));
+            xz4 xz4Var = new xz4(6);
+            xz4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, xz4Var));
         }
     }
 
@@ -359,15 +359,15 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements tx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            pw4 d = pw4.d(this.a);
+            qw4 d = qw4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            pw4 d2 = pw4.d(this.g);
+            qw4 d2 = qw4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            pw4.d(this.h).v(R.color.CAM_X0305);
-            pw4.d(this.e).v(R.color.CAM_X0311);
+            qw4.d(this.h).v(R.color.CAM_X0305);
+            qw4.d(this.e).v(R.color.CAM_X0311);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080976, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);

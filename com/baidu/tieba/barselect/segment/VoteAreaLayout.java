@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.r26;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,15 +40,15 @@ public class VoteAreaLayout extends CardBasicLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q26 a;
+        public final /* synthetic */ r26 a;
         public final /* synthetic */ VoteAreaLayout b;
 
-        public a(VoteAreaLayout voteAreaLayout, q26 q26Var) {
+        public a(VoteAreaLayout voteAreaLayout, r26 r26Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {voteAreaLayout, q26Var};
+                Object[] objArr = {voteAreaLayout, r26Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,18 +59,18 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
             this.b = voteAreaLayout;
-            this.a = q26Var;
+            this.a = r26Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            q26 q26Var;
+            r26 r26Var;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.b.d instanceof Activity) || !ViewHelper.checkUpIsLogin(this.b.d)) {
                 return;
             }
             new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_BUTTON).eventStat();
-            if (this.b.c != null && (q26Var = this.a) != null && q26Var.a() != null) {
+            if (this.b.c != null && (r26Var = this.a) != null && r26Var.a() != null) {
                 if (this.a.a().b()) {
                     if (this.a.c() != 0 && this.a.g() != null) {
                         CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.b.c.l(), this.a.c(), this.b.c.k(), 1);
@@ -167,14 +167,14 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, q26 q26Var) {
+    public void setData(int i, r26 r26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, q26Var) == null) {
-            super.setData(i, q26Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, r26Var) == null) {
+            super.setData(i, r26Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.g;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
-                this.i.setOnClickListener(new a(this, q26Var));
+                this.i.setOnClickListener(new a(this, r26Var));
                 if (this.c.n()) {
                     this.i.setEnabled(false);
                     return;

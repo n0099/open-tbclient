@@ -1,141 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class to8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public Integer d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948188044, "Lcom/baidu/tieba/to8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public to8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948188044, "Lcom/baidu/tieba/to8;");
-        }
-    }
-
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static uf5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
-            try {
-                uf5 uf5Var = new uf5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(uf5Var);
-                return uf5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (uf5) invokeIL.objValue;
     }
 
-    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
+    public void a(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i2);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, smartApp) != null) || smartApp == null) {
+            return;
         }
-        return (TbHttpMessageTask) invokeCommon.objValue;
-    }
-
-    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
-            h(i2, cls2, false, false);
-            c(i2, i, str, cls, false, true, true, false);
-        }
-    }
-
-    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
-        }
-        return (TbHttpMessageTask) invokeCommon.objValue;
-    }
-
-    public static vf5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true);
-        }
-        return (vf5) invokeCommon.objValue;
-    }
-
-    public static vf5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
-            vf5 vf5Var = new vf5(i);
-            vf5Var.setResponsedClass(cls);
-            vf5Var.h(z);
-            vf5Var.f(dupLicateMode);
-            vf5Var.setRetry(a);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(vf5Var);
-            vf5Var.setNeedEncrypt(z2);
-            return vf5Var;
-        }
-        return (vf5) invokeCommon.objValue;
-    }
-
-    public static vf5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2);
-        }
-        return (vf5) invokeCommon.objValue;
+        String str = smartApp.avatar;
+        this.a = smartApp.name;
+        this.b = smartApp.id;
+        this.c = smartApp.link;
+        this.d = smartApp.is_game;
     }
 }

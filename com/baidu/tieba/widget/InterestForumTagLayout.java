@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.yi;
@@ -169,7 +169,7 @@ public class InterestForumTagLayout extends LinearLayout implements tx {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                pw4 d = pw4.d(textView);
+                qw4 d = qw4.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }
@@ -263,7 +263,7 @@ public class InterestForumTagLayout extends LinearLayout implements tx {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eMTextView = this.e) != null) {
-            pw4 d = pw4.d(eMTextView);
+            qw4 d = qw4.d(eMTextView);
             d.v(R.color.CAM_X0110);
             d.z(R.dimen.T_X06);
         }

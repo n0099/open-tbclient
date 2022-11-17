@@ -15,9 +15,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.xz4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -117,7 +117,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
                 this.a.g.setText(R.string.obfuscated_res_0x7f0f065d);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wz4(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(10)));
             }
         }
     }
@@ -213,7 +213,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05f1))));
-            pw4 d = pw4.d(this.f);
+            qw4 d = qw4.d(this.f);
             d.z(R.dimen.T_X06);
             d.w(R.dimen.M_T_X002);
             this.f.setPadding(yi.g(context, R.dimen.M_W_X005), 0, 0, yi.g(context, R.dimen.M_H_X005));
@@ -222,7 +222,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f05f1);
-            pw4.d(this.f).z(R.dimen.T_X06);
+            qw4.d(this.f).z(R.dimen.T_X06);
             this.g.setPadding(yi.g(context, R.dimen.M_W_X005), yi.g(context, R.dimen.M_H_X005), 0, yi.g(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -236,25 +236,25 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            pw4 d = pw4.d(this);
+            qw4 d = qw4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            pw4 d2 = pw4.d(this.a);
+            qw4 d2 = qw4.d(this.a);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            pw4 d3 = pw4.d(this.b);
+            qw4 d3 = qw4.d(this.b);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0108);
-            pw4 d4 = pw4.d(this.c);
+            qw4 d4 = qw4.d(this.c);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0108);
-            pw4 d5 = pw4.d(this.f);
+            qw4 d5 = qw4.d(this.f);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0105);
-            pw4 d6 = pw4.d(this.g);
+            qw4 d6 = qw4.d(this.g);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0304);
-            pw4.d(this.d).f(R.color.CAM_X0111);
+            qw4.d(this.d).f(R.color.CAM_X0111);
         }
     }
 }

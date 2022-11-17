@@ -45,11 +45,11 @@ public class ky extends hx {
         v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    public final boolean w(sr4 sr4Var) {
+    public final boolean w(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().isVideoThreadType() && sr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -75,11 +75,11 @@ public class ky extends hx {
         }
     }
 
-    public final boolean x(sr4 sr4Var) {
+    public final boolean x(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getPollData() != null && sr4Var.getThreadData().getPollData().getOptions() != null && sr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -90,14 +90,14 @@ public class ky extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
-            if (!x(sr4Var) && sr4Var != null && sr4Var.getThreadData() != null && !w(sr4Var) && ((!ListUtils.isEmpty(sr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) == 1) && ((!ListUtils.isEmpty(sr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) == 1) && ListUtils.getCount(sr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(sr4Var.getThreadData().getGoodsDataList()) == 1))) {
-                if (sr4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((t46) ListUtils.getItem(sr4Var.getThreadData().getLinkDataList(), 0));
-                } else if (sr4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((t46) ListUtils.getItem(sr4Var.getThreadData().getGoodsDataList(), 0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
+            if (!x(tr4Var) && tr4Var != null && tr4Var.getThreadData() != null && !w(tr4Var) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) == 1) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) == 1) && ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) == 1))) {
+                if (tr4Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((u46) ListUtils.getItem(tr4Var.getThreadData().getLinkDataList(), 0));
+                } else if (tr4Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((u46) ListUtils.getItem(tr4Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;

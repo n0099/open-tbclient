@@ -6,8 +6,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.ht4;
-import com.baidu.tieba.we7;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.xe7;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String group_head;
     public String group_name;
     public int group_type;
-    public ht4 imUserExtraData;
+    public it4 imUserExtraData;
     public int isFriend;
     public boolean isSelf;
     public int is_delete;
@@ -152,13 +152,13 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeV.intValue;
     }
 
-    public ht4 getImUserExtraData() {
+    public it4 getImUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.imUserExtraData;
         }
-        return (ht4) invokeV.objValue;
+        return (it4) invokeV.objValue;
     }
 
     public int getIsFriend() {
@@ -450,7 +450,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(we7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(xe7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -522,10 +522,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setImUserExtraData(ht4 ht4Var) {
+    public void setImUserExtraData(it4 it4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, ht4Var) == null) {
-            this.imUserExtraData = ht4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, it4Var) == null) {
+            this.imUserExtraData = it4Var;
         }
     }
 

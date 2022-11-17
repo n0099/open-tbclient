@@ -190,12 +190,12 @@ public class vx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: z */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sr4Var) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, tr4Var) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(sr4Var.getThreadData().itemData, 13, sr4Var.getThreadData().tid);
+                this.h.setData(tr4Var.getThreadData().itemData, 13, tr4Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

@@ -65,7 +65,7 @@ public class mm4 {
     public nm4.b h;
 
     /* loaded from: classes5.dex */
-    public class e implements si5<String> {
+    public class e implements ti5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -125,7 +125,7 @@ public class mm4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.si5
+        @Override // com.baidu.tieba.ti5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class mm4 {
         public final /* synthetic */ mm4 a;
 
         /* loaded from: classes5.dex */
-        public class a extends nj5<String> {
+        public class a extends oj5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -170,7 +170,7 @@ public class mm4 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.nj5
+            @Override // com.baidu.tieba.oj5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class mm4 {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements si5<String> {
+        public class b implements ti5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -206,7 +206,7 @@ public class mm4 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.si5
+            @Override // com.baidu.tieba.ti5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public class mm4 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    rj5.b(new a(this), new b(this));
+                    sj5.b(new a(this), new b(this));
                     return;
                 }
                 this.a.s(this.a.C());
@@ -373,7 +373,7 @@ public class mm4 {
                 if (TextUtils.isEmpty(group2)) {
                     return null;
                 }
-                UserData e = e95.d().e();
+                UserData e = f95.d().e();
                 if (e != null) {
                     str = e.getTiebaUid();
                 } else {
@@ -444,7 +444,7 @@ public class mm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class d extends nj5<String> {
+    public class d extends oj5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -465,7 +465,7 @@ public class mm4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj5
+        @Override // com.baidu.tieba.oj5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -631,7 +631,7 @@ public class mm4 {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     TbPageContext D = this.a.D(currentActivity);
                     if (currentActivity != null && D != null) {
-                        aw4.g(Collections.singletonList(new yv4(D, currentActivity, userData, mVar)));
+                        bw4.g(Collections.singletonList(new zv4(D, currentActivity, userData, mVar)));
                     }
                 }
             }
@@ -873,8 +873,8 @@ public class mm4 {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            to8.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, to8.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            uo8.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, uo8.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -893,8 +893,8 @@ public class mm4 {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            to8.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, to8.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            uo8.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, uo8.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -927,7 +927,7 @@ public class mm4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new String(Base64.decode(py4.k().q("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
+            return new String(Base64.decode(qy4.k().q("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
         }
         return (String) invokeV.objValue;
     }
@@ -1146,7 +1146,7 @@ public class mm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                rj5.b(new d(this), new e(this, j2));
+                sj5.b(new d(this), new e(this, j2));
                 return;
             }
             String C = C();

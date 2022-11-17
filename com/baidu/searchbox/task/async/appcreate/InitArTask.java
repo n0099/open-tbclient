@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.e65;
+import com.baidu.tieba.f65;
 import com.baidu.tieba.ve0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,7 +62,7 @@ public class InitArTask extends LaunchTask {
             ve0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
             ve0.j(context);
             ve0.u(false);
-            e65.a();
+            f65.a();
         }
     }
 }

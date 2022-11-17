@@ -49,7 +49,7 @@ public class ho4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof kr8) && ((kr8) data).b) {
+            if ((data instanceof lr8) && ((lr8) data).b) {
                 io4.f().a("717");
             }
         }

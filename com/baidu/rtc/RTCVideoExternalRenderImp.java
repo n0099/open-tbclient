@@ -7,7 +7,7 @@ import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.BaiduRtcRoom;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.kz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -232,7 +232,7 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Logging.d(TAG, this.userId + " : External renderer init");
-            init(jz9.a().getEglBaseContext(), null);
+            init(kz9.a().getEglBaseContext(), null);
         }
     }
 

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -181,7 +181,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
             this.a = textView;
             if (textView != null) {
-                pw4 d = pw4.d(textView);
+                qw4 d = qw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);
                 d.A(R.string.F_X02);
@@ -189,7 +189,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bb);
             this.b = textView2;
             if (textView2 != null) {
-                pw4 d2 = pw4.d(textView2);
+                qw4 d2 = qw4.d(textView2);
                 d2.v(R.color.CAM_X0108);
                 d2.z(R.dimen.T_X07);
                 d2.A(R.string.F_X01);
@@ -202,7 +202,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
                 this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
-                this.e.setConfig(new nz4());
+                this.e.setConfig(new oz4());
             }
             this.f = skinType;
         }

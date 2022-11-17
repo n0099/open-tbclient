@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.r47;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.s47;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -148,25 +148,25 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(r47 r47Var) {
+    public void setData(s47 s47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, r47Var) != null) || r47Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, s47Var) != null) || s47Var == null) {
             return;
         }
-        if (!r47Var.a()) {
+        if (!s47Var.a()) {
             setVisibility(8);
             return;
         }
-        if (r47Var.c > 0) {
-            py4.k().x(py4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + r47Var.c);
+        if (s47Var.c > 0) {
+            qy4.k().x(qy4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + s47Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(r47Var.d)) {
-            this.d.setText(r47Var.d);
+        if (this.d != null && !StringUtils.isNull(s47Var.d)) {
+            this.d.setText(s47Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout != null && r47Var.b != null) {
+        if (linearLayout != null && s47Var.b != null) {
             linearLayout.removeAllViews();
-            List<String> list = r47Var.b;
+            List<String> list = s47Var.b;
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!StringUtils.isNull(str)) {

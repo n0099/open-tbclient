@@ -28,17 +28,17 @@ public class ue1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-        public ArrayList<C0443a> b;
+        public ArrayList<C0441a> b;
 
         /* renamed from: com.baidu.tieba.ue1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0443a {
+        public static class C0441a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long a;
             public long b;
 
-            public C0443a(long j, long j2) {
+            public C0441a(long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class ue1 {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
-                        this.b.add(new C0443a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                        this.b.add(new C0441a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
                     }
                 }
             }
@@ -152,9 +152,9 @@ public class ue1 {
                 if (p01.l(this.b) == 0) {
                     return false;
                 }
-                Iterator<C0443a> it = this.b.iterator();
+                Iterator<C0441a> it = this.b.iterator();
                 while (it.hasNext()) {
-                    C0443a next = it.next();
+                    C0441a next = it.next();
                     if (next != null && next.a(j)) {
                         return true;
                     }

@@ -20,18 +20,18 @@ import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ai5;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.ji5;
-import com.baidu.tieba.pi5;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.ki5;
 import com.baidu.tieba.qg;
+import com.baidu.tieba.qi5;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.yd5;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.ze5;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -661,21 +661,21 @@ public class TiebaStatic {
             synchronized (lock) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = py4.k().m("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = py4.k().l("operate_msg_arrive_click_count", 0);
+                    lastLogOperateMsgTime = qy4.k().m("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = qy4.k().l("operate_msg_arrive_click_count", 0);
                 }
                 if (lastLogOperateMsgTime > 0) {
                     if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
                         return;
                     }
-                    py4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
+                    qy4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
                 }
                 lastLogOperateMsgTime = currentTimeMillis;
                 operateMsgUploadCount++;
-                py4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
+                qy4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
                 BdStatisticsManager.getInstance().saveAndUploadlog("msg");
             }
         }
@@ -721,7 +721,7 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
                 qg.g();
-                ze5.d();
+                af5.d();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -748,12 +748,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = zh5.d().c();
+        String c = ai5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        yd5.f().e(statisticItem);
-        statisticItem.addParam("session_id", pi5.g().i());
+        zd5.f().e(statisticItem);
+        statisticItem.addParam("session_id", qi5.g().i());
     }
 
     public static String getCua(Context context) {
@@ -1002,24 +1002,24 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     ihVar.i = TbadkCoreApplication.getInst().getImei();
                     ihVar.j = TbConfig.getSubappType();
-                    ihVar.r = ji5.c().f(context) + "_" + ji5.c().e(context);
+                    ihVar.r = ki5.c().f(context) + "_" + ki5.c().e(context);
                     ihVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     ihVar.s = getCua(context);
                     ihVar.t = PermissionUtil.getLastCachedOid(context);
                     ihVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ihVar.w = ji5.c().a();
-                    ihVar.x = ji5.c().g() + "_" + ji5.c().h();
+                    ihVar.w = ki5.c().a();
+                    ihVar.x = ki5.c().g() + "_" + ki5.c().h();
                     ihVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     ihVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     ihVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
                     ihVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
                     ihVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
-                    if (py4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                    if (qy4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
                     }
                     if (z2) {
-                        j = py4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                        j = qy4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
                     } else {
                         j = 3600000;
                     }

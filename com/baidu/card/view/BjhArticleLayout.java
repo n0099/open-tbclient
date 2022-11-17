@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l46;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.m46;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.sx;
+import com.baidu.tieba.tr4;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.w36;
+import com.baidu.tieba.x36;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,18 +31,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.OnClickListener, tx {
+public class BjhArticleLayout extends RelativeLayout implements sx<tr4>, View.OnClickListener, tx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TbImageView c;
     public View d;
-    public sr4 e;
+    public tr4 e;
     public float f;
     public float g;
     public float h;
-    public l46<sr4> i;
+    public m46<tr4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,9 +101,9 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            l46<sr4> l46Var = this.i;
-            if (l46Var != null) {
-                l46Var.a(view2, this.e);
+            m46<tr4> m46Var = this.i;
+            if (m46Var != null) {
+                m46Var.a(view2, this.e);
             }
         }
     }
@@ -115,10 +115,10 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
         }
     }
 
-    public void setSubClickListener(l46<sr4> l46Var) {
+    public void setSubClickListener(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l46Var) == null) {
-            this.i = l46Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m46Var) == null) {
+            this.i = m46Var;
         }
     }
 
@@ -130,7 +130,7 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
             setId(R.id.obfuscated_res_0x7f0903b0);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
             this.a = textView;
-            pw4 d = pw4.d(textView);
+            qw4 d = qw4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
             this.a.setOnClickListener(this);
@@ -158,13 +158,13 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: c */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         int i;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var) == null) {
-            this.e = sr4Var;
-            ThreadData threadData = sr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
+            this.e = tr4Var;
+            ThreadData threadData = tr4Var.getThreadData();
             if (threadData.isShareThread && (originalThreadInfo = threadData.originalThreadData) != null) {
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     threadData = threadData.originalThreadData.b();
@@ -191,7 +191,7 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            w36.l(textView, id, i, R.color.CAM_X0109);
+            x36.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -218,8 +218,8 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            sr4 sr4Var = this.e;
-            if (sr4Var != null && sr4Var.getThreadData() != null) {
+            tr4 tr4Var = this.e;
+            if (tr4Var != null && tr4Var.getThreadData() != null) {
                 TextView textView = this.a;
                 String id = this.e.getThreadData().getId();
                 if (this.c.getVisibility() == 0) {
@@ -227,7 +227,7 @@ public class BjhArticleLayout extends RelativeLayout implements sx<sr4>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                w36.l(textView, id, i2, R.color.CAM_X0109);
+                x36.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);

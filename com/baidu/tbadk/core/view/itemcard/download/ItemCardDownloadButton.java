@@ -31,14 +31,14 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.n96;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.o96;
+import com.baidu.tieba.ow4;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.s9;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yz4;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -157,8 +157,8 @@ public class ItemCardDownloadButton extends View {
             }
             if (this.a.v == 2 || this.a.v == 1) {
                 String simpleName = ((Activity) this.a.getContext()).getClass().getSimpleName();
-                if (!"DownloadManagerActivity".equals(simpleName) && py4.k().h("key_download_manager_first_toast", true)) {
-                    py4.k().u("key_download_manager_first_toast", false);
+                if (!"DownloadManagerActivity".equals(simpleName) && qy4.k().h("key_download_manager_first_toast", true)) {
+                    qy4.k().u("key_download_manager_first_toast", false);
                     ItemCardHelper.g(1, simpleName, this.a.w.itemId);
                     ScreenTopToast screenTopToast = new ScreenTopToast(this.a.getContext());
                     screenTopToast.m(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f09c2));
@@ -169,15 +169,15 @@ public class ItemCardDownloadButton extends View {
             }
             if ((this.a.x.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) this.a.x.getExtra()).isShouzhuData()) {
                 if (this.a.v == 5) {
-                    zz4.a(this.a.x, 500);
-                    yz4.f().d(this.a.w, this.a.x, this.a.y, this.a.D);
+                    a05.a(this.a.x, 500);
+                    zz4.f().d(this.a.w, this.a.x, this.a.y, this.a.D);
                     return;
                 }
-                zz4.a(this.a.x, 200);
-                yz4.f().e(this.a.w, this.a.x, this.a.y, this.a.D);
+                a05.a(this.a.x, 200);
+                zz4.f().e(this.a.w, this.a.x, this.a.y, this.a.D);
                 return;
             }
-            aa5.l(this.a.x);
+            ba5.l(this.a.x);
         }
     }
 
@@ -224,7 +224,7 @@ public class ItemCardDownloadButton extends View {
                             if (status != 2 && status != 4) {
                                 if (status == 5) {
                                     ItemCardDownloadButton itemCardDownloadButton = this.a;
-                                    itemCardDownloadButton.c = aa5.h(itemCardDownloadButton.x);
+                                    itemCardDownloadButton.c = ba5.h(itemCardDownloadButton.x);
                                     this.a.v = 4;
                                 } else {
                                     this.a.w();
@@ -282,7 +282,7 @@ public class ItemCardDownloadButton extends View {
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Intent) {
-                if (!this.a.w.pkgName.equals(aa5.g((Intent) data))) {
+                if (!this.a.w.pkgName.equals(ba5.g((Intent) data))) {
                     return;
                 }
                 this.a.w();
@@ -376,8 +376,8 @@ public class ItemCardDownloadButton extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, downloadData)) == null) {
-            int c2 = aa5.c(downloadData);
-            int h = aa5.h(downloadData);
+            int c2 = ba5.c(downloadData);
+            int h = ba5.h(downloadData);
             this.c = h;
             if (c2 != 5 && c2 != 1) {
                 if ((h > 0 && h <= 100) || (this.c == 0 && c2 == 7)) {
@@ -396,7 +396,7 @@ public class ItemCardDownloadButton extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, itemData)) == null) {
-            PackageInfo e2 = aa5.e(itemData.pkgName);
+            PackageInfo e2 = ba5.e(itemData.pkgName);
             int i = 0;
             if (e2 == null || e2.versionCode >= itemData.apkDetail.version_code.intValue()) {
                 return false;
@@ -502,7 +502,7 @@ public class ItemCardDownloadButton extends View {
                 this.c = i2;
                 this.x = null;
             } else {
-                DownloadData j = aa5.j(itemData);
+                DownloadData j = ba5.j(itemData);
                 this.x = j;
                 if (j.getExtra() instanceof ItemDownloadExtraData) {
                     ((ItemDownloadExtraData) this.x.getExtra()).updateSceneCategory(i);
@@ -517,7 +517,7 @@ public class ItemCardDownloadButton extends View {
             }
             x();
             v();
-            zz4.a(this.x, 100);
+            a05.a(this.x, 100);
         }
     }
 
@@ -545,7 +545,7 @@ public class ItemCardDownloadButton extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, downloadData)) == null) {
-            if (aa5.b(downloadData.getId())) {
+            if (ba5.b(downloadData.getId())) {
                 this.v = 3;
                 this.c = 100;
                 return true;
@@ -559,7 +559,7 @@ public class ItemCardDownloadButton extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, itemData)) == null) {
-            PackageInfo e2 = aa5.e(itemData.pkgName);
+            PackageInfo e2 = ba5.e(itemData.pkgName);
             if (e2 != null && e2.versionCode >= itemData.apkDetail.version_code.intValue()) {
                 this.v = 6;
                 this.c = 100;
@@ -919,24 +919,24 @@ public class ItemCardDownloadButton extends View {
             switch (this.v) {
                 case 1:
                 case 2:
-                    n96 n96Var = new n96();
-                    n96Var.a = this.w;
-                    n96Var.b = 1;
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921627, n96Var));
+                    o96 o96Var = new o96();
+                    o96Var.a = this.w;
+                    o96Var.b = 1;
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921627, o96Var));
                     l();
                     return;
                 case 3:
-                    aa5.i(this.x);
+                    ba5.i(this.x);
                     return;
                 case 4:
-                    aa5.a(this.x);
+                    ba5.a(this.x);
                     return;
                 case 5:
                     l();
                     return;
                 case 6:
-                    zz4.a(this.x, 1000);
-                    aa5.k(this.w.pkgName);
+                    a05.a(this.x, 1000);
+                    ba5.k(this.w.pkgName);
                     return;
                 default:
                     return;
@@ -980,7 +980,7 @@ public class ItemCardDownloadButton extends View {
     public void setShadow(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            String[] G = nw4.G(i);
+            String[] G = ow4.G(i);
             int identifier = TbadkCoreApplication.getInst().getResources().getIdentifier(G[0], "color", TbadkCoreApplication.getInst().getPackageName());
             this.m = identifier;
             this.n = SkinManager.getColor(identifier);

@@ -46,12 +46,12 @@ public class ou2 {
 
         /* renamed from: com.baidu.tieba.ou2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0375a implements to1.a {
+        public class C0376a implements to1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0375a(a aVar, File[] fileArr) {
+            public C0376a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class ou2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0375a(this, fileArr));
+                    u.d(p, null, fileArr, new C0376a(this, fileArr));
                 }
             }
         }

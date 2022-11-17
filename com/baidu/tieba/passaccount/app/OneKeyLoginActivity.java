@@ -9,7 +9,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tv7;
+import com.baidu.tieba.aw7;
 import com.baidu.tieba.uv7;
 import com.baidu.tieba.vv7;
 import com.baidu.tieba.wv7;
@@ -25,9 +25,9 @@ public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public vv7 b;
-    public uv7 c;
-    public tv7 d;
+    public wv7 b;
+    public vv7 c;
+    public uv7 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            vv7 vv7Var = new vv7();
-            this.b = vv7Var;
-            vv7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            wv7 wv7Var = new wv7();
+            this.b = wv7Var;
+            wv7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -85,11 +85,11 @@ public class OneKeyLoginActivity extends BaseActivity {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f091cd4);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new xv7(getPageContext(), findViewById);
-                this.d = new wv7(getPageContext(), this.c);
+                this.c = new yv7(getPageContext(), findViewById);
+                this.d = new xv7(getPageContext(), this.c);
             } else {
-                this.c = new zv7(getPageContext(), findViewById);
-                this.d = new yv7(getPageContext(), this.c);
+                this.c = new aw7(getPageContext(), findViewById);
+                this.d = new zv7(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

@@ -1,124 +1,142 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.common.param.CommonUrlParamManager;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.novel.ReadRecordsData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.novel.NovelMemberCardView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class sd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static sd5 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
 
-    public static String a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
-            JSONObject params = SchemeActionHelper.getParams(Uri.parse(str), "data");
-            String str3 = null;
-            try {
-                params.put(str2, i);
-                int indexOf = str.indexOf("data");
-                if (indexOf > 0) {
-                    str3 = str.substring(0, indexOf) + "data=" + params;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                return str3;
-            }
-            return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948147589, "Lcom/baidu/tieba/sd5;")) == null) {
+            return;
         }
-        return (String) invokeLLI.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948147589, "Lcom/baidu/tieba/sd5;");
+        }
     }
 
-    public static String b() {
+    public sd5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = true;
+        this.d = true;
+        this.e = true;
+        this.a = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds144);
+        this.b = yi.j(TbadkCoreApplication.getInst());
+    }
+
+    public static sd5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        df<String> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || !TextUtils.equals(b(), str2) || (i = iv4.i("tb.novel_thread_read_record", b(), str)) == null || StringUtils.isNull(i.get(str))) {
-                return null;
-            }
-            return i.get(str);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
-        }
-    }
-
-    public static void e(String str, ReadRecordsData readRecordsData) {
-        df<String> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, readRecordsData) == null) {
-            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && (i = iv4.i("tb.novel_thread_read_record", b(), str)) != null && readRecordsData != null) {
-                i.g(str, OrmObject.jsonStrWithObject(readRecordsData));
-            }
-        }
-    }
-
-    public static String f(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, str2, str3, str4)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return str;
-            }
-            String queryParameter = parse.getQueryParameter(str2);
-            if (xi.isEmpty(queryParameter)) {
-                return str;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(queryParameter);
-                jSONObject.put(str3, str4);
-                int indexOf = str.indexOf("&data");
-                if (indexOf > 0) {
-                    String substring = str.substring(0, indexOf);
-                    return substring + "&data=" + jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (sd5.class) {
+                    if (f == null) {
+                        f = new sd5();
+                    }
                 }
-                return null;
-            } catch (Exception e) {
-                cj9.g(e);
-                return str;
             }
+            return f;
         }
-        return (String) invokeLLLL.objValue;
+        return (sd5) invokeV.objValue;
     }
 
-    public static String g(String str) {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f = null;
+            this.c = true;
+            this.d = true;
+            this.e = true;
+        }
+    }
+
+    public boolean b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int i = iArr[1];
+            if (i <= 0 || i >= this.b - this.a) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str, String str2, r55 r55Var, NovelMemberCardView novelMemberCardView, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, r55Var, novelMemberCardView, Integer.valueOf(i)}) == null) && r55Var != null && novelMemberCardView != null && novelMemberCardView.getVisibility() == 0) {
+            String valueOf = String.valueOf(r55Var.f());
+            if (r55Var.h()) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
+            if (b(novelMemberCardView.getNovelReadMoreButton()) && !r55Var.h()) {
+                if (this.c) {
+                    this.c = false;
+                    ud5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
+                }
+            } else {
+                this.c = true;
+            }
+            if (b(novelMemberCardView.getNovelPaidButton()) && r55Var.h()) {
+                if (this.d) {
+                    this.d = false;
+                    ud5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
+                }
+            } else {
+                this.d = true;
+            }
+            if (b(novelMemberCardView.getNovelCoverPage()) && !r55Var.h()) {
+                if (this.e) {
+                    this.e = false;
+                    ud5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2, i);
+                    return;
+                }
+                return;
+            }
+            this.e = true;
+        }
     }
 }

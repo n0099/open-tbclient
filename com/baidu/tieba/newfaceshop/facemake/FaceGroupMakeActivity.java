@@ -32,14 +32,14 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au7;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.rq4;
-import com.baidu.tieba.tj5;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.uj5;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yt7;
 import com.baidu.tieba.zt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements zt7.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -66,7 +66,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public yt7 m;
+    public zt7 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -156,7 +156,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                zt7 l = zt7.l();
+                au7 l = au7.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -238,7 +238,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
     }
 
     /* loaded from: classes5.dex */
-    public class e implements jv4.e {
+    public class e implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -261,19 +261,19 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
-                zt7.l().i();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
+                au7.l().i();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements jv4.e {
+    public class f implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -296,11 +296,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
             }
         }
     }
@@ -336,7 +336,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (tj5.b(spanned.toString()) - (i4 - i3)) + tj5.b(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (uj5.b(spanned.toString()) - (i4 - i3)) + uj5.b(charSequence.toString()) > this.a) {
                     this.b.showToast(R.string.obfuscated_res_0x7f0f0d63);
                     return "";
                 }
@@ -413,7 +413,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.yt7.c
+    @Override // com.baidu.tieba.zt7.c
     public void X0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048586, this, faceData) != null) || faceData == null) {
@@ -446,7 +446,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f0611);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = zt7.l().k();
+            FaceGroupDraft k = au7.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {
@@ -460,7 +460,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.yt7.c
+    @Override // com.baidu.tieba.zt7.c
     public void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -482,7 +482,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
     public final void N1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (k = zt7.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (k = au7.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -499,11 +499,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.f.getText())) {
-                jv4 jv4Var = new jv4(this.p);
-                jv4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0607));
-                jv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0440, new e(this));
-                jv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new f(this));
-                jv4Var.create(getPageContext()).show();
+                kv4 kv4Var = new kv4(this.p);
+                kv4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0607));
+                kv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0440, new e(this));
+                kv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new f(this));
+                kv4Var.create(getPageContext()).show();
                 return;
             }
             finish();
@@ -551,7 +551,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = zt7.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = au7.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             K1();
@@ -587,9 +587,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b0);
             P1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090d25);
-            yt7 yt7Var = new yt7(this.n);
-            this.m = yt7Var;
-            yt7Var.f(this);
+            zt7 zt7Var = new zt7(this.n);
+            this.m = zt7Var;
+            zt7Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090351);
@@ -640,7 +640,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements yt7.c, BarInf
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(getPageContext(), i);
-            rq4 layoutMode = getLayoutMode();
+            sq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

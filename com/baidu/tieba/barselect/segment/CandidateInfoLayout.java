@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.o26;
-import com.baidu.tieba.q26;
-import com.baidu.tieba.x26;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.r26;
 import com.baidu.tieba.xg;
+import com.baidu.tieba.y26;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,10 +67,10 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            o26 o26Var;
+            p26 p26Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (o26Var = this.a.c) != null && o26Var.l() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (p26Var = this.a.c) != null && p26Var.l() != 0) {
                 long g = xg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            o26 o26Var = this.c;
-            if (o26Var != null) {
-                setGrade(o26Var.d());
+            p26 p26Var = this.c;
+            if (p26Var != null) {
+                setGrade(p26Var.d());
             }
         }
     }
@@ -182,14 +182,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, q26 q26Var) {
+    public void setData(int i, r26 r26Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, q26Var) == null) {
-            super.setData(i, q26Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, r26Var) == null) {
+            super.setData(i, r26Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == x26.c) {
+                if (i2 == y26.c) {
                     int g = yi.g(this.d, R.dimen.tbds191);
                     int g2 = yi.g(this.d, R.dimen.tbds157);
                     int g3 = yi.g(this.d, R.dimen.tbds6);

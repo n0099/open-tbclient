@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.yi;
@@ -177,7 +177,7 @@ public class LocalFileImageLoaderProc2 implements ug<in> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            in checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), k95.k().m(toCacheKey(str, i, i2)), i, i2);
+            in checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), l95.k().m(toCacheKey(str, i, i2)), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
@@ -203,7 +203,7 @@ public class LocalFileImageLoaderProc2 implements ug<in> {
             if (inVar.u()) {
                 inVar.A(i);
                 inVar.z(i2);
-                k95.k().d(toCacheKey(str, i, i2), inVar);
+                l95.k().d(toCacheKey(str, i, i2), inVar);
             }
         }
     }

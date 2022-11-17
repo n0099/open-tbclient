@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.mx8;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.qz4;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,17 +153,17 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             LinearLayout.inflate(getContext(), getLayoutR(), this);
             this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091a34);
             this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090af3);
-            pz4 pz4Var = new pz4();
-            pz4Var.s();
-            pz4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            pz4Var.g(yi.g(getContext(), R.dimen.tbds32));
+            qz4 qz4Var = new qz4();
+            qz4Var.s();
+            qz4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            qz4Var.g(yi.g(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1573));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(pz4Var);
-            nz4 nz4Var = new nz4();
+            this.a.setConfig(qz4Var);
+            oz4 oz4Var = new oz4();
             this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1587));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(nz4Var);
+            this.b.setConfig(oz4Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -174,7 +174,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || lx8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || mx8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }

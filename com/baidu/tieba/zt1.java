@@ -45,13 +45,13 @@ public class zt1 extends wt1 {
 
         /* renamed from: com.baidu.tieba.zt1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0488a implements u73.e {
+        public class C0490a implements u73.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f43 a;
             public final /* synthetic */ a b;
 
-            public C0488a(a aVar, f43 f43Var) {
+            public C0490a(a aVar, f43 f43Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class zt1 extends wt1 {
                         return;
                     }
                     this.a.a();
-                    u73.g(M, this.c, "", new C0488a(this, M), this.d);
+                    u73.g(M, this.c, "", new C0490a(this, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new fw1(1001, "swan activity is null"));

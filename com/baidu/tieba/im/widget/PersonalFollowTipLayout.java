@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.s05;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public r05 g;
+    public s05 g;
     public UserData h;
 
     /* loaded from: classes4.dex */
@@ -77,7 +77,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.b();
                 if (this.a.h != null) {
-                    py4 k = py4.k();
+                    qy4 k = qy4.k();
                     k.x("im_personal_follow_tip_close_last_time_" + this.a.h.getUserId(), System.currentTimeMillis());
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_PERSON_FOLLOW_TIP_CLOSE_BTN_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
@@ -237,9 +237,9 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void f(r9<MsglistActivity<?>> r9Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, r9Var) == null) && (r9Var instanceof TbPageContext)) {
-            r05 r05Var = new r05((TbPageContext) r9Var, this.f);
-            this.g = r05Var;
-            r05Var.k(true);
+            s05 s05Var = new s05((TbPageContext) r9Var, this.f);
+            this.g = s05Var;
+            s05Var.k(true);
         }
     }
 
@@ -301,7 +301,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (this.h == null) {
                 return false;
             }
-            py4 k = py4.k();
+            qy4 k = qy4.k();
             long m = k.m("im_personal_follow_tip_close_last_time_" + this.h.getUserId(), 0L);
             if (m != 0 && System.currentTimeMillis() - m <= 86400000) {
                 return false;
@@ -314,14 +314,14 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pw4 d = pw4.d(this.d);
+            qw4 d = qw4.d(this.d);
             d.z(R.dimen.T_X12);
             d.v(R.color.CAM_X0107);
             d.A(R.string.F_X01);
             WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0111, null);
-            pw4.d(this).f(R.color.CAM_X0204);
-            pw4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            pw4 d2 = pw4.d(this.b);
+            qw4.d(this).f(R.color.CAM_X0204);
+            qw4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            qw4 d2 = qw4.d(this.b);
             d2.e(R.string.A_X07);
             d2.f(R.color.CAM_X0208);
             this.f.r(TbadkCoreApplication.getInst().getSkinType());
@@ -346,12 +346,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            nz4 nz4Var = new nz4();
-            nz4Var.i(R.drawable.obfuscated_res_0x7f08096e, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            nz4Var.h(R.color.CAM_X0101);
-            nz4Var.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            nz4Var.f(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(nz4Var);
+            oz4 oz4Var = new oz4();
+            oz4Var.i(R.drawable.obfuscated_res_0x7f08096e, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            oz4Var.h(R.color.CAM_X0101);
+            oz4Var.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            oz4Var.f(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(oz4Var);
             this.f.r(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));

@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ei8;
+import com.baidu.tieba.fi8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.yi5;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements ei8 {
+public class VideoPlayDispatcher implements fi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public class VideoPlayDispatcher implements ei8 {
         }
     }
 
-    @Override // com.baidu.tieba.ei8
+    @Override // com.baidu.tieba.fi8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class VideoPlayDispatcher implements ei8 {
             videoItemData.forum_name = jSONObject.optString("forumName");
             boolean equals = "1".equals(jSONObject.optString("showComment"));
             arrayList.add(videoItemData);
-            yi5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", equals, false, xg.g(videoItemData.forum_id, 0L));
+            zi5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", equals, false, xg.g(videoItemData.forum_id, 0L));
         }
     }
 }

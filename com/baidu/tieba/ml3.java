@@ -39,13 +39,13 @@ public class ml3 extends is1 {
 
         /* renamed from: com.baidu.tieba.ml3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0345a implements yi3<i93<k93.e>> {
+        public class C0347a implements yi3<i93<k93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ hs1.b a;
             public final /* synthetic */ a b;
 
-            public C0345a(a aVar, hs1.b bVar) {
+            public C0347a(a aVar, hs1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class ml3 extends is1 {
                 if (b0 == null) {
                     return new fw1(1001, "null swan runtime");
                 }
-                b0.e0().g(e43.K(), "mapp_i_get_bduss", new C0345a(this, bVar));
+                b0.e0().g(e43.K(), "mapp_i_get_bduss", new C0347a(this, bVar));
                 return fw1.f();
             }
             return (fw1) invokeLL.objValue;

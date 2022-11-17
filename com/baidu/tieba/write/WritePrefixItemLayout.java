@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,7 +83,7 @@ public class WritePrefixItemLayout extends LinearLayout {
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ab1);
             this.e = findViewById(R.id.obfuscated_res_0x7f091ab5);
             this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            pw4.d(this.c).v(R.color.CAM_X0109);
+            qw4.d(this.c).v(R.color.CAM_X0109);
             this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a01, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);

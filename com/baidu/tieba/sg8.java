@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface sg8<T> {
-    void a(int i, int i2);
+public interface sg8 {
+    void a(int i);
 
-    void c(int i, int i2, rg8 rg8Var, T t);
-
-    void d(int i, int i2, int i3, rg8 rg8Var, T t);
-
-    void e(int i, int i2, T t, rg8 rg8Var, T t2);
+    boolean b();
 }

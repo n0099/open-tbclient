@@ -1,46 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.s59;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class h69 extends s69<i79> implements v69 {
+public class h69 extends t69<i79> implements v69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public WriteImageGridView g;
+    public ForumTabSelectedView g;
     @Nullable
-    public s59 h;
-    @NonNull
-    public final i89 i;
-    public final s59.b j;
+    public View h;
+    public final ForumTabSelectedView.d i;
 
-    @Override // com.baidu.tieba.x69
+    @Override // com.baidu.tieba.y69
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.y69
     public void e(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements s59.b {
+    public class a implements ForumTabSelectedView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h69 a;
@@ -63,21 +69,11 @@ public class h69 extends s69<i79> implements v69 {
             this.a = h69Var;
         }
 
-        @Override // com.baidu.tieba.s59.b
-        public void a() {
+        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
+        public void a(FrsTabItemData frsTabItemData) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.x(new int[]{10, 34});
-            }
-        }
-
-        @Override // com.baidu.tieba.s59.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.b != null) {
-                    this.a.b.i();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
+                ((i79) this.a.d).b = frsTabItemData;
                 h69 h69Var = this.a;
                 h69Var.y(h69Var.d);
             }
@@ -85,13 +81,13 @@ public class h69 extends s69<i79> implements v69 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h69(TbPageContext<?> tbPageContext, @NonNull i89 i89Var) {
+    public h69(TbPageContext<?> tbPageContext) {
         super(tbPageContext, i79.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, i89Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,194 +99,148 @@ public class h69 extends s69<i79> implements v69 {
                 return;
             }
         }
-        this.j = new a(this);
-        this.i = i89Var;
-        i89Var.c(this);
+        this.i = new a(this);
     }
 
-    @Override // com.baidu.tieba.x69
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-            this.i.d(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.v69
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            u(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.v69
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            u(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.x69
+    @Override // com.baidu.tieba.y69
     public void onChangeSkinType(int i) {
-        s59 s59Var;
-        r59 r59Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (s59Var = this.h) != null && (r59Var = s59Var.d) != null) {
-            r59Var.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            this.i.o(bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.v69
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.e == null) {
-            return;
-        }
-        F(str);
-    }
-
-    @Override // com.baidu.tieba.v69
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || this.e == null) {
-            return;
-        }
-        F(str);
-    }
-
-    public final void F(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.b != null && this.h != null && this.e != null) {
-            this.i.g().parseJson(str);
-            this.i.g().updateQuality();
-            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
-            i79 i79Var = (i79) this.d;
-            if (this.h.o().getVisibility() == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.o(i);
             }
-            i79Var.a = z;
-            y(this.d);
-            this.b.w();
-            this.b.i();
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
         }
     }
 
-    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
-    public void r(k65 k65Var) {
+    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
+    public void q(@NonNull List<y69<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, k65Var) == null) {
-            super.r(k65Var);
-            if (this.b != null && this.e != null && this.h != null && k65Var.a == 24) {
-                Object obj = k65Var.c;
-                if (!(obj instanceof e25)) {
-                    return;
-                }
-                e25 e25Var = (e25) obj;
-                if (EmotionGroupType.isSendAsPic(e25Var.getType()) && this.i.b(this.b, e25Var) != null) {
-                    this.b.i();
-                    this.b.x(new int[]{10, 34});
-                    this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            super.q(list);
+            for (y69<?> y69Var : list) {
+                if (y69Var instanceof c69) {
+                    w((c69) y69Var);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.x69
-    public void a(@NonNull WriteData writeData) {
-        boolean z;
+    public final boolean C(FrsTabInfoData frsTabInfoData, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) && this.h != null && writeData.getWriteImagesInfo() != null) {
-            this.i.r(writeData.getWriteImagesInfo());
-            WriteData writeData2 = this.e;
-            if (writeData2 != null) {
-                writeData2.setWriteImagesInfo(writeData.getWriteImagesInfo());
-                this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsTabInfoData, str)) == null) {
+            if (frsTabInfoData == null || ListUtils.isEmpty(frsTabInfoData.tabList)) {
+                return false;
             }
-            i79 i79Var = (i79) this.d;
-            if (this.h.o().getVisibility() == 0) {
-                z = true;
-            } else {
-                z = false;
+            int i = 0;
+            while (true) {
+                if (i < frsTabInfoData.tabList.size()) {
+                    if (str.equals(frsTabInfoData.tabList.get(i).name)) {
+                        break;
+                    }
+                    i++;
+                } else {
+                    i = -1;
+                    break;
+                }
             }
-            i79Var.a = z;
-            y(this.d);
+            if (i != -1) {
+                frsTabInfoData.tabList.remove(i);
+            }
+            if (i == -1) {
+                return false;
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
-    public void d() {
+    @Override // com.baidu.tieba.y69
+    public void c(WriteData writeData) {
+        ForumTabSelectedView forumTabSelectedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d();
-            this.i.q(this);
-            s59 s59Var = this.h;
-            if (s59Var != null) {
-                s59Var.n();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
+            return;
+        }
+        D d = this.d;
+        if (((i79) d).a != null) {
+            writeData.setIsForumBusinessAccount(((i79) d).a.isForumBusinessAccount);
+        }
+        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
+        if (selectedTabItemData == null) {
+            return;
+        }
+        writeData.setTabId(selectedTabItemData.tabId);
+        writeData.setTabName(selectedTabItemData.name);
+        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+    }
+
+    @Override // com.baidu.tieba.v69
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
+            return;
+        }
+        SelectForumData selectForumData = (SelectForumData) obj;
+        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            frsTabInfoData.selectedTabId = -1;
+            List<FrsTabItemData> list = selectForumData.tabInfoList;
+            frsTabInfoData.tabList = list;
+            if (selectForumData.isForumBusinessAccount && list != null) {
+                FrsTabItemData frsTabItemData = new FrsTabItemData();
+                frsTabItemData.tabId = 505;
+                frsTabItemData.name = "官方";
+                frsTabInfoData.tabList.add(0, frsTabItemData);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            WriteImageGridView writeImageGridView = this.g;
-            if (writeImageGridView != null && writeImageGridView.getVisibility() == 0 && this.i.g().size() > 0) {
-                return true;
+            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
+            if (this.g != null) {
+                C(frsTabInfoData, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06e4));
+                this.g.setData(frsTabInfoData);
+                if (this.g.getVisibility() == 0) {
+                    this.c.setVisibility(0);
+                } else {
+                    this.c.setVisibility(8);
+                }
             }
-            return false;
+            ((i79) this.d).a = frsTabInfoData;
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setFrsTabInfoData(frsTabInfoData);
+                return;
+            }
+            return;
         }
-        return invokeV.booleanValue;
+        this.c.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.s69, com.baidu.tieba.x69
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            this.i.m(i, i2, intent);
-        }
-    }
-
-    @Override // com.baidu.tieba.x69
+    @Override // com.baidu.tieba.y69
     public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04b2, viewGroup, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04af, viewGroup, false);
             this.c = inflate;
-            this.g = (WriteImageGridView) inflate.findViewById(R.id.obfuscated_res_0x7f092704);
-            s59 s59Var = new s59(this.a, this.c);
-            this.h = s59Var;
-            s59Var.r(this.j);
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                this.h.q(writeData.getDisableAudioMessage(), this.e.getFirstDir(), this.e.getSecondDir(), this.e.getPrefixData(), this.e.getStatisticFrom(), this.e.isVoiceEnable());
-                if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.e.getFrom())) {
-                    this.h.s(false);
-                } else {
-                    this.h.t(true);
+            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090c24);
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    C(writeData.getFrsTabInfoData(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06e4));
+                    this.g.setData(this.e.getFrsTabInfoData());
+                    if (this.g.getVisibility() == 0) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
                 }
-                if (this.e.getType() == 14) {
-                    this.h.p(true);
-                }
+                this.g.setActivity(this.a);
+                this.g.setTabSelectedListener(this.i);
             }
-            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
             return this.c;
         }
         return (View) invokeL.objValue;

@@ -42,14 +42,14 @@ public class y73 extends c63 {
 
         /* renamed from: com.baidu.tieba.y73$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0477a implements ka2.f {
+        public class C0480a implements ka2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ka2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0477a(a aVar, ka2.e eVar, JSONObject jSONObject) {
+            public C0480a(a aVar, ka2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class y73 extends c63 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                ka2.q(f, new C0477a(this, f, c2));
+                ka2.q(f, new C0480a(this, f, c2));
             }
         }
 

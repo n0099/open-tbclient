@@ -1,17 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,137 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class nn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static nn8 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mn8 a;
-    public int b;
-    public SparseArray<HashSet<String>> c;
-    public c d;
-    public Handler e;
-    public CustomMessageListener f;
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nn8 nn8Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn8Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            c cVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 5) {
-                    Object obj = message.obj;
-                    if ((obj instanceof c) && (cVar = (c) obj) != null) {
-                        cVar.d = false;
-                        cVar.a = false;
-                        cVar.b = 0;
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(nn8 nn8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-                return;
-            }
-            if (this.a.c != null) {
-                this.a.c.clear();
-            }
-            this.a.a.g();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
-        public long c;
-        public boolean d;
-
-        public c(nn8 nn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = 0;
-            this.c = 0L;
-            this.d = false;
-        }
-
-        public /* synthetic */ c(nn8 nn8Var, a aVar) {
-            this(nn8Var);
-        }
-    }
+    public Map<BdUniqueId, ArrayList<StatisticItem>> a;
+    public String[] b;
 
     public nn8() {
         Interceptable interceptable = $ic;
@@ -164,150 +37,136 @@ public class nn8 {
                 return;
             }
         }
-        this.e = new a(this, Looper.getMainLooper());
-        this.f = new b(this, 2005016);
-        this.b = py4.k().l("card_show_statistic_max_count", 200);
-        this.a = new mn8();
-        MessageManager.getInstance().registerListener(this.f);
+        this.b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER, TiebaStatic.Params.IS_SPECIAL_THREAD};
+        if (this.a == null) {
+            this.a = new LinkedHashMap();
+        }
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public void a(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null) {
-                this.d = new c(this, null);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) && statisticItem != null && bdUniqueId != null) {
+            ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                this.a.put(bdUniqueId, arrayList);
             }
-            if (this.d.d) {
-                return true;
+            arrayList.add(statisticItem);
+        }
+    }
+
+    public void d(BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, bdUniqueId, z) != null) || bdUniqueId == null) {
+            return;
+        }
+        ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+        if (ListUtils.getCount(arrayList) == 0) {
+            return;
+        }
+        e(arrayList);
+        arrayList.clear();
+    }
+
+    public final String b(List<Object> list, String str) {
+        InterceptResult invokeLL;
+        int indexOf;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if (ListUtils.getCount(list) == 0 || StringUtils.isNull(str) || (indexOf = list.indexOf(str)) < 0 || list.size() <= (i = indexOf + 1)) {
+                return "";
             }
+            String valueOf = String.valueOf(list.get(i));
+            if (StringUtils.isNull(valueOf, true)) {
+                return "";
+            }
+            return valueOf;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean c(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            return this.a.containsKey(bdUniqueId);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        this.a.put(bdUniqueId, null);
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        this.a.remove(bdUniqueId);
+    }
+
+    public final void e(ArrayList<StatisticItem> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && ListUtils.getCount(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            c cVar = this.d;
-            if (cVar.a) {
-                int i = cVar.b + 1;
-                cVar.b = i;
-                if (currentTimeMillis - cVar.c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                    if (i >= this.b) {
-                        cVar.d = true;
-                        f(cVar);
-                        return true;
-                    }
-                } else {
-                    cVar.a = false;
-                    cVar.b = 0;
-                }
+            if (ListUtils.getCount(arrayList) == 1) {
+                TiebaStatic.log((StatisticItem) ListUtils.getItem(arrayList, 0));
             } else {
-                cVar.a = true;
-                cVar.c = currentTimeMillis;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            Message obtainMessage = this.e.obtainMessage();
-            obtainMessage.what = 5;
-            obtainMessage.obj = cVar;
-            this.e.removeMessages(5);
-            this.e.sendMessageDelayed(obtainMessage, 300000L);
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            yi.c();
-            if (bdUniqueId == null) {
-                return;
-            }
-            this.a.f(bdUniqueId);
-        }
-    }
-
-    public void j(BdUniqueId bdUniqueId) {
-        SparseArray<HashSet<String>> sparseArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) && (sparseArray = this.c) != null) {
-            sparseArray.remove(bdUniqueId.getId());
-        }
-    }
-
-    public void k(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            yi.c();
-            if (bdUniqueId == null) {
-                return;
-            }
-            this.a.h(bdUniqueId);
-            j(bdUniqueId);
-        }
-    }
-
-    public static nn8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (g == null) {
-                synchronized (nn8.class) {
-                    if (g == null) {
-                        g = new nn8();
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    StatisticItem statisticItem = arrayList.get(i);
+                    if (hashMap.containsKey(statisticItem.getKey())) {
+                        ((List) hashMap.get(statisticItem.getKey())).add(statisticItem);
+                    } else {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(statisticItem);
+                        hashMap.put(statisticItem.getKey(), arrayList2);
                     }
                 }
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    List list = (List) entry.getValue();
+                    if (ListUtils.getCount(list) != 0) {
+                        StatisticItem statisticItem2 = (StatisticItem) list.get(0);
+                        for (int i2 = 0; i2 < this.b.length; i2++) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.b[i2]));
+                                sb.append("|");
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            statisticItem2.delete(this.b[i2]);
+                            statisticItem2.param(this.b[i2] + "s", sb.toString());
+                        }
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                if (!hashMap.isEmpty()) {
+                    hashMap.clear();
+                }
             }
-            return g;
-        }
-        return (nn8) invokeV.objValue;
-    }
-
-    public void c(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) {
-            this.a.d(bdUniqueId, true);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void h(BdUniqueId bdUniqueId, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, bdUniqueId, z) == null) {
             if (BdLog.isDebugMode()) {
-                BdLog.d("logStatisticByKey start write log ");
+                BdLog.e("logStatisticByKey->" + (System.currentTimeMillis() - currentTimeMillis) + "|size=" + arrayList.size());
             }
-            this.a.d(bdUniqueId, z);
         }
     }
 
-    public void d(BdUniqueId bdUniqueId, String str, StatisticItem statisticItem) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId, str, statisticItem) == null) && bdUniqueId != null && statisticItem != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (!this.a.c(bdUniqueId)) {
-                BdLog.e("error, bdUniqueId not register");
-                return;
-            }
-            if (TextUtils.isEmpty(str)) {
-                BdLog.e("id is null, statistic key is=" + statisticItem.getKey());
-            }
-            if (this.c == null) {
-                this.c = new SparseArray<>();
-            }
-            HashSet<String> hashSet = this.c.get(bdUniqueId.getId());
-            if (hashSet == null) {
-                hashSet = new HashSet<>();
-                this.c.put(bdUniqueId.getId(), hashSet);
-            }
-            String str2 = statisticItem.getKey() + "_" + str;
-            if (hashSet.contains(str2) || e()) {
-                return;
-            }
-            hashSet.add(str2);
-            this.a.a(bdUniqueId, statisticItem);
-            if (BdLog.isDebugMode()) {
-                BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.a.size() == 0) {
+            return;
+        }
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.a.entrySet()) {
+            ArrayList<StatisticItem> value = entry.getValue();
+            if (value != null) {
+                value.clear();
             }
         }
     }

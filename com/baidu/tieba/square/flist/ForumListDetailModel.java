@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.df;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.flist.ForumListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,8 +96,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        iv4.f();
-                        df<String> g = iv4.g("tb.my_posts");
+                        jv4.f();
+                        df<String> g = jv4.g("tb.my_posts");
                         if (g != null) {
                             str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {

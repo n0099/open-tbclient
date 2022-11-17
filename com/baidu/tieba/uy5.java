@@ -4,25 +4,19 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
+import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherRecommendTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uy5 extends kn<oz5, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+public class uy5 extends kn<cz5, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public lv5 b;
-    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public uy5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -49,49 +43,23 @@ public class uy5 extends kn<oz5, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLive
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.a);
-            alaGameFrsGameLiveDoubleView.t(this.c);
-            return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
+            return new AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder(new AlaFrsLiveListGatherRecommendTitleView(this.a));
         }
-        return (AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder) invokeL.objValue;
-    }
-
-    public void u(lv5 lv5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lv5Var) == null) {
-            this.b = lv5Var;
-        }
+        return (AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oz5 oz5Var, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cz5 cz5Var, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder alaFrsLiveListGatherRecommendTitleViewHolder) {
         InterceptResult invokeCommon;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oz5Var, alaGameFrsGameLiveDoubleViewHolder})) == null) {
-            alaGameFrsGameLiveDoubleViewHolder.a.l(oz5Var);
-            alaGameFrsGameLiveDoubleViewHolder.a.u(this.b);
-            String str2 = "";
-            if (StringUtils.isNull(oz5Var.a.getThreadAlaInfo().appId)) {
-                str = "";
-            } else {
-                str = oz5Var.a.getThreadAlaInfo().appId;
-            }
-            kv5.b().a(new StatisticItem("c12115").param("obj_id", oz5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str));
-            ThreadData threadData = oz5Var.b;
-            if (threadData != null) {
-                if (!StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
-                    str2 = oz5Var.b.getThreadAlaInfo().appId;
-                }
-                kv5.b().a(new StatisticItem("c12115").param("obj_id", oz5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str2));
-            }
-            return alaGameFrsGameLiveDoubleViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cz5Var, alaFrsLiveListGatherRecommendTitleViewHolder})) == null) {
+            return alaFrsLiveListGatherRecommendTitleViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.ur6;
-import com.baidu.tieba.vh5;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.vr6;
+import com.baidu.tieba.wh5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements vh5 {
+public class GameCodeListView extends ConstraintLayout implements wh5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -89,11 +89,11 @@ public class GameCodeListView extends ConstraintLayout implements vh5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.vh5
+    @Override // com.baidu.tieba.wh5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            pw4 d = pw4.d(this);
+            qw4 d = qw4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -202,10 +202,10 @@ public class GameCodeListView extends ConstraintLayout implements vh5 {
         }
     }
 
-    public void b(ur6 ur6Var) {
+    public void b(vr6 vr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ur6Var) == null) {
-            this.c.g(ur6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr6Var) == null) {
+            this.c.g(vr6Var);
         }
     }
 

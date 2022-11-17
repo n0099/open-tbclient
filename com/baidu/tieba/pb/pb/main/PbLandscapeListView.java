@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ao;
-import com.baidu.tieba.eo5;
+import com.baidu.tieba.fo5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public eo5 U;
+    public fo5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
@@ -150,7 +150,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new eo5(this);
+        this.U = new fo5(this);
         H();
     }
 
@@ -220,7 +220,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new eo5(this);
+        this.U = new fo5(this);
         H();
     }
 
@@ -250,7 +250,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new eo5(this);
+        this.U = new fo5(this);
         H();
     }
 

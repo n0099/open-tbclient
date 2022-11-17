@@ -1,70 +1,130 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbChildTitleViewHolder;
+import com.baidu.tieba.df;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c08 extends f08<nx7, PbChildTitleViewHolder> {
+public class c08 {
     public static /* synthetic */ Interceptable $ic;
+    public static c08 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public df<byte[]> a;
+    public df<byte[]> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c08(z48 z48Var, BdUniqueId bdUniqueId) {
-        super(z48Var, bdUniqueId);
+    public c08() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z48Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((z48) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: u */
-    public PbChildTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static synchronized c08 b() {
+        InterceptResult invokeV;
+        c08 c08Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbChildTitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06d3, viewGroup, false));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (c08.class) {
+                if (c == null) {
+                    c = new c08();
+                }
+                c08Var = c;
+            }
+            return c08Var;
         }
-        return (PbChildTitleViewHolder) invokeL.objValue;
+        return (c08) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f08, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (nx7) obj, (PbChildTitleViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, nx7 nx7Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
-        InterceptResult invokeCommon;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nx7Var, pbChildTitleViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, nx7Var, pbChildTitleViewHolder);
-            pbChildTitleViewHolder.a(nx7Var);
-            pbChildTitleViewHolder.c();
-            return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                jv4.f();
+                this.a = jv4.d("tb.pb_mark");
+            }
+            if (this.b == null) {
+                jv4.f();
+                this.b = jv4.d("tb.pb_normal");
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        df.b<byte[]> h;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (z) {
+                df<byte[]> dfVar = this.a;
+                if (dfVar != null && str != null) {
+                    h = dfVar.h(str);
+                }
+                h = null;
+            } else {
+                df<byte[]> dfVar2 = this.b;
+                if (dfVar2 != null && str != null) {
+                    h = dfVar2.h(str);
+                }
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                df<byte[]> dfVar = this.a;
+                if (dfVar != null && str != null) {
+                    dfVar.i(str, new byte[0], 0L);
+                    return;
+                }
+                return;
+            }
+            df<byte[]> dfVar2 = this.b;
+            if (dfVar2 != null && str != null) {
+                dfVar2.i(str, new byte[0], 0L);
+            }
+        }
+    }
+
+    public void f(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
+            c();
+            this.a.e(str, bArr, 86400000L);
+        }
+    }
+
+    public void e(String str, boolean z, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
+            c();
+            if (z) {
+                this.a.e(str, bArr, 86400000L);
+            } else {
+                this.b.e(str, bArr, 86400000L);
+            }
+        }
     }
 }

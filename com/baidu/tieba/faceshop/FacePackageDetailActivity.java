@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf6;
-import com.baidu.tieba.ef6;
+import com.baidu.tieba.cf6;
 import com.baidu.tieba.faceshop.FaceBuyData;
+import com.baidu.tieba.ff6;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FacePackageDetailModel a;
-    public ef6 b;
+    public ff6 b;
     public FacePackageDownloadModel c;
     public FaceBuyModel d;
     public float e;
@@ -197,11 +197,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.b.showToast(str2);
                         return;
                     } else {
-                        bf6.f().i(this.a);
+                        cf6.f().i(this.a);
                         return;
                     }
                 }
-                bf6.f().i(this.a);
+                cf6.f().i(this.a);
             }
         }
     }
@@ -412,9 +412,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            ef6 ef6Var = this.b;
-            if (ef6Var != null) {
-                ef6Var.l(i);
+            ff6 ff6Var = this.b;
+            if (ff6Var != null) {
+                ff6Var.l(i);
             }
         }
     }
@@ -452,10 +452,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = new ef6(getPageContext());
+            this.b = new ff6(getPageContext());
             B1();
             registerListener(this.k);
-            bf6.f();
+            cf6.f();
         }
     }
 
@@ -507,9 +507,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDetachedFromWindow();
-            ef6 ef6Var = this.b;
-            if (ef6Var != null) {
-                ef6Var.p();
+            ff6 ff6Var = this.b;
+            if (ff6Var != null) {
+                ff6Var.p();
             }
         }
     }
@@ -518,9 +518,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ef6 ef6Var = this.b;
-            if (ef6Var != null) {
-                ef6Var.m();
+            ff6 ff6Var = this.b;
+            if (ff6Var != null) {
+                ff6Var.m();
             }
             super.onResume();
         }
@@ -537,7 +537,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void D1(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            bf6.f().j(str, str2, str3);
+            cf6.f().j(str, str2, str3);
         }
     }
 
@@ -589,11 +589,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 this.e = motionEvent.getX();
                 this.f = motionEvent.getY();
             }
-            ef6 ef6Var = this.b;
-            if (ef6Var == null) {
+            ff6 ff6Var = this.b;
+            if (ff6Var == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            if (ef6Var.j()) {
+            if (ff6Var.j()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
@@ -681,10 +681,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        ef6 ef6Var;
+        ff6 ff6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (ef6Var = this.b) != null) {
-            if (view2 == ef6Var.e()) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (ff6Var = this.b) != null) {
+            if (view2 == ff6Var.e()) {
                 if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                     return;
@@ -704,7 +704,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         downloadData.setStatus(1);
                         downloadData.setStatusMsg(null);
                         downloadData.setType(11);
-                        bf6.f().i(downloadData);
+                        cf6.f().i(downloadData);
                         if (!xi.isEmpty(I)) {
                             if (this.a.H() != null && this.a.H().faces_list != null) {
                                 D1(this.a.getPid(), this.a.H().faces_list.pname, I);
@@ -721,9 +721,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 downloadData2.setStatus(4);
                 downloadData2.setStatusMsg(null);
                 downloadData2.setType(11);
-                bf6.f().i(downloadData2);
+                cf6.f().i(downloadData2);
                 this.a.N(false);
-                bf6.f().e(this.a.getPid());
+                cf6.f().e(this.a.getPid());
             }
             super.onClick(view2);
         }

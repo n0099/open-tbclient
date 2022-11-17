@@ -41,14 +41,14 @@ public class o63 extends c63 implements ss1.j {
 
         /* renamed from: com.baidu.tieba.o63$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0368a implements Runnable {
+        public class RunnableC0371a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0368a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0371a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class o63 extends c63 implements ss1.j {
                 f12.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     tc3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    zh3.e0(new RunnableC0368a(this, parse, string));
+                    zh3.e0(new RunnableC0371a(this, parse, string));
                     return;
                 }
                 f12.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

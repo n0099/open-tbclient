@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.ah5;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class sh5 implements vh5 {
+public abstract class sh5<Q extends zg5, P extends ah5> extends rh5 implements vh5<P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a();
+    public abstract void e();
 
-    public abstract void b();
+    public abstract void f();
 
-    public abstract void c();
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i(BdUniqueId bdUniqueId);
+
+    public abstract void j(zf5 zf5Var);
 
     public sh5() {
         Interceptable interceptable = $ic;

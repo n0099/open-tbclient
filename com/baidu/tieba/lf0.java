@@ -87,14 +87,14 @@ public class lf0 {
 
         /* renamed from: com.baidu.tieba.lf0$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0334b implements Runnable {
+        public class RunnableC0337b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
             public final /* synthetic */ Exception b;
             public final /* synthetic */ b c;
 
-            public RunnableC0334b(b bVar, boolean z, Exception exc) {
+            public RunnableC0337b(b bVar, boolean z, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -219,7 +219,7 @@ public class lf0 {
         public void f(Exception exc) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && this.c.d != null && !this.c.d.isEmpty()) {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0334b(this, this.c.q(), exc));
+                new Handler(Looper.getMainLooper()).post(new RunnableC0337b(this, this.c.q(), exc));
             }
         }
 

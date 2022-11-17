@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.o86;
+import com.baidu.tieba.p86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class k86 extends f86 {
+public final class k86 extends g86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k86() {
-        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new n86());
+        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new n86());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,7 +22,7 @@ public final class k86 extends f86 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((o86) objArr[0], (o86.a) objArr[1]);
+                super((p86) objArr[0], (p86.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

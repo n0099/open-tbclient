@@ -70,12 +70,12 @@ public final class h42 {
 
         /* renamed from: com.baidu.tieba.h42$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0286b implements yi3<String> {
+        public class C0290b implements yi3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yi3 a;
 
-            public C0286b(b bVar, yi3 yi3Var) {
+            public C0290b(b bVar, yi3 yi3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class h42 {
         public void e(@NonNull yi3<String> yi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yi3Var) == null) {
-                this.e.e(new C0286b(this, yi3Var));
+                this.e.e(new C0290b(this, yi3Var));
             }
         }
 

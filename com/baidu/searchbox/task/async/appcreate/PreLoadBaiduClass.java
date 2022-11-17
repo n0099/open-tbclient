@@ -76,7 +76,7 @@ public class PreLoadBaiduClass extends LaunchTask {
                 e4.printStackTrace();
             }
             try {
-                Class.forName("com.baidu.tieba.zr8");
+                Class.forName("com.baidu.tieba.as8");
             } catch (ClassNotFoundException e5) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();

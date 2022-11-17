@@ -1,21 +1,9 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes5.dex */
 public interface pc8 {
-    int getCurrentPosition();
+    void a();
 
-    String getPlayUrl();
+    void b();
 
-    View getVideoContainer();
-
-    boolean isFullScreen();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void startPlay();
-
-    void stopPlay();
+    void d();
 }

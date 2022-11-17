@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.xi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public wi8 b;
+    public xi8 b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,21 +52,21 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public wi8 A() {
+    public xi8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (wi8) invokeV.objValue;
+        return (xi8) invokeV.objValue;
     }
 
     public final SimpleUser B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wi8 wi8Var = this.b;
-            if (wi8Var != null && wi8Var.f() != null) {
+            xi8 xi8Var = this.b;
+            if (xi8Var != null && xi8Var.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public void F(wi8 wi8Var) {
+    public void F(xi8 xi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wi8Var) == null) {
-            this.b = wi8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xi8Var) == null) {
+            this.b = xi8Var;
             D();
         }
     }

@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a36;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.o26;
 import com.baidu.tieba.p26;
 import com.baidu.tieba.q26;
+import com.baidu.tieba.r26;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public q26 c;
-    public o26 d;
+    public r26 c;
+    public p26 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        o26 o26Var;
+        p26 p26Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (o26Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (p26Var = this.d) == null) {
             return;
         }
-        if (o26Var.i() > 3) {
+        if (p26Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(q26 q26Var) {
-        o26 o26Var;
+    public void setData(r26 r26Var) {
+        p26 p26Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q26Var) == null) {
-            this.c = q26Var;
-            if (q26Var != null && q26Var.a() != null) {
-                p26 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, r26Var) == null) {
+            this.c = r26Var;
+            if (r26Var != null && r26Var.a() != null) {
+                q26 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (o26Var = this.d) != null && this.b == z26.c) {
-                int i = o26Var.i();
+            if (this.c != null && (p26Var = this.d) != null && this.b == a36.c) {
+                int i = p26Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tieba.by4;
+import com.baidu.tieba.cy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes3.dex */
-public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
+public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<AlaLiveInfo> liveFollowSecondFloor;
@@ -103,7 +103,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         }
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements by4 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.by4
+    @Override // com.baidu.tieba.cy4
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

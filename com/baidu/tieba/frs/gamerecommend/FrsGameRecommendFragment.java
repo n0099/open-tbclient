@@ -14,12 +14,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dq6;
+import com.baidu.tieba.az4;
+import com.baidu.tieba.eq6;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.ok6;
+import com.baidu.tieba.pk6;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
+public class FrsGameRecommendFragment extends BaseFragment implements pk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dq6 a;
+    public eq6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public zy4.g g;
+    public az4.g g;
     public BdListView.p h;
 
     /* loaded from: classes4.dex */
@@ -133,7 +133,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements zy4.g {
+    public class c implements az4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -156,7 +156,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.zy4.g
+        @Override // com.baidu.tieba.az4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        dq6 dq6Var;
+        eq6 eq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (dq6Var = this.a) != null) {
-            dq6Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (eq6Var = this.a) != null) {
+            eq6Var.i(i);
         }
     }
 
@@ -262,7 +262,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ok6
+    @Override // com.baidu.tieba.pk6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -277,9 +277,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            dq6 dq6Var = this.a;
-            if (dq6Var != null) {
-                dq6Var.j();
+            eq6 eq6Var = this.a;
+            if (eq6Var != null) {
+                eq6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements ok6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            dq6 dq6Var = new dq6(getPageContext(), this.c, this.d);
-            this.a = dq6Var;
-            dq6Var.l(this.g);
+            eq6 eq6Var = new eq6(getPageContext(), this.c, this.d);
+            this.a = eq6Var;
+            eq6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

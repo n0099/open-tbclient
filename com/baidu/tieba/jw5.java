@@ -4,77 +4,31 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jw5 extends kn<nw5, LiveTabConcernNotificationViewHolder> {
+public class jw5 extends kn<gw5, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public boolean b;
-    public l46<nw5> c;
-
-    /* loaded from: classes4.dex */
-    public class a extends l46<nw5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jw5 b;
-
-        public a(jw5 jw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jw5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l46
-        /* renamed from: d */
-        public void a(View view2, nw5 nw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nw5Var) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e7e) {
-                    if (!this.b.b) {
-                        this.b.b = true;
-                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e7f) {
-                    qw5.b(this.b.a);
-                }
-            }
-        }
-    }
+    public ww5 b;
+    public bx5 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), nw5.a);
+    public jw5(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), gw5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,37 +40,51 @@ public class jw5 extends kn<nw5, LiveTabConcernNotificationViewHolder> {
                 return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
+        this.d = "";
         this.a = tbPageContext;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: v */
-    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ww5 ww5Var = new ww5(this.a, viewGroup);
-            ww5Var.n(this.c);
-            return new LiveTabConcernNotificationViewHolder(ww5Var);
+            ww5 ww5Var = new ww5(this.a, viewGroup, this.d);
+            this.b = ww5Var;
+            bx5 bx5Var = this.c;
+            if (bx5Var != null) {
+                ww5Var.s(bx5Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(bx5 bx5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bx5Var) == null) {
+            this.c = bx5Var;
+            ww5 ww5Var = this.b;
+            if (ww5Var != null) {
+                ww5Var.s(bx5Var);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: w */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nw5 nw5Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gw5 gw5Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
         ww5 ww5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nw5Var, liveTabConcernNotificationViewHolder})) == null) {
-            if (liveTabConcernNotificationViewHolder != null && (ww5Var = liveTabConcernNotificationViewHolder.a) != null) {
-                this.b = false;
-                ww5Var.l(nw5Var);
-                return liveTabConcernNotificationViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gw5Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (ww5Var = liveTabConcernItemViewLineHolder.a) != null) {
+                ww5Var.l(gw5Var);
+                return liveTabConcernItemViewLineHolder.getView();
             }
             return null;
         }

@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c18;
-import com.baidu.tieba.rq4;
-import com.baidu.tieba.wt4;
+import com.baidu.tieba.d18;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xt4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,18 +44,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public ImageView l;
     public TextView m;
     public View n;
-    public wt4 o;
-    public wt4 p;
-    public wt4 q;
+    public xt4 o;
+    public xt4 p;
+    public xt4 q;
     public TbPageContext r;
     public int s;
-    public c18 t;
+    public d18 t;
     public b u;
     public View.OnClickListener v;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(c18 c18Var);
+        void a(d18 d18Var);
     }
 
     /* loaded from: classes5.dex */
@@ -152,7 +152,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public void h(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.s != i) {
-            rq4 layoutMode = this.r.getLayoutMode();
+            sq4 layoutMode = this.r.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -172,18 +172,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(c18 c18Var) {
+    public void g(d18 d18Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, c18Var) != null) || c18Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, d18Var) != null) || d18Var == null) {
             return;
         }
-        this.t = c18Var;
-        wt4 wt4Var = c18Var.W0;
-        this.o = wt4Var;
-        this.p = c18Var.X0;
-        this.q = c18Var.Y0;
-        if (wt4Var != null) {
-            this.d.K(wt4Var.d, 10, false);
+        this.t = d18Var;
+        xt4 xt4Var = d18Var.W0;
+        this.o = xt4Var;
+        this.p = d18Var.X0;
+        this.q = d18Var.Y0;
+        if (xt4Var != null) {
+            this.d.K(xt4Var.d, 10, false);
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
@@ -192,24 +192,24 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         } else {
             this.c.setVisibility(8);
         }
-        wt4 wt4Var2 = this.p;
-        if (wt4Var2 != null) {
-            this.j.setText(wt4Var2.b);
+        xt4 xt4Var2 = this.p;
+        if (xt4Var2 != null) {
+            this.j.setText(xt4Var2.b);
             SkinManager.setBackgroundResource(this.i, R.drawable.icon_frs_news);
         } else {
             this.h.setVisibility(8);
             this.j.setVisibility(8);
             this.i.setVisibility(8);
         }
-        wt4 wt4Var3 = this.q;
-        if (wt4Var3 != null) {
-            this.m.setText(wt4Var3.b);
+        xt4 xt4Var3 = this.q;
+        if (xt4Var3 != null) {
+            this.m.setText(xt4Var3.b);
             SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
             this.k.setVisibility(8);
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(c18Var);
+        this.a.setTag(d18Var);
     }
 }

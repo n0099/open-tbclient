@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.vc5;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes3.dex */
-public class GameInfoData implements Serializable, uc5 {
+public class GameInfoData implements Serializable, vc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;

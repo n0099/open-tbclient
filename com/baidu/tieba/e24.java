@@ -51,14 +51,14 @@ public class e24 extends op2 {
 
         /* renamed from: com.baidu.tieba.e24$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0246a implements Runnable {
+        public class RunnableC0248a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ym2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0246a(a aVar, ym2 ym2Var, int i) {
+            public RunnableC0248a(a aVar, ym2 ym2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class e24 extends op2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, ym2Var) == null) {
                 zh3.d0(this.c.m);
-                this.c.m = new RunnableC0246a(this, ym2Var, i);
+                this.c.m = new RunnableC0248a(this, ym2Var, i);
                 zh3.g0(this.c.m);
             }
         }

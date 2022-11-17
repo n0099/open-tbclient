@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import tbclient.RewardMaterial;
 /* loaded from: classes5.dex */
 public class qu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nt4 a;
-    public List<cs4> b;
-    public List<ds4> c;
-    public List<mt4> d;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
 
     public qu4() {
         Interceptable interceptable = $ic;
@@ -30,36 +30,66 @@ public class qu4 {
         }
     }
 
-    public void a(SeniorLottery seniorLottery) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, seniorLottery) != null) || seniorLottery == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        nt4 nt4Var = new nt4();
-        this.a = nt4Var;
-        nt4Var.a(seniorLottery.theme);
-        this.b = new ArrayList();
-        int size = seniorLottery.award_info.size();
-        for (int i = 0; i < size; i++) {
-            cs4 cs4Var = new cs4();
-            cs4Var.a(seniorLottery.award_info.get(i));
-            this.b.add(cs4Var);
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        String str = seniorLottery.myaward;
-        this.c = new ArrayList();
-        int size2 = seniorLottery.luck_users.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            ds4 ds4Var = new ds4();
-            ds4Var.a(seniorLottery.luck_users.get(i2));
-            this.c.add(ds4Var);
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        String str2 = seniorLottery.act_desc;
-        this.d = new ArrayList();
-        int size3 = seniorLottery.act_regular.size();
-        for (int i3 = 0; i3 < size3; i3++) {
-            mt4 mt4Var = new mt4();
-            mt4Var.a(seniorLottery.act_regular.get(i3));
-            this.d.add(mt4Var);
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static qu4 e(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
+            }
+            qu4 qu4Var = new qu4();
+            qu4Var.a = rewardMaterial.icon;
+            qu4Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            qu4Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
+            }
+            qu4Var.d = z2;
+            return qu4Var;
+        }
+        return (qu4) invokeL.objValue;
     }
 }

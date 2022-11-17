@@ -32,12 +32,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.g17;
+import com.baidu.tieba.h17;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.p57;
-import com.baidu.tieba.qn8;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.q57;
+import com.baidu.tieba.rn8;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.yi;
@@ -508,7 +508,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (newHotTipLabelView = this.k) != null) {
             newHotTipLabelView.setVisibility(8);
-            g17.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
+            h17.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
             this.k.c();
         }
     }
@@ -663,9 +663,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public final void t(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048604, this, f) == null) {
-            k55 f2 = p57.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            l55 f2 = q57.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
-                setBackgroundColor(qn8.a(qn8.f(p57.d(f2)), f));
+                setBackgroundColor(rn8.a(rn8.f(q57.d(f2)), f));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, f, TbadkCoreApplication.getInst().getSkinType());
             }

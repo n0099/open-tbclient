@@ -26,10 +26,10 @@ import com.baidu.tieba.StringU;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.dg;
-import com.baidu.tieba.ek5;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.fj;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.fk5;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yf;
@@ -110,7 +110,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
         initNetWork();
         this.mContext = TbadkCoreApplication.getInst().getApp();
         this.netContext = httpNetContext;
-        lg.u(ek5.b());
+        lg.u(fk5.b());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
@@ -746,7 +746,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             return null;
                         }
                         int i4 = parseInt * 10;
-                        if (i4 > 0 && !k95.k().i(i4)) {
+                        if (i4 > 0 && !l95.k().i(i4)) {
                             BdLog.d("Image download cacelled. out of memory. url:[" + this.netContext.getRequest().mUrl + "], size:" + i4);
                             this.netContext.getResponse().mNetErrorCode = -16;
                             return null;

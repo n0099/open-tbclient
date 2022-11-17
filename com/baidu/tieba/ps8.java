@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ public class ps8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zr8 b;
+    public PollingModel b;
     public final Runnable c;
 
     /* loaded from: classes5.dex */
@@ -42,26 +41,19 @@ public class ps8 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                if (this.a.b != null && this.a.b.B() != null && this.a.b.B().getCurrentTabType() == 22) {
-                    videoRedIconRequest.setCallFrom("video_tab");
-                }
-                this.a.a.sendMessage(videoRedIconRequest);
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    ah.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.U(PollingModel.POLLING_TYPE_LOOP);
+                ah.a().postDelayed(this.a.c, 300000L);
             }
         }
     }
 
-    public ps8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+    public ps8(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zr8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,10 +65,12 @@ public class ps8 {
         }
         this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = zr8Var;
+        PollingModel pollingModel = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        this.b = pollingModel;
+        pollingModel.a0(fw4.d);
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ah.a().removeCallbacks(this.c);

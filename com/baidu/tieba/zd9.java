@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public final class zd9 {
     public static /* synthetic */ Interceptable $ic;
+    public static zd9 c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
     public zd9() {
         Interceptable interceptable = $ic;
@@ -29,35 +31,51 @@ public final class zd9 {
                 return;
             }
         }
-        this.a = yd9.a().c();
+        this.a = new AtomicInteger();
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
+    public static synchronized zd9 a() {
         InterceptResult invokeV;
+        zd9 zd9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (zd9.class) {
+                if (c == null) {
+                    b(ud9.h().getContext());
+                }
+                zd9Var = c;
+            }
+            return zd9Var;
+        }
+        return (zd9) invokeV.objValue;
+    }
+
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
-                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
-                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
-                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
-                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
-                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(iVar);
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    ve9.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
             }
-            rawQuery.close();
-            return arrayList;
+            return sQLiteDatabase;
         }
-        return (List) invokeV.objValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    public static synchronized void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (zd9.class) {
+                if (c == null) {
+                    c = new zd9();
+                    d = new xd9(context);
+                }
+            }
         }
     }
 }

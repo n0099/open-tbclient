@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au7;
+import com.baidu.tieba.bu7;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements bu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.au7
+    @Override // com.baidu.tieba.bu7
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -188,7 +188,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
         }
     }
 
-    @Override // com.baidu.tieba.au7
+    @Override // com.baidu.tieba.bu7
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.au7
+    @Override // com.baidu.tieba.bu7
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -305,7 +305,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements au7 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            rq4 layoutMode = getLayoutMode();
+            sq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

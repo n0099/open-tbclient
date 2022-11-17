@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.pc8;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.ow4;
+import com.baidu.tieba.qc8;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class TbLiveContainer extends FrameLayout implements pc8 {
+public class TbLiveContainer extends FrameLayout implements qc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
@@ -50,14 +50,14 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
     public String h;
     public final CustomMessageListener i;
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,7 +236,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            pw4 d = pw4.d(this.c);
+            qw4 d = qw4.d(this.c);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }
@@ -277,7 +277,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
             this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090af2);
             this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091fe8);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(nw4.z(R.string.J_X05));
+            this.b.setRoundLayoutRadius(ow4.z(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
@@ -314,7 +314,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -379,7 +379,7 @@ public class TbLiveContainer extends FrameLayout implements pc8 {
         }
     }
 
-    @Override // com.baidu.tieba.pc8
+    @Override // com.baidu.tieba.qc8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

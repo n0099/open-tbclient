@@ -22,7 +22,7 @@ import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.util.HashMap;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "ZeusMonitorEngine";

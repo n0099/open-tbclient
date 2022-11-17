@@ -6,9 +6,9 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cj9;
-import com.baidu.tieba.hj9;
-import com.baidu.tieba.wj9;
+import com.baidu.tieba.dj9;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -226,7 +226,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public void createPlayer(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            if (wj9.a(this.mPath) && hj9.e(this.mPathList)) {
+            if (xj9.a(this.mPath) && ij9.e(this.mPathList)) {
                 return;
             }
             pause();
@@ -245,7 +245,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
                 this.mCurrentState = 1;
             } catch (Exception e) {
-                cj9.g(e);
+                dj9.g(e);
                 this.mMediaPlayer = null;
                 this.mPath = null;
                 this.mPathList = null;
@@ -262,7 +262,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (hj9.e(this.mPathList)) {
+            if (ij9.e(this.mPathList)) {
                 return null;
             }
             long currentPosition = getCurrentPosition();

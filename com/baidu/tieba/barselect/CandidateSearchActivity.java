@@ -28,11 +28,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
-import com.baidu.tieba.l26;
-import com.baidu.tieba.pq8;
+import com.baidu.tieba.m26;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.qq8;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.w26;
+import com.baidu.tieba.x26;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -50,7 +50,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public w26 d;
+    public x26 d;
     public String e;
     public View f;
     public View g;
@@ -58,7 +58,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<l26> l;
+    public List<m26> l;
     public View.OnClickListener m;
     public qb n;
     public TextView.OnEditorActionListener o;
@@ -140,24 +140,24 @@ public class CandidateSearchActivity extends BaseActivity {
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            l26 l26Var = null;
+            m26 m26Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                l26Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                m26Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                l26Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                m26Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() == 0 && l26Var != null) {
+            if (responsedMessage.getError() == 0 && m26Var != null) {
                 this.a.b.setVisibility(0);
                 this.a.f.setVisibility(8);
                 if (this.a.i.getText() != null) {
-                    l26Var.j = this.a.i.getText().toString();
+                    m26Var.j = this.a.i.getText().toString();
                 }
                 if (this.a.l == null) {
                     this.a.l = new ArrayList();
                 } else {
                     this.a.l.clear();
                 }
-                this.a.l.add(l26Var);
+                this.a.l.add(m26Var);
                 this.a.c.setData(this.a.l);
                 return;
             }
@@ -246,15 +246,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02f1);
                 if (this.a.l != null) {
-                    for (l26 l26Var : this.a.l) {
-                        l26Var.k = true;
+                    for (m26 m26Var : this.a.l) {
+                        m26Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                pq8.b(error, "", null);
+                qq8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    pq8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    qq8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 yi.P(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -448,7 +448,7 @@ public class CandidateSearchActivity extends BaseActivity {
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new w26(getPageContext());
+            this.d = new x26(getPageContext());
             ah.a().postDelayed(this.r, 100L);
         }
     }

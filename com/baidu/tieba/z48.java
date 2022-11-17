@@ -1,26 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 /* loaded from: classes6.dex */
 public interface z48 {
-    AbsVideoPbFragment B();
-
-    PbModel.h B0();
-
-    PbModel K();
-
-    AbsPbActivity P();
-
-    void finish();
-
-    TbPageContext getPageContext();
-
-    PbFragment k1();
-
-    void registerListener(MessageListener<?> messageListener);
+    void g1(boolean z, int i, int i2, int i3, px7 px7Var, String str, int i4);
 }

@@ -1,26 +1,13 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
 public interface lz8 {
-    String a();
+    void E0(String str);
 
-    void b(Intent intent);
+    void I0(String str);
 
-    String c();
+    void d0();
 
-    String d();
+    void q0(String str, String str2);
 
-    void e(BdUniqueId bdUniqueId);
-
-    String f();
-
-    String g();
-
-    String getVideoUrl();
-
-    String h();
-
-    String i();
+    void showErrorView();
 }

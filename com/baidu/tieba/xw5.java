@@ -2,37 +2,33 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xw5 extends l36<ow5> {
+public class xw5 extends m36<ow5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
     public TextView j;
-    public HeadImageView k;
-    public TextView l;
+    public TbImageView k;
+    public TbImageView l;
     public View m;
     public ow5 n;
-    public RelativeLayout o;
 
-    @Override // com.baidu.tieba.l36
+    @Override // com.baidu.tieba.m36
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d086a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d086b : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,19 +51,16 @@ public class xw5 extends l36<ow5> {
             }
         }
         this.m = k();
-        this.o = (RelativeLayout) k().findViewById(R.id.obfuscated_res_0x7f090e85);
-        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e83);
-        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e82);
-        HeadImageView headImageView = (HeadImageView) k().findViewById(R.id.obfuscated_res_0x7f090e81);
-        this.k = headImageView;
-        headImageView.setAutoChangeStyle(true);
-        this.k.setIsRound(true);
-        this.k.setDrawBorder(true);
-        this.k.setPlaceHolder(1);
-        this.k.setBorderWidth(yi.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e84);
-        this.o.setOnClickListener(this);
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e80);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e7f);
+        this.k = (TbImageView) k().findViewById(R.id.obfuscated_res_0x7f090e7e);
+        TbImageView tbImageView = (TbImageView) k().findViewById(R.id.obfuscated_res_0x7f090e7d);
+        this.l = tbImageView;
+        tbImageView.setAutoChangeStyle(true);
+        this.l.setDefaultResource(17170445);
+        this.l.setDefaultBgResource(17170445);
+        this.k.setOnClickListener(this);
+        this.j.setOnClickListener(this);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -79,48 +72,26 @@ public class xw5 extends l36<ow5> {
         }
     }
 
-    @Override // com.baidu.tieba.l36
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.m36
+    /* renamed from: r */
+    public void l(ow5 ow5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ow5Var) == null) {
+            this.n = ow5Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.m36
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l36
-    /* renamed from: r */
-    public void l(ow5 ow5Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, ow5Var) == null) && ow5Var != null) {
-            this.n = ow5Var;
-            String str2 = ow5Var.c;
-            String str3 = "";
-            if (StringUtils.isNull(str2)) {
-                if (StringUtils.isNull(ow5Var.b)) {
-                    str2 = "";
-                } else {
-                    str2 = ow5Var.b;
-                }
-            }
-            this.i.setText(str2);
-            TextView textView = this.j;
-            if (StringUtils.isNull(ow5Var.e)) {
-                str = "";
-            } else {
-                str = ow5Var.e;
-            }
-            textView.setText(str);
-            this.k.K(ow5Var.d, 10, false);
-            TextView textView2 = this.l;
-            if (!StringUtils.isNull(ow5Var.f)) {
-                str3 = ow5Var.f;
-            }
-            textView2.setText(str3);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
+            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
+            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ea);
         }
     }
 }

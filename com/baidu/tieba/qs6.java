@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
 public class qs6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
@@ -51,23 +52,36 @@ public class qs6 extends PriorityOrganizer.Task {
     }
 
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (gw4.k()) {
-                return false;
-            }
-            return av6.a(TbSingleton.getInstance().getFrsResponseData(), this.m);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             t();
         }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (hw4.k()) {
+                return false;
+            }
+            bo8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
+                for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
+                    if (frsTabInfo.tab_id.intValue() == 502 && qy4.k().h("first_into_tab_profession", true)) {
+                        return false;
+                    }
+                }
+            }
+            ul6 ul6Var = new ul6(this.n.getPageContext());
+            this.m.v4(ul6Var);
+            boolean j = ul6Var.j(frsResponseData);
+            this.m.t4(j);
+            this.m.y4(j);
+            return j;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bf5;
+import com.baidu.tieba.cf5;
 import com.baidu.tieba.ea;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,12 +93,12 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                py4.k().u("frs_first_in", true);
+                qy4.k().u("frs_first_in", true);
             }
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
                 NASLib.onAppStart(TbadkCoreApplication.getInst());
             }
-            bf5.b().z(this.mIsFirstUse);
+            cf5.b().z(this.mIsFirstUse);
         }
     }
 }

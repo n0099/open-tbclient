@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface yf8 {
-    boolean a();
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

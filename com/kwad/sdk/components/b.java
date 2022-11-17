@@ -3,7 +3,7 @@ package com.kwad.sdk.components;
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.kwai.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static void init(Context context, SdkConfig sdkConfig) {
         com.kwad.sdk.components.kwai.g.rA();

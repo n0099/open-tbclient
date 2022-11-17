@@ -1,24 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dt5 extends zf1<ge1> {
+public class dt5 extends zf1<fe1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
 
     /* loaded from: classes3.dex */
-    public class a implements ge1 {
+    public class a implements fe1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dt5 c;
+
+        @Override // com.baidu.tieba.fe1
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 120;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        @SuppressLint({"ResourceType"})
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080fce : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        @NonNull
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        public String from() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        @SuppressLint({"ResourceType"})
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080248 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        @SuppressLint({"ResourceType"})
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080249 : invokeV.intValue;
+        }
 
         public a(dt5 dt5Var) {
             Interceptable interceptable = $ic;
@@ -32,26 +91,40 @@ public class dt5 extends zf1<ge1> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = dt5Var;
         }
 
-        @Override // com.baidu.tieba.ge1
-        public boolean a(String str, af1 af1Var) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.fe1
+        public JSONObject d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, af1Var)) == null) {
-                if (gt5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c.a == null) {
+                    this.c.a = new JSONObject();
+                    try {
+                        this.c.a.put("query_response_thread", 1);
+                        this.c.a.put("query_unite_pid", "1640058553813");
+                        this.c.a.put("nad_splash_query_download_opt", rm0.b().a().a("nad_splash_query_download_opt", 0));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                if (!TextUtils.isEmpty(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + pe1.a));
-                    return true;
-                }
-                return false;
+                return this.c.a;
             }
-            return invokeLL.booleanValue;
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe1
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return bi5.l();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -71,13 +144,13 @@ public class dt5 extends zf1<ge1> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.zf1
-    /* renamed from: a */
-    public ge1 createService() throws ServiceNotFoundException {
+    /* renamed from: c */
+    public fe1 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (ge1) invokeV.objValue;
+        return (fe1) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bf5;
+import com.baidu.tieba.cf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class InitStatisticTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TiebaStatic.init(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().isMainProcess(false));
-            bf5.b().G(System.currentTimeMillis() - currentTimeMillis);
+            cf5.b().G(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

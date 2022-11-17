@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes6.dex */
 public interface xj8 {
-    void b1(int i, int i2);
+    void a(ShareEntity shareEntity, yj8 yj8Var);
 }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class qc5 implements nb5<SyncDataEvent> {
+public class qc5 implements ob5<SoLoaderEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,28 +29,22 @@ public class qc5 implements nb5<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            boolean z = false;
-            if (syncDataEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
+            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
+                if (qm.a(BdBaseApplication.getInst().getContext(), om.a(soLoaderEvent.name))) {
+                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                    String str = soLoaderEvent.name;
+                    resHashMap.put(str, om.a(str));
+                    return true;
+                }
+                return true;
             }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            zh5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
-            n9 g = n9.g();
-            if (syncDataEvent.themeIsBlack == 1) {
-                z = true;
-            }
-            g.r(z);
-            py4.k().w(WindowGreySwitch.KEY_SWITCH, syncDataEvent.themeIsBlack);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

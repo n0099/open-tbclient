@@ -5,11 +5,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.a45;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
+import com.baidu.tieba.as5;
+import com.baidu.tieba.b45;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.y35;
-import com.baidu.tieba.zr5;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zr5 a;
+    public as5 a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -60,20 +60,20 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.a = zr5.d();
+        this.a = as5.d();
     }
 
     public int A(String str) {
         InterceptResult invokeL;
-        List<y35> c;
+        List<z35> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!a45.a(str) || (c = this.a.c()) == null) {
+            if (!b45.a(str) || (c = this.a.c()) == null) {
                 return -1;
             }
-            for (y35 y35Var : c) {
-                if (str.equals(y35Var.a())) {
-                    return c.indexOf(y35Var);
+            for (z35 z35Var : c) {
+                if (str.equals(z35Var.a())) {
+                    return c.indexOf(z35Var);
                 }
             }
             return -1;
@@ -88,35 +88,35 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void F(zr5.a aVar) {
+    public void F(as5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void G(List<y35> list) {
+    public void G(List<z35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void H(zr5.a aVar) {
+    public void H(as5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.a.h(aVar);
         }
     }
 
-    public void z(y35 y35Var) {
+    public void z(z35 z35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, y35Var) == null) {
-            this.a.a(y35Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, z35Var) == null) {
+            this.a.a(z35Var);
         }
     }
 
-    public List<y35> C() {
+    public List<z35> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

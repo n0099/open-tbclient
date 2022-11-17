@@ -18,19 +18,19 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b27;
+import com.baidu.tieba.c27;
 import com.baidu.tieba.eo;
-import com.baidu.tieba.ew4;
 import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.go;
-import com.baidu.tieba.gw4;
-import com.baidu.tieba.h17;
 import com.baidu.tieba.hc;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import com.baidu.tieba.hw4;
 import com.baidu.tieba.i17;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.lk6;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.kq4;
+import com.baidu.tieba.mk6;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,31 +41,31 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
+public class HotTopicTabFragment extends BaseFragment implements mk6, j17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicTabModel a;
     public HotTopicTabView b;
     public FrsTabItemData c;
     public TabLayout.OnTabSelectedListener d;
-    public jq4<Object> e;
+    public kq4<Object> e;
     public boolean f;
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "a076" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
@@ -142,7 +142,7 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements jq4<Object> {
+    public class b implements kq4<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicTabFragment a;
@@ -165,22 +165,22 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
             this.a = hotTopicTabFragment;
         }
 
-        @Override // com.baidu.tieba.jq4
+        @Override // com.baidu.tieba.kq4
         public void c(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            h17.a(view2, obj, i + 1, this.a.x1());
+            i17.a(view2, obj, i + 1, this.a.x1());
         }
 
-        @Override // com.baidu.tieba.jq4
+        @Override // com.baidu.tieba.kq4
         public void d(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            h17.b(view2, obj, this.a.x1());
+            i17.b(view2, obj, this.a.x1());
         }
     }
 
@@ -250,7 +250,7 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -277,12 +277,12 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
             if (isPrimary()) {
                 this.b.setViewForeground();
                 if (getContext() != null) {
-                    gw4.o(getContext(), ew4.i);
+                    hw4.o(getContext(), fw4.i);
                     return;
                 }
                 return;
             }
-            gw4.n(ew4.i);
+            hw4.n(fw4.i);
         }
     }
 
@@ -393,7 +393,7 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -420,7 +420,7 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
                 this.a.onDestroy();
             }
             this.f = false;
-            ra5.e().b();
+            sa5.e().b();
         }
     }
 
@@ -437,11 +437,11 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPause();
-            gw4.n(ew4.i);
+            hw4.n(fw4.i);
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -462,15 +462,15 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i17
-    public void C0(int i, b27 b27Var) {
+    @Override // com.baidu.tieba.j17
+    public void C0(int i, c27 c27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, b27Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, c27Var) == null) {
             this.b.m();
             this.b.n();
             this.b.D();
-            if (b27Var != null && i == 0 && !ListUtils.isEmpty(b27Var.getDataList())) {
-                this.b.setData(b27Var);
+            if (c27Var != null && i == 0 && !ListUtils.isEmpty(c27Var.getDataList())) {
+                this.b.setData(c27Var);
                 this.b.B();
             } else if (ListUtils.isEmpty(this.a.E())) {
                 A1();
@@ -480,7 +480,7 @@ public class HotTopicTabFragment extends BaseFragment implements lk6, i17 {
         }
     }
 
-    @Override // com.baidu.tieba.i17
+    @Override // com.baidu.tieba.j17
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

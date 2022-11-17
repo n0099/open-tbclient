@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class lm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public class lm4 {
     public CustomMessageListener q;
     public CustomMessageListener r;
     public jn4<kn4> s;
-    public eq4 t;
+    public fq4 t;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,13 +178,13 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements jn4<kn4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lm4 a;
 
-        @Override // com.baidu.tieba.dq4
+        @Override // com.baidu.tieba.eq4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
@@ -210,7 +210,7 @@ public class lm4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dq4
+        @Override // com.baidu.tieba.eq4
         /* renamed from: c */
         public void onSuccess(kn4 kn4Var) {
             Interceptable interceptable = $ic;
@@ -235,8 +235,8 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements eq4<km4> {
+    /* loaded from: classes4.dex */
+    public class e implements fq4<km4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lm4 a;
@@ -260,7 +260,7 @@ public class lm4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.eq4
+        @Override // com.baidu.tieba.fq4
         /* renamed from: b */
         public void a(km4 km4Var) {
             Interceptable interceptable = $ic;
@@ -291,7 +291,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -509,7 +509,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g extends BdAsyncTask<km4, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -551,7 +551,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h extends BdAsyncTask<List<km4>, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,7 +593,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class i extends BdAsyncTask<km4, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -635,7 +635,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class j extends BdAsyncTask<Pair<km4, km4>, Integer, Pair<km4, km4>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -707,7 +707,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class k extends BdAsyncTask<Void, Integer, LinkedList<km4>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -784,7 +784,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class l {
         public static /* synthetic */ Interceptable $ic;
         public static final lm4 a;
@@ -807,7 +807,7 @@ public class lm4 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class m extends BdAsyncTask<km4, Integer, km4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -907,7 +907,7 @@ public class lm4 {
         this.p.setPriority(Integer.MIN_VALUE);
         this.p.setTag(this.h);
         MessageManager.getInstance().registerListener(this.p);
-        ny4.e().f();
+        oy4.e().f();
         ym4.c().d(this.h);
         Q();
         if (A()) {
@@ -994,7 +994,7 @@ public class lm4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int l2 = py4.k().l("app_restart_times", 0);
+            int l2 = qy4.k().l("app_restart_times", 0);
             if (TbSingleton.getInstance().isNewUserRedPackageShowed() || l2 <= 1) {
                 return false;
             }
@@ -1041,7 +1041,7 @@ public class lm4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return UtilHelper.isSameDay(py4.k().m("pref_key_last_active_config", 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(qy4.k().m("pref_key_last_active_config", 0L), System.currentTimeMillis());
         }
         return invokeV.booleanValue;
     }
@@ -1068,7 +1068,7 @@ public class lm4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            long m2 = py4.k().m("pref_key_active_config_info", 0L);
+            long m2 = qy4.k().m("pref_key_active_config_info", 0L);
             this.n = m2;
             return m2;
         }

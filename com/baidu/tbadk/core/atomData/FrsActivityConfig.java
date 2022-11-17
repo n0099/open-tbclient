@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.gg8;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.mv6;
+import com.baidu.tieba.hg8;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.nv6;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
@@ -235,9 +235,9 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.L(mv6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.L(nv6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(mv6.d(i2));
+            frsRequestData.setSortType(nv6.d(i2));
             if (i2 == 5) {
                 frsRequestData.O(1);
             } else {
@@ -247,7 +247,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.z("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            mv6.e(i2, frsRequestData);
+            nv6.e(i2, frsRequestData);
             frsRequestData.W("2");
             frsRequestData.X("-2");
             frsRequestData.Q(stringExtra);
@@ -267,18 +267,18 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.S(null);
             frsRequestData.f0(stringExtra3);
-            frsRequestData.R(xg.g(jj5.a(), 0L));
+            frsRequestData.R(xg.g(kj5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.N(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.M(longExtra);
-            mv6.e(i2, frsRequestData);
+            nv6.e(i2, frsRequestData);
             frsRequestData.U(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && gg8.l().b() != null) {
-                int d = gg8.l().b().d(stringExtra, false);
-                int e = gg8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && hg8.l().b() != null) {
+                int d = hg8.l().b().d(stringExtra, false);
+                int e = hg8.l().b().e(stringExtra, false);
                 if (frsRequestData.E() == 1) {
                     d++;
                 } else if (frsRequestData.E() == 2) {

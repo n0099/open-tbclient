@@ -22,7 +22,7 @@ public class px extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout h;
-    public sr4 i;
+    public tr4 i;
     public int j;
     public String k;
     public int l;
@@ -92,9 +92,9 @@ public class px extends hx {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.j().booleanValue()) {
-                    w36.a(this.a.i.getThreadData().getId());
-                    w36.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    w36.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    x36.a(this.a.i.getThreadData().getId());
+                    x36.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    x36.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -127,14 +127,14 @@ public class px extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, sr4Var) == null) {
-            this.i = sr4Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, tr4Var) == null) {
+            this.i = tr4Var;
             this.h.setFrom(this.k);
             this.h.setFromForPb(this.l);
             this.h.setTransmit(j().booleanValue());
-            this.h.a(sr4Var);
+            this.h.a(tr4Var);
             this.h.setJumpToPbListener(new a(this));
         }
     }
@@ -199,10 +199,10 @@ public class px extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(l46<sr4> l46Var) {
+    public void p(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, l46Var) == null) {
-            this.h.setSubClickListener(l46Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, m46Var) == null) {
+            this.h.setSubClickListener(m46Var);
         }
     }
 

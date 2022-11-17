@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.c59;
-import com.baidu.tieba.ty4;
-import com.baidu.tieba.vy4;
+import com.baidu.tieba.d59;
+import com.baidu.tieba.uy4;
+import com.baidu.tieba.wy4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public c59 c;
+    public d59 c;
     public BaseWebView d;
     public View e;
-    public ty4 f;
+    public uy4 f;
     public TextView g;
-    public vy4 h;
+    public wy4 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -106,9 +106,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                ty4 ty4Var = new ty4(this.a.getPageContext());
-                this.f = ty4Var;
-                ty4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                uy4 uy4Var = new uy4(this.a.getPageContext());
+                this.f = uy4Var;
+                uy4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(c59 c59Var) {
+    public void setPresenter(d59 d59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c59Var) == null) {
-            this.c = c59Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, d59Var) == null) {
+            this.c = d59Var;
             this.i = false;
         }
     }
@@ -207,9 +207,9 @@ public class NewVcodeView {
             TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09076d);
             this.g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1168));
-            vy4 vy4Var = new vy4();
-            this.h = vy4Var;
-            vy4Var.a = 1000L;
+            wy4 wy4Var = new wy4();
+            this.h = wy4Var;
+            wy4Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }

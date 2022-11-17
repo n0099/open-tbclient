@@ -70,13 +70,13 @@ public final class g13 {
 
         /* renamed from: com.baidu.tieba.g13$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0282a implements yi3<c13> {
+        public class C0281a implements yi3<c13> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ e13 b;
 
-            public C0282a(a aVar, String str, e13 e13Var) {
+            public C0281a(a aVar, String str, e13 e13Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class g13 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + e13Var.b);
                 }
                 synchronized (this.a.g) {
-                    xi3.a(e43.M(), new C0282a(this, str, e13Var), this.a.g);
+                    xi3.a(e43.M(), new C0281a(this, str, e13Var), this.a.g);
                 }
             }
         }

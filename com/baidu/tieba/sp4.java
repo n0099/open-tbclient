@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.dr4;
+import com.baidu.tieba.er4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -210,7 +210,7 @@ public class sp4 {
 
     public static void g(Context context) {
         CookieManager cookieManager;
-        dr4.b bVar;
+        er4.b bVar;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
@@ -225,13 +225,13 @@ public class sp4 {
                 return;
             }
             cookieManager.setAcceptCookie(true);
-            if (dr4.b() != null) {
-                bVar = dr4.b().c(TbadkCoreApplication.getCurrentBduss());
+            if (er4.b() != null) {
+                bVar = er4.b().c(TbadkCoreApplication.getCurrentBduss());
             } else {
                 bVar = null;
             }
             if (bVar != null) {
-                String a2 = hr4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                String a2 = ir4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a2)) {
                     sb.append("STOKEN=");

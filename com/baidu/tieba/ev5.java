@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ev5 extends ProviderDelegation {
+public class ev5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dv5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ev5() {
+    public static synchronized dv5 a() {
+        InterceptResult invokeV;
+        dv5 dv5Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ev5.class) {
+                if (a == null) {
+                    a = new dv5();
+                }
+                dv5Var = a;
             }
+            return dv5Var;
         }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString(TiebaStatic.LogFields.RESULT, fv5.b(AppRuntime.getAppContext()));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
+        return (dv5) invokeV.objValue;
     }
 }

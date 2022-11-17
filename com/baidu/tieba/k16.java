@@ -6,11 +6,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class k16 {
+public class k16 extends js4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public k16() {
         Interceptable interceptable = $ic;
@@ -26,12 +24,12 @@ public class k16 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.js4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            jSONObject.optInt("open_level", 1);
+            jSONObject.optInt("open_status", 2);
         }
-        this.a = jSONObject.optString("name");
-        this.b = jSONObject.optString("url");
     }
 }

@@ -1,213 +1,338 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.common.view.LoadingUtil;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentMultiView;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.util.PersonalChatUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes5.dex */
-public class rq6 implements sq6 {
+public class rq6 {
     public static /* synthetic */ Interceptable $ic;
+    public static rq6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final tq6 a;
-    @NonNull
-    public final TbPageContext b;
-    @NonNull
-    public final List<LiveFuseForumData> c;
-    public String d;
-    public String e;
 
-    public rq6(@NonNull TbPageContext tbPageContext, @NonNull List<LiveFuseForumData> list) {
+    /* loaded from: classes5.dex */
+    public static class a extends rq6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends oj5<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(rq6 rq6Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq6Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oj5
+        /* renamed from: a */
+        public Long doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                NetWork netWork = new NetWork("https://peiwan.baidu.com/peiwan/api/index/audio");
+                netWork.setNeedBdussForGet(true);
+                String netString = netWork.getNetString();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(netString).optJSONObject("data");
+                        if (optJSONObject != null) {
+                            return Long.valueOf(optJSONObject.optLong("room_id"));
+                        }
+                        return Long.valueOf(xg.g(this.a, 0L));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return Long.valueOf(xg.g(this.a, 0L));
+            }
+            return (Long) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements ti5<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public c(rq6 rq6Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq6Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ti5
+        /* renamed from: a */
+        public void onReturnDataInUI(Long l) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
+                LoadingUtil.cancel();
+                long longValue = l.longValue();
+                TbPageContext tbPageContext = this.a;
+                if (tbPageContext == null) {
+                    return;
+                }
+                if (longValue == 0) {
+                    yi.P(tbPageContext.getPageActivity(), "当前没有可用房间");
+                } else {
+                    ((db5) ServiceManager.getService(db5.a.a())).a(this.a, longValue);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends oj5<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(rq6 rq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oj5
+        /* renamed from: a */
+        public JSONObject doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                NetWork netWork = new NetWork("https://peiwan.baidu.com/peiwan/api/index/service");
+                netWork.setNeedBdussForGet(true);
+                String netString = netWork.getNetString();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return new JSONObject(netString).optJSONObject("data");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements ti5<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public e(rq6 rq6Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq6Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ti5
+        /* renamed from: a */
+        public void onReturnDataInUI(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                LoadingUtil.cancel();
+                if (this.a != null && jSONObject != null) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("chat_god");
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("user_id");
+                        if (TextUtils.isEmpty(optString)) {
+                            optString = "0";
+                        }
+                        PersonalChatUtil.jump2ChatFromPeiwan(TbadkCoreApplication.getInst().getContext(), Long.parseLong(optString), optJSONObject.optString("username"), optJSONObject.optString("avatar"));
+                        return;
+                    }
+                    return;
+                }
+                yi.P(TbadkCoreApplication.getInst(), "网络请求失败");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130322, "Lcom/baidu/tieba/rq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948130322, "Lcom/baidu/tieba/rq6;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public rq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, list};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = tbPageContext;
-        this.c = list;
-        if (list.size() == 1) {
-            this.a = new HeaderComponentSingleView(this.b.getPageActivity());
-        } else {
-            this.a = new HeaderComponentMultiView(this.b.getPageActivity());
-        }
     }
 
-    @Override // com.baidu.tieba.sq6
-    public void a(int i, LiveFuseForumData liveFuseForumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, liveFuseForumData) != null) || liveFuseForumData == null) {
-            return;
-        }
-        if (liveFuseForumData.type.intValue() == 6) {
-            k("c15057");
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c14701").param("obj_type", e(i, liveFuseForumData)).param("fid", this.d));
-        String str = liveFuseForumData.schema;
-        if (str != null && str.startsWith("bdtiebalive")) {
-            j("c14708", liveFuseForumData.yyext);
-        }
-    }
-
-    @Override // com.baidu.tieba.sq6
-    public void b(int i, LiveFuseForumData liveFuseForumData, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), liveFuseForumData, Integer.valueOf(i2)}) != null) || liveFuseForumData == null) {
-            return;
-        }
-        String str = liveFuseForumData.schema;
-        if (liveFuseForumData.type.intValue() != 2 && liveFuseForumData.type.intValue() != 3 && liveFuseForumData.type.intValue() != 4) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{str});
-        } else {
-            qq6.b().a(this.b, liveFuseForumData, str);
-        }
-        if (liveFuseForumData.type.intValue() == 6) {
-            k("c15058");
-        }
-    }
-
-    @Override // com.baidu.tieba.sq6
-    public void c(int i, LiveFuseForumData liveFuseForumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) != null) || liveFuseForumData == null) {
-            return;
-        }
-        String S = yi.S(liveFuseForumData.schema, "from=key_from_frs_card");
-        if (liveFuseForumData.type.intValue() != 2 && liveFuseForumData.type.intValue() != 3 && liveFuseForumData.type.intValue() != 4) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{S});
-        } else {
-            qq6.b().a(this.b, liveFuseForumData, S);
-        }
-        if (liveFuseForumData.type.intValue() == 6) {
-            k("c15058");
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c14702").param("obj_type", e(i, liveFuseForumData)).param("fid", this.d));
-        String str = liveFuseForumData.schema;
-        if (str != null && str.startsWith("bdtiebalive")) {
-            j("c14709", liveFuseForumData.yyext);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b(this.c, this);
-        }
-    }
-
-    @NonNull
-    public View f() {
+    public static rq6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
-        return (View) invokeV.objValue;
+        return (rq6) invokeV.objValue;
     }
 
-    public void h() {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.a();
-        }
-    }
-
-    public final int e(int i, LiveFuseForumData liveFuseForumData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, liveFuseForumData)) == null) {
-            if (i == 1) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 1;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 3;
-                }
-            } else if (i == 2) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 2;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 4;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
+                return false;
             }
-            return 0;
+            return true;
         }
-        return invokeIL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final JSONObject g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
+    public /* synthetic */ rq6(a aVar) {
+        this();
     }
 
-    public final void k(String str) {
+    public void a(TbPageContext tbPageContext, LiveFuseForumData liveFuseForumData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("fid", this.d).param("fname", this.e));
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
-        }
-    }
-
-    public final void j(String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", this.d);
-            statisticItem.addParam("fname", this.e);
-            JSONObject g = g(str2);
-            if (g != null) {
-                if (g.optBoolean("is_yy_game")) {
-                    str3 = "3";
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, liveFuseForumData, str) == null) && liveFuseForumData != null && !TextUtils.isEmpty(str)) {
+            if (liveFuseForumData.type.intValue() == 2) {
+                if (str.contains("room_id")) {
+                    d(tbPageContext, str);
+                } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
+                    e(tbPageContext, str);
                 } else {
-                    str3 = "2";
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
                 }
-                statisticItem.param("obj_param1", str3).param(TiebaStatic.Params.OBJ_PARAM2, g.optString(TiebaStatic.YYParams.YYLIVEID)).param("liveid", g.optString("liveid")).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, g.optString(TiebaStatic.YYParams.YYSID)).param(TiebaStatic.YYParams.YYSSID, g.optString(TiebaStatic.YYParams.YYSSID)).param(TiebaStatic.YYParams.YYUID, g.optString(TiebaStatic.YYParams.YYUID)).param("template_id", g.optString("template_id")).param(TiebaStatic.YYParams.YYLIVEID, g.optString(TiebaStatic.YYParams.YYLIVEID)).param(TiebaStatic.Params.VID, g.optString(TiebaStatic.Params.VID));
+            } else if (liveFuseForumData.type.intValue() == 3) {
+                d(tbPageContext, str);
+            } else if (liveFuseForumData.type.intValue() == 4) {
+                e(tbPageContext, str);
+            } else {
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
             }
-            TiebaStatic.log(statisticItem);
         }
+    }
+
+    public final void d(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || !c()) {
+            return;
+        }
+        LoadingUtil.show("跳转中...");
+        sj5.b(new b(this, Uri.parse(str).getQueryParameter("room_id")), new c(this, tbPageContext));
+    }
+
+    public final void e(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, tbPageContext, str) != null) || !c()) {
+            return;
+        }
+        LoadingUtil.show("跳转中...");
+        sj5.b(new d(this), new e(this, tbPageContext));
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public TextView a;
     public ImageView b;
     public boolean c;
-    public jv4.f d;
+    public kv4.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -131,14 +131,14 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
             this.c = !this.c;
             c();
-            jv4.f fVar = this.d;
+            kv4.f fVar = this.d;
             if (fVar != null) {
                 fVar.a();
             }
         }
     }
 
-    public void setOnNoTipAgainCheckListener(jv4.f fVar) {
+    public void setOnNoTipAgainCheckListener(kv4.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;

@@ -21,14 +21,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea9;
+import com.baidu.tieba.fa9;
 import com.baidu.tieba.in;
-import com.baidu.tieba.j95;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.video.EditVideoData;
-import com.baidu.tieba.w95;
 import com.baidu.tieba.write.write.work.videoview.WorkPublishVideoView;
+import com.baidu.tieba.x95;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,13 +53,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public TextView g;
     public View h;
     public float i;
-    public n95 j;
+    public o95 j;
     public Paint k;
     public Paint l;
     public String m;
     public final Path n;
     public final RectF o;
-    public ea9 p;
+    public fa9 p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WorkPublishVideoView(Context context) {
@@ -160,7 +160,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ea9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
+            fa9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
             if (iWriteVideoPreviewListener != null) {
                 iWriteVideoPreviewListener.b();
             }
@@ -171,7 +171,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ea9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
+            fa9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
             if (iWriteVideoPreviewListener != null) {
                 iWriteVideoPreviewListener.a();
             }
@@ -182,7 +182,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ea9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
+            fa9 iWriteVideoPreviewListener = this$0.getIWriteVideoPreviewListener();
             if (iWriteVideoPreviewListener != null) {
                 iWriteVideoPreviewListener.c();
             }
@@ -237,13 +237,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public final ea9 getIWriteVideoPreviewListener() {
+    public final fa9 getIWriteVideoPreviewListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.p;
         }
-        return (ea9) invokeV.objValue;
+        return (fa9) invokeV.objValue;
     }
 
     public final void i() {
@@ -395,9 +395,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
                 view6 = null;
             }
-            pw4.d(view6).n(R.string.J_X05);
+            qw4.d(view6).n(R.string.J_X05);
             h();
-            this.j = new n95();
+            this.j = new o95();
             this.k = new Paint();
             this.l = new Paint();
             View view7 = this.h;
@@ -405,7 +405,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view7 = null;
             }
-            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oa9
+            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pa9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -422,7 +422,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("coverBtn");
                 textView2 = null;
             }
-            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qa9
+            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ra9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -440,7 +440,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pa9
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qa9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -460,7 +460,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(this.m);
-            ImageOperation g = w95.g(getMAX_VIDEO_WIDTH(), getMAX_VIDEO_HEIGHT());
+            ImageOperation g = x95.g(getMAX_VIDEO_WIDTH(), getMAX_VIDEO_HEIGHT());
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g);
             TbImageView tbImageView = this.c;
@@ -470,9 +470,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 tbImageView = null;
             }
             tbImageView.setTag(imageFileInfo.toCachedKey(false));
-            n95 n95Var = this.j;
-            Intrinsics.checkNotNull(n95Var);
-            in c = n95Var.c(imageFileInfo, false);
+            o95 o95Var = this.j;
+            Intrinsics.checkNotNull(o95Var);
+            in c = o95Var.c(imageFileInfo, false);
             if (c != null) {
                 a(c.r(), c.m());
                 TbImageView tbImageView3 = this.c;
@@ -484,13 +484,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 tbImageView2.invalidate();
                 return;
             }
-            n95 n95Var2 = this.j;
-            Intrinsics.checkNotNull(n95Var2);
-            n95Var2.d(imageFileInfo, new j95() { // from class: com.baidu.tieba.na9
+            o95 o95Var2 = this.j;
+            Intrinsics.checkNotNull(o95Var2);
+            o95Var2.d(imageFileInfo, new k95() { // from class: com.baidu.tieba.oa9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.j95
+                @Override // com.baidu.tieba.k95
                 public final void a(in inVar, String str, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLZ(1048576, this, inVar, str, z) == null) {
@@ -518,13 +518,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
                 view2 = null;
             }
-            pw4.d(view2).s(R.array.Mask_X003);
+            qw4.d(view2).s(R.array.Mask_X003);
             TextView textView2 = this.f;
             if (textView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("editBtn");
                 textView2 = null;
             }
-            pw4 d = pw4.d(textView2);
+            qw4 d = qw4.d(textView2);
             d.v(R.color.CAM_X0101);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0607);
@@ -534,7 +534,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            pw4 d2 = pw4.d(textView);
+            qw4 d2 = qw4.d(textView);
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0607);
@@ -549,10 +549,10 @@ public final class WorkPublishVideoView extends RelativeLayout {
         }
     }
 
-    public final void setIWriteVideoPreviewListener(ea9 ea9Var) {
+    public final void setIWriteVideoPreviewListener(fa9 fa9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ea9Var) == null) {
-            this.p = ea9Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, fa9Var) == null) {
+            this.p = fa9Var;
         }
     }
 

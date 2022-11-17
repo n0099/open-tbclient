@@ -17,7 +17,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HttpDnsCacheForHost implements INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_DATA = "data";

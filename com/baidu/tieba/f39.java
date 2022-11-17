@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface f39 {
-    void g(String str);
+    void c(int i, int i2);
 
-    void k(String str);
+    void f();
 
-    void n();
+    void setDragMode(int i, int i2);
 }

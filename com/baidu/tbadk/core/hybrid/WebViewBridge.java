@@ -15,16 +15,16 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.lx4;
 import com.baidu.tieba.mx4;
 import com.baidu.tieba.nx4;
 import com.baidu.tieba.ox4;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.px4;
 import com.baidu.tieba.rx4;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.sx4;
 import com.baidu.tieba.ux4;
 import com.baidu.tieba.vx4;
-import com.baidu.tieba.xx4;
+import com.baidu.tieba.wx4;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,34 +40,34 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class WebViewBridge extends ux4 implements rx4 {
+public class WebViewBridge extends vx4 implements sx4 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] k;
     public static final int[] l;
     public static final int[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ox4 c;
-    public final mx4 d;
+    public final px4 c;
+    public final nx4 d;
     public final c e;
-    public final HashMap<String, qx4> f;
-    public final HashMap<String, vx4> g;
+    public final HashMap<String, rx4> f;
+    public final HashMap<String, wx4> g;
     public String h;
     public int i;
     public int j;
 
     /* loaded from: classes3.dex */
-    public static final class NullHandler implements qx4 {
+    public static final class NullHandler implements rx4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ux4 bridge;
+        public final vx4 bridge;
         public final String cmd;
 
-        public NullHandler(ux4 ux4Var, String str) {
+        public NullHandler(vx4 vx4Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ux4Var, str};
+                Object[] objArr = {vx4Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -77,29 +77,29 @@ public class WebViewBridge extends ux4 implements rx4 {
                     return;
                 }
             }
-            this.bridge = ux4Var;
+            this.bridge = vx4Var;
             this.cmd = str;
         }
 
-        @Override // com.baidu.tieba.qx4
+        @Override // com.baidu.tieba.rx4
         public void handle(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 if (TextUtils.isEmpty(optString)) {
-                    nx4.a("scope " + this.cmd + " not found!");
+                    ox4.a("scope " + this.cmd + " not found!");
                     return;
                 }
                 HashMap hashMap = new HashMap(4);
                 hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
                 hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "cmd " + this.cmd + " not found");
-                this.bridge.c(vx4.k(optString, hashMap));
+                this.bridge.c(wx4.k(optString, hashMap));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements tx4 {
+    public class a implements ux4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -124,16 +124,16 @@ public class WebViewBridge extends ux4 implements rx4 {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.tx4
-        public void a(vx4 vx4Var, JSONObject jSONObject) {
+        @Override // com.baidu.tieba.ux4
+        public void a(wx4 wx4Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, vx4Var, jSONObject) != null) {
+            if (interceptable != null && interceptable.invokeLL(1048576, this, wx4Var, jSONObject) != null) {
                 return;
             }
-            this.b.t(vx4Var, this.a);
+            this.b.t(wx4Var, this.a);
         }
 
-        @Override // com.baidu.tieba.tx4
+        @Override // com.baidu.tieba.ux4
         public void b(int i, Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th) != null) || i != 1) {
@@ -146,7 +146,7 @@ public class WebViewBridge extends ux4 implements rx4 {
             if (i2 < 0 || i2 >= WebViewBridge.m.length) {
                 BdLog.e("pingIndex " + this.a + " out of bounds.");
                 String s = this.b.s();
-                nx4.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.a);
+                ox4.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.a);
                 return;
             }
             this.b.x(String.valueOf(WebViewBridge.m[this.a]), "");
@@ -154,11 +154,11 @@ public class WebViewBridge extends ux4 implements rx4 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends ux4 {
+    public static final class b extends vx4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ux4
+        @Override // com.baidu.tieba.vx4
         public void e(String str, BridgeHandler bridgeHandler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bridgeHandler) == null) {
@@ -178,7 +178,7 @@ public class WebViewBridge extends ux4 implements rx4 {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((WebView) objArr2[0], (lx4) objArr2[1]);
+                    super((WebView) objArr2[0], (mx4) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -190,11 +190,11 @@ public class WebViewBridge extends ux4 implements rx4 {
             this(webView);
         }
 
-        @Override // com.baidu.tieba.ux4
-        public void c(vx4 vx4Var) {
+        @Override // com.baidu.tieba.vx4
+        public void c(wx4 wx4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vx4Var) == null) {
-                vx4Var.g(4, null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, wx4Var) == null) {
+                wx4Var.g(4, null);
             }
         }
     }
@@ -203,14 +203,14 @@ public class WebViewBridge extends ux4 implements rx4 {
     public static final class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<rx4> a;
+        public final WeakReference<sx4> a;
 
-        public c(rx4 rx4Var) {
+        public c(sx4 sx4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rx4Var};
+                Object[] objArr = {sx4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -220,27 +220,27 @@ public class WebViewBridge extends ux4 implements rx4 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(rx4Var);
+            this.a = new WeakReference<>(sx4Var);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                rx4 rx4Var = this.a.get();
-                if (rx4Var == null) {
-                    nx4.a("TimeHandler got null bridge reference.");
+                sx4 sx4Var = this.a.get();
+                if (sx4Var == null) {
+                    ox4.a("TimeHandler got null bridge reference.");
                     return;
                 }
                 int i = message.what;
                 if (i != 1) {
                     if (i == 2) {
-                        rx4Var.a((String) message.obj);
+                        sx4Var.a((String) message.obj);
                         return;
                     }
                     throw new IllegalArgumentException("Invalid message.");
                 }
-                rx4Var.b();
+                sx4Var.b();
             }
         }
     }
@@ -263,7 +263,7 @@ public class WebViewBridge extends ux4 implements rx4 {
         m = new int[]{501, 502, 503};
     }
 
-    @Override // com.baidu.tieba.rx4
+    @Override // com.baidu.tieba.sx4
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -274,25 +274,25 @@ public class WebViewBridge extends ux4 implements rx4 {
             hashMap.put("version", "1.0");
             hashMap.put("logid", s());
             int[] iArr = k;
-            l(vx4.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
+            l(wx4.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
             x("100", "");
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebViewBridge(WebView webView, lx4 lx4Var) {
-        this(webView, new ox4(), new mx4(), lx4Var);
+    public WebViewBridge(WebView webView, mx4 mx4Var) {
+        this(webView, new px4(), new nx4(), mx4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, lx4Var};
+            Object[] objArr = {webView, mx4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((WebView) objArr2[0], (ox4) objArr2[1], (mx4) objArr2[2], (lx4) objArr2[3]);
+                this((WebView) objArr2[0], (px4) objArr2[1], (nx4) objArr2[2], (mx4) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -300,15 +300,15 @@ public class WebViewBridge extends ux4 implements rx4 {
         }
     }
 
-    public final void t(vx4 vx4Var, int i) {
+    public final void t(wx4 wx4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, vx4Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, wx4Var, i) == null) {
             this.i = 0;
             long currentTimeMillis = System.currentTimeMillis();
             if (i >= 0) {
                 int[] iArr = l;
                 if (i < iArr.length) {
-                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - vx4Var.h));
+                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - wx4Var.h));
                     return;
                 }
             }
@@ -317,19 +317,19 @@ public class WebViewBridge extends ux4 implements rx4 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebViewBridge(WebView webView, ox4 ox4Var, mx4 mx4Var, lx4 lx4Var) {
-        super(webView, lx4Var);
+    public WebViewBridge(WebView webView, px4 px4Var, nx4 nx4Var, mx4 mx4Var) {
+        super(webView, mx4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, ox4Var, mx4Var, lx4Var};
+            Object[] objArr = {webView, px4Var, nx4Var, mx4Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((WebView) objArr2[0], (lx4) objArr2[1]);
+                super((WebView) objArr2[0], (mx4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -338,9 +338,9 @@ public class WebViewBridge extends ux4 implements rx4 {
         this.h = String.valueOf(System.currentTimeMillis());
         this.i = -1;
         this.j = -1;
-        this.c = ox4Var;
-        this.d = mx4Var;
-        mx4Var.c(this);
+        this.c = px4Var;
+        this.d = nx4Var;
+        nx4Var.c(this);
         this.c.a(this);
         this.e = new c(this);
         this.f = new HashMap<>(16);
@@ -360,74 +360,74 @@ public class WebViewBridge extends ux4 implements rx4 {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            nx4.a("reInject for pingIndex " + this.j);
+            ox4.a("reInject for pingIndex " + this.j);
             r(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.ux4
-    public void c(vx4 vx4Var) {
+    @Override // com.baidu.tieba.vx4
+    public void c(wx4 wx4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vx4Var) == null) {
-            if (vx4Var.e == 3) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wx4Var) == null) {
+            if (wx4Var.e == 3) {
                 z = true;
             } else {
                 z = false;
             }
-            l(vx4Var, z);
+            l(wx4Var, z);
         }
     }
 
-    public static ux4 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, lx4 lx4Var) {
+    public static vx4 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, mx4 mx4Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), webView, webViewClient, webChromeClient, lx4Var})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), webView, webViewClient, webChromeClient, mx4Var})) == null) {
             if (!z) {
                 return new b(webView, null);
             }
-            WebViewBridge webViewBridge = new WebViewBridge(webView, lx4Var);
+            WebViewBridge webViewBridge = new WebViewBridge(webView, mx4Var);
             webViewBridge.c.b(webViewClient);
             webViewBridge.d.d(webChromeClient);
             return webViewBridge;
         }
-        return (ux4) invokeCommon.objValue;
+        return (vx4) invokeCommon.objValue;
     }
 
-    public static ux4 n(boolean z, BridgeWebView bridgeWebView, lx4 lx4Var) {
+    public static vx4 n(boolean z, BridgeWebView bridgeWebView, mx4 mx4Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), bridgeWebView, lx4Var})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), bridgeWebView, mx4Var})) == null) {
             if (!z) {
                 return new b(bridgeWebView, null);
             }
             WebViewClient webViewClient = bridgeWebView.webViewClient;
             WebChromeClient webChromeClient = bridgeWebView.chromeClient;
-            WebViewBridge webViewBridge = new WebViewBridge(bridgeWebView, lx4Var);
+            WebViewBridge webViewBridge = new WebViewBridge(bridgeWebView, mx4Var);
             webViewBridge.c.b(webViewClient);
             webViewBridge.d.d(webChromeClient);
             return webViewBridge;
         }
-        return (ux4) invokeCommon.objValue;
+        return (vx4) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.rx4
+    @Override // com.baidu.tieba.sx4
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                nx4.a("invalid callbackId.");
+                ox4.a("invalid callbackId.");
                 return;
             }
-            vx4 remove = this.g.remove(str);
+            wx4 remove = this.g.remove(str);
             if (remove != null) {
-                nx4.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                ox4.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
                 remove.g(1, null);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ux4
+    @Override // com.baidu.tieba.vx4
     public void e(String str, BridgeHandler bridgeHandler) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048579, this, str, bridgeHandler) != null) || this.f.put(str, bridgeHandler) == null) {
@@ -468,50 +468,50 @@ public class WebViewBridge extends ux4 implements rx4 {
         }
     }
 
-    public final void l(vx4 vx4Var, boolean z) {
+    public final void l(wx4 wx4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, vx4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, wx4Var, z) == null) {
             if (!z) {
                 if (this.i != 0) {
                     String s = s();
-                    nx4.b(s, "101", "(" + vx4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + vx4Var.b + ") is called before bridge ready");
+                    ox4.b(s, "101", "(" + wx4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + wx4Var.b + ") is called before bridge ready");
                 }
-                if (TextUtils.isEmpty(vx4Var.a) || TextUtils.isEmpty(vx4Var.b)) {
-                    nx4.b(s(), "102", "the alias class or method is empty");
-                    vx4Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
+                if (TextUtils.isEmpty(wx4Var.a) || TextUtils.isEmpty(wx4Var.b)) {
+                    ox4.b(s(), "102", "the alias class or method is empty");
+                    wx4Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
                     return;
                 }
             }
-            if (!TextUtils.isEmpty(vx4Var.f)) {
-                if (vx4Var.e != 3) {
-                    this.g.put(vx4Var.f, vx4Var);
-                    if (vx4Var.g > 0) {
+            if (!TextUtils.isEmpty(wx4Var.f)) {
+                if (wx4Var.e != 3) {
+                    this.g.put(wx4Var.f, wx4Var);
+                    if (wx4Var.g > 0) {
                         c cVar = this.e;
-                        cVar.sendMessageDelayed(Message.obtain(cVar, 2, vx4Var.f), vx4Var.g);
-                    } else if (vx4Var.a != null || vx4Var.b != null) {
-                        nx4.a("ignore timeout check for method call (" + vx4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + vx4Var.b + ").");
+                        cVar.sendMessageDelayed(Message.obtain(cVar, 2, wx4Var.f), wx4Var.g);
+                    } else if (wx4Var.a != null || wx4Var.b != null) {
+                        ox4.a("ignore timeout check for method call (" + wx4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + wx4Var.b + ").");
                     }
                 } else {
-                    nx4.a("ignore timeout check for response method, callbackId " + vx4Var.f);
+                    ox4.a("ignore timeout check for response method, callbackId " + wx4Var.f);
                 }
             }
             try {
-                String b2 = vx4Var.b();
+                String b2 = wx4Var.b();
                 if (Build.VERSION.SDK_INT >= 19) {
                     this.a.evaluateJavascript(b2, null);
                 } else {
                     this.a.loadUrl(b2);
                 }
-                nx4.a(b2);
+                ox4.a(b2);
             } catch (NullPointerException e) {
                 x("500", e.getMessage());
             } catch (JSONException e2) {
                 if (z) {
                     x("102", e2.getMessage());
                 } else {
-                    nx4.a(e2.getMessage());
+                    ox4.a(e2.getMessage());
                 }
-                vx4Var.g(2, e2);
+                wx4Var.g(2, e2);
             }
         }
     }
@@ -520,7 +520,7 @@ public class WebViewBridge extends ux4 implements rx4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            nx4.a("got js prompt in url:" + str + " with content:" + str2);
+            ox4.a("got js prompt in url:" + str + " with content:" + str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 String optString = jSONObject.optString("messageType");
@@ -532,11 +532,11 @@ public class WebViewBridge extends ux4 implements rx4 {
                     v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
                 } else {
                     String s = s();
-                    nx4.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, "invalid message type " + optString);
+                    ox4.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, "invalid message type " + optString);
                 }
                 return null;
             } catch (JSONException e) {
-                nx4.b(s(), TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, e.getMessage());
+                ox4.b(s(), TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, e.getMessage());
                 return null;
             }
         }
@@ -549,19 +549,19 @@ public class WebViewBridge extends ux4 implements rx4 {
             this.j = -1;
             int i = this.i;
             if (i != 2 && i != 1) {
-                nx4.a("current status " + this.i + ", broken because url changed to " + str);
+                ox4.a("current status " + this.i + ", broken because url changed to " + str);
                 this.i = 2;
             }
-            if (xx4.b(str) && xx4.a(str)) {
-                nx4.a("current status " + this.i + ", constructing bridge for " + str);
-                lx4 lx4Var = this.b;
-                if (lx4Var != null) {
-                    lx4Var.b();
+            if (yx4.b(str) && yx4.a(str)) {
+                ox4.a("current status " + this.i + ", constructing bridge for " + str);
+                mx4 mx4Var = this.b;
+                if (mx4Var != null) {
+                    mx4Var.b();
                 }
                 r(this.a);
-                lx4 lx4Var2 = this.b;
-                if (lx4Var2 != null) {
-                    lx4Var2.a();
+                mx4 mx4Var2 = this.b;
+                if (mx4Var2 != null) {
+                    mx4Var2.a();
                 }
             }
         }
@@ -582,7 +582,7 @@ public class WebViewBridge extends ux4 implements rx4 {
                 this.e.sendEmptyMessageDelayed(1, 0L);
             } catch (Throwable th) {
                 x("102", th.getMessage());
-                nx4.a(th.toString());
+                ox4.a(th.toString());
             }
         }
     }
@@ -591,11 +591,11 @@ public class WebViewBridge extends ux4 implements rx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) {
             if (TextUtils.isEmpty(str)) {
-                nx4.a("invalid callbackId.");
+                ox4.a("invalid callbackId.");
                 return;
             }
             this.e.removeMessages(2, str);
-            vx4 remove = this.g.remove(str);
+            wx4 remove = this.g.remove(str);
             if (remove != null) {
                 remove.h(jSONObject);
             }
@@ -605,7 +605,7 @@ public class WebViewBridge extends ux4 implements rx4 {
     public final void x(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            nx4.c(s(), str, str2);
+            ox4.c(s(), str, str2);
         }
     }
 
@@ -613,15 +613,15 @@ public class WebViewBridge extends ux4 implements rx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
             if (this.i != 0) {
-                nx4.b(s(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
+                ox4.b(s(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
             }
-            qx4 qx4Var = this.f.get(str);
-            if (qx4Var == null) {
-                qx4Var = new NullHandler(this, str);
+            rx4 rx4Var = this.f.get(str);
+            if (rx4Var == null) {
+                rx4Var = new NullHandler(this, str);
                 String s = s();
-                nx4.b(s, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, "cmd " + str + " not found");
+                ox4.b(s, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, "cmd " + str + " not found");
             }
-            qx4Var.handle(str2, jSONObject, jSONObject2);
+            rx4Var.handle(str2, jSONObject, jSONObject2);
         }
     }
 }

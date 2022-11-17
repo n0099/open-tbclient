@@ -70,7 +70,7 @@ public class ny extends cx implements sx<ThreadData> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{oq8.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{pq8.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
@@ -155,7 +155,7 @@ public class ny extends cx implements sx<ThreadData> {
                 } catch (Resources.NotFoundException e) {
                     BdLog.e(e);
                 }
-                pw4 d = pw4.d(this.g);
+                qw4 d = qw4.d(this.g);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0105);
                 this.h.setAlpha(0.7f);

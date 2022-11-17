@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,129 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class ua9<E> implements Iterable<E> {
+public class ua9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<E> a;
-    public int b;
-    public int c;
-    public boolean d;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Object<E> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public boolean c;
-        public final /* synthetic */ ua9 d;
-
-        public b(ua9 ua9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ua9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ua9Var;
-            this.b = 0;
-            this.c = false;
-            ua9Var.j();
-            this.a = ua9Var.f();
-        }
-
-        public /* synthetic */ b(ua9 ua9Var, a aVar) {
-            this(ua9Var);
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.c) {
-                this.c = true;
-                this.d.h();
-            }
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.b;
-                while (i < this.a && this.d.i(i) == null) {
-                    i++;
-                }
-                if (i < this.a) {
-                    return true;
-                }
-                a();
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        public E next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                while (true) {
-                    int i = this.b;
-                    if (i >= this.a || this.d.i(i) != null) {
-                        break;
-                    }
-                    this.b++;
-                }
-                int i2 = this.b;
-                if (i2 < this.a) {
-                    ua9 ua9Var = this.d;
-                    this.b = i2 + 1;
-                    return (E) ua9Var.i(i2);
-                }
-                a();
-                throw new NoSuchElementException();
-            }
-            return (E) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948204412, "Lcom/baidu/tieba/ua9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948204412, "Lcom/baidu/tieba/ua9;");
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948204412, "Lcom/baidu/tieba/ua9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948204412, "Lcom/baidu/tieba/ua9;");
         }
     }
 
@@ -144,85 +42,134 @@ public class ua9<E> implements Iterable<E> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = 0;
-        this.c = 0;
-        this.d = false;
     }
 
-    public final int f() {
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            b(str, str2, new Object[0]);
+        }
+    }
+
+    public static String d(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return String.format(Locale.US, str, objArr);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
+            String e = e(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.d(i(str), e, g);
+                }
+            } else if (a) {
+                Log.d(i(str), e);
+            }
+        }
+    }
+
+    public static void c(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.e(i(str), d, g);
+                }
+            } else if (a) {
+                Log.e(i(str), d);
+            }
+        }
+    }
+
+    public static void h(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.i(i(str), d, g);
+                }
+            } else if (a) {
+                Log.i(i(str), d);
+            }
+        }
+    }
+
+    public static String e(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int size = this.a.size() - 1; size >= 0; size--) {
-                if (this.a.get(size) == null) {
-                    this.a.remove(size);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String name = ua9.class.getName();
+            int i = 0;
+            while (true) {
+                if (i >= stackTrace.length) {
+                    break;
+                } else if (stackTrace[i].getClassName().equals(name)) {
+                    i += 4;
+                    break;
+                } else {
+                    i++;
                 }
             }
+            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i > 0 || !this.d) {
-                return;
-            }
-            this.d = false;
-            g();
-        }
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new b(this, null);
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b++;
-        }
-    }
-
-    public boolean e(E e) {
+    public static Throwable g(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null && !this.a.contains(e)) {
-                this.a.add(e);
-                this.c++;
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
+            if (objArr == null || objArr.length == 0) {
+                return null;
             }
-            return false;
+            Object obj = objArr[objArr.length - 1];
+            if (!(obj instanceof Throwable)) {
+                return null;
+            }
+            return (Throwable) obj;
         }
-        return invokeL.booleanValue;
+        return (Throwable) invokeL.objValue;
     }
 
-    public final E i(int i) {
-        InterceptResult invokeI;
+    public static String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return this.a.get(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str.startsWith("cr_")) {
+                return str;
+            }
+            int i = 0;
+            if (str.startsWith("cr.")) {
+                i = 3;
+            }
+            return "cr_" + str.substring(i, str.length());
         }
-        return (E) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 }

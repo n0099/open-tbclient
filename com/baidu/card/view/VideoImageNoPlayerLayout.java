@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bz;
-import com.baidu.tieba.l46;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.m46;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.sx;
+import com.baidu.tieba.tr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,8 +44,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public l46<sr4> m;
-    public sr4 n;
+    public m46<tr4> m;
+    public tr4 n;
     public View.OnClickListener o;
     public bz p;
 
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    l46 l46Var = this.a.m;
+                    m46 m46Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    l46Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    m46Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -153,10 +153,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
         }
     }
 
-    public void setData(sr4 sr4Var) {
+    public void setData(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sr4Var) == null) {
-            this.n = sr4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, tr4Var) == null) {
+            this.n = tr4Var;
         }
     }
 
@@ -167,10 +167,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
         }
     }
 
-    public void setOnCardSubClickListener(l46<sr4> l46Var) {
+    public void setOnCardSubClickListener(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, l46Var) == null) {
-            this.m = l46Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, m46Var) == null) {
+            this.m = m46Var;
         }
     }
 
@@ -211,10 +211,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: g */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var) == null) && sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().originalThreadData != null) {
-            OriginalThreadInfo originalThreadInfo = sr4Var.getThreadData().originalThreadData;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) && tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().originalThreadData != null) {
+            OriginalThreadInfo originalThreadInfo = tr4Var.getThreadData().originalThreadData;
             originalThreadInfo.r.is_vertical.intValue();
             String str = originalThreadInfo.f;
             originalThreadInfo.r.video_length.intValue();
@@ -249,8 +249,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements sx<sr4> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                pw4.d(this.d).s(R.array.Mask_X003);
-                pw4.d(this.d).n(R.string.J_X05);
+                qw4.d(this.d).s(R.array.Mask_X003);
+                qw4.d(this.d).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);

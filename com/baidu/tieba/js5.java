@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes4.dex */
-public class js5 {
+public class js5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<y35> b;
 
     public js5() {
         Interceptable interceptable = $ic;
@@ -32,56 +28,30 @@ public class js5 {
         }
     }
 
-    public List<y35> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
             }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
-            this.a = listdata.key;
-            if (listdata.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : listdata.friend_list) {
-                    y35 y35Var = new y35();
-                    y35Var.i(friendlist);
-                    y35Var.j(this.a);
-                    this.b.add(y35Var);
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                z35 z35Var = (z35) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = ls5.f().a(z35Var);
+                } else {
+                    d = ls5.f().d(z35Var.d());
+                }
+                if (!d) {
+                    qy4 k = qy4.k();
+                    k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
+            return null;
         }
-    }
-
-    public void d(robotsList robotslist) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
-            this.a = robotslist.key;
-            if (robotslist.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : robotslist.friend_list) {
-                    y35 y35Var = new y35();
-                    y35Var.i(friendlist);
-                    y35Var.j(this.a);
-                    this.b.add(y35Var);
-                }
-            }
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

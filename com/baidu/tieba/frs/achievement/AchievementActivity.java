@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kl6;
-import com.baidu.tieba.ml6;
+import com.baidu.tieba.ll6;
+import com.baidu.tieba.nl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ml6 a;
-    public kl6 b;
+    public nl6 a;
+    public ll6 b;
     public View.OnClickListener c;
 
     /* loaded from: classes4.dex */
@@ -103,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            ml6 ml6Var = new ml6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0912e0));
-            this.a = ml6Var;
-            ml6Var.h(true);
+            nl6 nl6Var = new nl6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0912e0));
+            this.a = nl6Var;
+            nl6Var.h(true);
             this.a.j(this.c);
-            kl6 kl6Var = new kl6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0912c9));
-            this.b = kl6Var;
-            kl6Var.h(false);
+            ll6 ll6Var = new ll6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0912c9));
+            this.b = ll6Var;
+            ll6Var.h(false);
         }
     }
 }

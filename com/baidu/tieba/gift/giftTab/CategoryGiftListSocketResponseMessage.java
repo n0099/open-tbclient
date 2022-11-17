@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.giftTab;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ct4;
+import com.baidu.tieba.dt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int categoryId;
-    public ArrayList<ct4> giftList;
+    public ArrayList<dt4> giftList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CategoryGiftListSocketResponseMessage() {
@@ -50,7 +50,7 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
         return invokeV.intValue;
     }
 
-    public ArrayList<ct4> getGiftList() {
+    public ArrayList<dt4> getGiftList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -80,25 +80,25 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
                 this.giftList = new ArrayList<>();
                 for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                     if (presentGiftListByCategoryId1 != null) {
-                        ct4 ct4Var = new ct4();
-                        ct4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                        ct4Var.b = presentGiftListByCategoryId1.gift_name;
-                        ct4Var.c = presentGiftListByCategoryId1.price.intValue();
-                        ct4Var.d = presentGiftListByCategoryId1.thumbnail_url;
+                        dt4 dt4Var = new dt4();
+                        dt4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
+                        dt4Var.b = presentGiftListByCategoryId1.gift_name;
+                        dt4Var.c = presentGiftListByCategoryId1.price.intValue();
+                        dt4Var.d = presentGiftListByCategoryId1.thumbnail_url;
                         presentGiftListByCategoryId1.ios_price.intValue();
-                        ct4Var.e = presentGiftListByCategoryId1.gift_desc;
-                        ct4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
-                        ct4Var.g = presentGiftListByCategoryId1.mark_url;
-                        ct4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
-                        ct4Var.i = presentGiftListByCategoryId1.end_time.intValue();
-                        ct4Var.j = presentGiftListByCategoryId1.discount.intValue();
+                        dt4Var.e = presentGiftListByCategoryId1.gift_desc;
+                        dt4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
+                        dt4Var.g = presentGiftListByCategoryId1.mark_url;
+                        dt4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
+                        dt4Var.i = presentGiftListByCategoryId1.end_time.intValue();
+                        dt4Var.j = presentGiftListByCategoryId1.discount.intValue();
                         presentGiftListByCategoryId1.ios_discount.intValue();
                         presentGiftListByCategoryId1.proportion.intValue();
                         presentGiftListByCategoryId1.pitch_on.intValue();
-                        ct4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
-                        ct4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
-                        ct4Var.s = presentGiftListByCategoryId1.currency.intValue();
-                        this.giftList.add(ct4Var);
+                        dt4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
+                        dt4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
+                        dt4Var.s = presentGiftListByCategoryId1.currency.intValue();
+                        this.giftList.add(dt4Var);
                     }
                 }
             }

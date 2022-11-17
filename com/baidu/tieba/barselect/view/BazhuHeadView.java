@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj7;
+import com.baidu.tieba.ij7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -127,7 +127,7 @@ public class BazhuHeadView extends HeadPendantView {
                 int g3 = yi.g(getContext(), R.dimen.tbds26);
                 int g4 = yi.g(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(g);
-                getHeadView().setBorderColor(hj7.b("#FCD442"));
+                getHeadView().setBorderColor(ij7.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
                 layoutParams.leftMargin = g3;

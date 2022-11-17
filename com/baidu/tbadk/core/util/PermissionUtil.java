@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.ji5;
-import com.baidu.tieba.nb5;
-import com.baidu.tieba.pi5;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.ob5;
+import com.baidu.tieba.qi5;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.ub5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static nb5 mAgreePrivacyPolicyEventListener;
+    public static ob5 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new nb5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new ob5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.nb5
+            @Override // com.baidu.tieba.ob5
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -128,7 +128,7 @@ public class PermissionUtil {
                 return true;
             }
             try {
-                isAgreePrivacyPolicy = py4.k().h("key_secret_is_show_new", false);
+                isAgreePrivacyPolicy = qy4.k().h("key_secret_is_show_new", false);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -140,7 +140,7 @@ public class PermissionUtil {
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            tb5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+            ub5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
@@ -261,7 +261,7 @@ public class PermissionUtil {
                 return "";
             }
             if (localMacAddress == null) {
-                localMacAddress = ji5.c().d(context);
+                localMacAddress = ki5.c().d(context);
             }
             return localMacAddress;
         }
@@ -374,11 +374,11 @@ public class PermissionUtil {
             if (!isAgreePrivacyPolicy()) {
                 return "";
             }
-            String q = py4.k().q("key_last_cached_oid", "");
+            String q = qy4.k().q("key_last_cached_oid", "");
             try {
                 if (TextUtils.isEmpty(q)) {
                     q = aj.i();
-                    py4.k().y("key_last_cached_oid", q);
+                    qy4.k().y("key_last_cached_oid", q);
                     return q;
                 }
                 return q;
@@ -513,7 +513,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65565, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            py4.k().u("key_secret_is_show_new", z);
+            qy4.k().u("key_secret_is_show_new", z);
             doApplicationInit();
             if (TbadkCoreApplication.getIntent() != null) {
                 String dataString = TbadkCoreApplication.getIntent().getDataString();
@@ -522,9 +522,9 @@ public class PermissionUtil {
                 }
             }
             GrowthStatsUtil.statisticActivity();
-            tb5.f().g(TbadkCoreApplication.getInst());
-            tb5.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
-            pi5.g().s();
+            ub5.f().g(TbadkCoreApplication.getInst());
+            ub5.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+            qi5.g().s();
         }
     }
 

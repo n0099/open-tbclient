@@ -6,9 +6,9 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.kt9;
 import com.baidu.tieba.lt9;
 import com.baidu.tieba.mt9;
+import com.baidu.tieba.nt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public lt9 mBlockCanaryCore;
+    public mt9 mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -94,10 +94,10 @@ public class LooperMonitor implements ILooperMonitor {
         }
     }
 
-    public void addBlockInterceptor(mt9 mt9Var) {
+    public void addBlockInterceptor(nt9 nt9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, mt9Var) == null) && mt9Var != null) {
-            this.mBlockCanaryCore.b(mt9Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nt9Var) == null) && nt9Var != null) {
+            this.mBlockCanaryCore.b(nt9Var);
         }
     }
 
@@ -108,11 +108,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            kt9.init(context, sLooperContextDispatcher, i);
-            lt9.k(kt9.get());
-            lt9 e = lt9.e();
+            lt9.init(context, sLooperContextDispatcher, i);
+            mt9.k(lt9.get());
+            mt9 e = mt9.e();
             this.mBlockCanaryCore = e;
-            e.b(kt9.get());
+            e.b(lt9.get());
             startLooperPrint();
             startTrack(context);
         }

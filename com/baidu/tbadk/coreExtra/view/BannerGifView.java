@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq4;
 import com.baidu.tieba.hq4;
+import com.baidu.tieba.iq4;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public gq4 h;
-    public hq4 i;
-    public final hq4 j;
+    public hq4 h;
+    public iq4 i;
+    public final iq4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements hq4 {
+    public class a implements iq4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.hq4
+        @Override // com.baidu.tieba.iq4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -200,10 +200,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(gq4 gq4Var) {
+    public void setIWindowChangedListener(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, gq4Var) == null) {
-            this.h = gq4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, hq4Var) == null) {
+            this.h = hq4Var;
         }
     }
 
@@ -215,10 +215,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(hq4 hq4Var) {
+    public void setOnClickEventListener(iq4 iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hq4Var) == null) {
-            this.i = hq4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, iq4Var) == null) {
+            this.i = iq4Var;
         }
     }
 

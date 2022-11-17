@@ -63,12 +63,12 @@ public class o83 extends g43 {
 
         /* renamed from: com.baidu.tieba.o83$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0370a implements yi3<i93<k93.e>> {
+        public class C0372a implements yi3<i93<k93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0370a(a aVar) {
+            public C0372a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class o83 extends g43 {
                         z2 = true;
                     }
                     if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0370a(this));
+                        this.e.c(this.d, this.b, this.c, new C0372a(this));
                         return;
                     }
                     if (f93Var.j > 0) {

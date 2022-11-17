@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.mk0;
-import com.baidu.tieba.uw4;
+import com.baidu.tieba.vw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class ApkDownloadInfoData implements uw4, Serializable, Comparable<ApkDownloadInfoData> {
+public class ApkDownloadInfoData implements vw4, Serializable, Comparable<ApkDownloadInfoData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public mk0 adDownloadBean;
@@ -24,7 +24,7 @@ public class ApkDownloadInfoData implements uw4, Serializable, Comparable<ApkDow
     public File mApkPath;
     public AdDownloadStatus status;
 
-    @Override // com.baidu.tieba.uw4
+    @Override // com.baidu.tieba.vw4
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ApkDownloadInfoData implements uw4, Serializable, Comparable<ApkDow
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uw4
+    @Override // com.baidu.tieba.vw4
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

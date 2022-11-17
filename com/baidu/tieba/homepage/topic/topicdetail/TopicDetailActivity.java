@@ -20,7 +20,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.d77;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.e77;
 import com.baidu.tieba.en4;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
@@ -28,7 +29,6 @@ import com.baidu.tieba.n9;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.z67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements z67 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -53,7 +53,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.de5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.z67
+    @Override // com.baidu.tieba.a77
     public void K0(int i, boolean z, List<xn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -166,7 +166,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.z67
+    @Override // com.baidu.tieba.a77
     public void a() {
         int i;
         String substring;
@@ -276,14 +276,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.z67
-    public void u(int i, d77 d77Var) {
+    @Override // com.baidu.tieba.a77
+    public void u(int i, e77 e77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, d77Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, e77Var) == null) {
             this.b.r();
-            if (i == 0 && d77Var != null && !ListUtils.isEmpty(d77Var.f)) {
+            if (i == 0 && e77Var != null && !ListUtils.isEmpty(e77Var.f)) {
                 this.b.s();
-                this.b.setData(d77Var);
+                this.b.setData(e77Var);
                 return;
             }
             this.b.B(true);

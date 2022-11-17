@@ -1,84 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class qg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public boolean c;
 
-    public static int a(int i, pg8 pg8Var) {
-        InterceptResult invokeIL;
+    public qg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, pg8Var)) == null) {
-            if (i <= 0) {
-                return pg8Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (pg8Var.c()) {
-                return i + pg8Var.b();
-            }
-            return i + pg8Var.b() + 1;
         }
-        return invokeIL.intValue;
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull pg8 pg8Var, int i2, @Nullable T t, @Nullable rg8 rg8Var, @Nullable sg8 sg8Var) {
-        InterceptResult invokeCommon;
-        int i3;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), pg8Var, Integer.valueOf(i2), t, rg8Var, sg8Var})) == null) {
-            if (pg8Var.a() != -1 && pg8Var.b() != -1) {
-                int a = a(i2, pg8Var);
-                if (rg8Var != null && t != null) {
-                    if (i <= i2) {
-                        if (sg8Var != 0) {
-                            sg8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i + 1;
-                    if (i4 < a) {
-                        if (sg8Var != 0) {
-                            sg8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    if (i > a) {
-                        i3 = i4;
-                    } else {
-                        i3 = a;
-                    }
-                    int i5 = gj7.i(list);
-                    if (i3 >= i5 && (rg8Var.b() || i3 > i5)) {
-                        if (sg8Var != 0) {
-                            sg8Var.d(i, i3, i5, rg8Var, t);
-                        }
-                        return false;
-                    }
-                    rg8Var.a(i3);
-                    if (!rg8Var.b()) {
-                        gj7.b(list, t, i3);
-                        if (sg8Var != 0) {
-                            sg8Var.c(i, i3, rg8Var, t);
-                            return true;
-                        }
-                        return true;
-                    } else if (sg8Var != 0) {
-                        sg8Var.e(i, i3, gj7.d(list, i3), rg8Var, t);
-                        return true;
-                    } else {
-                        return true;
-                    }
-                } else if (sg8Var != 0) {
-                    sg8Var.a(i, a);
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
     }
 }

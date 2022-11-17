@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class f78 extends kn<a88, CardViewHolder<s88>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public s88 b;
+    public TbPageContext a;
+    public m46<a88> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f78(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -48,10 +48,18 @@ public class f78 extends kn<a88, CardViewHolder<s88>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new s88(this.a, this.mType);
-            return new CardViewHolder<>(this.b);
+            s88 s88Var = new s88(this.a);
+            s88Var.n(this.b);
+            return new CardViewHolder<>(s88Var);
         }
         return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(m46<a88> m46Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
+            this.b = m46Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.qz4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    pz4 pz4Var = new pz4();
-                    pz4Var.p(R.color.CAM_X0107);
-                    this.e.setConfig(pz4Var);
+                    qz4 qz4Var = new qz4();
+                    qz4Var.p(R.color.CAM_X0107);
+                    this.e.setConfig(qz4Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7e));
                     this.f.setTextSize(R.dimen.tbds42);
-                    pz4 pz4Var2 = new pz4();
-                    pz4Var2.p(R.color.CAM_X0302);
-                    this.f.setConfig(pz4Var2);
+                    qz4 qz4Var2 = new qz4();
+                    qz4Var2.p(R.color.CAM_X0302);
+                    this.f.setConfig(qz4Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7d));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f146b));
-            pz4 pz4Var3 = new pz4();
-            pz4Var3.p(R.color.CAM_X0302);
+            qz4 qz4Var3 = new qz4();
+            qz4Var3.p(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(pz4Var3);
+            this.h.setConfig(qz4Var3);
         }
     }
 

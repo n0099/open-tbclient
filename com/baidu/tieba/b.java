@@ -126,7 +126,7 @@ public class b extends zf1<jj0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (wp5.a().b("tieba_nad_privacy_switch", 0) != 1) {
+                if (xp5.a().b("tieba_nad_privacy_switch", 0) != 1) {
                     return false;
                 }
                 return true;

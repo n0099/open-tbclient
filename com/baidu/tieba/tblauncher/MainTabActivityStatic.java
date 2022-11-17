@@ -32,11 +32,11 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.z39;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    ky4.d((Activity) data);
+                    ly4.d((Activity) data);
                 }
             }
         }
@@ -162,10 +162,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            ky4.f(tbPageContext.getPageActivity(), 1, true);
+                            ly4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            ky4.f(tbPageContext.getPageActivity(), 2, true);
+                            ly4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -198,7 +198,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            ky4.f(tbPageContext.getPageActivity(), i, true);
+                            ly4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -286,10 +286,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                lb5.b().m(lb5.b().j());
-                lb5.b().c();
-            } else if (!lb5.b().i() && lb5.b().k()) {
-                lb5.b().o();
+                mb5.b().m(mb5.b().j());
+                mb5.b().c();
+            } else if (!mb5.b().i() && mb5.b().k()) {
+                mb5.b().o();
             }
         }
     }
@@ -328,10 +328,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                lb5.b().m(lb5.b().j());
-                lb5.b().c();
-            } else if (!lb5.b().i() && lb5.b().k()) {
-                lb5.b().o();
+                mb5.b().m(mb5.b().j());
+                mb5.b().c();
+            } else if (!mb5.b().i() && mb5.b().k()) {
+                mb5.b().o();
             }
         }
     }
@@ -387,11 +387,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                y39.j(tbPageContext, "", forumWriteData);
+                                z39.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                y39.j(tbPageContext, str2, forumWriteData2);
+                                z39.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -622,7 +622,7 @@ public class MainTabActivityStatic {
         if (b2 != a || c2 != b) {
             a = b2;
             b = c2;
-            py4.k().w("message_count", b2);
+            qy4.k().w("message_count", b2);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
         }
     }

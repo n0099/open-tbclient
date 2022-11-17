@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.p18;
+import com.baidu.tieba.oz4;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.q18;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public p18 c;
+    public q18 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,8 +130,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            p18 p18Var = this.c;
-            if (p18Var != null && p18Var.j() != null && this.c.j().getIsLike()) {
+            q18 q18Var = this.c;
+            if (q18Var != null && q18Var.j() != null && this.c.j().getIsLike()) {
                 return true;
             }
             return false;
@@ -149,7 +149,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.a.setBorderWidth(yi.g(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new nz4());
+            this.b.setConfig(new oz4());
         }
     }
 
@@ -176,9 +176,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             int a = a(threadData);
             if (this.c == null) {
                 if (getContext() instanceof AbsPbActivity) {
-                    p18 p18Var = new p18(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-                    this.c = p18Var;
-                    p18Var.m("11");
+                    q18 q18Var = new q18(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = q18Var;
+                    q18Var.m("11");
                     this.c.l(this.d);
                 } else {
                     return;
@@ -187,9 +187,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.c.n(threadData.getAuthor());
             this.c.x(str);
             this.c.v(threadData);
-            p18 p18Var2 = this.c;
-            p18Var2.p = true;
-            p18Var2.w(a);
+            q18 q18Var2 = this.c;
+            q18Var2.p = true;
+            q18Var2.w(a);
         }
     }
 }

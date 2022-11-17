@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.st4;
+import com.baidu.tieba.tt4;
 import com.baidu.tieba.x9;
-import com.baidu.tieba.xt4;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,13 +42,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public xt4 l;
+    public yt4 l;
     public b m;
     public View.OnClickListener n;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(xt4 xt4Var);
+        void a(yt4 yt4Var);
     }
 
     /* loaded from: classes5.dex */
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.Z0;
-                    st4 st4Var = new st4();
+                    tt4 tt4Var = new tt4();
                     TbPageContext tbPageContext = (TbPageContext) x9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, st4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, tt4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.Z0).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -145,19 +145,19 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(xt4 xt4Var) {
+    public void d(yt4 yt4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, xt4Var) != null) || xt4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, yt4Var) != null) || yt4Var == null) {
             return;
         }
-        this.l = xt4Var;
-        this.b.setText(xt4Var.W0);
-        this.c.setText(xt4Var.X0);
-        this.i.K(xt4Var.e1, 10, false);
-        this.d.K(xt4Var.a1, 10, false);
-        this.h.setText(xt4Var.d1);
-        this.e.setText(xt4Var.b1);
-        List<String> list = xt4Var.c1;
+        this.l = yt4Var;
+        this.b.setText(yt4Var.W0);
+        this.c.setText(yt4Var.X0);
+        this.i.K(yt4Var.e1, 10, false);
+        this.d.K(yt4Var.a1, 10, false);
+        this.h.setText(yt4Var.d1);
+        this.e.setText(yt4Var.b1);
+        List<String> list = yt4Var.c1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

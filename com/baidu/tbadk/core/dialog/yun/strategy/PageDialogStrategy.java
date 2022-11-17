@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.iw4;
+import com.baidu.tieba.jw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class PageDialogStrategy implements iw4 {
+public class PageDialogStrategy implements jw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public class PageDialogStrategy implements iw4 {
         }
     }
 
-    @Override // com.baidu.tieba.iw4
+    @Override // com.baidu.tieba.jw4
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -71,7 +71,7 @@ public class PageDialogStrategy implements iw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.iw4
+    @Override // com.baidu.tieba.jw4
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

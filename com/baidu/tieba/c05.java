@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface c05 {
-    void a();
+    void a(int i, float f);
 
-    void onLoadingStart();
+    void b(int i, float f);
+
+    void c(int i, float f);
+
+    void d(int i, float f);
 }

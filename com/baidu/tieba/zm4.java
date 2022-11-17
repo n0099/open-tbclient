@@ -84,7 +84,7 @@ public class zm4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ky4.e(this.a.getPageActivity(), 1);
+                    ly4.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class zm4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ky4.e(this.a.getPageActivity(), 1);
+                    ly4.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -546,11 +546,11 @@ public class zm4 {
         this.i = new d(this, 9);
         this.j = new c(this, 13);
         if (lm4.w().r()) {
-            this.b = py4.k().h("key_delete_mission_home_entrance", true);
+            this.b = qy4.k().h("key_delete_mission_home_entrance", true);
             return;
         }
         this.b = true;
-        py4.k().u("key_delete_mission_home_entrance", true);
+        qy4.k().u("key_delete_mission_home_entrance", true);
     }
 
     public /* synthetic */ zm4(a aVar) {

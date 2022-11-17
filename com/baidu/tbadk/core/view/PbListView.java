@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ln;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -593,7 +593,7 @@ public class PbListView extends ln {
             this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091896);
             this.j = this.i.findViewById(R.id.obfuscated_res_0x7f090900);
             this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091886);
-            pw4 d = pw4.d(this.r);
+            qw4 d = qw4.d(this.r);
             d.z(R.dimen.T_X12);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0107);

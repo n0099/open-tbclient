@@ -56,14 +56,15 @@ import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az7;
 import com.baidu.tieba.bh;
-import com.baidu.tieba.bw8;
-import com.baidu.tieba.cb5;
-import com.baidu.tieba.ek5;
+import com.baidu.tieba.bz7;
+import com.baidu.tieba.cw8;
+import com.baidu.tieba.db5;
 import com.baidu.tieba.en4;
 import com.baidu.tieba.fk5;
-import com.baidu.tieba.g08;
-import com.baidu.tieba.gb5;
-import com.baidu.tieba.j18;
+import com.baidu.tieba.gk5;
+import com.baidu.tieba.h08;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.k18;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
@@ -71,25 +72,24 @@ import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.q18;
-import com.baidu.tieba.s55;
+import com.baidu.tieba.r18;
+import com.baidu.tieba.t55;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.u55;
-import com.baidu.tieba.v38;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.uo8;
+import com.baidu.tieba.v55;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.vo4;
-import com.baidu.tieba.w18;
+import com.baidu.tieba.w38;
+import com.baidu.tieba.wf5;
 import com.baidu.tieba.wo4;
+import com.baidu.tieba.x18;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xi5;
 import com.baidu.tieba.xo4;
-import com.baidu.tieba.ya5;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yi5;
+import com.baidu.tieba.za5;
 import com.baidu.tieba.zb;
-import com.baidu.tieba.zy7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -146,16 +146,16 @@ public class PbActivityStatic {
             if (downloadMessage.getData() != null && downloadMessage.getData().size() > 0) {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
-                        for (u55 u55Var : TiePlusHelper.t) {
-                            if (!StringUtils.isNull(u55Var.f) && u55Var.f.equals(downloadData.getId())) {
+                        for (v55 v55Var : TiePlusHelper.t) {
+                            if (!StringUtils.isNull(v55Var.f) && v55Var.f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        u55Var.e = false;
+                                        v55Var.e = false;
                                     }
-                                } else if (!u55Var.e) {
-                                    u55Var.e = true;
-                                    TiePlusStat.e(u55Var.a, u55Var.b, u55Var.c, u55Var.d);
+                                } else if (!v55Var.e) {
+                                    v55Var.e = true;
+                                    TiePlusStat.e(v55Var.a, v55Var.b, v55Var.c, v55Var.d);
                                 }
                             }
                         }
@@ -193,10 +193,10 @@ public class PbActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            s55 s55Var;
+            t55 t55Var;
             String a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof s55) || (a = (s55Var = (s55) customResponsedMessage.getData()).a()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof t55) || (a = (t55Var = (t55) customResponsedMessage.getData()).a()) == null) {
                 return;
             }
             try {
@@ -212,19 +212,19 @@ public class PbActivityStatic {
                 baijiahaoData.oriUgcVid = parse.getQueryParameter("ori_ugc_vid");
                 if (!StringUtils.isNull(queryParameter3)) {
                     int e = xg.e(queryParameter3, 0);
-                    if (s55Var.b() != null) {
-                        xi5.a(queryParameter2, queryParameter, queryParameter4, e, s55Var.b(), baijiahaoData);
+                    if (t55Var.b() != null) {
+                        yi5.a(queryParameter2, queryParameter, queryParameter4, e, t55Var.b(), baijiahaoData);
                     } else {
-                        xi5.a(queryParameter2, queryParameter, queryParameter4, e, s55Var.b(), baijiahaoData);
+                        yi5.a(queryParameter2, queryParameter, queryParameter4, e, t55Var.b(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
-                    if (s55Var.b() != null) {
-                        xi5.a(queryParameter2, queryParameter, queryParameter4, 0, s55Var.b(), baijiahaoData);
+                    if (t55Var.b() != null) {
+                        yi5.a(queryParameter2, queryParameter, queryParameter4, 0, t55Var.b(), baijiahaoData);
                     } else {
-                        xi5.a(queryParameter2, queryParameter, queryParameter4, 0, s55Var.b(), baijiahaoData);
+                        yi5.a(queryParameter2, queryParameter, queryParameter4, 0, t55Var.b(), baijiahaoData);
                     }
                 }
             } catch (Exception e2) {
@@ -266,7 +266,7 @@ public class PbActivityStatic {
                     hashMap.put(str, String.valueOf(parse.getQueryParameter(str)));
                 }
                 if (hashMap.containsKey("room_id")) {
-                    ((cb5) ServiceManager.getService(cb5.a.a())).a(tbPageContext, xg.g((String) hashMap.get("room_id"), 0L));
+                    ((db5) ServiceManager.getService(db5.a.a())).a(tbPageContext, xg.g((String) hashMap.get("room_id"), 0L));
                 }
                 return 0;
             }
@@ -490,7 +490,7 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                fk5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                gk5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -769,7 +769,7 @@ public class PbActivityStatic {
                                     queryParameter8 = str6;
                                 }
                                 str5 = queryParameter8;
-                                z9 = xg.b(ek5.c(lowerCase, "is_from_push="), false);
+                                z9 = xg.b(fk5.c(lowerCase, "is_from_push="), false);
                             } else {
                                 str4 = group;
                                 str5 = queryParameter8;
@@ -792,7 +792,7 @@ public class PbActivityStatic {
                             }
                             z7 = z9;
                             if (lowerCase != null) {
-                                String c4 = ek5.c(lowerCase, "sttype=");
+                                String c4 = fk5.c(lowerCase, "sttype=");
                                 if (!StringUtils.isNull(c4)) {
                                     str11 = c4;
                                 }
@@ -870,7 +870,7 @@ public class PbActivityStatic {
                                     str = null;
                                     z2 = true;
                                 } else if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains("kz=")) {
-                                    c = ek5.c(lowerCase, "kz=");
+                                    c = fk5.c(lowerCase, "kz=");
                                     str = null;
                                     z2 = false;
                                 } else {
@@ -891,8 +891,8 @@ public class PbActivityStatic {
                                 } else {
                                     createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(c, str8, str11);
                                 }
-                                if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(ek5.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                                    createNormalCfg.setUserName(ek5.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                                if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(fk5.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                                    createNormalCfg.setUserName(fk5.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                                 }
                                 createNormalCfg.setVideo_source(str7);
                                 createNormalCfg.setStartFrom(25);
@@ -933,7 +933,7 @@ public class PbActivityStatic {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
                             return 0;
                         } else if (z2 && !TextUtils.isEmpty(c)) {
-                            bh.startService(TbadkCoreApplication.getInst(), q18.n(TbadkCoreApplication.getInst(), c));
+                            bh.startService(TbadkCoreApplication.getInst(), r18.n(TbadkCoreApplication.getInst(), c));
                             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
                             en4.a(param, lowerCase);
                             TiebaStatic.log(param);
@@ -945,7 +945,7 @@ public class PbActivityStatic {
                             return 3;
                         }
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new s55(tbPageContext, lowerCase)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new t55(tbPageContext, lowerCase)));
                     return 0;
                 }
                 return 3;
@@ -974,12 +974,12 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<bw8> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<cw8> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2921343, new v38(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921343, new w38(customMessage.getData()));
                 }
                 return null;
             }
@@ -1011,7 +1011,7 @@ public class PbActivityStatic {
         f();
         i();
         p();
-        SwitchManager.getInstance().registerSwitch(g08.class);
+        SwitchManager.getInstance().registerSwitch(h08.class);
         q();
         n();
         CustomMessageTask customMessageTask = new CustomMessageTask(2004001, new h());
@@ -1025,7 +1025,7 @@ public class PbActivityStatic {
         iVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        ya5.a(gb5.a, new j18());
+        za5.a(hb5.a, new k18());
     }
 
     public PbActivityStatic() {
@@ -1080,7 +1080,7 @@ public class PbActivityStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            to8.b(2004003, w18.class);
+            uo8.b(2004003, x18.class);
         }
     }
 
@@ -1128,8 +1128,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            vf5 h2 = to8.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = to8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            wf5 h2 = uo8.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = uo8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }
@@ -1176,10 +1176,10 @@ public class PbActivityStatic {
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            to8.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, to8.a("c/f/pb/page", 302001));
-            az7.g = tbHttpMessageTask;
-            zy7.i = tbHttpMessageTask;
+            uo8.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, uo8.a("c/f/pb/page", 302001));
+            bz7.g = tbHttpMessageTask;
+            az7.i = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setTimeOut(zb.d().b());

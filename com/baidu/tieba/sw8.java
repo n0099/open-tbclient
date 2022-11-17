@@ -1,144 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class sw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
 
-    public sw8() {
+    public static String a(r9 r9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0ec9);
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        return (String) invokeLL.objValue;
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
+    public static String b(r9 r9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            try {
-                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
-                    return null;
-                }
-                int min = Math.min(yi.l(inst), bitmap.getWidth());
-                int min2 = Math.min(yi.j(inst), bitmap.getHeight());
-                try {
-                    try {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    } catch (Throwable unused) {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 32) {
+                                if (msgType != 33) {
+                                    content = "";
+                                } else {
+                                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f09f9);
+                                }
+                            } else {
+                                content = r9Var.getString(R.string.obfuscated_res_0x7f0f09fe);
+                            }
+                        }
+                    } else {
+                        content = r9Var.getString(R.string.obfuscated_res_0x7f0f15dd);
                     }
-                } catch (Throwable th) {
-                    BdLog.e(th.getMessage());
-                    return null;
+                } else {
+                    content = a(r9Var, chatMessage.getContent());
                 }
-            } catch (Exception unused2) {
-            }
-        } else {
-            return (Drawable) invokeV.objValue;
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.isScreenOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f62);
+                    } else {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f5f);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f60) + content;
                 }
-            } catch (Throwable th) {
-                th.printStackTrace();
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f5f);
             }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
-                }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
             }
+            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f5f);
         }
+        return (String) invokeLL.objValue;
     }
 }

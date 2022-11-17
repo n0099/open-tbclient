@@ -7,9 +7,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.hj9;
-import com.baidu.tieba.og9;
-import com.baidu.tieba.wj9;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.pg9;
+import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +107,7 @@ public class TemplateInfo implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (wj9.a(str)) {
+            if (xj9.a(str)) {
                 return null;
             }
             String str2 = str + File.separator + TEMPLATE_FILE_NAME;
@@ -140,7 +140,7 @@ public class TemplateInfo implements Serializable {
             if (str == null || "".equals(str) || (readText = FileUtils.readText((file = new File(str)))) == null || "".equals(readText)) {
                 return null;
             }
-            TemplateInfo templateInfo = (TemplateInfo) new og9().b(readText, TemplateInfo.class);
+            TemplateInfo templateInfo = (TemplateInfo) new pg9().b(readText, TemplateInfo.class);
             if (templateInfo != null) {
                 templateInfo.resourcePath = file.getParent();
             }
@@ -158,13 +158,13 @@ public class TemplateInfo implements Serializable {
 
     public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !hj9.f(mediaTrackConfig.effectResourceMap)) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !ij9.f(mediaTrackConfig.effectResourceMap)) {
             if (mediaTrackConfig.effectConfigMap == null) {
                 mediaTrackConfig.effectConfigMap = new LinkedHashMap();
             }
-            og9 og9Var = new og9();
+            pg9 pg9Var = new pg9();
             for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
-                mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) og9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
+                mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) pg9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
             }
             mediaTrackConfig.effectResourceMap = null;
         }
@@ -172,12 +172,12 @@ public class TemplateInfo implements Serializable {
 
     public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !hj9.e(mediaTrackConfig.transitionResourceList)) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !ij9.e(mediaTrackConfig.transitionResourceList)) {
             ArrayList arrayList = new ArrayList();
-            og9 og9Var = new og9();
-            int b = hj9.b(mediaTrackConfig.transitionResourceList);
+            pg9 pg9Var = new pg9();
+            int b = ij9.b(mediaTrackConfig.transitionResourceList);
             for (int i = 0; i < b; i++) {
-                arrayList.add((MediaTransition) og9Var.b(FileUtils.readText(new File(str + File.separator + ((String) hj9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
+                arrayList.add((MediaTransition) pg9Var.b(FileUtils.readText(new File(str + File.separator + ((String) ij9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
             }
             mediaTrackConfig.transitionConfigs = arrayList;
             mediaTrackConfig.transitionResourceList = null;
@@ -189,12 +189,12 @@ public class TemplateInfo implements Serializable {
         if (interceptable == null || interceptable.invokeLL(65541, null, mediaTrackConfig, str) == null) {
             HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(str) && mediaTrackConfig != null) {
-                og9 og9Var = new og9();
+                pg9 pg9Var = new pg9();
                 Map<String, String> map = mediaTrackConfig.shaderResourceMap;
                 if (map != null) {
                     for (Map.Entry<String, String> entry : map.entrySet()) {
                         String str2 = str + File.separator + entry.getValue();
-                        ShaderConfig shaderConfig = (ShaderConfig) og9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
+                        ShaderConfig shaderConfig = (ShaderConfig) pg9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
                         shaderConfig.resourcePath = new File(str2).getParent();
                         hashMap.put(entry.getKey(), shaderConfig);
                         List<MediaTextureData> list = shaderConfig.textures;
@@ -219,7 +219,7 @@ public class TemplateInfo implements Serializable {
                         ShaderConfig value = entry2.getValue();
                         if (value != null) {
                             List<MediaTextureData> list2 = value.textures;
-                            if (!hj9.e(list2)) {
+                            if (!ij9.e(list2)) {
                                 for (MediaTextureData mediaTextureData2 : list2) {
                                     if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
                                         mediaTextureData2.path = str + mediaTextureData2.path;
@@ -243,7 +243,7 @@ public class TemplateInfo implements Serializable {
                 return null;
             }
             try {
-                return new og9().a(templateInfo);
+                return new pg9().a(templateInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ru8;
+import com.baidu.tieba.su8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ru8 cardData;
+    public su8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -36,13 +36,13 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         }
     }
 
-    public ru8 getCardData() {
+    public su8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.cardData;
         }
-        return (ru8) invokeV.objValue;
+        return (su8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -70,10 +70,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
                 personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
             }
-            ru8 ru8Var = new ru8();
-            this.cardData = ru8Var;
+            su8 su8Var = new su8();
+            this.cardData = su8Var;
             if (personalCardDetailRequest != null) {
-                ru8Var.m(personalCardDetailRequest.getCardId());
+                su8Var.m(personalCardDetailRequest.getCardId());
             }
             this.cardData.v(getCardResIdl.data.title);
             this.cardData.p(getCardResIdl.data.description);

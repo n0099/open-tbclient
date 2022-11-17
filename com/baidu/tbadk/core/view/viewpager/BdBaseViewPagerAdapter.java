@@ -11,7 +11,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.u05;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class BdBaseViewPagerAdapter<T extends xn, V extends a> extends PagerAdap
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public HashMap<BdUniqueId, t05<T, V>> b;
+    public HashMap<BdUniqueId, u05<T, V>> b;
     public List<xn> c;
     public List<View> d;
     public int e;
@@ -124,15 +124,15 @@ public class BdBaseViewPagerAdapter<T extends xn, V extends a> extends PagerAdap
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xnVar)) == null) {
-            t05<T, V> t05Var = this.b.get(xnVar.getType());
-            if (t05Var != null) {
-                V b = t05Var.b(null);
+            u05<T, V> u05Var = this.b.get(xnVar.getType());
+            if (u05Var != null) {
+                V b = u05Var.b(null);
                 if (BdBaseApplication.getInst().isDebugMode()) {
                     BdLog.i("ViewPager View is creating " + b.getClass().getName());
                 }
                 if (b != null) {
                     b.c(xnVar);
-                    t05Var.d(null, b, xnVar);
+                    u05Var.d(null, b, xnVar);
                     return b.b();
                 }
             }
@@ -180,23 +180,23 @@ public class BdBaseViewPagerAdapter<T extends xn, V extends a> extends PagerAdap
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         a f;
-        t05<T, V> t05Var;
+        u05<T, V> u05Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && (f = f(view2)) != null && f.a() != null && f.a().getType() != null && (t05Var = this.b.get(f.a().getType())) != null && t05Var.a() != null) {
-            t05Var.a().a(f, f.a());
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && (f = f(view2)) != null && f.a() != null && f.a().getType() != null && (u05Var = this.b.get(f.a().getType())) != null && u05Var.a() != null) {
+            u05Var.a().a(f, f.a());
         }
     }
 
     public void c() {
-        t05<T, V> t05Var;
+        u05<T, V> u05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             List<View> list = this.d;
             if (list != null) {
                 for (View view2 : list) {
                     a f = f(view2);
-                    if (f != null && f.a() != null && (t05Var = this.b.get(f.a().getType())) != null) {
-                        t05Var.c(f, f.a());
+                    if (f != null && f.a() != null && (u05Var = this.b.get(f.a().getType())) != null) {
+                        u05Var.c(f, f.a());
                     }
                 }
                 this.d.clear();
@@ -210,18 +210,18 @@ public class BdBaseViewPagerAdapter<T extends xn, V extends a> extends PagerAdap
     }
 
     public final void d(a aVar, xn xnVar) {
-        t05<T, V> t05Var;
+        u05<T, V> u05Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, xnVar) == null) && aVar != null && xnVar != null && (t05Var = this.b.get(xnVar.getType())) != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, xnVar) == null) && aVar != null && xnVar != null && (u05Var = this.b.get(xnVar.getType())) != null) {
             aVar.c(xnVar);
-            t05Var.d(null, aVar, xnVar);
+            u05Var.d(null, aVar, xnVar);
         }
     }
 
-    public void g(Context context, t05<T, V> t05Var) {
+    public void g(Context context, u05<T, V> u05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, context, t05Var) == null) && t05Var != null && t05Var.getType() != null) {
-            this.b.put(t05Var.getType(), t05Var);
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, context, u05Var) == null) && u05Var != null && u05Var.getType() != null) {
+            this.b.put(u05Var.getType(), u05Var);
         }
     }
 

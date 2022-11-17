@@ -1,160 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.df;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class ru6 {
     public static /* synthetic */ Interceptable $ic;
-    public static ru6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, String> a;
-    public df<String> b;
 
-    /* loaded from: classes5.dex */
-    public class a extends kq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru6 a;
-
-        public a(ru6 ru6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru6Var;
-        }
-
-        @Override // com.baidu.tieba.kq4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : this.a.a.snapshot().entrySet()) {
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                    sb.append(",");
-                }
-                if (sb.length() <= 1) {
-                    return;
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                this.a.b.a("transition_cache_key", sb.toString());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements df.a<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru6 a;
-
-        public b(ru6 ru6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.df.a
-        /* renamed from: b */
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && str2 != null && !str2.isEmpty()) {
-                for (String str3 : str2.split(",")) {
-                    String[] split = str3.split("=");
-                    if (split != null && split.length == 2) {
-                        this.a.a.put(split[0], split[1]);
-                    }
-                }
-            }
-        }
-    }
-
-    public ru6() {
+    public static qu6 a(vu6 vu6Var, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, vu6Var, intent)) == null) {
+            int intExtra = intent.getIntExtra("transition_type", 0);
+            if (intExtra == 1) {
+                return new wu6(vu6Var, intent);
             }
-        }
-        this.a = new LruCache<>(10);
-        iv4.f();
-        this.b = iv4.g("tb.recently_vistited_forum_animation");
-        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
-        this.b.f("transition_cache_key", new b(this));
-    }
-
-    public su6 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return new su6(null);
+            if (intExtra == 2) {
+                return new pu6(vu6Var, intent);
             }
-            return new su6(this.a.get(str));
+            return null;
         }
-        return (su6) invokeL.objValue;
-    }
-
-    public static ru6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ru6.class) {
-                    if (c == null) {
-                        c = new ru6();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ru6) invokeV.objValue;
-    }
-
-    public void e(String str, su6 su6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, su6Var) == null) {
-            this.a.put(str, su6Var.toString());
-        }
+        return (qu6) invokeLL.objValue;
     }
 }

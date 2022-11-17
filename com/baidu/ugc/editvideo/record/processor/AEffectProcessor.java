@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.ff9;
 import com.baidu.tieba.fg0;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.gf9;
+import com.baidu.tieba.ij9;
 import com.baidu.tieba.kg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,7 +52,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
         this.runOnDraw = new LinkedList<>();
         kg0 kg0Var = new kg0();
         this.mVlogEditCore = kg0Var;
-        kg0Var.j(ff9.c().getContext());
+        kg0Var.j(gf9.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,8 +61,8 @@ public class AEffectProcessor extends BaseEffectProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.isCamera = false;
-            MediaTrack mediaTrack = (MediaTrack) hj9.c(this.mUpdateMediaTracks, 0);
-            if (mediaTrack != null && (mediaSegment = (MediaSegment) hj9.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
+            MediaTrack mediaTrack = (MediaTrack) ij9.c(this.mUpdateMediaTracks, 0);
+            if (mediaTrack != null && (mediaSegment = (MediaSegment) ij9.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
                 this.isCamera = true;
             }
         }

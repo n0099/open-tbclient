@@ -1,45 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment;
-import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class tg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatAggregationFragment a;
+    public r9 a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TBSpecificationBtn e;
+    public b f;
+    public View.OnClickListener g;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public interface b {
+        void onClose();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tg7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tg7 tg7Var, int i) {
-            super(i);
+        public a(tg7 tg7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Integer.valueOf(i)};
+                Object[] objArr = {tg7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,293 +58,30 @@ public class tg7 {
             this.a = tg7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int[] iArr;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
-                int i = iArr[0];
-                int i2 = iArr[1];
-                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
-                if (pageContext != null && pageContext.getUniqueId() != null && pageContext.getUniqueId().getId() == i) {
-                    this.a.d(i2);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.e.getId()) {
+                    j45.e(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.c.getId()) {
+                    qy4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.f != null) {
+                        this.a.f.onClose();
+                    }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements fq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.fq4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public b(tg7 tg7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.fq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(1, true, null);
-                }
-                if (this.c) {
-                    m45.l(this.d);
-                } else {
-                    i45.e(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements fq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.fq4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public c(tg7 tg7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.fq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(2, true, null);
-                }
-                if (this.c) {
-                    m45.l(this.d);
-                } else {
-                    i45.e(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements fq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.fq4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public d(tg7 tg7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.fq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(20, true, null);
-                }
-                if (this.c) {
-                    m45.l(this.d);
-                } else {
-                    i45.e(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements fq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.fq4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public e(tg7 tg7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.fq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(3, true, null);
-                }
-                if (this.c) {
-                    m45.l(this.d);
-                } else {
-                    i45.e(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements fq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.fq4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public f(tg7 tg7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.fq4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(10, true, null);
-                }
-                if (this.c) {
-                    m45.l(this.d);
-                } else {
-                    i45.e(this.b);
-                }
-            }
-        }
-    }
-
-    public tg7(ChatAggregationFragment chatAggregationFragment) {
+    public tg7(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {chatAggregationFragment};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -344,77 +91,44 @@ public class tg7 {
                 return;
             }
         }
-        this.a = chatAggregationFragment;
+        this.g = new a(this);
+        this.a = r9Var;
+        View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06a4, (ViewGroup) null);
+        this.b = inflate;
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f08);
+        this.c = imageView;
+        imageView.setOnClickListener(this.g);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09177b);
+        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090462);
+        this.e.setConfig(new pz4());
+        this.e.setText(r9Var.getString(R.string.obfuscated_res_0x7f0f07ff));
+        this.e.setOnClickListener(this.g);
+        TiebaStatic.log("c13704");
+        f(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void c() {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0206);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
         }
-        this.a.registerListener(new a(this, 2921700));
     }
 
-    public final void d(int i) {
-        ChatAggregationFragment chatAggregationFragment;
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (chatAggregationFragment = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
         }
-        FragmentActivity fragmentActivity = chatAggregationFragment.getFragmentActivity();
-        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
-        if (fragmentActivity != null && pageContext != null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
-            if (i == 3) {
-                boolean y = n35.d().y();
-                if (areNotificationsEnabled && y) {
-                    return;
-                }
-                b bVar = new b(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (i45.j(TbadkCoreApplication.getInst(), 6)) {
-                    m45.k(pageContext, 3, bVar);
-                }
-            }
-            if (i == 6) {
-                boolean t = n35.d().t();
-                if (areNotificationsEnabled && t) {
-                    return;
-                }
-                c cVar = new c(this, t, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (i45.j(TbadkCoreApplication.getInst(), 3)) {
-                    m45.k(pageContext, 6, cVar);
-                }
-            }
-            if (i == 7) {
-                boolean B = n35.d().B();
-                if (areNotificationsEnabled && B) {
-                    return;
-                }
-                d dVar = new d(this, B, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (i45.j(TbadkCoreApplication.getInst(), 4)) {
-                    m45.k(pageContext, 7, dVar);
-                }
-            }
-            if (i == 8) {
-                boolean w = n35.d().w();
-                if (areNotificationsEnabled && w) {
-                    return;
-                }
-                e eVar = new e(this, w, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (i45.j(TbadkCoreApplication.getInst(), 5)) {
-                    m45.k(pageContext, 8, eVar);
-                }
-            }
-            if (i == 2) {
-                boolean q = n35.d().q();
-                if (areNotificationsEnabled && q) {
-                    return;
-                }
-                f fVar = new f(this, q, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (m45.g(TbadkCoreApplication.getInst(), 0)) {
-                    m45.k(pageContext, 2, fVar);
-                }
-            }
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (View) invokeV.objValue;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.ej5;
 import com.baidu.tieba.lm4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +62,7 @@ public class PreLoadTiebaClass extends LaunchTask {
             }
             lm4.w();
             ItemCardHelper.i();
-            dj5.b();
+            ej5.b();
             yi.A(TbadkCoreApplication.getInst());
         }
     }

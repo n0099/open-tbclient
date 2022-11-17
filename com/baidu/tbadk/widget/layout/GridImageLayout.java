@@ -23,11 +23,11 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.og;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sm5;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tg;
+import com.baidu.tieba.tm5;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class GridImageLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public og<ImageView> a;
     public og<GifView> b;
-    public sm5 c;
+    public tm5 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -160,7 +160,7 @@ public class GridImageLayout extends RelativeLayout {
             float f2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null) {
-                in m = k95.k().m(tg.h().g(tbImageView.getUrl(), this.a.n));
+                in m = l95.k().m(tg.h().g(tbImageView.getUrl(), this.a.n));
                 int i2 = 0;
                 if (m != null) {
                     i2 = m.r();
@@ -295,12 +295,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(sm5 sm5Var) {
+    public void setLayoutStrategy(tm5 tm5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, sm5Var) == null) {
-            this.c = sm5Var;
-            if (sm5Var != null) {
-                this.f = sm5Var.I;
+        if (interceptable == null || interceptable.invokeL(1048596, this, tm5Var) == null) {
+            this.c = tm5Var;
+            if (tm5Var != null) {
+                this.f = tm5Var.I;
             }
         }
     }
@@ -385,7 +385,7 @@ public class GridImageLayout extends RelativeLayout {
         eMTextView.setPadding(g, 0, g, 0);
         eMTextView.setGravity(16);
         eMTextView.setText(this.h);
-        pw4 d = pw4.d(eMTextView);
+        qw4 d = qw4.d(eMTextView);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0101);
         d.A(R.string.F_X02);

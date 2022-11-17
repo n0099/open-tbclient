@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dw4 extends cw4 {
+public abstract class dw4 extends aw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> f;
-    public z25 g;
+    public final Activity c;
+    public TBAlertBuilder d;
+    public DialogInterface.OnDismissListener e;
+
+    public abstract void g(TBAlertBuilder tBAlertBuilder);
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public abstract void i();
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dw4 a;
@@ -51,90 +50,27 @@ public class dw4 extends cw4 {
             this.a = dw4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.c().dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dw4 a;
-
-        public b(dw4 dw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.h();
+                this.a.c();
+                if (this.a.e != null) {
+                    this.a.e.onDismiss(dialogInterface);
                 }
-            }
-            this.a = dw4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.c().dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dw4 a;
-
-        public c(dw4 dw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dw4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.f, new String[]{this.a.g.c()});
-                this.a.d.c().dismiss();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dw4(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public dw4(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,82 +81,28 @@ public class dw4 extends cw4 {
                 return;
             }
         }
-        this.f = tbPageContext;
+        this.c = activity;
     }
 
-    @Override // com.baidu.tieba.zv4
-    public void d(zv4.a aVar) {
+    @Override // com.baidu.tieba.aw4
+    public void b() {
+        TBAlertBuilder tBAlertBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (gw4.k() && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            if (LaunchStatsUtils.getLaunchType() == 0) {
-                z25 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
-                this.g = upgradePopWindowConfig;
-                if (upgradePopWindowConfig.i() && this.g.h().contains("app") && UpgradePopWindowHelper.isDue(this.g)) {
-                    py4.k().y(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
-                    if (aVar != null) {
-                        aVar.a(true);
-                        return;
-                    }
-                }
-            }
-            if (aVar != null) {
-                aVar.a(false);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
+            tBAlertBuilder.dismiss();
         }
     }
 
-    @Override // com.baidu.tieba.cw4
-    public void g(TBAlertBuilder tBAlertBuilder) {
+    @Override // com.baidu.tieba.aw4
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
-            if (this.g == null) {
-                this.g = TbSingleton.getInstance().getUpgradePopWindowConfig();
-            }
-            RelativeLayout relativeLayout = new RelativeLayout(this.c);
-            View view2 = new View(this.c);
-            pw4 d = pw4.d(view2);
-            d.m(1);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(this.c);
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080826, null);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            this.d.u(this.g.d());
-            this.d.o(this.g.g());
-            this.d.m(true);
-            this.d.j(relativeLayout);
-            if (TextUtils.isEmpty(this.g.c())) {
-                this.d.r(new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-            } else {
-                this.d.r(new TBAlertConfig.a(this.g.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this)), new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.FORCE, new c(this)));
-            }
-            this.d.c().setCanceledOnTouchOutside(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.cw4
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gw4.r("grayUpdate");
-        }
-    }
-
-    @Override // com.baidu.tieba.cw4
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gw4.m("grayUpdate");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
+            this.d = tBAlertBuilder;
+            tBAlertBuilder.q(new a(this));
+            g(this.d);
+            this.d.w();
+            i();
         }
     }
 }

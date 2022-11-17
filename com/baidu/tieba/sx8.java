@@ -1,123 +1,35 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
-@TargetApi(18)
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class sx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public wx8 g;
-    public ux8 h;
-    public vx8 i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public ay8 b;
+    public tx8 c;
+    public tx8.c d;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
-
-        void onGenFilterVideoRecordError(int i, String str);
-
-        void onGenFilterVideoSuccess(String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends wx8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sx8 f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(sx8 sx8Var, Context context, String str, String str2, vx8 vx8Var, c cVar) {
-            super(context, str, str2, vx8Var, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sx8Var, context, str, str2, vx8Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (vx8) objArr2[3], (c) objArr2[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = sx8Var;
-        }
-
-        @Override // com.baidu.tieba.wx8
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ux8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sx8 f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(sx8 sx8Var, Context context, String str, vx8 vx8Var, c cVar) {
-            super(context, str, vx8Var, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sx8Var, context, str, vx8Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (vx8) objArr2[2], (c) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = sx8Var;
-        }
-
-        @Override // com.baidu.tieba.ux8
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
-            }
-        }
-    }
-
-    public sx8(Context context, String str, String str2, String str3) {
+    public sx8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,42 +39,93 @@ public class sx8 {
                 return;
             }
         }
-        this.e = false;
         this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
     }
 
-    public void h(c cVar) {
+    public void h(ay8 ay8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ay8Var) == null) {
+            this.b = ay8Var;
         }
     }
 
-    public final void d() {
+    public void i(tx8.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            tx8 tx8Var = this.c;
+            if (tx8Var != null) {
+                tx8Var.h(cVar);
+            }
         }
+    }
+
+    public static void a(List<ay8> list, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65537, null, list, i, str, str2) != null) || list == null) {
+            return;
+        }
+        list.add(new ay8(str, i, str2));
+    }
+
+    public static List<ay8> c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f080571, context.getString(R.string.obfuscated_res_0x7f0f0647), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080575, context.getString(R.string.obfuscated_res_0x7f0f0644), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080578, context.getString(R.string.obfuscated_res_0x7f0f0648), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080574, context.getString(R.string.obfuscated_res_0x7f0f0642), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056f, context.getString(R.string.obfuscated_res_0x7f0f063f), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08057c, context.getString(R.string.obfuscated_res_0x7f0f064c), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056e, context.getString(R.string.obfuscated_res_0x7f0f063e), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080576, context.getString(R.string.obfuscated_res_0x7f0f0645), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080570, context.getString(R.string.obfuscated_res_0x7f0f0643), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056b, context.getString(R.string.obfuscated_res_0x7f0f063b), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080572, context.getString(R.string.obfuscated_res_0x7f0f0640), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08057a, context.getString(R.string.obfuscated_res_0x7f0f064a), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08057b, context.getString(R.string.obfuscated_res_0x7f0f064b), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056d, context.getString(R.string.obfuscated_res_0x7f0f063d), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080577, context.getString(R.string.obfuscated_res_0x7f0f0646), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080573, context.getString(R.string.obfuscated_res_0x7f0f0641), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080579, context.getString(R.string.obfuscated_res_0x7f0f0649), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056c, context.getString(R.string.obfuscated_res_0x7f0f063c), "blackwhite");
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return hx8.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ay8 ay8Var = this.b;
+            if (ay8Var != null && !"normal".equalsIgnoreCase(ay8Var.c)) {
+                return this.b.c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public void e() {
+        tx8 tx8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wx8 wx8Var = this.g;
-            if (wx8Var != null) {
-                wx8Var.interrupt();
-                this.g = null;
-            }
-            ux8 ux8Var = this.h;
-            if (ux8Var != null) {
-                ux8Var.interrupt();
-                this.h = null;
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tx8Var = this.c) != null) {
+            tx8Var.e();
         }
     }
 
@@ -170,56 +133,28 @@ public class sx8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            tx8 tx8Var = this.c;
+            if (tx8Var != null) {
+                return tx8Var.f();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void g() {
+    public void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
-                } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            tx8 tx8Var = this.c;
+            if ((tx8Var == null || !tx8Var.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                tx8 tx8Var2 = new tx8(this.a, str, d(), str2);
+                this.c = tx8Var2;
+                tx8.c cVar = this.d;
+                if (cVar != null) {
+                    tx8Var2.h(cVar);
                 }
+                this.c.i();
             }
-            this.e = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.e) {
-            return;
-        }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, hr7.a(e));
-            }
-        }
-        try {
-            this.i = new vx8(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
         }
     }
 }

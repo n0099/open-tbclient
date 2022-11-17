@@ -19,7 +19,7 @@ public class ry extends hx {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public sr4 j;
+    public tr4 j;
     public int k;
 
     /* loaded from: classes5.dex */
@@ -79,13 +79,13 @@ public class ry extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(l46<sr4> l46Var) {
+    public void p(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, l46Var) == null) {
-            super.p(l46Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, m46Var) == null) {
+            super.p(m46Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(l46Var);
+                bjhArticleLayout.setSubClickListener(m46Var);
             }
         }
     }
@@ -93,13 +93,13 @@ public class ry extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: x */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) {
-            this.j = sr4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
+            this.j = tr4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(sr4Var);
+                bjhArticleLayout.a(tr4Var);
             }
         }
     }

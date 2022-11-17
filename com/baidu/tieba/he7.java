@@ -11,7 +11,7 @@ public class he7 extends be7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public he7() {
-        super(pd7.j(), 2001150);
+        super(qd7.j(), 2001144);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class he7 extends be7 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((md7) objArr[0], ((Integer) objArr[1]).intValue());
+                super((nd7) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -16,7 +16,7 @@ public class bl3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new tt5();
+            return new ut5();
         }
         return (il3) invokeV.objValue;
     }
