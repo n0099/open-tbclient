@@ -8,35 +8,35 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MenuKeyboardView extends LinearLayout implements w65 {
+public class MenuKeyboardView extends LinearLayout implements x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
     public int b;
 
-    @Override // com.baidu.tieba.l65
-    public void B(k65 k65Var) {
+    @Override // com.baidu.tieba.m65
+    public void B(l65 l65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, l65Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -71,7 +71,7 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new k65(30, 0, null));
+                this.a.K(new l65(30, 0, null));
             }
         }
     }
@@ -100,16 +100,16 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.w65
-    public void K(k65 k65Var) {
+    @Override // com.baidu.tieba.x65
+    public void K(l65 l65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k65Var) == null) && (editorTools = this.a) != null) {
-            editorTools.A(k65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l65Var) == null) && (editorTools = this.a) != null) {
+            editorTools.A(l65Var);
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -117,7 +117,7 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -125,7 +125,7 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -133,7 +133,7 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class MenuKeyboardView extends LinearLayout implements w65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

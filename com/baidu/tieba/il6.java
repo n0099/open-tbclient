@@ -1,56 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class il6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
+    public il6(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                HashMap hashMap = new HashMap();
-                int i = 0;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                        i++;
-                    }
-                }
-                return hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Map) invokeL.objValue;
+        this.a = i;
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i > 0) {
-                String[] strArr = new String[i];
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                        i2++;
-                    }
-                }
-                return strArr;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String[]) invokeLI.objValue;
+        return invokeV.intValue;
     }
 }

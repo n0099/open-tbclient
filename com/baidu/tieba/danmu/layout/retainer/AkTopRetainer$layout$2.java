@@ -2,8 +2,8 @@ package com.baidu.tieba.danmu.layout.retainer;
 
 import android.graphics.RectF;
 import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.t66;
-import com.baidu.tieba.t86;
+import com.baidu.tieba.u66;
+import com.baidu.tieba.u86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,19 +15,19 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class AkTopRetainer$layout$2 extends Lambda implements Function1<t66, Integer> {
+public final class AkTopRetainer$layout$2 extends Lambda implements Function1<u66, Integer> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ t86 $displayer;
+    public final /* synthetic */ u86 $displayer;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AkTopRetainer$layout$2(t86 t86Var) {
+    public AkTopRetainer$layout$2(u86 u86Var) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t86Var};
+            Object[] objArr = {u86Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,19 +38,19 @@ public final class AkTopRetainer$layout$2 extends Lambda implements Function1<t6
                 return;
             }
         }
-        this.$displayer = t86Var;
+        this.$displayer = u86Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Integer invoke(t66 t66Var) {
+    public final Integer invoke(u66 u66Var) {
         InterceptResult invokeL;
         DrawState f;
         RectF i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t66Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u66Var)) == null) {
             Number number = null;
-            if (t66Var != null && (f = t66Var.f()) != null && (i = f.i()) != null) {
+            if (u66Var != null && (f = u66Var.f()) != null && (i = f.i()) != null) {
                 number = Float.valueOf(i.left);
             }
             if (number == null) {

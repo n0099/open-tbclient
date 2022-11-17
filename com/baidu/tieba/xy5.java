@@ -4,25 +4,20 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveDoubleView;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xy5 extends kn<oz5, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder> {
+public class xy5 extends kn<dz5, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public lv5 b;
-    public String c;
+    public TbPageContext a;
+    public mv5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xy5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -49,49 +44,32 @@ public class xy5 extends kn<oz5, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleVi
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView = new AlaGameFrsLiveDoubleView(this.a);
-            alaGameFrsLiveDoubleView.t(this.c);
-            return new AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder(alaGameFrsLiveDoubleView);
+            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
         }
-        return (AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder) invokeL.objValue;
+        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
     }
 
-    public void u(lv5 lv5Var) {
+    public void u(mv5 mv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lv5Var) == null) {
-            this.b = lv5Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mv5Var) == null) {
+            this.b = mv5Var;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oz5 oz5Var, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder alaGameFrsLiveDoubleViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dz5 dz5Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
         InterceptResult invokeCommon;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oz5Var, alaGameFrsLiveDoubleViewHolder})) == null) {
-            alaGameFrsLiveDoubleViewHolder.a.l(oz5Var);
-            alaGameFrsLiveDoubleViewHolder.a.u(this.b);
-            String str2 = "";
-            if (StringUtils.isNull(oz5Var.a.getThreadAlaInfo().appId)) {
-                str = "";
-            } else {
-                str = oz5Var.a.getThreadAlaInfo().appId;
-            }
-            kv5.b().a(new StatisticItem("c12115").param("obj_id", oz5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str));
-            ThreadData threadData = oz5Var.b;
-            if (threadData != null) {
-                if (!StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
-                    str2 = oz5Var.b.getThreadAlaInfo().appId;
-                }
-                kv5.b().a(new StatisticItem("c12115").param("obj_id", oz5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str2));
-            }
-            return alaGameFrsLiveDoubleViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dz5Var, alaGameFrsGameViewHolder})) == null) {
+            alaGameFrsGameViewHolder.a.l(dz5Var);
+            alaGameFrsGameViewHolder.a.t(this.b);
+            return alaGameFrsGameViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

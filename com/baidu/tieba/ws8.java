@@ -1,33 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class ws8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zr8 b;
+    public final as8 b;
+
+    /* loaded from: classes6.dex */
+    public class a extends oj5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ws8 ws8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ws8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oj5
+        public String doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return UtilHelper.getClipBoardContent();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements ti5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ws8 a;
+
+        public b(ws8 ws8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ws8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ws8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ti5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null) {
+                this.a.a.w.r(str);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ws8(MainTabActivity mainTabActivity, zr8 zr8Var) {
-        super(2007002);
+    public ws8(MainTabActivity mainTabActivity, as8 as8Var) {
+        super(2005016);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zr8Var};
+            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,25 +111,20 @@ public class ws8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = zr8Var;
-        setPriority(100);
+        this.b = as8Var;
     }
 
-    public final void a(Intent intent) {
-        zr8 zr8Var;
-        int a;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && (zr8Var = this.b) != null && zr8Var.B() != null) {
-            try {
-                if (intent.hasExtra("locate_type")) {
-                    a = intent.getIntExtra("locate_type", 1);
-                } else {
-                    a = this.a.o.a();
-                }
-                this.b.B().setCurrentTabByType(a);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                this.a.finish();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String tempString = TbSingleton.getInstance().getTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
+            if (!TextUtils.isEmpty(tempString)) {
+                qy4.k().D("user_interest_info");
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+                httpMessage.addParam("interestList", tempString);
+                httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+                MessageManager.getInstance().sendMessage(httpMessage);
+                TbSingleton.getInstance().removeTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
             }
         }
     }
@@ -65,29 +132,29 @@ public class ws8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<oa5> b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (b = ((qa5) customResponsedMessage.getData()).b()) != null && b.size() != 0) {
-            this.b.C(b);
-            if (this.a.c) {
-                zr8 zr8Var = this.b;
-                if (zr8Var != null && zr8Var.B() != null) {
-                    this.b.B().setCurrentTabByType(this.a.b);
-                }
-            } else {
-                zr8 zr8Var2 = this.b;
-                if (zr8Var2 != null && zr8Var2.B() != null) {
-                    if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
-                        this.b.B().setCurrentTabByType(2);
-                    } else {
-                        a(this.a.getIntent());
-                    }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.a.n = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            qy4.k().D("key_feedback_tip");
+            qy4.k().D("key_feedback_tip_show");
+            qy4.k().D("key_feedback_tip_tab_show");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+            if (this.a.w != null) {
+                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                    sj5.b(new a(this), new b(this));
+                } else {
+                    this.a.w.r(UtilHelper.getClipBoardContent());
                 }
             }
-            this.a.c = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
+            as8 as8Var = this.b;
+            if (as8Var != null) {
+                as8Var.D();
+            }
+            this.a.T0();
+            b();
+            mb5.b().a();
+            h45.f();
         }
     }
 }

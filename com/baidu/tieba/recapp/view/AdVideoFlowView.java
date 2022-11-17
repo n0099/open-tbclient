@@ -35,36 +35,36 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a11;
-import com.baidu.tieba.bj7;
-import com.baidu.tieba.c66;
-import com.baidu.tieba.dd8;
-import com.baidu.tieba.fd8;
-import com.baidu.tieba.fg8;
-import com.baidu.tieba.hg8;
-import com.baidu.tieba.hh8;
-import com.baidu.tieba.jh8;
-import com.baidu.tieba.kd8;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.nw4;
+import com.baidu.tieba.ai8;
+import com.baidu.tieba.cj7;
+import com.baidu.tieba.d66;
+import com.baidu.tieba.ed8;
+import com.baidu.tieba.gd8;
+import com.baidu.tieba.gg8;
+import com.baidu.tieba.ig8;
+import com.baidu.tieba.ih8;
+import com.baidu.tieba.kh8;
+import com.baidu.tieba.ld8;
+import com.baidu.tieba.ni5;
+import com.baidu.tieba.ow4;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.VideoMiddleNiaiControllerView;
 import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
-import com.baidu.tieba.qn8;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.AdEnhanceButtonView;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
-import com.baidu.tieba.th8;
-import com.baidu.tieba.ug8;
+import com.baidu.tieba.rn8;
 import com.baidu.tieba.uh8;
-import com.baidu.tieba.vf8;
+import com.baidu.tieba.vg8;
+import com.baidu.tieba.vh8;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.tieba.wf8;
 import com.baidu.tieba.wi0;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi0;
-import com.baidu.tieba.yh8;
 import com.baidu.tieba.zh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,7 +74,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClickListener, OnStatusChangedListener {
+public class AdVideoFlowView extends RelativeLayout implements wf8, View.OnClickListener, OnStatusChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdvertAppInfo A;
@@ -85,13 +85,13 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
     public VideoItemModel F;
     public boolean G;
     public ViewGroup H;
-    public zh8 I;
-    public yh8 J;
-    public jh8 K;
-    public mi5 L;
+    public ai8 I;
+    public zh8 J;
+    public kh8 K;
+    public ni5 L;
     public int M;
     public int N;
-    public ug8.a O;
+    public vg8.a O;
     public int P;
     public Handler Q;
     public boolean R;
@@ -125,21 +125,21 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
     public Drawable y;
     public TbPageContext<BaseFragmentActivity> z;
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onViewClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onViewDoubleClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onViewDragToRight() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -208,19 +208,19 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         this.o.setOnClickListener(this);
         this.p.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.l.getControl().setOperableVideoContainer(new kd8(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.1
+        this.l.getControl().setOperableVideoContainer(new ld8(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdVideoFlowView a;
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void changeRenderViewMode(int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public int getCurrentPosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -230,7 +230,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public View getMainView() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -240,7 +240,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return (View) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public boolean isFullScreen() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -250,7 +250,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public boolean isPlaying() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -260,7 +260,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public boolean onBackPress() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -270,7 +270,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public boolean onBackground(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable2 = $ic;
@@ -314,7 +314,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void onScroll() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048588, this) == null) {
@@ -344,7 +344,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public boolean onVolumeUp() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -354,63 +354,63 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setAfterClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048593, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setData(ThreadData threadData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048594, this, threadData) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setFrom(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048595, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048596, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setStageType(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048597, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
-            public void setStatistic(fd8 fd8Var) {
+            @Override // com.baidu.tieba.ld8
+            public void setStatistic(gd8 gd8Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048598, this, fd8Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048598, this, gd8Var) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void setUniqueId(BdUniqueId bdUniqueId) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048599, this, bdUniqueId) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void startPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048600, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.kd8
+            @Override // com.baidu.tieba.ld8
             public void stopPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048601, this) == null) {
@@ -449,8 +449,8 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         });
     }
 
-    @Override // com.baidu.tieba.vf8
-    public void setPageChangeHandler(ug8.a aVar, int i) {
+    @Override // com.baidu.tieba.wf8
+    public void setPageChangeHandler(vg8.a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, aVar, i) == null) {
             this.O = aVar;
@@ -458,7 +458,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void updateTiebaData(int i, VideoItemModel videoItemModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048602, this, i, videoItemModel) == null) {
@@ -476,7 +476,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -491,7 +491,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -537,7 +537,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -554,7 +554,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -566,7 +566,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            new fg8(this.A, this.B.closeInfo, this.z.getPageActivity(), getRootView(), 80, PlaceId.VIDEO_FLOW).q();
+            new gg8(this.A, this.B.closeInfo, this.z.getPageActivity(), getRootView(), 80, PlaceId.VIDEO_FLOW).q();
         }
     }
 
@@ -601,7 +601,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
             this.t.q(getVideoControllerStyle());
             this.m.setImageDrawable(this.u);
             this.b.setVisibility(8);
-            this.d.setTextColor(qn8.a(SkinManager.getColor(R.color.CAM_X0104), nw4.b(R.string.A_X03)));
+            this.d.setTextColor(rn8.a(SkinManager.getColor(R.color.CAM_X0104), ow4.b(R.string.A_X03)));
             this.g.setImageDrawable(this.x);
             this.h.setImageDrawable(this.y);
             Drawable drawable = this.w;
@@ -610,19 +610,19 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 drawable = TextUtils.equals(this.F.getVideoItemData().is_agreed, "1") ? this.v : this.w;
             }
             this.f.setImageDrawable(drawable);
-            hh8 hh8Var = this.B.threadInfo;
-            int i = hh8Var.a;
+            ih8 ih8Var = this.B.threadInfo;
+            int i = ih8Var.a;
             VideoItemData videoItemData = this.F.getVideoItemData();
             if (videoItemData != null) {
                 if (TextUtils.equals(videoItemData.is_agreed, "1")) {
-                    i = hh8Var.a + 1;
+                    i = ih8Var.a + 1;
                 } else {
-                    i = hh8Var.a;
+                    i = ih8Var.a;
                 }
             }
             this.c.setText(String.valueOf(i));
-            this.d.setText(String.valueOf(hh8Var.c));
-            this.e.setText(String.valueOf(hh8Var.b));
+            this.d.setText(String.valueOf(ih8Var.c));
+            this.e.setText(String.valueOf(ih8Var.b));
         }
     }
 
@@ -633,19 +633,19 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
             if (imageView != null) {
                 imageView.setVisibility(8);
             }
-            zh8 zh8Var = this.I;
-            if (zh8Var != null) {
-                zh8Var.e();
+            ai8 ai8Var = this.I;
+            if (ai8Var != null) {
+                ai8Var.e();
             }
             o(true);
             TbVideoViewContainer tbVideoViewContainer = this.l;
             if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null) {
                 if (TbVideoViewSet.c().d(this.C) == null || TbVideoViewSet.c().d(this.C) != this.l) {
-                    dd8 dd8Var = new dd8();
-                    dd8Var.e = "ad_feed";
-                    dd8Var.d = dd8Var.a("ad_feed");
-                    dd8Var.f = dd8Var.c("1");
-                    this.l.getControl().setVideoModel(dd8Var);
+                    ed8 ed8Var = new ed8();
+                    ed8Var.e = "ad_feed";
+                    ed8Var.d = ed8Var.a("ad_feed");
+                    ed8Var.f = ed8Var.c("1");
+                    this.l.getControl().setVideoModel(ed8Var);
                     this.l.getControl().setVideoPath(this.C);
                 }
                 if (this.M == -1) {
@@ -732,11 +732,11 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 this.n.K(adCard.userImage, 30, false);
                 this.o.setText(this.B.userName);
                 this.p.setText(this.B.threadTitle);
-                dd8 dd8Var = new dd8();
-                dd8Var.e = "ad_feed";
-                dd8Var.d = dd8Var.a("ad_feed");
-                dd8Var.f = dd8Var.c("1");
-                this.l.getControl().setVideoModel(dd8Var);
+                ed8 ed8Var = new ed8();
+                ed8Var.e = "ad_feed";
+                ed8Var.d = ed8Var.a("ad_feed");
+                ed8Var.f = ed8Var.c("1");
+                this.l.getControl().setVideoModel(ed8Var);
                 this.C = this.B.videoInfo.video_url;
                 this.l.getControl().setVideoPath(this.C);
                 this.s.i(advertAppInfo);
@@ -750,14 +750,14 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
                 this.R = true;
-                mi5 mi5Var = new mi5(10000L, 1000L);
-                this.L = mi5Var;
-                mi5Var.n(new mi5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
+                ni5 ni5Var = new ni5(10000L, 1000L);
+                this.L = ni5Var;
+                ni5Var.n(new ni5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AdVideoFlowView a;
 
-                    @Override // com.baidu.tieba.mi5.b
+                    @Override // com.baidu.tieba.ni5.b
                     public void onCountDownFinish(long j) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -782,7 +782,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                         this.a = this;
                     }
 
-                    @Override // com.baidu.tieba.mi5.b
+                    @Override // com.baidu.tieba.ni5.b
                     public void onCountDown(long j, long j2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -794,9 +794,9 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 this.s.update(0);
                 return;
             }
-            mi5 mi5Var2 = this.L;
-            if (mi5Var2 != null) {
-                mi5Var2.p();
+            ni5 ni5Var2 = this.L;
+            if (ni5Var2 != null) {
+                ni5Var2.p();
             }
             this.s.r();
             this.s.i(this.A);
@@ -928,19 +928,19 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
                 } else {
                     str = this.B.adId;
                 }
-                i = hg8.b(this.z, str2, str, extInfo, this.B.cmdScheme);
+                i = ig8.b(this.z, str2, str, extInfo, this.B.cmdScheme);
             } else {
                 i = 3;
             }
             if (i == 0) {
                 return;
             }
-            if (hg8.h(i)) {
-                th8.e(this.A, i);
+            if (ig8.h(i)) {
+                uh8.e(this.A, i);
             } else {
-                th8.l(this.A);
+                uh8.l(this.A);
             }
-            bj7.c(this.A);
+            cj7.c(this.A);
         }
     }
 
@@ -1033,7 +1033,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
             };
             shareDialogConfig.setIsAlaLive(false);
             shareDialogConfig.setFrom(ShareDialogConfig.From.VideoMiddlePageVertical);
-            c66.c().l(shareDialogConfig);
+            d66.c().l(shareDialogConfig);
         }
     }
 
@@ -1042,18 +1042,18 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             this.K = this.B.tailFrame;
             if (this.J == null) {
-                yh8 yh8Var = new yh8(this.z.getPageActivity(), this.H);
-                this.J = yh8Var;
-                yh8Var.a = 2;
+                zh8 zh8Var = new zh8(this.z.getPageActivity(), this.H);
+                this.J = zh8Var;
+                zh8Var.a = 2;
             }
-            zh8 b = this.J.b(this.K, this.I);
+            ai8 b = this.J.b(this.K, this.I);
             this.I = b;
             if (b != null) {
                 b.h(this.z);
                 this.I.g(this.B);
-                zh8 zh8Var = this.I;
-                if (zh8Var instanceof uh8) {
-                    ((uh8) zh8Var).m(true);
+                ai8 ai8Var = this.I;
+                if (ai8Var instanceof vh8) {
+                    ((vh8) ai8Var).m(true);
                 }
                 this.I.f(this.A);
                 this.I.c(this.K);
@@ -1129,7 +1129,7 @@ public class AdVideoFlowView extends RelativeLayout implements vf8, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.wf8
     public void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{drawable, drawable2, drawable3, drawable4, drawable5, drawable6}) == null) {

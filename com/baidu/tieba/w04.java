@@ -17,7 +17,7 @@ public class w04 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return cu5.a();
+            return du5.a();
         }
         return (m14) invokeV.objValue;
     }

@@ -1,7 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes6.dex */
 public interface uw4 {
-    String getPicLinkUrl();
+    xw4 a();
 
-    String getPicUrl();
+    View b();
+
+    ax4 c();
+
+    TbImageView d(Context context);
 }

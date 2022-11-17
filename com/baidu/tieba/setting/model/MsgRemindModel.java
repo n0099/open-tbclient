@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n35;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.o35;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
@@ -118,35 +118,35 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        n35.d().I(z2);
+                        o35.d().I(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        n35.d().M(z2);
+                        o35.d().M(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        n35.d().N(z2);
+                        o35.d().N(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        n35.d().Q(z2);
+                        o35.d().Q(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        n35.d().S(z2);
+                        o35.d().S(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            n35.d().V(z2);
+                            o35.d().V(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            n35.d().U(z2);
+                            o35.d().U(z2);
                         }
                     } else if (i == 33 && z) {
-                        n35.d().W(z2);
+                        o35.d().W(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -198,10 +198,10 @@ public class MsgRemindModel extends BdBaseModel {
                 FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                 if (friendAndStrangerSwitchResMsg.getError() == 0) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                    py4 k = py4.k();
+                    qy4 k = qy4.k();
                     k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = friendAndStrangerReqMsg.mPushType;
-                    py4 k2 = py4.k();
+                    qy4 k2 = qy4.k();
                     k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", friendAndStrangerReqMsg.mPushType);
                 }
                 int i = friendAndStrangerReqMsg.mPushType;
@@ -457,7 +457,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!n35.d().t() && !n35.d().u() && !n35.d().w() && !n35.d().y() && !n35.d().B() && !n35.d().s() && !n35.d().E()) {
+                    if (!o35.d().t() && !o35.d().u() && !o35.d().w() && !o35.d().y() && !o35.d().B() && !o35.d().s() && !o35.d().E()) {
                         this.b.a(14, true, false);
                         return;
                     }

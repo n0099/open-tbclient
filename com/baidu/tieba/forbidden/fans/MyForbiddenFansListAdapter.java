@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lg6;
+import com.baidu.tieba.mg6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ArrayList<lg6> b;
+    public ArrayList<mg6> b;
     public View.OnClickListener c;
     public View.OnClickListener d;
 
@@ -95,9 +95,9 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             if (j != 0 && !ListUtils.isEmpty(this.b)) {
-                Iterator<lg6> it = this.b.iterator();
+                Iterator<mg6> it = this.b.iterator();
                 while (it.hasNext()) {
-                    lg6 next = it.next();
+                    mg6 next = it.next();
                     if (next != null && next.a == j) {
                         this.b.remove(next);
                         return true;
@@ -119,16 +119,16 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         }
     }
 
-    public final lg6 g(int i) {
+    public final mg6 g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (lg6) ListUtils.getItem(this.b, i);
+            return (mg6) ListUtils.getItem(this.b, i);
         }
-        return (lg6) invokeI.objValue;
+        return (mg6) invokeI.objValue;
     }
 
-    public void k(ArrayList<lg6> arrayList) {
+    public void k(ArrayList<mg6> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.b = arrayList;
@@ -149,7 +149,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         }
     }
 
-    public ArrayList<lg6> f() {
+    public ArrayList<mg6> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -181,7 +181,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: i */
     public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
-        lg6 g;
+        mg6 g;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048582, this, fansViewHolder, i) != null) || fansViewHolder == null || (g = g(i)) == null) {
             return;

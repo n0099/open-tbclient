@@ -79,14 +79,14 @@ public class nc3 extends sc3 {
 
         /* renamed from: com.baidu.tieba.nc3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0357b implements Runnable {
+        public class RunnableC0359b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ Set b;
             public final /* synthetic */ b c;
 
-            public RunnableC0357b(b bVar, String str, Set set) {
+            public RunnableC0359b(b bVar, String str, Set set) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -414,7 +414,7 @@ public class nc3 extends sc3 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
-                d(new RunnableC0357b(this, str, set));
+                d(new RunnableC0359b(this, str, set));
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;

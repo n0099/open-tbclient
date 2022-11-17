@@ -54,29 +54,29 @@ import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn5;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.dz4;
-import com.baidu.tieba.ep8;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.gp8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.cn5;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.ez4;
+import com.baidu.tieba.fp8;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.hp8;
 import com.baidu.tieba.in;
-import com.baidu.tieba.ip8;
 import com.baidu.tieba.jp8;
 import com.baidu.tieba.ko;
-import com.baidu.tieba.n55;
+import com.baidu.tieba.kp8;
+import com.baidu.tieba.o55;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.q55;
+import com.baidu.tieba.r55;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.su4;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.uy4;
-import com.baidu.tieba.vt4;
-import com.baidu.tieba.wm5;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.vy4;
+import com.baidu.tieba.wt4;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.xm5;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public class PostData implements PreLoadImageProvider, xn {
     public static final BdUniqueId U0;
     public static boolean V0;
     public transient /* synthetic */ FieldHolder $fh;
-    public su4 A;
+    public tu4 A;
     public int A0;
     public int B;
     public boolean B0;
@@ -124,11 +124,11 @@ public class PostData implements PreLoadImageProvider, xn {
     public VirtualImageCustomFigure D0;
     public int E;
     public VirtualImageCustomState E0;
-    public bn5 F;
+    public cn5 F;
     public boolean F0;
     public TbRichTextVoiceInfo G;
     public ThemeBubbleData G0;
-    public ArrayList<f55> H;
+    public ArrayList<g55> H;
     public FullLengthNovel H0;
     public String I;
     public d I0;
@@ -167,9 +167,9 @@ public class PostData implements PreLoadImageProvider, xn {
     @Deprecated
     public String g;
     public Item g0;
-    public ArrayList<ip8> h;
+    public ArrayList<jp8> h;
     public boolean h0;
-    public ArrayList<ip8> i;
+    public ArrayList<jp8> i;
     public List<PbContent> i0;
     public int j;
     public int j0;
@@ -179,25 +179,25 @@ public class PostData implements PreLoadImageProvider, xn {
     public TbRichText n;
     public PraiseData o;
     public SmallTailInfo p;
-    public vt4 q;
+    public wt4 q;
     public Item q0;
-    public zo8 r;
+    public ap8 r;
     public int r0;
     public String s;
-    public d55 s0;
+    public e55 s0;
     public String t;
-    public q55 t0;
+    public r55 t0;
     public String u;
     public List<CardLinkInfoData> u0;
     public HashMap<String, MetaData> v;
-    public jp8 v0;
-    public f55 w;
+    public kp8 v0;
+    public g55 w;
     public long w0;
-    public n55 x;
+    public o55 x;
     public String x0;
     public boolean y;
     public boolean y0;
-    public ep8 z;
+    public fp8 z;
     public int z0;
 
     /* loaded from: classes6.dex */
@@ -451,13 +451,13 @@ public class PostData implements PreLoadImageProvider, xn {
         BdUniqueId.gen();
     }
 
-    public bn5 l0() {
+    public cn5 l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
-            bn5 bn5Var = this.F;
-            if (bn5Var != null) {
-                return bn5Var;
+            cn5 cn5Var = this.F;
+            if (cn5Var != null) {
+                return cn5Var;
             }
             TbRichText tbRichText = this.n;
             if (tbRichText != null && ListUtils.getCount(tbRichText.B()) > 0) {
@@ -465,7 +465,7 @@ public class PostData implements PreLoadImageProvider, xn {
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 32) {
-                        bn5 O = next.O();
+                        cn5 O = next.O();
                         this.F = O;
                         return O;
                     }
@@ -474,7 +474,7 @@ public class PostData implements PreLoadImageProvider, xn {
             }
             return null;
         }
-        return (bn5) invokeV.objValue;
+        return (cn5) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo o0() {
@@ -552,8 +552,8 @@ public class PostData implements PreLoadImageProvider, xn {
         this.j = 0;
         this.k = new ArrayList<>();
         this.o = new PraiseData();
-        this.q = new vt4();
-        this.r = new zo8();
+        this.q = new wt4();
+        this.r = new ap8();
         this.H = new ArrayList<>();
         this.O = 0;
         this.L = new AgreeData();
@@ -643,29 +643,29 @@ public class PostData implements PreLoadImageProvider, xn {
             }
         }
         for (int i2 = 0; i2 < this.h.size(); i2++) {
-            ip8 ip8Var = this.h.get(i2);
-            if (ip8.k(i, ip8Var.getType())) {
-                this.i.get(size - 1).e(ip8Var.h());
+            jp8 jp8Var = this.h.get(i2);
+            if (jp8.k(i, jp8Var.getType())) {
+                this.i.get(size - 1).e(jp8Var.h());
             } else {
-                if (ip8Var.getType() != 3 && ip8Var.getType() != 2 && ip8Var.getType() != 11) {
-                    ip8 ip8Var2 = new ip8();
-                    ip8Var2.l(0);
-                    ip8Var2.e(ip8Var.h());
-                    this.i.add(ip8Var2);
+                if (jp8Var.getType() != 3 && jp8Var.getType() != 2 && jp8Var.getType() != 11) {
+                    jp8 jp8Var2 = new jp8();
+                    jp8Var2.l(0);
+                    jp8Var2.e(jp8Var.h());
+                    this.i.add(jp8Var2);
                     i = 0;
                     size++;
                 }
-                this.i.add(ip8Var);
-                i = ip8Var.getType();
+                this.i.add(jp8Var);
+                i = jp8Var.getType();
                 size++;
             }
         }
     }
 
-    public void D0(d55 d55Var) {
+    public void D0(e55 e55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, d55Var) == null) {
-            this.s0 = d55Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, e55Var) == null) {
+            this.s0 = e55Var;
         }
     }
 
@@ -704,10 +704,10 @@ public class PostData implements PreLoadImageProvider, xn {
         }
     }
 
-    public void K0(vt4 vt4Var) {
+    public void K0(wt4 wt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, vt4Var) == null) {
-            this.q = vt4Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, wt4Var) == null) {
+            this.q = wt4Var;
         }
     }
 
@@ -1019,13 +1019,13 @@ public class PostData implements PreLoadImageProvider, xn {
         return (String) invokeV.objValue;
     }
 
-    public vt4 K() {
+    public wt4 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.q;
         }
-        return (vt4) invokeV.objValue;
+        return (wt4) invokeV.objValue;
     }
 
     public boolean L() {
@@ -1100,22 +1100,22 @@ public class PostData implements PreLoadImageProvider, xn {
         return (String) invokeV.objValue;
     }
 
-    public n55 T() {
+    public o55 T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.x;
         }
-        return (n55) invokeV.objValue;
+        return (o55) invokeV.objValue;
     }
 
-    public q55 U() {
+    public r55 U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return this.t0;
         }
-        return (q55) invokeV.objValue;
+        return (r55) invokeV.objValue;
     }
 
     public OriginalThreadInfo V() {
@@ -1308,13 +1308,13 @@ public class PostData implements PreLoadImageProvider, xn {
         return (VirtualImageCustomState) invokeV.objValue;
     }
 
-    public d55 o() {
+    public e55 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
             return this.s0;
         }
-        return (d55) invokeV.objValue;
+        return (e55) invokeV.objValue;
     }
 
     public int p0() {
@@ -1441,13 +1441,13 @@ public class PostData implements PreLoadImageProvider, xn {
         return invokeV.booleanValue;
     }
 
-    public ep8 x() {
+    public fp8 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             return this.z;
         }
-        return (ep8) invokeV.objValue;
+        return (fp8) invokeV.objValue;
     }
 
     public long y() {
@@ -1470,15 +1470,15 @@ public class PostData implements PreLoadImageProvider, xn {
 
     public String C() {
         InterceptResult invokeV;
-        gp8 a2;
+        hp8 a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             PreLoadImageInfo B = B();
             if (B != null && !StringUtils.isNull(B.imgUrl)) {
                 return B.imgUrl;
             }
-            ep8 ep8Var = this.z;
-            if (ep8Var != null && (a2 = ep8Var.a()) != null && !StringUtils.isNull(a2.a())) {
+            fp8 fp8Var = this.z;
+            if (fp8Var != null && (a2 = fp8Var.a()) != null && !StringUtils.isNull(a2.a())) {
                 return a2.a();
             }
             return null;
@@ -1497,12 +1497,12 @@ public class PostData implements PreLoadImageProvider, xn {
                 if (this.i == null || this.i.size() == 0) {
                     k1();
                 }
-                ArrayList<ip8> arrayList = this.i;
+                ArrayList<jp8> arrayList = this.i;
                 if (arrayList != null) {
                     StringBuilder sb = new StringBuilder();
-                    Iterator<ip8> it = arrayList.iterator();
+                    Iterator<jp8> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        ip8 next = it.next();
+                        jp8 next = it.next();
                         if (next.getType() == 0) {
                             if (next.j() != null) {
                                 sb.append((CharSequence) next.j());
@@ -1655,7 +1655,7 @@ public class PostData implements PreLoadImageProvider, xn {
         }
     }
 
-    public final uy4 g(boolean z, boolean z2, String str) {
+    public final vy4 g(boolean z, boolean z2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048643, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
@@ -1668,23 +1668,23 @@ public class PostData implements PreLoadImageProvider, xn {
             int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds12);
             int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.tbds40);
             if (" 楼主".equals(str)) {
-                uy4 uy4Var = new uy4(dimenPixelSize, -1, R.color.CAM_X0302, dimenPixelSize3, R.color.CAM_X0302, dimenPixelSize4, dimenPixelSize5);
-                uy4Var.b(dimenPixelSize2);
-                uy4Var.f(false);
-                uy4Var.e(str);
-                return uy4Var;
+                vy4 vy4Var = new vy4(dimenPixelSize, -1, R.color.CAM_X0302, dimenPixelSize3, R.color.CAM_X0302, dimenPixelSize4, dimenPixelSize5);
+                vy4Var.b(dimenPixelSize2);
+                vy4Var.f(false);
+                vy4Var.e(str);
+                return vy4Var;
             } else if (!" 吧主".equals(str) && !" 小吧主".equals(str) && !" 品牌官".equals(str)) {
                 return null;
             } else {
-                uy4 uy4Var2 = new uy4(dimenPixelSize, -1, R.color.CAM_X0302, dimenPixelSize3, R.color.CAM_X0101, dimenPixelSize4, dimenPixelSize5);
-                uy4Var2.b(dimenPixelSize2);
-                uy4Var2.a(0.7f);
-                uy4Var2.f(true);
-                uy4Var2.e(str);
-                return uy4Var2;
+                vy4 vy4Var2 = new vy4(dimenPixelSize, -1, R.color.CAM_X0302, dimenPixelSize3, R.color.CAM_X0101, dimenPixelSize4, dimenPixelSize5);
+                vy4Var2.b(dimenPixelSize2);
+                vy4Var2.a(0.7f);
+                vy4Var2.f(true);
+                vy4Var2.e(str);
+                return vy4Var2;
             }
         }
-        return (uy4) invokeCommon.objValue;
+        return (vy4) invokeCommon.objValue;
     }
 
     public BdUniqueId getType() {
@@ -1711,8 +1711,8 @@ public class PostData implements PreLoadImageProvider, xn {
                 if (D() == 1) {
                     return M0;
                 }
-                jp8 jp8Var = this.v0;
-                if (jp8Var != null && jp8Var.h()) {
+                kp8 kp8Var = this.v0;
+                if (kp8Var != null && kp8Var.h()) {
                     if (this.v0.i()) {
                         return AdvertAppInfo.G;
                     }
@@ -1750,7 +1750,7 @@ public class PostData implements PreLoadImageProvider, xn {
                 } catch (NumberFormatException unused) {
                     i = 0;
                 }
-                spannableStringBuilder.append((CharSequence) wm5.q(i, true));
+                spannableStringBuilder.append((CharSequence) xm5.q(i, true));
             }
             tbRichTextData.A(spannableStringBuilder);
             ListUtils.add(list, 0, tbRichTextData);
@@ -1834,10 +1834,10 @@ public class PostData implements PreLoadImageProvider, xn {
                 if (bitmap != null) {
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
-                dz4 dz4Var = new dz4(bitmapDrawable);
-                dz4Var.b(UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
+                ez4 ez4Var = new ez4(bitmapDrawable);
+                ez4Var.b(UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
                 int size = arrayList.size() + this.f.getSealPrefix().length() + 1;
-                spannableString.setSpan(dz4Var, size, size + 1, 17);
+                spannableString.setSpan(ez4Var, size, size + 1, 17);
             }
             spannableString.setSpan(new c(str2, str3, this.I0), 0, spannableString.length(), 18);
             if (!StringUtils.isNull(str) && (z || ((metaData = this.f) != null && metaData.getIs_bawu() == 1))) {
@@ -1847,7 +1847,7 @@ public class PostData implements PreLoadImageProvider, xn {
                 } else {
                     z2 = false;
                 }
-                uy4 g = g(z, z2, str);
+                vy4 g = g(z, z2, str);
                 if (g != null) {
                     MetaData metaData5 = this.f;
                     if (metaData5 != null) {
@@ -1978,9 +1978,9 @@ public class PostData implements PreLoadImageProvider, xn {
                 z2 = false;
             }
             this.N = z2;
-            su4 su4Var = new su4();
-            this.A = su4Var;
-            su4Var.i(post.from_forum);
+            tu4 tu4Var = new tu4();
+            this.A = tu4Var;
+            tu4Var.i(post.from_forum);
             if (this.f.getUserId() == null || this.f.getUserId().length() <= 0 || this.f.getUserId().equals("0")) {
                 this.f.parserProtobuf(post.author);
             }
@@ -1990,7 +1990,7 @@ public class PostData implements PreLoadImageProvider, xn {
             }
             post.is_ntitle.intValue();
             this.j = post.sub_post_number.intValue();
-            this.z = new ep8(post.tpoint_post);
+            this.z = new fp8(post.tpoint_post);
             List<PbContent> list = post.content;
             this.i0 = post.content;
             post.is_wonderful_post.intValue();
@@ -2033,7 +2033,7 @@ public class PostData implements PreLoadImageProvider, xn {
                             } catch (NumberFormatException unused) {
                                 i = 0;
                             }
-                            tbRichTextData.e0(wm5.q(i, false));
+                            tbRichTextData.e0(xm5.q(i, false));
                         }
                     } else {
                         for (int size = this.f0.size() - 1; size >= 0; size--) {
@@ -2074,14 +2074,14 @@ public class PostData implements PreLoadImageProvider, xn {
             this.t = post.dynamic_url;
             this.u = post.rumor_source_img;
             if (post.tail_info != null) {
-                f55 f55Var = new f55();
-                this.w = f55Var;
-                f55Var.b(post.tail_info);
+                g55 g55Var = new g55();
+                this.w = g55Var;
+                g55Var.b(post.tail_info);
             }
             if (post.lbs_info != null) {
-                n55 n55Var = new n55();
-                this.x = n55Var;
-                n55Var.c(post.lbs_info);
+                o55 o55Var = new o55();
+                this.x = o55Var;
+                o55Var.c(post.lbs_info);
             }
             post.storecount.intValue();
             this.q.c(post.present);
@@ -2105,9 +2105,9 @@ public class PostData implements PreLoadImageProvider, xn {
             }
             if (post.ext_tails != null) {
                 for (int i3 = 0; i3 != post.ext_tails.size(); i3++) {
-                    f55 f55Var2 = new f55();
-                    f55Var2.b(post.ext_tails.get(i3));
-                    this.H.add(f55Var2);
+                    g55 g55Var2 = new g55();
+                    g55Var2.b(post.ext_tails.get(i3));
+                    this.H.add(g55Var2);
                 }
             }
             this.J = post.skin_info;
@@ -2131,14 +2131,14 @@ public class PostData implements PreLoadImageProvider, xn {
             this.W = post.is_fold.intValue();
             this.X = post.fold_tip;
             if (post.advertisement != null) {
-                d55 d55Var = new d55();
-                this.s0 = d55Var;
-                d55Var.o(post.advertisement);
+                e55 e55Var = new e55();
+                this.s0 = e55Var;
+                e55Var.o(post.advertisement);
             }
             if (post.novel_info != null) {
-                q55 q55Var = new q55();
-                this.t0 = q55Var;
-                q55Var.j(post.novel_info);
+                r55 r55Var = new r55();
+                this.t0 = r55Var;
+                r55Var.j(post.novel_info);
                 if (!ListUtils.isEmpty(this.i0) && this.i0.get(0) != null) {
                     this.t0.k(this.i0.get(0).text);
                 }

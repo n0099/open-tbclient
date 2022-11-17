@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,9 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class bw5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public cw5 a;
+    public ov5 a;
+    public ov5 b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +32,8 @@ public class bw5 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public bw5() {
@@ -49,9 +53,16 @@ public class bw5 extends BaseCardInfo {
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            ov5 ov5Var = this.a;
+            if (ov5Var != null && (sdkLiveInfoData = ov5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return d;
+            }
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

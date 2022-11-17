@@ -1,26 +1,9 @@
 package com.baidu.tieba;
-
-import android.widget.FrameLayout;
-import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* loaded from: classes4.dex */
 public interface k07 {
-    void a();
+    void b();
 
-    void b(ScrollFragmentTabHost.v vVar);
+    void c(int i, ei5 ei5Var, int i2);
 
-    void c();
-
-    int d(int i);
-
-    void e(ScrollFragmentTabHost.v vVar);
-
-    void f(boolean z);
-
-    int getCurrentTabType();
-
-    FrameLayout getFrameLayout();
-
-    void setCurrentTab(int i);
-
-    void setOnTabSelectedListener(ScrollFragmentTabHost.w wVar);
+    void d(int i, int i2, ei5 ei5Var, int i3);
 }

@@ -5,17 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imrtc.BIMRtcClient;
 import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,15 +20,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class qk7 implements IConnectListener {
+public class qk7 implements ILoginListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String e = "imlog";
+    public static volatile qk7 d = null;
+    public static boolean e = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public c b;
-    public CustomMessageListener c;
-    public boolean d;
+    public b b;
+    public BroadcastReceiver c;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,92 +52,50 @@ public class qk7 implements IConnectListener {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qk7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qk7 qk7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qk7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qk7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements pk7.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qk7 a;
-
-        public b(qk7 qk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qk7Var;
-        }
-
-        @Override // com.baidu.tieba.pk7.b
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i + ", errMsg=" + str);
-                StringBuilder sb = new StringBuilder();
-                sb.append(qk7.e);
-                sb.append("LiveIMManager");
-                String sb2 = sb.toString();
-                LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + this.a.a);
-                if (i == 0 && !this.a.a) {
-                    this.a.onResult(0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean mIsDestroy;
-        public boolean mIsInit;
         public final /* synthetic */ qk7 this$0;
 
-        public c(qk7 qk7Var) {
+        /* renamed from: com.baidu.tieba.qk7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0409a extends oj5<Object> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0409a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.oj5
+            public Object doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
+                    this.a.this$0.d(null);
+                    return null;
+                }
+                return invokeV.objValue;
+            }
+        }
+
+        public a(qk7 qk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,50 +113,24 @@ public class qk7 implements IConnectListener {
             this.this$0 = qk7Var;
         }
 
-        public /* synthetic */ c(qk7 qk7Var, a aVar) {
-            this(qk7Var);
-        }
-
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                if (this.mIsInit) {
-                    this.mIsInit = false;
-                } else if (BdNetTypeUtil.isNetWorkAvailable() && !this.mIsDestroy) {
-                    BIMManager.tryConnection(context);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
+                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
+                    if (intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
+                    Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
+                    if (z) {
+                        sj5.b(new C0409a(this), null);
+                    }
                 }
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void destroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-                this.mIsDestroy = true;
-                try {
-                    TbadkCoreApplication.getInst().unregisterReceiver(this);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        private void init() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-                this.mIsInit = true;
-                this.mIsDestroy = false;
-            }
-        }
-
-        public void register() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                init();
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                TbadkCoreApplication.getInst().registerReceiver(this, intentFilter);
             }
         }
     }
@@ -213,58 +148,126 @@ public class qk7 implements IConnectListener {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, 2005016);
-        this.d = false;
+        this.c = new a(this);
     }
 
-    public void c() {
+    public static qk7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pk7.a().d(new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (qk7.class) {
+                    if (d == null) {
+                        d = new qk7();
+                    }
+                }
+            }
+            return d;
         }
+        return (qk7) invokeV.objValue;
     }
 
-    public final void d() {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogUtils.d(e + "LiveIMManager", "registerIMConnectListener");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("test_checkoutImEnvRD", Boolean.FALSE);
+            if (hashMap.containsKey("test_checkoutImEnvRD")) {
+                return ((Boolean) hashMap.get("test_checkoutImEnvRD")).booleanValue();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
+            int i = 0;
             this.a = false;
-            BIMManager.unregisterConnectListener();
-            BIMManager.registerConnectListener(this);
+            String version = TbConfig.getVersion();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.c, intentFilter);
+            n90.y(context, true);
+            BIMManager.setProductLine(context, 3, version);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            BIMManager.enableDebugMode(true);
+            if (c()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
+                BIMManager.init(context, Constants.APPID_TIEBA, 1, cuidGalaxy2);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
+                i = 1;
+            } else {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
+                BIMManager.init(context, Constants.APPID_TIEBA, 0, cuidGalaxy2);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
+            }
+            LogUtils.d("imlog", "BIMManager init env:" + i);
+            e(context);
         }
     }
 
-    public void b(String str) {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
-            if (this.d) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
+            this.b = bVar;
+            String from = TbConfig.getFrom();
+            String currentFrom = TbConfig.getCurrentFrom();
+            if (TbadkCoreApplication.isLogin()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                String currentBduss = TbadkCoreApplication.getCurrentBduss();
+                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
+                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
                 return;
             }
-            this.d = true;
-            pk7.a().b(TbadkCoreApplication.getInst());
-            d();
-            c();
-            if (this.b == null) {
-                this.b = new c(this, null);
-            }
-            this.b.register();
-            MessageManager.getInstance().registerListener(this.c);
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            BIMManager.login(null, cuidGalaxy2, 6, from, currentFrom, this);
+            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuidGalaxy2 + ", from = " + from + ", cfrom = " + currentFrom);
         }
     }
 
-    @Override // com.baidu.android.imsdk.account.IConnectListener
-    public void onResult(int i) {
+    public final void e(Context context) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i);
-            LogUtils.d(e + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-            this.a = true;
-            if (i == 0) {
-                LogUtils.d(e + "LiveIMManager", "IConnectListener net connect");
-            } else if (i == 1) {
-                LogUtils.d(e + "LiveIMManager", "IConnectListener net disconnect");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
+            if (e) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            e = false;
+            m80.a(context, "10773430", TbadkCoreApplication.getInst().getCuidGalaxy2(), i);
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLoginResult(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a(i, str);
+                this.b = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLogoutResult(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
+            if (!this.a) {
+                d(null);
             }
         }
     }

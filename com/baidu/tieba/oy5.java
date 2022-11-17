@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes5.dex */
 public interface oy5 {
-    AlaBannerViewHolder a(ViewGroup viewGroup, int i);
+    void a(int i, String str, ThreadData threadData);
+
+    void b(hy5 hy5Var);
 }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in;
-import com.baidu.tieba.rq4;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.ve6;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.ui5;
+import com.baidu.tieba.we6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -176,7 +176,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = ti5.c();
+            boolean c = ui5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -192,7 +192,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.K(this.h, 10, false);
             } else {
-                Bitmap f = ve6.f(this.f, "panel.png");
+                Bitmap f = we6.f(this.f, "panel.png");
                 if (f != null) {
                     new in(f, false).h(this.c);
                 }
@@ -211,7 +211,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            rq4 layoutMode = getLayoutMode();
+            sq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

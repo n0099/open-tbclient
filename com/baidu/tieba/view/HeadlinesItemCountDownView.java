@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -149,7 +149,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            pw4.d(this.d).v(R.color.CAM_X0109);
+            qw4.d(this.d).v(R.color.CAM_X0109);
         }
     }
 

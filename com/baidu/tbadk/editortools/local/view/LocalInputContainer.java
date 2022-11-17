@@ -29,16 +29,16 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e25;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.oz4;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.pe6;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.f25;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.q75;
 import com.baidu.tieba.qe6;
-import com.baidu.tieba.w65;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.re6;
+import com.baidu.tieba.x65;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class LocalInputContainer extends RelativeLayout implements w65 {
+public class LocalInputContainer extends RelativeLayout implements x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -56,17 +56,17 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
     public TBSpecificationBtn e;
     public EditorTools f;
     public int g;
-    public p75 h;
+    public q75 h;
     public boolean i;
     public c j;
     public CustomMessageListener k;
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(p75 p75Var, String str);
+        void a(q75 q75Var, String str);
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -181,12 +181,12 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         }
     }
 
-    public void e(p75 p75Var) {
+    public void e(q75 q75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, p75Var) == null) && p75Var != null && p75Var.a() != null) {
-            this.h = p75Var;
-            this.a.K(p75Var.a().c, 25, false);
-            this.b.setText(p75Var.a().b);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, q75Var) == null) && q75Var != null && q75Var.a() != null) {
+            this.h = q75Var;
+            this.a.K(q75Var.a().c, 25, false);
+            this.b.setText(q75Var.a().b);
         }
     }
 
@@ -241,34 +241,34 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         i();
     }
 
-    @Override // com.baidu.tieba.w65
-    public void K(k65 k65Var) {
+    @Override // com.baidu.tieba.x65
+    public void K(l65 l65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k65Var) == null) && (editorTools = this.f) != null) {
-            editorTools.A(k65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l65Var) == null) && (editorTools = this.f) != null) {
+            editorTools.A(l65Var);
         }
     }
 
-    public final void c(e25 e25Var) {
+    public final void c(f25 f25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e25Var) != null) || e25Var.getType() != EmotionGroupType.LOCAL) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f25Var) != null) || f25Var.getType() != EmotionGroupType.LOCAL) {
             return;
         }
-        qe6.b(getContext(), e25Var, this.c);
+        re6.b(getContext(), f25Var, this.c);
     }
 
     public /* synthetic */ void m(View view2) {
         if (this.i) {
             this.i = false;
             this.d.setSelected(false);
-            K(new k65(5, 5, null));
+            K(new l65(5, 5, null));
             yi.N(getContext(), this.c);
             return;
         }
         this.i = true;
         this.d.setSelected(true);
-        K(new k65(1, 5, null));
+        K(new l65(1, 5, null));
     }
 
     public /* synthetic */ void p(SpannableStringBuilder spannableStringBuilder) {
@@ -277,19 +277,19 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
             SpanGroupEditText spanGroupEditText = this.c;
             spanGroupEditText.setSelection(spanGroupEditText.getText().length());
         }
-        K(new k65(5, -1, null));
+        K(new l65(5, -1, null));
         requestFocus();
     }
 
-    public final void q(k65 k65Var) {
+    public final void q(l65 l65Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, k65Var) == null) && k65Var != null && (obj = k65Var.c) != null && (obj instanceof e25) && !EmotionGroupType.isSendAsPic(((e25) obj).getType())) {
-            c((e25) k65Var.c);
+        if ((interceptable == null || interceptable.invokeL(1048600, this, l65Var) == null) && l65Var != null && (obj = l65Var.c) != null && (obj instanceof f25) && !EmotionGroupType.isSendAsPic(((f25) obj).getType())) {
+            c((f25) l65Var.c);
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, editorTools) == null) {
@@ -304,7 +304,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
@@ -312,15 +312,15 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.l65
-    public void B(k65 k65Var) {
+    @Override // com.baidu.tieba.m65
+    public void B(l65 l65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k65Var) == null) {
-            int i = k65Var.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l65Var) == null) {
+            int i = l65Var.a;
             if (i != 3) {
                 if (i != 6) {
                     if (i == 24) {
-                        q(k65Var);
+                        q(l65Var);
                         return;
                     }
                     return;
@@ -329,7 +329,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
                 if (spanGroupEditText == null) {
                     return;
                 }
-                Object obj = k65Var.c;
+                Object obj = l65Var.c;
                 if (obj == null) {
                     spanGroupEditText.setText((CharSequence) null);
                     return;
@@ -339,11 +339,11 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
                         this.c.setText((CharSequence) null);
                         return;
                     } else {
-                        qe6.f(getContext(), str, new qe6.h() { // from class: com.baidu.tieba.t75
+                        re6.f(getContext(), str, new re6.h() { // from class: com.baidu.tieba.u75
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.qe6.h
+                            @Override // com.baidu.tieba.re6.h
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -365,7 +365,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c.getSelectionStart() > 0 && this.c.getText() != null) {
             String substring = this.c.getText().toString().substring(0, this.c.getSelectionStart());
-            Matcher matcher = pe6.b.matcher(substring);
+            Matcher matcher = qe6.b.matcher(substring);
             if (matcher.find()) {
                 this.c.getText().delete(this.c.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.c.getSelectionStart()).toString();
                 return;
@@ -400,9 +400,9 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
             layoutParams.addRule(8, R.id.obfuscated_res_0x7f091461);
             layoutParams.addRule(11, R.id.obfuscated_res_0x7f091461);
             this.e.setLayoutParams(layoutParams);
-            oz4 oz4Var = new oz4();
-            oz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.e.setConfig(oz4Var);
+            pz4 pz4Var = new pz4();
+            pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.e.setConfig(pz4Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
             this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1160));
@@ -410,7 +410,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void display() {
         SpanGroupEditText spanGroupEditText;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s75
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.t75
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -441,7 +441,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
             SpanGroupEditText spanGroupEditText = this.c;
             if (spanGroupEditText != null) {
                 spanGroupEditText.addTextChangedListener(new a(this));
-                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.u75
+                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.v75
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -455,7 +455,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v75
+                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w75
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -493,7 +493,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -503,7 +503,7 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -591,14 +591,14 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
             layoutParams2.setMargins(yi.g(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams2);
             this.b.setGravity(16);
-            pw4.d(this.b).z(R.dimen.T_X09);
+            qw4.d(this.b).z(R.dimen.T_X09);
             addView(this.b);
         }
     }
 
     public /* synthetic */ boolean n(View view2, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            K(new k65(5, -1, null));
+            K(new l65(5, -1, null));
             this.c.requestFocus();
             this.d.setSelected(false);
             this.i = false;
@@ -606,16 +606,16 @@ public class LocalInputContainer extends RelativeLayout implements w65 {
         return false;
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            pw4.d(this).f(R.color.CAM_X0207);
-            pw4.d(this.b).v(R.color.CAM_X0107);
+            qw4.d(this).f(R.color.CAM_X0207);
+            qw4.d(this.b).v(R.color.CAM_X0107);
             if (i == 0) {
-                y39.l(this.c, R.drawable.obfuscated_res_0x7f0804c2);
+                z39.l(this.c, R.drawable.obfuscated_res_0x7f0804c2);
             } else {
-                y39.l(this.c, R.drawable.obfuscated_res_0x7f0804c3);
+                z39.l(this.c, R.drawable.obfuscated_res_0x7f0804c3);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));

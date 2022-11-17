@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import com.baidu.tieba.o86;
-import com.baidu.tieba.t66;
+import com.baidu.tieba.p86;
+import com.baidu.tieba.u66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +14,19 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class BottomRetainer$AkRetainer$remove$1$1 extends Lambda implements Function1<o86.d, Boolean> {
+public final class BottomRetainer$AkRetainer$remove$1$1 extends Lambda implements Function1<p86.d, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ t66 $item;
+    public final /* synthetic */ u66 $item;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomRetainer$AkRetainer$remove$1$1(t66 t66Var) {
+    public BottomRetainer$AkRetainer$remove$1$1(u66 u66Var) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t66Var};
+            Object[] objArr = {u66Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,12 +37,12 @@ public final class BottomRetainer$AkRetainer$remove$1$1 extends Lambda implement
                 return;
             }
         }
-        this.$item = t66Var;
+        this.$item = u66Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Boolean invoke(o86.d dVar) {
+    public final Boolean invoke(p86.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {

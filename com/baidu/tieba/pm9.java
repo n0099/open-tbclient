@@ -3,11 +3,10 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import java.util.Comparator;
+import java.io.ObjectInput;
 /* compiled from: lambda */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class pm9 implements Comparator {
+public final /* synthetic */ class pm9 implements us9 {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ pm9 a = new pm9();
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,10 +14,10 @@ public final /* synthetic */ class pm9 implements Comparator {
     private /* synthetic */ pm9() {
     }
 
-    @Override // java.util.Comparator
-    public final int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.us9
+    public final Object a(ObjectInput objectInput) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ws9.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? yn9.h(objectInput) : invokeL.objValue;
     }
 }

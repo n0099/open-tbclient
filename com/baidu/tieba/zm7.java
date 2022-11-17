@@ -1,29 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zm7 implements ExtLiveJumpPageService {
+public class zm7 extends zf1<ExtLiveJumpPageService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
-    public void goToLiveShowPlayBack(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
-        }
-    }
 
     public zm7() {
         Interceptable interceptable = $ic;
@@ -39,17 +26,15 @@ public class zm7 implements ExtLiveJumpPageService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
-    public void goToPersonCenter(Context context, String str) {
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zf1
+    /* renamed from: a */
+    public ExtLiveJumpPageService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) && context != null && !StringUtils.isNull(str)) {
-            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(context).createNormalConfig(xg.g(str, 0L), z, false)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new an7();
         }
+        return (ExtLiveJumpPageService) invokeV.objValue;
     }
 }

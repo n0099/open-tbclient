@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.uu8;
-import com.baidu.tieba.wv8;
+import com.baidu.tieba.vu8;
+import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uu8> mAvatarPendantList;
-    public wv8 mRecommand;
+    public List<vu8> mAvatarPendantList;
+    public xv8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListHttpResponseMessage(int i) {
@@ -62,23 +62,23 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
             return;
         }
         if (dataRes.recommend != null) {
-            wv8 wv8Var = new wv8();
-            this.mRecommand = wv8Var;
-            wv8Var.d(getPendantByCategoryResIdl.data.recommend);
+            xv8 xv8Var = new xv8();
+            this.mRecommand = xv8Var;
+            xv8Var.d(getPendantByCategoryResIdl.data.recommend);
         }
         if (getPendantByCategoryResIdl.data.pendant != null) {
             this.mAvatarPendantList = new ArrayList();
             for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                 if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    uu8 uu8Var = new uu8();
-                    uu8Var.c(themePendantInMain);
-                    this.mAvatarPendantList.add(uu8Var);
+                    vu8 vu8Var = new vu8();
+                    vu8Var.c(themePendantInMain);
+                    this.mAvatarPendantList.add(vu8Var);
                 }
             }
         }
     }
 
-    public List<uu8> getAvatarPendantListList() {
+    public List<vu8> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -87,12 +87,12 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public wv8 getRecommand() {
+    public xv8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (wv8) invokeV.objValue;
+        return (xv8) invokeV.objValue;
     }
 }

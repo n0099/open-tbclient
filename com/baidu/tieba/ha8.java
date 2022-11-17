@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface ha8 {
-    kc8 c();
+    void a(boolean z);
 
-    void e();
-
-    void f(String str);
+    void b(int i);
 }

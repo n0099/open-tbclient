@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.sx5;
+import com.baidu.tieba.az4;
+import com.baidu.tieba.ka5;
 import com.baidu.tieba.tx5;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.ux5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,15 +26,15 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaRecentHistoryModel a;
-    public tx5 b;
+    public ux5 b;
     public int c;
-    public ja5 d;
-    public zy4.g e;
+    public ka5 d;
+    public az4.g e;
     public BdListView.p f;
     public AlaRecentHistoryModel.b g;
 
     /* loaded from: classes3.dex */
-    public class a implements zy4.g {
+    public class a implements az4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaRecentHistoryFragment a;
@@ -57,7 +57,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             this.a = alaRecentHistoryFragment;
         }
 
-        @Override // com.baidu.tieba.zy4.g
+        @Override // com.baidu.tieba.az4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.a != null) {
@@ -124,7 +124,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
-        public void a(boolean z, List<sx5> list) {
+        public void a(boolean z, List<tx5> list) {
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
@@ -212,9 +212,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            tx5 tx5Var = this.b;
-            if (tx5Var != null) {
-                tx5Var.k(i);
+            ux5 ux5Var = this.b;
+            if (ux5Var != null) {
+                ux5Var.k(i);
             }
         }
     }
@@ -243,9 +243,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = new AlaRecentHistoryModel(getPageContext(), this.c, this.g);
-            tx5 tx5Var = new tx5(getPageContext(), this.c);
-            this.b = tx5Var;
-            tx5Var.p(this.e);
+            ux5 ux5Var = new ux5(getPageContext(), this.c);
+            this.b = ux5Var;
+            ux5Var.p(this.e);
             this.b.r(this.f);
             x1();
             if (this.c == 0) {
@@ -265,9 +265,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            tx5 tx5Var = this.b;
-            if (tx5Var != null) {
-                tx5Var.l();
+            ux5 ux5Var = this.b;
+            if (ux5Var != null) {
+                ux5Var.l();
             }
         }
     }
@@ -284,7 +284,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
             if (this.d == null) {
-                this.d = new ja5(getPageContext().getPageActivity(), null);
+                this.d = new ka5(getPageContext().getPageActivity(), null);
             }
             if (z) {
                 this.d.attachView(viewGroup);

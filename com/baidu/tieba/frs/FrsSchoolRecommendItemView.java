@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.al6;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.q87;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.r87;
+import com.baidu.tieba.s05;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public r05 f;
+    public s05 f;
     public BdUniqueId g;
-    public zk6 h;
+    public al6 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -104,9 +104,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb3);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091bb4);
         this.e = entelechyUserLikeButton;
-        r05 r05Var = new r05(tbPageContext, entelechyUserLikeButton);
-        this.f = r05Var;
-        r05Var.m("1");
+        s05 s05Var = new s05(tbPageContext, entelechyUserLikeButton);
+        this.f = s05Var;
+        s05Var.m("1");
         this.f.l(bdUniqueId);
     }
 
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(q87 q87Var) {
+    public void a(r87 r87Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, q87Var) != null) || !(q87Var instanceof zk6)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, r87Var) != null) || !(r87Var instanceof al6)) {
             return;
         }
-        zk6 zk6Var = (zk6) q87Var;
-        this.h = zk6Var;
-        if (StringUtils.isNull(zk6Var.a.getUserId())) {
+        al6 al6Var = (al6) r87Var;
+        this.h = al6Var;
+        if (StringUtils.isNull(al6Var.a.getUserId())) {
             return;
         }
         this.b.K(this.h.a.getPortrait(), 28, false);

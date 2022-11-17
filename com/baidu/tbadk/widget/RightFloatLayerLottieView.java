@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o15;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -506,14 +506,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView F(o15 o15Var, @NonNull Context context) {
+    public static RightFloatLayerView F(p15 p15Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, o15Var, context)) == null) {
-            if (o15Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, p15Var, context)) == null) {
+            if (p15Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (o15Var.c()) {
+            if (p15Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -616,10 +616,10 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(o15 o15Var) {
+    public void setData(p15 p15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, o15Var) == null) && o15Var != null && !this.s && !o15Var.a()) {
-            if (l(o15Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, p15Var) == null) && p15Var != null && !this.s && !p15Var.a()) {
+            if (l(p15Var)) {
                 this.v.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
@@ -627,9 +627,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             }
             this.w.setVisibility(0);
             this.y.setVisibility(8);
-            G(o15Var.d, this.x);
-            G(o15Var.c, this.z);
-            w(o15Var);
+            G(p15Var.d, this.x);
+            G(p15Var.c, this.z);
+            w(p15Var);
             this.s = true;
         }
     }

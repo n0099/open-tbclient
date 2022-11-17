@@ -53,7 +53,7 @@ public class r80 {
 
         /* renamed from: com.baidu.tieba.r80$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0412a implements Runnable {
+        public class RunnableC0415a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -62,18 +62,18 @@ public class r80 {
 
             /* renamed from: com.baidu.tieba.r80$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0413a extends TimerTask {
+            public class C0416a extends TimerTask {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AtomicBoolean a;
-                public final /* synthetic */ RunnableC0412a b;
+                public final /* synthetic */ RunnableC0415a b;
 
-                public C0413a(RunnableC0412a runnableC0412a, AtomicBoolean atomicBoolean) {
+                public C0416a(RunnableC0415a runnableC0415a, AtomicBoolean atomicBoolean) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0412a, atomicBoolean};
+                        Object[] objArr = {runnableC0415a, atomicBoolean};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -83,7 +83,7 @@ public class r80 {
                             return;
                         }
                     }
-                    this.b = runnableC0412a;
+                    this.b = runnableC0415a;
                     this.a = atomicBoolean;
                 }
 
@@ -97,15 +97,15 @@ public class r80 {
                             dVar.a(8007, "bddns timeout :", "bddns timeout, bdDnsIps is null");
                             r80.f(true);
                             b c = r80.c(r80.b);
-                            RunnableC0412a runnableC0412a = this.b;
-                            c.b(runnableC0412a.a, runnableC0412a.c);
+                            RunnableC0415a runnableC0415a = this.b;
+                            c.b(runnableC0415a.a, runnableC0415a.c);
                         }
                         this.a.set(true);
                     }
                 }
             }
 
-            public RunnableC0412a(a aVar, String str, Timer timer, d dVar) {
+            public RunnableC0415a(a aVar, String str, Timer timer, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class r80 {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     m90.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    this.b.schedule(new C0413a(this, atomicBoolean), 10000L);
+                    this.b.schedule(new C0416a(this, atomicBoolean), 10000L);
                     DnsHelper dnsHelper = new DnsHelper(r80.b);
                     dnsHelper.setHttpDnsState(false, null, false, true);
                     r80.j(dnsHelper.getIpList(this.a));
@@ -207,7 +207,7 @@ public class r80 {
                         r80.c(r80.b).b(str, dVar);
                         return;
                     }
-                    h90.a(r80.b).b(new RunnableC0412a(this, str, new Timer(), dVar));
+                    h90.a(r80.b).b(new RunnableC0415a(this, str, new Timer(), dVar));
                 } catch (Throwable unused) {
                     m90.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
                     r80.f(true);

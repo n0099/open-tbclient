@@ -4,7 +4,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
 public class mx9 extends ix9 {
@@ -13,7 +12,7 @@ public class mx9 extends ix9 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mx9() {
-        super(Framedata.Opcode.TEXT);
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,15 +28,24 @@ public class mx9 extends ix9 {
         }
     }
 
-    @Override // com.baidu.tieba.ix9, com.baidu.tieba.jx9
-    public void h() throws InvalidDataException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mx9(lx9 lx9Var) {
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.h();
-            if (ay9.b(a())) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lx9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
+        j(lx9Var.a());
     }
 }

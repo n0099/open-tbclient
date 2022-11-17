@@ -10,10 +10,10 @@ import com.baidu.tieba.ap5;
 import com.baidu.tieba.bp5;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.dp5;
-import com.baidu.tieba.gp5;
+import com.baidu.tieba.ep5;
 import com.baidu.tieba.hp5;
-import com.baidu.tieba.to5;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.uo5;
 import com.baidu.tieba.zn;
 import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,7 +35,7 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0203a implements to5.a {
+        public class C0203a implements uo5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,27 +55,27 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.to5.a
-            public void a(bp5 bp5Var, View view2) {
-                ap5 a;
+            @Override // com.baidu.tieba.uo5.a
+            public void a(cp5 cp5Var, View view2) {
+                bp5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, bp5Var, view2) == null) && (a = gp5.a(bp5Var)) != null) {
-                    yo5 yo5Var = new yo5();
-                    yo5Var.a = 2;
-                    yo5Var.b(view2);
-                    a.M(yo5Var);
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, cp5Var, view2) == null) && (a = hp5.a(cp5Var)) != null) {
+                    zo5 zo5Var = new zo5();
+                    zo5Var.a = 2;
+                    zo5Var.b(view2);
+                    a.M(zo5Var);
                 }
             }
 
-            @Override // com.baidu.tieba.to5.a
-            public void b(bp5 bp5Var, View view2) {
-                ap5 a;
+            @Override // com.baidu.tieba.uo5.a
+            public void b(cp5 cp5Var, View view2) {
+                bp5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bp5Var, view2) == null) && (a = gp5.a(bp5Var)) != null) {
-                    yo5 yo5Var = new yo5();
-                    yo5Var.a = 3;
-                    yo5Var.b(view2);
-                    a.M(yo5Var);
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cp5Var, view2) == null) && (a = hp5.a(cp5Var)) != null) {
+                    zo5 zo5Var = new zo5();
+                    zo5Var.a = 3;
+                    zo5Var.b(view2);
+                    a.M(zo5Var);
                 }
             }
         }
@@ -101,44 +101,44 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            hp5 hp5Var;
+            ip5 ip5Var;
             TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof hp5) || (b = (hp5Var = (hp5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof ap5)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ip5) || (b = (ip5Var = (ip5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof bp5)) {
                 return;
             }
-            ap5 ap5Var = (ap5) b.getPageActivity();
-            zo5 P0 = ap5Var.P0(2);
+            bp5 bp5Var = (bp5) b.getPageActivity();
+            ap5 P0 = bp5Var.P0(2);
             if (P0 == null) {
-                cp5 a = dp5.b().a(2);
+                dp5 a = ep5.b().a(2);
                 if (a == null) {
                     return;
                 }
                 P0 = a.a();
-                ap5Var.o0(2, P0);
-                P0.f(new bp5(b), null);
-                if (!(P0 instanceof to5)) {
+                bp5Var.o0(2, P0);
+                P0.f(new cp5(b), null);
+                if (!(P0 instanceof uo5)) {
                     return;
                 }
-                ((to5) P0).h(new C0203a(this));
+                ((uo5) P0).h(new C0203a(this));
             }
-            if (!(P0 instanceof to5)) {
+            if (!(P0 instanceof uo5)) {
                 return;
             }
-            to5 to5Var = (to5) P0;
-            if (hp5Var.a() == 1) {
-                to5Var.b(hp5Var.g());
-                to5Var.c(hp5Var.d());
-                to5Var.j();
-            } else if (hp5Var.a() == 2) {
-                to5Var.l(hp5Var.f());
-            } else if (hp5Var.a() == 3) {
-                zn e = hp5Var.e();
-                if (e != null && to5Var.getView() != null) {
-                    e.removeHeaderView(to5Var.getView());
+            uo5 uo5Var = (uo5) P0;
+            if (ip5Var.a() == 1) {
+                uo5Var.b(ip5Var.g());
+                uo5Var.c(ip5Var.d());
+                uo5Var.j();
+            } else if (ip5Var.a() == 2) {
+                uo5Var.l(ip5Var.f());
+            } else if (ip5Var.a() == 3) {
+                zn e = ip5Var.e();
+                if (e != null && uo5Var.getView() != null) {
+                    e.removeHeaderView(uo5Var.getView());
                 }
-            } else if (hp5Var.a() == 4) {
-                to5Var.a(hp5Var.h());
+            } else if (ip5Var.a() == 4) {
+                uo5Var.a(ip5Var.h());
             }
         }
     }

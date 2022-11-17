@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
-import com.baidu.tieba.cz5;
+import com.baidu.tieba.dz5;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -277,7 +277,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
             for (xn xnVar : list2) {
-                if (xnVar != null && (xnVar instanceof cz5) && (threadData = ((cz5) xnVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+                if (xnVar != null && (xnVar instanceof dz5) && (threadData = ((dz5) xnVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
@@ -287,7 +287,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                                 break;
                             }
                             xn next = it.next();
-                            if (next != null && (next instanceof cz5) && (threadData2 = ((cz5) next).a) != null && tid.equals(threadData2.getTid())) {
+                            if (next != null && (next instanceof dz5) && (threadData2 = ((dz5) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }

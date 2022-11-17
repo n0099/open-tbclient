@@ -50,7 +50,7 @@ public class bn4 {
             httpMessage.addParam("client_version", TbConfig.getVersion());
             httpMessage.addParam("client_type", "Android");
             httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", ek5.e());
+            httpMessage.addParam("ua", fk5.e());
             httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

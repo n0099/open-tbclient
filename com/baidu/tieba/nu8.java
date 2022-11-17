@@ -1,36 +1,40 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.oh7;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tieba.aw4;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nu8 extends zv4 {
+public class nu8 extends aw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity c;
-    public boolean d;
+    public final MainTabActivity c;
+    public final as8 d;
+    public IconPopData e;
+    public lv4 f;
 
     /* loaded from: classes5.dex */
-    public class a implements oh7.e {
+    public class a implements cn8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zv4.a a;
-        public final /* synthetic */ nu8 b;
+        public final /* synthetic */ nu8 a;
 
-        public a(nu8 nu8Var, zv4.a aVar) {
+        public a(nu8 nu8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nu8Var, aVar};
+                Object[] objArr = {nu8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,41 +44,36 @@ public class nu8 extends zv4 {
                     return;
                 }
             }
-            this.b = nu8Var;
-            this.a = aVar;
+            this.a = nu8Var;
         }
 
-        @Override // com.baidu.tieba.oh7.e
+        @Override // com.baidu.tieba.cn8.c
         public void a() {
-            zv4.a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-                aVar.a(false);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
 
-        @Override // com.baidu.tieba.oh7.e
+        @Override // com.baidu.tieba.cn8.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!oh7.n(this.b.c).k(this.b.c.B.intValue(), 0)) {
-                    zv4.a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.a(false);
-                        return;
-                    }
-                    return;
-                }
-                zv4.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    aVar2.a(true);
-                }
+                this.a.c();
+            }
+        }
+
+        @Override // com.baidu.tieba.cn8.c
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements oh7.f {
+    public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nu8 a;
@@ -97,61 +96,24 @@ public class nu8 extends zv4 {
             this.a = nu8Var;
         }
 
-        @Override // com.baidu.tieba.oh7.f
-        public void dismiss() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gw4.r("insertAd");
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                hw4.r("userIcon");
                 this.a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu8 a;
-
-        public c(nu8 nu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nu8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!oh7.n(this.a.c).I(this.a.c.B.intValue(), 0)) {
-                    this.a.c();
-                } else {
-                    gw4.m("insertAd");
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nu8(TbPageContext tbPageContext, zr8 zr8Var, MainTabActivity mainTabActivity, boolean z) {
+    public nu8(MainTabActivity mainTabActivity, as8 as8Var) {
         super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zr8Var, mainTabActivity, Boolean.valueOf(z)};
+            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -163,48 +125,57 @@ public class nu8 extends zv4 {
             }
         }
         this.c = mainTabActivity;
-        this.d = z;
+        this.d = as8Var;
     }
 
-    @Override // com.baidu.tieba.zv4
+    @Override // com.baidu.tieba.aw4
     public void b() {
+        lv4 lv4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            oh7.n(this.c).l();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lv4Var = this.f) != null) {
+            lv4Var.a();
         }
     }
 
-    @Override // com.baidu.tieba.zv4
+    @Override // com.baidu.tieba.aw4
+    public void d(aw4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (hw4.k() && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            as8 as8Var = this.d;
+            if ((as8Var == null || as8Var.B() == null || (this.d.B().getCurrentTabType() != 2 && this.d.B().getCurrentTabType() != 1 && this.d.B().getCurrentTabType() != 3)) && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            this.e = iconPopData;
+            if (iconPopData != null && PollingModel.S() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.f1() && this.c.D && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
+                aVar.a(true);
+            } else if (aVar != null) {
+                aVar.a(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.aw4
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            oh7.n(this.c).F(new b(this));
-            ah.a().postDelayed(new c(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tieba.zv4
-    public void d(zv4.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (gw4.k() && aVar != null) {
-                aVar.a(false);
-            } else if (!oh7.m && ((TbSingleton.getInstance().isCanShowHotSplash || oh7.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
-                if (aVar != null) {
-                    aVar.a(false);
-                }
-            } else {
-                oh7 n = oh7.n(this.c);
-                if (oh7.m) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                if (!n.C(str, this.c.B.intValue(), 0, this.c.K, new a(this, aVar), false) && aVar != null) {
-                    aVar.a(false);
-                }
+            if (this.e == null) {
+                this.e = TbSingleton.getInstance().getIconPopData();
             }
+            if (!PollingModel.S()) {
+                c();
+                return;
+            }
+            cn8 cn8Var = new cn8();
+            cn8Var.e(new a(this));
+            cn8Var.f(new b(this));
+            this.f = cn8Var.d(this.e);
+            hw4.m("userIcon");
         }
     }
 }

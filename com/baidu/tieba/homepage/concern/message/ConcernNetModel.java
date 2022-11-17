@@ -9,12 +9,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.di5;
+import com.baidu.tieba.ei5;
 import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipReqMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.uo8;
+import com.baidu.tieba.wf5;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -181,16 +181,16 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.e);
     }
 
-    public void D(String str, di5 di5Var) {
+    public void D(String str, ei5 ei5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, di5Var) != null) || this.c) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ei5Var) != null) || this.c) {
             return;
         }
         this.c = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
-        concernPageRequestMessage.setAdInfo(di5Var);
+        concernPageRequestMessage.setAdInfo(ei5Var);
         sendMessage(concernPageRequestMessage);
     }
 
@@ -221,14 +221,14 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vf5 vf5Var = new vf5(309474);
-            vf5Var.setResponsedClass(ConcernPageSocketResMessage.class);
-            vf5Var.g(true);
-            MessageManager.getInstance().registerTask(vf5Var);
-            vf5 vf5Var2 = new vf5(309476);
-            vf5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
-            vf5Var2.g(true);
-            MessageManager.getInstance().registerTask(vf5Var2);
+            wf5 wf5Var = new wf5(309474);
+            wf5Var.setResponsedClass(ConcernPageSocketResMessage.class);
+            wf5Var.g(true);
+            MessageManager.getInstance().registerTask(wf5Var);
+            wf5 wf5Var2 = new wf5(309476);
+            wf5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
+            wf5Var2.g(true);
+            MessageManager.getInstance().registerTask(wf5Var2);
         }
     }
 
@@ -262,11 +262,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, to8.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, uo8.a(TbConfig.URL_CONCERN_PAGE, 309474));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, to8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, uo8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
             tbHttpMessageTask2.setIsNeedAddCommenParam(true);
             tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);

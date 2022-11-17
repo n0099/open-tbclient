@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.uq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class NightResourceStatic {
                     i = -927;
                 }
                 String packageName = BdBaseApplication.getInst().getPackageName();
-                if (tq4.c().contains("-Night")) {
+                if (uq4.c().contains("-Night")) {
                     packageName = NightPluginManager.getInstance().getNightPluginPackageName(i);
                     if (!NightPluginManager.getInstance().isInvokePlugin()) {
                         TbadkCoreApplication.getInst().setSkinType(0);

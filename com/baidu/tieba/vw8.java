@@ -1,133 +1,87 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ve0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class vw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255314, "Lcom/baidu/tieba/vw8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948255314, "Lcom/baidu/tieba/vw8;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements ve0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<zw8> a;
 
-    public static boolean a(InputStream inputStream, String str, bi9 bi9Var) throws IOException {
-        double d;
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, bi9Var)) == null) {
-            try {
-                if (inputStream instanceof FileInputStream) {
-                    d = ((FileInputStream) inputStream).getChannel().size();
+        @Override // com.baidu.tieba.ve0.a
+        public void onProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            }
+        }
+
+        public a(zw8 zw8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(zw8Var);
+        }
+
+        @Override // com.baidu.tieba.ve0.a
+        public void onResult(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) && this.a.get() != null) {
+                if (z) {
+                    this.a.get().a();
                 } else {
-                    d = 0.0d;
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (bi9Var != null && d != 0.0d) {
-                        bi9Var.c((int) ((i / d) * 100.0d));
-                    } else if (bi9Var != null && d == 0.0d) {
-                        bi9Var.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    this.a.get().b();
                 }
             }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean b(String str, String str2, bi9 bi9Var) throws IOException {
-        InterceptResult invokeLLL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, bi9Var)) == null) {
-            return a(new FileInputStream(str), str2, bi9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ve0.n();
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
+    public static void b(Context context, zw8 zw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = xg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = xg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = xg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = xg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return videoFileInfo;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, zw8Var) == null) {
+            c(context);
+            ve0.p(new a(zw8Var));
         }
-        return (VideoFileInfo) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            new sf0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
+            FileHelper.makeDirectory(".stickers");
+            FileHelper.makeDirectory(".filters");
+        }
     }
 }

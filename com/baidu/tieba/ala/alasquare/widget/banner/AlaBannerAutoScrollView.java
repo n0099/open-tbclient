@@ -17,10 +17,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oy5;
 import com.baidu.tieba.py5;
 import com.baidu.tieba.qy5;
-import com.baidu.tieba.vx5;
+import com.baidu.tieba.ry5;
+import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,20 +38,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public int f;
     public long g;
     public boolean h;
-    public qy5 i;
-    public py5 j;
-    public oy5 k;
+    public ry5 i;
+    public qy5 j;
+    public py5 k;
     public Runnable l;
     public RecyclerView.OnScrollListener m;
 
     /* loaded from: classes3.dex */
-    public class c implements oy5 {
+    public class c implements py5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes3.dex */
-        public class a extends AlaBannerViewHolder<vx5> {
+        public class a extends AlaBannerViewHolder<wx5> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -86,10 +86,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, vx5 vx5Var) {
+            public void a(int i, wx5 wx5Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, vx5Var) == null) && vx5Var != null && this.a != null && !StringUtils.isNull(vx5Var.a)) {
-                    this.a.K(vx5Var.a, 10, false);
+                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, wx5Var) == null) && wx5Var != null && this.a != null && !StringUtils.isNull(wx5Var.a)) {
+                    this.a.K(wx5Var.a, 10, false);
                 }
             }
 
@@ -120,7 +120,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // com.baidu.tieba.oy5
+        @Override // com.baidu.tieba.py5
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -415,28 +415,28 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(py5 py5Var) {
+    public void setOnBannerClickListener(qy5 qy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, py5Var) == null) {
-            this.j = py5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qy5Var) == null) {
+            this.j = qy5Var;
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.d;
             if (alaBannerRecyclerAdapter != null) {
-                alaBannerRecyclerAdapter.i(py5Var);
+                alaBannerRecyclerAdapter.i(qy5Var);
             }
         }
     }
 
-    public void setOnBannerScrollListener(qy5 qy5Var) {
+    public void setOnBannerScrollListener(ry5 ry5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, qy5Var) == null) {
-            this.i = qy5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ry5Var) == null) {
+            this.i = ry5Var;
         }
     }
 
-    public void setViewHolderAdapter(oy5 oy5Var) {
+    public void setViewHolderAdapter(py5 py5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, oy5Var) == null) {
-            this.d.j(oy5Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, py5Var) == null) {
+            this.d.j(py5Var);
         }
     }
 

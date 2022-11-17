@@ -1,38 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class ga5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static fa5 a(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                return new ha5();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new ka5();
-            }
-            if (!(view2 instanceof FrameLayout)) {
-                return null;
-            }
-            if (z) {
-                return new la5();
-            }
-            return new da5();
-        }
-        return (fa5) invokeLZ.objValue;
-    }
+public interface ga5 {
+    void a(View view2, View view3, boolean z);
 }

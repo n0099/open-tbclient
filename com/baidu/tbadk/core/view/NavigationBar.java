@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rq4;
-import com.baidu.tieba.rr8;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.sr8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -545,7 +545,7 @@ public class NavigationBar extends RelativeLayout {
         if (interceptable == null || interceptable.invokeLI(1048611, this, r9Var, i) == null) {
             boolean z = true;
             if (this.mIsCorner) {
-                pw4 d2 = pw4.d(this);
+                qw4 d2 = qw4.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(this.mBackGroundColor);
@@ -567,7 +567,7 @@ public class NavigationBar extends RelativeLayout {
             initPadding();
             if (r9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) r9Var;
-                rq4 layoutMode = tbPageContext.getLayoutMode();
+                sq4 layoutMode = tbPageContext.getLayoutMode();
                 if (i != 1) {
                     z = false;
                 }
@@ -901,7 +901,7 @@ public class NavigationBar extends RelativeLayout {
             findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e74));
             this.barBgView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091697);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rr8.NavigationBar);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sr8.NavigationBar);
                 z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {

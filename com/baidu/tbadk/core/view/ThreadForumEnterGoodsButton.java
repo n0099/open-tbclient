@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ju6;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.ku6;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -146,7 +146,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aad);
             this.e = textView;
-            pw4 d = pw4.d(textView);
+            qw4 d = qw4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -194,9 +194,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            ju6 ju6Var = new ju6();
-            ju6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, ju6Var));
+            ku6 ku6Var = new ku6();
+            ku6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, ku6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

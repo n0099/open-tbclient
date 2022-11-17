@@ -44,13 +44,13 @@ public class fi3 {
 
         /* renamed from: com.baidu.tieba.fi3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0268a implements Runnable {
+        public class RunnableC0267a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0268a(a aVar, Activity activity) {
+            public RunnableC0267a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class fi3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0268a runnableC0268a = new RunnableC0268a(this, activity);
+                RunnableC0267a runnableC0267a = new RunnableC0267a(this, activity);
                 if (mg3.a()) {
-                    runnableC0268a.run();
+                    runnableC0267a.run();
                 } else {
-                    zg3.j(runnableC0268a, "moveTaskToFront");
+                    zg3.j(runnableC0267a, "moveTaskToFront");
                 }
             }
         }

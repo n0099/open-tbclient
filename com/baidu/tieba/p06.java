@@ -2,85 +2,45 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.jv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public class p06 extends kn<f16, CardViewHolder<c26>> {
+public class p06 extends kn<f16, CardViewHolder<d26>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ew8 b;
-    public boolean c;
+    public TextView b;
+    public String c;
     public String d;
-    public String e;
-    public String f;
-    public TextView g;
-    public boolean h;
+
+    public final void x(w06 w06Var, d26 d26Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, w06Var, d26Var) != null) || w06Var == null || d26Var == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f16 a;
-        public final /* synthetic */ p06 b;
+        public final /* synthetic */ p06 a;
 
-        public a(p06 p06Var, f16 f16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p06Var, f16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p06Var;
-            this.a = f16Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.y(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements jv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(p06 p06Var) {
+        public a(p06 p06Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,72 +52,19 @@ public class p06 extends kn<f16, CardViewHolder<c26>> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ p06 b;
-
-        public c(p06 p06Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p06Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = p06Var;
-            this.a = tbPageContext;
+            this.a = p06Var;
         }
 
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            String str;
-            String str2;
-            String str3;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.b.c) {
-                    str = "0";
-                } else {
-                    str = this.b.d;
-                }
-                String str4 = str;
-                if (!this.b.c) {
-                    str2 = null;
-                } else {
-                    str2 = this.b.e;
-                }
-                if (!this.b.c) {
-                    str3 = null;
-                } else {
-                    str3 = this.b.f;
-                }
-                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-                tf.n().j(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), str2, str4, TbadkCoreApplication.getCurrentAccount(), str3)));
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.u();
         }
     }
 
@@ -180,135 +87,81 @@ public class p06 extends kn<f16, CardViewHolder<c26>> {
                 return;
             }
         }
-        this.c = false;
-        this.h = false;
         this.a = tbPageContext;
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.e = str;
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: z */
-    public CardViewHolder<c26> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: v */
+    public CardViewHolder<d26> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new c26(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new d26(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
+    public final void t(f16 f16Var, d26 d26Var) {
+        w06 c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f16Var, d26Var) == null) && (c = f16Var.c()) != null && d26Var != null) {
+            this.b = d26Var.r();
+            this.c = c.b().user_id;
+            x(c, d26Var);
+            d26Var.w(8);
+            d26Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0243));
+            d26Var.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+            y(this.b, this.d, false);
+            StatisticItem statisticItem = new StatisticItem("c13333");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            String q = qy4.k().q("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            if (q == null) {
+                return;
+            }
+            if (q.endsWith("/")) {
+                q = q.substring(0, q.length() - 1);
+            }
+            String str = this.c;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!q.contains("?")) {
+                sb.insert(0, "?");
+            } else {
+                sb.insert(0, "&");
+            }
+            sb.insert(0, q);
+            sp4.o(this.a.getPageActivity(), sb.toString());
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
-    /* renamed from: A */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f16 f16Var, CardViewHolder<c26> cardViewHolder) {
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f16 f16Var, CardViewHolder<d26> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f16Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f16Var, cardViewHolder})) == null) {
             if (cardViewHolder.a() == null) {
                 return null;
             }
-            x(f16Var, cardViewHolder.a());
-            cardViewHolder.a().k().setOnClickListener(new a(this, f16Var));
+            t(f16Var, cardViewHolder.a());
+            cardViewHolder.a().k().setOnClickListener(new a(this));
             return cardViewHolder.a().k();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void B(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) != null) || tbPageContext == null) {
-            return;
-        }
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new c(this, tbPageContext));
-        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
-    }
-
-    public final void y(f16 f16Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, f16Var) == null) && f16Var != null && f16Var.c() != null) {
-            py4.k().u(py4.o("live_publish_live_has_showed"), true);
-            H(this.g, null, false);
-            C();
-            TiebaStatic.log("c13618");
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (Build.VERSION.SDK_INT < 21) {
-                jv4 jv4Var = new jv4(this.a.getPageActivity());
-                jv4Var.setAutoNight(false);
-                jv4Var.setTitle(R.string.obfuscated_res_0x7f0f0f7c);
-                jv4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f050a));
-                jv4Var.setTitleShowCenter(true);
-                jv4Var.setMessageShowCenter(true);
-                jv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09d4, new b(this));
-                jv4Var.create(this.a).show();
-            } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                if (this.b == null) {
-                    this.b = new ew8(this.a);
-                }
-                if (this.c) {
-                    if (this.b.c()) {
-                        return;
-                    }
-                } else if (this.b.d()) {
-                    return;
-                }
-                B(this.a);
-            }
-        }
-    }
-
-    public final void G() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        if (!py4.k().h(py4.o("live_publish_live_has_showed"), false)) {
-            py4.k().u(py4.o("live_publish_live_has_showed"), true);
-            H(this.g, null, true);
-            return;
-        }
-        H(this.g, null, false);
-    }
-
-    public final void H(TextView textView, String str, boolean z) {
+    public final void y(TextView textView, String str, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(1048583, this, textView, str, z) == null) && textView != null && this.a != null) {
             if (z) {
@@ -325,17 +178,5 @@ public class p06 extends kn<f16, CardViewHolder<c26>> {
             }
             textView.setCompoundDrawables(null, null, null, null);
         }
-    }
-
-    public final void x(f16 f16Var, c26 c26Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, f16Var, c26Var) != null) || f16Var.c() == null) {
-            return;
-        }
-        this.g = c26Var.r();
-        G();
-        c26Var.w(8);
-        c26Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f023d));
-        c26Var.m(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

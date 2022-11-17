@@ -8,12 +8,12 @@ import com.airbnb.lottie.L;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.hz4;
 import com.baidu.tieba.iz4;
 import com.baidu.tieba.jz4;
 import com.baidu.tieba.kz4;
 import com.baidu.tieba.lz4;
 import com.baidu.tieba.mz4;
+import com.baidu.tieba.nz4;
 import com.baidu.tieba.of;
 import com.baidu.tieba.pf;
 import com.baidu.tieba.qf;
@@ -31,10 +31,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public pf b;
-    public lz4 c;
+    public mz4 c;
     public BreatheTipView d;
     public View e;
-    public mz4 f;
+    public nz4 f;
     public final Runnable g;
 
     static {
@@ -332,26 +332,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget f(iz4 iz4Var, hz4 hz4Var) {
+    public BreatheTipWidget f(jz4 jz4Var, iz4 iz4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iz4Var, hz4Var)) == null) {
-            PointType pointType = hz4Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jz4Var, iz4Var)) == null) {
+            PointType pointType = iz4Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new jz4(this.a);
-            } else if (pointType == PointType.DRAWABLE) {
                 this.c = new kz4(this.a);
+            } else if (pointType == PointType.DRAWABLE) {
+                this.c = new lz4(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            lz4 lz4Var = this.c;
-            if (lz4Var != null) {
-                lz4Var.a(hz4Var);
+            mz4 mz4Var = this.c;
+            if (mz4Var != null) {
+                mz4Var.a(iz4Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(iz4Var);
+                breatheTipView.setData(jz4Var);
             }
             return this;
         }
@@ -366,9 +366,9 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            mz4 mz4Var = new mz4();
-            this.f = mz4Var;
-            mz4Var.h(this.d, this.c, this.e);
+            nz4 nz4Var = new nz4();
+            this.f = nz4Var;
+            nz4Var.h(this.d, this.c, this.e);
             qf qfVar = new qf();
             qfVar.c(0);
             qfVar.k(this.e);

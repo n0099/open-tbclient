@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes3.dex */
-public class au9 implements ArCoreApk.a {
+public final class au9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicReference a;
+    public final Context a;
+    public final ku9 b;
+    public volatile boolean c;
 
-    public au9(AtomicReference atomicReference) {
+    public au9(Context context, ku9 ku9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atomicReference};
+            Object[] objArr = {context, ku9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,14 +29,31 @@ public class au9 implements ArCoreApk.a {
                 return;
             }
         }
-        this.a = atomicReference;
+        this.a = context;
+        this.b = ku9Var;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.a.set(availability);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (du9.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.c);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
+            }
         }
     }
 }

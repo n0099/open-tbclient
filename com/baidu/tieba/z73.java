@@ -42,13 +42,13 @@ public class z73 extends c63 {
 
         /* renamed from: com.baidu.tieba.z73$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0481a implements Runnable {
+        public class RunnableC0485a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0481a(a aVar, Bitmap bitmap) {
+            public RunnableC0485a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class z73 extends c63 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    zg3.k(new RunnableC0481a(this, y), "savescreenshot");
+                    zg3.k(new RunnableC0485a(this, y), "savescreenshot");
                 }
             }
         }

@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.opensource.svgaplayer.proto.ShapeEntity;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class ev9 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
+public final class ev9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
-        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
-        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747937, "Lcom/baidu/tieba/ev9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747937, "Lcom/baidu/tieba/ev9;");
+                return;
+            }
+        }
+        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
     }
 }

@@ -6,28 +6,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes6.dex */
-public class z4a implements p4a {
+public final class z4a implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MiddleRevenueConfig a;
+    public final String a;
+    public final y4a b;
+    public final IRevenue c;
 
-    public z4a(MiddleRevenueConfig middleRevenueConfig) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayEventStatistics getPayEventStatistic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IPayEventStatistics) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayServiceStatistics getPayServiceStatistics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (IPayServiceStatistics) invokeV.objValue;
+    }
+
+    public z4a(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig};
+            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,162 +58,47 @@ public class z4a implements p4a {
                 return;
             }
         }
-        this.a = middleRevenueConfig;
+        this.c = iRevenue;
+        this.a = "MiddleRevenue";
+        IAppPayService appPayService = this.c.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.b = new y4a(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.baidu.tieba.p4a
-    public GetBannerConfigReqParams a() {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.a.getUid());
-            getBannerConfigReqParams.setToken(this.a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            return getBannerConfigReqParams;
+            return this.b;
         }
-        return (GetBannerConfigReqParams) invokeV.objValue;
+        return (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (IMiddlePayService) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a + hashCode() + " :{revenue:" + this.c + '}';
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p4a
-    public QueryCurrencyReqParams b() {
-        InterceptResult invokeV;
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            queryCurrencyReqParams.setReturnYb(true);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p4a
-    public s4a c(PayFlowType payFlowType, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
-            s4a s4aVar = new s4a();
-            s4aVar.D(this.a.getUid());
-            s4aVar.A(this.a.getToken());
-            s4aVar.E(this.a.getUseChannel());
-            s4aVar.t(this.a.getCurrencyType());
-            s4aVar.B(this.a.getTokenCallback());
-            String deviceId = this.a.getDeviceId();
-            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
-            HashMap hashMap = new HashMap();
-            if (deviceId != null) {
-                hashMap.put("deviceId", deviceId);
-            } else {
-                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
-            }
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("chargeScene", str);
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            s4aVar.u(hashMap);
-            return s4aVar;
-        }
-        return (s4a) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p4a
-    public GetSplitOrderConfigReqParams d(int i, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
-            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
-            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getSplitOrderConfigReqParams.setUid(this.a.getUid());
-            getSplitOrderConfigReqParams.setToken(this.a.getToken());
-            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
-            getSplitOrderConfigReqParams.setOrderId(str);
-            getSplitOrderConfigReqParams.setType(i);
-            getSplitOrderConfigReqParams.setAmount(j);
-            return getSplitOrderConfigReqParams;
-        }
-        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.p4a
-    public QueryCurrencyReqParams e(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            HashMap hashMap = new HashMap();
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            queryCurrencyReqParams.setExpandMap(hashMap);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeL.objValue;
-    }
-
-    public final JSONObject f(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
-            JSONObject jSONObject = null;
-            if (map == null) {
-                return null;
-            }
-            try {
-                if (map.size() <= 0) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (entry.getKey() != null && entry.getValue() != null) {
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = jSONObject2;
-                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    return jSONObject;
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (JSONObject) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
+            this.c.updateConfig(revenueConfig);
         }
     }
 }

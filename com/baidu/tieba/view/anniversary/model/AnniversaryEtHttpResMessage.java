@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.o19;
+import com.baidu.tieba.p19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o19 resultData;
+    public p19 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtHttpResMessage() {
@@ -36,13 +36,13 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public o19 getResultData() {
+    public p19 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.resultData;
         }
-        return (o19) invokeV.objValue;
+        return (p19) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
                 setErrorString(videoTemplateResIdl.error.usermsg);
             }
             if (videoTemplateResIdl.data != null) {
-                o19 o19Var = new o19();
-                this.resultData = o19Var;
-                o19Var.g(videoTemplateResIdl.data);
+                p19 p19Var = new p19();
+                this.resultData = p19Var;
+                p19Var.g(videoTemplateResIdl.data);
             }
         }
     }

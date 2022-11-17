@@ -45,13 +45,13 @@ import com.baidu.tieba.kd3;
 import com.baidu.tieba.km;
 import com.baidu.tieba.n9;
 import com.baidu.tieba.pm4;
-import com.baidu.tieba.pt5;
 import com.baidu.tieba.qk1;
 import com.baidu.tieba.qt5;
 import com.baidu.tieba.rt5;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.st5;
 import com.baidu.tieba.tc3;
 import com.baidu.tieba.ub5;
+import com.baidu.tieba.vb5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -65,7 +65,7 @@ import java.util.List;
 public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public static ub5 b;
+    public static vb5 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -134,7 +134,7 @@ public class SwanAppAbTestStatic {
                     tc3.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
                     tc3.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
                     tc3.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    rt5.l().y(getUserInfoResult);
+                    st5.l().y(getUserInfoResult);
                 }
             }
         }
@@ -170,7 +170,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    rt5.l().y(null);
+                    st5.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -178,7 +178,7 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends ub5<PrivacyPolicyEvent> {
+    public static class a extends vb5<PrivacyPolicyEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,7 +197,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nb5
+        @Override // com.baidu.tieba.ob5
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -206,7 +206,7 @@ public class SwanAppAbTestStatic {
                 if (privacyPolicyEvent == null) {
                     return true;
                 }
-                pt5.a();
+                qt5.a();
                 if (!TextUtils.isEmpty(SwanAppAbTestStatic.a) && TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iq3.a(SwanAppAbTestStatic.a);
                     SwanAppAbTestStatic.a = null;
@@ -248,7 +248,7 @@ public class SwanAppAbTestStatic {
                     }
                     String data = customMessage.getData();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        pt5.a();
+                        qt5.a();
                         SwanAppAbTestStatic.b(data);
                     }
                 }
@@ -288,7 +288,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof pm4) && (a = qt5.a((pm4) customResponsedMessage.getData())) != null && (b = n9.g().b()) != null && b.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof pm4) && (a = rt5.a((pm4) customResponsedMessage.getData())) != null && (b = n9.g().b()) != null && b.getWindow() != null) {
                 try {
                     a.showAtLocation(b.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -488,7 +488,7 @@ public class SwanAppAbTestStatic {
     public static void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, null) == null) && !PermissionUtil.isAgreePrivacyPolicy()) {
-            tb5.f().m(PrivacyPolicyEvent.class, b, BdUniqueId.gen());
+            ub5.f().m(PrivacyPolicyEvent.class, b, BdUniqueId.gen());
         }
     }
 

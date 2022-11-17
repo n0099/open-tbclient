@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.fi8;
-import com.baidu.tieba.k35;
-import com.baidu.tieba.o35;
+import com.baidu.tieba.gi8;
+import com.baidu.tieba.l35;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<k35> {
+    public static class a implements CustomMessageTask.CustomRunnable<l35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,11 +49,11 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<k35> run(CustomMessage<k35> customMessage) {
+        public CustomResponsedMessage<l35> run(CustomMessage<l35> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new o35());
+                return new CustomResponsedMessage<>(2156675, new p35());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -155,7 +155,7 @@ public class TbadkStatic {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return fi8.a(tbPageContext, strArr);
+                return gi8.a(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }

@@ -1,54 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nk9 extends kk9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String h = "XMUnionID";
-    public static boolean i;
+public class nk9 extends lk9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948005485, "Lcom/baidu/tieba/nk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948005485, "Lcom/baidu/tieba/nk9;");
-                return;
-            }
-        }
-        i = ck9.e();
-    }
-
-    @Override // com.baidu.tieba.jk9
-    public jk9 d() {
+    public kk9 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.c = tu9.b();
-                this.d = tu9.a(this.a);
-                this.g = 0;
-            } catch (Exception e) {
-                if (i) {
-                    Log.e(h, "xiaomi init4UnionId error", e);
-                }
-            }
-            return this;
-        }
-        return (jk9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (kk9) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,22 +26,30 @@ public class nk9 extends kk9 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-        if (i) {
-            Log.e(h, "xiaomi XMUnionID !!");
         }
         this.d = "";
         this.b = false;
         this.c = false;
-        this.g = -200;
+        this.g = -100;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public kk9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i();
+            return this;
+        }
+        return (kk9) invokeV.objValue;
     }
 }

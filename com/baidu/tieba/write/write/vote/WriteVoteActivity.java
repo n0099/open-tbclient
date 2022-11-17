@@ -4,8 +4,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.e99;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.f99;
+import com.baidu.tieba.sf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,12 +38,12 @@ public class WriteVoteActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public rf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public sf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            return new e99(getPageContext(), linearLayout, navigationBar);
+            return new f99(getPageContext(), linearLayout, navigationBar);
         }
-        return (rf5) invokeLL.objValue;
+        return (sf5) invokeLL.objValue;
     }
 }

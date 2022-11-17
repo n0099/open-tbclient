@@ -1,95 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class h95 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "before_request");
-                jSONObject.put("value", "1");
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947778565, "Lcom/baidu/tieba/h95;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947778565, "Lcom/baidu/tieba/h95;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a extends oj5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.oj5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Boolean.valueOf(mm4.E().G());
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements ti5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ti5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool != null && !bool.booleanValue()) {
+                h95.c();
             }
         }
     }
 
-    public static void b(String str) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "0");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
-                }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+            return;
         }
+        ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
+        i95.a();
+        activityChangeSchemeModel.request();
     }
 
-    public static void c(String str) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "1");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
-                }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void d(boolean z, JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "request");
-                if (z) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject2.put("value", str);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
-                jSONObject2.put("ext", jSONObject3);
-                uBCManager.onEvent("4509", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
+            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                sj5.b(new a(), new b());
+            } else if (!mm4.E().G()) {
+                c();
             }
         }
     }

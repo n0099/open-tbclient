@@ -1,44 +1,139 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class qq7 extends v65 {
+public class qq7 extends x85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<s65> m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qq7(Context context) {
-        super(context, null, 18, 0);
+    @Override // com.baidu.tieba.m65
+    public void B(l65 l65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l65Var) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements x85.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qq7 a;
+
+        public a(qq7 qq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qq7Var;
+        }
+
+        @Override // com.baidu.tieba.x85.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher A = this.a.A(i);
+                if (A.getLayoutParams() == null) {
+                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                }
+                return A;
+            }
+            return (View) invokeILL.objValue;
+        }
+    }
+
+    public qq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ae2);
-        this.m = new PrivilegeDeskView(context);
-        this.o = true;
-        this.i = false;
-        this.j = true;
-        this.d = R.drawable.obfuscated_res_0x7f0809ef;
-        this.e = R.drawable.obfuscated_res_0x7f0809f1;
-        this.n = 6;
-        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.tieba.x85
+    public void a() {
+        LinkedList<s65> linkedList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
+            linkedList.clear();
+            this.m = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.x85
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<s65> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final DLauncher A(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
+            }
+            return null;
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    public void z(LinkedList<s65> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    @Override // com.baidu.tieba.x85
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            o(4);
+            v(2);
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            x(new a(this));
+            h().b(this);
+        }
     }
 }

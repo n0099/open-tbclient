@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.w85;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class CommonTabWidgetView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.A(new k65(3, 3, null));
+                this.a.c.A(new l65(3, 3, null));
             }
         }
     }
@@ -121,7 +121,7 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(w85.b bVar) {
+    public void b(x85.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
@@ -145,7 +145,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<w85> arrayList) {
+    public void setDatas(ArrayList<x85> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

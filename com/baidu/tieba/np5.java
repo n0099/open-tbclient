@@ -1,61 +1,56 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class np5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext b;
-    public SparseArray<String> c;
-    public SparseArray<String> d;
-    public String[] e;
-    public LinearLayout f;
-    public CompoundButton.OnCheckedChangeListener g;
-    public CompoundButton.OnCheckedChangeListener h;
-    public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
-    public int j;
-    public boolean k;
-    public boolean l;
-    public int m;
+    public JSONArray a;
+    public String b;
+    public HttpMessageListener c;
+    public BdUniqueId d;
+    public BdUniqueId e;
+    public CustomMessageListener f;
+    public CustomMessageListener g;
 
     /* loaded from: classes5.dex */
-    public class a implements CompoundButton.OnCheckedChangeListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ np5 a;
 
-        public a(np5 np5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(np5 np5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np5Var};
+                Object[] objArr = {np5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,90 +59,98 @@ public class np5 {
             this.a = np5Var;
         }
 
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            Map.Entry entry;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && compoundButton != null && this.a.i != null && !this.a.i.isEmpty()) {
-                boolean z2 = false;
-                if (z && this.a.k) {
-                    for (Map.Entry entry2 : this.a.i.entrySet()) {
-                        if (entry2 != null) {
-                            if (entry2.getKey() == compoundButton) {
-                                ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
-                                entry2.setValue(Boolean.TRUE);
-                            } else {
-                                ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
-                                entry2.setValue(Boolean.FALSE);
-                            }
-                        }
-                    }
-                }
-                if (this.a.k && !z && !this.a.l) {
-                    Iterator it = this.a.i.entrySet().iterator();
-                    while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
-                    }
-                    if (!z2) {
-                        for (Map.Entry entry3 : this.a.i.entrySet()) {
-                            if (entry3 != null && entry3.getKey() == compoundButton) {
-                                ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
-                                entry3.setValue(Boolean.TRUE);
-                                return;
-                            }
-                        }
-                    }
-                }
-                if (this.a.g != null) {
-                    this.a.g.onCheckedChanged(compoundButton, z);
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003184 || httpResponsedMessage.getError() != 0) {
+                return;
             }
+            this.a.a = null;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
+        public final /* synthetic */ np5 a;
 
-        public b(np5 np5Var, int i, int i2, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(np5 np5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np5Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                Object[] objArr = {np5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = i2;
-            if (str != null && str.contains("%")) {
-                String[] split = str.split("%");
-                this.c = split[0];
-                if (split.length > 1) {
-                    this.d = split[1];
-                }
-            } else {
-                this.c = str;
+            this.a = np5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdNetTypeUtil.isNetworkAvailableForImmediately() && this.a.a != null) {
+                np5 np5Var = this.a;
+                np5Var.i(np5Var.a, this.a.e);
             }
-            this.a = i;
         }
     }
 
-    public np5(TbPageContext tbPageContext) {
+    /* loaded from: classes5.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(np5 np5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {np5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = np5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.f((JSONObject) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public np5(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,404 +160,79 @@ public class np5 {
                 return;
             }
         }
-        this.a = false;
-        this.c = null;
-        this.d = null;
-        this.k = false;
-        this.l = true;
-        this.m = -1;
-        this.b = tbPageContext;
-        this.j = yi.g(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
-        this.h = new a(this);
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.l = z;
+        this.d = BdUniqueId.gen();
+        this.e = BdUniqueId.gen();
+        this.f = new b(this, 2000994);
+        this.g = new c(this, 2016488);
+        this.b = str;
+        if (this.c == null) {
+            this.c = new a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
+        this.c.setTag(this.e);
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.f);
+        this.g.setTag(tbPageContext.getUniqueId());
+        this.g.setSelfListener(true);
+        this.g.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    public void j(pt4 pt4Var) {
+    public final String g(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, pt4Var) != null) || pt4Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            String str = this.b;
+            try {
+                String optString = jSONArray.optJSONObject(0).optString("dislike_from");
+                if (!TextUtils.isEmpty(optString)) {
+                    return optString;
+                }
+                return str;
+            } catch (Exception unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.c = pt4Var.b();
-        this.d = pt4Var.g;
-    }
-
-    public void k(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
-            this.e = strArr;
+        if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            i(jSONArray, this.d);
+            return;
+        }
+        if (this.a == null) {
+            this.a = new JSONArray();
+        }
+        if (this.a.length() <= 100) {
+            this.a.put(jSONObject);
         }
     }
 
-    public void l(int i) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m = i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+            MessageManager.getInstance().unRegisterListener(this.f);
+            MessageManager.getInstance().unRegisterListener(this.g);
+            this.a = null;
         }
     }
 
-    public void m(boolean z) {
+    public final void i(JSONArray jSONArray, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, jSONArray, bdUniqueId) != null) || jSONArray == null) {
+            return;
         }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onCheckedChangeListener) == null) {
-            this.g = onCheckedChangeListener;
-        }
-    }
-
-    public final View e(List<b> list, boolean z, View view2) {
-        InterceptResult invokeCommon;
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int i = 0;
-            if (view2 instanceof LinearLayout) {
-                linearLayout = (LinearLayout) view2;
-            } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d064a, (ViewGroup) this.f, false);
-            }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09130b);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c8f);
-            nEGFeedBackReasonCheckBox.a();
-            nEGFeedBackReasonCheckBox2.a();
-            nEGFeedBackReasonCheckBox.setChecked(false);
-            nEGFeedBackReasonCheckBox2.setChecked(false);
-            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-            b bVar = list.get(0);
-            if (bVar != null) {
-                nEGFeedBackReasonCheckBox.setText(bVar.c);
-                nEGFeedBackReasonCheckBox.setTag(bVar);
-                if (bVar.a == this.m) {
-                    nEGFeedBackReasonCheckBox.setEnabled(false);
-                }
-            }
-            if (list.size() > 1 && list.get(1) != null) {
-                b bVar2 = list.get(1);
-                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
-                nEGFeedBackReasonCheckBox2.setVisibility(0);
-                nEGFeedBackReasonCheckBox2.setTag(bVar2);
-                if (bVar2.a == this.m) {
-                    nEGFeedBackReasonCheckBox2.setEnabled(false);
-                }
-            } else {
-                nEGFeedBackReasonCheckBox2.setVisibility(4);
-            }
-            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
-            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
-            if (!z) {
-                i = this.j;
-            }
-            if (linearLayout.getLayoutParams() != null) {
-                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
-            }
-            return linearLayout;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final View f(List<b> list, boolean z, View view2) {
-        InterceptResult invokeCommon;
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int i = 0;
-            if (view2 instanceof LinearLayout) {
-                linearLayout = (LinearLayout) view2;
-            } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d064a, (ViewGroup) this.f, false);
-            }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09130b);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c8f);
-            nEGFeedBackReasonCheckBox.a();
-            nEGFeedBackReasonCheckBox2.a();
-            nEGFeedBackReasonCheckBox.setChecked(false);
-            nEGFeedBackReasonCheckBox2.setChecked(false);
-            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-            b bVar = list.get(0);
-            if (bVar != null) {
-                nEGFeedBackReasonCheckBox.setText(bVar.c);
-                nEGFeedBackReasonCheckBox.setTag(bVar);
-            }
-            if (list.size() > 1 && list.get(1) != null) {
-                b bVar2 = list.get(1);
-                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
-                nEGFeedBackReasonCheckBox2.setVisibility(0);
-                nEGFeedBackReasonCheckBox2.setTag(bVar2);
-            } else {
-                nEGFeedBackReasonCheckBox2.setVisibility(8);
-            }
-            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
-            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
-            if (!z) {
-                i = this.j;
-            }
-            if (linearLayout.getLayoutParams() != null) {
-                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
-            }
-            return linearLayout;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setOrientation(1);
-            }
-            List<List<b>> p = p();
-            if (ListUtils.isEmpty(p)) {
-                return null;
-            }
-            int size = p.size();
-            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
-            if (hashMap == null) {
-                this.i = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            for (int i = 0; i < size; i++) {
-                List<b> list = p.get(i);
-                if (i == size - 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                View e = e(list, z, this.f.getChildAt(i));
-                if (e != null && e.getParent() == null) {
-                    this.f.addView(e);
-                }
-            }
-            if (this.f.getChildCount() > size) {
-                LinearLayout linearLayout2 = this.f;
-                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-            }
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setOrientation(1);
-            }
-            List<List<b>> s = s();
-            if (ListUtils.isEmpty(s)) {
-                return null;
-            }
-            int size = s.size();
-            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
-            if (hashMap == null) {
-                this.i = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            for (int i = 0; i < size; i++) {
-                List<b> list = s.get(i);
-                if (i == size - 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                View f = f(list, z, this.f.getChildAt(i));
-                if (f != null && f.getParent() == null) {
-                    this.f.addView(f);
-                }
-            }
-            if (this.f.getChildCount() > size) {
-                LinearLayout linearLayout2 = this.f;
-                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-            }
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final List<List<b>> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String[] strArr = this.e;
-            if (strArr != null && strArr.length > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < this.e.length; i += 2) {
-                    ArrayList arrayList2 = new ArrayList();
-                    if (!StringUtils.isNull(this.e[i])) {
-                        arrayList2.add(new b(this, i, i + 1, this.e[i]));
-                    }
-                    int i2 = i + 1;
-                    String[] strArr2 = this.e;
-                    if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                        arrayList2.add(new b(this, i2, i + 2, this.e[i2]));
-                    }
-                    if (arrayList2.size() > 0) {
-                        arrayList.add(arrayList2);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<List<b>> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String[] strArr = this.e;
-            if (strArr != null && strArr.length > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < this.e.length; i += 2) {
-                    ArrayList arrayList2 = new ArrayList();
-                    if (!StringUtils.isNull(this.e[i])) {
-                        arrayList2.add(new b(this, i, 0, this.e[i]));
-                    }
-                    int i2 = i + 1;
-                    String[] strArr2 = this.e;
-                    if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                        arrayList2.add(new b(this, i2, 0, this.e[i2]));
-                    }
-                    if (arrayList2.size() > 0) {
-                        arrayList.add(arrayList2);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<List<b>> p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            SparseArray<String> sparseArray = this.c;
-            if (sparseArray != null && sparseArray.size() != 0) {
-                int size = this.c.size();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (i < size) {
-                    int i2 = i + 1;
-                    int i3 = i + 2;
-                    ArrayList arrayList2 = new ArrayList();
-                    b bVar = new b(this, i, this.c.keyAt(i), this.c.valueAt(i));
-                    SparseArray<String> sparseArray2 = this.d;
-                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i)))) {
-                        bVar.d = this.d.get(this.c.keyAt(i));
-                    }
-                    arrayList2.add(bVar);
-                    if (i2 > i && i2 < size) {
-                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
-                        SparseArray<String> sparseArray3 = this.d;
-                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i)))) {
-                            bVar2.d = this.d.get(this.c.keyAt(i2));
-                        }
-                        arrayList2.add(bVar2);
-                    }
-                    arrayList.add(arrayList2);
-                    i = i3;
-                }
-                return arrayList;
-            }
-            return q();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<List<b>> s() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            SparseArray<String> sparseArray = this.c;
-            if (sparseArray != null && sparseArray.size() != 0) {
-                int size = this.c.size();
-                int i5 = 0;
-                int i6 = -1;
-                if (this.a) {
-                    i = 0;
-                } else {
-                    i = -1;
-                }
-                if (this.a) {
-                    i2 = size - 1;
-                } else {
-                    i2 = size;
-                }
-                if (i2 > 1 && i2 % 2 == 1) {
-                    i6 = i + 1;
-                }
-                ArrayList arrayList = new ArrayList();
-                while (i5 < size) {
-                    if (i5 != i && i5 != i6) {
-                        i4 = i5 + 1;
-                        i3 = i5 + 2;
-                    } else {
-                        i3 = i5 + 1;
-                        i4 = i5;
-                    }
-                    ArrayList arrayList2 = new ArrayList();
-                    b bVar = new b(this, i5, this.c.keyAt(i5), this.c.valueAt(i5));
-                    SparseArray<String> sparseArray2 = this.d;
-                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i5)))) {
-                        bVar.d = this.d.get(this.c.keyAt(i5));
-                    }
-                    arrayList2.add(bVar);
-                    if (i4 > i5 && i4 < size) {
-                        b bVar2 = new b(this, i4, this.c.keyAt(i4), this.c.valueAt(i4));
-                        SparseArray<String> sparseArray3 = this.d;
-                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i5)))) {
-                            bVar2.d = this.d.get(this.c.keyAt(i4));
-                        }
-                        arrayList2.add(bVar2);
-                    }
-                    arrayList.add(arrayList2);
-                    i5 = i3;
-                }
-                return arrayList;
-            }
-            return r();
-        }
-        return (List) invokeV.objValue;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_FEED_BACK);
+        httpMessage.addParam("dislike", jSONArray.toString());
+        httpMessage.addParam("dislike_from", g(jSONArray));
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.bd6;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.cd6;
+import com.baidu.tieba.vc5;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes4.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements uc5 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements vc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bd6 enterForumTabFeedData;
+    public cd6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -80,9 +80,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (tabfeedlistResIdl.data == null) {
                 return tabfeedlistResIdl;
             }
-            bd6 bd6Var = new bd6();
-            this.enterForumTabFeedData = bd6Var;
-            bd6Var.g(tabfeedlistResIdl.data);
+            cd6 cd6Var = new cd6();
+            this.enterForumTabFeedData = cd6Var;
+            cd6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;

@@ -57,12 +57,12 @@ public class k93 extends q93<e> {
 
             /* renamed from: com.baidu.tieba.k93$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0323a implements a93 {
+            public class C0325a implements a93 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0323a(a aVar) {
+                public C0325a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class k93 extends q93<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                d93.u(this.a, this.c.c.M(), this.b, null, new C0323a(this));
+                d93.u(this.a, this.c.c.M(), this.b, null, new C0325a(this));
             }
         }
 

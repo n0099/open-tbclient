@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.emotiontool.EmotionNoLaunchView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.r65;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.s65;
 import com.baidu.tieba.w65;
+import com.baidu.tieba.x65;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import java.util.List;
 public class EditorBar extends RawLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<r65> i;
+    public List<s65> i;
     public List<a> j;
     public int k;
     public Paint l;
@@ -50,15 +50,15 @@ public class EditorBar extends RawLayout {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public w65 a;
+        public x65 a;
         public int b;
 
-        public a(w65 w65Var, int i, boolean z) {
+        public a(x65 x65Var, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w65Var, Integer.valueOf(i), Boolean.valueOf(z)};
+                Object[] objArr = {x65Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -70,7 +70,7 @@ public class EditorBar extends RawLayout {
             }
             this.a = null;
             this.b = 0;
-            this.a = w65Var;
+            this.a = x65Var;
             this.b = i;
         }
     }
@@ -125,10 +125,10 @@ public class EditorBar extends RawLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            for (r65 r65Var : this.i) {
-                if (r65Var instanceof View) {
-                    View view2 = (View) r65Var;
-                    if (r65Var.getToolId() == i) {
+            for (s65 s65Var : this.i) {
+                if (s65Var instanceof View) {
+                    View view2 = (View) s65Var;
+                    if (s65Var.getToolId() == i) {
                         view2.setEnabled(z);
                         return true;
                     }
@@ -187,30 +187,30 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public void n(v65 v65Var) {
+    public void n(w65 w65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, v65Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, w65Var) == null) {
             int i = this.p;
             if (i == 1) {
-                if (v65Var == null) {
-                    for (r65 r65Var : this.i) {
-                        if (r65Var instanceof View) {
-                            ((View) r65Var).setSelected(false);
+                if (w65Var == null) {
+                    for (s65 s65Var : this.i) {
+                        if (s65Var instanceof View) {
+                            ((View) s65Var).setSelected(false);
                         }
                     }
                     return;
                 }
-                for (r65 r65Var2 : this.i) {
-                    if (r65Var2 instanceof View) {
-                        View view2 = (View) r65Var2;
-                        if (r65Var2.getToolId() == v65Var.c && v65Var.k) {
+                for (s65 s65Var2 : this.i) {
+                    if (s65Var2 instanceof View) {
+                        View view2 = (View) s65Var2;
+                        if (s65Var2.getToolId() == w65Var.c && w65Var.k) {
                             view2.setSelected(true);
                         } else {
                             view2.setSelected(false);
                         }
-                        int i2 = v65Var.c;
+                        int i2 = w65Var.c;
                         if (i2 == 12 || i2 == 16) {
-                            if (r65Var2.getToolId() == 2) {
+                            if (s65Var2.getToolId() == 2) {
                                 view2.setSelected(true);
                             } else {
                                 view2.setSelected(false);
@@ -222,9 +222,9 @@ public class EditorBar extends RawLayout {
                 if (i == 7) {
                     for (a aVar : this.j) {
                         if (aVar != null) {
-                            w65 w65Var = aVar.a;
-                            if (w65Var instanceof View) {
-                                View view3 = (View) w65Var;
+                            x65 x65Var = aVar.a;
+                            if (x65Var instanceof View) {
+                                View view3 = (View) x65Var;
                                 if (view3 instanceof EmotionNoLaunchView) {
                                     ((EmotionNoLaunchView) view3).display();
                                     return;
@@ -235,19 +235,19 @@ public class EditorBar extends RawLayout {
                         }
                     }
                 }
-            } else if (v65Var == null) {
-                for (r65 r65Var3 : this.i) {
-                    if (r65Var3 instanceof View) {
-                        ((View) r65Var3).setSelected(false);
+            } else if (w65Var == null) {
+                for (s65 s65Var3 : this.i) {
+                    if (s65Var3 instanceof View) {
+                        ((View) s65Var3).setSelected(false);
                     }
                 }
             } else {
-                int i3 = v65Var.c;
+                int i3 = w65Var.c;
                 if (i3 == 5 || i3 == 2 || i3 == 6) {
-                    for (r65 r65Var4 : this.i) {
-                        if (r65Var4 instanceof View) {
-                            View view4 = (View) r65Var4;
-                            if (r65Var4.getToolId() == v65Var.c && v65Var.k) {
+                    for (s65 s65Var4 : this.i) {
+                        if (s65Var4 instanceof View) {
+                            View view4 = (View) s65Var4;
+                            if (s65Var4.getToolId() == w65Var.c && w65Var.k) {
                                 view4.setSelected(true);
                             } else {
                                 view4.setSelected(false);
@@ -264,7 +264,7 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             if (i == 2 && u() && (editorTools = this.q) != null) {
-                editorTools.A(new k65(1, 3, null));
+                editorTools.A(new l65(1, 3, null));
                 return;
             }
             a r = r(i);
@@ -272,46 +272,46 @@ public class EditorBar extends RawLayout {
                 return;
             }
             if (r.b == 5) {
-                for (r65 r65Var : this.i) {
-                    if (r65Var.getToolId() != 2 && r65Var.getToolId() != 1) {
-                        r65Var.hide();
+                for (s65 s65Var : this.i) {
+                    if (s65Var.getToolId() != 2 && s65Var.getToolId() != 1) {
+                        s65Var.hide();
                     } else {
-                        r65Var.display();
+                        s65Var.display();
                     }
                 }
                 for (a aVar : this.j) {
-                    w65 w65Var = aVar.a;
-                    if (w65Var != null) {
+                    x65 x65Var = aVar.a;
+                    if (x65Var != null) {
                         int i2 = aVar.b;
                         if (i2 != 5 && i2 != 8) {
-                            w65Var.hide();
+                            x65Var.hide();
                         } else {
                             aVar.a.display();
                         }
                     }
                 }
             } else {
-                for (r65 r65Var2 : this.i) {
-                    if (r65Var2.getToolId() == 1) {
-                        r65Var2.hide();
+                for (s65 s65Var2 : this.i) {
+                    if (s65Var2.getToolId() == 1) {
+                        s65Var2.hide();
                     } else {
-                        if (r65Var2 instanceof BLauncher) {
-                            BLauncher bLauncher = (BLauncher) r65Var2;
+                        if (s65Var2 instanceof BLauncher) {
+                            BLauncher bLauncher = (BLauncher) s65Var2;
                             if (bLauncher.getVisibility() == 8 && bLauncher.getIsOutSetVisibility()) {
                                 bLauncher.hide();
                             }
                         }
-                        r65Var2.display();
+                        s65Var2.display();
                     }
                 }
                 for (a aVar2 : this.j) {
-                    w65 w65Var2 = aVar2.a;
-                    if (w65Var2 != null) {
+                    x65 x65Var2 = aVar2.a;
+                    if (x65Var2 != null) {
                         int i3 = aVar2.b;
                         if (i3 == 5) {
-                            w65Var2.hide();
+                            x65Var2.hide();
                         } else if (i3 != 8) {
-                            w65Var2.display();
+                            x65Var2.display();
                         }
                     }
                 }
@@ -337,32 +337,32 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public void i(int i, r65 r65Var) {
+    public void i(int i, s65 s65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, r65Var) == null) {
-            this.i.add(i, r65Var);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, s65Var) == null) {
+            this.i.add(i, s65Var);
         }
     }
 
-    public void j(r65 r65Var) {
+    public void j(s65 s65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r65Var) == null) {
-            this.i.add(r65Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, s65Var) == null) {
+            this.i.add(s65Var);
         }
     }
 
-    public r65 q(int i) {
+    public s65 q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            for (r65 r65Var : this.i) {
-                if (r65Var.getToolId() == i) {
-                    return r65Var;
+            for (s65 s65Var : this.i) {
+                if (s65Var.getToolId() == i) {
+                    return s65Var;
                 }
             }
             return null;
         }
-        return (r65) invokeI.objValue;
+        return (s65) invokeI.objValue;
     }
 
     public final a r(int i) {
@@ -370,8 +370,8 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             for (a aVar : this.j) {
-                w65 w65Var = aVar.a;
-                if (w65Var != null && w65Var.getToolId() == i) {
+                x65 x65Var = aVar.a;
+                if (x65Var != null && x65Var.getToolId() == i) {
                     return aVar;
                 }
             }
@@ -390,9 +390,9 @@ public class EditorBar extends RawLayout {
     public void setBarLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            for (r65 r65Var : this.i) {
-                if (r65Var != null && (r65Var instanceof View)) {
-                    ((View) r65Var).setEnabled(z);
+            for (s65 s65Var : this.i) {
+                if (s65Var != null && (s65Var instanceof View)) {
+                    ((View) s65Var).setEnabled(z);
                 }
             }
         }
@@ -419,10 +419,10 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public void k(w65 w65Var, int i, boolean z) {
+    public void k(x65 x65Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{w65Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.j.add(new a(w65Var, i, z));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{x65Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.j.add(new a(x65Var, i, z));
         }
     }
 
@@ -437,9 +437,9 @@ public class EditorBar extends RawLayout {
             m(true);
             boolean z = false;
             for (int i2 = 0; i2 < this.i.size(); i2++) {
-                r65 r65Var = this.i.get(i2);
-                if (r65Var instanceof BLauncher) {
-                    BLauncher bLauncher = (BLauncher) r65Var;
+                s65 s65Var = this.i.get(i2);
+                if (s65Var instanceof BLauncher) {
+                    BLauncher bLauncher = (BLauncher) s65Var;
                     int i3 = this.p;
                     int i4 = 2;
                     if (i3 == 2) {
@@ -549,7 +549,7 @@ public class EditorBar extends RawLayout {
                     } else {
                         layoutParams.a(2);
                     }
-                    if (((w65) view2).getToolId() == 8) {
+                    if (((x65) view2).getToolId() == 8) {
                         SkinManager.setBackgroundResource(this, R.color.common_color_10055);
                         view2.setBackgroundColor(getResources().getColor(R.color.white_alpha0));
                     }
@@ -609,10 +609,10 @@ public class EditorBar extends RawLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            for (r65 r65Var : this.i) {
-                if (r65Var instanceof View) {
-                    View view2 = (View) r65Var;
-                    if (r65Var.getToolId() == i) {
+            for (s65 s65Var : this.i) {
+                if (s65Var instanceof View) {
+                    View view2 = (View) s65Var;
+                    if (s65Var.getToolId() == i) {
                         return view2;
                     }
                 }
@@ -623,10 +623,10 @@ public class EditorBar extends RawLayout {
     }
 
     public void w(View.OnClickListener onClickListener) {
-        List<r65> list;
+        List<s65> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) && (list = this.i) != null && list.size() != 0) {
-            Iterator<r65> it = this.i.iterator();
+            Iterator<s65> it = this.i.iterator();
             while (it.hasNext()) {
                 ((View) it.next()).setOnClickListener(onClickListener);
             }
@@ -653,13 +653,13 @@ public class EditorBar extends RawLayout {
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.k = i;
             SkinManager.setBackgroundColor(this, this.n);
-            for (r65 r65Var : this.i) {
-                r65Var.onChangeSkinType(i);
+            for (s65 s65Var : this.i) {
+                s65Var.onChangeSkinType(i);
             }
             for (a aVar : this.j) {
-                w65 w65Var = aVar.a;
-                if (w65Var != null) {
-                    w65Var.onChangeSkinType(i);
+                x65 x65Var = aVar.a;
+                if (x65Var != null) {
+                    x65Var.onChangeSkinType(i);
                 }
             }
             invalidate();
@@ -668,11 +668,11 @@ public class EditorBar extends RawLayout {
 
     public final boolean u() {
         InterceptResult invokeV;
-        w65 w65Var;
+        x65 x65Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             for (a aVar : this.j) {
-                if (aVar.b == 5 && (w65Var = aVar.a) != null && (w65Var instanceof View) && ((View) w65Var).getVisibility() == 0) {
+                if (aVar.b == 5 && (x65Var = aVar.a) != null && (x65Var instanceof View) && ((View) x65Var).getVisibility() == 0) {
                     return true;
                 }
             }

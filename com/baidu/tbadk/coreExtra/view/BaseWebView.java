@@ -28,13 +28,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aq4;
+import com.baidu.tieba.aq8;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.xp8;
-import com.baidu.tieba.zp4;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.yp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,12 +47,12 @@ public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String USER_SKIN_OVERLAY = "user_skin_overlay=1";
     public transient /* synthetic */ FieldHolder $fh;
-    public zp8 jsCallback;
+    public aq8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public xp8 mJsBridge;
+    public yp8 mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -107,7 +107,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements zp8 {
+    public class a implements aq8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -130,15 +130,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.zp8
+        @Override // com.baidu.tieba.aq8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                xp8 xp8Var = baseWebView.mJsBridge;
-                if (xp8Var != null) {
-                    return xp8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                yp8 yp8Var = baseWebView.mJsBridge;
+                if (yp8Var != null) {
+                    return yp8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -238,7 +238,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                zp4.a("BaseWebView", webView);
+                aq4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -512,10 +512,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(zp8 zp8Var) {
+    public void setOnJsPromptCallback(aq8 aq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, zp8Var) == null) {
-            this.jsCallback = zp8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aq8Var) == null) {
+            this.jsCallback = aq8Var;
         }
     }
 
@@ -596,10 +596,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        xp8 xp8Var;
+        yp8 yp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) && (xp8Var = this.mJsBridge) != null) {
-            xp8Var.h(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) && (yp8Var = this.mJsBridge) != null) {
+            yp8Var.h(getWebView(), str, hashMap);
         }
     }
 
@@ -623,7 +623,7 @@ public class BaseWebView extends WebView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65553, this) == null) && (view2 = this.skinOverlayView) != null) {
             view2.setVisibility(0);
-            pw4.d(this.skinOverlayView).f(R.color.CAM_X0503);
+            qw4.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -660,10 +660,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        xp8 xp8Var;
+        yp8 yp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (xp8Var = this.mJsBridge) != null) {
-            xp8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (yp8Var = this.mJsBridge) != null) {
+            yp8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -677,7 +677,7 @@ public class BaseWebView extends WebView {
             sp4.a(getSettings());
             this.mWebViewClient = new c(this);
             this.mWebChromeClient = new k(this, null);
-            this.mJsBridge = new xp8();
+            this.mJsBridge = new yp8();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -716,7 +716,7 @@ public class BaseWebView extends WebView {
             }
             View view2 = this.skinOverlayView;
             if (view2 != null) {
-                pw4.d(view2).f(R.color.CAM_X0503);
+                qw4.d(view2).f(R.color.CAM_X0503);
             }
         }
     }

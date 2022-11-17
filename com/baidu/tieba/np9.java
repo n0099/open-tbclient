@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 /* loaded from: classes5.dex */
-public class np9 extends wo9<TTSplashAd> {
+public class np9 extends xo9<TTRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public np9(TTSplashAd tTSplashAd) {
-        super(tTSplashAd);
+    public np9(TTRewardVideoAd tTRewardVideoAd) {
+        super(tTRewardVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTSplashAd};
+            Object[] objArr = {tTRewardVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,13 +32,13 @@ public class np9 extends wo9<TTSplashAd> {
         }
     }
 
-    @Override // com.baidu.tieba.wo9
+    @Override // com.baidu.tieba.xo9
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.b.isEmpty()) {
-                this.b = (String) ((TTSplashAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
             return this.b;
         }

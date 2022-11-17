@@ -42,12 +42,12 @@ public final class kv extends jv {
 
             /* renamed from: com.baidu.tieba.kv$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class View$OnClickListenerC0328a implements View.OnClickListener {
+            public class View$OnClickListenerC0331a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0328a(a aVar) {
+                public View$OnClickListenerC0331a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class kv extends jv {
                     kv.b.setView(this.a.b);
                     kv.b.setGravity(81, 0, this.a.c);
                     sv.m(kv.b, R.style.obfuscated_res_0x7f10041a);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0328a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0331a(this));
                     kv.b.show();
                 }
             }
@@ -147,12 +147,12 @@ public final class kv extends jv {
 
         /* renamed from: com.baidu.tieba.kv$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0327a implements Runnable {
+        public class RunnableC0330a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0327a(a aVar) {
+            public RunnableC0330a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,7 +207,7 @@ public final class kv extends jv {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kv.c.post(new RunnableC0327a(this));
+                kv.c.post(new RunnableC0330a(this));
             }
         }
     }

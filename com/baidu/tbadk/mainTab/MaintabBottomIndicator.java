@@ -25,12 +25,12 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.qn8;
-import com.baidu.tieba.sa5;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.rn8;
 import com.baidu.tieba.ta5;
-import com.baidu.tieba.va5;
+import com.baidu.tieba.ua5;
+import com.baidu.tieba.wa5;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ import java.util.Set;
 public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ta5 A;
+    public ua5 A;
     public int g;
     public View h;
     public View i;
@@ -65,7 +65,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public boolean v;
     public boolean w;
     public int x;
-    public sa5 y;
+    public ta5 y;
     public boolean z;
 
     public void setShowIconType(int i) {
@@ -168,7 +168,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                if (this.b.y == null || !va5.d().b()) {
+                if (this.b.y == null || !wa5.d().b()) {
                     this.b.m.setVisibility(0);
                 }
                 if (!xi.isEmpty(this.a)) {
@@ -214,12 +214,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             setText(R.string.obfuscated_res_0x7f0f0889);
             if (z) {
                 this.j.playAnimation();
-                pw4.d(this.k).A(R.string.F_X02);
+                qw4.d(this.k).A(R.string.F_X02);
                 return;
             }
             this.j.cancelAnimation();
             this.j.setFrame(0);
-            pw4.d(this.k).A(R.string.F_X01);
+            qw4.d(this.k).A(R.string.F_X01);
         }
     }
 
@@ -300,10 +300,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void setDynamicIconData(sa5 sa5Var) {
+    public void setDynamicIconData(ta5 ta5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, sa5Var) == null) {
-            this.y = sa5Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, ta5Var) == null) {
+            this.y = ta5Var;
             A();
         }
     }
@@ -347,12 +347,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ta5 ta5Var = this.A;
-            if (ta5Var != null) {
+            ua5 ua5Var = this.A;
+            if (ua5Var != null) {
                 if (this.z) {
-                    return ta5Var.h();
+                    return ua5Var.h();
                 }
-                return ta5Var.g();
+                return ua5Var.g();
             }
             return null;
         }
@@ -381,7 +381,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            py4.k().w("key_lottie_show_count", py4.k().l("key_lottie_show_count", 0) + 1);
+            qy4.k().w("key_lottie_show_count", qy4.k().l("key_lottie_show_count", 0) + 1);
         }
     }
 
@@ -406,8 +406,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (System.currentTimeMillis() > py4.k().m("key_lottie_show_expired_time", 0L)) {
-                py4.k().w("key_lottie_show_count", 0);
+            if (System.currentTimeMillis() > qy4.k().m("key_lottie_show_expired_time", 0L)) {
+                qy4.k().w("key_lottie_show_count", 0);
             }
         }
     }
@@ -467,7 +467,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     public final void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.y != null && va5.d().b()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.y != null && wa5.d().b()) {
             this.j.setVisibility(8);
             this.l.setVisibility(4);
             this.m.setVisibility(8);
@@ -490,7 +490,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             this.l.startAnimation(scaleAnimation);
             this.l.setVisibility(4);
             this.j.setVisibility(0);
-            py4.k().w("key_lottie_show_count", 4);
+            qy4.k().w("key_lottie_show_count", 4);
         }
     }
 
@@ -514,14 +514,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void r(boolean z, ta5 ta5Var) {
+    public void r(boolean z, ua5 ua5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048594, this, z, ta5Var) == null) {
-            this.A = ta5Var;
+        if (interceptable == null || interceptable.invokeZL(1048594, this, z, ua5Var) == null) {
+            this.A = ua5Var;
             if (z) {
-                s(4, ta5Var);
+                s(4, ua5Var);
             } else {
-                s(this.q, ta5Var);
+                s(this.q, ua5Var);
             }
         }
     }
@@ -586,7 +586,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
             if (z) {
-                pw4.d(this.k).A(R.string.F_X02);
+                qw4.d(this.k).A(R.string.F_X02);
                 this.m.setVisibility(8);
                 this.j.playAnimation();
                 HashMap<String, TbFragmentTabIndicator.a> hashMap = this.u;
@@ -600,7 +600,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             } else {
                 this.j.cancelAnimation();
                 this.j.setFrame(0);
-                pw4.d(this.k).A(R.string.F_X01);
+                qw4.d(this.k).A(R.string.F_X01);
             }
             if (this.A != null) {
                 z();
@@ -613,12 +613,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if ((interceptable != null && interceptable.invokeZ(1048599, this, z) != null) || this.l == null) {
             return;
         }
-        String q = py4.k().q("sync_send_maintab_my_tab_lottie_url", "");
+        String q = qy4.k().q("sync_send_maintab_my_tab_lottie_url", "");
         if (xi.isEmpty(q) && z) {
             return;
         }
         q();
-        if (!TimeHelper.isInTimeBlock(py4.k().m("sync_send_maintab_my_tab_lottie_start_time", 0L), py4.k().m("sync_send_maintab_my_tab_lottie_end_time", 0L)) || py4.k().l("key_lottie_show_count", 0) >= 3) {
+        if (!TimeHelper.isInTimeBlock(qy4.k().m("sync_send_maintab_my_tab_lottie_start_time", 0L), qy4.k().m("sync_send_maintab_my_tab_lottie_end_time", 0L)) || qy4.k().l("key_lottie_show_count", 0) >= 3) {
             return;
         }
         this.l.playAnimation();
@@ -631,8 +631,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int l = py4.k().l("key_lottie_show_count", 0);
-            py4.k().x("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
+            int l = qy4.k().l("key_lottie_show_count", 0);
+            qy4.k().x("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
             TBLottieAnimationView tBLottieAnimationView = this.l;
             tBLottieAnimationView.setFrame(tBLottieAnimationView.getFrame());
             if (l >= 3) {
@@ -660,7 +660,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && this.k != null) {
             String dynamicTextColor = getDynamicTextColor();
             if (StringUtils.isNotNull(dynamicTextColor)) {
-                this.k.setTextColor(qn8.f(dynamicTextColor));
+                this.k.setTextColor(rn8.f(dynamicTextColor));
             }
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.k.getLayoutParams();
             marginLayoutParams.topMargin = -yi.g(getContext(), R.dimen.L_X04);
@@ -772,9 +772,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void s(int i, ta5 ta5Var) {
+    public void s(int i, ua5 ua5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i, ta5Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048595, this, i, ua5Var) == null) {
             if (this.A != null) {
                 z();
                 SkinManager.setBackgroundColor(this.o, R.color.transparent, i);

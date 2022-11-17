@@ -11,34 +11,23 @@ import org.json.JSONObject;
 public class ic6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public void b(String str) {
+    public void c(jc6 jc6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jc6Var) == null) {
         }
     }
 
-    public void c(String str) {
+    public void d(jc6 jc6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jc6Var) == null) {
         }
     }
 
-    public void d(String str) {
+    public void f(jc6 jc6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, jc6Var) == null) {
         }
     }
 
@@ -56,7 +45,16 @@ public class ic6 {
         }
     }
 
-    public static ic6 a(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static ic6 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -64,13 +62,19 @@ public class ic6 {
                 return null;
             }
             ic6 ic6Var = new ic6();
-            ic6Var.b(jSONObject.optString("common_color"));
-            ic6Var.c(jSONObject.optString("dark_color"));
-            ic6Var.d(jSONObject.optString("font_color"));
-            ic6Var.e(jSONObject.optString("light_color"));
-            ic6Var.f(jSONObject.optString("pattern_image"));
+            ic6Var.d(jc6.a(jSONObject.optJSONObject("day")));
+            ic6Var.c(jc6.a(jSONObject.optJSONObject("dark")));
+            ic6Var.f(jc6.a(jSONObject.optJSONObject("night")));
+            ic6Var.e(jSONObject.toString());
             return ic6Var;
         }
         return (ic6) invokeL.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,128 +18,11 @@ public class rd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public RecommendForumLayout b;
-    public View.OnClickListener c;
-    public PullLeftRefreshLayout.f d;
-    public jq4 e;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd6 a;
-
-        public a(rd6 rd6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rd6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rd6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wa6.b(this.a.a, null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements PullLeftRefreshLayout.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd6 a;
-
-        public b(rd6 rd6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rd6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rd6Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wa6.b(this.a.a, null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements jq4<gu4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd6 a;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jq4
-        /* renamed from: a */
-        public void d(View view2, gu4 gu4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, gu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        public c(rd6 rd6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rd6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rd6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jq4
-        /* renamed from: b */
-        public void c(View view2, gu4 gu4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, gu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (gu4Var == null) {
-                    wa6.b(this.a.a, null);
-                    return;
-                }
-                String l = gu4Var.l();
-                if (!xi.isForumName(l)) {
-                    return;
-                }
-                this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-            }
-        }
-    }
+    public View b;
+    public ViewGroup c;
+    public ImageView d;
+    public TextView e;
+    public TextView f;
 
     public rd6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -155,34 +39,33 @@ public class rd6 {
                 return;
             }
         }
-        this.c = new a(this);
-        this.d = new b(this);
-        this.e = new c(this);
         this.a = tbPageContext;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.b = recommendForumLayout;
-        recommendForumLayout.setShowMore(true);
-        this.b.setSquareEntranceAtStart(true);
-        this.b.setTabName(null);
-        this.b.setFrom(0);
-        this.b.setOnClickRightArrowListener(this.c);
-        this.b.setOnRullOkCallbackr(this.d);
-        this.b.setOnItemCoverListener(this.e);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0677, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090fd5);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eba);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da6);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da7);
+        this.e.setText(R.string.obfuscated_res_0x7f0f0cb0);
+        this.f.setText(R.string.obfuscated_res_0x7f0f0cb1);
     }
 
-    public void b(hu4 hu4Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hu4Var) == null) {
-            this.b.a(hu4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(yi.g(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(yi.g(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(yi.g(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(yi.g(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
         }
     }
 
-    public RecommendForumLayout c() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (RecommendForumLayout) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 }

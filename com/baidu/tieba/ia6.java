@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ia6 implements ca6 {
+public class ia6 implements da6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ca6
+    @Override // com.baidu.tieba.da6
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
     }
 
     public ia6() {
@@ -33,14 +33,14 @@ public class ia6 implements ca6 {
         }
     }
 
-    @Override // com.baidu.tieba.ca6
+    @Override // com.baidu.tieba.da6
     public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
             try {
-                ba6.f().i(str2, str3);
+                ca6.f().h(str2);
             } catch (Throwable unused) {
-                ba6.f().e();
+                ca6.f().e();
             }
         }
     }

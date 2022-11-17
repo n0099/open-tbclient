@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.s06;
+import com.baidu.tieba.t06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public s06 e;
+    public t06 e;
 
     public void q1(String str) {
         Interceptable interceptable = $ic;
@@ -88,9 +88,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            s06 s06Var = this.e;
-            if (s06Var != null) {
-                s06Var.m(i);
+            t06 t06Var = this.e;
+            if (t06Var != null) {
+                t06Var.m(i);
             }
         }
     }
@@ -100,9 +100,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            s06 s06Var = this.e;
-            if (s06Var != null) {
-                s06Var.m(i);
+            t06 t06Var = this.e;
+            if (t06Var != null) {
+                t06Var.m(i);
             }
         }
     }
@@ -144,9 +144,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            s06 s06Var = new s06(pageContext, true);
-            this.e = s06Var;
-            s06Var.s(this.c);
+            t06 t06Var = new t06(pageContext, true);
+            this.e = t06Var;
+            t06Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

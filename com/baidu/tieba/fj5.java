@@ -1,327 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 public class fj5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile fj5 e = null;
-    public static String f = "ad_download_center";
-    public static int g = 3;
-    public static int h = 4;
-    public static String i = "MYPAGE_TAB";
-    public static String j = "POINT_VISIBLE";
-    public static String k = "POINT_GONE";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public String c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947766072, "Lcom/baidu/tieba/fj5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947766072, "Lcom/baidu/tieba/fj5;");
-        }
-    }
-
-    public fj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.c = TbadkCoreApplication.getCurrentAccount();
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
-        this.a = sharedPreferences;
-        this.b = sharedPreferences.edit();
-    }
-
-    public static fj5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (fj5.class) {
-                    if (e == null) {
-                        e = new fj5();
-                    }
-                }
-            }
-            return e;
-        }
-        return (fj5) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && f()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
-            r(i, false);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public boolean i(String str) {
+    public static Boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null && !str.equals("")) {
-                try {
-                    if (new File(str).exists()) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return Boolean.FALSE;
             }
-            return false;
+            if (!xi.isEquals(fk5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
+                str = URLDecoder.decode(str);
+            }
+            String c = fk5.c(str, "topic_id=");
+            String c2 = fk5.c(str, "topic_name=");
+            String c3 = fk5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+            String c4 = fk5.c(str, "nonavigationbar=");
+            if ((c != null || c2 != null) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        return invokeL.booleanValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public boolean j(String str) {
+    public static Boolean b(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && !"".equals(str)) {
-                try {
-                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            if (uri != null && uri.toString() != null) {
+                if (fk5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
+                    return Boolean.TRUE;
                 }
+                return Boolean.FALSE;
             }
-            return false;
+            return Boolean.FALSE;
         }
-        return invokeL.booleanValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public void k(boolean z) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                n(true);
-                b();
-                g();
-                return;
-            }
-            n(false);
-            p();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return fk5.c(str, "topic_id=");
         }
+        return (String) invokeL.objValue;
     }
 
-    public void l(String str) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0 && e2.containsKey(str)) {
-                e2.remove(str);
-                m(e2);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return fk5.c(str, "hottopic_detail_hybrid-");
         }
+        return (String) invokeL.objValue;
     }
 
-    public void n(boolean z) {
+    public static void e(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
+            return;
         }
-    }
-
-    public HashMap<String, String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    JSONArray names = jSONObject.names();
-                    if (names != null) {
-                        for (int i3 = 0; i3 < names.length(); i3++) {
-                            String string = names.getString(i3);
-                            hashMap.put(string, jSONObject.getString(string));
-                        }
-                    }
-                }
-                return hashMap;
-            } catch (JSONException unused) {
-                return null;
-            }
+        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
+        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+        sb.append("1");
+        sb.append("&nonavigationbar=");
+        sb.append("1");
+        sb.append("&from=");
+        sb.append("1");
+        if (str != null) {
+            sb.append("&topic_id=");
+            sb.append(str);
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, String> e2 = e();
-            if (e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
-                        break;
-                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (str2 != null) {
+            sb.append("&topic_name=");
+            sb.append(str2);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && str.length() > 0 && i(str)) {
-            File file = new File(str);
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(UtilHelper.getUriFromFile(file, intent, TbadkCoreApplication.getInst()), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                TbadkCoreApplication.getInst().startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void m(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                }
-            }
-            jSONArray.put(jSONObject);
-            this.b.putString(this.c, jSONArray.toString());
-            this.b.commit();
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (entry != null && e2.containsKey(str)) {
-                        if (z) {
-                            e2.put(str, j);
-                        } else {
-                            e2.put(str, k);
-                        }
-                        m(e2);
-                    }
-                }
-            }
-        }
+        sb.append("&skin=");
+        sb.append(SkinManager.getCurrentSkinTypeString());
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

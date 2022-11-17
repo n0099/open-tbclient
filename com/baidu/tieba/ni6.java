@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,76 +24,21 @@ public class ni6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public final BdUniqueId b;
-    public b c;
-    public qb d;
+    public final View b;
+    public final RelativeLayout c;
+    public final EditText d;
+    public final ImageView e;
+    public final TextView f;
+    public final BdTypeListView g;
+    public final ImageView h;
+    public int i;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, ri6 ri6Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ni6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ni6 ni6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ni6Var;
-        }
-
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                ri6 ri6Var = null;
-                boolean z = false;
-                if (responsedMessage != null && !responsedMessage.hasError() && responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() == this.a.b) {
-                    if (responsedMessage instanceof SearchPostForumHttpResponseMessage) {
-                        ri6Var = ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
-                        ri6Var = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (this.a.c != null) {
-                        b bVar = this.a.c;
-                        if (ri6Var != null) {
-                            z = true;
-                        }
-                        bVar.a(z, ri6Var);
-                    }
-                } else if (this.a.c != null) {
-                    this.a.c.a(false, null);
-                }
-            }
-        }
-    }
-
-    public ni6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ni6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -98,42 +48,53 @@ public class ni6 {
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.d = aVar;
+        this.i = 3;
         this.a = tbPageContext;
-        this.b = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.d);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02cb, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e2f);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e32);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090dc8);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090db8);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f110b);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db7);
+        this.f = textView;
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0377));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091e33);
+        a();
+        b(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void c() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = yi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
+            int g = yi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = g;
+            layoutParams.leftMargin = g;
+            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
+            if (immersiveStickyBarHeight > 0) {
+                layoutParams.topMargin = immersiveStickyBarHeight;
+            }
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
-    public void d(String str) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.i == i) {
             return;
         }
-        if (!yi.F()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
-            return;
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809fe, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (i == 2) {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         }
-        c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
-        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.b);
-        searchPostForumRequestMessage.set_word(str);
-        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
+        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i = i;
     }
 }

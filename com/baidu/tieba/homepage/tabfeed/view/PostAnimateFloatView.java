@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.r57;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.s57;
 import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                r57.g();
+                s57.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -474,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                pw4 d2 = pw4.d(linearLayout);
+                qw4 d2 = qw4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class so8 {
     public static /* synthetic */ Interceptable $ic;
@@ -12,7 +12,12 @@ public class so8 {
     public String a;
     public String b;
     public String c;
-    public Integer d;
+    public String d;
+    public String e;
+    public to8 f;
+    public String g;
+    public int h;
+    public List<String> i;
 
     public so8() {
         Interceptable interceptable = $ic;
@@ -26,17 +31,5 @@ public class so8 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(SmartApp smartApp) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, smartApp) != null) || smartApp == null) {
-            return;
-        }
-        String str = smartApp.avatar;
-        this.a = smartApp.name;
-        this.b = smartApp.id;
-        this.c = smartApp.link;
-        this.d = smartApp.is_game;
     }
 }

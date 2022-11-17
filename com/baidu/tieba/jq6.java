@@ -1,82 +1,160 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jq6 extends oa5 {
+public class jq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.oa5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes4.dex */
+    public static class a implements kv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public jq6(FrsFragment frsFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b().a = frsFragment;
+
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, kv4Var) != null) || kv4Var == null) {
+                return;
+            }
+            kv4Var.dismiss();
+        }
     }
 
-    @Override // com.baidu.tieba.oa5
-    public pa5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pa5 pa5Var = new pa5();
-            pa5Var.e = 1;
-            pa5Var.b = R.string.obfuscated_res_0x7f0f03e9;
-            pa5Var.i = pa5.k;
-            return pa5Var;
+    /* loaded from: classes4.dex */
+    public static class b implements kv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ BlockPopInfoData b;
+
+        public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, blockPopInfoData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = blockPopInfoData;
         }
-        return (pa5) invokeV.objValue;
+
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.ahead_url});
+                if (kv4Var == null) {
+                    return;
+                }
+                kv4Var.dismiss();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.oa5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
+        InterceptResult invokeLL;
+        String fixedText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, frsViewData)) == null) {
+            if (tbPageContext != null && frsViewData != null) {
+                if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                    return true;
+                }
+                AntiData anti = frsViewData.getAnti();
+                if (anti != null) {
+                    if (b(tbPageContext, anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
+                        return true;
+                    }
+                    if (anti.getIfpost() == 0 && !StringUtils.isNull(anti.getForbid_info())) {
+                        String forbid_info = anti.getForbid_info();
+                        if (StringHelper.getRealSize(forbid_info) > 14) {
+                            forbid_info = StringHelper.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
+                        }
+                        BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), forbid_info);
+                        b2.f(BdToast.ToastIcon.FAILURE);
+                        b2.d(1.25f);
+                        b2.i();
+                    }
+                }
+            }
+            return false;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void g(gk6 gk6Var) {
+    public static boolean b(TbPageContext<?> tbPageContext, int i, BlockPopInfoData blockPopInfoData) {
+        InterceptResult invokeLIL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, gk6Var) != null) || gk6Var == null || !gk6Var.h(1)) {
-            return;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, tbPageContext, i, blockPopInfoData)) == null) {
+            if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
+                return false;
+            }
+            if (StringUtils.isNull(blockPopInfoData.block_info)) {
+                str = tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f06ff);
+            } else {
+                str = blockPopInfoData.block_info;
+            }
+            if (i != 1 && i != 2) {
+                BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), str);
+                b2.f(BdToast.ToastIcon.FAILURE);
+                b2.d(1.25f);
+                b2.i();
+                return false;
+            }
+            kv4 kv4Var = new kv4(tbPageContext.getPageActivity());
+            kv4Var.setMessage(StringHelper.getFixedText(str, 50, true));
+            if (StringUtils.isNull(blockPopInfoData.ok_info)) {
+                str2 = tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0824);
+            } else {
+                str2 = blockPopInfoData.ok_info;
+            }
+            kv4Var.setNegativeButton(StringHelper.getFixedText(str2, 4, true), new a());
+            if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
+                kv4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
+            }
+            kv4Var.create(tbPageContext).show();
+            return true;
         }
-        gk6Var.a(this);
+        return invokeLIL.booleanValue;
     }
 }

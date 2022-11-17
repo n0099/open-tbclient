@@ -11,7 +11,7 @@ import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
 import com.baidu.tieba.eh3;
 import com.baidu.tieba.iq3;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.pt5;
+import com.baidu.tieba.qt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,7 +101,7 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        pt5.a();
+        qt5.a();
         iq3.a(uri);
     }
 

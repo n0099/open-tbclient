@@ -1,25 +1,169 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.app.Activity;
+import android.util.LongSparseArray;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes3.dex */
 public class dv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public ev6 a;
+    public LongSparseArray<Integer> b;
+    public hq6 c;
+    public cv6 d;
+    public Runnable e;
+    public FrsFragment f;
+    public boolean g;
+    public boolean h;
+    public bo8 i;
+    public CustomMessageListener j;
 
-    public dv6() {
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xv6 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(dv6 dv6Var, xv6 xv6Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv6Var, xv6Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xv6Var;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                xv6 xv6Var = this.a;
+                if (xv6Var != null) {
+                    xv6Var.o(this.b, this.c);
+                }
+                TiebaStatic.log(new StatisticItem("c13982").param("fid", this.c).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ dv6 b;
+
+        public b(dv6 dv6Var, ForumData forumData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv6Var, forumData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dv6Var;
+            this.a = forumData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.h) {
+                    this.b.q(this.a.getName(), this.a.getId(), this.a.getImage_url(), true);
+                } else {
+                    this.b.g = true;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dv6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(dv6 dv6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dv6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                if (customResponsedMessage.getData() instanceof ForumData) {
+                    this.a.i((ForumData) customResponsedMessage.getData());
+                } else if (customResponsedMessage.getData() instanceof Long) {
+                    long longValue = ((Long) customResponsedMessage.getData()).longValue();
+                    if (this.a.l(longValue) && this.a.d(longValue) >= 3) {
+                        this.a.e(longValue);
+                        this.a.g = true;
+                    }
+                }
+            }
+        }
+    }
+
+    public dv6(FrsFragment frsFragment, bo8 bo8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, bo8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,112 +173,230 @@ public class dv6 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        this.a = null;
+        this.g = false;
+        this.h = false;
+        this.j = new c(this, 2921498);
+        this.a = new ev6();
+        this.b = new LongSparseArray<>();
+        this.f = frsFragment;
+        this.i = bo8Var;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public dv6(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !"0".equals(str) && !"0".equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || !a(str, str2)) {
-            return;
-        }
-        String str3 = str + '_' + str2;
-        Set<String> keySet = this.a.getAll().keySet();
-        SharedPreferences.Editor edit = this.a.edit();
-        for (String str4 : keySet) {
-            if (str4.startsWith(str3)) {
-                edit.remove(str4);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        edit.apply();
+        this.a = null;
+        this.g = false;
+        this.h = false;
+        this.j = new c(this, 2921498);
+        this.d = new cv6(str, str2);
     }
 
-    public long c(String str, String str2) {
-        InterceptResult invokeLL;
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
-            }
-            return this.a.getLong(str + '_' + str2 + "_visit_time", 0L);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j != 0) {
+            this.b.remove(j);
         }
-        return invokeLL.longValue;
     }
 
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean l(long j) {
+        InterceptResult invokeJ;
+        ForumData forum;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!a(str, str2)) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            bo8 bo8Var = this.i;
+            if (bo8Var == null || j == 0 || (forum = bo8Var.getForum()) == null || xg.g(forum.getId(), 0L) != j) {
                 return false;
             }
-            return this.a.getBoolean(str + '_' + str2 + "_show", false);
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            this.a.b(str, str2);
+        }
+    }
+
+    public int d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j == 0) {
+                return 0;
+            }
+            Integer num = this.b.get(j);
+            if (num == null) {
+                this.b.put(j, 1);
+                return 1;
+            }
+            this.b.put(j, Integer.valueOf(num.intValue() + 1));
+            return num.intValue() + 1;
+        }
+        return invokeJ.intValue;
+    }
+
+    public void g() {
+        hq6 hq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hq6Var = this.c) != null) {
+            hq6Var.m();
+        }
+    }
+
+    public ev6 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (ev6) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ah.a().removeCallbacks(this.e);
+        }
+    }
+
+    public void h(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, forumData) != null) || forumData == null) {
+            return;
+        }
+        boolean z = false;
+        if (q(forumData.getName(), forumData.getId(), forumData.getImage_url(), false)) {
+            if (this.e != null) {
+                ah.a().removeCallbacks(this.e);
+            }
+            z = true;
+        }
+        if (z) {
+            return;
+        }
+        Runnable runnable = this.e;
+        if (runnable == null) {
+            runnable = new b(this, forumData);
+        }
+        this.e = runnable;
+        ah.a().postDelayed(this.e, 60000L);
+    }
+
+    public void i(ForumData forumData) {
+        FrsFragment frsFragment;
+        bo8 bo8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, forumData) == null) && (frsFragment = this.f) != null && frsFragment.n0() != null) {
+            if (forumData == null && (bo8Var = this.i) != null) {
+                forumData = bo8Var.getForum();
+            }
+            if (forumData != null && forumData.isLike() != 1) {
+                if (!this.h) {
+                    this.g = true;
+                } else if (q(forumData.getName(), forumData.getId(), forumData.getImage_url(), false) && this.e != null) {
+                    ah.a().removeCallbacks(this.e);
+                }
+            }
+        }
+    }
+
+    public void o(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048587, this, activity, str, str2) == null) && activity != null && this.d.c()) {
+            if (this.c == null) {
+                this.c = new hq6(activity, R.id.obfuscated_res_0x7f090b63);
+            }
+            this.c.p(str);
+            this.c.q(str2);
+            this.c.r();
+        }
+    }
+
+    public boolean p(String str, String str2) {
+        InterceptResult invokeLL;
+        ev6 ev6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (ev6Var = this.a) == null) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - ev6Var.f(str, str2);
+            if (currentTimeMillis < 3600000) {
+                return false;
+            }
+            if (this.a.e(str, str2) > 3 && currentTimeMillis < 2592000000L) {
+                return false;
+            }
+            long c2 = this.a.c(str, str2);
+            if (c2 != 0 && System.currentTimeMillis() - c2 <= 604800000) {
+                return true;
+            }
+            return this.a.d(str, str2);
         }
         return invokeLL.booleanValue;
     }
 
-    public int e(String str, String str2) {
-        InterceptResult invokeLL;
+    public final boolean q(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (!p(TbadkCoreApplication.getCurrentAccount(), str2) || (frsFragment = this.f) == null || frsFragment.n0() == null) {
+                return false;
             }
-            return this.a.getInt(str + '_' + str2 + "_show_cnt", 0);
+            this.g = false;
+            r(this.f.getActivity(), str, str2, str3, this.f.n0().C());
+            j().g(TbadkCoreApplication.getCurrentAccount(), str2, System.currentTimeMillis(), z);
+            return true;
         }
-        return invokeLL.intValue;
+        return invokeCommon.booleanValue;
     }
 
-    public long f(String str, String str2) {
-        InterceptResult invokeLL;
+    public void r(Activity activity, String str, String str2, String str3, xv6 xv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
-            }
-            return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
-        }
-        return invokeLL.longValue;
-    }
-
-    public void g(String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) != null) || !a(str, str2)) {
+        if ((interceptable != null && interceptable.invokeLLLLL(1048590, this, activity, str, str2, str3, xv6Var) != null) || activity == null) {
             return;
         }
-        String str3 = str + '_' + str2 + "_show_time";
-        String str4 = str + '_' + str2 + "_show_cnt";
-        int i = this.a.getInt(str4, 0);
-        SharedPreferences.Editor edit = this.a.edit();
-        if (i > 3) {
-            edit.putInt(str4, i + 1);
+        if (this.c == null) {
+            this.c = new hq6(activity, R.id.obfuscated_res_0x7f090b67);
         }
-        edit.putLong(str3, j);
-        if (z) {
-            edit.putBoolean(str + '_' + str2 + "_show", true);
+        if (!StringUtils.isNull(str3)) {
+            this.c.n(str3);
         }
-        edit.apply();
-    }
-
-    public void h(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) != null) || !a(str, str2)) {
-            return;
-        }
-        String str3 = str + '_' + str2 + "_visit_time";
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.putLong(str3, j);
-        edit.apply();
+        this.c.o(new a(this, xv6Var, str, str2));
+        this.c.s();
+        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

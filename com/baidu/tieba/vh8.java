@@ -1,39 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.gr5;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vh8 extends zh8 {
+public class vh8 extends ai8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView h;
     public TextView i;
-    public TextView j;
+    public ApkDownloadView j;
+    public boolean k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jh8 a;
-        public final /* synthetic */ vh8 b;
+        public final /* synthetic */ vh8 a;
 
-        public a(vh8 vh8Var, jh8 jh8Var) {
+        public a(vh8 vh8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vh8Var, jh8Var};
+                Object[] objArr = {vh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vh8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j.performClick();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements gr5.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh8 a;
+        public final /* synthetic */ vh8 b;
+
+        public b(vh8 vh8Var, kh8 kh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh8Var, kh8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,33 +78,27 @@ public class vh8 extends zh8 {
                 }
             }
             this.b = vh8Var;
-            this.a = jh8Var;
+            this.a = kh8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
+        @Override // com.baidu.tieba.gr5.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.b.b.getContext();
-                jh8 jh8Var = this.a;
-                String str2 = jh8Var.d;
-                String str3 = jh8Var.f;
-                AdvertAppInfo advertAppInfo = this.b.c;
-                if (advertAppInfo != null) {
-                    str = advertAppInfo.g;
-                } else {
-                    str = "";
-                }
-                hg8.a(context, str2, str3, str, this.a.j);
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
-                a11.b(clogBuilder);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 vh8 vh8Var = this.b;
-                if (vh8Var.d != null) {
-                    bj7.c(vh8Var.c);
+                if (vh8Var.k) {
+                    wq5.a(this.a.j);
+                } else {
+                    AdCard adCard = vh8Var.f;
+                    if (adCard != null) {
+                        wq5.a(adCard.getButtonCmdScheme());
+                    }
                 }
+                cj7.c(this.b.c);
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
@@ -93,34 +121,50 @@ public class vh8 extends zh8 {
                 return;
             }
         }
-        k();
+        l();
     }
 
-    @Override // com.baidu.tieba.zh8
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.ai8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.b();
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f081240, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+            this.j.setTextColorInitSkin(R.color.CAM_X0101);
+            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081240);
+            this.j.c();
         }
     }
 
-    @Override // com.baidu.tieba.zh8
-    public void c(jh8 jh8Var) {
+    @Override // com.baidu.tieba.ai8
+    public void c(kh8 kh8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jh8Var) == null) {
-            super.c(jh8Var);
-            this.h.K(jh8Var.c, 10, false);
-            this.i.setText(jh8Var.b);
-            this.j.setText(jh8Var.e);
-            this.b.setOnClickListener(new a(this, jh8Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kh8Var) == null) {
+            super.c(kh8Var);
+            this.h.K(kh8Var.c, 10, false);
+            this.i.setText(kh8Var.b);
+            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+            this.j.setInitText(kh8Var.e);
+            if (this.c != null) {
+                this.b.setOnClickListener(new a(this));
+                this.j.setOnClickInterceptListener(new b(this, kh8Var));
+                AdCard adCard = this.f;
+                if (adCard != null) {
+                    new fr5(this.j, lh8.d(adCard));
+                }
+            }
             b();
         }
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092512);
@@ -129,7 +173,7 @@ public class vh8 extends zh8 {
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.i = (TextView) a(R.id.obfuscated_res_0x7f092505);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f090059);
+            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09085c);
         }
     }
 }

@@ -1,203 +1,42 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.switchs.FunAdSplashClickRegionSwitch;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
-import com.baidu.tieba.ra5;
-import com.baidu.tieba.xw6;
-import com.baidu.tieba.yq5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.advert.sdk.data.AdType;
+import com.baidu.tieba.advert.sdk.data.RedirectType;
+import com.baidu.tieba.advert.sdk.view.SplashAdView;
+import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ps5 implements gt5 {
+public class ps5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String m;
-    public static volatile boolean n;
-    public static volatile xw6.h o;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<ViewGroup> b;
-    public ViewGroup c;
-    public FrameLayout d;
-    public ViewGroup e;
-    public AdLoadState f;
-    public op4 g;
-    public ViewGroup.OnHierarchyChangeListener h;
-    public boolean i;
-    public long j;
-    public final SplashNativePolicy k;
-    public final xw6.i l;
-
-    @Override // com.baidu.tieba.gt5
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "bear" : (String) invokeV.objValue;
-    }
+    public e a;
+    public String b;
+    public WeakReference<SplashAdView> c;
 
     /* loaded from: classes5.dex */
-    public class e implements xw6.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ps5 a;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ int b;
-
-            public a(e eVar, String str, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, str, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = str;
-                this.b = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ps5.o != null) {
-                    ps5.o.a(this.a, this.b);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-
-            public b(e eVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ps5.o != null) {
-                    ps5.o.onError(this.a);
-                }
-            }
-        }
-
-        public e(ps5 ps5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ps5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ps5Var;
-        }
-
-        @Override // com.baidu.tieba.xw6.h
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (ps5.o == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("sid", str);
-                    hashMap.put("loadSize", Integer.valueOf(i));
-                    yq5.c().a(this.a.f(), "onAdLoaded", hashMap);
-                } else if (yi.E()) {
-                    ps5.o.a(str, i);
-                } else {
-                    ah.a().post(new a(this, str, i));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xw6.h
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (ps5.o == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("sid", str);
-                    yq5.c().a(this.a.f(), "onError", hashMap);
-                } else if (yi.E()) {
-                    ps5.o.onError(str);
-                } else {
-                    ah.a().post(new b(this, str));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends xw6.k {
+    public class a implements CustomMessageTask.CustomRunnable<w15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ps5 a;
@@ -220,97 +59,57 @@ public class ps5 implements gt5 {
             this.a = ps5Var;
         }
 
-        @Override // com.baidu.tieba.xw6.i
-        public void onAdClicked(String str, String str2, String str3) {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<w15> customMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                if (gt5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash BEAR ad onAdClicked : " + str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getCmd() == 2016310) {
+                    try {
+                        return new CustomResponsedMessage<>(2016310, this.a.f(customMessage.getData()));
+                    } catch (Exception unused) {
+                    }
                 }
-                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
-                if (this.a.g != null) {
-                    this.a.g.e(false, false, 6, str, str2, str3);
-                }
+                return null;
             }
-        }
-
-        @Override // com.baidu.tieba.xw6.i
-        public void onAdClose(String str) {
-            int hashCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadSplashSkipRecord("1");
-                if (this.a.g != null) {
-                    this.a.g.onAdDismiss();
-                }
-                int i = 1;
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1);
-                if (this.a.g == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = this.a.g.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
-                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 6).param("obj_type", "a064").param("obj_param1", 4).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                if (this.a.i) {
-                    i = 2;
-                }
-                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.j).eventStat();
-                if (gt5.a) {
-                    System.out.println("IAdSdkSplash bear ad onAdClose");
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xw6.i
-        public void onAdError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (gt5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash BEAR ad onAdError : " + str);
-                }
-                lt5.l(lt5.c, "1", null, null, str, null, this.a.j);
-                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "1", null, null, null, null, null, null, null);
-                if (this.a.g != null) {
-                    this.a.g.onAdDismiss();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xw6.i
-        public void onAdShow(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                if (gt5.a) {
-                    System.out.println("IAdSdkSplash BEAR ad onAdshow");
-                }
-                int i = 0;
-                this.a.g.g(false, false, 6);
-                lt5.l(lt5.c, "0", null, str2, str, str3, this.a.j);
-                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0);
-                if (this.a.g != null) {
-                    i = this.a.g.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, i));
-            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ra5.b {
+    public class b implements ws5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ SplashAdView a;
+        public final /* synthetic */ ps5 b;
 
-        public b(ps5 ps5Var, Context context) {
+        @Override // com.baidu.tieba.ws5
+        public void b(ss5 ss5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ss5Var) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ws5
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ws5
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public b(ps5 ps5Var, SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ps5Var, context};
+                Object[] objArr = {ps5Var, splashAdView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -320,25 +119,49 @@ public class ps5 implements gt5 {
                     return;
                 }
             }
-            this.a = context;
+            this.b = ps5Var;
+            this.a = splashAdView;
         }
 
-        @Override // com.baidu.tieba.ra5.b
-        public Object build() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ws5
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07fd, (ViewGroup) null, false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
+                statisticItem.param("obj_source", str);
+                TiebaStatic.log(statisticItem);
             }
-            return invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ws5
+        public void d() {
+            ts5 entryInfoData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                SplashAdView splashAdView = (SplashAdView) this.b.c.get();
+                if (splashAdView != null) {
+                    this.b.b = this.a.g();
+                    ps5 ps5Var = this.b;
+                    ps5Var.h(ps5Var.b);
+                }
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
+                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
+                    if (entryInfoData.d()) {
+                        statisticItem.param("obj_source", entryInfoData.e);
+                    } else {
+                        statisticItem.param("obj_source", entryInfoData.b);
+                    }
+                }
+                TiebaStatic.log(statisticItem);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements xw6.h {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ps5 a;
 
         public c(ps5 ps5Var) {
             Interceptable interceptable = $ic;
@@ -352,72 +175,23 @@ public class ps5 implements gt5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = ps5Var;
-        }
-
-        @Override // com.baidu.tieba.xw6.h
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (gt5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash BEAR ad onAdLoaded successed: " + str);
-                }
-                if (this.a.f == AdLoadState.FORCESHOW) {
-                    return;
-                }
-                if (this.a.g != null) {
-                    this.a.g.f(lt5.c, true);
-                }
-                FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                if (xw6.m().v(str)) {
-                    this.a.f = AdLoadState.SUCCEED;
-                    lt5.k(lt5.c, "0", null, null, 0, i, this.a.i, this.a.j);
-                } else {
-                    this.a.f = AdLoadState.FAILED;
-                    lt5.k(lt5.c, "1", str, null, 2, i, this.a.i, this.a.j);
-                    this.a.w();
-                }
-                if (this.a.k != null) {
-                    this.a.k.onSplashEvent(81);
-                }
-                kt5.e(this.a.j);
             }
         }
 
-        @Override // com.baidu.tieba.xw6.h
-        public void onError(String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (gt5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash BEAR ad onLoadError: " + str);
-                }
-                if (this.a.f == AdLoadState.FORCESHOW) {
-                    return;
-                }
-                if (this.a.g != null) {
-                    this.a.g.f(lt5.c, false);
-                }
-                FunAdRecordHttpMessage.uploadRequestRecord("a064", "1", null, null, "0");
-                lt5.k(lt5.c, "1", str, null, 1, 0, this.a.i, this.a.j);
-                this.a.f = AdLoadState.FAILED;
-                this.a.w();
-                if (this.a.k != null) {
-                    this.a.k.onSplashEvent(82);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements Runnable {
+    public class d implements CountDownTextView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ps5 a;
 
         public d(ps5 ps5Var) {
             Interceptable interceptable = $ic;
@@ -431,40 +205,31 @@ public class ps5 implements gt5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ps5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
+        public void onTimeout(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((ViewGroup) this.a.b.get()).removeView(this.a.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements ViewGroup.OnHierarchyChangeListener {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ps5 a;
+        public final WeakReference<CountDownTextView> a;
 
-        @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewRemoved(View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
-            }
-        }
-
-        public f(ps5 ps5Var) {
+        public e(CountDownTextView countDownTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ps5Var};
+                Object[] objArr = {countDownTextView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -474,285 +239,139 @@ public class ps5 implements gt5 {
                     return;
                 }
             }
-            this.a = ps5Var;
+            this.a = new WeakReference<>(countDownTextView);
         }
 
-        @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewAdded(View view2, View view3) {
+        public /* synthetic */ e(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
+
+        public void a(String str) {
+            CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) && this.a.e != null && this.a.e.getVisibility() != 0) {
-                this.a.e.setVisibility(0);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (countDownTextView = this.a.get()) != null) {
+                countDownTextView.d(str, 0);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072631, "Lcom/baidu/tieba/ps5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948072631, "Lcom/baidu/tieba/ps5;");
-                return;
-            }
-        }
-        m = xw6.p();
-        n = false;
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = this.d;
-            if (frameLayout != null && frameLayout.getChildCount() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public AdLoadState d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (AdLoadState) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xw6.m().d(m);
-            o = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || this.b == null || this.f != AdLoadState.SUCCEED) {
-            return;
-        }
-        s();
-        this.f = AdLoadState.SHOWED;
-        y();
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.b != null && v() && this.f != AdLoadState.FORCESHOW) {
-            s();
-            this.f = AdLoadState.FORCESHOW;
-            y();
-        }
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return xw6.m().v(m);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ps5(SplashNativePolicy splashNativePolicy) {
-        String p;
+    public ps5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {splashNativePolicy};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = AdLoadState.INIT;
-        this.g = null;
-        this.h = null;
-        this.i = false;
-        this.j = -1L;
-        this.l = new a(this);
-        this.k = splashNativePolicy;
-        if (py4.k().l("splash_bear_sid_type_key", 0) == 1) {
-            p = xw6.q();
-        } else {
-            p = xw6.p();
-        }
-        m = p;
+        this.a = null;
+        this.b = null;
     }
 
-    public static void x(int i) {
-        String p;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            if (i == 1) {
-                p = xw6.q();
-            } else {
-                p = xw6.p();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new a(this));
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.a(str);
+        }
+    }
+
+    public final View f(w15 w15Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w15Var)) == null) {
+            if (w15Var == null || !w15Var.c()) {
+                return null;
             }
-            m = p;
-            py4.k().w("splash_bear_sid_type_key", i);
-        }
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            e eVar = new e(this);
-            xw6.m().w(context, m, (int) (yi.j(context) * 0.85d), eVar, xw6.b("spalsh", ft5.d().c() + ""));
-            n = true;
-        }
-    }
-
-    public final void s() {
-        WeakReference<ViewGroup> weakReference;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (weakReference = this.b) != null && weakReference.get().getParent() != null) {
-            ViewGroup.LayoutParams layoutParams = this.b.get().getLayoutParams();
-            layoutParams.width = yi.l(this.b.get().getContext());
-            layoutParams.height = (int) (yi.j(this.b.get().getContext()) * 0.85d);
-            this.b.get().setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.gt5
-    public void e(rp4 rp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rp4Var) == null) {
-            Context context = rp4Var.b().getContext();
-            if ((context instanceof Activity) && rp4Var.b() != null) {
-                this.i = rp4Var.d();
-                this.j = rp4Var.c();
-                this.b = new WeakReference<>(rp4Var.b());
-                ViewGroup viewGroup = (ViewGroup) ra5.e().d(1007, new b(this, context));
-                this.c = viewGroup;
-                if (viewGroup == null) {
-                    return;
+            Activity pageActivity = w15Var.getContext().getPageActivity();
+            int a2 = w15Var.a();
+            int b2 = w15Var.b();
+            SplashAdView splashAdView = new SplashAdView(w15Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
+            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
+            this.c = new WeakReference<>(splashAdView);
+            splashAdView.setBCAdCallBack(new b(this, splashAdView));
+            try {
+                z = splashAdView.f();
+            } catch (Throwable unused) {
+                z = false;
+            }
+            if (!z) {
+                return null;
+            }
+            try {
+                int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070279);
+                int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
+                Activity pageActivity2 = w15Var.getContext().getPageActivity();
+                if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
+                    dimension2 += yi.u(pageActivity2);
                 }
-                this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f8c);
-                r();
-                this.g = rp4Var.a();
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.l(context), (int) (yi.j(this.b.get().getContext()) * 0.85d));
-                layoutParams.addRule(14, -1);
-                this.b.get().addView(this.c, layoutParams);
-                if (gt5.a) {
-                    System.out.println("IAdSdkSplash BEAR ad start load");
+                int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+                int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070232);
+                int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d7);
+                CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
+                this.a = new e(countDownTextView, null);
+                String str = this.b;
+                if (TextUtils.isEmpty(str)) {
+                    str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11fa);
                 }
-                o = new c(this);
-                if (n) {
-                    u();
-                    n = false;
+                if (splashAdView.n) {
+                    countDownTextView.d(str, 6);
                 } else {
-                    xw6 m2 = xw6.m();
-                    Activity activity = (Activity) context;
-                    String str = m;
-                    int j = (int) (yi.j(context) * 0.85d);
-                    xw6.h hVar = o;
-                    m2.w(activity, str, j, hVar, xw6.b("spalsh", ft5.d().c() + ""));
+                    countDownTextView.d(str, 3);
                 }
-                if (this.f == AdLoadState.INIT) {
-                    this.f = AdLoadState.LOADING;
-                }
-                FunAdRecordHttpMessage.uploadRequestRecord("a064", null, null, null, null);
+                splashAdView.setTag(Boolean.valueOf(splashAdView.n));
+                float f = dimension;
+                countDownTextView.setTextSize(0, f);
+                countDownTextView.setTextColor(Color.parseColor("#ffffff"));
+                countDownTextView.setGravity(17);
+                countDownTextView.setAlpha(0.5f);
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(Color.parseColor("#000000"));
+                gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
+                gradientDrawable.setStroke(1, Color.parseColor("#000000"));
+                countDownTextView.setBackgroundDrawable(gradientDrawable);
+                countDownTextView.setOnClickListener(new c(this));
+                countDownTextView.setTimeoutListener(new d(this));
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
+                layoutParams.addRule(10);
+                layoutParams.addRule(11);
+                layoutParams.setMargins(0, dimension2, dimension3, 0);
+                int g = yi.g(pageActivity, R.dimen.obfuscated_res_0x7f070307);
+                countDownTextView.setPadding(g, g, g, g);
+                splashAdView.addView(countDownTextView, layoutParams);
+                int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
+                TextView textView = new TextView(pageActivity);
+                textView.setText(R.string.obfuscated_res_0x7f0f00df);
+                textView.setTextSize(0, f);
+                textView.setAlpha(0.5f);
+                textView.setIncludeFontPadding(false);
+                textView.setGravity(17);
+                textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
+                int g2 = yi.g(pageActivity, R.dimen.obfuscated_res_0x7f0701d4);
+                textView.setPadding(g2, g2, g2, g2);
+                SkinManager.setViewTextColor(textView, (int) R.color.common_color_10013);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070261), (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070225));
+                layoutParams2.setMargins(dimension6, 0, 0, dimension6);
+                layoutParams2.addRule(9);
+                layoutParams2.addRule(12);
+                splashAdView.addView(textView, layoutParams2);
+            } catch (Exception unused2) {
             }
+            return splashAdView;
         }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091f8b);
-            this.e = viewGroup;
-            pw4 d2 = pw4.d(this.e);
-            d2.n(R.string.J_X01);
-            d2.f(R.color.CAM_X0608);
-            pw4 d3 = pw4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f8e));
-            d3.A(R.string.F_X01);
-            d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091f8d), R.drawable.obfuscated_res_0x7f080979, R.color.CAM_X0201, null);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && o != null && !yq5.c().d(f()).isEmpty()) {
-            for (yq5.a aVar : yq5.c().d(f())) {
-                String str = aVar.a;
-                char c2 = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -1349867671) {
-                    if (hashCode == 861234439 && str.equals("onAdLoaded")) {
-                        c2 = 0;
-                    }
-                } else if (str.equals("onError")) {
-                    c2 = 1;
-                }
-                if (c2 != 0) {
-                    if (c2 == 1) {
-                        o.onError((String) aVar.b.get("sid"));
-                    }
-                } else {
-                    o.a((String) aVar.b.get("sid"), ((Integer) aVar.b.get("loadSize")).intValue());
-                }
-            }
-            yq5.c().b(f());
-        }
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.c != null && this.d != null) {
-                if (this.h == null) {
-                    this.h = new f(this);
-                }
-                this.d.setOnHierarchyChangeListener(this.h);
-                if (this.b.get() != null) {
-                    Context context = this.b.get().getContext();
-                    if (context instanceof Activity) {
-                        ey4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
-                        if (gt5.a) {
-                            PrintStream printStream = System.out;
-                            printStream.println("IAdSdkSplash BEAR ad showSplash: " + m);
-                        }
-                        xw6.m().G((Activity) context, m, this.d, this.l, xw6.b("spalsh", ft5.d().c() + ""));
-                        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void w() {
-        WeakReference<ViewGroup> weakReference;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (weakReference = this.b) != null && weakReference.get() != null) {
-            if (yi.E()) {
-                this.b.get().removeView(this.c);
-            } else {
-                ah.a().post(new d(this));
-            }
-        }
+        return (View) invokeL.objValue;
     }
 }

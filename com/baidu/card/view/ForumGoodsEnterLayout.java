@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.tr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,11 +112,11 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         }
     }
 
-    public final boolean b(sr4 sr4Var) {
+    public final boolean b(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().isVideoThreadType() && sr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -138,11 +138,11 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         }
     }
 
-    public final boolean c(sr4 sr4Var) {
+    public final boolean c(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getPollData() != null && sr4Var.getThreadData().getPollData().getOptions() != null && sr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -150,13 +150,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void setData(sr4 sr4Var) {
+    public void setData(tr4 tr4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) {
-            ThreadData threadData = sr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
+            ThreadData threadData = tr4Var.getThreadData();
             int i = 0;
-            if (!c(sr4Var) && !b(sr4Var) && sr4Var.getThreadData() != null && sr4Var.getThreadData().isGoods() && this.d != 3) {
+            if (!c(tr4Var) && !b(tr4Var) && tr4Var.getThreadData() != null && tr4Var.getThreadData().isGoods() && this.d != 3) {
                 this.b.setVisibility(0);
                 this.b.setFrom(2);
                 this.b.a(threadData);

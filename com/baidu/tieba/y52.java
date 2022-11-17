@@ -43,11 +43,11 @@ public class y52 extends nb2 {
 
         /* renamed from: com.baidu.tieba.y52$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0476a implements Runnable {
+        public class RunnableC0479a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0476a(a aVar) {
+            public RunnableC0479a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class y52 extends nb2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 f12.k("SwanAppV8DaemonEngine", "reload");
-                zh3.a0(new RunnableC0476a(this));
+                zh3.a0(new RunnableC0479a(this));
             }
         }
 

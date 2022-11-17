@@ -24,7 +24,7 @@ public class ox extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public sr4 i;
+    public tr4 i;
     public StatisticItem j;
 
     /* loaded from: classes5.dex */
@@ -131,7 +131,7 @@ public class ox extends hx {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                w36.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                x36.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -230,16 +230,16 @@ public class ox extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: z */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sr4Var) == null) {
-            this.i = sr4Var;
-            PostData topAgreePost = sr4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tr4Var) == null) {
+            this.i = tr4Var;
+            PostData topAgreePost = tr4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
-                this.j.param("tid", sr4Var.getThreadData().tid).param("post_id", topAgreePost.M()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                e46.b().a(this.j);
+                this.j.param("tid", tr4Var.getThreadData().tid).param("post_id", topAgreePost.M()).param("uid", TbadkCoreApplication.getCurrentAccount());
+                f46.b().a(this.j);
             }
-            this.h.setData(sr4Var.getThreadData());
+            this.h.setData(tr4Var.getThreadData());
         }
     }
 }

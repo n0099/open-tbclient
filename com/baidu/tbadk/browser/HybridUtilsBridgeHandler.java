@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.wx4;
+import com.baidu.tieba.vx4;
+import com.baidu.tieba.xx4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,18 +28,18 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HybridUtilsBridgeHandler(ux4 ux4Var) {
-        super(ux4Var);
+    public HybridUtilsBridgeHandler(vx4 vx4Var) {
+        super(vx4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ux4Var};
+            Object[] objArr = {vx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ux4) newInitContext.callArgs[0]);
+                super((vx4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,7 +47,7 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @wx4(isAsync = false, value = "showDeviceInfo")
+    @xx4(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @wx4(isAsync = false, value = "showNetStatus")
+    @xx4(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -108,7 +108,7 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @wx4(isAsync = false, value = "showToast")
+    @xx4(isAsync = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {

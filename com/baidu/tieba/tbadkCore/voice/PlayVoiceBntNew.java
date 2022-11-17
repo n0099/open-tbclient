@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rr8;
+import com.baidu.tieba.sr8;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xi;
@@ -198,7 +198,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rr8.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sr8.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);
@@ -398,7 +398,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            pw4 d = pw4.d(this.b);
+            qw4 d = qw4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -480,9 +480,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (lb5.b().d()) {
-                lb5.b().n(false);
-                lb5.b().l(false);
+            if (mb5.b().d()) {
+                mb5.b().n(false);
+                mb5.b().l(false);
             }
             f(false);
             if (i == 1) {

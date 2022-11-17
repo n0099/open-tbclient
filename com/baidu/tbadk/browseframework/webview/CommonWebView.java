@@ -24,11 +24,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.aq4;
+import com.baidu.tieba.aq8;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.xp8;
-import com.baidu.tieba.zp4;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.yp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +50,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public xp8 m;
+    public yp8 m;
     public CommonTbJsBridge n;
-    public zp8 o;
+    public aq8 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -97,7 +97,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements zp8 {
+    public class a implements aq8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -120,15 +120,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.zp8
+        @Override // com.baidu.tieba.aq8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                xp8 xp8Var = commonWebView.m;
-                if (xp8Var != null) {
-                    return xp8Var.b(commonWebView.getWebView(), str, jsPromptResult);
+                yp8 yp8Var = commonWebView.m;
+                if (yp8Var != null) {
+                    return yp8Var.b(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -228,7 +228,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                zp4.a("BaseWebView", webView);
+                aq4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -486,10 +486,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(zp8 zp8Var) {
+    public void setOnJsPromptCallback(aq8 aq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, zp8Var) == null) {
-            this.o = zp8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aq8Var) == null) {
+            this.o = aq8Var;
         }
     }
 
@@ -607,7 +607,7 @@ public class CommonWebView extends WebView {
             sp4.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new xp8();
+            this.m = new yp8();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {

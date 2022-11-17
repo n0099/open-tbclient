@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.vc5;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes4.dex */
-public class FeedData implements Serializable, uc5 {
+public class FeedData implements Serializable, vc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";

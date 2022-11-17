@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.dj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class HotTopicTabRequest extends NetMessage {
                 builder.tab_code = this.tabCode;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                cj5.a(builder, true);
+                dj5.a(builder, true);
             }
             HotThreadListReqIdl.Builder builder2 = new HotThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br4;
+import com.baidu.tieba.cr4;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.lc;
 import com.baidu.tieba.mg;
 import com.baidu.tieba.pc;
@@ -32,8 +32,8 @@ import com.baidu.tieba.rg;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wi5;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,7 +99,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return br4.c().g();
+            return cr4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -290,7 +290,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            in m = k95.k().m(str);
+            in m = l95.k().m(str);
             if (z) {
                 if (m != null) {
                     z2 = true;
@@ -369,8 +369,8 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            wi5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = wi5.d(urlbyClientServerAddr);
+            xi5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = xi5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -472,7 +472,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            k95.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            l95.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i8 = 1;
                 p = m41decodeToResource(bArr3, rect).p();
@@ -483,7 +483,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                wi5.b(str4);
+                xi5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -586,7 +586,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                k95.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                l95.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -603,7 +603,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 long currentTimeMillis = System.currentTimeMillis();
                 inVar.A(i);
                 inVar.z(i2);
-                k95.k().d(str, inVar);
+                l95.k().d(str, inVar);
                 qg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }

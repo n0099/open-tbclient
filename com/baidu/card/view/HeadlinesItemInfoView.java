@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.pu4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(ou4 ou4Var) {
+    public void b(pu4 pu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ou4Var) != null) || ou4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var) != null) || pu4Var == null) {
             return;
         }
-        this.b.K(ou4Var.e(), 10, false);
-        this.c.setText(ou4Var.j());
-        this.e.setText(ou4Var.b());
-        this.d.setData(xg.g(ou4Var.c(), 0L), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0869));
+        this.b.K(pu4Var.e(), 10, false);
+        this.c.setText(pu4Var.j());
+        this.e.setText(pu4Var.b());
+        this.d.setData(xg.g(pu4Var.c(), 0L), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0869));
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            pw4 d = pw4.d(this);
+            qw4 d = qw4.d(this);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            pw4.d(this.c).v(R.color.CAM_X0107);
+            qw4.d(this.c).v(R.color.CAM_X0107);
             this.d.i(i);
-            pw4 d2 = pw4.d(this.e);
+            qw4 d2 = qw4.d(this.e);
             d2.v(R.color.CAM_X0304);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);

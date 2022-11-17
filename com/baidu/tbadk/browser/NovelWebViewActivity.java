@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sd5;
 import com.baidu.tieba.td5;
+import com.baidu.tieba.ud5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -138,7 +138,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = sd5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                String unused = NovelWebViewActivity.g = td5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
                 if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
                     this.c.C1();
                 }
@@ -147,7 +147,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 } else {
                     i = 1;
                 }
-                td5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
+                ud5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
     }
@@ -197,7 +197,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sd5.e(f, new ReadRecordsData(f));
+            td5.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.h(true);
             bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0d01));

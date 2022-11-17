@@ -12,7 +12,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.tieba.b72;
-import com.baidu.tieba.rz9;
+import com.baidu.tieba.sz9;
 import com.baidu.tieba.vd2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,8 +38,8 @@ public final class xd2 extends j72 implements ch4, zg4 {
     public static final PMSDownloadType o;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-    public xz9<? super hd4> d;
-    public xz9<hd4> e;
+    public yz9<? super hd4> d;
+    public yz9<hd4> e;
     public nh4 f;
     public final lf4 g;
     public wb4<hd4> h;
@@ -222,7 +222,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements rz9.a<hd4> {
+    public class e implements sz9.a<hd4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xd2 a;
@@ -246,18 +246,18 @@ public final class xd2 extends j72 implements ch4, zg4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rz9.a, com.baidu.tieba.f0a
-        public void call(xz9<? super hd4> xz9Var) {
+        @Override // com.baidu.tieba.sz9.a, com.baidu.tieba.g0a
+        public void call(yz9<? super hd4> yz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, xz9Var) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, yz9Var) != null) {
                 return;
             }
-            this.a.d = xz9Var;
+            this.a.d = yz9Var;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f extends xz9<hd4> {
+    public class f extends yz9<hd4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xd2 e;
@@ -285,7 +285,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sz9
+        @Override // com.baidu.tieba.tz9
         /* renamed from: g */
         public void onNext(hd4 hd4Var) {
             Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
             }
         }
 
-        @Override // com.baidu.tieba.sz9
+        @Override // com.baidu.tieba.tz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -307,7 +307,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
             }
         }
 
-        @Override // com.baidu.tieba.sz9
+        @Override // com.baidu.tieba.tz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -536,7 +536,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
         }
     }
 
-    public final xz9<hd4> b0() {
+    public final yz9<hd4> b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -545,7 +545,7 @@ public final class xd2 extends j72 implements ch4, zg4 {
             }
             return this.e;
         }
-        return (xz9) invokeV.objValue;
+        return (yz9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ch4
@@ -791,10 +791,10 @@ public final class xd2 extends j72 implements ch4, zg4 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.f.g()) {
-                arrayList.add(rz9.a(new e(this)));
+                arrayList.add(sz9.a(new e(this)));
             }
             if (!arrayList.isEmpty()) {
-                rz9.i(arrayList).u(b0());
+                sz9.i(arrayList).u(b0());
             }
         }
     }

@@ -1,197 +1,242 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.net.OkHttp3Interceptor;
-import com.baidu.turbonet.net.TurbonetConfig;
-import com.baidu.turbonet.net.TurbonetContext;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class jd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static TurbonetContext b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public ThreadData d;
+    public gd8 e;
+    public String f;
+    public boolean g;
+    public rr7 h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947879563, "Lcom/baidu/tieba/jd8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public jd8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947879563, "Lcom/baidu/tieba/jd8;");
+        this.a = 0L;
+        this.b = 0L;
+        this.f = "1";
+        this.h = new rr7();
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            k();
+            this.a = 0L;
+            this.b = 0L;
+            this.g = false;
+            this.h.a();
         }
     }
 
-    public static OkHttpClient a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static TurbonetContext g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = turbonetContext;
-            return turbonetContext;
-        }
-        return (TurbonetContext) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            try {
-                String externalStorageState = Environment.getExternalStorageState();
-                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            float f = ((float) this.a) / ((float) j);
+            if (j <= 60000) {
+                if (f >= 0.9d) {
+                    return true;
                 }
-            } catch (Exception unused) {
-                File cacheDir = context.getCacheDir();
-                if (cacheDir == null) {
-                    return null;
+                return false;
+            } else if (j <= LiveFeedPageSdk.REFRESH_TIME) {
+                if (f >= 0.8d) {
+                    return true;
                 }
-                path = cacheDir.getPath();
-            }
-            if (!equalsIgnoreCase && !z) {
-                path = context.getCacheDir().getPath();
-                if (!path.endsWith(File.separator)) {
-                    return path.substring(0, path.length() - 1);
+                return false;
+            } else if (j <= 600000) {
+                if (f >= 0.7d) {
+                    return true;
                 }
-                return path;
-            }
-            path = context.getExternalCacheDir().getPath();
-            if (!path.endsWith(File.separator)) {
-            }
-        } else {
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public static OkHttpClient c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
-            }
-            return a;
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = b;
-            if (turbonetContext != null && c == 0) {
-                c = turbonetContext.c();
-            }
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
-            return;
-        }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public static TurbonetConfig d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TurbonetConfig turbonetConfig = new TurbonetConfig();
-            turbonetConfig.j(15);
-            turbonetConfig.c(true);
-            turbonetConfig.b(true);
-            turbonetConfig.e(true);
-            turbonetConfig.a("http://tb-video.bdstatic.com|2");
-            turbonetConfig.f(true);
-            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
-            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
-            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
+                return false;
+            } else if (f >= 0.6d) {
+                return true;
             } else {
-                file.mkdirs();
+                return false;
             }
-            turbonetConfig.k(file.getAbsolutePath());
-            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            turbonetConfig.i("log", "lite_log_in_response_header", Boolean.TRUE);
-            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
-            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
-            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
-            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
-            turbonetConfig.i("nq", "weak_window_sec", 30);
-            turbonetConfig.i("nq", "weak_min_cnt", 10);
-            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return turbonetConfig;
         }
-        return (TurbonetConfig) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public gd8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (gd8) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b > 0) {
+            this.a += System.currentTimeMillis() - this.b;
+            this.b = 0L;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            this.g = false;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h.e();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.b != 0) {
+                this.a += System.currentTimeMillis() - this.b;
+            }
+            this.b = System.currentTimeMillis();
+            this.g = true;
+            this.h.b();
+        }
+    }
+
+    public void f(sc8 sc8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sc8Var) == null) {
+            this.h.d(sc8Var);
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.c = j;
+            this.h.c();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void m(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, threadData) == null) {
+            this.d = threadData;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(gd8 gd8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, gd8Var) == null) {
+            this.e = gd8Var;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void k() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            long j = this.a;
+            if (j >= 0 && j < 86400000) {
+                if (j > 0) {
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
+                    statisticItem.param(TiebaStatic.Params.OBJ_DURATION, this.a);
+                    statisticItem.param("obj_type", this.f);
+                    statisticItem.param("playduration", this.c);
+                    statisticItem.param("player_type", 1);
+                    statisticItem.param("is_finish", a() ? 1 : 0);
+                    if (!xi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                        statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
+                    }
+                    gd8 gd8Var = this.e;
+                    if (gd8Var != null) {
+                        gd8Var.a(statisticItem);
+                    }
+                    if (!statisticItem.hasParam(TiebaStatic.Params.OBJ_PARAM5) && (threadData = this.d) != null) {
+                        if (threadData.getBaijiahaoData() != null) {
+                            if (this.d.getBaijiahaoData().oriUgcType == 2) {
+                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                            } else if (this.d.getBaijiahaoData().oriUgcType == 4) {
+                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                            }
+                        } else {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                        }
+                    }
+                    ThreadData threadData2 = this.d;
+                    if (threadData2 != null) {
+                        statisticItem.param(TiebaStatic.Params.IS_ZP, threadData2.isWorksInfo() ? 1 : 0);
+                    }
+                    TiebaStatic.log(statisticItem);
+                    vc8.d(this.a, this.f, this.e, "", this.c);
+                } else if (this.g) {
+                    vc8.d(j, this.f, this.e, "", this.c);
+                }
+            }
+        }
     }
 }

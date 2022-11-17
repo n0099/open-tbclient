@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej5;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.fj5;
+import com.baidu.tieba.tr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +73,7 @@ public class RecommendInfoLayout extends RelativeLayout {
             }
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    ej5.e(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
+                    fj5.e(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
                 } else {
                     new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
                 }
@@ -167,10 +167,10 @@ public class RecommendInfoLayout extends RelativeLayout {
         a(context);
     }
 
-    public void setData(sr4 sr4Var) {
+    public void setData(tr4 tr4Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr4Var) != null) || sr4Var == null || sr4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(sr4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var) != null) || tr4Var == null || tr4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(tr4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
             return;
         }
         String str = threadRecommendInfoData.forumAvatar;

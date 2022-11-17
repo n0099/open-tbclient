@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nd8;
-import com.baidu.tieba.oi5;
+import com.baidu.tieba.od8;
+import com.baidu.tieba.pi5;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nd8 a;
+    public od8 a;
     public View b;
     public ImageView c;
     public View d;
@@ -87,7 +87,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || oi5.a()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || pi5.a()) {
                 return;
             }
             if (view2 != this.a.b) {
@@ -222,11 +222,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(nd8 nd8Var) {
+    public void setVideoContainer(od8 od8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nd8Var) == null) {
-            this.a = nd8Var;
-            this.i.setOnClickListener(nd8Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, od8Var) == null) {
+            this.a = od8Var;
+            this.i.setOnClickListener(od8Var);
         }
     }
 

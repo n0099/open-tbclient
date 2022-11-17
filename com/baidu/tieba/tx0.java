@@ -36,13 +36,13 @@ public class tx0 extends sx0 {
 
         /* renamed from: com.baidu.tieba.tx0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0439a implements Runnable {
+        public class RunnableC0437a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ nu0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0439a(a aVar, nu0 nu0Var) {
+            public RunnableC0437a(a aVar, nu0 nu0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class tx0 extends sx0 {
                 if (!(obj instanceof nu0)) {
                     return;
                 }
-                oj0.b(new RunnableC0439a(this, (nu0) obj));
+                oj0.b(new RunnableC0437a(this, (nu0) obj));
             }
         }
     }

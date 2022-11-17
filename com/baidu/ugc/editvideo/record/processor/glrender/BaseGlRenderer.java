@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cj9;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.dj9;
+import com.baidu.tieba.ij9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,8 +79,8 @@ public class BaseGlRenderer implements IGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                if (hj9.b(this.runOnProcess) > 0) {
-                    cj9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+                if (ij9.b(this.runOnProcess) > 0) {
+                    dj9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
                 }
                 while (!this.runOnProcess.isEmpty()) {
                     this.runOnProcess.removeFirst().run();

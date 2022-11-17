@@ -23,15 +23,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.bz8;
 import com.baidu.tieba.cz8;
 import com.baidu.tieba.dz8;
-import com.baidu.tieba.ex8;
-import com.baidu.tieba.gx8;
-import com.baidu.tieba.hr7;
-import com.baidu.tieba.nr7;
+import com.baidu.tieba.ez8;
+import com.baidu.tieba.fx8;
+import com.baidu.tieba.hx8;
+import com.baidu.tieba.ir7;
 import com.baidu.tieba.om;
-import com.baidu.tieba.rr7;
+import com.baidu.tieba.or7;
+import com.baidu.tieba.sr7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -53,21 +53,21 @@ import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes6.dex */
-public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
+public class GLVideoPreviewView extends GLSurfaceView implements dz8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int j = 720;
     public static int k = 960;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public dz8 a;
+    public ez8 a;
     public c b;
     public TextureMovieEncoder c;
     public b d;
     public int e;
     public int f;
-    public cz8.a g;
+    public dz8.a g;
     public boolean h;
-    public nr7 i;
+    public or7 i;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -101,7 +101,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         public String F;
         public boolean G;
         public String H;
-        public nr7 I;
+        public or7 I;
         public FullFrameRect a;
         public FullFrameRect b;
         public volatile SurfaceTexture c;
@@ -185,7 +185,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                         if (this.b.d.getContext() != null) {
                             bitmap = BitmapHelper.getClipBitmap(bitmap, (yi.j(context) * 1.0f) / yi.l(context));
                         }
-                        this.b.H = FileHelper.saveFileAsPic(gx8.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
+                        this.b.H = FileHelper.saveFileAsPic(hx8.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
                         return null;
                     } finally {
                         if (bitmap != null && !bitmap.isRecycled()) {
@@ -258,14 +258,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
 
         /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class HandlerC0449c extends Handler {
+        public class HandlerC0453c extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public final /* synthetic */ c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0449c(c cVar, Looper looper, Context context) {
+            public HandlerC0453c(c cVar, Looper looper, Context context) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -309,12 +309,12 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                                 } else {
                                     bArr2 = new byte[1];
                                 }
-                                faceunity.fuSetup(bArr2, null, bz8.a());
+                                faceunity.fuSetup(bArr2, null, cz8.a());
                                 this.b.C = true;
                             } catch (Throwable th) {
                                 th.printStackTrace();
                                 if (this.b.I != null) {
-                                    this.b.I.b(25, hr7.a(th));
+                                    this.b.I.b(25, ir7.a(th));
                                 }
                             }
                             try {
@@ -335,7 +335,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                             } catch (Throwable th2) {
                                 th2.printStackTrace();
                                 if (this.b.I != null) {
-                                    this.b.I.b(26, hr7.a(th2));
+                                    this.b.I.b(26, ir7.a(th2));
                                     return;
                                 }
                                 return;
@@ -392,19 +392,19 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                     } catch (Throwable th3) {
                         th3.printStackTrace();
                         if (this.b.I != null) {
-                            this.b.I.b(24, hr7.a(th3));
+                            this.b.I.b(24, ir7.a(th3));
                         }
                     }
                 }
             }
         }
 
-        public c(Context context, GLVideoPreviewView gLVideoPreviewView, nr7 nr7Var) {
+        public c(Context context, GLVideoPreviewView gLVideoPreviewView, or7 or7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, gLVideoPreviewView, nr7Var};
+                Object[] objArr = {context, gLVideoPreviewView, or7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -429,25 +429,25 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
             this.y = 0.5f;
             this.z = 0;
             this.d = gLVideoPreviewView;
-            this.I = nr7Var;
+            this.I = or7Var;
             this.D = new File(om.b("libnama.so")).exists();
             HandlerThread handlerThread = new HandlerThread("CreateItemThread");
             this.o = handlerThread;
             handlerThread.start();
-            this.p = new HandlerC0449c(this, this.o.getLooper(), context);
-            D(ex8.b(2));
+            this.p = new HandlerC0453c(this, this.o.getLooper(), context);
+            D(fx8.b(2));
         }
 
-        public void D(ex8 ex8Var) {
+        public void D(fx8 fx8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, ex8Var) != null) || ex8Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, fx8Var) != null) || fx8Var == null) {
                 return;
             }
-            this.s = ex8Var.b;
-            this.t = ex8Var.c;
-            this.u = ex8Var.d;
-            this.v = ex8Var.e;
-            this.w = ex8Var.f;
+            this.s = fx8Var.b;
+            this.t = fx8Var.c;
+            this.u = fx8Var.d;
+            this.v = fx8Var.e;
+            this.w = fx8Var.f;
         }
 
         public void E(String str) {
@@ -588,9 +588,9 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                     this.c.getTransformMatrix(fArr);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    nr7 nr7Var = this.I;
-                    if (nr7Var != null) {
-                        nr7Var.b(22, hr7.a(e));
+                    or7 or7Var = this.I;
+                    if (or7Var != null) {
+                        or7Var.b(22, ir7.a(e));
                     }
                 }
                 if (this.l) {
@@ -673,9 +673,9 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                     } catch (Throwable th) {
                         BdLog.e(th);
                         this.d.e(null);
-                        nr7 nr7Var2 = this.I;
-                        if (nr7Var2 != null) {
-                            nr7Var2.b(23, hr7.a(th));
+                        or7 or7Var2 = this.I;
+                        if (or7Var2 != null) {
+                            or7Var2.b(23, ir7.a(th));
                             return;
                         }
                         return;
@@ -782,14 +782,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GLVideoPreviewView(Context context, dz8 dz8Var) {
+    public GLVideoPreviewView(Context context, ez8 ez8Var) {
         super(context);
-        rr7 rr7Var;
+        sr7 sr7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, dz8Var};
+            Object[] objArr = {context, ez8Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -800,16 +800,16 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, rr7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, sr7.class);
         if (runTask != null) {
-            rr7Var = (rr7) runTask.getData();
+            sr7Var = (sr7) runTask.getData();
         } else {
-            rr7Var = null;
+            sr7Var = null;
         }
-        if (rr7Var != null) {
-            this.i = rr7Var.get();
+        if (sr7Var != null) {
+            this.i = sr7Var.get();
         }
-        this.a = dz8Var;
+        this.a = ez8Var;
         this.b = new c(context, this, this.i);
         setEGLContextClientVersion(2);
         setRenderer(this.b);
@@ -854,7 +854,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void b(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, camera) == null) {
@@ -862,16 +862,16 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                 this.b.A();
             } catch (Exception e) {
                 e.printStackTrace();
-                nr7 nr7Var = this.i;
-                if (nr7Var != null) {
-                    nr7Var.b(18, hr7.a(e));
+                or7 or7Var = this.i;
+                if (or7Var != null) {
+                    or7Var.b(18, ir7.a(e));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.cz8
-    public void c(cz8.a aVar) {
+    @Override // com.baidu.tieba.dz8
+    public void c(dz8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.g = aVar;
@@ -880,7 +880,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void d(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, camera) == null) {
@@ -891,15 +891,15 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                 l = false;
             } catch (Throwable th) {
                 BdLog.e(th);
-                nr7 nr7Var = this.i;
-                if (nr7Var != null) {
-                    nr7Var.b(21, hr7.a(th));
+                or7 or7Var = this.i;
+                if (or7Var != null) {
+                    or7Var.b(21, ir7.a(th));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void e(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, camera) == null) {
@@ -909,9 +909,9 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                 }
             } catch (Throwable th) {
                 BdLog.e(th);
-                nr7 nr7Var = this.i;
-                if (nr7Var != null) {
-                    nr7Var.b(19, hr7.a(th));
+                or7 or7Var = this.i;
+                if (or7Var != null) {
+                    or7Var.b(19, ir7.a(th));
                 }
             }
         }
@@ -922,20 +922,20 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            dz8 dz8Var = this.a;
-            if (dz8Var == null) {
+            ez8 ez8Var = this.a;
+            if (ez8Var == null) {
                 return false;
             }
-            return dz8Var.w(motionEvent, getParent());
+            return ez8Var.w(motionEvent, getParent());
         }
         return invokeL.booleanValue;
     }
 
-    public void setBeautyLevel(ex8 ex8Var) {
+    public void setBeautyLevel(fx8 fx8Var) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, ex8Var) == null) && (cVar = this.b) != null) {
-            cVar.D(ex8Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, fx8Var) == null) && (cVar = this.b) != null) {
+            cVar.D(fx8Var);
         }
     }
 
@@ -961,7 +961,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
         TextureMovieEncoder textureMovieEncoder;
         Interceptable interceptable = $ic;
@@ -978,7 +978,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void a(Camera camera) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) && camera != null) {
@@ -989,15 +989,15 @@ public class GLVideoPreviewView extends GLSurfaceView implements cz8 {
                 camera.startPreview();
             } catch (Exception e) {
                 e.printStackTrace();
-                nr7 nr7Var = this.i;
-                if (nr7Var != null) {
-                    nr7Var.b(20, hr7.a(e));
+                or7 or7Var = this.i;
+                if (or7Var != null) {
+                    or7Var.b(20, ir7.a(e));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.cz8
+    @Override // com.baidu.tieba.dz8
     public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) && i > 0 && i2 > 0) {

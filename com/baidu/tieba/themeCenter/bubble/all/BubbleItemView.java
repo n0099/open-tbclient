@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iv8;
+import com.baidu.tieba.jv8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class BubbleItemView extends LinearLayout {
     public ImageView h;
     public TbImageView i;
     public DressItemData j;
-    public iv8 k;
+    public jv8 k;
     public boolean l;
     public View.OnClickListener m;
 
@@ -142,10 +142,10 @@ public class BubbleItemView extends LinearLayout {
         f();
     }
 
-    public void setController(iv8 iv8Var) {
+    public void setController(jv8 jv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iv8Var) == null) {
-            this.k = iv8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jv8Var) == null) {
+            this.k = jv8Var;
         }
     }
 

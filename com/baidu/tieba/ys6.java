@@ -3,29 +3,40 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ZoneRight.DataRes;
-import tbclient.ZoneRight.Toast;
-import tbclient.ZoneRight.ZoneRightResIdl;
+import java.util.HashMap;
+import tbclient.ZoneRight.DataReq;
+import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes6.dex */
 public class ys6 implements bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public int a;
+    public long b;
     public String c;
     public int d;
-    public String e;
+    public int e;
 
-    @Override // com.baidu.tieba.bd5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ad5
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad5
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public ys6() {
@@ -42,29 +53,24 @@ public class ys6 implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
-    public void initByProtobuf(Message message) {
+    @Override // com.baidu.tieba.dd5
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {
-            ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
-            Error error = zoneRightResIdl.error;
-            if (error != null) {
-                this.b = error.errorno.intValue();
-                this.c = zoneRightResIdl.error.usermsg;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            int i = 1;
+            dj5.c(builder, true, false, true);
+            builder.forum_id = Long.valueOf(xg.g(this.c, 0L));
+            builder.thread_id = Long.valueOf(this.b);
+            if (this.d == 1) {
+                i = 2;
             }
-            DataRes dataRes = zoneRightResIdl.data;
-            if (dataRes != null) {
-                boolean z = true;
-                if (dataRes.has_right.intValue() != 1) {
-                    z = false;
-                }
-                this.a = z;
-                Toast toast = zoneRightResIdl.data.toast;
-                if (toast != null) {
-                    this.d = toast.type.intValue();
-                    this.e = zoneRightResIdl.data.toast.content;
-                }
-            }
+            builder.req_type = Integer.valueOf(i);
+            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         }
+        return invokeZ.objValue;
     }
 }

@@ -38,13 +38,13 @@ public class h33 extends j33 {
 
         /* renamed from: com.baidu.tieba.h33$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class DialogInterface$OnKeyListenerC0285a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0289a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0285a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0289a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public class h33 extends j33 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0285a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0289a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

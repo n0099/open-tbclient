@@ -4,13 +4,13 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.hy7;
-import com.baidu.tieba.ox7;
+import com.baidu.tieba.iy7;
 import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.px7;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.y08;
+import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     public boolean b;
     public int c;
     public int d;
-    public y08.b e;
-    public final y08.b f;
+    public z08.b e;
+    public final z08.b f;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -40,7 +40,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements y08.b {
+    public class a implements z08.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreGodReplyModel a;
@@ -63,7 +63,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             this.a = moreGodReplyModel;
         }
 
-        @Override // com.baidu.tieba.y08.b
+        @Override // com.baidu.tieba.z08.b
         public void a(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeILL(1048576, this, i, str, str2) != null) {
@@ -75,9 +75,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             }
         }
 
-        @Override // com.baidu.tieba.y08.b
+        @Override // com.baidu.tieba.z08.b
         public void onSuccess(List<PostData> list) {
-            hy7 V;
+            iy7 V;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a.b = false;
@@ -130,7 +130,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             return;
         }
         this.a = pbModel;
-        y08 O1 = pbModel.O1();
+        z08 O1 = pbModel.O1();
         if (O1 != null) {
             O1.f(this.f);
         }
@@ -158,7 +158,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
         return invokeLL.booleanValue;
     }
 
-    public void L(y08.b bVar) {
+    public void L(z08.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.e = bVar;
@@ -175,9 +175,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             if (pbModel == null) {
                 return null;
             }
-            ox7 S1 = pbModel.S1();
+            px7 S1 = pbModel.S1();
             if (S1 != null && S1.V() != null && !ListUtils.isEmpty(S1.V().a)) {
-                hy7 V = S1.V();
+                iy7 V = S1.V();
                 arrayList = new ArrayList();
                 List<PostData> list = V.a;
                 int size = list.size();
@@ -230,8 +230,8 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean I() {
         InterceptResult invokeV;
-        ox7 S1;
-        hy7 V;
+        px7 S1;
+        iy7 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PbModel pbModel = this.a;
@@ -251,10 +251,10 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean K() {
         InterceptResult invokeV;
-        hy7 V;
+        iy7 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ox7 S1 = this.a.S1();
+            px7 S1 = this.a.S1();
             if (S1 == null || (V = S1.V()) == null) {
                 return false;
             }

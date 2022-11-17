@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes5.dex */
-public final class mu9 extends BroadcastReceiver {
+public final class mu9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ju9 a;
-    public final /* synthetic */ iu9 b;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ ju9 c;
 
-    public mu9(iu9 iu9Var, ju9 ju9Var) {
+    public mu9(ju9 ju9Var, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iu9Var, ju9Var};
+            Object[] objArr = {ju9Var, context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,33 +32,28 @@ public final class mu9 extends BroadcastReceiver {
                 return;
             }
         }
-        this.b = iu9Var;
-        this.a = ju9Var;
+        this.c = ju9Var;
+        this.a = context;
+        this.b = aVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
-                return;
-            }
-            this.b.p();
-            int i = extras.getInt("install.status");
-            if (i != 1 && i != 2 && i != 3) {
-                if (i != 4) {
-                    if (i == 6) {
-                        this.a.a(com.google.ar.core.p.b);
-                        return;
-                    }
-                    return;
-                }
-                this.a.a(com.google.ar.core.p.c);
-                return;
-            }
-            this.a.a(com.google.ar.core.p.a);
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            ju9 ju9Var = this.c;
+            l = ju9.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

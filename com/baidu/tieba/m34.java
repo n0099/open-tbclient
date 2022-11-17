@@ -35,13 +35,13 @@ public class m34 extends l34 {
 
         /* renamed from: com.baidu.tieba.m34$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0343a implements Runnable {
+        public class RunnableC0344a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r34 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0343a(a aVar, r34 r34Var) {
+            public RunnableC0344a(a aVar, r34 r34Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class m34 extends l34 {
                 if (l34.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0343a(this, r34Var));
+                this.c.b.post(new RunnableC0344a(this, r34Var));
             }
         }
 

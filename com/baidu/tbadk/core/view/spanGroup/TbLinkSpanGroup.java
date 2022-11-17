@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i05;
-import com.baidu.tieba.ps4;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.qs4;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends j05<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public ps4 i;
+    public qs4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -155,13 +155,13 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
         }
     }
 
-    public ps4 t() {
+    public qs4 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.i;
         }
-        return (ps4) invokeV.objValue;
+        return (qs4) invokeV.objValue;
     }
 
     public LINK_TYPE u() {
@@ -211,7 +211,7 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.j05
     /* renamed from: s */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -261,10 +261,10 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
         }
     }
 
-    public void y(ps4 ps4Var) {
+    public void y(qs4 qs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ps4Var) == null) {
-            this.i = ps4Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, qs4Var) == null) {
+            this.i = qs4Var;
         }
     }
 
@@ -309,7 +309,7 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.j05
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i, i2, i3) == null) {
@@ -324,13 +324,13 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.j05
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editable) == null) {
-            ps4 ps4Var = this.i;
-            if (ps4Var != null && ps4Var.b == 2) {
-                if (ps4Var.h != null) {
+            qs4 qs4Var = this.i;
+            if (qs4Var != null && qs4Var.b == 2) {
+                if (qs4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -347,7 +347,7 @@ public class TbLinkSpanGroup extends i05<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.j05
     public void q(Editable editable, int i) {
         String str;
         String str2;

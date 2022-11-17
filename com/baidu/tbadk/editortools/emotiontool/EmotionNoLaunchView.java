@@ -11,25 +11,25 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
+public class EmotionNoLaunchView extends AppCompatImageView implements x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public EditorTools b;
     public boolean c;
 
-    @Override // com.baidu.tieba.l65
-    public void B(k65 k65Var) {
+    @Override // com.baidu.tieba.m65
+    public void B(l65 l65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, k65Var) != null) || k65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, l65Var) != null) || l65Var == null) {
         }
     }
 
@@ -68,10 +68,10 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
                 }
                 EmotionNoLaunchView emotionNoLaunchView = this.a;
                 emotionNoLaunchView.setSelected(emotionNoLaunchView.c);
-                this.a.K(new k65(1, 3, null));
-                this.a.K(new k65(1, 5, null));
+                this.a.K(new l65(1, 3, null));
+                this.a.K(new l65(1, 5, null));
                 EmotionNoLaunchView emotionNoLaunchView2 = this.a;
-                emotionNoLaunchView2.K(new k65(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
+                emotionNoLaunchView2.K(new l65(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.TRUE));
             }
         }
@@ -142,16 +142,16 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         init();
     }
 
-    @Override // com.baidu.tieba.w65
-    public void K(k65 k65Var) {
+    @Override // com.baidu.tieba.x65
+    public void K(l65 l65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k65Var) == null) && (editorTools = this.b) != null) {
-            editorTools.A(k65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l65Var) == null) && (editorTools = this.b) != null) {
+            editorTools.A(l65Var);
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -159,7 +159,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -167,7 +167,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -175,7 +175,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -187,7 +187,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -205,7 +205,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements w65 {
         }
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

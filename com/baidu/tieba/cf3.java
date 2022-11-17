@@ -93,12 +93,12 @@ public class cf3 extends ze3 {
 
         /* renamed from: com.baidu.tieba.cf3$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0225b implements we3 {
+        public class C0227b implements we3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0225b(b bVar) {
+            public C0227b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,9 +299,9 @@ public class cf3 extends ze3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0225b c0225b = new C0225b(this);
-            this.g = c0225b;
-            cf3Var.c.setConnectListener(c0225b);
+            C0227b c0227b = new C0227b(this);
+            this.g = c0227b;
+            cf3Var.c.setConnectListener(c0227b);
         }
 
         @Override // com.baidu.tieba.af3

@@ -46,11 +46,11 @@ public class z93 {
 
         /* renamed from: com.baidu.tieba.z93$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class RunnableC0482a implements Runnable {
+        public static class RunnableC0486a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0482a() {
+            public RunnableC0486a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class z93 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0482a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0486a(), "V8SoCleaner", 3);
             }
         }
     }

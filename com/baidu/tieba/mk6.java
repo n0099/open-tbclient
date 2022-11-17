@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface mk6 {
-    void init();
+    void W();
 
-    void j();
+    void b0();
 
-    void t(int i, int i2, wk6 wk6Var);
+    void t();
 
-    void w(qk6 qk6Var);
+    void y();
 }

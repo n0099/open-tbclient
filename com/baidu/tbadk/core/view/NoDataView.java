@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.oz4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -263,9 +263,9 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09245e);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092469);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09044e);
-            nz4 nz4Var = new nz4();
+            oz4 oz4Var = new oz4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(nz4Var);
+            this.h.setConfig(oz4Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09247e);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -278,7 +278,7 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048581, this, r9Var, i) == null) {
             if (r9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) r9Var;
-                rq4 layoutMode = tbPageContext.getLayoutMode();
+                sq4 layoutMode = tbPageContext.getLayoutMode();
                 boolean z = true;
                 if (i != 1) {
                     z = false;
@@ -425,11 +425,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090456);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090470);
-                nz4 nz4Var = new nz4();
+                oz4 oz4Var = new oz4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(nz4Var);
+                this.i.setConfig(oz4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(nz4Var);
+                this.j.setConfig(oz4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

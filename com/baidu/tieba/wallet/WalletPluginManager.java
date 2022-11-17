@@ -10,7 +10,7 @@ import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.uq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -878,7 +878,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iInvokeCallback) == null) {
-            if (tq4.c().contains("Host") && tq4.c().contains("-Wallet")) {
+            if (uq4.c().contains("Host") && uq4.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;

@@ -5,45 +5,112 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes5.dex */
 public class o7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public PayType a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
+    public double d;
+    public boolean e;
+    public double f;
 
-    public o7a(String str, String str2, String str3, String str4, String str5, String str6) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public o7a(PayType payType, String str, String str2) {
+        this(payType, str, str2, 0.0d, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6};
+            Object[] objArr = {payType, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
     }
 
-    public String toString() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public o7a(PayType payType, String str, String str2, double d) {
+        this(payType, str, str2, 0.0d, false, d);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2, Double.valueOf(d)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue(), ((Double) objArr2[5]).doubleValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public o7a(PayType payType, String str, String str2, double d, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = "";
+        this.a = payType;
+        this.b = str;
+        this.c = str2;
+        this.d = d;
+        this.e = z;
+    }
+
+    public o7a(PayType payType, String str, String str2, double d, boolean z, double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z), Double.valueOf(d2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.b = "";
+        this.a = payType;
+        this.b = str;
+        this.c = str2;
+        this.d = d;
+        this.e = z;
+        this.f = d2;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + m8a.a(this.c) + "', rightIcon='" + m8a.a(this.d) + "', rightIconTitle='" + this.e + "', rightIconUrl='" + m8a.a(this.f) + "'}";
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

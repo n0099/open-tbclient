@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
-public interface gb5 extends xa5 {
-    public static final String a = "com.baidu.tieba.gb5";
+public interface gb5 {
+    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 
-    @NonNull
-    fb5 b(@NonNull TbPageContext tbPageContext);
+    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 }

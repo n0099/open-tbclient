@@ -34,12 +34,12 @@ public class ei3 implements yi3<Exception> {
 
         /* renamed from: com.baidu.tieba.ei3$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0250a implements Runnable {
+        public class RunnableC0253a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0250a(a aVar) {
+            public RunnableC0253a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class ei3 implements yi3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0250a(this);
+                    this.a.c = new RunnableC0253a(this);
                     long a = lg4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (ei3.e) {

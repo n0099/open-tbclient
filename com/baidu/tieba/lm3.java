@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface lm3 {
     void a(QuickLoginInfo quickLoginInfo);
 }

@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.s05;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
 import com.baidu.tieba.view.UserLikeInAttentionButton;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public HeadPendantClickableView f;
         public RecyclerView g;
         public VideoAttentionReccomendListAdapter h;
-        public r05 i;
+        public s05 i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public RecomendViewHolder(Context context, View view2) {
@@ -100,9 +100,9 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter = new VideoAttentionReccomendListAdapter(context);
             this.h = videoAttentionReccomendListAdapter;
             this.g.setAdapter(videoAttentionReccomendListAdapter);
-            r05 r05Var = new r05(this.f.getTbPageContext(), this.e);
-            this.i = r05Var;
-            r05Var.k(true);
+            s05 s05Var = new s05(this.f.getTbPageContext(), this.e);
+            this.i = s05Var;
+            s05Var.k(true);
         }
 
         public void a(View.OnClickListener onClickListener) {
@@ -270,7 +270,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             j(videoAttentionPersonListData, recomendViewHolder);
             l(videoAttentionPersonListData.getVideoItemDatas(), recomendViewHolder);
             i(videoAttentionPersonListData, recomendViewHolder);
-            pw4 d = pw4.d(this.e);
+            qw4 d = qw4.d(this.e);
             d.n(R.string.J_X05);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0105));
             recomendViewHolder.a(new a(this, videoAttentionPersonListData));
@@ -292,12 +292,12 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
     }
 
     public final void i(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
-        r05 r05Var;
+        s05 s05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, videoAttentionPersonListData, recomendViewHolder) == null) {
             recomendViewHolder.e.setOnClickEvent(new b(this, videoAttentionPersonListData));
-            if (videoAttentionPersonListData != null && recomendViewHolder != null && (r05Var = recomendViewHolder.i) != null) {
-                r05Var.n(videoAttentionPersonListData.getUserData());
+            if (videoAttentionPersonListData != null && recomendViewHolder != null && (s05Var = recomendViewHolder.i) != null) {
+                s05Var.n(videoAttentionPersonListData.getUserData());
             }
         }
     }
@@ -319,7 +319,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().isNewGod()) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.d.getLayoutParams();
                 layoutParams.setMargins(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + zj5.c(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
+                recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + ak5.c(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
                 recomendViewHolder.c.setVisibility(0);
             } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().showBazhuGrade()) {
                 recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE));

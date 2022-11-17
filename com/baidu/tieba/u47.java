@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
+import tbclient.ActiveCenter;
 /* loaded from: classes6.dex */
-public class u47 extends BaseCardInfo {
+public class u47 extends t46 implements h56 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
+    public int R;
+    public ActiveCenterData S;
+
+    @Override // com.baidu.tieba.h56
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.h56
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h56
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +56,7 @@ public class u47 extends BaseCardInfo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        T = BdUniqueId.gen();
     }
 
     public u47() {
@@ -54,43 +73,32 @@ public class u47 extends BaseCardInfo {
         }
     }
 
+    @Override // com.baidu.tieba.h56
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.R;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return T;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(LiveAnswer liveAnswer) {
+    public void N(ActiveCenter activeCenter) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) && activeCenter != null) {
+            ActiveCenterData activeCenterData = new ActiveCenterData();
+            this.S = activeCenterData;
+            activeCenterData.parseProto(activeCenter);
         }
-        this.c = liveAnswer.banner_url;
-        this.a = liveAnswer.banner_high.intValue();
-        this.b = liveAnswer.banner_width.intValue();
-        this.d = liveAnswer.jump_url;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("img_width", this.b);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.c);
-                jSONObject.put("img_height", this.a);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.d);
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

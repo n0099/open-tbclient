@@ -1,59 +1,55 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.ku6;
+import com.baidu.tbadk.core.view.KeyEventDealContainerView;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tieba.frs.tab.HorizontalTabView;
+import com.baidu.tieba.frs.tab.TabItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class lu6 implements gu6 {
+public class lu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public ku6.e b;
-    public Context c;
-    public List<dl6> d;
-    public ku6 e;
-    public final BaseAdapter f;
-    public AdapterView.OnItemClickListener g;
+    public LinearLayout a;
+    public fl6 b;
+    public MorePopupWindow c;
+    public View d;
+    public SparseArray<hu6> e;
+    public Context f;
+    public hu6 g;
+    public e h;
+    public d i;
 
-    @Override // com.baidu.tieba.gu6
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(TabItemView tabItemView);
     }
 
     /* loaded from: classes5.dex */
-    public class a extends BaseAdapter {
+    public interface e {
+        void a(int i);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lu6 a;
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-        }
 
         public a(lu6 lu6Var) {
             Interceptable interceptable = $ic;
@@ -73,84 +69,27 @@ public class lu6 implements gu6 {
             this.a = lu6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public dl6 getItem(int i) {
-            InterceptResult invokeI;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.d == null) {
-                    return null;
-                }
-                return (dl6) this.a.d.get(i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ch.c(this.a.c);
             }
-            return (dl6) invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d == null) {
-                    return 0;
-                }
-                return this.a.d.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d085d, (ViewGroup) null);
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
-                    ku6.f fVar = new ku6.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092073);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092070);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092072);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092071);
-                    view2.setTag(fVar);
-                }
-                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
-                ku6.f fVar2 = (ku6.f) view2.getTag();
-                dl6 item = getItem(i);
-                if (item == null) {
-                    return view2;
-                }
-                fVar2.a.setText(item.a);
-                if (item.c) {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
-                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
-                    fVar2.b.setVisibility(0);
-                } else {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
-                    fVar2.b.setVisibility(8);
-                }
-                if (i >= 0 && i == getCount() - 1) {
-                    fVar2.d.setVisibility(0);
-                    fVar2.c.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
-                } else {
-                    fVar2.c.setVisibility(0);
-                    fVar2.d.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
-                }
-                return view2;
-            }
-            return (View) invokeILL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements AdapterView.OnItemClickListener {
+    public class b implements KeyEventDealContainerView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lu6 a;
+
+        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public b(lu6 lu6Var) {
             Interceptable interceptable = $ic;
@@ -170,33 +109,80 @@ public class lu6 implements gu6 {
             this.a = lu6Var;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (this.a.e != null) {
-                    this.a.e.c();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.c != null) {
+                ch.c(this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements PopupWindow.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TabItemView a;
+        public final /* synthetic */ lu6 b;
+
+        public c(lu6 lu6Var, TabItemView tabItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lu6Var, tabItemView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (this.a.f != null && this.a.b != null) {
-                    for (dl6 dl6Var : this.a.d) {
-                        if (dl6Var != null) {
-                            dl6Var.c = false;
-                        }
-                    }
-                    dl6 dl6Var2 = (dl6) this.a.f.getItem(i);
-                    if (dl6Var2 != null) {
-                        dl6Var2.c = true;
-                        this.a.b.a(dl6Var2.b);
-                    }
+            }
+            this.b = lu6Var;
+            this.a = tabItemView;
+        }
+
+        @Override // android.widget.PopupWindow.OnDismissListener
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.i != null) {
+                this.b.i.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public View c;
+        public View d;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    public lu6() {
+    public lu6(Context context, e eVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, eVar, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,52 +192,90 @@ public class lu6 implements gu6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
+        this.f = context;
+        this.h = eVar;
+        this.i = dVar;
+        this.e = new SparseArray<>();
+        LinearLayout linearLayout = new LinearLayout(context);
+        this.a = linearLayout;
+        linearLayout.setOrientation(1);
+        this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        View view2 = new View(context);
+        this.d = view2;
+        view2.setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.gu6
-    public View getView() {
+    public void c() {
+        MorePopupWindow morePopupWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (morePopupWindow = this.c) != null) {
+            try {
+                morePopupWindow.dismiss();
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+        }
+    }
+
+    public e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
-        return (View) invokeV.objValue;
+        return (e) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gu6
-    public void setData(List<dl6> list) {
+    public final void e(Activity activity, View view2, TabItemView tabItemView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.gu6
-    public void a(Context context, ku6 ku6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, ku6Var) == null) && context != null && ku6Var != null) {
-            this.c = context;
-            this.e = ku6Var;
-            this.b = ku6Var.d();
-            g();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
+            if (this.c == null) {
+                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08127e), new b(this));
+            }
+            this.c.setOnDismissListener(new c(this, tabItemView));
         }
     }
 
-    public final void g() {
+    public void f(Activity activity, View view2, TabItemView tabItemView, fl6 fl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdListView bdListView = new BdListView(this.c);
-            this.a = bdListView;
-            bdListView.setAlwaysDrawnWithCacheEnabled(false);
-            this.a.setDivider(null);
-            this.a.setDividerHeight(0);
-            this.a.setSelector(17170445);
-            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
-            this.a.setOnItemClickListener(this.g);
-            this.a.setAdapter((ListAdapter) this.f);
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, view2, tabItemView, fl6Var) == null) {
+            this.b = fl6Var;
+            hu6 hu6Var = this.e.get(fl6Var.a);
+            this.g = hu6Var;
+            if (hu6Var == null) {
+                hu6 a2 = ou6.a(this.b.a);
+                this.g = a2;
+                a2.a(this.f, this);
+                this.e.put(this.b.a, this.g);
+            }
+            this.g.setData(fl6Var.b);
+            if (view2 instanceof HorizontalTabView) {
+                HorizontalTabView horizontalTabView = (HorizontalTabView) view2;
+                if (horizontalTabView.getmShowMenuCallBack() != null) {
+                    int[] iArr = new int[2];
+                    horizontalTabView.getLocationInWindow(iArr);
+                    yi.A(horizontalTabView.getContext());
+                    int j = yi.j(horizontalTabView.getContext());
+                    int b2 = this.g.b();
+                    int measuredHeight = (j - iArr[1]) - horizontalTabView.getMeasuredHeight();
+                    if (measuredHeight < b2) {
+                        horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
+                    }
+                }
+            }
+            this.a.removeAllViews();
+            this.a.addView(this.g.getView());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            SkinManager.setBackgroundResource(this.d, R.color.common_color_10050);
+            this.a.addView(this.d, layoutParams);
+            e(activity, view2, tabItemView);
+            MorePopupWindow morePopupWindow = this.c;
+            if (morePopupWindow != null) {
+                morePopupWindow.refresh();
+                this.c.setWidthAsWidthOfDeviceScreen(activity);
+                this.c.setHeight(-1);
+                this.c.showWindowInCustomPosition(0, 0);
+            }
         }
     }
 }

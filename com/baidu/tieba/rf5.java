@@ -1,13 +1,5 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
 /* loaded from: classes5.dex */
-public interface rf5 {
-    boolean G0();
-
-    Intent getResultIntent();
-
-    void n(int i);
-
-    boolean s();
+public interface rf5 extends sf5 {
+    void E(float f);
 }

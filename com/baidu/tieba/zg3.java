@@ -23,7 +23,7 @@ public final class zg3 {
     public static volatile k b;
     public static volatile k c;
     public static volatile k d;
-    public static final f0a e;
+    public static final g0a e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -32,7 +32,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements f0a<Pair<Runnable, String>> {
+    public static class a implements g0a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Pair<Runnable, String> pair) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements j0a<Pair<Runnable, String>, rz9<?>> {
+    public static class b implements k0a<Pair<Runnable, String>, sz9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,19 +98,19 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j0a
-        public rz9<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.k0a
+        public sz9<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return vz9.g(pair).h(Schedulers.io()).f(zg3.e).l();
+                return wz9.g(pair).h(Schedulers.io()).f(zg3.e).l();
             }
-            return (rz9) invokeL.objValue;
+            return (sz9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements j0a<Pair<Runnable, String>, rz9<?>> {
+    public static class c implements k0a<Pair<Runnable, String>, sz9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,19 +129,19 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j0a
-        public rz9<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.k0a
+        public sz9<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return vz9.g(pair).h(Schedulers.computation()).f(zg3.e).l();
+                return wz9.g(pair).h(Schedulers.computation()).f(zg3.e).l();
             }
-            return (rz9) invokeL.objValue;
+            return (sz9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements f0a<Throwable> {
+    public static class d implements g0a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -165,7 +165,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && zg3.a) {
@@ -175,7 +175,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements f0a<Pair<Runnable, String>> {
+    public static class e implements g0a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -204,7 +204,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class f implements f0a<Throwable> {
+    public static class f implements g0a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -228,7 +228,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && zg3.a) {
@@ -238,7 +238,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class g implements f0a<Pair<Runnable, String>> {
+    public static class g implements g0a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -257,7 +257,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -267,7 +267,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class h implements f0a<Throwable> {
+    public static class h implements g0a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -291,7 +291,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && zg3.a) {
@@ -301,7 +301,7 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class i implements f0a<Pair<Runnable, String>> {
+    public static class i implements g0a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -320,7 +320,7 @@ public final class zg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -330,23 +330,23 @@ public final class zg3 {
     }
 
     /* loaded from: classes6.dex */
-    public static class k extends i4a<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
+    public static class k extends j4a<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(j4a j4aVar) {
-            super(j4aVar);
+        public k(k4a k4aVar) {
+            super(k4aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j4aVar};
+                Object[] objArr = {k4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((j4a) newInitContext.callArgs[0]);
+                    super((k4a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -402,31 +402,31 @@ public final class zg3 {
         }
     }
 
-    public static yz9 c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static zz9 c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return vz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
+            return wz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
         }
-        return (yz9) invokeCommon.objValue;
+        return (zz9) invokeCommon.objValue;
     }
 
-    public static yz9 d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static zz9 d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return vz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
+            return wz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
         }
-        return (yz9) invokeCommon.objValue;
+        return (zz9) invokeCommon.objValue;
     }
 
-    public static yz9 e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static zz9 e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return vz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
+            return wz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
         }
-        return (yz9) invokeCommon.objValue;
+        return (zz9) invokeCommon.objValue;
     }
 
     public static j f() {

@@ -13,9 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ky7;
 import com.baidu.tieba.ly7;
-import com.baidu.tieba.ny7;
+import com.baidu.tieba.my7;
+import com.baidu.tieba.oy7;
 import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,9 +38,9 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<ky7> i;
+    public ArrayList<ly7> i;
     public List<Bitmap> j;
-    public ny7 k;
+    public oy7 k;
     public Vibrator l;
 
     /* loaded from: classes5.dex */
@@ -177,13 +177,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<ky7> arrayList = this.i;
+            ArrayList<ly7> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<ky7> it = arrayList.iterator();
+            Iterator<ly7> it = arrayList.iterator();
             while (it.hasNext()) {
-                ky7 next = it.next();
+                ly7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -198,10 +198,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(ny7 ny7Var) {
+    public void setEjectionAnimationViewCallback(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ny7Var) == null) {
-            this.k = ny7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, oy7Var) == null) {
+            this.k = oy7Var;
         }
     }
 
@@ -217,7 +217,7 @@ public class EjectionAnimationView extends View {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e && !ListUtils.isEmpty(this.j) && (bitmap = this.j.get(new Random().nextInt(this.j.size()))) != null && !bitmap.isRecycled()) {
-            this.i.add(new ly7(bitmap, this.g, this.h, this.b, this.c));
+            this.i.add(new my7(bitmap, this.g, this.h, this.b, this.c));
         }
     }
 
@@ -228,9 +228,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            ny7 ny7Var = this.k;
-            if (ny7Var != null) {
-                ny7Var.onStart();
+            oy7 oy7Var = this.k;
+            if (oy7Var != null) {
+                oy7Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -244,9 +244,9 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<ky7> it = this.i.iterator();
+            Iterator<ly7> it = this.i.iterator();
             while (it.hasNext()) {
-                ky7 next = it.next();
+                ly7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -275,9 +275,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            ny7 ny7Var = this.k;
-            if (ny7Var != null) {
-                ny7Var.onStop();
+            oy7 oy7Var = this.k;
+            if (oy7Var != null) {
+                oy7Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {

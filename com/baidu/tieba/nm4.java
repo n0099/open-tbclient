@@ -125,8 +125,8 @@ public class nm4 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            to8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            to8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+            uo8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            uo8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 

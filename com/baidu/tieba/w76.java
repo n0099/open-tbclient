@@ -2,41 +2,65 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class w76 implements Comparator<t66> {
+public final class w76 extends e76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w76() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public w76(z66 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((z66) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        s0 b = s0.i(j76.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(t66 o1, t66 o2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e76
+    public void l(p0 entity, float f) {
+        u66 a;
+        j76 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
-            Intrinsics.checkNotNullParameter(o1, "o1");
-            Intrinsics.checkNotNullParameter(o2, "o2");
-            return o1.compareTo(o2);
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            g76 b = e86.b(entity);
+            if (b == null) {
+                a = null;
+            } else {
+                a = b.a();
+            }
+            if (a == null || (a2 = e86.a(entity)) == null) {
+                return;
+            }
+            if (d86.b(this) >= a.e().k()) {
+                a2.h(true);
+                a2.c(d86.b(this) - a.e().k());
+                return;
+            }
+            a2.h(false);
         }
-        return invokeLL.intValue;
     }
 }

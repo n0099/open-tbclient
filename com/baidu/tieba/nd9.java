@@ -1,63 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.JsonWriter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
 public class nd9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
-        Object opt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
-            if (obj != null && obj != JSONObject.NULL) {
-                if (obj instanceof JSONArray) {
-                    JSONArray jSONArray = (JSONArray) obj;
-                    jsonWriter.beginArray();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        Object opt2 = jSONArray.opt(i);
-                        if (opt2 != null) {
-                            a(jsonWriter, opt2);
-                        }
-                    }
-                    jsonWriter.endArray();
-                    return;
-                } else if (obj instanceof JSONObject) {
-                    JSONObject jSONObject = (JSONObject) obj;
-                    jsonWriter.beginObject();
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
-                            jsonWriter.name(next);
-                            a(jsonWriter, opt);
-                        }
-                    }
-                    jsonWriter.endObject();
-                    return;
-                } else if (obj instanceof Number) {
-                    jsonWriter.value((Number) obj);
-                    return;
-                } else if (obj instanceof String) {
-                    jsonWriter.value((String) obj);
-                    return;
-                } else if (obj instanceof Boolean) {
-                    jsonWriter.value(((Boolean) obj).booleanValue());
-                    return;
-                } else {
-                    jsonWriter.value(obj.toString());
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947998758, "Lcom/baidu/tieba/nd9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            jsonWriter.nullValue();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947998758, "Lcom/baidu/tieba/nd9;");
+                return;
+            }
         }
+        a = kc9.m();
+    }
+
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                    return bArr2;
+                }
+                return bArr2;
+            }
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

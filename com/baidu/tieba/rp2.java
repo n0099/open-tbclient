@@ -44,12 +44,12 @@ public class rp2 {
 
         /* renamed from: com.baidu.tieba.rp2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0414a extends TimerTask {
+        public class C0417a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0414a(a aVar) {
+            public C0417a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class rp2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new C0414a(this);
+                return new C0417a(this);
             }
             return (TimerTask) invokeV.objValue;
         }

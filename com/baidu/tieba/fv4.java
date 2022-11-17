@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.VoteSchema;
 /* loaded from: classes4.dex */
 public class fv4 {
     public static /* synthetic */ Interceptable $ic;
@@ -31,58 +28,19 @@ public class fv4 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static fv4 a(VoteSchema voteSchema) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
+            if (voteSchema == null) {
+                return null;
+            }
+            fv4 fv4Var = new fv4();
+            fv4Var.a = voteSchema.text_before_vote;
+            fv4Var.b = voteSchema.text_after_vote;
+            fv4Var.c = voteSchema.jump_url;
+            return fv4Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optInt("activity_type");
-            this.a = jSONObject.optString("activity_url");
-            this.b = jSONObject.optString("activity_all_icon");
-            this.c = jSONObject.optString("activity_half_icon");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void e(YuleActivity yuleActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, yuleActivity) != null) || yuleActivity == null) {
-            return;
-        }
-        yuleActivity.activity_id.longValue();
-        yuleActivity.activity_type.intValue();
-        this.a = yuleActivity.activity_url;
-        this.b = yuleActivity.activity_all_icon;
-        this.c = yuleActivity.activity_half_icon;
+        return (fv4) invokeL.objValue;
     }
 }

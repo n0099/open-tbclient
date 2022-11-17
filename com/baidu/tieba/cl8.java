@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class cl8 implements zb9 {
+public class cl8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bl8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cl8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zb9
-    public boolean isAgreePrivacy() {
+    public static synchronized bl8 a() {
         InterceptResult invokeV;
+        bl8 bl8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cl8.class) {
+                if (a == null) {
+                    a = new bl8();
+                }
+                bl8Var = a;
+            }
+            return bl8Var;
         }
-        return invokeV.booleanValue;
+        return (bl8) invokeV.objValue;
     }
 }

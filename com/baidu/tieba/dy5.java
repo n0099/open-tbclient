@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
+import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListGameDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dy5 extends kn<fy5, AlaSubListLiveDoubleViewHolder> {
+public class dy5 extends kn<fy5, AlaSubListGameDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ny5 b;
+    public oy5 b;
     public boolean c;
-    public ly5 d;
+    public jy5 d;
     public int e;
     public int f;
 
@@ -52,14 +52,14 @@ public class dy5 extends kn<fy5, AlaSubListLiveDoubleViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public AlaSubListGameDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new ly5(this.a, this.c);
-            return new AlaSubListLiveDoubleViewHolder(this.d);
+            this.d = new jy5(this.a, this.c);
+            return new AlaSubListGameDoubleViewHolder(this.d);
         }
-        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
+        return (AlaSubListGameDoubleViewHolder) invokeL.objValue;
     }
 
     public void v(int i) {
@@ -69,10 +69,10 @@ public class dy5 extends kn<fy5, AlaSubListLiveDoubleViewHolder> {
         }
     }
 
-    public void w(ny5 ny5Var) {
+    public void w(oy5 oy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ny5Var) == null) {
-            this.b = ny5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, oy5Var) == null) {
+            this.b = oy5Var;
         }
     }
 
@@ -91,27 +91,27 @@ public class dy5 extends kn<fy5, AlaSubListLiveDoubleViewHolder> {
         int i = this.f;
         if (i == 1) {
             if (fy5Var.a != null) {
-                nx5 b = nx5.b();
-                nx5 b2 = nx5.b();
+                ox5 b = ox5.b();
+                ox5 b2 = ox5.b();
                 int i2 = this.e;
-                ov5 ov5Var = fy5Var.a;
-                b.a(b2.d(i2, "c12117", ov5Var.a, ov5Var.b, ov5Var.getThreadData()));
+                pv5 pv5Var = fy5Var.a;
+                b.a(b2.d(i2, "c12117", pv5Var.a, pv5Var.b, pv5Var.getThreadData()));
             }
             if (fy5Var.b != null) {
-                nx5 b3 = nx5.b();
-                nx5 b4 = nx5.b();
+                ox5 b3 = ox5.b();
+                ox5 b4 = ox5.b();
                 int i3 = this.e;
-                ov5 ov5Var2 = fy5Var.b;
-                b3.a(b4.d(i3, "c12117", ov5Var2.a, ov5Var2.b, ov5Var2.getThreadData()));
+                pv5 pv5Var2 = fy5Var.b;
+                b3.a(b4.d(i3, "c12117", pv5Var2.a, pv5Var2.b, pv5Var2.getThreadData()));
             }
         } else if (i == 2) {
-            ov5 ov5Var3 = fy5Var.a;
-            if (ov5Var3 != null && ov5Var3.getThreadData() != null && fy5Var.a.getThreadData().getThreadAlaInfo() != null) {
+            pv5 pv5Var3 = fy5Var.a;
+            if (pv5Var3 != null && pv5Var3.getThreadData() != null && fy5Var.a.getThreadData().getThreadAlaInfo() != null) {
                 ThreadData threadData = fy5Var.a.getThreadData();
                 TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", fy5Var.a.b));
             }
-            ov5 ov5Var4 = fy5Var.b;
-            if (ov5Var4 != null && ov5Var4.getThreadData() != null && fy5Var.b.getThreadData().getThreadAlaInfo() != null) {
+            pv5 pv5Var4 = fy5Var.b;
+            if (pv5Var4 != null && pv5Var4.getThreadData() != null && fy5Var.b.getThreadData().getThreadAlaInfo() != null) {
                 ThreadData threadData2 = fy5Var.b.getThreadData();
                 TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", fy5Var.b.b));
             }
@@ -121,14 +121,14 @@ public class dy5 extends kn<fy5, AlaSubListLiveDoubleViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fy5 fy5Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fy5 fy5Var, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy5Var, alaSubListLiveDoubleViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy5Var, alaSubListGameDoubleViewHolder})) == null) {
             s(fy5Var);
-            alaSubListLiveDoubleViewHolder.a.l(fy5Var);
-            alaSubListLiveDoubleViewHolder.a.s(this.b);
-            return alaSubListLiveDoubleViewHolder.getView();
+            alaSubListGameDoubleViewHolder.a.l(fy5Var);
+            alaSubListGameDoubleViewHolder.a.s(this.b);
+            return alaSubListGameDoubleViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

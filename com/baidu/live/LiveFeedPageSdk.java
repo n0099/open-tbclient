@@ -14,8 +14,8 @@ import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.lb0;
 import com.baidu.tieba.vc0;
-import com.baidu.tieba.yv9;
 import com.baidu.tieba.zb0;
+import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +203,7 @@ public class LiveFeedPageSdk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return yv9.a(context);
+            return zv9.a(context);
         }
         return (String) invokeL.objValue;
     }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lv7;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.mv7;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lv7 a;
+    public mv7 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -66,7 +66,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String q = py4.k().q("key_interest_guide_show", "");
+            String q = qy4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             if (!StringUtils.isNull(q)) {
@@ -74,9 +74,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            py4 k = py4.k();
+            qy4 k = qy4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            py4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            qy4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -96,9 +96,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             M0();
-            lv7 lv7Var = new lv7(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = lv7Var;
-            setContentView(lv7Var.d());
+            mv7 mv7Var = new mv7(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = mv7Var;
+            setContentView(mv7Var.d());
             N0();
         }
     }

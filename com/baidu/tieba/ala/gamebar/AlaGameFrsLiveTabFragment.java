@@ -29,13 +29,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de5;
-import com.baidu.tieba.fe5;
+import com.baidu.tieba.ee5;
 import com.baidu.tieba.ge5;
-import com.baidu.tieba.hk6;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.ok6;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.ik6;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.pk6;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, ok6 {
+public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, pk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -264,22 +264,22 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     }
 
     /* loaded from: classes3.dex */
-    public class f extends de5 {
+    public class f extends ee5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaGameFrsLiveTabFragment b;
 
-        @Override // com.baidu.tieba.de5
-        public boolean a(fe5 fe5Var) {
+        @Override // com.baidu.tieba.ee5
+        public boolean a(ge5 ge5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fe5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ge5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.de5
+        @Override // com.baidu.tieba.ee5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -307,12 +307,12 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             this.b = alaGameFrsLiveTabFragment;
         }
 
-        @Override // com.baidu.tieba.de5
+        @Override // com.baidu.tieba.ee5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ge5.b().c();
+                return he5.b().c();
             }
             return invokeV.intValue;
         }
@@ -349,19 +349,19 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof hk6) || this.a.d.getCount() > 0) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ik6) || this.a.d.getCount() > 0) {
                 return;
             }
-            hk6 hk6Var = (hk6) customResponsedMessage.getData();
+            ik6 ik6Var = (ik6) customResponsedMessage.getData();
             Message<?> message = customResponsedMessage.getmOrginalMessage();
             if (message != null && message.getTag() != null && message.getTag().equals(this.a.getUniqueId())) {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
-                if (hk6Var.e() != null) {
-                    for (oa5 oa5Var : hk6Var.e()) {
-                        if (oa5Var.b().a != null) {
-                            arrayList.add(oa5Var.b().a);
-                            arrayList2.add(Integer.valueOf(oa5Var.b().e));
+                if (ik6Var.e() != null) {
+                    for (pa5 pa5Var : ik6Var.e()) {
+                        if (pa5Var.b().a != null) {
+                            arrayList.add(pa5Var.b().a);
+                            arrayList2.add(Integer.valueOf(pa5Var.b().e));
                         }
                     }
                 }
@@ -464,11 +464,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             gVar.setTag(getUniqueId());
             gVar.setPriority(Integer.MAX_VALUE);
             registerListener(gVar);
-            hk6 hk6Var = new hk6(getPageContext().getPageActivity());
-            hk6Var.g(this.g);
-            hk6Var.h(this.h);
-            hk6Var.f(this.i);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, hk6Var);
+            ik6 ik6Var = new ik6(getPageContext().getPageActivity());
+            ik6Var.g(this.g);
+            ik6Var.h(this.h);
+            ik6Var.f(this.i);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, ik6Var);
             customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -486,11 +486,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                     this.e = 0;
                     this.c.setCurrentTab(0);
                 }
-                String q = py4.k().q("square_jump_tab_name", null);
+                String q = qy4.k().q("square_jump_tab_name", null);
                 if (!TextUtils.isEmpty(q)) {
                     this.c.setCurrentTab(y1(q));
                 }
-                py4.k().y("square_jump_tab_name", "");
+                qy4.k().y("square_jump_tab_name", "");
             }
             if (isAdded() && (fragmentTabHost = this.c) != null && (fragmentTabHost.getCurrentFragment() instanceof BaseFragment)) {
                 ((BaseFragment) this.c.getCurrentFragment()).setPrimary(isPrimary());
@@ -525,7 +525,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         }
     }
 
-    @Override // com.baidu.tieba.ok6
+    @Override // com.baidu.tieba.pk6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -535,7 +535,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return (NavigationBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -554,14 +554,14 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
-    public de5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
+    public ee5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return new f(this);
         }
-        return (de5) invokeV.objValue;
+        return (ee5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

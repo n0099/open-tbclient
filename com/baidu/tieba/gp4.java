@@ -124,7 +124,7 @@ public class gp4 {
             CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
             if (checkBaiduSimResponseMessage.isSuc) {
                 boolean z = checkBaiduSimResponseMessage.isBaiduSim;
-                py4 k = py4.k();
+                qy4 k = qy4.k();
                 if (z) {
                     str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02da);
                 } else {
@@ -196,8 +196,8 @@ public class gp4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
             this.b = true;
-            if (System.currentTimeMillis() >= py4.k().m("key_next_check_baidu_sim_time", 0L)) {
-                py4.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+            if (System.currentTimeMillis() >= qy4.k().m("key_next_check_baidu_sim_time", 0L)) {
+                qy4.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);

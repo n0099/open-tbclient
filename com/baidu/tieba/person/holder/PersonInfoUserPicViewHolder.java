@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x55;
 import com.baidu.tieba.xn;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,13 +55,13 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void a(xn xnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, xnVar) != null) || !(xnVar instanceof x55)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, xnVar) != null) || !(xnVar instanceof y55)) {
             return;
         }
         this.d = xnVar;
-        x55 x55Var = (x55) xnVar;
-        if (x55Var.c()) {
-            String b = x55Var.b();
+        y55 y55Var = (y55) xnVar;
+        if (y55Var.c()) {
+            String b = y55Var.b();
             this.b.setVisibility(0);
             if (StringUtils.isNull(b)) {
                 this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -71,7 +71,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080c12);
             this.b.setVisibility(8);
-            this.a.K(x55Var.b(), 10, false);
+            this.a.K(y55Var.b(), 10, false);
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

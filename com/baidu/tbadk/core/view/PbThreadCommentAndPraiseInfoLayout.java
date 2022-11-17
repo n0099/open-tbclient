@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yr4;
+import com.baidu.tieba.zr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -121,11 +121,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void O(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.D != null && !TextUtils.isEmpty(str) && str.equals(this.D.getTid())) {
-            yr4 yr4Var = new yr4();
-            yr4Var.b = 4;
-            yr4Var.d = 2;
-            yr4Var.j = str2;
-            this.e.setStatisticData(yr4Var);
+            zr4 zr4Var = new zr4();
+            zr4Var.b = 4;
+            zr4Var.d = 2;
+            zr4Var.j = str2;
+            this.e.setStatisticData(zr4Var);
             this.e.K();
         }
     }
@@ -387,7 +387,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f0809a5, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                pw4 d = pw4.d(eMTextView);
+                qw4 d = qw4.d(eMTextView);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0107);
                 SkinManager.setBackgroundShapeDrawable(this.h, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);

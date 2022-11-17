@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface qf9 {
-    boolean available();
-
     int availableBytes();
-
-    void clearQueues();
 
     void close();
 
     void flush();
 
-    int getBytes(byte[] bArr, int i);
+    byte[] getOutPutBytes();
 
-    void initVoiceChanger(int i, int i2, int i3, int i4);
+    void init(int i, int i2);
 
     boolean putBytes(byte[] bArr, int i);
 
-    void setVoiceChangeType(int[] iArr);
+    int receiveBytes(byte[] bArr, int i);
 
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    void setSpeed(float f);
 }

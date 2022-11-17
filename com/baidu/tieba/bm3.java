@@ -38,12 +38,12 @@ public class bm3 {
 
         /* renamed from: com.baidu.tieba.bm3$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0219a implements Runnable {
+        public class RunnableC0218a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0219a(a aVar) {
+            public RunnableC0218a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class bm3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0219a(this));
+                    viewGroup.post(new RunnableC0218a(this));
                 }
                 if (this.c.i(quickLoginInfo)) {
                     this.c.a.putParcelable("quick_login_info", quickLoginInfo);

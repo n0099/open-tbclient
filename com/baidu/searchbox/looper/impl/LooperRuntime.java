@@ -18,7 +18,7 @@ import com.baidu.tieba.kf1;
 import com.baidu.tieba.lf1;
 import com.baidu.tieba.mf1;
 import com.baidu.tieba.nf1;
-import com.baidu.tieba.st9;
+import com.baidu.tieba.tt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,11 +163,11 @@ public class LooperRuntime {
         return (ILooperUIContext) invokeV.objValue;
     }
 
-    public void dispatchBlock(Context context, st9 st9Var) {
+    public void dispatchBlock(Context context, tt9 tt9Var) {
         nf1<ILooperRegister> nf1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, st9Var) == null) && (nf1Var = this.mLooperMonitordList) != null && nf1Var.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(st9Var.r, st9Var.q, st9Var.n, st9Var.o, st9Var.w);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, tt9Var) == null) && (nf1Var = this.mLooperMonitordList) != null && nf1Var.getList() != null) {
+            LooperBlock looperBlock = new LooperBlock(tt9Var.r, tt9Var.q, tt9Var.n, tt9Var.o, tt9Var.w);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

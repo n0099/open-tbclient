@@ -1,56 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ue7 extends Thread {
+public final class ue7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public ue7(String str, String str2, String str3) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
-            }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("obj", this.a);
-            netWork.addPostData("obj_tp", this.b);
-            netWork.addPostData("group_id", this.c);
-            netWork.postNetData();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
+        }
+    }
+
+    public static void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            se7.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
+        }
+    }
+
+    public static void d(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            se7.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
+        }
+    }
+
+    public static void e(long j, int i, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
+            long c = we7.c(j);
+            se7.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
+            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
         }
     }
 }

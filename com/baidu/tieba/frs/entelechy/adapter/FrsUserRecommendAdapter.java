@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e46;
+import com.baidu.tieba.f46;
 import com.baidu.tieba.frs.view.UserRecommendItemView;
 import com.baidu.tieba.frs.view.UserRecommendLayout;
-import com.baidu.tieba.gj6;
+import com.baidu.tieba.hj6;
 import com.baidu.tieba.og;
-import com.baidu.tieba.p05;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.tj6;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.s05;
+import com.baidu.tieba.uj6;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsUserRecommendAdapter extends gj6<tj6, FrsUserRecommendViewHolder> {
+public class FrsUserRecommendAdapter extends hj6<uj6, FrsUserRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -83,11 +83,11 @@ public class FrsUserRecommendAdapter extends gj6<tj6, FrsUserRecommendViewHolder
                 FrsUserRecommendViewHolder frsUserRecommendViewHolder;
                 FlexibleHorizontalScrollView flexibleHorizontalScrollView;
                 UserRecommendLayout userRecommendLayout;
-                p05 j;
+                q05 j;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (flexibleHorizontalScrollView = (frsUserRecommendViewHolder = this.a).b) != null && (userRecommendLayout = frsUserRecommendViewHolder.c) != null) {
                     flexibleHorizontalScrollView.smoothScrollBy(userRecommendLayout.getChildItemWidth(), 0);
-                    if ((view2.getTag() instanceof r05) && (j = ((r05) view2.getTag()).j()) != null) {
+                    if ((view2.getTag() instanceof s05) && (j = ((s05) view2.getTag()).j()) != null) {
                         this.a.d(j.getUserId(), 2);
                     }
                     if (this.a.e) {
@@ -298,27 +298,27 @@ public class FrsUserRecommendAdapter extends gj6<tj6, FrsUserRecommendViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gj6, com.baidu.tieba.kn
+    @Override // com.baidu.tieba.hj6, com.baidu.tieba.kn
     /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tj6 tj6Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uj6 uj6Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tj6Var, frsUserRecommendViewHolder})) == null) {
-            if (tj6Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uj6Var, frsUserRecommendViewHolder})) == null) {
+            if (uj6Var != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                frsUserRecommendViewHolder.d.setText(tj6Var.b());
+                frsUserRecommendViewHolder.d.setText(uj6Var.b());
                 frsUserRecommendViewHolder.c.setPageContext(this.c);
-                frsUserRecommendViewHolder.c.setData(tj6Var.c());
+                frsUserRecommendViewHolder.c.setData(uj6Var.c());
                 frsUserRecommendViewHolder.b.setMaxOverScrollDistance(frsUserRecommendViewHolder.c.getChildItemWidth());
                 frsUserRecommendViewHolder.d.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0106));
                 frsUserRecommendViewHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0205));
-                if (!tj6Var.f()) {
-                    for (MetaData metaData : tj6Var.c()) {
+                if (!uj6Var.f()) {
+                    for (MetaData metaData : uj6Var.c()) {
                         if (metaData != null && !xi.isEmpty(metaData.getUserId())) {
-                            e46.b().a(new StatisticItem("c12530").param("obj_id", metaData.getUserId()));
+                            f46.b().a(new StatisticItem("c12530").param("obj_id", metaData.getUserId()));
                         }
                     }
-                    tj6Var.j(true);
+                    uj6Var.j(true);
                 }
             }
             return frsUserRecommendViewHolder.getView();

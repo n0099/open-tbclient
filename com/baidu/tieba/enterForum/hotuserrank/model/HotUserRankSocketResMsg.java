@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.hotuserrank.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yb6;
+import com.baidu.tieba.zb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yb6 pageData;
+    public zb6 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankSocketResMsg() {
@@ -36,13 +36,13 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public yb6 getPageData() {
+    public zb6 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (yb6) invokeV.objValue;
+        return (zb6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getInfluenceRankResIdl.error.usermsg);
             }
-            yb6 yb6Var = new yb6();
-            this.pageData = yb6Var;
-            yb6Var.c(getInfluenceRankResIdl.data);
+            zb6 zb6Var = new zb6();
+            this.pageData = zb6Var;
+            zb6Var.c(getInfluenceRankResIdl.data);
             return getInfluenceRankResIdl;
         }
         return invokeIL.objValue;

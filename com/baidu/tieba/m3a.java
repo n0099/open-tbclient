@@ -8,10 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class m3a<E> extends n3a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public E[] d;
 
     public m3a() {
         Interceptable interceptable = $ic;

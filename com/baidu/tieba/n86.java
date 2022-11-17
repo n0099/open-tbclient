@@ -2,14 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.tieba.danmu.data.ItemState;
 import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.o86;
+import com.baidu.tieba.p86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class n86 implements o86.a {
+public final class n86 implements p86.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,8 +27,8 @@ public final class n86 implements o86.a {
         }
     }
 
-    @Override // com.baidu.tieba.o86.a
-    public void a(t66 item, long j, t86 displayer, n66 config) {
+    @Override // com.baidu.tieba.p86.a
+    public void a(u66 item, long j, u86 displayer, o66 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -36,7 +36,7 @@ public final class n86 implements o86.a {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f = item.f();
             if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
                 f.H(true);
                 return;
             }

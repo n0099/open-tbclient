@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.af5;
 import com.baidu.tieba.bf5;
 import com.baidu.tieba.cf5;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.we5;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = py4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = qy4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -360,7 +360,7 @@ public class PerformanceLoggerHelper {
         return (String) invokeV.objValue;
     }
 
-    public af5 getLoggerWithType(int i) {
+    public bf5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -369,57 +369,57 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    cf5 cf5Var = new cf5();
-                    cf5Var.a = "frs";
-                    return cf5Var;
+                    df5 df5Var = new df5();
+                    df5Var.a = "frs";
+                    return df5Var;
                 case 1001:
-                    cf5 cf5Var2 = new cf5();
-                    cf5Var2.a = "pb";
-                    return cf5Var2;
+                    df5 df5Var2 = new df5();
+                    df5Var2.a = "pb";
+                    return df5Var2;
                 case 1002:
-                    ze5 ze5Var = new ze5();
-                    ze5Var.a = "im";
-                    return ze5Var;
+                    af5 af5Var = new af5();
+                    af5Var.a = "im";
+                    return af5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    cf5 cf5Var3 = new cf5();
-                    cf5Var3.a = "photo_live";
-                    return cf5Var3;
+                    df5 df5Var3 = new df5();
+                    df5Var3.a = "photo_live";
+                    return df5Var3;
                 case 1005:
-                    ve5 ve5Var = new ve5();
-                    ve5Var.a = "home_page";
-                    return ve5Var;
+                    we5 we5Var = new we5();
+                    we5Var.a = "home_page";
+                    return we5Var;
                 case 1008:
-                    cf5 cf5Var4 = new cf5();
-                    cf5Var4.a = "user_center";
-                    return cf5Var4;
+                    df5 df5Var4 = new df5();
+                    df5Var4.a = "user_center";
+                    return df5Var4;
                 case 1009:
-                    cf5 cf5Var5 = new cf5();
-                    cf5Var5.a = "sign_all";
-                    return cf5Var5;
+                    df5 df5Var5 = new df5();
+                    df5Var5.a = "sign_all";
+                    return df5Var5;
                 case 1010:
-                    cf5 cf5Var6 = new cf5();
-                    cf5Var6.a = "person_center";
-                    return cf5Var6;
+                    df5 df5Var6 = new df5();
+                    df5Var6.a = "person_center";
+                    return df5Var6;
                 case 1011:
-                    cf5 cf5Var7 = new cf5();
-                    cf5Var7.a = "person_center_home";
-                    return cf5Var7;
+                    df5 df5Var7 = new df5();
+                    df5Var7.a = "person_center_home";
+                    return df5Var7;
                 case 1012:
-                    cf5 cf5Var8 = new cf5();
-                    cf5Var8.a = "person_center_post";
-                    return cf5Var8;
+                    df5 df5Var8 = new df5();
+                    df5Var8.a = "person_center_post";
+                    return df5Var8;
                 case 1013:
-                    cf5 cf5Var9 = new cf5();
-                    cf5Var9.a = "person_center_dynamic";
-                    return cf5Var9;
+                    df5 df5Var9 = new df5();
+                    df5Var9.a = "person_center_dynamic";
+                    return df5Var9;
             }
         }
-        return (af5) invokeI.objValue;
+        return (bf5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -455,17 +455,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    py4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    qy4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                py4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                qy4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                bf5.b().f();
+                cf5.b().f();
             }
         }
     }

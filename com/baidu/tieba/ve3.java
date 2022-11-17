@@ -54,12 +54,12 @@ public class ve3 extends is1 {
 
         /* renamed from: com.baidu.tieba.ve3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0447a implements yi3<ff3<ef3>> {
+        public class C0451a implements yi3<ff3<ef3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0447a(a aVar) {
+            public C0451a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class ve3 extends is1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                cf3.s(this.a).a(this.b, new C0447a(this));
+                cf3.s(this.a).a(this.b, new C0451a(this));
             }
         }
 

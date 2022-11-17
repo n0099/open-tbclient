@@ -14,9 +14,10 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class un8 extends BaseCardInfo implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ThreadData> a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class un8 extends BaseCardInfo implements xn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public un8() {
@@ -44,8 +45,10 @@ public class un8 extends BaseCardInfo implements xn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = -1;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
@@ -53,7 +56,7 @@ public class un8 extends BaseCardInfo implements xn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

@@ -46,14 +46,14 @@ public final class hv extends ft<eq> {
 
         /* renamed from: com.baidu.tieba.hv$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0294a implements iv.a {
+        public static final class C0295a implements iv.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0294a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0295a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public final class hv extends ft<eq> {
                 }
                 String backBtnSchema = taskToastViewData.getBackBtnSchema();
                 if (backBtnSchema != null) {
-                    this.a.a.c(new C0294a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                    this.a.a.c(new C0295a(backBtnSchema, taskToastViewData, this, taskToastViewData));
                 }
                 String backBtnTxt = taskToastViewData.getBackBtnTxt();
                 if (backBtnTxt != null) {

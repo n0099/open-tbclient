@@ -63,7 +63,7 @@ public class he0 {
                 return;
             }
         }
-        c = py4.o("advert_hide_list");
+        c = qy4.o("advert_hide_list");
     }
 
     public he0() {

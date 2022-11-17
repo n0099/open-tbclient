@@ -1,106 +1,226 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.aw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ew4 {
+public class ew4 extends dw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ew4 c;
-    public static final ew4 d;
-    public static final ew4 e;
-    public static final ew4 f;
-    public static final ew4 g;
-    public static final ew4 h;
-    public static final ew4 i;
-    public static final ew4 j;
-    public static final ew4 k;
-    public static final ew4 l;
-    public static final ew4 m;
-    public static final ew4 n;
-    public static final ew4 o;
-    public static final ew4 p;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public final TbPageContext<?> f;
+    public a35 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947748743, "Lcom/baidu/tieba/ew4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew4 a;
+
+        public a(ew4 ew4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947748743, "Lcom/baidu/tieba/ew4;");
-                return;
+            this.a = ew4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
             }
         }
-        c = new ew4("sync_finish", false);
-        d = new ew4("main_page_load_finish", false);
-        e = new ew4("pb_load_finish", false);
-        f = new ew4("frs_load_finish", false);
-        g = new ew4("main_page_recommend", true);
-        h = new ew4("main_page_common_tab", true);
-        i = new ew4("main_page_hot_topic", true);
-        j = new ew4("main_page_concern", true);
-        k = new ew4("main_page_enter_forum", true);
-        l = new ew4("main_page_message", true);
-        m = new ew4("main_page_person_info", true);
-        n = new ew4("write_page", true);
-        o = new ew4("pb_page", true);
-        p = new ew4("frs_page", true);
     }
 
-    public ew4(String str, boolean z) {
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew4 a;
+
+        public b(ew4 ew4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ew4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew4 a;
+
+        public c(ew4 ew4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ew4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a.f, new String[]{this.a.g.c()});
+                this.a.d.c().dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ew4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        this.f = tbPageContext;
     }
 
-    public static ew4 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aw4
+    public void d(aw4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new ew4("main_page_common_tab_" + str, true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (hw4.k() && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            if (LaunchStatsUtils.getLaunchType() == 0) {
+                a35 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
+                this.g = upgradePopWindowConfig;
+                if (upgradePopWindowConfig.i() && this.g.h().contains("app") && UpgradePopWindowHelper.isDue(this.g)) {
+                    qy4.k().y(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
+                    if (aVar != null) {
+                        aVar.a(true);
+                        return;
+                    }
+                }
+            }
+            if (aVar != null) {
+                aVar.a(false);
+            }
         }
-        return (ew4) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dw4
+    public void g(TBAlertBuilder tBAlertBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            if (this.g == null) {
+                this.g = TbSingleton.getInstance().getUpgradePopWindowConfig();
+            }
+            RelativeLayout relativeLayout = new RelativeLayout(this.c);
+            View view2 = new View(this.c);
+            qw4 d = qw4.d(view2);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.c);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080826, null);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            this.d.u(this.g.d());
+            this.d.o(this.g.g());
+            this.d.m(true);
+            this.d.j(relativeLayout);
+            if (TextUtils.isEmpty(this.g.c())) {
+                this.d.r(new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+            } else {
+                this.d.r(new TBAlertConfig.a(this.g.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this)), new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.FORCE, new c(this)));
+            }
+            this.d.c().setCanceledOnTouchOutside(false);
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dw4
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hw4.r("grayUpdate");
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dw4
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hw4.m("grayUpdate");
+        }
     }
 }

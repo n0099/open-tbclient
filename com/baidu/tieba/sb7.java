@@ -5,19 +5,24 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -40,132 +45,709 @@ public class sb7 {
         }
     }
 
-    public static sb7 c() {
+    public static synchronized sb7 h() {
         InterceptResult invokeV;
+        sb7 sb7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new sb7();
+            synchronized (sb7.class) {
+                if (a == null) {
+                    a = new sb7();
+                }
+                sb7Var = a;
             }
-            return a;
+            return sb7Var;
         }
         return (sb7) invokeV.objValue;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Boolean bool;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                wb7.d().delete("tb_group_news", "notice_id = ?", new String[]{str});
-                bool = Boolean.TRUE;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeL.booleanValue;
+        xb7.d().c("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
     }
 
-    public LinkedList<GroupNewsPojo> b(long j, int i, int i2, String str) {
-        InterceptResult invokeCommon;
+    public long i(String str) {
+        InterceptResult invokeL;
+        long j;
         Cursor e;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i2 < 0) {
-                i2 = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
             }
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
-            }
+            String str2 = "tb_group_msg_" + str;
             Cursor cursor = null;
             try {
                 try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            e = wb7.d().e("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
-                        } else {
-                            e = wb7.d().e(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
+                    Cursor e2 = xb7.d().e("select max(mid) from " + str2, null);
+                    if (e2 != null) {
+                        try {
+                            if (e2.moveToNext()) {
+                                j = e2.getLong(0);
+                                e = xb7.d().e("select count(*) from " + str2, null);
+                                if (e == null && e.moveToNext()) {
+                                    i = e.getInt(0);
+                                } else {
+                                    i = 0;
+                                }
+                                if (i != 1 && j % 100 != 0) {
+                                    long a2 = we7.a(j);
+                                    zi.a(e);
+                                    return a2;
+                                }
+                                zi.a(e);
+                                return j;
+                            }
+                        } catch (SQLiteException e3) {
+                            e = e3;
+                            cursor = e2;
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
+                            e.printStackTrace();
+                            a(str);
+                            zi.a(cursor);
+                            return 0L;
+                        } catch (Exception e4) {
+                            e = e4;
+                            cursor = e2;
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
+                            e.printStackTrace();
+                            zi.a(cursor);
+                            return 0L;
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = e2;
+                            zi.a(cursor);
+                            throw th;
                         }
-                    } else if (TextUtils.isEmpty(str)) {
-                        e = wb7.d().e("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
-                    } else {
-                        e = wb7.d().e("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
                     }
-                    cursor = e;
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
-                        }
+                    j = 0;
+                    e = xb7.d().e("select count(*) from " + str2, null);
+                    if (e == null) {
                     }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e2.printStackTrace();
+                    i = 0;
+                    if (i != 1) {
+                    }
+                    zi.a(e);
+                    return j;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                zi.a(cursor);
-                return h(linkedList);
-            } catch (Throwable th) {
-                zi.a(cursor);
-                throw th;
+            } catch (SQLiteException e5) {
+                e = e5;
+            } catch (Exception e6) {
+                e = e6;
             }
+        } else {
+            return invokeL.longValue;
         }
-        return (LinkedList) invokeCommon.objValue;
     }
 
-    public int d(String str, int i) {
-        InterceptResult invokeLI;
+    public int k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
             Cursor cursor = null;
-            int i2 = 0;
             try {
                 try {
                     try {
-                        cursor = wb7.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
-                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
+                        cursor = xb7.d().e("select count(*) from " + ("tb_group_msg_" + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                        if (cursor != null && cursor.moveToNext()) {
+                            return cursor.getInt(0);
+                        }
                     } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getUnreadcount", new Object[0]);
                         e.printStackTrace();
                     }
                 } catch (SQLiteException e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                    TiebaStatic.printDBExceptionLog(e2, "GroupMsgDao.getUnreadcount", new Object[0]);
                     e2.printStackTrace();
                 }
-                return i2;
+                return 0;
             } finally {
                 zi.a(cursor);
             }
         }
-        return invokeLI.intValue;
+        return invokeL.intValue;
     }
 
-    public boolean g(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor e;
+    public void b(List<ImMessageCenterPojo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() != 0) {
+            LinkedList linkedList = new LinkedList();
             Cursor cursor = null;
-            String str2 = null;
-            cursor = null;
-            if (i < 1000) {
-                i = 1000;
-            }
             try {
                 try {
-                    wb7 d = wb7.d();
-                    e = d.e("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
+                    cursor = xb7.d().e("select * from sqlite_master where type='table'", null);
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        while (cursor.moveToNext()) {
+                            linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.createMsgTable", new Object[0]);
+                }
+                for (ImMessageCenterPojo imMessageCenterPojo : list) {
+                    if (!linkedList.contains("tb_group_msg_" + imMessageCenterPojo.getGid())) {
+                        a(imMessageCenterPojo.getGid());
+                    }
+                }
+            } finally {
+                zi.a(cursor);
+            }
+        }
+    }
+
+    public boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                xb7.d().delete("tb_group_msg_" + str, "mid=?", new String[]{str2});
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.deleteMsgByMid", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                xb7 d = xb7.d();
+                d.c("delete from " + ("tb_group_msg_" + str));
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.deleteMsgTableById", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                xb7 d = xb7.d();
+                d.c("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public LinkedHashMap<String, String> f(String str, int i, String str2, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)})) == null) {
+            Cursor cursor = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (i2 <= 0) {
+                i3 = 20;
+            } else {
+                i3 = i2;
+            }
+            LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
+            String str3 = "tb_group_msg_" + str;
+            try {
+                try {
+                    if (TextUtils.isEmpty(str2)) {
+                        e = xb7.d().e("select * from " + str3 + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i3, new String[]{String.valueOf(i), String.valueOf(0)});
+                    } else {
+                        e = xb7.d().e("select * from " + str3 + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i3, new String[]{str2, String.valueOf(i), String.valueOf(0)});
+                    }
+                    Cursor cursor2 = e;
+                    if (cursor2 != null) {
+                        while (cursor2.moveToNext()) {
+                            try {
+                                linkedHashMap.put(cursor2.getString(cursor2.getColumnIndex("mid")), cursor2.getString(cursor2.getColumnIndex("content")));
+                            } catch (SQLiteException e2) {
+                                e = e2;
+                                cursor = cursor2;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i, new Object[0]);
+                                zi.a(cursor);
+                                return linkedHashMap;
+                            } catch (Exception e3) {
+                                e = e3;
+                                cursor = cursor2;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i, new Object[0]);
+                                zi.a(cursor);
+                                return linkedHashMap;
+                            } catch (Throwable th) {
+                                th = th;
+                                cursor = cursor2;
+                                zi.a(cursor);
+                                throw th;
+                            }
+                        }
+                    }
+                    zi.a(cursor2);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (SQLiteException e4) {
+                e = e4;
+                cursor = null;
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+                cursor = null;
+            }
+            return linkedHashMap;
+        }
+        return (LinkedHashMap) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0112 A[EXC_TOP_SPLITTER, LOOP:0: B:53:0x0112->B:28:0x0118, LOOP_START, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public LinkedList<ChatMessage> g(String str, String str2, String str3, int i) {
+        InterceptResult invokeLLLI;
+        int i2;
+        Cursor cursor;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048582, this, str, str2, str3, i)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (i <= 0) {
+                i2 = 20;
+            } else {
+                i2 = i;
+            }
+            LinkedList<ChatMessage> linkedList = new LinkedList<>();
+            String str4 = "tb_group_msg_" + str;
+            try {
+                try {
+                } catch (Throwable th) {
+                    th = th;
+                    zi.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e2) {
+                e = e2;
+                cursor = null;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor2 = null;
+                zi.a(cursor2);
+                throw th;
+            }
+            if (!TextUtils.isEmpty(str3) && !"0".equals(str3)) {
+                e = xb7.d().e("select * from " + str4 + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str3, String.valueOf(0)});
+                cursor = e;
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            CommonGroupChatMessage commonGroupChatMessage = new CommonGroupChatMessage();
+                            commonGroupChatMessage.setGroupId(str);
+                            commonGroupChatMessage.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonGroupChatMessage.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonGroupChatMessage.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonGroupChatMessage.setMsgId(cursor.getLong(cursor.getColumnIndex("mid")));
+                            MsgLocalData msgLocalData = new MsgLocalData();
+                            commonGroupChatMessage.setLocalData(msgLocalData);
+                            msgLocalData.setStatus(Short.valueOf((short) cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS))));
+                            commonGroupChatMessage.setMsgType(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonGroupChatMessage.setUserId(cursor.getColumnIndex("uid"));
+                            commonGroupChatMessage.setUserInfo((UserData) OrmObject.objectWithJsonStr(cursor.getString(cursor.getColumnIndex("user_info")), UserData.class));
+                            commonGroupChatMessage.setRecordId(cursor.getLong(cursor.getColumnIndex("rid")));
+                            xe7.q(commonGroupChatMessage);
+                            linkedList.addFirst(commonGroupChatMessage);
+                        } catch (SQLiteException e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
+                            a(str);
+                            zi.a(cursor);
+                            return linkedList;
+                        } catch (Exception e5) {
+                            e = e5;
+                            e.printStackTrace();
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
+                            zi.a(cursor);
+                            return linkedList;
+                        }
+                    }
+                }
+                zi.a(cursor);
+                return linkedList;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                e = xb7.d().e("select * from " + str4 + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i2, new String[]{String.valueOf(0)});
+            } else {
+                e = xb7.d().e("select * from " + str4 + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i2, new String[]{str2, String.valueOf(0)});
+            }
+            cursor = e;
+            if (cursor != null) {
+            }
+            zi.a(cursor);
+            return linkedList;
+        }
+        return (LinkedList) invokeLLLI.objValue;
+    }
+
+    public CommonMsgPojo j(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String str2 = "tb_group_msg_" + str;
+            try {
+                try {
+                    cursor = xb7.d().e("select * from " + str2 + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
+                    try {
+                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
+                        if (cursor != null && cursor.moveToNext()) {
+                            commonMsgPojo.setGid(str);
+                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
+                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                            zi.a(cursor);
+                            return commonMsgPojo;
+                        }
+                    } catch (SQLiteException e) {
+                        e = e;
+                        e.printStackTrace();
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
+                        a(str);
+                        zi.a(cursor);
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
+                        zi.a(cursor);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = str2;
+                    zi.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e3) {
+                e = e3;
+                cursor = null;
+            } catch (Exception e4) {
+                e = e4;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                zi.a(cursor2);
+                throw th;
+            }
+            zi.a(cursor);
+            return null;
+        }
+        return (CommonMsgPojo) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00fe A[Catch: all -> 0x0102, Exception -> 0x0107, TRY_ENTER, TRY_LEAVE, TryCatch #12 {Exception -> 0x0107, all -> 0x0102, blocks: (B:27:0x00d4, B:37:0x00fe), top: B:102:0x00d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x019b A[Catch: all -> 0x024b, Exception -> 0x0250, TryCatch #13 {Exception -> 0x0250, all -> 0x024b, blocks: (B:34:0x00f6, B:43:0x010c, B:45:0x019b, B:48:0x01ab), top: B:100:0x00f6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x023c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean l(String str, List<CommonMsgPojo> list, boolean z) {
+        InterceptResult invokeLLZ;
+        Cursor cursor;
+        SQLiteStatement sQLiteStatement;
+        Iterator<CommonMsgPojo> it;
+        String str2;
+        SQLiteStatement sQLiteStatement2;
+        SQLiteStatement sQLiteStatement3;
+        ContentValues contentValues;
+        String str3;
+        String content;
+        String ext;
+        String uid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048586, this, str, list, z)) == null) {
+            String str4 = "is_delete";
+            String str5 = "read_flag";
+            String str6 = "rid";
+            if (list != null && !TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                String str7 = "tb_group_msg_" + str;
+                try {
+                    sQLiteStatement = xb7.d().a(" INSERT INTO " + str7 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+                    try {
+                        Iterator<CommonMsgPojo> it2 = list.iterator();
+                        while (it2.hasNext()) {
+                            CommonMsgPojo next = it2.next();
+                            try {
+                                if (z) {
+                                    try {
+                                        if (next.isSelf() && next.getRid() != 0) {
+                                            it = it2;
+                                            str2 = str4;
+                                            sQLiteStatement2 = sQLiteStatement;
+                                            try {
+                                                xb7.d().delete(str7, "mid=?", new String[]{String.valueOf(next.getRid())});
+                                                String str8 = "";
+                                                if (next.getContent() == null) {
+                                                    next.setContent("");
+                                                }
+                                                contentValues = new ContentValues();
+                                                contentValues.put("content", next.getContent());
+                                                contentValues.put("create_time", Long.valueOf(next.getCreate_time()));
+                                                contentValues.put("ext", next.getExt());
+                                                contentValues.put("mid", Long.valueOf(next.getMid()));
+                                                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(next.getMsg_status()));
+                                                contentValues.put("msg_type", Integer.valueOf(next.getMsg_type()));
+                                                contentValues.put("uid", next.getUid());
+                                                contentValues.put("user_info", next.getUser_info());
+                                                contentValues.put(str6, Long.valueOf(next.getRid()));
+                                                contentValues.put(str5, Integer.valueOf(next.getRead_flag()));
+                                                String str9 = str5;
+                                                String str10 = str2;
+                                                contentValues.put(str10, Integer.valueOf(next.getIs_delete()));
+                                                String str11 = str6;
+                                                if (xb7.d().update(str7, contentValues, "mid=?", new String[]{String.valueOf(next.getMid())}) != 0) {
+                                                    sQLiteStatement2.clearBindings();
+                                                    if (TextUtils.isEmpty(next.getContent())) {
+                                                        content = "";
+                                                    } else {
+                                                        content = next.getContent();
+                                                    }
+                                                    sQLiteStatement3 = sQLiteStatement2;
+                                                    try {
+                                                        sQLiteStatement3.bindString(1, content);
+                                                        str3 = str7;
+                                                        sQLiteStatement3.bindLong(2, next.getCreate_time());
+                                                        if (TextUtils.isEmpty(next.getExt())) {
+                                                            ext = "";
+                                                        } else {
+                                                            ext = next.getExt();
+                                                        }
+                                                        sQLiteStatement3.bindString(3, ext);
+                                                        sQLiteStatement3.bindLong(4, next.getMid());
+                                                        sQLiteStatement3.bindLong(5, next.getMsg_status());
+                                                        sQLiteStatement3.bindLong(6, next.getMsg_type());
+                                                        if (TextUtils.isEmpty(next.getUid())) {
+                                                            uid = "";
+                                                        } else {
+                                                            uid = next.getUid();
+                                                        }
+                                                        sQLiteStatement3.bindString(7, uid);
+                                                        if (!TextUtils.isEmpty(next.getUser_info())) {
+                                                            str8 = next.getUser_info();
+                                                        }
+                                                        sQLiteStatement3.bindString(8, str8);
+                                                        sQLiteStatement3.bindLong(9, next.getRid());
+                                                        sQLiteStatement3.bindLong(10, next.getRead_flag());
+                                                        sQLiteStatement3.bindLong(11, next.getIs_delete());
+                                                        xb7.d().insert(sQLiteStatement3);
+                                                    } catch (Exception e) {
+                                                        e = e;
+                                                        sQLiteStatement = sQLiteStatement3;
+                                                        try {
+                                                            e.printStackTrace();
+                                                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
+                                                            zi.a(null);
+                                                            zi.c(sQLiteStatement);
+                                                            return false;
+                                                        } catch (Throwable th) {
+                                                            th = th;
+                                                            cursor = null;
+                                                            zi.a(cursor);
+                                                            zi.c(sQLiteStatement);
+                                                            throw th;
+                                                        }
+                                                    } catch (Throwable th2) {
+                                                        th = th2;
+                                                        sQLiteStatement = sQLiteStatement3;
+                                                        cursor = null;
+                                                        zi.a(cursor);
+                                                        zi.c(sQLiteStatement);
+                                                        throw th;
+                                                    }
+                                                } else {
+                                                    str3 = str7;
+                                                    sQLiteStatement3 = sQLiteStatement2;
+                                                }
+                                                it2 = it;
+                                                sQLiteStatement = sQLiteStatement3;
+                                                str7 = str3;
+                                                str4 = str10;
+                                                str5 = str9;
+                                                str6 = str11;
+                                            } catch (Exception e2) {
+                                                e = e2;
+                                                sQLiteStatement = sQLiteStatement2;
+                                                e.printStackTrace();
+                                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
+                                                zi.a(null);
+                                                zi.c(sQLiteStatement);
+                                                return false;
+                                            } catch (Throwable th3) {
+                                                th = th3;
+                                                sQLiteStatement = sQLiteStatement2;
+                                                cursor = null;
+                                                zi.a(cursor);
+                                                zi.c(sQLiteStatement);
+                                                throw th;
+                                            }
+                                        }
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                    } catch (Throwable th4) {
+                                        th = th4;
+                                    }
+                                }
+                                String str82 = "";
+                                if (next.getContent() == null) {
+                                }
+                                contentValues = new ContentValues();
+                                contentValues.put("content", next.getContent());
+                                contentValues.put("create_time", Long.valueOf(next.getCreate_time()));
+                                contentValues.put("ext", next.getExt());
+                                contentValues.put("mid", Long.valueOf(next.getMid()));
+                                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(next.getMsg_status()));
+                                contentValues.put("msg_type", Integer.valueOf(next.getMsg_type()));
+                                contentValues.put("uid", next.getUid());
+                                contentValues.put("user_info", next.getUser_info());
+                                contentValues.put(str6, Long.valueOf(next.getRid()));
+                                contentValues.put(str5, Integer.valueOf(next.getRead_flag()));
+                                String str92 = str5;
+                                String str102 = str2;
+                                contentValues.put(str102, Integer.valueOf(next.getIs_delete()));
+                                String str112 = str6;
+                                if (xb7.d().update(str7, contentValues, "mid=?", new String[]{String.valueOf(next.getMid())}) != 0) {
+                                }
+                                it2 = it;
+                                sQLiteStatement = sQLiteStatement3;
+                                str7 = str3;
+                                str4 = str102;
+                                str5 = str92;
+                                str6 = str112;
+                            } catch (Exception e4) {
+                                e = e4;
+                                sQLiteStatement3 = sQLiteStatement2;
+                            } catch (Throwable th5) {
+                                th = th5;
+                                sQLiteStatement3 = sQLiteStatement2;
+                            }
+                            str2 = str4;
+                            sQLiteStatement2 = sQLiteStatement;
+                            it = it2;
+                        }
+                        zi.a(null);
+                        zi.c(sQLiteStatement);
+                        return true;
+                    } catch (Exception e5) {
+                        e = e5;
+                    } catch (Throwable th6) {
+                        th = th6;
+                    }
+                } catch (Exception e6) {
+                    e = e6;
+                    sQLiteStatement = null;
+                } catch (Throwable th7) {
+                    th = th7;
+                    cursor = null;
+                    sQLiteStatement = null;
+                    zi.a(cursor);
+                    zi.c(sQLiteStatement);
+                    throw th;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return invokeLLZ.booleanValue;
+        }
+    }
+
+    public boolean m(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("is_delete", (Integer) 1);
+                xb7.d().update("tb_group_msg_" + str, contentValues, "mid=?", new String[]{str2});
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.markDeleteMsgByMid", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean n(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
+            Cursor cursor = null;
+            String str3 = null;
+            cursor = null;
+            try {
+                try {
+                    str2 = "tb_group_msg_" + str;
+                    if (i < 1000) {
+                        i = 1000;
+                    }
+                    e = xb7.d().e("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
                 } catch (Exception e2) {
                     e = e2;
                 }
@@ -174,11 +756,11 @@ public class sb7 {
             }
             try {
                 if (e.moveToNext()) {
-                    str2 = e.getString(e.getColumnIndex("notice_id"));
+                    str3 = e.getString(e.getColumnIndex("mid"));
                 }
                 zi.a(e);
-                if (str2 != null) {
-                    wb7.d().delete("tb_group_news", "notice_id<?", new String[]{str2});
+                if (str3 != null) {
+                    xb7.d().delete(str2, "mid<?", new String[]{str3});
                 }
                 zi.a(e);
                 return true;
@@ -199,173 +781,32 @@ public class sb7 {
         return invokeLI.booleanValue;
     }
 
-    public int e(String str, int i) {
-        InterceptResult invokeLI;
+    public boolean o(String str, String str2, String str3, int i) {
+        InterceptResult invokeLLLI;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048589, this, str, str2, str3, i)) == null) {
+            Boolean bool2 = Boolean.FALSE;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return false;
+            }
+            String str4 = "tb_group_msg_" + str;
             try {
-                if (!TextUtils.isEmpty(str)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content_status", (Integer) 3);
-                    return wb7.d().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("mid", str3);
+                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(i));
+                if (xb7.d().update(str4, contentValues, "mid=?", new String[]{str2}) > 0) {
+                    bool = Boolean.TRUE;
+                } else {
+                    bool = Boolean.FALSE;
                 }
+                bool2 = bool;
             } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.updateState", new Object[0]);
                 e.printStackTrace();
             }
-            return 0;
+            return bool2.booleanValue();
         }
-        return invokeLI.intValue;
-    }
-
-    public final long f(GroupNewsPojo groupNewsPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, groupNewsPojo)) == null) {
-            try {
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("INSERT INTO ");
-                    stringBuffer.append("tb_group_news");
-                    stringBuffer.append("(");
-                    stringBuffer.append("cmd");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content_status");
-                    stringBuffer.append(",");
-                    stringBuffer.append("ext");
-                    stringBuffer.append(",");
-                    stringBuffer.append(TbEnum.ParamKey.GID);
-                    stringBuffer.append(",");
-                    stringBuffer.append("notice_id");
-                    stringBuffer.append(",");
-                    stringBuffer.append("time");
-                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-                    SQLiteStatement a2 = wb7.d().a(stringBuffer.toString());
-                    if (a2 == null) {
-                        zi.c(a2);
-                        return -1L;
-                    }
-                    a2.clearBindings();
-                    ub7.b(a2, 1, groupNewsPojo.getCmd());
-                    ub7.b(a2, 2, groupNewsPojo.getContent());
-                    a2.bindLong(3, groupNewsPojo.getContent_status());
-                    ub7.b(a2, 4, groupNewsPojo.getExt());
-                    ub7.b(a2, 5, groupNewsPojo.getGid());
-                    ub7.b(a2, 6, groupNewsPojo.getNotice_id());
-                    a2.bindLong(7, groupNewsPojo.getTime());
-                    long executeInsert = a2.executeInsert();
-                    zi.c(a2);
-                    return executeInsert;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
-                    zi.c(null);
-                    return -1L;
-                }
-            } catch (Throwable th) {
-                zi.c(null);
-                throw th;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final LinkedList<GroupNewsPojo> h(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, linkedList)) == null) {
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            ArrayList arrayList = new ArrayList();
-            int size = linkedList.size();
-            for (int i = 0; i < size; i++) {
-                GroupNewsPojo groupNewsPojo = linkedList.get(i);
-                boolean z = false;
-                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    arrayList.add(groupNewsPojo.getNotice_id());
-                } else {
-                    linkedList2.add(groupNewsPojo);
-                }
-                int size2 = arrayList.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    e((String) arrayList.get(i3), 3);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public Boolean i(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        ValidateItemData validateItemData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, linkedList)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (linkedList != null && linkedList.size() != 0) {
-                try {
-                    try {
-                        wb7.d().f();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        List<ValidateItemData> list = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null) {
-                                    linkedList2 = b(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
-                                    }
-                                    if (list == null) {
-                                        list = new LinkedList<>();
-                                    }
-                                }
-                                if (list != null) {
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        validateItemData = ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next);
-                                    } else {
-                                        validateItemData = null;
-                                    }
-                                    if (validateItemData != null) {
-                                        for (ValidateItemData validateItemData2 : list) {
-                                            if (validateItemData.getUserId() != null && validateItemData.getUserId().equals(validateItemData2.getUserId()) && validateItemData.getGroupId() != null && validateItemData.getGroupId().equals(validateItemData2.getGroupId())) {
-                                                a(validateItemData2.getNotice_id());
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put(TbEnum.ParamKey.GID, next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (wb7.d().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                f(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        bool = Boolean.FALSE;
-                    }
-                    return bool;
-                } finally {
-                    wb7.d().b();
-                }
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
+        return invokeLLLI.booleanValue;
     }
 }

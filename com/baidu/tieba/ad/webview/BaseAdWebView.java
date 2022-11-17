@@ -20,10 +20,10 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.aq4;
 import com.baidu.tieba.mk0;
 import com.baidu.tieba.p31;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.uq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -185,7 +185,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                zp4.a("BaseAdWebView", webView);
+                aq4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -390,7 +390,7 @@ public abstract class BaseAdWebView extends WebView {
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (tq4.e()) {
+            if (uq4.e()) {
                 Log.e(h, "init webview succeed");
             }
         }
@@ -445,12 +445,12 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         if (this.f == null) {
-            if (!tq4.e()) {
+            if (!uq4.e()) {
                 return;
             }
             throw new IllegalArgumentException("cache key is null");
         }
-        if (tq4.e()) {
+        if (uq4.e()) {
             Log.e(h, "start downloading.....");
             String str4 = h;
             Log.e(str4, "download url：" + str);

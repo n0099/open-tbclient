@@ -48,7 +48,7 @@ public class nx3 extends EventTargetImpl implements kx3 {
 
         /* renamed from: com.baidu.tieba.nx3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0366a implements ej3 {
+        public class C0368a implements ej3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class nx3 extends EventTargetImpl implements kx3 {
                 }
             }
 
-            public C0366a(a aVar) {
+            public C0368a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class nx3 extends EventTargetImpl implements kx3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0366a(this);
+                        this.a.k = new C0368a(this);
                         nx3.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

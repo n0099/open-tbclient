@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b27;
+import com.baidu.tieba.c27;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
-import com.baidu.tieba.i17;
+import com.baidu.tieba.j17;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.xn;
@@ -30,7 +30,7 @@ import java.util.List;
 public class HotTopicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i17 a;
+    public j17 a;
     public qb b;
     public boolean c;
     public String d;
@@ -82,7 +82,7 @@ public class HotTopicTabModel extends BdBaseModel {
                 return;
             }
             this.a.c = false;
-            if (this.a.a == null || !(responsedMessage instanceof b27) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
+            if (this.a.a == null || !(responsedMessage instanceof c27) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() == null) {
@@ -90,11 +90,11 @@ public class HotTopicTabModel extends BdBaseModel {
                 return;
             }
             HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-            b27 b27Var = (b27) responsedMessage;
+            c27 c27Var = (c27) responsedMessage;
             if (!TextUtils.isEmpty(this.a.d)) {
-                this.a.f.put(this.a.d, b27Var.getDataList());
+                this.a.f.put(this.a.d, c27Var.getDataList());
             }
-            this.a.a.C0(responsedMessage.getError(), b27Var);
+            this.a.a.C0(responsedMessage.getError(), c27Var);
         }
     }
 
@@ -131,10 +131,10 @@ public class HotTopicTabModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void I(i17 i17Var) {
+    public void I(j17 j17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i17Var) == null) {
-            this.a = i17Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j17Var) == null) {
+            this.a = j17Var;
         }
     }
 

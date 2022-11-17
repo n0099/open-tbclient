@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import java.util.List;
+import android.os.Bundle;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vd6 {
-    void c();
+public class vd6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Bundle b;
 
-    void d(wd6 wd6Var);
-
-    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
-
-    void f();
-
-    void i(float f);
-
-    @Nullable
-    List<MultiMediaData> j();
-
-    void l();
-
-    void m(String str);
-
-    boolean o();
-
-    void onDestroy();
-
-    float p();
-
-    void q(@Nullable List<MultiMediaData> list);
-
-    void reset();
+    public vd6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

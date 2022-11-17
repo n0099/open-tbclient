@@ -16,8 +16,8 @@ import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uh7;
 import com.baidu.tieba.vh7;
+import com.baidu.tieba.wh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public vh7 b;
-    public uh7 c;
+    public wh7 b;
+    public vh7 c;
     public qb d;
     public qb e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            uh7 uh7Var;
+            vh7 vh7Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    vh7 vh7Var = this.a.b;
+                    wh7 wh7Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        uh7Var = this.a.c;
+                        vh7Var = this.a.c;
                     } else {
-                        uh7Var = null;
+                        vh7Var = null;
                     }
-                    vh7Var.a(labelRequestEnum, uh7Var, responsedMessage.getError());
+                    wh7Var.a(labelRequestEnum, vh7Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,7 +158,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new uh7();
+        this.c = new vh7();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -177,10 +177,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(vh7 vh7Var) {
+    public void G(wh7 wh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vh7Var) == null) {
-            this.b = vh7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wh7Var) == null) {
+            this.b = wh7Var;
         }
     }
 
@@ -188,9 +188,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                vh7 vh7Var = this.b;
-                if (vh7Var != null) {
-                    vh7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                wh7 wh7Var = this.b;
+                if (wh7Var != null) {
+                    wh7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

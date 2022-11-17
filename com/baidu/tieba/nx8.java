@@ -1,10 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface nx8 {
-    void o1(String str, int i, String str2);
+    void Z();
 
-    void setMusicData(List<MusicData> list);
+    void g();
+
+    void j0(String str);
+
+    void n();
+
+    void n1(Bitmap bitmap);
+
+    void o0(String str);
+
+    void onNext();
+
+    void t(List<PendantData> list);
+
+    void y();
 }

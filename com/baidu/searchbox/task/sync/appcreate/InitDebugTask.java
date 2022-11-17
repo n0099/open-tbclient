@@ -7,11 +7,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tieba.ax4;
 import com.baidu.tieba.bx4;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.ha;
 import com.baidu.tieba.o90;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,8 +68,8 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
+            arrayList.add(cx4.class.getName());
             arrayList.add(bx4.class.getName());
-            arrayList.add(ax4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             ha.a().c(arrayList);
         }
@@ -91,7 +91,7 @@ public class InitDebugTask extends LaunchTask {
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && py4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && qy4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

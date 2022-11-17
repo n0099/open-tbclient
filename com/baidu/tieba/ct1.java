@@ -32,7 +32,7 @@ public class ct1 extends ys1 {
 
         /* renamed from: com.baidu.tieba.ct1$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0228a implements Runnable {
+        public class RunnableC0229a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -41,17 +41,17 @@ public class ct1 extends ys1 {
 
             /* renamed from: com.baidu.tieba.ct1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0229a implements ValueAnimator.AnimatorUpdateListener {
+            public class C0230a implements ValueAnimator.AnimatorUpdateListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ mq1 a;
 
-                public C0229a(RunnableC0228a runnableC0228a, mq1 mq1Var) {
+                public C0230a(RunnableC0229a runnableC0229a, mq1 mq1Var) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0228a, mq1Var};
+                        Object[] objArr = {runnableC0229a, mq1Var};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -73,7 +73,7 @@ public class ct1 extends ys1 {
                 }
             }
 
-            public RunnableC0228a(a aVar, int i, int i2) {
+            public RunnableC0229a(a aVar, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class ct1 extends ys1 {
                 }
                 ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
                 ofInt.setDuration(this.b);
-                ofInt.addUpdateListener(new C0229a(this, i));
+                ofInt.addUpdateListener(new C0230a(this, i));
                 ofInt.start();
             }
         }
@@ -139,7 +139,7 @@ public class ct1 extends ys1 {
                 int optInt = jSONObject.optInt("scrollTop", -1);
                 int optInt2 = jSONObject.optInt("duration", -1);
                 if (optInt > -1 && optInt2 > -1) {
-                    zh3.e0(new RunnableC0228a(this, optInt, optInt2));
+                    zh3.e0(new RunnableC0229a(this, optInt, optInt2));
                     return new fw1(0);
                 }
                 f12.c("PageScrollToApi", "illegal scrollTop or duration");

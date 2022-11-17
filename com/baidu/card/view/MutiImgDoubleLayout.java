@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br4;
+import com.baidu.tieba.cr4;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.l46;
-import com.baidu.tieba.sl5;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.m46;
 import com.baidu.tieba.sx;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.tl5;
+import com.baidu.tieba.tr4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
+public class MutiImgDoubleLayout extends LinearLayout implements sx<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
     public TbImageView f;
     public String g;
     public boolean h;
-    public l46<sr4> i;
-    public sr4 j;
+    public m46<tr4> i;
+    public tr4 j;
     public int k;
-    public sl5 l;
+    public tl5 l;
     public LinkedList<MediaData> m;
 
     public void setPreloadSizeReadyCallback(gn gnVar) {
@@ -91,7 +91,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            l46<sr4> subClickListener;
+            m46<tr4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -101,7 +101,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
     }
 
     /* loaded from: classes.dex */
-    public class b implements sl5 {
+    public class b implements tl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgDoubleLayout a;
@@ -124,11 +124,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
             this.a = mutiImgDoubleLayout;
         }
 
-        @Override // com.baidu.tieba.sl5
+        @Override // com.baidu.tieba.tl5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                l46<sr4> subClickListener = this.a.getSubClickListener();
+                m46<tr4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.j.objType = 2;
@@ -184,14 +184,14 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.l == null) {
                 return;
             }
-            sl5 sl5Var = this.d.l;
+            tl5 tl5Var = this.d.l;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            sl5Var.a(view2, i, z);
+            tl5Var.a(view2, i, z);
         }
     }
 
@@ -300,11 +300,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: j */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
-            this.j = sr4Var;
-            ThreadData threadData = sr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
+            this.j = tr4Var;
+            ThreadData threadData = tr4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, n);
             setImageData(threadData);
@@ -326,10 +326,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
         }
     }
 
-    public void setSubClickListener(l46<sr4> l46Var) {
+    public void setSubClickListener(m46<tr4> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, l46Var) == null) {
-            this.i = l46Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, m46Var) == null) {
+            this.i = m46Var;
         }
     }
 
@@ -337,7 +337,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (br4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (cr4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -382,13 +382,13 @@ public class MutiImgDoubleLayout extends LinearLayout implements sx<sr4> {
         }
     }
 
-    public l46<sr4> getSubClickListener() {
+    public m46<tr4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.i;
         }
-        return (l46) invokeV.objValue;
+        return (m46) invokeV.objValue;
     }
 
     public final void i() {

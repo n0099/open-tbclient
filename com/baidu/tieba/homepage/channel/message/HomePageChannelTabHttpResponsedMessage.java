@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.py6;
+import com.baidu.tieba.qy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public py6 channelTabRespData;
+    public qy6 channelTabRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomePageChannelTabHttpResponsedMessage() {
@@ -40,7 +40,7 @@ public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMes
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.channelTabRespData = new py6();
+                this.channelTabRespData = new qy6();
                 Message<?> orginalMessage = getOrginalMessage();
                 if (orginalMessage instanceof HttpMessage) {
                     Object obj = ((HttpMessage) orginalMessage).getParams().get("tab_code");

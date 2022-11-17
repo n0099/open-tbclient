@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.j68;
-import com.baidu.tieba.r68;
+import com.baidu.tieba.k68;
 import com.baidu.tieba.s68;
+import com.baidu.tieba.t68;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public r68 e;
+    public s68 e;
     public int f;
     public TbPageContext g;
 
@@ -59,15 +59,15 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a2);
         HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091371);
         this.d = hTypeListView;
-        this.e = new r68(this.g, hTypeListView);
+        this.e = new s68(this.g, hTypeListView);
     }
 
-    public void a(s68 s68Var) {
+    public void a(t68 t68Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, s68Var) != null) || s68Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, t68Var) != null) || t68Var == null) {
             return;
         }
-        this.e.c(c(s68Var.a()));
+        this.e.c(c(t68Var.a()));
     }
 
     public void b() {
@@ -89,9 +89,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            j68 j68Var = new j68(yi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), yi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
-            ListUtils.add(arrayList, 0, j68Var);
-            ListUtils.add(arrayList, j68Var);
+            k68 k68Var = new k68(yi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), yi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
+            ListUtils.add(arrayList, 0, k68Var);
+            ListUtils.add(arrayList, k68Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

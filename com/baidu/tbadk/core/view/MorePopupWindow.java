@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ch;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,17 +124,17 @@ public class MorePopupWindow extends PopupWindow {
         this.mIsIntercepted = false;
     }
 
-    private void applaySkin(rq4 rq4Var, int i, Drawable drawable) {
+    private void applaySkin(sq4 sq4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65539, this, rq4Var, i, drawable) == null) && this.mContentView != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, sq4Var, i, drawable) == null) && this.mContentView != null) {
             setBackgroundDrawable(drawable);
             boolean z = true;
             if (i != 1) {
                 z = false;
             }
-            rq4Var.l(z);
+            sq4Var.l(z);
             try {
-                rq4Var.k(this.mContentView);
+                sq4Var.k(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -215,10 +215,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(rq4 rq4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(sq4 sq4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, rq4Var, i, drawable) == null) {
-            applaySkin(rq4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, sq4Var, i, drawable) == null) {
+            applaySkin(sq4Var, i, drawable);
         }
     }
 

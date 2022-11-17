@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.itemtab;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<xq6, ItemPageResIdl> {
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<yq6, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,9 +53,9 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<x
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            xq6 xq6Var = new xq6();
+            yq6 yq6Var = new yq6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            xq6Var.a(itemPageResIdl.data);
+            yq6Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -63,7 +63,7 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<x
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(xq6Var);
+            setData(yq6Var);
             return itemPageResIdl;
         }
         return invokeIL.objValue;

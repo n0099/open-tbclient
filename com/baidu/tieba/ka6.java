@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class ka6 extends pb {
+public class ka6 extends ib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public da6 a;
-    public SparseArray<String> b;
-    public HashMap<String, String> c;
-    public Gson d;
+    public ea6 a;
+    public HashMap<String, String> b;
+    public Gson c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ka6(int i) {
@@ -43,71 +38,71 @@ public class ka6 extends pb {
                 return;
             }
         }
-        this.d = new Gson();
-        a();
+        this.c = new Gson();
     }
 
-    public final void a() {
-        int e;
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new SparseArray<>();
-            ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
-            if (ListUtils.isEmpty(findHttpTasks)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.contains("?")) {
+                str = str.split("[?]")[0];
             }
-            for (int i = 0; i < findHttpTasks.size(); i++) {
-                String url = findHttpTasks.get(i).getUrl();
-                if (!xi.isEmpty(url) && url.contains("?")) {
-                    String[] split = url.split("[?]");
-                    String str = split[1];
-                    String str2 = split[0];
-                    if (!xi.isEmpty(str) && str.contains("=") && (e = xg.e(str.split("[=]")[1], 0)) != 0) {
-                        this.b.put(e, str2.replace(TbConfig.SERVER_ADDRESS, ""));
-                    }
-                }
+            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(replace);
             }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void b(da6 da6Var) {
+    public void b(ea6 ea6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da6Var) == null) {
-            this.a = da6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea6Var) == null) {
+            this.a = ea6Var;
         }
     }
 
     public void c(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.c = hashMap;
+            this.b = hashMap;
         }
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        String json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
+            String a = a(httpMessageTask.getUrl());
+            if (a != null && this.a != null) {
+                if (httpMessage.getExtra() instanceof NetMessage) {
+                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
+                    if (netMessage.getSocketMessage() != null) {
+                        json = this.c.toJson(netMessage.getSocketMessage().getData());
+                    } else {
+                        json = "";
+                    }
+                } else {
+                    json = this.c.toJson(httpMessage.getParams());
+                }
+                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
     @Override // com.baidu.tieba.kb
-    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        SocketMessage socketMessage2 = socketMessage;
-        process2(socketMessage2, socketMessageTask);
-        return socketMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask)) == null) {
-            String str = this.b.get(socketMessage.getCmd());
-            if (str == null) {
-                return socketMessage;
-            }
-            HashMap<String, String> hashMap = this.c;
-            if (hashMap != null && hashMap.get(str) != null && this.a != null) {
-                this.a.a(str, this.d.toJson(this.c.get(str)), this.d.toJson(this.d.toJson(socketMessage.getData())));
-            }
-            return socketMessage;
-        }
-        return (SocketMessage) invokeLL.objValue;
+    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        process2(httpMessage2, httpMessageTask);
+        return httpMessage2;
     }
 }

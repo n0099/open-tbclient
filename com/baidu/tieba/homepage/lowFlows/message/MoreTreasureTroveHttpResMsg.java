@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.s27;
-import com.baidu.tieba.x27;
+import com.baidu.tieba.t27;
 import com.baidu.tieba.xn;
+import com.baidu.tieba.y27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements s27 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements t27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<xn> mMoreTreasureTroveDataList;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.s27
+    @Override // com.baidu.tieba.t27
     public List<xn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
                 setError(error.errorno.intValue());
                 setErrorString(moreTreasureTroveResIdl.error.usermsg);
             }
-            this.mMoreTreasureTroveDataList = x27.b(moreTreasureTroveResIdl);
+            this.mMoreTreasureTroveDataList = y27.b(moreTreasureTroveResIdl);
         }
     }
 }

@@ -21,7 +21,7 @@ public class k98 extends kn<va8, CardViewHolder<yb8>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k98(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), va8.d);
+        super(tbPageContext.getPageActivity(), va8.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class k98 extends kn<va8, CardViewHolder<yb8>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, va8Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(va8Var);
             cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().l(va8Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

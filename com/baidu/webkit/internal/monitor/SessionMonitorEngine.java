@@ -31,7 +31,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SessionMonitorEngine implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -54,14 +54,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public a sFrameworkBehaviorProvider;
     public WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface IPrototype extends INoProGuard {
         void OnAppEnterBackground();
 
@@ -84,7 +84,7 @@ public class SessionMonitorEngine implements INoProGuard {
         void recordImmediately(String str, String str2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface PageSessionObserver extends INoProGuard {
         void onPageSessionDataRecord(WebView webView, String str, String str2, int i, String str3);
     }

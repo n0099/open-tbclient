@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.en4;
-import com.baidu.tieba.hi5;
+import com.baidu.tieba.ii5;
 import com.baidu.tieba.io4;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.lh;
@@ -233,8 +233,8 @@ public class BdUniDispatchSchemeController {
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            hi5.m().u(true);
-            hi5.m().k();
+            ii5.m().u(true);
+            ii5.m().k();
         }
     }
 

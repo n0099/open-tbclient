@@ -9,10 +9,8 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class ms9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -41,18 +39,14 @@ public class ms9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        List<AdInfo> list;
-        AdInfo adInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                Object findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", obj);
+                if (findField == null) {
                     return null;
                 }
-                return qr9.a(adInfo);
+                return rr9.a((AdInfo) findField);
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

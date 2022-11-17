@@ -10,99 +10,73 @@ public final class d86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final i76 a(p0 p0Var) {
-        InterceptResult invokeL;
+    public static final <T extends b76> T a(c76 c76Var, Class<T> type, p0 entity, u66 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            return (i76) p0Var.d(i76.class);
-        }
-        return (i76) invokeL.objValue;
-    }
-
-    public static final f76 b(p0 p0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            return (f76) p0Var.d(f76.class);
-        }
-        return (f76) invokeL.objValue;
-    }
-
-    public static final long c(p0 p0Var) {
-        InterceptResult invokeL;
-        t66 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            f76 b = b(p0Var);
-            if (b == null || (a = b.a()) == null) {
-                return 0L;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, c76Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(c76Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            o0 f = c76Var.f();
+            if (f == null || (t = (T) f.h(type)) == null) {
+                return null;
             }
-            return a.g();
+            entity.a(t);
+            t.b(item);
+            return t;
+        }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public static final long b(c76 c76Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c76Var)) == null) {
+            Intrinsics.checkNotNullParameter(c76Var, "<this>");
+            return d(c76Var).a();
         }
         return invokeL.longValue;
     }
 
-    public static final e76 d(p0 p0Var) {
+    public static final u86 c(c76 c76Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            return (e76) p0Var.d(e76.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c76Var)) == null) {
+            Intrinsics.checkNotNullParameter(c76Var, "<this>");
+            return c76Var.i().d();
         }
-        return (e76) invokeL.objValue;
+        return (u86) invokeL.objValue;
     }
 
-    public static final g76 e(p0 p0Var) {
+    public static final x86 d(c76 c76Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            return (g76) p0Var.d(g76.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c76Var)) == null) {
+            Intrinsics.checkNotNullParameter(c76Var, "<this>");
+            return c76Var.i().f();
         }
-        return (g76) invokeL.objValue;
+        return (x86) invokeL.objValue;
     }
 
-    public static final long f(p0 p0Var) {
+    public static final boolean e(c76 c76Var) {
         InterceptResult invokeL;
-        t66 a;
+        a76 a76Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, p0Var)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            f76 b = b(p0Var);
-            if (b == null || (a = b.a()) == null) {
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c76Var)) == null) {
+            Intrinsics.checkNotNullParameter(c76Var, "<this>");
+            o0 f = c76Var.f();
+            if (f instanceof a76) {
+                a76Var = (a76) f;
+            } else {
+                a76Var = null;
             }
-            return a.j();
-        }
-        return invokeL.longValue;
-    }
-
-    public static final boolean g(p0 p0Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, p0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            if (j - f(p0Var) < 0) {
+            if (a76Var == null) {
                 return true;
             }
-            return false;
+            return a76Var.x();
         }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean h(p0 p0Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, p0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(p0Var, "<this>");
-            if (j - f(p0Var) > c(p0Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
+        return invokeL.booleanValue;
     }
 }

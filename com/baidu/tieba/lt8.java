@@ -1,7 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +18,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lt8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lt8(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public lt8(@NonNull MainTabActivity mainTabActivity) {
+        super(2921752);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,16 +44,11 @@ public class lt8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        TbPageContext<BaseFragmentActivity> pageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            p75 p75Var = null;
-            if (customResponsedMessage.getData() instanceof p75) {
-                p75Var = (p75) customResponsedMessage.getData();
-            }
-            if (p75Var != null && p75Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new o75(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09206c), p75Var).m();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof YyLiveRoomConfig) && ProcessUtils.isMainProcess() && (pageContext = this.a.getPageContext()) != null) {
+            Intent intent = ((YyLiveRoomConfig) customResponsedMessage.getData()).getIntent();
+            YYLiveUtil.jumpToYYLiveRoom(pageContext, intent.getStringExtra("sid"), intent.getStringExtra(YyLiveRoomConfig.KEY_SSID), intent.getStringExtra(YyLiveRoomConfig.KEY_TEMPLATE_ID), intent.getStringExtra("room_id"), intent.getStringExtra(YyLiveRoomConfig.KEY_STREAMINFO), intent.getStringExtra("source"));
         }
     }
 }

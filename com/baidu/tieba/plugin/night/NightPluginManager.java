@@ -9,7 +9,7 @@ import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.nw4;
+import com.baidu.tieba.ow4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +62,7 @@ public class NightPluginManager {
                     this.b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                 }
                 SkinManager.setPackageName(this.b.mINightPlugin.getNightPluginPackageName());
-                nw4.a();
+                ow4.a();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

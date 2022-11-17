@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.dj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class FreeGiftChanceRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.scene_from = this.from;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                cj5.a(builder, true);
+                dj5.a(builder, true);
             }
             GetUserFreeChanceReqIdl.Builder builder2 = new GetUserFreeChanceReqIdl.Builder();
             builder2.data = builder.build(false);

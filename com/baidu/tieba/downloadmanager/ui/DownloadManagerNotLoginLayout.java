@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.oz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -133,11 +133,11 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
             this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090850);
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090851);
             this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09084f);
-            nz4 nz4Var = new nz4();
+            oz4 oz4Var = new oz4();
             this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03fb));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(nz4Var);
+            this.d.setConfig(oz4Var);
             this.d.setOnClickListener(new a(this));
         }
     }

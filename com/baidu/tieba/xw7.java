@@ -1,48 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.net.Uri;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.view.ShareThreadView;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidTplData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.MessageFormat;
 /* loaded from: classes6.dex */
 public class xw7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbChosenActivity a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(ForbidTplData forbidTplData);
+
+        void b(ForbidTplData forbidTplData);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xw7 a;
+        public String a;
+        public String b;
+        public b c;
 
-        public a(xw7 xw7Var) {
+        public a(String str, String str2, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xw7Var};
+                Object[] objArr = {str, str2, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,335 +50,80 @@ public class xw7 {
                     return;
                 }
             }
-            this.a = xw7Var;
+            this.a = str;
+            this.b = str2;
+            this.c = bVar;
+            setPriority(3);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidTplData doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.sendMessage(new CustomMessage(2001277));
-                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(xw7.a);
+                netWork.addPostData("forum_id", this.a);
+                netWork.addPostData("user_id", this.b);
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidTplData forbidTplData = new ForbidTplData();
+                        forbidTplData.error.errno = -1000;
+                        return forbidTplData;
+                    }
+                }
+                ForbidTplData forbidTplData2 = new ForbidTplData();
+                forbidTplData2.error.errno = netWork.getServerErrorCode();
+                forbidTplData2.error.errMsg = netWork.getErrorString();
+                return forbidTplData2;
             }
+            return (ForbidTplData) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ xw7 b;
-
-        public b(xw7 xw7Var, ShareItem shareItem) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xw7Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
+                super.onPostExecute(forbidTplData);
+                if (this.c != null) {
+                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
+                    if (errorInfo.errno == 0 && xi.isEmpty(errorInfo.errMsg)) {
+                        this.c.b(forbidTplData);
+                    } else {
+                        this.c.a(forbidTplData);
+                    }
                 }
             }
-            this.b = xw7Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ShareItem shareItem = this.a;
-                shareItem.x = h45.u(shareItem.x, shareItem.O, UtilHelper.isVideoThread(shareItem.Q));
-                oi.a(this.a.x);
-                yi.P(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f045f));
-            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c implements jv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax7 a;
-        public final /* synthetic */ PbChosenActivity b;
-        public final /* synthetic */ ShareThreadView c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ String h;
-
-        public c(ax7 ax7Var, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, String str2, String str3, String str4) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314865, "Lcom/baidu/tieba/xw7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax7Var, pbChosenActivity, shareThreadView, Long.valueOf(j), str, str2, str3, str4};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ax7Var;
-            this.b = pbChosenActivity;
-            this.c = shareThreadView;
-            this.d = j;
-            this.e = str;
-            this.f = str2;
-            this.g = str3;
-            this.h = str4;
-        }
-
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
-            ax7 ax7Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) && (ax7Var = this.a) != null && ax7Var.getThreadInfo() != null) {
-                yi.z(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
-                Activity pageActivity = this.b.getPageContext().getPageActivity();
-                long j = this.d;
-                String str = this.e;
-                String str2 = this.f;
-                String str3 = this.g;
-                String leaveMsg = this.c.getLeaveMsg();
-                ax7 ax7Var2 = this.a;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, xw7.c(ax7Var2, ax7Var2.getThreadInfo().excid.longValue(), this.h).toChatMessageContent())));
-                jv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements jv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbChosenActivity a;
-        public final /* synthetic */ ShareThreadView b;
-
-        public d(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbChosenActivity, shareThreadView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pbChosenActivity;
-            this.b = shareThreadView;
-        }
-
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                yi.z(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                jv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements jv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax7 a;
-        public final /* synthetic */ PbChosenActivity b;
-        public final /* synthetic */ ShareThreadView c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ long f;
-        public final /* synthetic */ String g;
-
-        public e(ax7 ax7Var, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, long j2, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax7Var, pbChosenActivity, shareThreadView, Long.valueOf(j), str, Long.valueOf(j2), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ax7Var;
-            this.b = pbChosenActivity;
-            this.c = shareThreadView;
-            this.d = j;
-            this.e = str;
-            this.f = j2;
-            this.g = str2;
-        }
-
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
-            ax7 ax7Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) && (ax7Var = this.a) != null && ax7Var.getThreadInfo() != null) {
-                yi.z(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
-                Activity pageActivity = this.b.getPageContext().getPageActivity();
-                long j = this.d;
-                String str = this.e;
-                long j2 = this.f;
-                String leaveMsg = this.c.getLeaveMsg();
-                ax7 ax7Var2 = this.a;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, xw7.c(ax7Var2, ax7Var2.getThreadInfo().excid.longValue(), this.g).toChatMessageContent())));
-                jv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f implements jv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbChosenActivity a;
-        public final /* synthetic */ ShareThreadView b;
-
-        public f(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbChosenActivity, shareThreadView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pbChosenActivity;
-            this.b = shareThreadView;
-        }
-
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                yi.z(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                jv4Var.dismiss();
-            }
-        }
-    }
-
-    public xw7(PbChosenActivity pbChosenActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbChosenActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314865, "Lcom/baidu/tieba/xw7;");
                 return;
             }
         }
-        this.a = pbChosenActivity;
+        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    public static ShareFromPBMsgData c(ax7 ax7Var, long j, String str) {
-        InterceptResult invokeCommon;
+    public static void b(String str, String str2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{ax7Var, Long.valueOf(j), str})) == null) {
-            if (ax7Var == null || ax7Var.getThreadInfo() == null) {
-                return null;
-            }
-            ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
-            shareFromPBMsgData.setContent(ax7Var.getThreadInfo()._abstract);
-            shareFromPBMsgData.setImageUrl(str);
-            shareFromPBMsgData.setForumName(ax7Var.getThreadInfo().forum.forum_name);
-            shareFromPBMsgData.setPostId(null);
-            shareFromPBMsgData.setThreadId(ax7Var.getThreadInfo().thread_id + "");
-            shareFromPBMsgData.setTheNewThemeId(String.valueOf(j));
-            shareFromPBMsgData.setTitle(ax7Var.getThreadInfo().title);
-            return shareFromPBMsgData;
-        }
-        return (ShareFromPBMsgData) invokeCommon.objValue;
-    }
-
-    public static void d(PbChosenActivity pbChosenActivity, ax7 ax7Var, long j, String str, long j2, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbChosenActivity, ax7Var, Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) && ax7Var != null && ax7Var.getThreadInfo() != null) {
-            jv4 jv4Var = new jv4(pbChosenActivity.getPageContext().getPageActivity());
-            ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
-            shareThreadView.c(str2, false);
-            shareThreadView.setTitle(ax7Var.getThreadInfo().title);
-            shareThreadView.setDesc(ax7Var.getThreadInfo()._abstract);
-            jv4Var.setContentView(shareThreadView);
-            jv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f117f, new e(ax7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
-            jv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new f(pbChosenActivity, shareThreadView));
-            jv4Var.setCanceledOnTouchOutside(false);
-            jv4Var.create(pbChosenActivity.getPageContext()).show();
-        }
-    }
-
-    public static void e(PbChosenActivity pbChosenActivity, ax7 ax7Var, long j, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pbChosenActivity, ax7Var, Long.valueOf(j), str, str2, str3, str4}) == null) && ax7Var != null && ax7Var.getThreadInfo() != null) {
-            jv4 jv4Var = new jv4(pbChosenActivity.getPageContext().getPageActivity());
-            ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
-            shareThreadView.setTitle(ax7Var.getThreadInfo().title);
-            shareThreadView.setDesc(ax7Var.getThreadInfo()._abstract);
-            shareThreadView.c(str4, false);
-            jv4Var.setContentView(shareThreadView);
-            jv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f117f, new c(ax7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
-            jv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new d(pbChosenActivity, shareThreadView));
-            jv4Var.setCanceledOnTouchOutside(false);
-            jv4Var.create(pbChosenActivity.getPageContext()).show();
-        }
-    }
-
-    public void f(ax7 ax7Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, ax7Var, str) == null) && ax7Var != null && ax7Var.getThreadInfo() != null && ax7Var.getThreadInfo().excid != null) {
-            String str2 = ax7Var.getThreadInfo().forum.forum_name;
-            String str3 = ax7Var.getThreadInfo().title;
-            String str4 = ax7Var.getThreadInfo()._abstract;
-            Resources resources = this.a.getPageContext().getPageActivity().getResources();
-            String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f1187), str3, str4);
-            resources.getString(R.string.obfuscated_res_0x7f0f03e8, str3);
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = str3;
-            shareItem.w = format;
-            shareItem.x = TbConfig.TIEBA_ADDRESS + "mo/q/recommendpb?ftid=" + ax7Var.getThreadInfo().excid;
-            shareItem.H = str4;
-            shareItem.G = Long.toString(ax7Var.getThreadInfo().excid.longValue());
-            shareItem.O = Long.toString(ax7Var.getThreadInfo().thread_id.longValue());
-            shareItem.a = true;
-            if (!StringUtils.isNull(str)) {
-                shareItem.z = Uri.parse(str);
-            }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getPageContext().getPageActivity(), shareItem, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0699, R.drawable.icon_share_friends_n, new a(this));
-            shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
-            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
+            new a(str, str2, bVar).execute(new String[0]);
         }
     }
 }

@@ -1,168 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
+import tbclient.GameForumGuideTab.GameForumSubTab;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class fp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public df<byte[]> a;
-    public c b;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(List<lp6> list, List<xn> list2, boolean z);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends nj5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ fp6 b;
-
-        public a(fp6 fp6Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp6Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<mp6> a(List<GameForumSubTab> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (GameForumSubTab gameForumSubTab : list) {
+                mp6 mp6Var = new mp6();
+                if (gameForumSubTab != null) {
+                    mp6Var.a = gameForumSubTab.id.intValue();
+                    mp6Var.b = gameForumSubTab.sub_tab_name;
+                    LabelDataList labelDataList = new LabelDataList();
+                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
+                    mp6Var.c = labelDataList;
+                    arrayList.add(mp6Var);
                 }
             }
-            this.b = fp6Var;
-            this.a = str;
+            return arrayList;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj5
-        /* renamed from: a */
-        public GameForumGuideTabResIdl doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Wire wire = new Wire(new Class[0]);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                df dfVar = this.b.a;
-                byte[] bArr = (byte[]) dfVar.get(currentAccount + this.a);
-                if (bArr == null || bArr.length == 0) {
-                    return null;
-                }
-                try {
-                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return (GameForumGuideTabResIdl) invokeV.objValue;
-        }
+        return (List) invokeL.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements si5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fp6 a;
-
-        public b(fp6 fp6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<xn> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                dp6 dp6Var = new dp6();
+                ThreadData threadData = new ThreadData();
+                dp6Var.c(threadData);
+                threadData.parserProtobuf(list.get(i));
+                threadData.parser_title();
+                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                    jt4 jt4Var = new jt4();
+                    jt4Var.h(threadData.getLegoCard());
+                    linkedList.add(jt4Var);
+                } else {
+                    linkedList.add(dp6Var);
                 }
             }
-            this.a = fp6Var;
+            return linkedList;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.si5
-        /* renamed from: a */
-        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) != null) || gameForumGuideTabResIdl == null) {
-                return;
-            }
-            List<lp6> a = ep6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            List<xn> b = ep6.b(gameForumGuideTabResIdl.data.thread_list);
-            boolean z = true;
-            if (gameForumGuideTabResIdl.data.has_more.intValue() != 1) {
-                z = false;
-            }
-            if (this.a.b != null) {
-                this.a.b.a(a, b, z);
-            }
-        }
-    }
-
-    public fp6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.a = BdCacheService.k().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a != null && str != null) {
-            rj5.b(new a(this, str), new b(this));
-        }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
-        }
-    }
-
-    public void d(String str, byte[] bArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                df<byte[]> dfVar = this.a;
-                dfVar.e(currentAccount + str, bArr, 604800000L);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            df<byte[]> dfVar2 = this.a;
-            dfVar2.i(currentAccount2 + str, bArr, 604800000L);
-        }
+        return (List) invokeL.objValue;
     }
 }

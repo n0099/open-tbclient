@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.r47;
+import com.baidu.tieba.s47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.UnreadTip.UnreadTipResIdl;
 public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r47 mData;
+    public s47 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipHttpResMsg() {
@@ -47,9 +47,9 @@ public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
                 setErrorString(unreadTipResIdl.error.errmsg);
             }
             if (unreadTipResIdl.data != null) {
-                r47 r47Var = new r47();
-                this.mData = r47Var;
-                r47Var.b(unreadTipResIdl.data);
+                s47 s47Var = new s47();
+                this.mData = s47Var;
+                s47Var.b(unreadTipResIdl.data);
             }
         }
     }

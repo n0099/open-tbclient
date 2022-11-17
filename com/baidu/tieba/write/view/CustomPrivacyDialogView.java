@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.qz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,13 +104,13 @@ public class CustomPrivacyDialogView extends LinearLayout {
             this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076e);
             this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076f);
             this.b.setTextSize(R.dimen.tbds34);
-            pz4 pz4Var = new pz4();
-            pz4Var.r(R.color.CAM_X0105);
-            this.b.setConfig(pz4Var);
+            qz4 qz4Var = new qz4();
+            qz4Var.r(R.color.CAM_X0105);
+            this.b.setConfig(qz4Var);
             this.c.setTextSize(R.dimen.tbds34);
-            pz4 pz4Var2 = new pz4();
-            pz4Var2.p(R.color.CAM_X0302);
-            this.c.setConfig(pz4Var2);
+            qz4 qz4Var2 = new qz4();
+            qz4Var2.p(R.color.CAM_X0302);
+            this.c.setConfig(qz4Var2);
         }
     }
 

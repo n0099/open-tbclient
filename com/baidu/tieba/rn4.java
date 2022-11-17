@@ -39,7 +39,7 @@ public class rn4 implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
     public final Queue<c> a;
     public BdUniqueId b;
-    public eq4<km4> c;
+    public fq4<km4> c;
     public pn4 d;
     public boolean e;
     public final Handler f;
@@ -347,10 +347,10 @@ public class rn4 implements Handler.Callback {
     }
 
     public final void o(km4 km4Var) {
-        eq4<km4> eq4Var;
+        fq4<km4> fq4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) && km4Var != null && (eq4Var = this.c) != null) {
-            eq4Var.a(km4Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) && km4Var != null && (fq4Var = this.c) != null) {
+            fq4Var.a(km4Var);
         }
     }
 
@@ -362,10 +362,10 @@ public class rn4 implements Handler.Callback {
         o(km4Var);
     }
 
-    public void w(eq4<km4> eq4Var) {
+    public void w(fq4<km4> fq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, eq4Var) == null) {
-            this.c = eq4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, fq4Var) == null) {
+            this.c = fq4Var;
         }
     }
 
@@ -495,8 +495,8 @@ public class rn4 implements Handler.Callback {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            to8.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, to8.a(TbConfig.COMPLETE_TASK_URL, 309627));
+            uo8.h(309627, CompleteTaskSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, uo8.a(TbConfig.COMPLETE_TASK_URL, 309627));
             tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

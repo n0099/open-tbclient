@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ac6;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.vb6;
-import com.baidu.tieba.yb6;
+import com.baidu.tieba.wb6;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.zb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class HotUserRankView {
     public CustomViewPager g;
     public FragmentAdapter h;
     public List<e> i;
-    public vb6 j;
+    public wb6 j;
     public View k;
     public TextView l;
     public String m;
@@ -310,12 +310,12 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yb6) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
-                yb6 yb6Var = (yb6) customResponsedMessage.getData();
-                if (yb6Var.c == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zb6) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+                zb6 zb6Var = (zb6) customResponsedMessage.getData();
+                if (zb6Var.c == null) {
                     return;
                 }
-                this.a.j.e(yb6Var);
+                this.a.j.e(zb6Var);
             }
         }
     }
@@ -388,7 +388,7 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new vb6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f090419));
+        this.j = new wb6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f090419));
         this.a.registerListener(this.u);
         this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0924c6);
         this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924c7);
@@ -463,7 +463,7 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<zb6> list, long j, int i, String str) {
+    public void l(List<ac6> list, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             this.m = str;
@@ -482,14 +482,14 @@ public class HotUserRankView {
                 this.j.f(1);
                 return;
             }
-            for (zb6 zb6Var : list) {
+            for (ac6 ac6Var : list) {
                 this.d.d(this.d.z());
                 e eVar2 = new e(this);
                 HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                 eVar2.a = hotUserRankFragment2;
-                hotUserRankFragment2.D1(zb6Var.b);
+                hotUserRankFragment2.D1(ac6Var.b);
                 eVar2.a.F1(this.q);
-                eVar2.b = zb6Var.a;
+                eVar2.b = ac6Var.a;
                 this.i.add(eVar2);
             }
             if (this.q) {

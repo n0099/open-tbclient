@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.dk5;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.pc7;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qc7;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class MsgleftView extends da7 {
+public class MsgleftView extends ea7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String P = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class MsgleftView extends da7 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     this.a = System.currentTimeMillis();
-                    ck5.e();
+                    dk5.e();
                 } else if (motionEvent.getAction() == 1) {
                     if (System.currentTimeMillis() - this.a <= 200) {
                         MsgleftView msgleftView = this.b;
@@ -191,7 +191,7 @@ public class MsgleftView extends da7 {
     public final void W(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = py4.k().q("live_room_chat_page_author_id", "");
+            String q = qy4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.K.setVisibility(0);
             } else {
@@ -246,7 +246,7 @@ public class MsgleftView extends da7 {
         this.H.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
     }
 
-    @Override // com.baidu.tieba.da7
+    @Override // com.baidu.tieba.ea7
     public void u() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -263,7 +263,7 @@ public class MsgleftView extends da7 {
 
     /* JADX WARN: Removed duplicated region for block: B:37:0x013f A[Catch: Exception -> 0x01dc, TryCatch #0 {Exception -> 0x01dc, blocks: (B:17:0x00b1, B:19:0x00b7, B:20:0x00d9, B:22:0x00e6, B:25:0x00f1, B:27:0x00f5, B:28:0x0107, B:30:0x010b, B:32:0x0117, B:33:0x011d, B:35:0x012c, B:37:0x013f, B:38:0x0162, B:50:0x01aa, B:52:0x01ae, B:53:0x01b2, B:54:0x01b6, B:55:0x01ba, B:56:0x01c0, B:57:0x01c6, B:58:0x01ca, B:59:0x01d0, B:60:0x01d6, B:34:0x0125), top: B:68:0x00b1 }] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0198  */
-    @Override // com.baidu.tieba.da7
+    @Override // com.baidu.tieba.ea7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -318,7 +318,7 @@ public class MsgleftView extends da7 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.N == null) {
-                        this.N = pc7.o().i(String.valueOf(chatMessage.getUserId()), 2);
+                        this.N = qc7.o().i(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.N != null && !TextUtils.isEmpty(this.N.getGroup_head())) {
                         str = this.N.getGroup_head();

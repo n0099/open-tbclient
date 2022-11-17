@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.df;
-import com.baidu.tieba.gp7;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.hp7;
+import com.baidu.tieba.jv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gp7 mMembercenter;
+    public hp7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -41,13 +41,13 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public gp7 getMembercenterData() {
+    public hp7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mMembercenter;
         }
-        return (gp7) invokeV.objValue;
+        return (hp7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -68,7 +68,7 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new gp7(dataRes);
+                this.mMembercenter = new hp7(dataRes);
             }
             if (getError() == 0) {
                 if (TbadkCoreApplication.isLogin()) {
@@ -76,8 +76,8 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
                 } else {
                     str = SevenZipUtils.FILE_NAME_TEMP;
                 }
-                iv4.f();
-                df<byte[]> e = iv4.e("tb_member_center", str);
+                jv4.f();
+                df<byte[]> e = jv4.e("tb_member_center", str);
                 if (e != null && bArr != null) {
                     e.g("member_center_cache_key", bArr);
                 }

@@ -35,14 +35,14 @@ public class mu1 extends lu1 {
 
         /* renamed from: com.baidu.tieba.mu1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0348a implements rd3.a {
+        public class C0349a implements rd3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ xu1 b;
             public final /* synthetic */ a c;
 
-            public C0348a(a aVar, String str, xu1 xu1Var) {
+            public C0349a(a aVar, String str, xu1 xu1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class mu1 extends lu1 {
                 xu1 xu1Var = new xu1("accelerometerChange", jSONObject, str);
                 rd3 a = rd3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0348a(this, str, xu1Var));
+                a.e(new C0349a(this, str, xu1Var));
                 a.f();
                 xu1Var.b(this.a);
                 return fw1.f();

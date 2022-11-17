@@ -126,18 +126,18 @@ public class xx extends cx implements tx, sx<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.l != null && this.a.k != null && !this.a.l.isTransportThread() && this.a.n) {
-                if (!this.a.l.isMarkToDel() && xi6.f().i()) {
-                    if (xi6.f().a(this.a.l)) {
+                if (!this.a.l.isMarkToDel() && yi6.f().i()) {
+                    if (yi6.f().a(this.a.l)) {
                         this.a.l.setMarkToDel(true);
                     }
-                } else if (!this.a.l.isMarkToMove() && wi6.h().j()) {
-                    if (wi6.h().a(this.a.l)) {
+                } else if (!this.a.l.isMarkToMove() && xi6.h().j()) {
+                    if (xi6.h().a(this.a.l)) {
                         this.a.l.setMarkToMove(true);
                     }
                 } else {
-                    xi6.f().l(this.a.l);
+                    yi6.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    wi6.h().l(this.a.l);
+                    xi6.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
                 }
                 this.a.r();
@@ -204,7 +204,7 @@ public class xx extends cx implements tx, sx<ThreadData> {
             } else {
                 WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080970, R.color.CAM_X0304, null);
             }
-            pw4 d = pw4.d(this.h);
+            qw4 d = qw4.d(this.h);
             d.n(R.string.J_X06);
             if (this.m) {
                 i2 = 2;
@@ -213,11 +213,11 @@ public class xx extends cx implements tx, sx<ThreadData> {
             }
             d.m(i2);
             d.f(R.color.CAM_X0201);
-            pw4 d2 = pw4.d(this.i);
+            qw4 d2 = qw4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            pw4.d(this.k).A(R.string.F_X01);
+            qw4.d(this.k).A(R.string.F_X01);
             TextView textView = this.k;
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
                 i3 = R.drawable.selector_comment_and_prise_item_text_color;
@@ -242,7 +242,7 @@ public class xx extends cx implements tx, sx<ThreadData> {
                 z = false;
             }
             this.n = z;
-            if (!xi6.f().i() && !wi6.h().j()) {
+            if (!yi6.f().i() && !xi6.h().j()) {
                 this.d.o(new zy.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;

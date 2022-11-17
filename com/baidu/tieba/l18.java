@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,17 +14,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public yt4 c;
+    public PbFragment a;
+    public c66 b;
 
-    public l18(TbPageContext tbPageContext) {
-        Uri uri;
+    public l18(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,33 +32,18 @@ public class l18 {
                 return;
             }
         }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            String queryParameter = uri.getQueryParameter("tid");
-            uri.getQueryParameter(TiebaStatic.Params.EQID);
-            yt4 yt4Var = new yt4();
-            this.c = yt4Var;
-            yt4Var.a = uri.getQueryParameter("tid");
-            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-            if (!TextUtils.isEmpty(queryParameter) && n9.g().h() <= 3) {
-                this.b = true;
-            }
-        }
+        this.a = pbFragment;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
+        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(PbModel pbModel) {
+    public void a() {
+        c66 c66Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.S1() != null && pbModel.S1().l() != null) {
-            ForumData l = pbModel.S1().l();
-            this.c.c = l.getFirst_class();
-            this.c.d = l.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-            if (n9.g().i("MainTabActivity")) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-            } else {
-                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c66Var = this.b) != null) {
+            c66Var.h();
         }
     }
 }

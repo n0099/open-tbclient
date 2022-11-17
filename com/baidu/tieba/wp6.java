@@ -23,11 +23,12 @@ public class wp6 extends kn<d96, CardViewHolder<o36>> {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public o36 b;
-    public l46 c;
+    public String c;
     public String d;
+    public m46 e;
 
     /* loaded from: classes6.dex */
-    public class a extends l46<d96> {
+    public class a extends m46<d96> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wp6 b;
@@ -51,25 +52,25 @@ public class wp6 extends kn<d96, CardViewHolder<o36>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l46
+        @Override // com.baidu.tieba.m46
         /* renamed from: d */
         public void a(View view2, d96 d96Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, d96Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 3).param("fid", this.b.d));
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.b.c));
                 this.b.u(view2, d96Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wp6(TbPageContext tbPageContext, String str) {
+    public wp6(TbPageContext tbPageContext, String str, String str2) {
         super(tbPageContext.getPageActivity(), d96.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,8 +82,9 @@ public class wp6 extends kn<d96, CardViewHolder<o36>> {
                 return;
             }
         }
+        this.c = str;
+        this.d = str2;
         this.a = tbPageContext;
-        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,31 +94,31 @@ public class wp6 extends kn<d96, CardViewHolder<o36>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new o36(this.a);
+            this.b = new o36(this.a, this.c, this.d);
             return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public void x(l46 l46Var) {
+    public void x(m46 m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, l46Var) == null) {
-            this.c = l46Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m46Var) == null) {
+            this.e = m46Var;
         }
     }
 
     public final void u(View view2, d96 d96Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, d96Var) == null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(d96Var.getThreadData(), null, w36.g(), 18003, true, false, false);
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(d96Var.getThreadData(), null, x36.g(), 18003, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(d96Var.getThreadData().getFid()));
             createFromThreadCfg.setForumName(d96Var.getThreadData().getForum_name());
             createFromThreadCfg.setStartFrom(0);
-            w36.a(d96Var.getThreadData().getTid());
+            x36.a(d96Var.getThreadData().getTid());
             this.a.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-            l46 l46Var = this.c;
-            if (l46Var != null) {
-                l46Var.a(view2, d96Var);
+            m46 m46Var = this.e;
+            if (m46Var != null) {
+                m46Var.a(view2, d96Var);
             }
         }
     }

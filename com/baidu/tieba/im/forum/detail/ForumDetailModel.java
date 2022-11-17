@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo8;
+import com.baidu.tieba.mo8;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.sb;
@@ -93,9 +93,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lo8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mo8)) {
                 boolean z = true;
-                if (((lo8) customResponsedMessage.getData()).m() != 1) {
+                if (((mo8) customResponsedMessage.getData()).m() != 1) {
                     z = false;
                 }
                 this.a.a.J1(z);

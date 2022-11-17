@@ -4,7 +4,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.tieba.fg0;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.ij9;
 import com.baidu.tieba.ng0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,10 +38,10 @@ public class ThemeProcessor extends BaseEffectProcessor {
             if (fg0Var == null) {
                 return i;
             }
-            int b = hj9.b(fg0Var.l());
+            int b = ij9.b(fg0Var.l());
             int i2 = i;
             for (int i3 = 1; i3 < b; i3++) {
-                MediaTrack mediaTrack = (MediaTrack) hj9.c(fg0Var.l(), i3);
+                MediaTrack mediaTrack = (MediaTrack) ij9.c(fg0Var.l(), i3);
                 if (!ng0.m(mediaTrack, "effect") && !ng0.m(mediaTrack, "template_effect") && !ng0.m(mediaTrack, "edit_sticker") && !ng0.m(mediaTrack, "multi_input") && !ng0.m(mediaTrack, "only_background") && !ng0.m(mediaTrack, "watermark") && !ng0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !ng0.m(mediaTrack, "user_background")) {
                     i2 = fg0Var.i(mediaTrack, i2, null);
                 }

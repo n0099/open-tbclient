@@ -24,7 +24,7 @@ public interface hv0 {
 
         /* renamed from: com.baidu.tieba.hv0$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0295a implements jv0 {
+        public class C0296a implements jv0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface hv0 {
                 }
             }
 
-            public C0295a(a aVar) {
+            public C0296a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface hv0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0295a(this);
+                return new C0296a(this);
             }
             return (jv0) invokeLL.objValue;
         }

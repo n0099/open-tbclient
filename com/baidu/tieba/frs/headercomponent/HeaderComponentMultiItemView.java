@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sq6;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.tq6;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,7 +45,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public sq6 g;
+    public tq6 g;
     public List<String> h;
     public LiveFuseForumData i;
     public boolean j;
@@ -66,13 +66,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0275a implements View.OnClickListener {
+        public class View$OnClickListenerC0272a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0275a(a aVar, int i) {
+            public View$OnClickListenerC0272a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0275a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0272a(this, i));
             }
         }
 
@@ -219,7 +219,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pw4.d(this.b).v(R.color.CAM_X0105);
+            qw4.d(this.b).v(R.color.CAM_X0105);
             if (!ListUtils.isEmpty(this.f.getChildViews())) {
                 for (View view2 : this.f.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -280,14 +280,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         h();
     }
 
-    public void g(LiveFuseForumData liveFuseForumData, sq6 sq6Var) {
+    public void g(LiveFuseForumData liveFuseForumData, tq6 tq6Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, sq6Var) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, tq6Var) != null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = sq6Var;
+        this.g = tq6Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -305,9 +305,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         j();
         setOnClickListener(new b(this, liveFuseForumData));
-        sq6 sq6Var2 = this.g;
-        if (sq6Var2 != null) {
-            sq6Var2.a(2, liveFuseForumData);
+        tq6 tq6Var2 = this.g;
+        if (tq6Var2 != null) {
+            tq6Var2.a(2, liveFuseForumData);
         }
     }
 
@@ -387,7 +387,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         } else {
             this.c.setAlpha(1.0f);
         }
-        pw4 d = pw4.d(this.e);
+        qw4 d = qw4.d(this.e);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
     }

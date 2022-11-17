@@ -1,112 +1,138 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Build;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class gq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<bq8> a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String[] split3;
+    public gq8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (xi.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return split3[split3.length - 1];
         }
-        return (String) invokeL.objValue;
+        this.a = new ArrayList<>();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public void a(bq8 bq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bq8Var) == null) {
+            this.a.add(bq8Var);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public final void b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) && webView != null && !xi.isEmpty(str) && !xi.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return;
             }
-            return parse.getQueryParameter("upgrade");
+            webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public dq8 c(fq8 fq8Var, dq8 dq8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fq8Var, dq8Var)) == null) {
+            if (dq8Var == null) {
+                dq8Var = new dq8();
             }
-            return parse.getQueryParameter("notificationName");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (!xi.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
-                    return str2.substring(0, (str2.length() - str3.length()) - 1);
+            if (ActionJsonData.TAG_NOTIFICATION.equals(fq8Var.c()) && "addObserver".equals(fq8Var.a())) {
+                Iterator<bq8> it = this.a.iterator();
+                while (it.hasNext()) {
+                    dq8Var = it.next().addObserver(fq8Var.d(), dq8Var, true);
+                    if (dq8Var.j()) {
+                        return dq8Var;
+                    }
                 }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+                if (!dq8Var.j()) {
+                    dq8Var.y(202);
+                    dq8Var.u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036d));
+                }
+            } else {
+                String c = fq8Var.c();
+                if (!xi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    dq8Var.y(201);
+                    return dq8Var;
+                }
+                Iterator<bq8> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    dq8Var = it2.next().dispatch(fq8Var, dq8Var);
+                    if (dq8Var.i()) {
+                        return dq8Var;
+                    }
+                }
+                if (!dq8Var.i()) {
+                    dq8Var.y(202);
+                }
             }
+            return dq8Var;
         }
-        return (String) invokeL.objValue;
+        return (dq8) invokeLL.objValue;
     }
 
-    public static JSONObject f(String str) throws JSONException {
-        InterceptResult invokeL;
+    public void d(WebView webView, dq8 dq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return new JSONObject();
-            }
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return new JSONObject();
-            }
-            String queryParameter = parse.getQueryParameter("params");
-            if (xi.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            return new JSONObject(queryParameter);
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, dq8Var) != null) || webView == null || dq8Var == null || !dq8Var.k()) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        b(webView, dq8Var.c(), dq8Var.d());
+    }
+
+    public void e(WebView webView, List<dq8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (dq8 dq8Var : list) {
+                if (dq8Var != null && dq8Var.k()) {
+                    b(webView, dq8Var.c(), dq8Var.d());
+                }
+            }
+        }
+    }
+
+    public List<dq8> f(String str, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
+            List<dq8> list = null;
+            if (xi.isEmpty(str)) {
+                return null;
+            }
+            Iterator<bq8> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLL.objValue;
     }
 }

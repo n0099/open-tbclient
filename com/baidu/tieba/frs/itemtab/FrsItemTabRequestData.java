@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.bd5;
+import com.baidu.tieba.dj5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +15,12 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements ad5 {
+public class FrsItemTabRequestData extends OrmObject implements bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.zc5
+    @Override // com.baidu.tieba.ad5
     public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class FrsItemTabRequestData extends OrmObject implements ad5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zc5
+    @Override // com.baidu.tieba.ad5
     public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class FrsItemTabRequestData extends OrmObject implements ad5 {
         }
     }
 
-    @Override // com.baidu.tieba.cd5
+    @Override // com.baidu.tieba.dd5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class FrsItemTabRequestData extends OrmObject implements ad5 {
             builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) yi.i(TbadkCoreApplication.getInst()));
-            cj5.c(builder, true, false, true);
+            dj5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

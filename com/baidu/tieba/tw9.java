@@ -1,128 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
 public final class tw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final tw9[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
+    public int T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final kw9 c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final qw9 k;
+    public final qw9 l;
+    public final qw9 m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195763, "Lcom/baidu/tieba/tw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195763, "Lcom/baidu/tieba/tw9;");
-                return;
-            }
-        }
-        d = new tw9[]{new tw9("", 0, ""), new tw9("", 0, " "), new tw9(" ", 0, " "), new tw9("", 12, ""), new tw9("", 10, " "), new tw9("", 0, " the "), new tw9(" ", 0, ""), new tw9("s ", 0, " "), new tw9("", 0, " of "), new tw9("", 10, ""), new tw9("", 0, " and "), new tw9("", 13, ""), new tw9("", 1, ""), new tw9(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new tw9("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9(" ", 10, " "), new tw9("", 0, " in "), new tw9("", 0, " to "), new tw9("e ", 0, " "), new tw9("", 0, "\""), new tw9("", 0, "."), new tw9("", 0, "\">"), new tw9("", 0, "\n"), new tw9("", 3, ""), new tw9("", 0, PreferencesUtil.RIGHT_MOUNT), new tw9("", 0, " for "), new tw9("", 14, ""), new tw9("", 2, ""), new tw9("", 0, " a "), new tw9("", 0, " that "), new tw9(" ", 10, ""), new tw9("", 0, ". "), new tw9(".", 0, ""), new tw9(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9("", 15, ""), new tw9("", 0, " with "), new tw9("", 0, "'"), new tw9("", 0, " from "), new tw9("", 0, " by "), new tw9("", 16, ""), new tw9("", 17, ""), new tw9(" the ", 0, ""), new tw9("", 4, ""), new tw9("", 0, ". The "), new tw9("", 11, ""), new tw9("", 0, " on "), new tw9("", 0, " as "), new tw9("", 0, " is "), new tw9("", 7, ""), new tw9("", 1, "ing "), new tw9("", 0, "\n\t"), new tw9("", 0, ":"), new tw9(" ", 0, ". "), new tw9("", 0, "ed "), new tw9("", 20, ""), new tw9("", 18, ""), new tw9("", 6, ""), new tw9("", 0, "("), new tw9("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9("", 8, ""), new tw9("", 0, " at "), new tw9("", 0, "ly "), new tw9(" the ", 0, " of "), new tw9("", 5, ""), new tw9("", 9, ""), new tw9(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9("", 10, "\""), new tw9(".", 0, "("), new tw9("", 11, " "), new tw9("", 10, "\">"), new tw9("", 0, "=\""), new tw9(" ", 0, "."), new tw9(".com/", 0, ""), new tw9(" the ", 0, " of the "), new tw9("", 10, "'"), new tw9("", 0, ". This "), new tw9("", 0, ","), new tw9(".", 0, " "), new tw9("", 10, "("), new tw9("", 10, "."), new tw9("", 0, " not "), new tw9(" ", 0, "=\""), new tw9("", 0, "er "), new tw9(" ", 11, " "), new tw9("", 0, "al "), new tw9(" ", 11, ""), new tw9("", 0, "='"), new tw9("", 11, "\""), new tw9("", 10, ". "), new tw9(" ", 0, "("), new tw9("", 0, "ful "), new tw9(" ", 10, ". "), new tw9("", 0, "ive "), new tw9("", 0, "less "), new tw9("", 11, "'"), new tw9("", 0, "est "), new tw9(" ", 10, "."), new tw9("", 11, "\">"), new tw9(" ", 0, "='"), new tw9("", 10, ","), new tw9("", 0, "ize "), new tw9("", 11, "."), new tw9("Â ", 0, ""), new tw9(" ", 0, ","), new tw9("", 10, "=\""), new tw9("", 11, "=\""), new tw9("", 0, "ous "), new tw9("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9("", 10, "='"), new tw9(" ", 10, ","), new tw9(" ", 11, "=\""), new tw9(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new tw9("", 11, ","), new tw9("", 11, "("), new tw9("", 11, ". "), new tw9(" ", 11, "."), new tw9("", 11, "='"), new tw9(" ", 11, ". "), new tw9(" ", 10, "=\""), new tw9(" ", 11, "='"), new tw9(" ", 10, "='")};
-    }
-
-    public tw9(String str, int i, String str2) {
+    public tw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
+        this.a = 0;
+        this.c = new kw9();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new qw9();
+        this.l = new qw9();
+        this.m = new qw9();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.T = 0;
     }
 
-    public static byte[] a(String str) {
+    public static void a(tw9 tw9Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, tw9Var) == null) {
+            int i = tw9Var.a;
+            if (i != 0) {
+                if (i == 11) {
+                    return;
+                }
+                tw9Var.a = 11;
+                kw9.b(tw9Var.c);
+                return;
+            }
+            throw new IllegalStateException("State MUST be initialized");
+        }
+    }
+
+    public static int b(kw9 kw9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kw9Var)) == null) {
+            if (kw9.i(kw9Var, 1) == 0) {
+                return 16;
             }
-            return bArr;
+            int i = kw9.i(kw9Var, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = kw9.i(kw9Var, 3);
+            if (i2 == 0) {
+                return 17;
+            }
+            return i2 + 8;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, tw9 tw9Var) {
-        InterceptResult invokeCommon;
+    public static void c(tw9 tw9Var, InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), tw9Var})) == null) {
-            int i4 = i;
-            for (byte b : tw9Var.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = tw9Var.b;
-            int a = vw9.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - vw9.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tw9Var, inputStream) == null) {
+            if (tw9Var.a == 0) {
+                kw9.e(tw9Var.c, inputStream);
+                int b = b(tw9Var.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    tw9Var.P = i;
+                    tw9Var.O = i - 16;
+                    tw9Var.a = 1;
+                    return;
                 }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
-                    }
-                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
             }
-            for (byte b3 : tw9Var.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+            throw new IllegalStateException("State MUST be uninitialized");
         }
-        return invokeCommon.intValue;
     }
 }

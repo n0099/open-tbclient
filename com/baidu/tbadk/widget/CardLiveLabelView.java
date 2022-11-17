@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -331,10 +331,10 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    pw4 d2 = pw4.d(this.c);
+                    qw4 d2 = qw4.d(this.c);
                     d2.n(R.string.J_X01);
                     d2.f(R.color.CAM_X0605);
-                    pw4 d3 = pw4.d(this.j);
+                    qw4 d3 = qw4.d(this.j);
                     d3.n(R.string.J_X07);
                     d3.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
@@ -384,10 +384,10 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pw4 d2 = pw4.d(this.k);
+            qw4 d2 = qw4.d(this.k);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0605);
-            pw4 d3 = pw4.d(this.o);
+            qw4 d3 = qw4.d(this.o);
             d3.n(R.string.J_X07);
             d3.f(R.color.CAM_X0310);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
@@ -402,7 +402,7 @@ public class CardLiveLabelView extends RelativeLayout {
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0101);
-            pw4 d2 = pw4.d(this.q);
+            qw4 d2 = qw4.d(this.q);
             d2.n(R.string.J_X01);
             d2.p(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
         }

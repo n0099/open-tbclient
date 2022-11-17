@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.ew5;
-import com.baidu.tieba.lx5;
-import com.baidu.tieba.p46;
-import com.baidu.tieba.qv5;
+import com.baidu.tieba.cx5;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.mx5;
+import com.baidu.tieba.q46;
+import com.baidu.tieba.rv5;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public bx5 f;
+    public cx5 f;
     public long g;
     public int h;
     public int i;
@@ -111,18 +111,18 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    ew5 ew5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    fw5 fw5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(ew5Var);
+                            this.a.f.a(fw5Var);
                         }
                     } else {
-                        qv5.a(this.a.h);
+                        rv5.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new bx5(ew5Var, alaLiveYYSubTabModel.j, this.a.k);
+                        alaLiveYYSubTabModel.f = new cx5(fw5Var, alaLiveYYSubTabModel.j, this.a.k);
                         this.a.L();
                     }
                     if (this.a.f != null) {
@@ -227,9 +227,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        lx5 lx5Var = new lx5();
-        lx5Var.a = new p46(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(lx5Var);
+        mx5 mx5Var = new mx5();
+        mx5Var.a = new q46(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(mx5Var);
     }
 
     public void b() {
@@ -240,7 +240,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            M(1, qv5.b(this.h) - 1);
+            M(1, rv5.b(this.h) - 1);
         }
     }
 
@@ -277,8 +277,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            bx5 bx5Var = this.f;
-            if (bx5Var != null && !ListUtils.isEmpty(bx5Var.d())) {
+            cx5 cx5Var = this.f;
+            if (cx5Var != null && !ListUtils.isEmpty(cx5Var.d())) {
                 return true;
             }
             return false;
@@ -313,7 +313,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.U(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            M(0, qv5.b(this.h));
+            M(0, rv5.b(this.h));
         }
     }
 }

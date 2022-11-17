@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes6.dex */
 public interface tq6 {
-    void a();
+    void a(int i, LiveFuseForumData liveFuseForumData);
 
-    void b(List<LiveFuseForumData> list, sq6 sq6Var);
+    void b(int i, LiveFuseForumData liveFuseForumData, int i2);
 
-    View getView();
+    void c(int i, LiveFuseForumData liveFuseForumData);
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.po6;
+import com.baidu.tieba.qo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po6 mForumRuleDetailData;
+    public qo6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailHttpResMsg() {
@@ -36,13 +36,13 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public po6 getmForumRuleDetailData() {
+    public qo6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mForumRuleDetailData;
         }
-        return (po6) invokeV.objValue;
+        return (qo6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
                 setErrorString(forumRuleDetailResIdl.error.usermsg);
             }
             if (forumRuleDetailResIdl.data != null) {
-                po6 po6Var = new po6();
-                this.mForumRuleDetailData = po6Var;
-                po6Var.q(forumRuleDetailResIdl.data);
+                qo6 qo6Var = new qo6();
+                this.mForumRuleDetailData = qo6Var;
+                qo6Var.q(forumRuleDetailResIdl.data);
             }
         }
     }

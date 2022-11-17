@@ -113,7 +113,7 @@ public class wm4 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            py4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
+            qy4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -140,15 +140,15 @@ public class wm4 {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            py4.k().y("pref_key_strategy_json", str);
-            py4.k().w("pref_key_float_tip_num", 0);
+            qy4.k().y("pref_key_strategy_json", str);
+            qy4.k().w("pref_key_float_tip_num", 0);
         }
     }
 
     public void h(km4 km4Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, km4Var) == null) && km4Var != null && c(km4Var)) {
-            py4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
+            qy4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -161,25 +161,25 @@ public class wm4 {
             if (!this.a) {
                 return;
             }
-            boolean h = py4.k().h("pref_key_task_first_open", true);
-            int l = py4.k().l("pref_key_float_tip_num", 0);
-            long m = py4.k().m("pref_key_new_task_complete_time", 0L);
+            boolean h = qy4.k().h("pref_key_task_first_open", true);
+            int l = qy4.k().l("pref_key_float_tip_num", 0);
+            long m = qy4.k().m("pref_key_new_task_complete_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (h) {
                 if (e(bVar)) {
                     this.c = true;
-                    py4.k().u("pref_key_task_first_open", false);
+                    qy4.k().u("pref_key_task_first_open", false);
                 }
             } else if (!d(bVar, currentTimeMillis / 1000, m / 1000)) {
             } else {
                 if (z) {
                     if (e(bVar)) {
                         this.c = true;
-                        py4.k().w("pref_key_float_tip_num", 0);
+                        qy4.k().w("pref_key_float_tip_num", 0);
                     }
                 } else if (l < bVar.f.intValue() && e(bVar)) {
                     this.c = true;
-                    py4.k().w("pref_key_float_tip_num", l + 1);
+                    qy4.k().w("pref_key_float_tip_num", l + 1);
                 }
             }
         } catch (Exception unused) {
@@ -273,7 +273,7 @@ public class wm4 {
                     f("");
                     return;
                 }
-                if (!jSONObject2.equals(py4.k().q("pref_key_strategy_json", null))) {
+                if (!jSONObject2.equals(qy4.k().q("pref_key_strategy_json", null))) {
                     f(jSONObject2);
                 }
                 a(bVar, true);
@@ -294,7 +294,7 @@ public class wm4 {
             if (this.c || !lm4.w().s()) {
                 return;
             }
-            String q = py4.k().q("pref_key_strategy_json", null);
+            String q = qy4.k().q("pref_key_strategy_json", null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }

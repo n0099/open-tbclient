@@ -1,44 +1,172 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wz7 extends vz7 {
-    public static /* synthetic */ Interceptable $ic;
+public class wz7 extends tm5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double L = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948287957, "Lcom/baidu/tieba/wz7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948287957, "Lcom/baidu/tieba/wz7;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements TbImageView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wz7 a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
+
+        public a(wz7 wz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wz7Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.s) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                in m = l95.k().m(tg.h().g(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (m != null) {
+                    i3 = m.r();
+                    i2 = m.m();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
+                    }
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wz7(sm5 sm5Var) {
-        super(sm5Var);
+    public wz7(tm5 tm5Var) {
+        super(tm5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sm5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tm5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sm5) newInitContext.callArgs[0]);
+                super((tm5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        o(TbConfig.getContentLineSpace(), 1.0f);
-        i(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        k(true);
+        t();
+        o(TbConfig.getPostLineSpace(), 1.0f);
         y(0);
-        l(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        m(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        r(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
-        f(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        s(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
-        u(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
-        j(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-        h(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        l(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        m(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        i(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        r(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        j(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.H = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.I = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.J = new a(this);
+    }
+
+    @Override // com.baidu.tieba.tm5
+    public int[] e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.t) {
+                    float f = tm5.K;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * L) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.q = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.q = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
+                    }
+                }
+                return new int[]{i, i2};
+            }
+            return null;
+        }
+        return (int[]) invokeIIII.objValue;
     }
 }

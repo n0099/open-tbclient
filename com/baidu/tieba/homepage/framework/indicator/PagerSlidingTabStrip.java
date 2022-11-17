@@ -38,10 +38,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.l25;
-import com.baidu.tieba.o07;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.m25;
+import com.baidu.tieba.p07;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -210,7 +210,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.currentPosition = parcel.readInt();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, o07 o07Var) {
+        public /* synthetic */ SavedState(Parcel parcel, p07 p07Var) {
             this(parcel);
         }
 
@@ -367,7 +367,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.a = pagerSlidingTabStrip;
         }
 
-        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, o07 o07Var) {
+        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, p07 p07Var) {
             this(pagerSlidingTabStrip);
         }
 
@@ -945,14 +945,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                             }
                             if (i2 >= 0) {
                                 if (i == this.j) {
-                                    pw4.d(textView).A(R.string.F_X02);
+                                    qw4.d(textView).A(R.string.F_X02);
                                 } else {
-                                    pw4.d(textView).A(R.string.F_X01);
+                                    qw4.d(textView).A(R.string.F_X01);
                                 }
                             } else if (i == this.h) {
-                                pw4.d(textView).A(R.string.F_X02);
+                                qw4.d(textView).A(R.string.F_X02);
                             } else {
-                                pw4.d(textView).A(R.string.F_X01);
+                                qw4.d(textView).A(R.string.F_X01);
                             }
                         }
                     }
@@ -1025,7 +1025,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
-            l25 a2 = l25.a(str);
+            m25 a2 = m25.a(str);
             if (a2 != null && !this.W) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
                 FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
@@ -1043,7 +1043,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 LinearLayout linearLayout = new LinearLayout(getContext());
                 linearLayout.setOrientation(0);
                 TextView textView = new TextView(getContext());
-                if (TbadkCoreApplication.isLogin() && py4.k().l("key_home_concern_all_status", 0) == 1) {
+                if (TbadkCoreApplication.isLogin() && qy4.k().l("key_home_concern_all_status", 0) == 1) {
                     string = getResources().getString(R.string.obfuscated_res_0x7f0f02bd);
                 } else {
                     string = getResources().getString(R.string.obfuscated_res_0x7f0f13a4);
@@ -1068,7 +1068,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     str = a2.c();
                 }
                 if (i == 0 && !this.W) {
-                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && py4.k().l("key_home_concern_all_status", 0) == 1) {
+                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && qy4.k().l("key_home_concern_all_status", 0) == 1) {
                         str = getResources().getString(R.string.obfuscated_res_0x7f0f02bd);
                     } else {
                         str = getResources().getString(R.string.obfuscated_res_0x7f0f13a4);

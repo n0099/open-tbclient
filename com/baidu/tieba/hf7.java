@@ -1,51 +1,76 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class hf7 {
+public class hf7 implements ff7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
-    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        InterceptResult invokeLI;
+    public hf7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
-            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
-                c(baseFragmentActivity);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return true;
         }
-        return invokeLI.booleanValue;
+        HashMap<String, Integer> hashMap = new HashMap<>(3);
+        this.a = hashMap;
+        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
+        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
+        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
     }
 
-    public static boolean b(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ff7
+    public boolean a(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, baseFragmentActivity, cls)) == null) {
-            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
-                c(baseFragmentActivity);
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            return this.a.containsKey(c(chatMessageArr));
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static void c(BaseFragmentActivity baseFragmentActivity) {
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
+                return chatMessageArr[0].getContent();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ff7
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0efc);
-        } else {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0efb);
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f09215b);
+        if (chatMessageArr != null && chatMessageArr.length > 1) {
+            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
         }
     }
 }

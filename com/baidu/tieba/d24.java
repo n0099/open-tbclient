@@ -71,12 +71,12 @@ public class d24 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.baidu.tieba.d24$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0232a implements Runnable {
+        public class RunnableC0233a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0232a(a aVar) {
+            public RunnableC0233a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public class d24 extends UnitedSchemeBaseInterceptor {
                 if (d24.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                zh3.e0(new RunnableC0232a(this));
+                zh3.e0(new RunnableC0233a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 cp2 d = this.e.d(this.b);

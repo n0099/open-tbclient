@@ -5,106 +5,120 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class eq9 extends BaseAdRipper {
+public class eq9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq9(Ssp.Pid pid) {
-        super(pid);
+    public eq9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1303381232:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
+            switch (c) {
+                case 0:
+                    return new jq9(pid);
+                case 1:
+                    return new sq9(pid);
+                case 2:
+                    return new mq9(pid);
+                case 3:
+                    return new tq9(pid);
+                case 4:
+                    return new uq9(pid);
+                case 5:
+                    return new oq9(pid);
+                case 6:
+                    return new rq9(pid);
+                case 7:
+                    return new iq9(pid);
+                default:
                     return null;
-                }
-                Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField3 = obj3.getClass().getDeclaredField("b");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(obj3);
-                if (obj4 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj4.getClass().getDeclaredField("c");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(obj4);
-                if (obj5 == null) {
-                    return null;
-                }
-                Field declaredField5 = obj5.getClass().getDeclaredField("d");
-                declaredField5.setAccessible(true);
-                Object obj6 = declaredField5.get(obj5);
-                if (obj6 == null) {
-                    return null;
-                }
-                Field declaredField6 = obj6.getClass().getDeclaredField("b");
-                declaredField6.setAccessible(true);
-                Object obj7 = declaredField6.get(obj6);
-                if (obj7 == null) {
-                    return null;
-                }
-                Field declaredField7 = obj7.getClass().getDeclaredField("a");
-                declaredField7.setAccessible(true);
-                Object obj8 = declaredField7.get(obj7);
-                if (obj8 == null) {
-                    return null;
-                }
-                Field declaredField8 = obj8.getClass().getDeclaredField("i");
-                declaredField8.setAccessible(true);
-                Object obj9 = declaredField8.get(obj8);
-                if (obj9 == null) {
-                    return null;
-                }
-                Field declaredField9 = obj9.getClass().getDeclaredField("L");
-                declaredField9.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField9.get(obj9);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return aq9.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.graphics.BitmapFactory;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,16 +9,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class cf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<EncodeHintType, Object> a;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,73 +37,80 @@ public class cf8 {
                 return;
             }
         }
-        EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        a = enumMap;
-        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
-        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        a.put(EncodeHintType.MARGIN, 0);
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
-        InterceptResult invokeLL;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
-            if (bitmap != null && bitmap2 != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int width2 = bitmap2.getWidth();
-                int height2 = bitmap2.getHeight();
-                float f = ((width * 1.0f) / 5.0f) / width2;
-                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                try {
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas.scale(f, f, width / 2, height / 2);
-                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
-                    canvas.save();
-                    canvas.restore();
-                    return createBitmap;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static Bitmap b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            return c(str, i, -16777216, -1, null);
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
-                int[] iArr = new int[i * i];
-                for (int i4 = 0; i4 < i; i4++) {
-                    for (int i5 = 0; i5 < i; i5++) {
-                        if (encode.get(i5, i4)) {
-                            iArr[(i4 * i) + i5] = i2;
-                        } else {
-                            iArr[(i4 * i) + i5] = i3;
-                        }
-                    }
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
                 }
-                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
-                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
-                return a(createBitmap, bitmap);
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (Bitmap) invokeCommon.objValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
+            }
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return b(a(str));
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -35,9 +35,9 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.imMessageCenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.r65;
-import com.baidu.tieba.te7;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.s65;
+import com.baidu.tieba.ue7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -483,10 +483,10 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         }
     }
 
-    public final void y(r65 r65Var) {
+    public final void y(s65 s65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, r65Var) == null) && r65Var != null && r65Var != null && (r65Var instanceof View)) {
-            ((View) r65Var).setOnClickListener(this.q);
+        if ((interceptable == null || interceptable.invokeL(1048593, this, s65Var) == null) && s65Var != null && s65Var != null && (s65Var instanceof View)) {
+            ((View) s65Var).setOnClickListener(this.q);
         }
     }
 
@@ -624,7 +624,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                 this.a = gamePlayServiceView;
                 this.mTool.addView(gamePlayServiceView, indexOfChild);
                 this.a.c(this);
-                te7.b(this.p);
+                ue7.b(this.p);
             }
             ViewGroup viewGroup = this.mLayBottom;
             if (viewGroup instanceof BottomInputLayout) {
@@ -654,7 +654,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && i == 0) {
             UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-            te7.a(this.p);
+            ue7.a(this.p);
         }
     }
 
@@ -810,11 +810,11 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             LinearLayout linearLayout = this.l;
             if (linearLayout != null) {
-                pw4.d(linearLayout).f(R.color.CAM_X0201);
+                qw4.d(linearLayout).f(R.color.CAM_X0201);
             }
             EMTextView eMTextView = this.k;
             if (eMTextView != null) {
-                pw4 d2 = pw4.d(eMTextView);
+                qw4 d2 = qw4.d(eMTextView);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X05);
             }

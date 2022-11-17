@@ -1,27 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.view.NavigationBarShadowView;
+import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ae8 implements lr7 {
+public class ae8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ce8 b;
+    public Context a;
+    public View b;
+    public BdTypeListView c;
+    public NoDataView d;
+    public ka5 e;
+    public NavigationBarShadowView f;
+    public wd8 g;
+    public View.OnClickListener h;
+    public AbsListView.OnScrollListener i;
 
-    public ae8(String str) {
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae8 a;
+
+        public a(ae8 ae8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ae8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.b);
+                    this.a.e = null;
+                }
+                if (this.a.g != null) {
+                    this.a.g.p();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae8 a;
+
+        public b(ae8 ae8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ae8Var;
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            View childAt;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
+                this.a.f.a();
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
+                this.a.f.c();
+            }
+        }
+    }
+
+    public ae8(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,148 +123,46 @@ public class ae8 implements lr7 {
                 return;
             }
         }
-        this.a = str;
-        this.b = new ce8(str);
+        this.d = null;
+        this.h = new a(this);
+        this.i = new b(this);
+        this.a = context;
+        this.b = view2;
+        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09135a);
+        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f09167f);
+        this.c.setOnScrollListener(this.i);
     }
 
-    @Override // com.baidu.tieba.lr7
-    public void a(String str) {
+    public void h(wd8 wd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wd8Var) == null) {
+            this.g = wd8Var;
         }
-        hw8.d().j(this.a, hw8.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
     }
 
-    @Override // com.baidu.tieba.lr7
-    public void k(String str) {
+    public void i(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
+            yd8.b(this.e, this.h, this.a, this.b, str, z);
+            this.c.setVisibility(8);
         }
-        this.b.k();
-        this.b.j();
-        this.b.a(new rd8(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
     }
 
-    @Override // com.baidu.tieba.lr7
-    public void b(String str, int i, int i2, String str2) {
+    public BdTypeListView f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        this.b.f();
-        this.b.i();
-        this.b.k();
-        this.b.a(new rd8(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+        return (BdTypeListView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lr7
-    public void c(String str, int i, String str2) {
+    public wd8 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        this.b.f();
-        this.b.a(new rd8(i, "edit", i, str2));
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void f(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.f();
-        this.b.a(new rd8(i, "record", i, str2));
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!m(str)) {
-                return false;
-            }
-            return this.b.g();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.b.h();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
-            return;
-        }
-        this.b.k();
-        this.b.a(new rd8(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
-    }
-
-    public final boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void g(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.f();
-        this.b.i();
-        this.b.k();
-        this.b.a(new rd8(402, AlbumActivityConfig.FROM_WRITE, i, str2));
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.a(new rd8(503, str2, -4399, ""));
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.a(new rd8(501, str2, -4399, ""));
-    }
-
-    @Override // com.baidu.tieba.lr7
-    public void l(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
-            this.b.a(new rd8(i, str2, -4399, ""));
-            return;
-        }
-        this.b.f();
-        this.b.a(new rd8(i, str2, i, VideoPlatformStatic.g(i)));
+        return (wd8) invokeV.objValue;
     }
 }

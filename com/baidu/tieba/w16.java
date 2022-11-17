@@ -1,129 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.downloader.ResourceDownloader;
-import com.baidu.ala.gift.AlaDynamicGift;
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.ala.data.AlaLiveMarkData;
+import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.ala.view.AlaNetRefreshView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class w16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public b b;
-    public BdAsyncTask c;
-    public HttpMessageListener d;
+    public View a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public BdListView c;
+    public r16 d;
+    public HeadImageView e;
+    public TextView f;
+    public TextView g;
+    public TbImageView h;
+    public RelativeLayout i;
+    public ImageView j;
+    public TextView k;
+    public LinearLayout l;
+    public AlaNetRefreshView m;
+    public RelativeLayout n;
+    public TextView o;
+    public View p;
+    public c q;
+    public List<AlaLiveMarkData> r;
+    public r16.d s;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
+    public interface c {
+        void a(t16 t16Var);
     }
 
     /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
+    public class a extends sg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w16 a;
 
-        /* renamed from: com.baidu.tieba.w16$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0454a extends BdAsyncTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ List a;
-            public final /* synthetic */ HttpResponsedMessage b;
-            public final /* synthetic */ a c;
-
-            public C0454a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, list, httpResponsedMessage};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = list;
-                this.b = httpResponsedMessage;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Object doInBackground(Object[] objArr) {
-                InterceptResult invokeL;
-                AlaDynamicGift alaDynamicGift;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                    for (xn xnVar : this.a) {
-                        if (xnVar instanceof AlaEnterEffectData) {
-                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
-                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
-                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
-                                    alaEnterEffectData.downLoadStatus = 100;
-                                } else {
-                                    alaEnterEffectData.downLoadStatus = 101;
-                                }
-                            }
-                        }
-                    }
-                    return null;
-                }
-                return invokeL.objValue;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onCancelled() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    super.onCancelled();
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    super.onPostExecute(obj);
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(w16 w16Var, int i) {
-            super(i);
+        public a(w16 w16Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w16Var, Integer.valueOf(i)};
+                Object[] objArr = {w16Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -133,27 +84,58 @@ public class w16 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
-                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
-                List<xn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
-                if (ListUtils.isEmpty(effectList)) {
-                    this.a.b.a(alaGetEnterEffectResponsedMessage);
-                    return;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((a) inVar, str, i);
+                if (inVar != null && inVar.p() != null) {
+                    this.a.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    this.a.h.setImageBitmap(BitmapHelper.fastblur(inVar.p(), 15, 0.75f));
                 }
-                this.a.c = new C0454a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
 
-    public w16(TbPageContext tbPageContext, b bVar) {
+    /* loaded from: classes6.dex */
+    public class b implements r16.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w16 a;
+
+        public b(w16 w16Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w16Var;
+        }
+
+        @Override // com.baidu.tieba.r16.d
+        public void a(t16 t16Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t16Var) == null) && this.a.q != null) {
+                this.a.q.a(t16Var);
+            }
+        }
+    }
+
+    public w16(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {tbPageContext, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -163,27 +145,192 @@ public class w16 {
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.d = aVar;
-        this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
+        this.r = new ArrayList();
+        this.s = new b(this);
+        this.b = tbPageContext;
+        this.q = cVar;
+        e();
     }
 
-    public void c() {
-        BdAsyncTask bdAsyncTask;
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
-            bdAsyncTask.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (View) invokeV.objValue;
     }
 
     public void d() {
+        AlaNetRefreshView alaNetRefreshView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            this.a.sendMessage(httpMessage);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alaNetRefreshView = this.m) != null) {
+            alaNetRefreshView.dettachView(this.n);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e1, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setPadding(0, (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
+            this.e = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090228);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090229);
+            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090226);
+            this.h = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090225);
+            this.n = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09022c);
+            this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090227);
+            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09022a);
+            this.j = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908fc);
+            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908fe);
+            this.p = this.a.findViewById(R.id.obfuscated_res_0x7f09022d);
+            this.c = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09022b);
+            r16 r16Var = new r16(this.b, this.s);
+            this.d = r16Var;
+            this.c.setAdapter((ListAdapter) r16Var);
+            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090906);
+            this.i = relativeLayout;
+            this.c.setEmptyView(relativeLayout);
+            this.e.setIsRound(true);
+            this.e.setDefaultBgResource(R.color.transparent);
+            this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.h.setDefaultBgResource(R.color.transparent);
+            this.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            f();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f, (int) R.color.common_color_10310);
+            SkinManager.setViewTextColor(this.g, (int) R.color.white_alpha70);
+            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0106);
+            if (TbadkApplication.getInst().getSkinType() == 1) {
+                this.j.setAlpha(0.4f);
+                this.p.setBackgroundColor(this.b.getResources().getColor(R.color.black_alpha60));
+                return;
+            }
+            this.j.setAlpha(1.0f);
+            this.p.setBackgroundColor(this.b.getResources().getColor(R.color.black_alpha30));
+        }
+    }
+
+    public void g(AlaUserInfoData alaUserInfoData, List<u16> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, alaUserInfoData, list) == null) {
+            r16 r16Var = this.d;
+            if (r16Var != null && list != null) {
+                r16Var.d(list);
+            }
+            i(alaUserInfoData);
+        }
+    }
+
+    public void h(int i, int i2, boolean z, View.OnClickListener onClickListener) {
+        TbPageContext<BaseFragmentActivity> tbPageContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), onClickListener}) != null) || (tbPageContext = this.b) == null) {
+            return;
+        }
+        if (this.m == null) {
+            this.m = new AlaNetRefreshView(tbPageContext.getPageActivity());
+        }
+        this.m.setImageResource(i);
+        this.m.setNetFailTipText(this.b.getString(i2));
+        this.m.onChangeSkinType();
+        this.m.setIsShowRefreshButton(z);
+        if (z) {
+            this.m.setOnRefreshClickListener(onClickListener);
+        }
+        this.m.attachView(this.n);
+    }
+
+    public final void i(AlaUserInfoData alaUserInfoData) {
+        String format;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, alaUserInfoData) == null) {
+            if (alaUserInfoData != null) {
+                String str = alaUserInfoData.user_nickname;
+                String str2 = alaUserInfoData.user_name;
+                if (str == null) {
+                    if (str2 != null) {
+                        str = str2;
+                    } else {
+                        str = TbadkCoreApplication.getCurrentAccountNameShow();
+                    }
+                }
+                String str3 = alaUserInfoData.portrait;
+                if (str3 == null) {
+                    str3 = TbadkCoreApplication.getCurrentPortrait();
+                }
+                if (alaUserInfoData.mark_count == null) {
+                    format = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f01f0), 0);
+                } else {
+                    format = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f01f0), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
+                }
+                j(str3, str, format);
+                int dimension = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+                List<AlaLiveMarkData> list = this.r;
+                if (list != null && list.size() > 0) {
+                    this.r.clear();
+                }
+                LinearLayout linearLayout = this.l;
+                if (linearLayout != null) {
+                    linearLayout.removeAllViews();
+                    List<AlaLiveMarkData> list2 = alaUserInfoData.live_mark_info_new;
+                    this.r = list2;
+                    if (list2 != null) {
+                        for (int i = 0; i < this.r.size(); i++) {
+                            TbImageView tbImageView = new TbImageView(this.b.getPageActivity());
+                            tbImageView.setDefaultBgResource(R.color.transparent);
+                            tbImageView.K(this.r.get(i).mark_pic, 21, false);
+                            tbImageView.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
+                            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                            ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023b);
+                            this.l.addView(tbImageView);
+                        }
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            j(TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountNameShow(), String.format(this.b.getString(R.string.obfuscated_res_0x7f0f01f0), 0));
+            List<AlaLiveMarkData> list3 = this.r;
+            if (list3 != null && list3.size() > 0) {
+                this.r.clear();
+            }
+            LinearLayout linearLayout2 = this.l;
+            if (linearLayout2 != null) {
+                linearLayout2.removeAllViews();
+            }
+        }
+    }
+
+    public final void j(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+            if (!StringUtils.isNull(str)) {
+                this.e.K(str, 25, false);
+                tg.h().m(str, 25, new a(this), null);
+            } else {
+                this.e.K(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+                this.h.K(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+            }
+            if (!StringUtils.isNull(str2)) {
+                this.f.setText(str2);
+            } else {
+                this.f.setText("");
+            }
+            if (!StringUtils.isNull(str3)) {
+                this.g.setText(str3);
+            } else {
+                this.g.setText("");
+            }
         }
     }
 }

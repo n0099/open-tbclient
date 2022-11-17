@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.sh8;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.th8;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -110,18 +110,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                it4 it4Var = new it4();
-                                it4Var.h(threadData.getLegoCard());
-                                this.threadList.add(it4Var);
+                                jt4 jt4Var = new jt4();
+                                jt4Var.h(threadData.getLegoCard());
+                                this.threadList.add(jt4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = sh8.b(threadInfo);
+                                JSONObject b = th8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        sh8.f().h("FRS", arrayList);
+                        th8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.dj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class ShareReportNetMessage extends NetMessage {
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                cj5.a(builder, true);
+                dj5.a(builder, true);
             }
             ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -159,17 +159,17 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            pw4 d = pw4.d(this.c);
+            qw4 d = qw4.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            pw4 d2 = pw4.d(this.g);
+            qw4 d2 = qw4.d(this.g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            pw4 d3 = pw4.d(this.l);
+            qw4 d3 = qw4.d(this.l);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            pw4.d(this.k).v(R.color.CAM_X0105);
-            pw4 d4 = pw4.d(this.j);
+            qw4.d(this.k).v(R.color.CAM_X0105);
+            qw4 d4 = qw4.d(this.j);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);

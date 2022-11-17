@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cf6;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.df6;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.qt7;
+import com.baidu.tieba.rt7;
 import com.baidu.tieba.wp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -114,7 +114,7 @@ public class UserCollectModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    qt7.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
+                    rt7.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -151,7 +151,7 @@ public class UserCollectModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<CollectEmotionData> q = cf6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> q = df6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (q == null) {
                     return;
@@ -159,7 +159,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : q) {
-                        if (!l95.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
+                        if (!m95.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.getSharpText());
                         }

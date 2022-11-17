@@ -9,7 +9,7 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
 import java.lang.reflect.Field;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -40,32 +40,35 @@ public class br9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        Object findField;
+        Field declaredField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj == null) {
                 return null;
             }
             try {
-                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
+                if (obj instanceof NativeUnifiedADDataAdapter) {
+                    NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter = (NativeUnifiedADDataAdapter) obj;
+                    Field declaredField2 = nativeUnifiedADDataAdapter.getClass().getDeclaredField("a");
+                    declaredField2.setAccessible(true);
+                    Object obj2 = declaredField2.get(nativeUnifiedADDataAdapter);
+                    if (obj2 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj2.getClass().getDeclaredField("d");
+                    declaredField3.setAccessible(true);
+                    Object obj3 = declaredField3.get(obj2);
+                    if (obj3 == null || (declaredField = obj3.getClass().getSuperclass().getDeclaredField("L")) == null) {
+                        return null;
+                    }
+                    declaredField.setAccessible(true);
+                    Object obj4 = declaredField.get(obj3);
+                    if (obj4 instanceof JSONObject) {
+                        return bq9.a((JSONObject) obj4);
+                    }
                     return null;
                 }
-                Field declaredField2 = obj2.getClass().getDeclaredField("b");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.model.RewardADData", obj3)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField3.get(findField);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return aq9.a(jSONObject);
+                return null;
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

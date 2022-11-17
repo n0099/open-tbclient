@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sq6;
 import com.baidu.tieba.tq6;
+import com.baidu.tieba.uq6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements tq6 {
+public class HeaderComponentMultiView extends FrameLayout implements uq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements tq6 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.tq6
+    @Override // com.baidu.tieba.uq6
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class HeaderComponentMultiView extends FrameLayout implements tq6 {
         c();
     }
 
-    @Override // com.baidu.tieba.tq6
+    @Override // com.baidu.tieba.uq6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -117,13 +117,13 @@ public class HeaderComponentMultiView extends FrameLayout implements tq6 {
         }
     }
 
-    @Override // com.baidu.tieba.tq6
-    public void b(List<LiveFuseForumData> list, sq6 sq6Var) {
+    @Override // com.baidu.tieba.uq6
+    public void b(List<LiveFuseForumData> list, tq6 tq6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, sq6Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, tq6Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(sq6Var);
+        this.d.g(tq6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();

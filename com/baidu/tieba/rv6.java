@@ -1,79 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.View;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.util.PageType;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public class rv6 implements View.OnClickListener {
+public class rv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public TbPageContext c;
-    public View d;
-    public PopupWindow e;
-    public Handler f;
-    public Runnable g;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rv6 a;
 
-        /* renamed from: com.baidu.tieba.rv6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0415a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0415a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.e != null) {
-                    this.a.a.j();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public a(rv6 rv6Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ FrsViewData b;
+
+        public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rv6Var};
+                Object[] objArr = {tbPageContext, frsViewData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,113 +77,68 @@ public class rv6 implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = rv6Var;
+            this.a = tbPageContext;
+            this.b = frsViewData;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && this.a.d != null) {
-                Activity pageActivity = this.a.c.getPageActivity();
-                int g = yi.g(pageActivity, R.dimen.obfuscated_res_0x7f070258);
-                rv6 rv6Var = this.a;
-                View h = rv6Var.h(pageActivity, rv6Var.a);
-                int[] iArr = new int[2];
-                this.a.d.getLocationInWindow(iArr);
-                int g2 = yi.g(pageActivity, R.dimen.obfuscated_res_0x7f070207);
-                int g3 = (iArr[1] - g) + yi.g(pageActivity, R.dimen.obfuscated_res_0x7f0701be);
-                this.a.e = new PopupWindow(h, -2, g);
-                GreyUtil.grey(this.a.e);
-                this.a.e.showAtLocation(this.a.d, 53, g2, g3);
-                this.a.f.postDelayed(new RunnableC0415a(this), 3000L);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
+                tf.n().j(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), this.b.getForum().getName(), this.b.getForum().getId(), this.b.getUserData().getUserId(), this.b.getForum().getSpecialForumType())));
             }
         }
     }
 
-    public rv6(TbPageContext tbPageContext, boolean z) {
+    public static void a(TbPageContext tbPageContext, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, tbPageContext, frsViewData) != null) || tbPageContext == null) {
+            return;
         }
-        this.a = R.string.obfuscated_res_0x7f0f02bf;
-        this.f = new Handler();
-        this.g = new a(this);
-        this.c = tbPageContext;
-        this.b = z;
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+        permissionJudgePolicy.clearRequestPermissionList();
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new b(tbPageContext, frsViewData));
+        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
 
-    public final View h(Activity activity, int i) {
-        InterceptResult invokeLI;
+    public static void b(FrsViewData frsViewData, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, activity, i)) == null) {
-            TextView textView = new TextView(activity);
-            int g = yi.g(activity, R.dimen.obfuscated_res_0x7f0701d5);
-            textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b), g, 0);
-            textView.setHeight(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026f));
-            textView.setGravity(17);
-            textView.setTextSize(0, yi.g(activity, R.dimen.obfuscated_res_0x7f0702b5));
-            textView.setText(i);
-            textView.setOnClickListener(this);
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f0802f2);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            textView.setOnClickListener(this);
-            return textView;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            j();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.removeCallbacksAndMessages(null);
-            j();
-        }
-    }
-
-    public void j() {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (popupWindow = this.e) != null) {
-            popupWindow.dismiss();
-            this.e = null;
-        }
-    }
-
-    public void k(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (this.c != null && view2 != null && !StringUtils.isNull(currentAccount)) {
-                this.d = view2;
-                if (this.b) {
-                    this.a = R.string.obfuscated_res_0x7f0f02bf;
-                    String str = currentAccount + "frs_god_new_post_tip_count";
-                    int l = py4.k().l(str, 0);
-                    if (l >= 3) {
-                        this.b = false;
-                        return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, frsViewData, tbPageContext) == null) {
+            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            if (tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    kv4 kv4Var = new kv4(tbPageContext.getPageActivity());
+                    kv4Var.setAutoNight(false);
+                    kv4Var.setTitle(R.string.obfuscated_res_0x7f0f0f7c);
+                    kv4Var.setMessage(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f050a));
+                    kv4Var.setTitleShowCenter(true);
+                    kv4Var.setMessageShowCenter(true);
+                    kv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09d4, new a());
+                    kv4Var.create(tbPageContext).show();
+                } else if (!TbadkCoreApplication.isLogin()) {
+                    if (frsViewData != null && frsViewData.getAnti() != null) {
+                        frsViewData.getAnti().setIfpost(1);
                     }
-                    py4.k().w(str, l + 1);
-                    this.b = false;
-                    this.f.postDelayed(this.g, 500L);
+                    ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
+                } else {
+                    AntiData anti = frsViewData.getAnti();
+                    if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
+                        anti.setBlock_forum_name(frsViewData.getForum().getName());
+                        anti.setBlock_forum_id(frsViewData.getForum().getId());
+                        anti.setUser_name(frsViewData.getUserData().getUserName());
+                        anti.setUser_id(frsViewData.getUserData().getUserId());
+                        if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
+                            return;
+                        }
+                    }
+                    if (frsViewData.getUserData() != null) {
+                        a(tbPageContext, frsViewData);
+                    }
                 }
             }
         }

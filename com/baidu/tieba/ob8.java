@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface ob8 {
-    void d(ra8 ra8Var);
+    void a(int i, int i2, String str, int i3, String str2);
 }

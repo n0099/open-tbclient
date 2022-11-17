@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.pp5;
+import com.baidu.tieba.qt4;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public op5 h;
+    public pp5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, pt4 pt4Var);
+        void a(ArrayList<Integer> arrayList, String str, qt4 qt4Var);
 
-        void b(pt4 pt4Var, CompoundButton compoundButton, boolean z);
+        void b(qt4 qt4Var, CompoundButton compoundButton, boolean z);
 
-        void c(pt4 pt4Var);
+        void c(qt4 qt4Var);
     }
 
     public void setACRotateAnimation() {
@@ -128,7 +128,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new op5(tbPageContext, this);
+            this.h = new pp5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -156,10 +156,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(pt4 pt4Var) {
+    public void setData(qt4 qt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pt4Var) == null) {
-            this.h.v(pt4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, qt4Var) == null) {
+            this.h.v(qt4Var);
         }
     }
 

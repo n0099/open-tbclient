@@ -32,12 +32,12 @@ public class fy extends wy {
     }
 
     @Override // com.baidu.tieba.wy
-    public kd8 t() {
+    public ld8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new nd8(this.b, this.i);
+            return new od8(this.b, this.i);
         }
-        return (kd8) invokeV.objValue;
+        return (ld8) invokeV.objValue;
     }
 }

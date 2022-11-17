@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class qy extends ax<sr4> {
+public class qy extends ax<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
     public int g;
     public ThreadCommentAndPraiseInfoLayout h;
-    public sr4 i;
+    public tr4 i;
 
     /* loaded from: classes5.dex */
     public class c implements zy.b {
@@ -329,19 +329,19 @@ public class qy extends ax<sr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, sr4Var) == null) {
-            this.i = sr4Var;
-            this.h.setData(sr4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048593, this, tr4Var) == null) {
+            this.i = tr4Var;
+            this.h.setData(tr4Var.getThreadData());
             x();
         }
     }
 
-    public void z(yr4 yr4Var) {
+    public void z(zr4 zr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, yr4Var) == null) {
-            this.h.setAgreeStatisticData(yr4Var);
+        if (interceptable == null || interceptable.invokeL(1048594, this, zr4Var) == null) {
+            this.h.setAgreeStatisticData(zr4Var);
         }
     }
 

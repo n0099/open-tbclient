@@ -100,9 +100,9 @@ public class jx extends cx implements sx<ThreadData>, tx {
         }
     }
 
-    public void k(sr4 sr4Var, boolean z) {
+    public void k(tr4 tr4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

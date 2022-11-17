@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,7 +143,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    py4.k().w("active", 1);
+                    qy4.k().w("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -164,11 +164,11 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        py4.k().w("active", 1);
+                        qy4.k().w("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                py4.k().w("active", 2);
+                qy4.k().w("active", 2);
                 this.b.stopSelf();
             }
         }
@@ -251,7 +251,7 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToShare(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && str != null && str.length() > 0) {
-            py4.k().y("channel_id", str);
+            qy4.k().y("channel_id", str);
         }
     }
 
@@ -260,7 +260,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (isActived() && py4.k().l("active", 2) != 1) {
+            if (isActived() && qy4.k().l("active", 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();
@@ -272,7 +272,7 @@ public class TiebaActiveService extends BdBaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return py4.k().q("channel_id", null);
+            return qy4.k().q("channel_id", null);
         }
         return (String) invokeV.objValue;
     }

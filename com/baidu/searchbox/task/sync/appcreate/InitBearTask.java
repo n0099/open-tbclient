@@ -8,9 +8,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ai5;
-import com.baidu.tieba.xw6;
+import com.baidu.tieba.bi5;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,11 +65,11 @@ public class InitBearTask extends LaunchTask {
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        boolean q = ai5.q();
+        boolean q = bi5.q();
         SpeedStatsManager.getInstance().setIsNeedBear(q);
-        SpeedStatsManager.getInstance().setIsNeedPlg(ai5.w());
+        SpeedStatsManager.getInstance().setIsNeedPlg(bi5.w());
         if (q) {
-            xw6.m().u(new xw6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+            yw6.m().u(new yw6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitBearTask this$0;
@@ -92,7 +92,7 @@ public class InitBearTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.xw6.l
+                @Override // com.baidu.tieba.yw6.l
                 public void initComplete() {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {

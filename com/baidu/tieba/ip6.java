@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes4.dex */
 public interface ip6 {
-    void a(int i, int i2, List<xn> list, List<lp6> list2, boolean z, boolean z2, int i3);
+    mp6 a(int i);
 
-    void b(int i, int i2, String str);
+    void b(int i, int i2);
+
+    void c(int i, int i2);
+
+    boolean d(int i, int i2);
+
+    String k();
 }

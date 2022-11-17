@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
-import com.baidu.tieba.oo7;
 import com.baidu.tieba.po7;
 import com.baidu.tieba.qo7;
+import com.baidu.tieba.ro7;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,12 +35,12 @@ import java.util.List;
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po7 a;
+    public qo7 a;
     public BubbleListModel b;
     public BubbleListModel.c c;
     public BubbleListModel.d d;
-    public qo7.e e;
-    public qo7.e f;
+    public ro7.e e;
+    public ro7.e f;
     public CustomMessageListener g;
 
     /* loaded from: classes5.dex */
@@ -146,7 +146,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
                 this.a.a.n();
                 int C = this.a.b.C();
-                oo7 j = this.a.a.j();
+                po7 j = this.a.a.j();
                 if (C == 0) {
                     j.d(true);
                     for (BubbleListData.BubbleData bubbleData : j.b()) {
@@ -195,12 +195,12 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements qo7.e {
+    public class c implements ro7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
 
-        @Override // com.baidu.tieba.qo7.e
+        @Override // com.baidu.tieba.ro7.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -225,7 +225,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.qo7.e
+        @Override // com.baidu.tieba.ro7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -237,12 +237,12 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements qo7.e {
+    public class d implements ro7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
 
-        @Override // com.baidu.tieba.qo7.e
+        @Override // com.baidu.tieba.ro7.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -267,7 +267,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.qo7.e
+        @Override // com.baidu.tieba.ro7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -368,9 +368,9 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            po7 po7Var = new po7(getPageContext());
-            this.a = po7Var;
-            po7Var.l().setOnItemClickListener(this);
+            qo7 qo7Var = new qo7(getPageContext());
+            this.a = qo7Var;
+            qo7Var.l().setOnItemClickListener(this);
             this.a.p();
         }
     }
@@ -448,10 +448,10 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (adapterView == this.a.l() && view2 != null && (view2 instanceof BubbleView) && (m = this.a.m(i)) != null) {
                 if (m.getBcode() != 0 && !m.canUse()) {
                     if (m.isFree()) {
-                        qo7.a(getPageContext(), m, this.e);
+                        ro7.a(getPageContext(), m, this.e);
                         return;
                     } else {
-                        qo7.b(getPageContext(), m, this.f);
+                        ro7.b(getPageContext(), m, this.f);
                         return;
                     }
                 }

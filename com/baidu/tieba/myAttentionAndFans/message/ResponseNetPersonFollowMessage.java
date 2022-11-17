@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.au4;
+import com.baidu.tieba.bu4;
 import com.baidu.tieba.df;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public au4 data;
+    public bu4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -63,8 +63,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                iv4.f();
-                df<String> g = iv4.g("tb.my_pages");
+                jv4.f();
+                df<String> g = jv4.g("tb.my_pages");
                 if (g != null) {
                     if (z) {
                         str = "personal_followme";
@@ -86,20 +86,20 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                au4 au4Var = new au4();
-                this.data = au4Var;
-                au4Var.c(jSONObject);
+                bu4 bu4Var = new bu4();
+                this.data = bu4Var;
+                bu4Var.c(jSONObject);
             }
         }
     }
 
-    public au4 getData() {
+    public bu4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (au4) invokeV.objValue;
+        return (bu4) invokeV.objValue;
     }
 
     public String getErrMsg() {

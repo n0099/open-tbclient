@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,21 +8,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.Queue;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 /* loaded from: classes3.dex */
-public class a2a implements yz9 {
+public final class a2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final int a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<Object> a;
-    public volatile Object b;
+
+    /* loaded from: classes3.dex */
+    public static class a implements PrivilegedAction<ClassLoader> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.security.PrivilegedAction
+        /* renamed from: a */
+        public ClassLoader run() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ClassLoader.getSystemClassLoader();
+            }
+            return (ClassLoader) invokeV.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
-        int i;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947564665, "Lcom/baidu/tieba/a2a;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -35,237 +63,56 @@ public class a2a implements yz9 {
                 return;
             }
         }
-        if (z1a.c()) {
-            i = 16;
+        int d = d();
+        a = d;
+        if (d != 0) {
+            z = true;
         } else {
-            i = 128;
+            z = false;
         }
-        String property = System.getProperty("rx.ring-buffer.size");
-        if (property != null) {
-            try {
-                i = Integer.parseInt(property);
-            } catch (NumberFormatException e) {
-                PrintStream printStream = System.err;
-                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e.getMessage());
-            }
-        }
-        c = i;
+        b = z;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a2a() {
-        this(new f2a(c), c);
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return invokeV.intValue;
     }
 
-    public a2a(Queue<Object> queue, int i) {
+    public static ClassLoader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {queue, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (System.getSecurityManager() == null) {
+                return ClassLoader.getSystemClassLoader();
             }
+            return (ClassLoader) AccessController.doPrivileged(new a());
         }
-        this.a = queue;
+        return (ClassLoader) invokeV.objValue;
     }
 
-    public a2a(boolean z, int i) {
-        Queue<Object> a3aVar;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
         }
-        if (z) {
-            a3aVar = new s2a<>(i);
-        } else {
-            a3aVar = new a3a<>(i);
-        }
-        this.a = a3aVar;
+        return invokeV.booleanValue;
     }
 
-    public static a2a a() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (o3a.b()) {
-                return new a2a(true, c);
-            }
-            return new a2a();
-        }
-        return (a2a) invokeV.objValue;
-    }
-
-    public static a2a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (o3a.b()) {
-                return new a2a(false, c);
-            }
-            return new a2a();
-        }
-        return (a2a) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Queue<Object> queue = this.a;
-            if (queue != null && !queue.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
-            this.b = NotificationLite.b();
-        }
-    }
-
-    public Object h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                if (queue == null) {
-                    return null;
-                }
-                Object peek = queue.peek();
-                Object obj = this.b;
-                if (peek == null && obj != null && queue.peek() == null) {
-                    peek = obj;
-                }
-                return peek;
+            try {
+                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
+            } catch (Exception unused) {
+                return 0;
             }
         }
-        return invokeV.objValue;
-    }
-
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                if (queue == null) {
-                    return null;
-                }
-                Object poll = queue.poll();
-                Object obj = this.b;
-                if (poll == null && obj != null && queue.peek() == null) {
-                    this.b = null;
-                    poll = obj;
-                }
-                return poll;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yz9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yz9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            j();
-        }
-    }
-
-    public Object c(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            return NotificationLite.e(obj);
-        }
-        return invokeL.objValue;
-    }
-
-    public boolean d(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return NotificationLite.f(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(Object obj) throws MissingBackpressureException {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            synchronized (this) {
-                Queue<Object> queue = this.a;
-                z = true;
-                z2 = false;
-                if (queue != null) {
-                    z2 = !queue.offer(NotificationLite.h(obj));
-                    z = false;
-                }
-            }
-            if (!z) {
-                if (!z2) {
-                    return;
-                }
-                throw new MissingBackpressureException();
-            }
-            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
-        }
+        return invokeV.intValue;
     }
 }

@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface ag8 {
-    wf8 getVideoOrVrView();
+    int d(String str, boolean z);
+
+    int e(String str, boolean z);
+
+    void f();
+
+    void g(String str, int i, boolean z);
 }

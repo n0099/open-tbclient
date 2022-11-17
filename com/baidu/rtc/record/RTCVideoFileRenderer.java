@@ -11,7 +11,7 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.record.RTCVideoFileRenderer;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.kz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -393,7 +393,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void b() {
-        this.eglBase = jz9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        this.eglBase = kz9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
         Surface createInputSurface = this.videoEncoder.createInputSurface();
         this.surface = createInputSurface;
         this.eglBase.createSurface(createInputSurface);

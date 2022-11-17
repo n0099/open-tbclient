@@ -1,40 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import android.view.View;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class wa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static void a(View view2, tr4 tr4Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (py4.k().h("like_forum_sort_level", false)) {
-                return 2;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, view2, tr4Var, str) == null) && tr4Var != null && tr4Var.getThreadData() != null) {
+            ThreadData threadData = tr4Var.getThreadData();
+            if (threadData.isVideoThreadType()) {
+                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
+                return;
             }
-            return 1;
+            int id = view2.getId();
+            if (view2.getId() != R.id.obfuscated_res_0x7f0921dd && id != R.id.obfuscated_res_0x7f0921f1) {
+                if (id == R.id.obfuscated_res_0x7f0924d7) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f092505) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f090aad) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f0921f1) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+                    return;
+                } else if (view2 instanceof TbImageView) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+                    return;
+                } else {
+                    return;
+                }
+            }
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
         }
-        return invokeI.intValue;
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
+    public static void b(tr4 tr4Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, tbPageContext, str) != null) || tbPageContext == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, tr4Var, str) == null) && tr4Var != null && tr4Var.getThreadData() != null) {
+            if (tr4Var.getThreadData().isVideoThreadType()) {
+                f46.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(tr4Var.getThreadData(), str));
+            } else {
+                f46.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(tr4Var.getThreadData(), str));
+            }
         }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-        }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ow8;
+import com.baidu.tieba.pw8;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.to8;
+import com.baidu.tieba.uo8;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
@@ -210,22 +210,22 @@ public class UserMuteAddAndDelStatic {
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                    ow8 ow8Var = new ow8();
+                    pw8 pw8Var = new pw8();
                     if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                         UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-                        ow8Var.a = userMuteCheckSocketResponsedMessage.getResult();
-                        ow8Var.c = userMuteCheckSocketResponsedMessage.getError();
-                        ow8Var.b = userMuteCheckSocketResponsedMessage.getErrorString();
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, ow8Var);
+                        pw8Var.a = userMuteCheckSocketResponsedMessage.getResult();
+                        pw8Var.c = userMuteCheckSocketResponsedMessage.getError();
+                        pw8Var.b = userMuteCheckSocketResponsedMessage.getErrorString();
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, pw8Var);
                         customResponsedMessage.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                     if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                         UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-                        ow8Var.a = userMuteCheckHttpResponsedMessage.getResult();
-                        ow8Var.c = userMuteCheckHttpResponsedMessage.getError();
-                        ow8Var.b = userMuteCheckHttpResponsedMessage.getErrorString();
-                        CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, ow8Var);
+                        pw8Var.a = userMuteCheckHttpResponsedMessage.getResult();
+                        pw8Var.c = userMuteCheckHttpResponsedMessage.getError();
+                        pw8Var.b = userMuteCheckHttpResponsedMessage.getErrorString();
+                        CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, pw8Var);
                         customResponsedMessage2.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
@@ -445,8 +445,8 @@ public class UserMuteAddAndDelStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            to8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            to8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            uo8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            uo8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 

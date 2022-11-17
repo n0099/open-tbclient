@@ -1,13 +1,13 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b86;
+import com.baidu.tieba.c86;
 import com.baidu.tieba.danmu.collection.OrderedRangeList;
 import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.n66;
-import com.baidu.tieba.o86;
-import com.baidu.tieba.t66;
-import com.baidu.tieba.t86;
+import com.baidu.tieba.o66;
+import com.baidu.tieba.p86;
+import com.baidu.tieba.u66;
+import com.baidu.tieba.u86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,12 +21,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u0001B\u0019\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\u0010\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\bH\u0016J\u0018\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0017H\u0016R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/AkTopRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "startRatio", "", "endRatio", "(FF)V", "ranges", "Lcom/baidu/tieba/danmu/collection/OrderedRangeList;", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class AkTopRetainer implements o86 {
+public final class AkTopRetainer implements p86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
     public final float b;
-    public final OrderedRangeList<t66> c;
+    public final OrderedRangeList<u66> c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AkTopRetainer() {
@@ -71,8 +71,8 @@ public final class AkTopRetainer implements o86 {
         this((i & 1) != 0 ? 1.0f : f, (i & 2) != 0 ? 1.0f : f2);
     }
 
-    @Override // com.baidu.tieba.o86
-    public float a(t66 drawItem, long j, t86 displayer, n66 config) {
+    @Override // com.baidu.tieba.p86
+    public float a(u66 drawItem, long j, u86 displayer, o66 config) {
         InterceptResult invokeCommon;
         long k;
         boolean p;
@@ -90,7 +90,7 @@ public final class AkTopRetainer implements o86 {
                 k = config.k();
             }
             long j2 = k;
-            if (b86.d(drawItem, j)) {
+            if (c86.d(drawItem, j)) {
                 b(drawItem);
                 return -1.0f;
             }
@@ -99,7 +99,7 @@ public final class AkTopRetainer implements o86 {
             }
             boolean d = this.c.d(drawItem);
             if (z && !d) {
-                List<OrderedRangeList.a<t66>> e = this.c.e((int) f.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j, j2));
+                List<OrderedRangeList.a<u66>> e = this.c.e((int) f.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j, j2));
                 if (e.isEmpty()) {
                     if (config.e()) {
                         this.c.c();
@@ -132,8 +132,8 @@ public final class AkTopRetainer implements o86 {
         return invokeCommon.floatValue;
     }
 
-    @Override // com.baidu.tieba.o86
-    public void b(t66 item) {
+    @Override // com.baidu.tieba.p86
+    public void b(u66 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -141,7 +141,7 @@ public final class AkTopRetainer implements o86 {
         }
     }
 
-    @Override // com.baidu.tieba.o86
+    @Override // com.baidu.tieba.p86
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -149,7 +149,7 @@ public final class AkTopRetainer implements o86 {
         }
     }
 
-    @Override // com.baidu.tieba.o86
+    @Override // com.baidu.tieba.p86
     public void update(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {

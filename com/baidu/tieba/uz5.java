@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
+public class uz5 extends hj6<ThreadData, FrsPageAlaVideoHolder> implements k46, mq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e06 l;
+    public f06 l;
     public String m;
     public String n;
-    public l46<ThreadData> o;
+    public m46<ThreadData> o;
 
-    @Override // com.baidu.tieba.j46
+    @Override // com.baidu.tieba.k46
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -32,7 +32,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends l46<ThreadData> {
+    public class a extends m46<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uz5 b;
@@ -56,7 +56,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l46
+        @Override // com.baidu.tieba.m46
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -64,7 +64,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f0912db) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f090565 && view2.getId() != R.id.obfuscated_res_0x7f090561 && view2.getId() != R.id.obfuscated_res_0x7f0924d7) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f090565 && view2.getId() != R.id.obfuscated_res_0x7f090561) {
                     if (view2.getId() == R.id.obfuscated_res_0x7f092564) {
                         customMessage = new CustomMessage(2921019);
                     } else {
@@ -103,7 +103,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.j46
+    @Override // com.baidu.tieba.k46
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -111,7 +111,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
         }
     }
 
-    @Override // com.baidu.tieba.lq5
+    @Override // com.baidu.tieba.mq5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -130,9 +130,9 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
             if (tbPageContext == null) {
                 return null;
             }
-            e06 e06Var = new e06(tbPageContext, this.mPageId);
-            this.l = e06Var;
-            e06Var.U(this.mPageId);
+            f06 f06Var = new f06(tbPageContext, this.mPageId);
+            this.l = f06Var;
+            f06Var.U(this.mPageId);
             this.l.a(this.m);
             this.l.n(this.o);
             return new FrsPageAlaVideoHolder(this.l);
@@ -141,13 +141,13 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gj6, com.baidu.tieba.kn
+    @Override // com.baidu.tieba.hj6, com.baidu.tieba.kn
     /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wu4 wu4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wu4Var, frsPageAlaVideoHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaVideoHolder})) == null) {
             TiebaStatic.log("c11842");
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.b;
@@ -156,19 +156,18 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
             } else {
                 i2 = 0;
             }
-            ThreadData threadData = wu4Var.t;
             threadData.statFloor = (i + 1) - i2;
             customMessage.setData(threadData);
             this.c.sendMessage(customMessage);
-            if (wu4Var != null) {
-                e06 e06Var = frsPageAlaVideoHolder.b;
-                if (e06Var instanceof kq5) {
-                    e06Var.b(this.n);
+            if (threadData != null) {
+                f06 f06Var = frsPageAlaVideoHolder.b;
+                if (f06Var instanceof lq5) {
+                    f06Var.b(this.n);
                 }
                 frsPageAlaVideoHolder.b.a(this.m);
                 frsPageAlaVideoHolder.b.V(u());
-                frsPageAlaVideoHolder.b.l(wu4Var.t);
-                wu4Var.t.updateShowStatus();
+                frsPageAlaVideoHolder.b.l(threadData);
+                threadData.updateShowStatus();
             }
             this.e = (Cdo) viewGroup;
             return frsPageAlaVideoHolder.getView();
@@ -176,7 +175,7 @@ public class uz5 extends gj6<wu4, FrsPageAlaVideoHolder> implements j46, lq5 {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.gj6, com.baidu.tieba.i46
+    @Override // com.baidu.tieba.hj6, com.baidu.tieba.j46
     public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {

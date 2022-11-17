@@ -21,7 +21,7 @@ public class qx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HeadlinesAgreeCardView h;
-    public sr4 i;
+    public tr4 i;
     public int j;
     public final zy.b k;
     public az l;
@@ -68,15 +68,15 @@ public class qx extends hx {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr4 a;
+        public final /* synthetic */ tr4 a;
         public final /* synthetic */ qx b;
 
-        public b(qx qxVar, sr4 sr4Var) {
+        public b(qx qxVar, tr4 tr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qxVar, sr4Var};
+                Object[] objArr = {qxVar, tr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,7 +87,7 @@ public class qx extends hx {
                 }
             }
             this.b = qxVar;
-            this.a = sr4Var;
+            this.a = tr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -191,11 +191,11 @@ public class qx extends hx {
         }
     }
 
-    public final boolean A(sr4 sr4Var) {
+    public final boolean A(tr4 tr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sr4Var)) == null) {
-            if (sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getTaskInfoData() != null && sr4Var.getThreadData().getTaskInfoData().e() != null && sr4Var.getThreadData().getTaskInfoData().h() == 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tr4Var)) == null) {
+            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null && tr4Var.getThreadData().getTaskInfoData().h() == 3) {
                 return true;
             }
             return false;
@@ -206,14 +206,14 @@ public class qx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: B */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr4Var) == null) {
-            this.i = sr4Var;
-            if (A(sr4Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var) == null) {
+            this.i = tr4Var;
+            if (A(tr4Var)) {
                 this.h.setVisibility(0);
-                this.h.a(sr4Var);
-                this.h.setItemBtnClickListener(new b(this, sr4Var));
+                this.h.a(tr4Var);
+                this.h.setItemBtnClickListener(new b(this, tr4Var));
                 return;
             }
             this.h.setVisibility(8);

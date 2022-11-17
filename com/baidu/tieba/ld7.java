@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* loaded from: classes4.dex */
 public interface ld7 {
-    void a(int i);
+    void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap);
 }

@@ -1,258 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.HttpAuthHandler;
+import android.webkit.RenderProcessGoneDetail;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.core.hybrid.WebViewBridge;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
-public class px4 {
+public class px4 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Class<?> a;
-        public final Object b;
-        public final Class<?> c;
-        public final Method d;
-        public final Object e;
-        public final Method f;
-        public final c g;
-        public final int h;
-        public final sx4 i;
-        public int j;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.i.a(this.a.f());
-                    this.a.g.c();
-                    this.a.g();
-                }
-            }
-        }
-
-        public b(int i, sx4 sx4Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), sx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = 0;
-            this.c = Class.forName("android.view.Choreographer");
-            this.a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.g = new c(this);
-            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
-            Method method = this.c.getMethod("getInstance", new Class[0]);
-            this.d = method;
-            this.e = method.invoke(null, new Object[0]);
-            this.f = this.c.getMethod("postFrameCallback", this.a);
-            this.h = i <= 0 ? 16 : i;
-            this.i = sx4Var;
-        }
-
-        public /* synthetic */ b(int i, sx4 sx4Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-            this(i, sx4Var);
-        }
-
-        public final List<Long> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList(24);
-                List<Long> h = h();
-                int size = h.size();
-                int i = 0;
-                while (i < size - 1) {
-                    long longValue = h.get(i).longValue();
-                    i++;
-                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
-                }
-                return arrayList;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.g.c();
-            }
-        }
-
-        public final List<Long> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.g.a;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void i() throws InvocationTargetException, IllegalAccessException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f.invoke(this.e, this.b);
-            }
-        }
-
-        public final void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = this.j;
-                if (i >= this.h) {
-                    ah.a().post(new a(this));
-                    return;
-                }
-                this.j = i + 1;
-                try {
-                    i();
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements InvocationHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Long> a;
-        public final List<Integer> b;
-        public b c;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bVar;
-            this.a = new ArrayList(240);
-            this.b = new ArrayList(15);
-        }
-
-        public final void d(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.a.add(Long.valueOf(j));
-                this.c.j();
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c = null;
-                this.a.clear();
-                this.b.clear();
-            }
-        }
-
-        @Override // java.lang.reflect.InvocationHandler
-        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-                String name = method.getName();
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
-                    d(((Long) objArr[0]).longValue());
-                    return null;
-                }
-                return null;
-            }
-            return invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final px4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-503373795, "Lcom/baidu/tieba/px4$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-503373795, "Lcom/baidu/tieba/px4$d;");
-                    return;
-                }
-            }
-            a = new px4();
-        }
-    }
+    public WebViewClient a;
+    public WebViewBridge b;
+    public final HashSet<String> c;
 
     public px4() {
         Interceptable interceptable = $ic;
@@ -267,29 +54,427 @@ public class px4 {
                 return;
             }
         }
-        this.a = null;
+        this.b = null;
+        this.c = new HashSet<>(6);
     }
 
-    public static px4 a() {
-        InterceptResult invokeV;
+    public void a(WebViewBridge webViewBridge) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webViewBridge) == null) {
+            this.b = webViewBridge;
         }
-        return (px4) invokeV.objValue;
     }
 
-    public void b(int i, sx4 sx4Var) {
+    public void b(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, sx4Var) != null) || Build.VERSION.SDK_INT < 16) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewClient) == null) {
+            this.a = webViewClient;
         }
-        try {
-            b bVar = new b(i, sx4Var, null);
-            this.a = bVar;
-            bVar.j();
-        } catch (Throwable th) {
-            BdLog.e(th);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, webView, str, z) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.doUpdateVisitedHistory(webView, str, z);
+            } else {
+                super.doUpdateVisitedHistory(webView, str, z);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onFormResubmission(WebView webView, Message message, Message message2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, message, message2) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onFormResubmission(webView, message, message2);
+            } else {
+                super.onFormResubmission(webView, message, message2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, bitmap) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onPageStarted(webView, str, bitmap);
+            } else {
+                super.onPageStarted(webView, str, bitmap);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, webView, sslErrorHandler, sslError) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onReceivedSslError(webView, sslErrorHandler, sslError);
+            } else {
+                super.onReceivedSslError(webView, sslErrorHandler, sslError);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    @Deprecated
+    public void onTooManyRedirects(WebView webView, Message message, Message message2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, webView, message, message2) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onTooManyRedirects(webView, message, message2);
+            } else {
+                super.onTooManyRedirects(webView, message, message2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onLoadResource(webView, str);
+            } else {
+                super.onLoadResource(webView, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, renderProcessGoneDetail)) == null) {
+            aq4.a("BridgeWebViewClient", webView);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, webView, keyEvent) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onUnhandledKeyEvent(webView, keyEvent);
+            } else {
+                super.onUnhandledKeyEvent(webView, keyEvent);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, keyEvent)) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                return webViewClient.shouldOverrideKeyEvent(webView, keyEvent);
+            }
+            return super.shouldOverrideKeyEvent(webView, keyEvent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                return webViewClient.shouldOverrideUrlLoading(webView, str);
+            }
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
+            ox4.a("page " + str + " load finished.");
+            if (!this.c.contains(str)) {
+                this.b.p(str);
+            }
+            this.c.clear();
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onPageFinished(webView, str);
+            } else {
+                super.onPageFinished(webView, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i, str, str2) == null) {
+            ox4.a("Failed url " + str2 + " with description:" + str);
+            this.c.add(str2);
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onReceivedError(webView, i, str, str2);
+            } else {
+                super.onReceivedError(webView, i, str, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, httpAuthHandler, str, str2) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+            } else {
+                super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, webView, str, str2, str3) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
+            } else {
+                super.onReceivedLoginRequest(webView, str, str2, str3);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onScaleChanged(WebView webView, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{webView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            WebViewClient webViewClient = this.a;
+            if (webViewClient != null) {
+                webViewClient.onScaleChanged(webView, f, f2);
+            } else {
+                super.onScaleChanged(webView, f, f2);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x00b5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x0143 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x0145 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x0147 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x017f */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0197  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0192  */
+    /* JADX WARN: Type inference failed for: r3v10, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v12, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v15 */
+    /* JADX WARN: Type inference failed for: r3v16 */
+    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r3v4 */
+    /* JADX WARN: Type inference failed for: r3v7 */
+    /* JADX WARN: Type inference failed for: r3v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r5v10 */
+    /* JADX WARN: Type inference failed for: r5v13 */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    /* JADX WARN: Type inference failed for: r5v15 */
+    /* JADX WARN: Type inference failed for: r5v16 */
+    /* JADX WARN: Type inference failed for: r5v17 */
+    /* JADX WARN: Type inference failed for: r5v18 */
+    /* JADX WARN: Type inference failed for: r5v19, types: [java.io.BufferedReader, java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Type inference failed for: r5v21 */
+    /* JADX WARN: Type inference failed for: r5v22 */
+    /* JADX WARN: Type inference failed for: r5v5 */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r5v8 */
+    @Override // android.webkit.WebViewClient
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        WebViewClient webViewClient;
+        Object obj;
+        Reader reader;
+        Object obj2;
+        Reader reader2;
+        StringBuffer stringBuffer;
+        InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, webResourceRequest)) == null) {
+            if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
+                try {
+                    String path = new URL(webResourceRequest.getUrl().toString()).getPath();
+                    hf8 c = gf8.a().c(path);
+                    if (c == null) {
+                        if (this.a != null) {
+                            return this.a.shouldInterceptRequest(webView, webResourceRequest);
+                        }
+                        return super.shouldInterceptRequest(webView, webResourceRequest);
+                    } else if (!c.e) {
+                        if (this.a != null) {
+                            return this.a.shouldInterceptRequest(webView, webResourceRequest);
+                        }
+                        return super.shouldInterceptRequest(webView, webResourceRequest);
+                    } else if (!c.f) {
+                        if (this.a != null) {
+                            return this.a.shouldInterceptRequest(webView, webResourceRequest);
+                        }
+                        return super.shouldInterceptRequest(webView, webResourceRequest);
+                    } else {
+                        ?? s = ff8.q().s(c.b);
+                        ?? sb = new StringBuilder();
+                        String p = ff8.q().p();
+                        sb.append(p);
+                        sb.append("/");
+                        sb.append(c.b);
+                        sb.append("/");
+                        sb.append(s);
+                        sb.append("/");
+                        String str = sb.toString() + gf8.a().e(path);
+                        InputStreamReader inputStreamReader2 = null;
+                        try {
+                            try {
+                                s = new FileInputStream(new File(str));
+                                try {
+                                    stringBuffer = new StringBuffer();
+                                    inputStreamReader = new InputStreamReader(s);
+                                    try {
+                                        p = new BufferedReader(inputStreamReader);
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
+                                        p = 0;
+                                    } catch (IOException e2) {
+                                        e = e2;
+                                        p = 0;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        p = 0;
+                                    }
+                                } catch (FileNotFoundException e3) {
+                                    e = e3;
+                                    reader2 = null;
+                                    obj2 = s;
+                                } catch (IOException e4) {
+                                    e = e4;
+                                    reader = null;
+                                    obj = s;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    p = 0;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
+                            try {
+                                for (String readLine = p.readLine(); readLine != null; readLine = p.readLine()) {
+                                    stringBuffer.append(readLine);
+                                    stringBuffer.append("\n");
+                                }
+                                p.close();
+                                String stringBuffer2 = stringBuffer.toString();
+                                if (str.contains(".js")) {
+                                    WebResourceResponse webResourceResponse = new WebResourceResponse("text/javascript", "UTF-8", new ByteArrayInputStream(stringBuffer2.getBytes()));
+                                    zi.g(inputStreamReader);
+                                    zi.g(p);
+                                    zi.e(s);
+                                    return webResourceResponse;
+                                } else if (str.contains(FileHelper.FILE_CACHE_CSS)) {
+                                    WebResourceResponse webResourceResponse2 = new WebResourceResponse("text/css", "UTF-8", new ByteArrayInputStream(stringBuffer2.getBytes()));
+                                    zi.g(inputStreamReader);
+                                    zi.g(p);
+                                    zi.e(s);
+                                    return webResourceResponse2;
+                                } else {
+                                    WebResourceResponse webResourceResponse3 = new WebResourceResponse(SapiWebView.DATA_MIME_TYPE, "UTF-8", new ByteArrayInputStream(stringBuffer2.getBytes()));
+                                    zi.g(inputStreamReader);
+                                    zi.g(p);
+                                    zi.e(s);
+                                    return webResourceResponse3;
+                                }
+                            } catch (FileNotFoundException e5) {
+                                e = e5;
+                                inputStreamReader2 = inputStreamReader;
+                                obj2 = s;
+                                reader2 = p;
+                                e.printStackTrace();
+                                zi.g(inputStreamReader2);
+                                zi.g(reader2);
+                                s = obj2;
+                                p = reader2;
+                                zi.e(s);
+                                webViewClient = this.a;
+                                if (webViewClient == null) {
+                                    return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
+                                }
+                                return super.shouldInterceptRequest(webView, webResourceRequest);
+                            } catch (IOException e6) {
+                                e = e6;
+                                inputStreamReader2 = inputStreamReader;
+                                obj = s;
+                                reader = p;
+                                e.printStackTrace();
+                                zi.g(inputStreamReader2);
+                                zi.g(reader);
+                                s = obj;
+                                p = reader;
+                                zi.e(s);
+                                webViewClient = this.a;
+                                if (webViewClient == null) {
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                inputStreamReader2 = inputStreamReader;
+                                zi.g(inputStreamReader2);
+                                zi.g(p);
+                                zi.e(s);
+                                throw th;
+                            }
+                        } catch (FileNotFoundException e7) {
+                            e = e7;
+                            obj2 = null;
+                            reader2 = null;
+                        } catch (IOException e8) {
+                            e = e8;
+                            obj = null;
+                            reader = null;
+                        } catch (Throwable th5) {
+                            th = th5;
+                            s = 0;
+                            p = 0;
+                        }
+                    }
+                } catch (MalformedURLException e9) {
+                    e9.printStackTrace();
+                }
+            } else {
+                WebViewClient webViewClient2 = this.a;
+                if (webViewClient2 != null) {
+                    return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
+                }
+                return super.shouldInterceptRequest(webView, webResourceRequest);
+            }
+        } else {
+            return (WebResourceResponse) invokeLL.objValue;
         }
     }
 }

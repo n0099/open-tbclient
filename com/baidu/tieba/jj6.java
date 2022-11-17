@@ -1,94 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jj6 implements xn {
+public class jj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947885267, "Lcom/baidu/tieba/jj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kv4 a;
+
+        public a(kv4 kv4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kv4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947885267, "Lcom/baidu/tieba/jj6;");
-                return;
+            this.a = kv4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
             }
         }
-        c = BdUniqueId.gen();
     }
 
-    public jj6() {
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cc0);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cbd);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cbe);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cbf);
+            TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cbc);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922eb);
+            kv4 kv4Var = new kv4(activity);
+            kv4Var.setContentView(inflate);
+            kv4Var.setContentViewSize(2);
+            kv4Var.setCanceledOnTouchOutside(true);
+            kv4Var.setAutoNight(true);
+            kv4Var.setCancelable(true);
+            int g = yi.g(activity, R.dimen.tbds31);
+            SkinManager.setBackgroundShapeDrawable(inflate, g, R.color.CAM_X0201, R.color.CAM_X0101);
+            tbImageView.setRadius(g);
+            tbImageView.setConrers(3);
+            tbImageView.setIsBitmapPic(true);
+            int g2 = yi.g(activity, R.dimen.tbds44);
+            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+                l = yi.j(activity);
+            } else {
+                l = yi.l(activity);
             }
-        }
-        this.a = 0;
-        this.b = 0;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+            int i = l - (g2 * 2);
+            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = (i * 556) / 988;
+            tbImageView.setLayoutParams(layoutParams);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080593);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+            textView5.setOnClickListener(new a(kv4Var));
+            kv4Var.create(tbPageContext).show();
         }
     }
 }

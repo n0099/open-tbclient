@@ -1,224 +1,215 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.animation.ValueAnimator;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ax8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public VlogEditManager b;
-    public int c;
-    public int d;
-    public TextWordsEntity.TextStyleEntity e;
-    public TextWordsEntity.TextFontEntity f;
-    public int g;
-    public String h;
 
-    public ax8(Context context, VlogEditManager vlogEditManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, vlogEditManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = -1;
-        this.h = "";
-        this.a = context;
-        this.b = vlogEditManager;
-    }
+    /* loaded from: classes3.dex */
+    public static class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
 
-    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
-        TextWordsEntity.TextStyleEntity textStyleEntity2;
-        TextWordsEntity.TextFontEntity textFontEntity2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) != null) || multiMediaData == null) {
-            return;
-        }
-        if (108 == i && TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", tj9.l(R.string.obfuscated_res_0x7f0f14f8));
-        }
-        if (this.g != -1 && !TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", str);
-        }
-        if (textStyleEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
-        } else {
-            try {
-                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
-                if (!TextUtils.isEmpty(ext)) {
-                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
-                } else {
-                    textStyleEntity2 = this.e;
+        public a(View view2, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                textStyleEntity = textStyleEntity2;
-            } catch (JSONException e) {
-                BdLog.e(e);
+            }
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            this.e = i4;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                int i = this.b;
+                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
+                int i2 = this.d;
+                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
+                this.a.requestLayout();
             }
         }
-        if (textFontEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
-        } else {
-            try {
-                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
-                if (!TextUtils.isEmpty(ext2)) {
-                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
-                } else {
-                    textFontEntity2 = this.f;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+
+        public b(View view2, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                textFontEntity = textFontEntity2;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
             }
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            this.e = i4;
         }
-        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
-        String videoTmpDir = FileHelper.getVideoTmpDir();
-        String str2 = System.currentTimeMillis() + ".jpg";
-        Bitmap h = xw8.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
-        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
-            FileUtils.delete(new File(multiMediaData.path));
-        }
-        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
-        multiMediaData.path = videoTmpDir + File.separator + str2;
-        int i2 = multiMediaData.width;
-        int i3 = multiMediaData.height;
-        multiMediaData.width = h.getWidth();
-        int height = h.getHeight();
-        multiMediaData.height = height;
-        if (this.g == -1) {
-            multiMediaData.scaleType = "adaptive";
-            multiMediaData.type = 0;
-            multiMediaData.start = this.b.getCurrentPlayTime();
-            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.addCoverStickerData(multiMediaData);
-            } else {
-                this.b.addStickerData(multiMediaData, this.h);
-            }
-        } else {
-            float f = multiMediaData.x + (i2 / 2.0f);
-            float f2 = multiMediaData.y + (i3 / 2.0f);
-            multiMediaData.x = f - (multiMediaData.width / 2.0f);
-            multiMediaData.y = f2 - (height / 2.0f);
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.replaceCoverStickerData(multiMediaData);
-            } else {
-                this.b.replaceStickerData(this.g, multiMediaData, this.h);
-            }
-        }
-        h.recycle();
-    }
 
-    public void b(MultiMediaData multiMediaData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) && multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
-            FileUtils.delete(new File(multiMediaData.path));
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                int i = this.b;
+                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
+                int i2 = this.d;
+                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
+                this.a.requestLayout();
+            }
         }
     }
 
-    public boolean d(MultiMediaData multiMediaData) {
+    public static Bundle a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
-            if (multiMediaData == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            Bundle bundle = new Bundle();
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            bundle.putInt("enter_anim_values_top", iArr[1]);
+            bundle.putInt("enter_anim_values_width", view2.getWidth());
+            bundle.putInt("enter_anim_values_height", view2.getHeight());
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static float b(Bundle bundle, Bundle bundle2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, bundle2)) == null) {
+            return e(bundle) - e(bundle2);
+        }
+        return invokeLL.floatValue;
+    }
+
+    public static void c(Intent intent, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, intent, view2) == null) {
+            Bundle d = d(intent);
+            Bundle a2 = a(view2);
+            int g = g(d);
+            int g2 = g(a2);
+            int e = e(d);
+            int e2 = e(a2);
+            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
+            view2.animate().setDuration(300L).translationY(f(a2)).setUpdateListener(new b(view2, g, g2, e, e2)).start();
+        }
+    }
+
+    public static void h(Intent intent, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, intent, view2) == null) {
+            view2.setVisibility(4);
+            Bundle d = d(intent);
+            Bundle a2 = a(view2);
+            int g = g(d);
+            int g2 = g(a2);
+            int e = e(d);
+            int e2 = e(a2);
+            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
+            view2.setVisibility(0);
+            view2.animate().setDuration(350L).translationY(f(a2)).setUpdateListener(new a(view2, g, g2, e, e2)).start();
+        }
+    }
+
+    public static Bundle d(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, intent)) == null) {
+            if (intent == null) {
+                return null;
             }
-            String ext = multiMediaData.getExt("text");
-            if (TextUtils.isEmpty(ext)) {
-                return false;
+            return intent.getBundleExtra("enter_anim_values");
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static int e(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            if (bundle == null) {
+                return 0;
             }
-            return ext.equals(tj9.l(R.string.obfuscated_res_0x7f0f14f8));
+            return bundle.getInt("enter_anim_values_height");
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public void f(int i) {
+    public static int f(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void g(TextWordsEntity.TextFontEntity textFontEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, textFontEntity) == null) {
-            this.f = textFontEntity;
-        }
-    }
-
-    public void h(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, textStyleEntity) == null) {
-            this.e = textStyleEntity;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void c(@NonNull List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setUpEditLayer("cover_sticker");
-            this.b.addCoverStickerDataList(list);
-            for (MultiMediaData multiMediaData : list) {
-                f(0);
-                a(116, null, multiMediaData, null, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            if (bundle == null) {
+                return 0;
             }
+            return bundle.getInt("enter_anim_values_top");
         }
+        return invokeL.intValue;
     }
 
-    public void e() {
+    public static int g(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = xw8.d().getContext();
-            Context context2 = this.a;
-            if (context == context2 && context2 != null) {
-                xw8.d().i(null);
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
+            if (bundle == null) {
+                return 0;
             }
+            return bundle.getInt("enter_anim_values_width");
         }
-    }
-
-    public void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            this.c = i;
-            this.d = i2;
-        }
+        return invokeL.intValue;
     }
 }

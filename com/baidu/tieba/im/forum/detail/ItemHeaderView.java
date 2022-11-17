@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -113,7 +113,7 @@ public class ItemHeaderView extends RelativeLayout {
     public void b(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            rq4 layoutMode = forumDetailActivity.getLayoutMode();
+            sq4 layoutMode = forumDetailActivity.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

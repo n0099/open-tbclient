@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc6;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.hc6;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,16 +45,16 @@ public class RecommendThreadView extends LinearLayout {
         }
     }
 
-    public void setData(gc6 gc6Var) {
+    public void setData(hc6 hc6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, gc6Var) != null) || gc6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, hc6Var) != null) || hc6Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(gc6Var.b())) {
-            this.a.K(gc6Var.b(), 10, false);
+        if (!TextUtils.isEmpty(hc6Var.b())) {
+            this.a.K(hc6Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(gc6Var.f())) {
-            this.b.setText(gc6Var.f());
+        if (!TextUtils.isEmpty(hc6Var.f())) {
+            this.b.setText(hc6Var.f());
         }
         d();
     }
@@ -141,7 +141,7 @@ public class RecommendThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setPlaceHolder(2);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            pw4 d = pw4.d(this.b);
+            qw4 d = qw4.d(this.b);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
         }

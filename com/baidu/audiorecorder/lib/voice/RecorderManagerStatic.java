@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.ap;
 import com.baidu.tieba.bp;
-import com.baidu.tieba.cr8;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.dr8;
+import com.baidu.tieba.w65;
 import com.baidu.tieba.xo;
 import com.baidu.tieba.zo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,7 +44,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<cr8> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<dr8> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -74,7 +74,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v65> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<w65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -167,7 +167,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v65> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<w65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -200,7 +200,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v65> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<w65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {

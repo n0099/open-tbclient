@@ -1,100 +1,162 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import android.database.Cursor;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.StrangeCleanSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import protobuf.Item;
 /* loaded from: classes3.dex */
 public class dc7 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
+    public static int b = 500;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
 
-    public dc7() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947699825, "Lcom/baidu/tieba/dc7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947699825, "Lcom/baidu/tieba/dc7;");
+        }
+    }
+
+    public static void a() {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (!StrangeCleanSwitch.isOn()) {
+                fy4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+                return;
+            }
+            try {
+                try {
+                    xb7.d().f();
+                    d = d();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                boolean b2 = b(d);
+                fy4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
+            } finally {
+                xb7.d().b();
             }
         }
     }
 
-    public static dc7 a(Item item) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                xb7 d = xb7.d();
+                return d.c("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
+                return false;
             }
-            dc7 dc7Var = new dc7();
-            dc7Var.a = item.itemId;
-            dc7Var.b = item.itemName;
-            dc7Var.c = item.iconSize;
-            dc7Var.d = item.iconUrl;
-            dc7Var.e = item.tags;
-            dc7Var.f = item.score;
-            dc7Var.g = item.star;
-            dc7Var.h = item.buttonName;
-            dc7Var.i = item.buttonLink;
-            dc7Var.j = item.itemAppid;
-            dc7Var.k = item.categoryId;
-            dc7Var.l = item.buttonLinkType;
-            dc7Var.m = item.apkName;
-            dc7Var.n = item.forumName;
-            dc7Var.o = ApkDetailPojo.z(item.apkDetail);
-            return dc7Var;
         }
-        return (dc7) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static dc7 b(tbclient.Item item) {
-        InterceptResult invokeL;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            dc7 dc7Var = new dc7();
-            dc7Var.a = item.item_id;
-            dc7Var.b = item.item_name;
-            dc7Var.c = item.icon_size;
-            dc7Var.d = item.icon_url;
-            dc7Var.e = item.tags;
-            dc7Var.f = item.score;
-            dc7Var.g = item.star;
-            dc7Var.h = item.button_name;
-            dc7Var.i = item.button_link;
-            dc7Var.j = item.item_appid;
-            dc7Var.k = item.category_id;
-            dc7Var.l = item.button_link_type;
-            dc7Var.m = item.apk_name;
-            dc7Var.n = item.forum_name;
-            dc7Var.o = ApkDetailPojo.A(item.apk_detail);
-            return dc7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return qy4.k().l("key_max_stranger", a);
         }
-        return (dc7) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        List<String> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                e = e();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
+            }
+            if (e != null && e.size() != 0) {
+                int c = c();
+                fy4.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
+                if (e.size() > c) {
+                    int i = 2000;
+                    if (2000 >= e.size() - c) {
+                        i = e.size() - c;
+                    }
+                    boolean z = true;
+                    for (String str : e.subList(0, i)) {
+                        if (!z) {
+                            sb.append(",");
+                        } else {
+                            z = false;
+                        }
+                        sb.append(str);
+                    }
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static List<String> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = xb7.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                zi.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            int i2 = b;
+            if (i < i2) {
+                i = i2;
+            }
+            qy4.k().w("key_max_stranger", i);
+        }
     }
 }

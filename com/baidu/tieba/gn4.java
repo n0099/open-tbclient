@@ -183,7 +183,7 @@ public class gn4 {
                 if (userData.isNewGod()) {
                     TextView textView4 = new TextView(context);
                     textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + zj5.a(userData.getNewGodData()));
+                    textView4.setText(userData.getNewGodData().getFieldName() + ak5.a(userData.getNewGodData()));
                     textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                     linearLayout.addView(textView4);
                     textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -233,10 +233,10 @@ public class gn4 {
             }
             textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106a);
-            oz4 oz4Var = new oz4();
-            oz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            pz4 pz4Var = new pz4();
+            pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
             tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-            tBSpecificationBtn.setConfig(oz4Var);
+            tBSpecificationBtn.setConfig(pz4Var);
             tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f034b));
             tBSpecificationBtn.setOnClickListener(new a(this, userData, tbPageContext));
             this.a = new om4(tbPageContext);

@@ -78,7 +78,7 @@ public class u63 extends c63 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements f0a<Boolean> {
+    public class b implements g0a<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -110,7 +110,7 @@ public class u63 extends c63 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(Boolean bool) {
             f43 M;
             a13 y;
@@ -137,7 +137,7 @@ public class u63 extends c63 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements j0a<String, Boolean> {
+    public class c implements k0a<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -167,7 +167,7 @@ public class u63 extends c63 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j0a
+        @Override // com.baidu.tieba.k0a
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class u63 extends c63 {
             ae2 l = ae2.l();
             l.n(4);
             zd2.b k = l.k();
-            rz9.f(str2).y(Schedulers.io()).h(new c(this, str, str3, str4, k)).k(b0a.b()).w(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+            sz9.f(str2).y(Schedulers.io()).h(new c(this, str, str3, str4, k)).k(c0a.b()).w(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
         }
     }
 }

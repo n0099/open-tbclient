@@ -36,13 +36,13 @@ public class iv1 extends ev1 {
 
         /* renamed from: com.baidu.tieba.iv1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0310a implements yi3<i93<k93.e>> {
+        public class C0314a implements yi3<i93<k93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ hs1.b a;
             public final /* synthetic */ a b;
 
-            public C0310a(a aVar, hs1.b bVar) {
+            public C0314a(a aVar, hs1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class iv1 extends ev1 {
                 if (b0 == null) {
                     return new fw1(1001, "null swan runtime");
                 }
-                b0.e0().g(e43.K(), "mapp_i_get_common_sys_info", new C0310a(this, bVar));
+                b0.e0().g(e43.K(), "mapp_i_get_common_sys_info", new C0314a(this, bVar));
                 return new fw1(0);
             }
             return (fw1) invokeLL.objValue;

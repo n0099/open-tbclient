@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bl5;
+import com.baidu.tieba.cl5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public bl5 i;
+    public cl5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -179,9 +179,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            bl5 bl5Var = this.i;
-            if (bl5Var != null) {
-                bl5Var.A();
+            cl5 cl5Var = this.i;
+            if (cl5Var != null) {
+                cl5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -244,9 +244,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            bl5 bl5Var = this.i;
-            if (bl5Var != null) {
-                bl5Var.onDestroy();
+            cl5 cl5Var = this.i;
+            if (cl5Var != null) {
+                cl5Var.onDestroy();
             }
         }
     }
@@ -318,9 +318,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            bl5 bl5Var = new bl5(context, this.h, this);
-            this.i = bl5Var;
-            this.b.setContentViewTop(bl5Var);
+            cl5 cl5Var = new cl5(context, this.h, this);
+            this.i = cl5Var;
+            this.b.setContentViewTop(cl5Var);
         }
     }
 
@@ -338,9 +338,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            bl5 bl5Var = this.i;
-            if (bl5Var != null) {
-                bl5Var.z(str, false);
+            cl5 cl5Var = this.i;
+            if (cl5Var != null) {
+                cl5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));

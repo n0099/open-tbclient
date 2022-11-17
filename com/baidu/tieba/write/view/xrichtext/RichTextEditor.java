@@ -27,12 +27,12 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.i05;
+import com.baidu.tieba.j05;
 import com.baidu.tieba.lc;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
-import com.baidu.tieba.y39;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public i05.a f;
+    public j05.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -323,7 +323,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(i05.a aVar) {
+    public void setOnSpanGroupChangedListener(j05.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.f = aVar;
@@ -432,7 +432,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    pw4.d(childAt).v(R.color.CAM_X0105);
+                    qw4.d(childAt).v(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
@@ -574,9 +574,9 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            y39.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804c2);
+            z39.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804c2);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            pw4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            qw4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);

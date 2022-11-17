@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes3.dex */
-public interface ap5 {
-    void M(yo5 yo5Var);
+public interface ap5<T> {
+    void b(Map<String, String> map);
 
-    zo5 P0(int i);
-
-    void o0(int i, zo5 zo5Var);
+    void f(T t, String str);
 }

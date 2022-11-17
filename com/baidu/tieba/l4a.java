@@ -1,111 +1,140 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public final class l4a implements yz9 {
+public final class l4a implements zz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final f0a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<yz9> a;
-    public volatile boolean b;
+    public final AtomicReference<f0a> a;
+
+    /* loaded from: classes4.dex */
+    public static class a implements f0a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.f0a
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894288, "Lcom/baidu/tieba/l4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894288, "Lcom/baidu/tieba/l4a;");
+                return;
+            }
+        }
+        b = new a();
+    }
 
     public l4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
     }
 
-    @Override // com.baidu.tieba.yz9
+    public static l4a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new l4a();
+        }
+        return (l4a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == b) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yz9
+    @Override // com.baidu.tieba.zz9
     public void unsubscribe() {
+        f0a andSet;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                Set<yz9> set = this.a;
-                this.a = null;
-                c(set);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f0a f0aVar = this.a.get();
+            f0a f0aVar2 = b;
+            if (f0aVar != f0aVar2 && (andSet = this.a.getAndSet(f0aVar2)) != null && andSet != b) {
+                andSet.call();
             }
         }
     }
 
-    public static void c(Collection<yz9> collection) {
+    public l4a(f0a f0aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (yz9 yz9Var : collection) {
-            try {
-                yz9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f0aVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        d0a.d(arrayList);
+        this.a = new AtomicReference<>(f0aVar);
     }
 
-    public void a(yz9 yz9Var) {
+    public static l4a b(f0a f0aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, yz9Var) != null) || yz9Var.isUnsubscribed()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, f0aVar)) == null) {
+            return new l4a(f0aVar);
         }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
-                    }
-                    this.a.add(yz9Var);
-                    return;
-                }
-            }
-        }
-        yz9Var.unsubscribe();
-    }
-
-    public void b(yz9 yz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz9Var) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    boolean remove = this.a.remove(yz9Var);
-                    if (remove) {
-                        yz9Var.unsubscribe();
-                    }
-                }
-            }
-        }
+        return (l4a) invokeL.objValue;
     }
 }

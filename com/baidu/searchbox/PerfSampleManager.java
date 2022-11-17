@@ -11,7 +11,7 @@ import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.tieba.jf1;
 import com.baidu.tieba.lf1;
 import com.baidu.tieba.nf1;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class PerfSampleManager {
                 arrayList.add(new FpsPerfSampleCallback());
                 arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new xk8());
+                arrayList.add(new yk8());
                 return arrayList;
             }
             return invokeV.objValue;

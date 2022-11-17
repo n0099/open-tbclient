@@ -52,13 +52,13 @@ public abstract class e43 extends b43 {
 
         /* renamed from: com.baidu.tieba.e43$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0247a implements Runnable {
+        public class RunnableC0249a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yi3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0247a(a aVar, yi3 yi3Var) {
+            public RunnableC0249a(a aVar, yi3 yi3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public abstract class e43 extends b43 {
                     if (z && !this.a.e("event_flag_force_post", false)) {
                         yi3Var.a(this.a);
                     } else {
-                        e43.M().post(new RunnableC0247a(this, yi3Var));
+                        e43.M().post(new RunnableC0249a(this, yi3Var));
                     }
                 }
             }

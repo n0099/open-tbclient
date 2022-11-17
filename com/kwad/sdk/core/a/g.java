@@ -11,7 +11,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static int a(KeyFactory keyFactory, Key key) {
         try {

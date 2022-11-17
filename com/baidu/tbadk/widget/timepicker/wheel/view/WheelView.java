@@ -18,13 +18,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ao5;
+import com.baidu.tieba.aq5;
 import com.baidu.tieba.bo5;
 import com.baidu.tieba.co5;
 import com.baidu.tieba.do5;
-import com.baidu.tieba.xn5;
+import com.baidu.tieba.eo5;
 import com.baidu.tieba.yn5;
 import com.baidu.tieba.zn5;
-import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class WheelView extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public ao5 e;
+    public bo5 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -72,7 +72,7 @@ public class WheelView extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public xn5 m;
+    public yn5 m;
     public String n;
     public int o;
     public int p;
@@ -294,8 +294,8 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.b = context;
-            this.c = new co5(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new zn5(this));
+            this.c = new do5(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new ao5(this));
             this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
@@ -378,7 +378,7 @@ public class WheelView extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zp5.pickerview, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aq5.pickerview, 0, 0);
             this.P = obtainStyledAttributes.getInt(1, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);
@@ -402,14 +402,14 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             b();
-            this.i = this.h.scheduleWithFixedDelay(new bo5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new co5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(xn5 xn5Var) {
+    public final void setAdapter(yn5 yn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, xn5Var) == null) {
-            this.m = xn5Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, yn5Var) == null) {
+            this.m = yn5Var;
             p();
             invalidate();
         }
@@ -490,10 +490,10 @@ public class WheelView extends View {
         }
     }
 
-    public final void setOnItemSelectedListener(ao5 ao5Var) {
+    public final void setOnItemSelectedListener(bo5 bo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, ao5Var) == null) {
-            this.e = ao5Var;
+        if (interceptable == null || interceptable.invokeL(1048614, this, bo5Var) == null) {
+            this.e = bo5Var;
         }
     }
 
@@ -548,13 +548,13 @@ public class WheelView extends View {
         }
     }
 
-    public final xn5 getAdapter() {
+    public final yn5 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
-        return (xn5) invokeV.objValue;
+        return (yn5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -589,9 +589,9 @@ public class WheelView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            xn5 xn5Var = this.m;
-            if (xn5Var != null) {
-                return xn5Var.a();
+            yn5 yn5Var = this.m;
+            if (yn5Var != null) {
+                return yn5Var.a();
             }
             return 0;
         }
@@ -642,8 +642,8 @@ public class WheelView extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof yn5) {
-                return ((yn5) obj).a();
+            if (obj instanceof zn5) {
+                return ((zn5) obj).a();
             }
             if (obj instanceof Integer) {
                 return String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue()));
@@ -668,7 +668,7 @@ public class WheelView extends View {
                     this.L = -i;
                 }
             }
-            this.i = this.h.scheduleWithFixedDelay(new do5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new eo5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -746,11 +746,11 @@ public class WheelView extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            xn5 xn5Var = this.m;
-            if (xn5Var == null) {
+            yn5 yn5Var = this.m;
+            if (yn5Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= xn5Var.a())) {
+            if (this.y && ((i = this.E) < 0 || i >= yn5Var.a())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.a()), this.m.a() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.a() - 1));

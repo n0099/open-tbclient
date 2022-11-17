@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rq4;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.av4;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.vo8;
 import com.baidu.tieba.x9;
-import com.baidu.tieba.xu4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public xu4 k;
-    public zu4 l;
+    public yu4 k;
+    public av4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -134,25 +134,25 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(uo8 uo8Var) {
+    public void f(vo8 vo8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, uo8Var) != null) || uo8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, vo8Var) != null) || vo8Var == null) {
             return;
         }
-        xu4 c = uo8Var.c();
-        zu4 f = uo8Var.f();
+        yu4 c = vo8Var.c();
+        av4 f = vo8Var.f();
         this.k = c;
         this.l = f;
-        if (uo8Var.h()) {
+        if (vo8Var.h()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        xu4 xu4Var = this.k;
-        if (xu4Var == null) {
+        yu4 yu4Var = this.k;
+        if (yu4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(xu4Var.g())) {
+        } else if (StringUtils.isNull(yu4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -206,7 +206,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
             SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
             SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-            rq4 layoutMode = this.a.getLayoutMode();
+            sq4 layoutMode = this.a.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

@@ -2,33 +2,33 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.ca5;
-import com.baidu.tieba.nh5;
-import com.baidu.tieba.nh5.e;
+import com.baidu.tieba.oh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public abstract class jh5<T extends ca5, D extends nh5.e> {
+public class jh5 implements ih5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ViewType b;
-    public T c;
-    public D d;
+    public final HashMap<ViewType, kh5> a;
+    public final ViewGroup b;
+    public final rh5 c;
+    public final oh5 d;
+    public ViewType e;
+    public kh5 f;
 
-    public abstract void d(ViewType viewType, T t, D d);
-
-    public abstract T f(ViewType viewType, ViewGroup viewGroup);
-
-    public jh5() {
+    public jh5(rh5 rh5Var, @NonNull ViewGroup viewGroup, @NonNull oh5 oh5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rh5Var, viewGroup, oh5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,60 +38,101 @@ public abstract class jh5<T extends ca5, D extends nh5.e> {
                 return;
             }
         }
-        this.a = 3;
+        this.a = new HashMap<>();
+        this.b = viewGroup;
+        this.c = rh5Var;
+        this.d = oh5Var;
     }
 
-    public final void a(View view2) {
-        T t;
+    @Override // com.baidu.tieba.ih5
+    public void a(ViewType viewType, String str) {
+        oh5.a aVar;
+        oh5.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (t = this.c) != null) {
-            t.attachView(view2);
-        }
-    }
-
-    public final void b(View view2) {
-        T t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (t = this.c) != null) {
-            t.dettachView(view2);
-        }
-    }
-
-    public void e(int i) {
-        ViewType viewType;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
-                d(viewType, t, this.d);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
+            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
+                bVar.a = str;
+            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
+                aVar.a = str;
             }
-            this.a = i;
         }
     }
 
-    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ih5
+    public void c(ViewType viewType, @NonNull kh5 kh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
-            this.b = viewType;
-            this.d = d;
-            if (this.c == null) {
-                this.c = f(viewType, viewGroup);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, kh5Var) == null) {
+            this.a.put(viewType, kh5Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.ih5
+    public void b(ViewType viewType) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
+            return;
+        }
+        this.e = viewType;
+        if (this.b == null) {
+            return;
+        }
+        rh5 rh5Var = this.c;
+        if (rh5Var != null && rh5Var.getView() != null) {
             View view2 = this.c.getView();
-            if (viewGroup.indexOfChild(view2) < 0) {
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.width = -1;
-                    layoutParams.height = -1;
-                }
-                a(viewGroup);
-            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
-                view2.bringToFront();
+            if (viewType == ViewType.CONTENT) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            d(viewType, this.c, d);
-            return view2;
+            view2.setVisibility(i);
         }
-        return (View) invokeLLL.objValue;
+        kh5 kh5Var = this.f;
+        if (kh5Var != null) {
+            kh5Var.b(this.b);
+        }
+        kh5 kh5Var2 = this.a.get(viewType);
+        oh5.e d = d(viewType);
+        if (kh5Var2 != null && d != null) {
+            kh5Var2.c(viewType, this.b, d);
+            this.f = kh5Var2;
+            this.a.put(viewType, kh5Var2);
+        }
+    }
+
+    public final oh5.e d(ViewType viewType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
+            if (viewType == ViewType.ERROR) {
+                return this.d.c;
+            }
+            if (viewType == ViewType.EMPTY) {
+                return this.d.b;
+            }
+            if (viewType == ViewType.LOADING) {
+                return this.d.a;
+            }
+            return null;
+        }
+        return (oh5.e) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih5
+    public void onChangeSkinType(int i) {
+        kh5 kh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (kh5Var = this.f) != null) {
+            kh5Var.e(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ih5
+    public void onDestroy() {
+        kh5 kh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (kh5Var = this.f) != null) {
+            kh5Var.b(this.b);
+        }
     }
 }

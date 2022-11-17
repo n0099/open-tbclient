@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface vh5 {
-    void onChangeSkinType(int i);
+public interface vh5<T> {
+    vg5 a(T t);
 }

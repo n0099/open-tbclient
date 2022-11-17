@@ -35,8 +35,8 @@ import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.lm4;
-import com.baidu.tieba.mp5;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.np5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
@@ -58,7 +58,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> d;
     public VideoVerticalPageFragment e;
     public ImageView f;
-    public mp5 g;
+    public np5 g;
     public boolean h;
     public CustomMessageListener i;
 
@@ -309,9 +309,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            mp5 mp5Var = this.g;
-            if (mp5Var != null) {
-                mp5Var.h();
+            np5 np5Var = this.g;
+            if (np5Var != null) {
+                np5Var.h();
             }
         }
     }
@@ -544,7 +544,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d08f8);
-            this.g = new mp5(getPageContext(), "client_videomiddle");
+            this.g = new np5(getPageContext(), "client_videomiddle");
             S0();
             T0();
             addNoAdjustSoftInputHeightListener();

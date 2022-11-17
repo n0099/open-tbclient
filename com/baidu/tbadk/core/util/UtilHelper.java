@@ -129,27 +129,28 @@ import com.baidu.tbadk.switchs.VideoSquareMiddlePageSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.ce5;
+import com.baidu.tieba.ak5;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
-import com.baidu.tieba.dz4;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.ez4;
 import com.baidu.tieba.fj;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.hg8;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.ig8;
 import com.baidu.tieba.in;
 import com.baidu.tieba.jm;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.k95;
 import com.baidu.tieba.km;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.l35;
-import com.baidu.tieba.me5;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.ne5;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.oi5;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.rt4;
+import com.baidu.tieba.pi5;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.sp4;
+import com.baidu.tieba.st4;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.tf;
 import com.baidu.tieba.w9;
@@ -159,7 +160,6 @@ import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.zi;
-import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -860,7 +860,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, view2)) == null) {
-            k95.k().i(yi.l(TbadkCoreApplication.getInst()) * yi.j(TbadkCoreApplication.getInst()) * 2);
+            l95.k().i(yi.l(TbadkCoreApplication.getInst()) * yi.j(TbadkCoreApplication.getInst()) * 2);
             view2.setDrawingCacheEnabled(true);
             Bitmap drawingCache = view2.getDrawingCache();
             Bitmap bitmap = null;
@@ -885,12 +885,12 @@ public class UtilHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, context)) == null) {
             if (context == null && n9.g().b() != null && "PbFullScreenEditorActivity".equals(n9.g().b().getClass().getSimpleName())) {
                 Activity f = n9.g().f(n9.g().h() - 2);
-                if (f instanceof ce5) {
-                    return ((ce5) f).getCurrentPageKey();
+                if (f instanceof de5) {
+                    return ((de5) f).getCurrentPageKey();
                 }
             }
-            if (context instanceof ce5) {
-                return ((ce5) context).getCurrentPageKey();
+            if (context instanceof de5) {
+                return ((de5) context).getCurrentPageKey();
             }
             return "";
         }
@@ -1029,7 +1029,7 @@ public class UtilHelper {
     public static void quitDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65686, null, activity) == null) {
-            new jv4(activity).setTitle(R.string.obfuscated_res_0x7f0f0922).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f0268).setPositiveButton(R.string.obfuscated_res_0x7f0f026b, new jv4.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+            new kv4(activity).setTitle(R.string.obfuscated_res_0x7f0f0922).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f0268).setPositiveButton(R.string.obfuscated_res_0x7f0f026b, new kv4.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Activity val$activity;
@@ -1052,16 +1052,16 @@ public class UtilHelper {
                     this.val$activity = activity;
                 }
 
-                @Override // com.baidu.tieba.jv4.e
-                public void onClick(jv4 jv4Var) {
+                @Override // com.baidu.tieba.kv4.e
+                public void onClick(kv4 kv4Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jv4Var) == null) {
-                        jv4Var.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, kv4Var) == null) {
+                        kv4Var.dismiss();
                         TbadkCoreApplication.getInst().notifyAppEnterBackground();
                         this.val$activity.finish();
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new jv4.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new kv4.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1079,11 +1079,11 @@ public class UtilHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.jv4.e
-                public void onClick(jv4 jv4Var) {
+                @Override // com.baidu.tieba.kv4.e
+                public void onClick(kv4 kv4Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jv4Var) == null) {
-                        jv4Var.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, kv4Var) == null) {
+                        kv4Var.dismiss();
                     }
                 }
             }).create(x9.a(activity)).show();
@@ -1136,7 +1136,7 @@ public class UtilHelper {
 
     public static void showSkinChangeAnimation(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65713, null, activity) == null) && !oi5.a() && activity != null) {
+        if ((interceptable == null || interceptable.invokeL(65713, null, activity) == null) && !pi5.a() && activity != null) {
             View decorView = activity.getWindow().getDecorView();
             Bitmap cacheBitmapFromView = getCacheBitmapFromView(decorView);
             if ((decorView instanceof ViewGroup) && cacheBitmapFromView != null) {
@@ -1247,14 +1247,14 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof ce5)) {
+            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof de5)) {
                 return null;
             }
-            ce5 ce5Var = (ce5) tbPageContext.getPageActivity();
-            if (ce5Var.getCurrentPageSourceKeyList() == null) {
+            de5 de5Var = (de5) tbPageContext.getPageActivity();
+            if (de5Var.getCurrentPageSourceKeyList() == null) {
                 return null;
             }
-            return (String) ListUtils.getItem(ce5Var.getCurrentPageSourceKeyList(), ce5Var.getCurrentPageSourceKeyList().size() - 1);
+            return (String) ListUtils.getItem(de5Var.getCurrentPageSourceKeyList(), de5Var.getCurrentPageSourceKeyList().size() - 1);
         }
         return (String) invokeL.objValue;
     }
@@ -1287,7 +1287,7 @@ public class UtilHelper {
             intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
             intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent));
-            ky4.e(TbadkCoreApplication.getInst().getApplicationContext(), 3);
+            ly4.e(TbadkCoreApplication.getInst().getApplicationContext(), 3);
         }
     }
 
@@ -2649,8 +2649,8 @@ public class UtilHelper {
                     case 3:
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
-                        if (ky4.b() != null) {
-                            intent.setClass(context, ky4.b());
+                        if (ly4.b() != null) {
+                            intent.setClass(context, ly4.b());
                             if (!(context instanceof Activity) && intent != null) {
                                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                             }
@@ -2692,13 +2692,13 @@ public class UtilHelper {
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
                         int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                        int t = l35.h0().t();
-                        int A = l35.h0().A();
-                        int u = l35.h0().u();
-                        int s = l35.h0().s();
-                        int x = l35.h0().x();
-                        int y = l35.h0().y();
-                        l35.h0().W(t, A, u, s, x, y);
+                        int t = m35.h0().t();
+                        int A = m35.h0().A();
+                        int u = m35.h0().u();
+                        int s = m35.h0().s();
+                        int x = m35.h0().x();
+                        int y = m35.h0().y();
+                        m35.h0().W(t, A, u, s, x, y);
                         if (intExtra4 <= 0 && intExtra7 <= 0 && intExtra6 <= 0 && intExtra5 <= 0 && intExtra8 <= 0) {
                             z = false;
                         } else {
@@ -2721,17 +2721,17 @@ public class UtilHelper {
                         }
                         if (z2) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                            l35.h0().Y(0);
+                            m35.h0().Y(0);
                         } else if (z3) {
-                            l35.h0().f0(0);
+                            m35.h0().f0(0);
                             TbPageContext<?> tryCastPageContext = tryCastPageContext(context);
                             if (tryCastPageContext != null) {
                                 UrlManager.getInstance().dealOneLink(tryCastPageContext, new String[]{stringExtra6});
                             }
-                            l35.h0().f0(0);
+                            m35.h0().f0(0);
                         } else if (z4) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMeActivityConfig(context)));
-                            l35.h0().Z(0);
+                            m35.h0().Z(0);
                         } else if (i3 == 35) {
                             if (!z && intExtra <= 0 && intExtra3 <= 0 && intExtra2 <= 0 && y <= 0 && s <= 0) {
                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -2742,14 +2742,14 @@ public class UtilHelper {
                                 }
                                 if (currentAccount != null && currentAccount.length() > 0) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, false, currentAccount, i)));
-                                    l35.h0().c0(0);
+                                    m35.h0().c0(0);
                                 }
                             } else {
                                 goToMessageCenterFromNotifyCenter(intExtra9);
                             }
                         } else if (z) {
                             TiebaStatic.log(TbadkCoreStatisticKey.PUSH_MESSAGE_CLICK);
-                            if (i3 == 5 && ky4.a() == 3) {
+                            if (i3 == 5 && ly4.a() == 3) {
                                 goToMessageCenterFromNotifyCenter(intExtra9);
                             } else {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(context, intent.getIntExtra(TiebaStatic.Params.TAB_ID, -1))));
@@ -2762,7 +2762,7 @@ public class UtilHelper {
                         z5 = true;
                         break;
                     case 8:
-                        ky4.e(context, 2);
+                        ly4.e(context, 2);
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
                         z5 = true;
@@ -2773,7 +2773,7 @@ public class UtilHelper {
                         } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(context)));
                         } else {
-                            ky4.e(context, 1);
+                            ly4.e(context, 1);
                         }
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
@@ -2782,10 +2782,10 @@ public class UtilHelper {
                     case 12:
                         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                        if (ky4.a() == 8) {
+                        if (ly4.a() == 8) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(8)));
                         } else if (!TextUtils.isEmpty(currentAccount2) && !TextUtils.isEmpty(currentAccountName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, l35.h0().x())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, m35.h0().x())));
                         }
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
@@ -2798,7 +2798,7 @@ public class UtilHelper {
                         z5 = true;
                         break;
                     case 15:
-                        me5.c().a(new PayConfig(xg.e(intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
+                        ne5.c().a(new PayConfig(xg.e(intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
                         str = DealIntentService.KEY_CLASS;
                         str2 = "push";
                         break;
@@ -2899,7 +2899,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            hg8.a(TbadkCoreApplication.getInst(), string2, fj.c(string2), intent.getExtras().getString("ext_info", ""), null);
+                            ig8.a(TbadkCoreApplication.getInst(), string2, fj.c(string2), intent.getExtras().getString("ext_info", ""), null);
                         } else {
                             w9 c = x9.c(context);
                             if (c instanceof BaseActivity) {
@@ -2968,7 +2968,7 @@ public class UtilHelper {
                         break;
                     case 38:
                         if (checkAiAppGuideResource()) {
-                            py4.k().u("key_ai_app_guide_display", false);
+                            qy4.k().u("key_ai_app_guide_display", false);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AiAppGuideActivityConfig(context)));
                         }
                         str = DealIntentService.KEY_CLASS;
@@ -3304,7 +3304,7 @@ public class UtilHelper {
                     }
                 } else if (metaData.getAuthType() == 3) {
                     if (metaData.isNewGod()) {
-                        return metaData.getNewGodData().getFieldName() + zj5.c(metaData.isVideoGod());
+                        return metaData.getNewGodData().getFieldName() + ak5.c(metaData.isVideoGod());
                     }
                 } else if (metaData.getAuthType() == 4 && !z && metaData.showBazhuGrade()) {
                     return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i, StringHelper.STRING_MORE);
@@ -3317,7 +3317,7 @@ public class UtilHelper {
                 return metaData.getCreatorInfo().authDesc;
             }
             if (TextUtils.isEmpty("") && metaData.isNewGod()) {
-                return metaData.getNewGodData().getFieldName() + zj5.c(metaData.isVideoGod());
+                return metaData.getNewGodData().getFieldName() + ak5.c(metaData.isVideoGod());
             } else if (!TextUtils.isEmpty("") || z || !metaData.showBazhuGrade()) {
                 return "";
             } else {
@@ -3517,15 +3517,15 @@ public class UtilHelper {
         return (String) invokeCommon.objValue;
     }
 
-    public static void showYYNotification(Context context, rt4 rt4Var, int i) {
+    public static void showYYNotification(Context context, st4 st4Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65717, null, context, rt4Var, i) != null) || l35.L()) {
+        if ((interceptable != null && interceptable.invokeLLI(65717, null, context, st4Var, i) != null) || m35.L()) {
             return;
         }
-        String a = rt4Var.a();
-        String b = rt4Var.b();
+        String a = st4Var.a();
+        String b = st4Var.b();
         if (b != null && b.length() > 0) {
-            Intent yYNotificationIntent = getYYNotificationIntent(context, rt4Var, b);
+            Intent yYNotificationIntent = getYYNotificationIntent(context, st4Var, b);
             if (yYNotificationIntent != null && yYNotificationIntent.getDataString() != null && yYNotificationIntent.getDataString().contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                 yYNotificationIntent.setFlags(276824064);
                 NotificationHelper.showNotification(context, i, null, a, a, PendingIntent.getActivity(context, i, yYNotificationIntent, 134217728), false);
@@ -3584,18 +3584,18 @@ public class UtilHelper {
                 if (bitmap != null) {
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
-                dz4 dz4Var = new dz4(bitmapDrawable);
-                dz4Var.b(yi.g(context, R.dimen.obfuscated_res_0x7f070224));
+                ez4 ez4Var = new ez4(bitmapDrawable);
+                ez4Var.b(yi.g(context, R.dimen.obfuscated_res_0x7f070224));
                 int length = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) " ");
                 if (z) {
-                    spannableStringBuilder.setSpan(dz4Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(ez4Var, length, spannableStringBuilder.length(), 17);
                     spannableStringBuilder.append((CharSequence) " ");
                     spannableStringBuilder.append((CharSequence) str);
                 } else {
                     spannableStringBuilder.append((CharSequence) str);
                     spannableStringBuilder.append((CharSequence) " ");
-                    spannableStringBuilder.setSpan(dz4Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(ez4Var, length, spannableStringBuilder.length(), 17);
                 }
                 return spannableStringBuilder;
             }
@@ -3615,15 +3615,15 @@ public class UtilHelper {
                 if (bitmap != null) {
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
-                gz4 gz4Var = new gz4(bitmapDrawable);
+                hz4 hz4Var = new hz4(bitmapDrawable);
                 int length = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) " ");
                 if (z) {
-                    spannableStringBuilder.setSpan(gz4Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(hz4Var, length, spannableStringBuilder.length(), 17);
                     spannableStringBuilder.append((CharSequence) str);
                 } else {
                     spannableStringBuilder.append((CharSequence) str);
-                    spannableStringBuilder.setSpan(gz4Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(hz4Var, length, spannableStringBuilder.length(), 17);
                 }
                 return spannableStringBuilder;
             }
@@ -3786,16 +3786,16 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65611, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = py4.k().q("version_name", "");
+                String q = qy4.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return py4.k().q("apk_md5", "");
+                    return qy4.k().q("apk_md5", "");
                 }
-                py4.k().y("version_name", versionName);
+                qy4.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-                py4.k().y("apk_md5", aPKMd5);
+                qy4.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.detailException(e);
@@ -3971,12 +3971,12 @@ public class UtilHelper {
         return invokeLLI.booleanValue;
     }
 
-    public static final Intent getYYNotificationIntent(Context context, rt4 rt4Var, String str) {
+    public static final Intent getYYNotificationIntent(Context context, st4 st4Var, String str) {
         InterceptResult invokeLLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65619, null, context, rt4Var, str)) == null) {
-            if (context != null && rt4Var != null && !TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65619, null, context, st4Var, str)) == null) {
+            if (context != null && st4Var != null && !TextUtils.isEmpty(str)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_FRS)) {
                     try {
                         return Intent.parseUri(str, 1);
@@ -4054,10 +4054,10 @@ public class UtilHelper {
                 }
                 intent.putExtra("is_notify", true);
                 intent.putExtra("link", str);
-                intent.putExtra("message_id", rt4Var.c());
-                intent.putExtra("task_id", rt4Var.e());
-                if (!TextUtils.isEmpty(rt4Var.d())) {
-                    intent.putExtra("stat", rt4Var.d());
+                intent.putExtra("message_id", st4Var.c());
+                intent.putExtra("task_id", st4Var.e());
+                if (!TextUtils.isEmpty(st4Var.d())) {
+                    intent.putExtra("stat", st4Var.d());
                 }
                 return intent;
             }
@@ -4411,12 +4411,12 @@ public class UtilHelper {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65730, null, activity, z)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || activity == null || !py4.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+            if (Build.VERSION.SDK_INT < 19 || activity == null || !qy4.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
                 return false;
             }
             for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
                 if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                    py4.k().u("switch_immersive_sticky_status", false);
+                    qy4.k().u("switch_immersive_sticky_status", false);
                     TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                     return false;
                 }
@@ -4431,7 +4431,7 @@ public class UtilHelper {
                 StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
                 return true;
             } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-                py4.k().u("switch_immersive_sticky_status", false);
+                qy4.k().u("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             } else if (Build.VERSION.SDK_INT < 21) {

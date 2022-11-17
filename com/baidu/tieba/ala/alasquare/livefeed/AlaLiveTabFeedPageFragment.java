@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.gb0;
-import com.baidu.tieba.hx5;
-import com.baidu.tieba.lk6;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.mk6;
+import com.baidu.tieba.sa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements mk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -43,7 +43,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -51,7 +51,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -60,7 +60,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ce5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            ra5.e().b();
+            sa5.e().b();
         }
     }
 
@@ -137,7 +137,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -149,7 +149,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
         }
     }
 
-    @Override // com.baidu.tieba.lk6
+    @Override // com.baidu.tieba.mk6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -186,7 +186,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements lk6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             q1("onCreate");
-            hx5.a().c(TbadkCoreApplication.getInst());
+            ix5.a().c(TbadkCoreApplication.getInst());
             this.a = new gb0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }

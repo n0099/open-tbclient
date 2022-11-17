@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.e97;
+import com.baidu.tieba.f97;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-import com.baidu.tieba.nv7;
+import com.baidu.tieba.ov7;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rv7;
+import com.baidu.tieba.sv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.LinkedList;
 public class HotTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nv7 a;
+    public ov7 a;
     public boolean b;
 
     /* loaded from: classes5.dex */
@@ -64,7 +64,7 @@ public class HotTopicListModel extends BdBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            e97 e97Var;
+            f97 f97Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i = 0;
@@ -79,19 +79,19 @@ public class HotTopicListModel extends BdBaseModel {
                 if (z) {
                     ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
                     if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
-                        e97Var = responseHttpHotRanklistMessage.getHotRanklistData();
+                        f97Var = responseHttpHotRanklistMessage.getHotRanklistData();
                         if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                             ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
                             if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
-                                e97Var = responseSocketHotRanklistMessage.getHotRanklistData();
+                                f97Var = responseSocketHotRanklistMessage.getHotRanklistData();
                             }
                         }
-                        if (e97Var != null) {
-                            if (!ListUtils.isEmpty(e97Var.g)) {
+                        if (f97Var != null) {
+                            if (!ListUtils.isEmpty(f97Var.g)) {
                                 LinkedList linkedList = new LinkedList();
-                                int size = e97Var.g.size();
+                                int size = f97Var.g.size();
                                 while (i < size) {
-                                    linkedList.add(new rv7(e97Var.g.get(i), i));
+                                    linkedList.add(new sv7(f97Var.g.get(i), i));
                                     i++;
                                 }
                                 this.a.a.j(responsedMessage.getError(), linkedList);
@@ -104,10 +104,10 @@ public class HotTopicListModel extends BdBaseModel {
                         this.a.a.j(-1, null);
                     }
                 }
-                e97Var = null;
+                f97Var = null;
                 if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                 }
-                if (e97Var != null) {
+                if (f97Var != null) {
                 }
                 this.a.a.j(-1, null);
             }
@@ -115,13 +115,13 @@ public class HotTopicListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListModel(TbPageContext<?> tbPageContext, nv7 nv7Var) {
+    public HotTopicListModel(TbPageContext<?> tbPageContext, ov7 ov7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, nv7Var};
+            Object[] objArr = {tbPageContext, ov7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,7 +133,7 @@ public class HotTopicListModel extends BdBaseModel {
             }
         }
         B();
-        this.a = nv7Var;
+        this.a = ov7Var;
     }
 
     public final void B() {

@@ -53,13 +53,13 @@ public class oi1 {
 
         /* renamed from: com.baidu.tieba.oi1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0373a extends kj1 {
+        public class C0375a extends kj1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ci1.a b;
             public final /* synthetic */ a c;
 
-            public C0373a(a aVar, ci1.a aVar2) {
+            public C0375a(a aVar, ci1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class oi1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         ci1.a aVar2 = (ci1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            mj1.c().b(new C0373a(this, aVar2));
+                            mj1.c().b(new C0375a(this, aVar2));
                         }
                     }
                 }

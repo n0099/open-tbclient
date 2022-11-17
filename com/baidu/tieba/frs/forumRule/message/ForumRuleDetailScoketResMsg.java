@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.po6;
+import com.baidu.tieba.qo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po6 mForumRuleDetailData;
+    public qo6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -36,13 +36,13 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public po6 getmForumRuleDetailData() {
+    public qo6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumRuleDetailData;
         }
-        return (po6) invokeV.objValue;
+        return (qo6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -62,9 +62,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    po6 po6Var = new po6();
-                    this.mForumRuleDetailData = po6Var;
-                    po6Var.q(forumRuleDetailResIdl.data);
+                    qo6 qo6Var = new qo6();
+                    this.mForumRuleDetailData = qo6Var;
+                    qo6Var.q(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;

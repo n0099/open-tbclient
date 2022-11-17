@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag6;
+import com.baidu.tieba.au7;
+import com.baidu.tieba.az4;
+import com.baidu.tieba.bg6;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
-import com.baidu.tieba.yf6;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zt7;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.zf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class EmotionRecommendFragment extends BaseFragment implements yf6 {
+public class EmotionRecommendFragment extends BaseFragment implements zf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag6 a;
+    public bg6 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,10 +47,10 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public zy4.g j;
+    public az4.g j;
     public BdListView.p k;
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void H0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -196,7 +196,7 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements zy4.g {
+    public class d implements az4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -219,7 +219,7 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.zy4.g
+        @Override // com.baidu.tieba.az4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -307,9 +307,9 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ag6 ag6Var = this.a;
-            if (ag6Var != null) {
-                ag6Var.m(i);
+            bg6 bg6Var = this.a;
+            if (bg6Var != null) {
+                bg6Var.m(i);
             }
         }
     }
@@ -322,7 +322,7 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
         }
     }
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void v0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionCenterData) == null) {
@@ -335,7 +335,7 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
         }
     }
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void S0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -364,9 +364,9 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            ag6 ag6Var = new ag6(getPageContext(), getUniqueId());
-            this.a = ag6Var;
-            ag6Var.p(this.j);
+            bg6 bg6Var = new bg6(getPageContext(), getUniqueId());
+            this.a = bg6Var;
+            bg6Var.p(this.j);
             this.a.q(this.k);
             registerListener(this.g);
             registerListener(this.h);
@@ -421,17 +421,17 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
     public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (zt7.l().r()) {
-                ag6 ag6Var = this.a;
-                if (ag6Var != null) {
-                    ag6Var.r();
+            if (au7.l().r()) {
+                bg6 bg6Var = this.a;
+                if (bg6Var != null) {
+                    bg6Var.r();
                     return;
                 }
                 return;
             }
-            ag6 ag6Var2 = this.a;
-            if (ag6Var2 != null) {
-                ag6Var2.n();
+            bg6 bg6Var2 = this.a;
+            if (bg6Var2 != null) {
+                bg6Var2.n();
             }
         }
     }
@@ -440,9 +440,9 @@ public class EmotionRecommendFragment extends BaseFragment implements yf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ag6 ag6Var = this.a;
-            if (ag6Var != null) {
-                return ag6Var.f();
+            bg6 bg6Var = this.a;
+            if (bg6Var != null) {
+                return bg6Var.f();
             }
             return 0;
         }

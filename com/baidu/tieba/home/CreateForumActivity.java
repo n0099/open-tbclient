@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.c35;
+import com.baidu.tieba.qf5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -274,14 +274,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        b35 b35Var = new b35();
-                        b35Var.e(postNetData);
-                        if (b35Var.c() != null && b35Var.c().length() > 0) {
-                            this.c.d = b35Var.b();
+                        c35 c35Var = new c35();
+                        c35Var.e(postNetData);
+                        if (c35Var.c() != null && c35Var.c().length() > 0) {
+                            this.c.d = c35Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(b35Var.c());
+                            NetWork netWork2 = new NetWork(c35Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -461,7 +461,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().k(this.e);
-            pf5.a(getPageContext(), this.e);
+            qf5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);

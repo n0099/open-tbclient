@@ -52,12 +52,12 @@ public class te1 {
 
         /* renamed from: com.baidu.tieba.te1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0431a implements nr0.b {
+        public class C0432a implements nr0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0431a(a aVar) {
+            public C0432a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class te1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    nr0.a(this.a, this.b, new C0431a(this));
+                    nr0.a(this.a, this.b, new C0432a(this));
                 } catch (Exception e) {
                     a11.b(new c11(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.ru8;
-import com.baidu.tieba.to8;
+import com.baidu.tieba.su8;
+import com.baidu.tieba.uo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ru8 a;
+    public su8 a;
     public b b;
     public qb c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, ru8 ru8Var);
+        void a(int i, String str, su8 su8Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -110,8 +110,8 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        to8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        to8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        uo8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        uo8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 

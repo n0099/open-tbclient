@@ -12,16 +12,15 @@ public class ft8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final ks8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft8(MainTabActivity mainTabActivity, zr8 zr8Var) {
-        super(2921543);
+    public ft8(MainTabActivity mainTabActivity, as8 as8Var) {
+        super(2010000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zr8Var};
+            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,16 +32,14 @@ public class ft8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ks8 ks8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (ks8Var = this.b) != null && ks8Var.i() != null) {
-            this.b.i().a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            this.a.E = true;
         }
     }
 }

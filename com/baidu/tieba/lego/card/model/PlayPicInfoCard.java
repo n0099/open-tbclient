@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cj7;
 import com.baidu.tieba.dj7;
 import com.baidu.tieba.ej7;
-import com.baidu.tieba.hj7;
+import com.baidu.tieba.fj7;
+import com.baidu.tieba.ij7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.yi;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements cj7<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements cj7<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public ej7 c;
-        public dj7 d;
+        public fj7 c;
+        public ej7 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements cj7<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                ej7 ej7Var = new ej7();
-                this.c = ej7Var;
-                ej7Var.d = jSONObject.optString("rText");
+                fj7 fj7Var = new fj7();
+                this.c = fj7Var;
+                fj7Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    dj7 dj7Var = new dj7(optJSONObject);
-                    this.d = dj7Var;
-                    if (!dj7Var.k()) {
+                    ej7 ej7Var = new ej7(optJSONObject);
+                    this.d = ej7Var;
+                    if (!ej7Var.k()) {
                         this.d = null;
                     }
                 }
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements cj7<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = hj7.b(optJSONObject.optString("descColor", ""));
-                bVar.f = hj7.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = ij7.b(optJSONObject.optString("descColor", ""));
+                bVar.f = ij7.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements cj7<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj7
+    @Override // com.baidu.tieba.dj7
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

@@ -7,23 +7,23 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hz5;
-import com.baidu.tieba.l36;
-import com.baidu.tieba.lv5;
-import com.baidu.tieba.oz5;
+import com.baidu.tieba.iz5;
+import com.baidu.tieba.m36;
+import com.baidu.tieba.mv5;
+import com.baidu.tieba.pz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaGameFrsGameLiveDoubleView extends l36<oz5> {
+public class AlaGameFrsGameLiveDoubleView extends m36<pz5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hz5 i;
-    public hz5 j;
+    public iz5 i;
+    public iz5 j;
 
-    @Override // com.baidu.tieba.l36
+    @Override // com.baidu.tieba.m36
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,13 +87,13 @@ public class AlaGameFrsGameLiveDoubleView extends l36<oz5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l36
+    @Override // com.baidu.tieba.m36
     /* renamed from: s */
-    public void l(oz5 oz5Var) {
+    public void l(pz5 pz5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, oz5Var) == null) && oz5Var != null) {
-            this.i.d(oz5Var.a);
-            this.j.d(oz5Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, pz5Var) == null) && pz5Var != null) {
+            this.i.d(pz5Var.a);
+            this.j.d(pz5Var.b);
         }
     }
 
@@ -105,15 +105,15 @@ public class AlaGameFrsGameLiveDoubleView extends l36<oz5> {
         }
     }
 
-    public void u(lv5 lv5Var) {
+    public void u(mv5 mv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lv5Var) == null) {
-            this.i.g(lv5Var);
-            this.j.g(lv5Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, mv5Var) == null) {
+            this.i.g(mv5Var);
+            this.j.g(mv5Var);
         }
     }
 
-    @Override // com.baidu.tieba.l36
+    @Override // com.baidu.tieba.m36
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -125,8 +125,8 @@ public class AlaGameFrsGameLiveDoubleView extends l36<oz5> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = new hz5(g());
-            this.j = new hz5(g());
+            this.i = new iz5(g());
+            this.j = new iz5(g());
             ViewGroup viewGroup = (ViewGroup) k();
             View view2 = new View(getContext());
             viewGroup.addView(this.i.c());

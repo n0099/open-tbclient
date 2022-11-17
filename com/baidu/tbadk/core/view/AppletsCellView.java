@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ot5;
+import com.baidu.tieba.pt5;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -222,7 +222,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!ot5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!pt5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }

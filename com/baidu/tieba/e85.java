@@ -1,33 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class e85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public final int c;
+    public final boolean d;
+    public a85 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947688231, "Lcom/baidu/tieba/e85;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public e85(View view2) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947688231, "Lcom/baidu/tieba/e85;");
+        this.a = -1;
+        this.b = view2;
+        this.c = h85.a(view2.getContext());
+        this.d = i85.c((Activity) view2.getContext());
+    }
+
+    public final a85 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            a85 a85Var = this.e;
+            if (a85Var != null) {
+                return a85Var;
+            }
+            if (view2 instanceof a85) {
+                a85 a85Var2 = (a85) view2;
+                this.e = a85Var2;
+                return a85Var2;
+            } else if (view2 instanceof ViewGroup) {
+                int i = 0;
+                while (true) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    if (i < viewGroup.getChildCount()) {
+                        a85 a = a(viewGroup.getChildAt(i));
+                        if (a != null) {
+                            this.e = a;
+                            return a;
+                        }
+                        i++;
+                    } else {
+                        return null;
+                    }
+                }
+            } else {
+                return null;
+            }
+        } else {
+            return (a85) invokeL.objValue;
         }
     }
 
-    public static boolean a(boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    @TargetApi(16)
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                i2 = rect.bottom - rect.top;
+            }
+            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
+            } else if (Math.abs(i4) == this.c) {
+                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
+            } else {
+                this.a = i2;
+                a85 a = a(this.b);
+                if (a == null) {
+                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
+                } else if (Math.abs(i4) < g85.f(this.b.getContext())) {
+                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
+                } else if (i4 > 0) {
+                    a.handleHide();
+                } else if (a.b() && a.isVisible()) {
+                    a.handleShow();
+                }
+            }
+        }
     }
 }

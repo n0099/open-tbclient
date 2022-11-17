@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
-import com.baidu.tieba.e27;
+import com.baidu.tieba.f27;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-import com.baidu.tieba.oe8;
+import com.baidu.tieba.pe8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,8 +49,8 @@ public class RecommendFrsStatic {
         tbHttpMessageTask2.setRetry(3);
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
-        e27.b().c();
-        oe8.c().d();
+        f27.b().c();
+        pe8.c().d();
     }
 
     public RecommendFrsStatic() {

@@ -71,12 +71,12 @@ public class mv extends jv {
 
             /* renamed from: com.baidu.tieba.mv$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0349a implements Runnable {
+            public class RunnableC0350a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0349a(a aVar) {
+                public RunnableC0350a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class mv extends jv {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0349a(this));
+                        this.a.a.post(new RunnableC0350a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {

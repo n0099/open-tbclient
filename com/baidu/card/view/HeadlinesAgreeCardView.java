@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.pu4;
+import com.baidu.tieba.qw4;
 import com.baidu.tieba.sx;
+import com.baidu.tieba.tr4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,7 +52,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public ou4 g;
+    public pu4 g;
     public az h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
@@ -251,7 +251,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pw4.d(this.e).v(R.color.CAM_X0109);
+            qw4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -310,17 +310,17 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
     }
 
     public void g() {
-        ou4 ou4Var;
+        pu4 pu4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ou4Var = this.g) != null && !TextUtils.isEmpty(ou4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pu4Var = this.g) != null && !TextUtils.isEmpty(pu4Var.a())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.a(), true)));
         }
     }
 
     public void h() {
-        ou4 ou4Var;
+        pu4 pu4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ou4Var = this.g) != null && !TextUtils.isEmpty(ou4Var.h())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pu4Var = this.g) != null && !TextUtils.isEmpty(pu4Var.h())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.h(), true)));
         }
     }
@@ -328,10 +328,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: i */
-    public void a(sr4 sr4Var) {
+    public void a(tr4 tr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, sr4Var) == null) && sr4Var != null && sr4Var.getThreadData() != null && sr4Var.getThreadData().getTaskInfoData() != null && sr4Var.getThreadData().getTaskInfoData().e() != null) {
-            ou4 e = sr4Var.getThreadData().getTaskInfoData().e();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) && tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null) {
+            pu4 e = tr4Var.getThreadData().getTaskInfoData().e();
             this.g = e;
             this.b.setData(e);
             this.i.clear();
@@ -340,7 +340,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<sr4> {
             if (!TextUtils.isEmpty(this.g.g())) {
                 this.e.setText(this.g.g());
             }
-            k(sr4Var.getThreadData());
+            k(tr4Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
             az azVar = this.h;
             if (azVar != null) {

@@ -26,15 +26,15 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu7;
 import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.fu7;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.qj;
-import com.baidu.tieba.qt7;
-import com.baidu.tieba.st7;
+import com.baidu.tieba.rt7;
+import com.baidu.tieba.tt7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -265,7 +265,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jv4.e {
+    public class b implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -290,18 +290,18 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921311, Integer.valueOf(this.a)));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements jv4.e {
+    public class c implements kv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionManageHorizontalView a;
@@ -324,11 +324,11 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             this.a = emotionManageHorizontalView;
         }
 
-        @Override // com.baidu.tieba.jv4.e
-        public void onClick(jv4 jv4Var) {
+        @Override // com.baidu.tieba.kv4.e
+        public void onClick(kv4 kv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jv4Var) == null) {
-                jv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+                kv4Var.dismiss();
             }
         }
     }
@@ -366,7 +366,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     }
 
     /* loaded from: classes5.dex */
-    public class e implements st7 {
+    public class e implements tt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionManageHorizontalView a;
@@ -389,7 +389,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             this.a = emotionManageHorizontalView;
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -398,7 +398,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             }
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -410,7 +410,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             }
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -504,7 +504,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !ViewHelper.checkUpIsLogin(this.m.getPageActivity())) {
             return;
         }
-        if (qt7.o().q()) {
+        if (rt7.o().q()) {
             yi.O(this.m.getPageActivity(), R.string.obfuscated_res_0x7f0f0605);
             return;
         }
@@ -607,12 +607,12 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         String a2 = qj.a(R.string.obfuscated_res_0x7f0f0577);
         String a3 = qj.a(R.string.obfuscated_res_0x7f0f0576);
         String a4 = qj.a(R.string.obfuscated_res_0x7f0f0575);
-        jv4 jv4Var = new jv4(this.m.getPageActivity());
-        jv4Var.setMessage(a2);
-        jv4Var.setPositiveButton(a3, new b(this, i));
-        jv4Var.setNegativeButton(a4, new c(this));
-        jv4Var.setOnCalcelListener(new d(this));
-        jv4Var.create(this.m).show();
+        kv4 kv4Var = new kv4(this.m.getPageActivity());
+        kv4Var.setMessage(a2);
+        kv4Var.setPositiveButton(a3, new b(this, i));
+        kv4Var.setNegativeButton(a4, new c(this));
+        kv4Var.setOnCalcelListener(new d(this));
+        kv4Var.create(this.m).show();
     }
 
     @Override // android.view.View.OnClickListener
@@ -645,7 +645,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             if (emotionPackageData.ishasdownload) {
                 this.e.setVisibility(8);
                 this.g.setVisibility(8);
-                if (eu7.b().a()) {
+                if (fu7.b().a()) {
                     this.h.setVisibility(0);
                 } else {
                     this.h.setVisibility(8);

@@ -24,9 +24,9 @@ import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds5;
+import com.baidu.tieba.es5;
 import com.baidu.tieba.og;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +39,16 @@ import java.util.List;
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds5 a;
+    public es5 a;
     public NavigationBar b;
     public View c;
     public View d;
-    public ds5.c e;
+    public es5.c e;
     public CustomMessageListener f;
     public final HttpMessageListener g;
 
     /* loaded from: classes3.dex */
-    public class a implements ds5.c {
+    public class a implements es5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // com.baidu.tieba.ds5.c
+        @Override // com.baidu.tieba.es5.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -126,7 +126,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
-                    if ((next instanceof y35) && userInfo.getUserId() == ((y35) next).d()) {
+                    if ((next instanceof z35) && userInfo.getUserId() == ((z35) next).d()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
@@ -342,7 +342,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f064d);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
             this.d = findViewById(R.id.obfuscated_res_0x7f0916d4);
-            this.a = new ds5(getPageContext(), this.d);
+            this.a = new es5(getPageContext(), this.d);
             this.d.setOnClickListener(dVar);
             this.a.l(this.e);
             TiebaStatic.log("add_new");

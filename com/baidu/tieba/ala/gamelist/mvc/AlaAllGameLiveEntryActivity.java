@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz5;
+import com.baidu.tieba.oz5;
 import com.baidu.tieba.view.NoScrollGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +45,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public NoScrollGridView f;
     public View g;
     public LinearLayout h;
-    public nz5 i;
+    public oz5 i;
     public int j;
     public ArrayList<AlaSquareTabInfo> k;
     public IAlaSquareTabController l;
@@ -189,7 +189,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
             }
             this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e8, (ViewGroup) null);
             this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091e22);
-            this.i = new nz5(getPageContext());
+            this.i = new oz5(getPageContext());
             NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901f3);
             this.f = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));

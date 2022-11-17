@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v47;
+import com.baidu.tieba.w47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,11 +68,11 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            v47.a = false;
-            if (v47.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-                this.resultData = v47.b();
-                v47.a = true;
-                v47.a();
+            w47.a = false;
+            if (w47.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+                this.resultData = w47.b();
+                w47.a = true;
+                w47.a();
             } else {
                 this.resultData = personalizedResIdl.data;
             }

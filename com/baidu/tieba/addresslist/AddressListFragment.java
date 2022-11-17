@@ -41,17 +41,17 @@ import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.model.AddressListModel;
 import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.tieba.addresslist.view.AssortView;
+import com.baidu.tieba.as5;
 import com.baidu.tieba.az4;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.gs5;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yr5;
+import com.baidu.tieba.z35;
 import com.baidu.tieba.zr5;
-import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, AssortView.a {
+public class AddressListFragment extends BaseFragment implements as5.a, az4.g, AssortView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AddressListModel a;
@@ -69,13 +69,13 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
     public d d;
     public e e;
     public long f;
-    public rq4 g;
+    public sq4 g;
     public View h;
     public AssortView i;
     public LinearLayout j;
-    public az4 k;
+    public bz4 k;
     public BdListView l;
-    public yr5 m;
+    public zr5 m;
     public TextView n;
     public ImageView o;
     public int p;
@@ -164,18 +164,18 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
                 this.a.l.A(0L);
                 if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                    fs5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                    gs5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
                     ArrayList arrayList = new ArrayList();
                     if (addressListData != null) {
-                        for (js5 js5Var : addressListData.a()) {
-                            List<y35> a = js5Var.a();
+                        for (ks5 ks5Var : addressListData.a()) {
+                            List<z35> a = ks5Var.a();
                             if (a.size() > 0) {
-                                y35 y35Var = new y35();
-                                y35Var.j(js5Var.b());
-                                arrayList.add(y35Var);
+                                z35 z35Var = new z35();
+                                z35Var.j(ks5Var.b());
+                                arrayList.add(z35Var);
                             }
-                            for (y35 y35Var2 : a) {
-                                arrayList.add(y35Var2);
+                            for (z35 z35Var2 : a) {
+                                arrayList.add(z35Var2);
                             }
                         }
                     }
@@ -224,7 +224,7 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                py4 k = py4.k();
+                qy4 k = qy4.k();
                 if (!k.h("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                     this.a.l.A(0L);
                 }
@@ -274,13 +274,13 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                     if (!StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) && !StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
-                        y35 y35Var = new y35();
-                        y35Var.j(responseNewFriendUpdateUiMsg.getKey());
-                        y35Var.l(responseNewFriendUpdateUiMsg.getQuanping());
-                        y35Var.m(responseNewFriendUpdateUiMsg.getFriendId());
-                        y35Var.n(responseNewFriendUpdateUiMsg.getName());
-                        y35Var.p(responseNewFriendUpdateUiMsg.getPortrait());
-                        this.a.a.z(y35Var);
+                        z35 z35Var = new z35();
+                        z35Var.j(responseNewFriendUpdateUiMsg.getKey());
+                        z35Var.l(responseNewFriendUpdateUiMsg.getQuanping());
+                        z35Var.m(responseNewFriendUpdateUiMsg.getFriendId());
+                        z35Var.n(responseNewFriendUpdateUiMsg.getName());
+                        z35Var.p(responseNewFriendUpdateUiMsg.getPortrait());
+                        this.a.a.z(z35Var);
                     }
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                     this.a.a.B(responseNewFriendUpdateUiMsg.getFriendId());
@@ -383,7 +383,7 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
     public void a1(String str) {
-        List<y35> C;
+        List<z35> C;
         int A;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (C = this.a.C()) != null && C.size() != 0 && (A = this.a.A(str)) >= 0) {
@@ -433,8 +433,8 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         }
     }
 
-    @Override // com.baidu.tieba.zr5.a
-    public void p(List<y35> list) {
+    @Override // com.baidu.tieba.as5.a
+    public void p(List<z35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             z1(list);
@@ -460,7 +460,7 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         }
     }
 
-    @Override // com.baidu.tieba.zy4.g
+    @Override // com.baidu.tieba.az4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -476,7 +476,7 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         }
     }
 
-    public final void z1(List<y35> list) {
+    public final void z1(List<z35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.m.e(list);
@@ -496,14 +496,14 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            rq4 rq4Var = this.g;
-            if (rq4Var != null) {
+            sq4 sq4Var = this.g;
+            if (sq4Var != null) {
                 if (i == 1) {
                     z = true;
                 } else {
                     z = false;
                 }
-                rq4Var.l(z);
+                sq4Var.l(z);
                 this.g.k(this.h);
                 this.g.k(this.j);
             }
@@ -548,7 +548,7 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
                 sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(getActivity(), 0, 1)));
                 TiebaStatic.log("contacts_mygp");
             } else {
-                y35 item = this.m.getItem(i);
+                z35 item = this.m.getItem(i);
                 if (item != null && item.d() > 0) {
                     if (item.h() == 1) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.d(), item.e(), item.g(), 0, 4)));
@@ -565,9 +565,9 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            py4 k = py4.k();
+            qy4 k = qy4.k();
             if (k.h("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                py4 k2 = py4.k();
+                qy4 k2 = qy4.k();
                 k2.u("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
         }
@@ -578,8 +578,8 @@ public class AddressListFragment extends BaseFragment implements zr5.a, zy4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, layoutInflater)) == null) {
             this.h = LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d007d, (ViewGroup) null);
-            this.k = new az4(this.q.getPageContext());
-            this.m = new yr5(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
+            this.k = new bz4(this.q.getPageContext());
+            this.m = new zr5(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null, false);
             this.j = linearLayout;
             linearLayout.setOnClickListener(this);

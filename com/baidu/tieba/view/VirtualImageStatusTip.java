@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.qn8;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.rn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.3f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b6b);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, qn8.a(qn8.f(str), n));
+                DrawableCompat.setTint(drawable, rn8.a(rn8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(j, 0, k, 0);
             }
@@ -190,7 +190,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     public void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.i) {
-            pw4.d(this.d).v(R.color.CAM_X0105);
+            qw4.d(this.d).v(R.color.CAM_X0105);
         }
     }
 
@@ -220,7 +220,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h.setVisibility(0);
             this.d.setText(R.string.obfuscated_res_0x7f0f1174);
-            pw4.d(this.d).z(R.dimen.T_X07);
+            qw4.d(this.d).z(R.dimen.T_X07);
             WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a6b, R.color.CAM_X0605, WebPManager.ResourceStateType.NORMAL);
             k("#FFFFFF", l, true);
         }
@@ -287,11 +287,11 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.8f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b6c);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, qn8.a(qn8.f(str), n));
+                DrawableCompat.setTint(drawable, rn8.a(rn8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X009), 0);
             }
-            pw4.d(this.d).v(R.color.CAM_X0611);
+            qw4.d(this.d).v(R.color.CAM_X0611);
         }
     }
 
@@ -348,10 +348,10 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             }
             this.d.setText(content);
             if (this.i) {
-                pw4.d(this.d).z(R.dimen.T_X07);
+                qw4.d(this.d).z(R.dimen.T_X07);
                 k(str, UtilHelper.getDimenPixelSize(R.dimen.tbds60), false);
             } else {
-                pw4.d(this.d).z(R.dimen.T_X08);
+                qw4.d(this.d).z(R.dimen.T_X08);
                 setBackground(str);
             }
             i();

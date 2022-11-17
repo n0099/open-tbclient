@@ -2,7 +2,7 @@ package rx.internal.util.atomic;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r2a;
+import com.baidu.tieba.s2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpscExactAtomicArrayQueue(int i) {
-        super(r2a.b(i));
+        super(s2a.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

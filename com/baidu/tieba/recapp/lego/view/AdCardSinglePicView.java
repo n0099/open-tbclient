@@ -9,9 +9,9 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh8;
-import com.baidu.tieba.gj7;
-import com.baidu.tieba.kh8;
+import com.baidu.tieba.hh8;
+import com.baidu.tieba.hj7;
+import com.baidu.tieba.lh8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -96,10 +96,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public void O(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            gh8 gh8Var = adCard.picInfo;
-            if (gh8Var != null && !gj7.e(gh8Var.c)) {
-                String str = gh8Var.c.get(0);
-                boolean o0 = o0(this.c0, adCard, gh8Var);
+            hh8 hh8Var = adCard.picInfo;
+            if (hh8Var != null && !hj7.e(hh8Var.c)) {
+                String str = hh8Var.c.get(0);
+                boolean o0 = o0(this.c0, adCard, hh8Var);
                 if (!TextUtils.isEmpty(str) && o0) {
                     this.o.setVisibility(0);
                     this.c0.g(str);
@@ -129,10 +129,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         }
     }
 
-    public boolean o0(View view2, AdCard adCard, @NonNull gh8 gh8Var) {
+    public boolean o0(View view2, AdCard adCard, @NonNull hh8 hh8Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, view2, adCard, gh8Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, view2, adCard, hh8Var)) == null) {
             if (adCard == null || view2 == null) {
                 return false;
             }
@@ -142,13 +142,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.B;
             int i2 = (int) (i * d);
-            int b = (int) (kh8.b(i) * d);
+            int b = (int) (lh8.b(i) * d);
             if (!adCard.isNeedResize()) {
                 p0(view2, b, i2);
                 return true;
             }
-            int i3 = gh8Var.e;
-            int i4 = gh8Var.d;
+            int i3 = hh8Var.e;
+            int i4 = hh8Var.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {

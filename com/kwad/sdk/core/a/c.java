@@ -6,11 +6,11 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final int[] Xr;
         public final boolean Xt;
@@ -187,7 +187,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static final b Xv = new b(false, null, -1, true);
         public static final b Xw = new b(true, null, -1, false);

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
-import com.baidu.tieba.s28;
+import com.baidu.tieba.t28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(s28 s28Var);
+        void a(t28 t28Var);
 
         void onFail(int i, String str);
     }

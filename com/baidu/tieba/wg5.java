@@ -1,44 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class wg5<T> extends xg5<T> {
+public class wg5 extends vg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract List<sr4> e();
-
-    public abstract List<ThreadData> f();
-
-    public void g(vg5 vg5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vg5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zg5
-    public tg5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (tg5) invokeV.objValue;
-    }
-
-    public void h(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-        }
-    }
-
-    public abstract List<xn> i(List<? extends xn> list);
+    public List<xn> a;
 
     public wg5() {
         Interceptable interceptable = $ic;
@@ -52,14 +23,5 @@ public abstract class wg5<T> extends xg5<T> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public final List<xn> d(List<? extends xn> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            return i(list);
-        }
-        return (List) invokeL.objValue;
     }
 }

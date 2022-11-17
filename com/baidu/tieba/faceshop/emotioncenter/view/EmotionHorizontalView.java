@@ -26,8 +26,8 @@ import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.qj;
-import com.baidu.tieba.st7;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.tt7;
+import com.baidu.tieba.ve6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -249,7 +249,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
     }
 
     /* loaded from: classes4.dex */
-    public class b implements st7 {
+    public class b implements tt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionHorizontalView a;
@@ -272,7 +272,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             this.a = emotionHorizontalView;
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -281,7 +281,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -293,7 +293,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.st7
+        @Override // com.baidu.tieba.tt7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -415,7 +415,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
             this.c.setText(String.format(qj.a(R.string.obfuscated_res_0x7f0f0d6a), StringHelper.numberUniform(this.h.download)));
             this.d.setText(String.format(qj.a(R.string.obfuscated_res_0x7f0f0d6f), StringHelper.numberUniform(this.h.share)));
-            ue6 c2 = ue6.c();
+            ve6 c2 = ve6.c();
             if (c2.e("" + this.h.id)) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f027f);
                 this.e.setBackgroundDrawable(null);

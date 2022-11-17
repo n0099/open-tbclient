@@ -2,8 +2,8 @@ package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.tieba.ei8;
-import com.baidu.tieba.lk7;
+import com.baidu.tieba.fi8;
+import com.baidu.tieba.mk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class YYRouterDispatcher implements ei8 {
+public class YYRouterDispatcher implements fi8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "bdtiebalive://video/yylive/router";
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +31,12 @@ public class YYRouterDispatcher implements ei8 {
         }
     }
 
-    @Override // com.baidu.tieba.ei8
+    @Override // com.baidu.tieba.fi8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             try {
-                lk7.d(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(jSONObject.optString("url"), IMAudioTransRequest.CHARSET));
+                mk7.d(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(jSONObject.optString("url"), IMAudioTransRequest.CHARSET));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

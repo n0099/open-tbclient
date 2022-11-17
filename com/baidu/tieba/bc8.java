@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bc8 extends l36<za8> {
+public class bc8 extends m36<za8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public ImageView j;
-    public TextView k;
-    public String l;
+    public TbImageView i;
+    public View j;
+    public View k;
 
-    @Override // com.baidu.tieba.l36
+    @Override // com.baidu.tieba.m36
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01aa : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,7 +35,7 @@ public class bc8 extends l36<za8> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc8(TbPageContext<?> tbPageContext) {
+    public bc8(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,61 +52,44 @@ public class bc8 extends l36<za8> {
                 return;
             }
         }
-        r(k());
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09057f);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09057e);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090580);
-        }
-    }
-
-    @Override // com.baidu.tieba.l36
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
-            }
-            this.a = i;
-        }
+        View k = k();
+        this.j = k;
+        this.i = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f0905fa);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0915a4);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l36
-    /* renamed from: s */
+    @Override // com.baidu.tieba.m36
+    /* renamed from: r */
     public void l(za8 za8Var) {
-        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, za8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, za8Var) == null) {
             if (za8Var == null) {
-                this.i.setVisibility(8);
-                return;
+                this.j.setVisibility(8);
             }
-            if (this.i.getVisibility() != 0) {
-                this.i.setVisibility(0);
-            }
-            if (StringUtils.isNull(this.l)) {
-                TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0ead);
-                Object[] objArr = new Object[1];
-                if (za8Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f166f);
-                } else if (za8Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f11cb);
-                } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f0865);
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = za8Var.a;
                 }
-                objArr[0] = string;
-                textView.setText(String.format(string2, objArr));
-                return;
+                if (layoutParams.height > 0) {
+                    layoutParams.height = za8Var.b;
+                }
             }
-            this.k.setText(this.l);
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            m(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    @Override // com.baidu.tieba.m36
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

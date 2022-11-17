@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface k46 {
-    void j(boolean z);
+    void a(String str);
+
+    void p(int i);
 }

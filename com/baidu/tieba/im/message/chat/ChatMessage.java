@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.jb7;
+import com.baidu.tieba.kb7;
 import com.baidu.tieba.na;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xn;
@@ -56,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<jb7> iceBreakEmotions;
+    public List<kb7> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<da7> itemViewWeakReference;
+    public WeakReference<ea7> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -328,7 +328,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         return invokeV.intValue;
     }
 
-    public List<jb7> getIceBreakEmotions() {
+    public List<kb7> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -356,17 +356,17 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
     }
 
     @Nullable
-    public da7 getItemView() {
+    public ea7 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<da7> weakReference = this.itemViewWeakReference;
+            WeakReference<ea7> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (da7) invokeV.objValue;
+        return (ea7) invokeV.objValue;
     }
 
     public String getLink() {
@@ -644,24 +644,24 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable da7 da7Var) {
-        WeakReference<da7> weakReference;
+    public void setItemView(@Nullable ea7 ea7Var) {
+        WeakReference<ea7> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, da7Var) == null) {
-            if (da7Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, ea7Var) == null) {
+            if (ea7Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<da7> weakReference2 = this.itemViewWeakReference;
+            WeakReference<ea7> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == da7Var) {
+                if (weakReference2.get() == ea7Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(da7Var);
+            this.itemViewWeakReference = new WeakReference<>(ea7Var);
         }
     }
 
@@ -735,7 +735,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         }
     }
 
-    public void setIceBreakEmotions(List<jb7> list) {
+    public void setIceBreakEmotions(List<kb7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

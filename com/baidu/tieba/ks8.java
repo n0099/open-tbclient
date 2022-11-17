@@ -1,7 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.LoginActivity;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.interest.InterestPanelShowManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,23 +23,14 @@ public class ks8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final rs8 b;
-    public final qs8 c;
-    public final ss8 d;
-    public final ns8 e;
-    public final js8 f;
-    public final ms8 g;
-    public final ls8 h;
-    public final is8 i;
-    public final ps8 j;
-    public final os8 k;
+    public boolean b;
 
-    public ks8(MainTabActivity mainTabActivity, zr8 zr8Var) {
+    public ks8(MainTabActivity mainTabActivity, as8 as8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zr8Var};
+            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,105 +41,100 @@ public class ks8 {
             }
         }
         this.a = mainTabActivity;
-        this.b = new rs8(mainTabActivity, zr8Var);
-        this.c = new qs8(mainTabActivity, zr8Var);
-        this.d = new ss8();
-        this.e = new ns8(mainTabActivity, zr8Var);
-        this.f = new js8(mainTabActivity, zr8Var);
-        this.g = new ms8(mainTabActivity, zr8Var);
-        this.h = new ls8(mainTabActivity, zr8Var);
-        this.i = new is8(mainTabActivity, zr8Var);
-        this.j = new ps8(mainTabActivity, zr8Var);
-        this.k = new os8(mainTabActivity);
     }
 
-    public is8 a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
+            return;
         }
-        return (is8) invokeV.objValue;
+        if (c() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
+            this.b = true;
+            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
+            if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
+                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0943), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0944), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093f)});
+                interestGuideActivityConfig.setScene(10);
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
+        }
+        qy4.k().x("key_app_launch_time", System.currentTimeMillis());
+        b();
     }
 
-    public js8 b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+            return;
         }
-        return (js8) invokeV.objValue;
+        TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
+        if (UbsABTestHelper.isFirstLoginTestA()) {
+            if (!TbadkCoreApplication.isLogin() && !LoginActivity.class.getName().equals(yi.y())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+            }
+        } else if (UbsABTestHelper.isFirstLoginTestB()) {
+            if (TbadkApplication.getInst().isNeedNewUserLead()) {
+                InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
+                interestGuideActivityConfig.setRequestCode(25060);
+                interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+            }
+        } else if (TbadkApplication.getInst().isNeedNewUserLead()) {
+            InterestGuideActivityConfig interestGuideActivityConfig2 = new InterestGuideActivityConfig(this.a, 4);
+            interestGuideActivityConfig2.setRequestCode(25060);
+            interestGuideActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig2));
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
+        }
     }
 
-    public ls8 c() {
+    public final boolean c() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+            Activity b = n9.g().b();
+            if (b != null) {
+                str = b.getLocalClassName();
+            } else {
+                str = "";
+            }
+            if (!str.contains("MainTabActivity") && !str.contains("FrsActivity") && !str.contains("PbActivity") && !str.contains("NewSquareSearchActivity") && !str.contains("PbCommentFloatActivity")) {
+                return false;
+            }
+            return true;
         }
-        return (ls8) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ms8 d() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || TbSingleton.getInstance().hasPerformInterestPanelShow) {
+            return;
         }
-        return (ms8) invokeV.objValue;
-    }
-
-    public ns8 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        TbSingleton.getInstance().hasPerformInterestPanelShow = true;
+        if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+            InterestPanelShowManager.a().d(this.a);
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
-        return (ns8) invokeV.objValue;
-    }
-
-    public os8 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
+        qy4.k().x("key_app_launch_time", System.currentTimeMillis());
+        b();
+        if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
+            InterestPanelShowManager.a().d(this.a);
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
-        return (os8) invokeV.objValue;
-    }
-
-    public ps8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
+        if (UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
+            InterestPanelShowManager.a().d(this.a);
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
-        return (ps8) invokeV.objValue;
-    }
-
-    public qs8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (qs8) invokeV.objValue;
-    }
-
-    public rs8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (rs8) invokeV.objValue;
-    }
-
-    public ss8 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (ss8) invokeV.objValue;
     }
 }

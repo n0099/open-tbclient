@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.processor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.tieba.fg0;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.ij9;
 import com.baidu.tieba.ng0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,11 +40,11 @@ public class TemplateEffectProcessor extends BaseEffectProcessor {
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= hj9.b(fg0Var.l())) {
+                if (i3 >= ij9.b(fg0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) hj9.c(fg0Var.l(), i3);
+                MediaTrack mediaTrack = (MediaTrack) ij9.c(fg0Var.l(), i3);
                 if (mediaTrack != null && ng0.m(mediaTrack, "template_effect")) {
                     i2 = fg0Var.i(mediaTrack, i, null);
                     break;

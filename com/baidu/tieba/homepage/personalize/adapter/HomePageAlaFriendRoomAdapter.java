@@ -13,44 +13,44 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.g57;
+import com.baidu.tieba.a56;
+import com.baidu.tieba.h57;
 import com.baidu.tieba.kn;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.l46;
 import com.baidu.tieba.lq5;
-import com.baidu.tieba.t36;
-import com.baidu.tieba.wd5;
-import com.baidu.tieba.z46;
+import com.baidu.tieba.m46;
+import com.baidu.tieba.mq5;
+import com.baidu.tieba.u36;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadViewHolder> implements lq5 {
+public class HomePageAlaFriendRoomAdapter extends kn<a56, HomePageAlaLiveThreadViewHolder> implements mq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public t36 c;
+    public u36 c;
     public NEGFeedBackView.b d;
     public String e;
-    public l46<z46> f;
+    public m46<a56> f;
 
     /* loaded from: classes4.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public t36 a;
+        public u36 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HomePageAlaLiveThreadViewHolder(t36 t36Var) {
-            super(t36Var.k());
+        public HomePageAlaLiveThreadViewHolder(u36 u36Var) {
+            super(u36Var.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t36Var};
+                Object[] objArr = {u36Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,12 +61,12 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
                     return;
                 }
             }
-            this.a = t36Var;
+            this.a = u36Var;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a extends l46<z46> {
+    public class a extends m46<a56> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageAlaFriendRoomAdapter b;
@@ -96,23 +96,23 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
             if (r5.getId() == r4.b.c.M().getId()) goto L6;
          */
-        @Override // com.baidu.tieba.l46
+        @Override // com.baidu.tieba.m46
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(View view2, z46 z46Var) {
+        public void a(View view2, a56 a56Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z46Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, a56Var) == null) {
                 int i = 2;
                 if (this.b.c.w == view2) {
                     i = 1;
                 } else if (view2 == this.b.c.l.getCommentContainer()) {
-                    this.b.u(z46Var, view2);
+                    this.b.u(a56Var, view2);
                     i = 5;
                 } else {
                     if (view2 == this.b.c.m.getCommentContainer()) {
-                        this.b.u(z46Var, view2);
+                        this.b.u(a56Var, view2);
                     } else {
                         if (this.b.c.L() != null) {
                         }
@@ -122,7 +122,7 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
                     i = 0;
                 }
                 if (i != 0) {
-                    g57.d(z46Var.a, this.b.a, z46Var.n(), i);
+                    h57.d(a56Var.a, this.b.a, a56Var.n(), i);
                 }
             }
         }
@@ -152,7 +152,7 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
         this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.lq5
+    @Override // com.baidu.tieba.mq5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -167,24 +167,24 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
         }
     }
 
-    public final void u(z46 z46Var, View view2) {
+    public final void u(a56 a56Var, View view2) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, z46Var, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, a56Var, view2) == null) {
             String str2 = "";
-            if (z46Var == null || z46Var.getThreadData() == null) {
+            if (a56Var == null || a56Var.getThreadData() == null) {
                 str = "";
             } else {
-                str2 = z46Var.getThreadData().getTid();
-                str = z46Var.getThreadData().getNid();
+                str2 = a56Var.getThreadData().getTid();
+                str = a56Var.getThreadData().getNid();
             }
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 1);
             statisticItem.param("obj_type", 5);
             statisticItem.param("tid", str2);
-            statisticItem.param("obj_source", z46Var.r());
+            statisticItem.param("obj_source", a56Var.r());
             statisticItem.param("nid", str);
-            wd5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            xd5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }
@@ -202,9 +202,9 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            t36 t36Var = new t36(this.b, this.a);
-            this.c = t36Var;
-            t36Var.C(2);
+            u36 u36Var = new u36(this.b, this.a);
+            this.c = u36Var;
+            u36Var.C(2);
             BdUniqueId bdUniqueId = this.a;
             if (bdUniqueId != null) {
                 this.c.S(bdUniqueId);
@@ -217,25 +217,25 @@ public class HomePageAlaFriendRoomAdapter extends kn<z46, HomePageAlaLiveThreadV
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: w */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z46 z46Var, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a56 a56Var, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z46Var, homePageAlaLiveThreadViewHolder})) == null) {
-            z46Var.I(z46Var.position + 1);
-            z46Var.a.statFloor = z46Var.n();
-            t36 t36Var = homePageAlaLiveThreadViewHolder.a;
-            if (t36Var instanceof kq5) {
-                t36Var.b(this.e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a56Var, homePageAlaLiveThreadViewHolder})) == null) {
+            a56Var.I(a56Var.position + 1);
+            a56Var.a.statFloor = a56Var.n();
+            u36 u36Var = homePageAlaLiveThreadViewHolder.a;
+            if (u36Var instanceof lq5) {
+                u36Var.b(this.e);
             }
             homePageAlaLiveThreadViewHolder.a.U(i + 1);
-            homePageAlaLiveThreadViewHolder.a.l(z46Var);
+            homePageAlaLiveThreadViewHolder.a.l(a56Var);
             homePageAlaLiveThreadViewHolder.a.n(this.f);
             homePageAlaLiveThreadViewHolder.a.B(this.d);
-            g57.i(z46Var.a, this.a, z46Var.n());
-            if (z46Var.getThreadData() != null && z46Var.getThreadData().getThreadAlaInfo() != null) {
+            h57.i(a56Var.a, this.a, a56Var.n());
+            if (a56Var.getThreadData() != null && a56Var.getThreadData().getThreadAlaInfo() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_param1", z46Var.getThreadData().getThreadAlaInfo().live_id);
+                statisticItem.param("obj_param1", a56Var.getThreadData().getThreadAlaInfo().live_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
             }

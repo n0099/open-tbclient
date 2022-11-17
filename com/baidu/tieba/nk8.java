@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class nk8 implements t10 {
+public class nk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mk8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nk8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t10
-    public String getAppVersion() {
+    public static synchronized mk8 a() {
         InterceptResult invokeV;
+        mk8 mk8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (nk8.class) {
+                if (a == null) {
+                    a = new mk8();
+                }
+                mk8Var = a;
+            }
+            return mk8Var;
         }
-        return (String) invokeV.objValue;
+        return (mk8) invokeV.objValue;
     }
 }

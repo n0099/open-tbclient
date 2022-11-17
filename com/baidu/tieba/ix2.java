@@ -30,7 +30,7 @@ public class ix2 implements yi3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.ix2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0311a {
+        public static class C0315a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class ix2 implements yi3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0311a.a;
+                return C0315a.a;
             }
             return (a) invokeV.objValue;
         }

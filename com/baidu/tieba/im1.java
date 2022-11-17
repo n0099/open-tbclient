@@ -45,22 +45,22 @@ public class im1 implements mo1 {
         public boolean c;
         public String d;
         public bs2 e;
-        public HandlerC0307b f;
+        public HandlerC0311b f;
         public a g;
 
         /* loaded from: classes4.dex */
         public class a extends np2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0307b a;
+            public HandlerC0311b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0307b handlerC0307b) {
+            public a(b bVar, HandlerC0311b handlerC0311b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0307b};
+                    Object[] objArr = {bVar, handlerC0311b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class im1 implements mo1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0307b;
+                this.a = handlerC0311b;
             }
 
             @Override // com.baidu.tieba.np2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class im1 implements mo1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0307b handlerC0307b = this.a;
-                        if (handlerC0307b != null) {
-                            handlerC0307b.removeMessages(1);
+                        HandlerC0311b handlerC0311b = this.a;
+                        if (handlerC0311b != null) {
+                            handlerC0311b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -97,13 +97,13 @@ public class im1 implements mo1 {
 
         /* renamed from: com.baidu.tieba.im1$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class HandlerC0307b extends Handler {
+        public static class HandlerC0311b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public HandlerC0307b(Context context) {
+            public HandlerC0311b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class im1 implements mo1 {
                 this.a = new WeakReference<>(context);
             }
 
-            public /* synthetic */ HandlerC0307b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0311b(Context context, a aVar) {
                 this(context);
             }
 
@@ -184,7 +184,7 @@ public class im1 implements mo1 {
             this.c = eh3.c(bundle, "compressed", false);
             this.d = eh3.g(bundle, "swanTmpPath");
             this.e = bs2Var;
-            this.f = new HandlerC0307b(context, null);
+            this.f = new HandlerC0311b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -255,9 +255,9 @@ public class im1 implements mo1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0307b handlerC0307b = this.f;
-                if (handlerC0307b != null) {
-                    handlerC0307b.sendEmptyMessage(1);
+                HandlerC0311b handlerC0311b = this.f;
+                if (handlerC0311b != null) {
+                    handlerC0311b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -288,9 +288,9 @@ public class im1 implements mo1 {
                         }
                     }
                 }
-                HandlerC0307b handlerC0307b2 = this.f;
-                if (handlerC0307b2 != null) {
-                    handlerC0307b2.sendEmptyMessage(2);
+                HandlerC0311b handlerC0311b2 = this.f;
+                if (handlerC0311b2 != null) {
+                    handlerC0311b2.sendEmptyMessage(2);
                 }
                 bs2 bs2Var = this.e;
                 if (bs2Var != null) {

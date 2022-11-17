@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AwardUser;
+import tbclient.AwardInfo;
 /* loaded from: classes3.dex */
 public class ds4 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,14 +24,14 @@ public class ds4 {
         }
     }
 
-    public void a(AwardUser awardUser) {
+    public void a(AwardInfo awardInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, awardUser) != null) || awardUser == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, awardInfo) != null) || awardInfo == null) {
             return;
         }
-        awardUser.user_id.longValue();
-        String str = awardUser.user_name;
-        String str2 = awardUser.award_name;
-        awardUser.award_time.intValue();
+        awardInfo.award_id.longValue();
+        awardInfo.award_act_id.longValue();
+        String str = awardInfo.award_name;
+        String str2 = awardInfo.award_imgsrc;
     }
 }

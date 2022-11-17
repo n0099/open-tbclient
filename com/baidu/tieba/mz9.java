@@ -3,36 +3,21 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
 import org.webrtc.CalledByNative;
-import org.webrtc.VideoCodecInfo;
 import org.webrtc.VideoDecoder;
-import org.webrtc.VideoDecoderFactory;
-/* compiled from: VideoDecoderFactory.java */
+/* compiled from: VideoDecoder.java */
 /* loaded from: classes5.dex */
 public final /* synthetic */ class mz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    @Deprecated
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
-        }
-        return (VideoDecoder) invokeLL.objValue;
-    }
-
-    @Nullable
     @CalledByNative
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, VideoCodecInfo videoCodecInfo) {
-        InterceptResult invokeLL;
+    public static long $default$createNativeVideoDecoder(VideoDecoder videoDecoder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, videoDecoderFactory, videoCodecInfo)) == null) {
-            return videoDecoderFactory.createDecoder(videoCodecInfo.getName());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoDecoder)) == null) {
+            return 0L;
         }
-        return (VideoDecoder) invokeLL.objValue;
+        return invokeL.longValue;
     }
 }

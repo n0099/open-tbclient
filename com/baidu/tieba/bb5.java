@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes3.dex */
 public interface bb5 {
     @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final bb5 b;
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
 
-    boolean a(@NonNull String str);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(boolean z, boolean z2);
 
-    @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
-
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (bb5) ServiceManager.getService(serviceReference);
+        void b(boolean z);
     }
+
+    void a();
+
+    void b(@Nullable a aVar);
+
+    void c();
+
+    @NonNull
+    Fragment d(@NonNull String str);
+
+    void hide();
+
+    void show();
 }

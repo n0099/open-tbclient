@@ -1,78 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.su9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public class lk9 extends kk9 {
+public abstract class lk9 implements kk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public boolean b;
+    public boolean c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
 
-    /* loaded from: classes4.dex */
-    public class a implements su9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ lk9 c;
-
-        public a(lk9 lk9Var, AtomicBoolean atomicBoolean, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lk9Var, atomicBoolean, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = lk9Var;
-            this.a = atomicBoolean;
-            this.b = obj;
-        }
-
-        @Override // com.baidu.tieba.su9.c
-        public void a(int i, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-                this.c.g = i;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.su9.c
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.c.d = str;
-                this.c.b = z;
-                this.c.c = true;
-                this.c.g = 0;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lk9(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,46 +30,122 @@ public class lk9 extends kk9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
         this.g = -200;
+        if (context != null) {
+            this.a = context.getApplicationContext();
+        }
     }
 
-    @Override // com.baidu.tieba.jk9
-    public jk9 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kk9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n();
-            return this;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
         }
-        return (jk9) invokeV.objValue;
     }
 
-    public jk9 n() {
+    @Override // com.baidu.tieba.kk9
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = new Object();
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            su9.d(this.a, new a(this, atomicBoolean, obj));
-            synchronized (obj) {
-                if (!atomicBoolean.get()) {
-                    try {
-                        obj.wait(4000L);
-                    } catch (InterruptedException unused) {
-                    }
-                }
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (jk9) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public String getAAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public String getOAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public int getStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public String getVAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kk9
+    public boolean isSupport() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

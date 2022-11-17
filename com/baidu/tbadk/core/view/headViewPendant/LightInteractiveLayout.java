@@ -40,8 +40,8 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.tz4;
 import com.baidu.tieba.uz4;
+import com.baidu.tieba.vz4;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public uz4 f;
+    public vz4 f;
     public Context g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -484,13 +484,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(uz4 uz4Var) {
+    public void setOnDismissListener(vz4 vz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, uz4Var) == null) {
-            this.f = uz4Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, vz4Var) == null) {
+            this.f = vz4Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.i(uz4Var);
+                lightEmotionAdapter.i(vz4Var);
             }
         }
     }
@@ -531,9 +531,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.A != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.g, this.A.getUserId(), this.A.getUserName())));
-            uz4 uz4Var = this.f;
-            if (uz4Var != null) {
-                uz4Var.onClose();
+            vz4 vz4Var = this.f;
+            if (vz4Var != null) {
+                vz4Var.onClose();
             }
         }
     }
@@ -626,9 +626,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!z(this.b, this.v, rawY)) {
-                    uz4 uz4Var = this.f;
-                    if (uz4Var != null) {
-                        uz4Var.onClose();
+                    vz4 vz4Var = this.f;
+                    if (vz4Var != null) {
+                        vz4Var.onClose();
                         return true;
                     }
                     return true;
@@ -656,7 +656,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 D(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    tz4.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    uz4.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();

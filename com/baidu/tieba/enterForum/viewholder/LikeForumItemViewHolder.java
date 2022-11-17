@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ed5;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
-import com.baidu.tieba.gb6;
-import com.baidu.tieba.gu4;
-import com.baidu.tieba.qs4;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.hb6;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.rs4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,15 +53,15 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qs4 a;
+        public final /* synthetic */ rs4 a;
         public final /* synthetic */ LikeForumItemViewHolder b;
 
-        public a(LikeForumItemViewHolder likeForumItemViewHolder, qs4 qs4Var) {
+        public a(LikeForumItemViewHolder likeForumItemViewHolder, rs4 rs4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {likeForumItemViewHolder, qs4Var};
+                Object[] objArr = {likeForumItemViewHolder, rs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,7 +72,7 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
                 }
             }
             this.b = likeForumItemViewHolder;
-            this.a = qs4Var;
+            this.a = rs4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -82,9 +82,9 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("info_forum_image_rect", this.b.f());
                 bundle.putParcelable("info_forum_name_rect", this.b.g());
-                ed5 ed5Var = new ed5(1, this.a, null, null);
-                ed5Var.g(bundle);
-                this.b.h.dispatchMvcEvent(ed5Var);
+                fd5 fd5Var = new fd5(1, this.a, null, null);
+                fd5Var.g(bundle);
+                this.b.h.dispatchMvcEvent(fd5Var);
             }
         }
     }
@@ -93,15 +93,15 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
     public class b implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qs4 a;
+        public final /* synthetic */ rs4 a;
         public final /* synthetic */ LikeForumItemViewHolder b;
 
-        public b(LikeForumItemViewHolder likeForumItemViewHolder, qs4 qs4Var) {
+        public b(LikeForumItemViewHolder likeForumItemViewHolder, rs4 rs4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {likeForumItemViewHolder, qs4Var};
+                Object[] objArr = {likeForumItemViewHolder, rs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,7 +112,7 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
                 }
             }
             this.b = likeForumItemViewHolder;
-            this.a = qs4Var;
+            this.a = rs4Var;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -200,12 +200,12 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    public void e(gb6 gb6Var) {
+    public void e(hb6 hb6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, gb6Var) != null) || gb6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hb6Var) != null) || hb6Var == null) {
             return;
         }
-        j(gb6Var);
+        j(hb6Var);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f080942, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
@@ -247,58 +247,58 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         textView.getViewTreeObserver().addOnGlobalLayoutListener(new c(this, textView, i));
     }
 
-    public final void j(qs4 qs4Var) {
+    public final void j(rs4 rs4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, qs4Var) != null) || qs4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, rs4Var) != null) || rs4Var == null) {
             return;
         }
         this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         this.b.setVisibility(0);
         this.c.setVisibility(0);
-        if (qs4Var instanceof gb6) {
-            gb6 gb6Var = (gb6) qs4Var;
-            this.c.setText(gb6Var.r());
+        if (rs4Var instanceof hb6) {
+            hb6 hb6Var = (hb6) rs4Var;
+            this.c.setText(hb6Var.r());
             ImageView imageView = this.d;
-            if (gb6Var.G() == 0) {
+            if (hb6Var.G() == 0) {
                 i = 8;
             } else {
                 i = 0;
             }
             imageView.setVisibility(i);
-            if (gb6Var.n() == 0) {
+            if (hb6Var.n() == 0) {
                 this.e.setVisibility(8);
             } else {
                 this.e.setVisibility(0);
-                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(gb6Var.n()));
+                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(hb6Var.n()));
             }
             this.f.setShowOval(true);
-            this.f.K(gb6Var.h(), 10, false);
+            this.f.K(hb6Var.h(), 10, false);
             this.f.setShowOuterBorder(false);
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f08b9), StringHelper.numberUniformFormatExtraWithRoundInt(gb6Var.A())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f08b9), StringHelper.numberUniformFormatExtraWithRoundInt(hb6Var.A())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            if (YYLiveUtil.isLiveRoom(gb6Var.r())) {
+            if (YYLiveUtil.isLiveRoom(hb6Var.r())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem);
                 TiebaStatic.log(statisticItem);
             }
-        } else if (qs4Var instanceof gu4) {
-            gu4 gu4Var = (gu4) qs4Var;
-            this.c.setText(gu4Var.l());
+        } else if (rs4Var instanceof hu4) {
+            hu4 hu4Var = (hu4) rs4Var;
+            this.c.setText(hu4Var.l());
             this.d.setVisibility(8);
             this.e.setVisibility(8);
-            if (YYLiveUtil.isLiveRoom(gu4Var.l())) {
+            if (YYLiveUtil.isLiveRoom(hu4Var.l())) {
                 StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem2);
                 TiebaStatic.log(statisticItem2);
             }
         }
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-        this.b.setOnClickListener(new a(this, qs4Var));
-        this.b.setOnLongClickListener(new b(this, qs4Var));
+        this.b.setOnClickListener(new a(this, rs4Var));
+        this.b.setOnLongClickListener(new b(this, rs4Var));
         i(this.c, 0);
     }
 }

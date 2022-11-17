@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.tr4;
 import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class oy<T extends sr4> implements tx, kq5 {
+public class oy<T extends tr4> implements tx, lq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sx<T> a;
@@ -50,7 +50,7 @@ public class oy<T extends sr4> implements tx, kq5 {
     public int p;
     public zy.a q;
 
-    @Override // com.baidu.tieba.kq5
+    @Override // com.baidu.tieba.lq5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -306,25 +306,25 @@ public class oy<T extends sr4> implements tx, kq5 {
         }
     }
 
-    public void p(l46<T> l46Var) {
+    public void p(m46<T> m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, l46Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, m46Var) == null) {
             ax<T> axVar = this.g;
             if (axVar != null) {
-                axVar.p(l46Var);
+                axVar.p(m46Var);
             }
             ax<T> axVar2 = this.h;
             if (axVar2 != null) {
-                axVar2.p(l46Var);
+                axVar2.p(m46Var);
             }
             for (hx hxVar : this.i) {
                 if (hxVar != null) {
-                    hxVar.p(l46Var);
+                    hxVar.p(m46Var);
                 }
             }
             ax<T> axVar3 = this.j;
             if (axVar3 != null) {
-                axVar3.p(l46Var);
+                axVar3.p(m46Var);
             }
         }
     }
@@ -656,7 +656,7 @@ public class oy<T extends sr4> implements tx, kq5 {
                 this.d.setTag(R.id.obfuscated_res_0x7f092658, null);
                 this.g.a(t);
                 ax<T> axVar = this.g;
-                if (axVar instanceof n39) {
+                if (axVar instanceof o39) {
                     this.d.setTag(R.id.obfuscated_res_0x7f092658, axVar);
                 }
             }
@@ -702,7 +702,7 @@ public class oy<T extends sr4> implements tx, kq5 {
             if (axVar != null) {
                 axVar.onChangeSkinType(tbPageContext, i);
                 if (this.j == null && ((t2 = this.n) == null || !t2.isSupportContent())) {
-                    pw4 d = pw4.d(this.d);
+                    qw4 d = qw4.d(this.d);
                     d.m(1);
                     d.n(R.string.J_X06);
                     d.f(this.m.h);
@@ -721,14 +721,14 @@ public class oy<T extends sr4> implements tx, kq5 {
             if (axVar3 != null) {
                 axVar3.onChangeSkinType(tbPageContext, i);
                 if (this.g == null && ((t = this.n) == null || !t.isSupportContent())) {
-                    pw4 d2 = pw4.d(this.d);
+                    qw4 d2 = qw4.d(this.d);
                     d2.m(2);
                     d2.n(R.string.J_X06);
                     d2.f(this.m.h);
                 }
             }
             if (this.g != null && this.j != null) {
-                pw4 d3 = pw4.d(this.d);
+                qw4 d3 = qw4.d(this.d);
                 d3.n(R.string.J_X06);
                 d3.i(this.m.h, R.color.CAM_X0206);
             }

@@ -24,7 +24,7 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.sk7;
+import com.baidu.tieba.tk7;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public sk7 m;
+    public tk7 m;
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -201,9 +201,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            sk7 sk7Var = this.m;
-            if (sk7Var != null) {
-                sk7Var.d();
+            tk7 tk7Var = this.m;
+            if (tk7Var != null) {
+                tk7Var.d();
             }
         }
     }
@@ -234,10 +234,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void D1() {
-        sk7 sk7Var;
+        tk7 tk7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (sk7Var = this.m) != null) {
-            if (ListUtils.isEmpty(sk7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (tk7Var = this.m) != null) {
+            if (ListUtils.isEmpty(tk7Var.b())) {
                 this.m.c();
             }
             this.m.e(xg.g(this.g, 0L), this.i, this.l);
@@ -268,9 +268,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f024e, R.drawable.obfuscated_res_0x7f080938, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        sk7 sk7Var = this.m;
-        if (sk7Var != null) {
-            sk7Var.c();
+        tk7 tk7Var = this.m;
+        if (tk7Var != null) {
+            tk7Var.c();
         }
     }
 
@@ -292,7 +292,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new sk7(getPageContext());
+            this.m = new tk7(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");

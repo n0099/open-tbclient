@@ -33,11 +33,11 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.share.ImShareDialogView;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.wd7;
-import com.baidu.tieba.wm5;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.xd7;
+import com.baidu.tieba.xm5;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class ImShareDialogView extends LinearLayout {
     public SpanGroupEditText m;
     public TextView n;
     public TextView o;
-    public wd7 p;
+    public xd7 p;
     public CustomMessageListener q;
 
     /* loaded from: classes4.dex */
@@ -185,9 +185,9 @@ public class ImShareDialogView extends LinearLayout {
     }
 
     public /* synthetic */ void i(View view2) {
-        wd7 wd7Var = this.p;
-        if (wd7Var != null) {
-            wd7Var.a();
+        xd7 xd7Var = this.p;
+        if (xd7Var != null) {
+            xd7Var.a();
         }
     }
 
@@ -203,10 +203,10 @@ public class ImShareDialogView extends LinearLayout {
         }
     }
 
-    public void setShareClickCallBack(wd7 wd7Var) {
+    public void setShareClickCallBack(xd7 xd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, wd7Var) == null) {
-            this.p = wd7Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, xd7Var) == null) {
+            this.p = xd7Var;
         }
     }
 
@@ -299,7 +299,7 @@ public class ImShareDialogView extends LinearLayout {
             if (threadData != null && threadData.isShareThread && threadData.originalThreadData != null) {
                 SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) "//");
                 OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-                return new SpannableString(append.append((CharSequence) new SpannableString(wm5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
+                return new SpannableString(append.append((CharSequence) new SpannableString(xm5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
             }
             return charSequence;
         }
@@ -345,43 +345,43 @@ public class ImShareDialogView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            pw4 d = pw4.d(this);
+            qw4 d = qw4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
-            pw4.d(this.a).v(R.color.CAM_X0109);
-            pw4 d2 = pw4.d(this.b);
+            qw4.d(this.a).v(R.color.CAM_X0109);
+            qw4 d2 = qw4.d(this.b);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0207);
-            pw4.d(this.f).v(R.color.CAM_X0107);
-            pw4 d3 = pw4.d(this.g);
+            qw4.d(this.f).v(R.color.CAM_X0107);
+            qw4 d3 = qw4.d(this.g);
             d3.n(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            pw4 d4 = pw4.d(this.i);
+            qw4 d4 = qw4.d(this.i);
             d4.v(R.color.CAM_X0105);
             d4.A(R.string.F_X02);
-            pw4.d(this.j).v(R.color.CAM_X0107);
-            pw4.d(this.k).v(R.color.CAM_X0109);
-            pw4.d(this.l).v(R.color.CAM_X0109);
+            qw4.d(this.j).v(R.color.CAM_X0107);
+            qw4.d(this.k).v(R.color.CAM_X0109);
+            qw4.d(this.l).v(R.color.CAM_X0109);
             this.h.setStrokeColorResId(R.color.CAM_X0401);
-            pw4 d5 = pw4.d(this.m);
+            qw4 d5 = qw4.d(this.m);
             d5.n(R.string.J_X05);
             d5.f(R.color.CAM_X0207);
             this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                y39.l(this.m, R.drawable.obfuscated_res_0x7f0804c2);
+                z39.l(this.m, R.drawable.obfuscated_res_0x7f0804c2);
             } else {
-                y39.l(this.m, R.drawable.obfuscated_res_0x7f0804c3);
+                z39.l(this.m, R.drawable.obfuscated_res_0x7f0804c3);
             }
             this.m.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
-            pw4.d(this.n).x(R.color.CAM_X0107);
-            pw4.d(this.o).x(R.color.CAM_X0304);
+            qw4.d(this.n).x(R.color.CAM_X0107);
+            qw4.d(this.o).x(R.color.CAM_X0304);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ud7
+            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vd7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -393,7 +393,7 @@ public class ImShareDialogView extends LinearLayout {
                     }
                 }
             });
-            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.td7
+            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ud7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

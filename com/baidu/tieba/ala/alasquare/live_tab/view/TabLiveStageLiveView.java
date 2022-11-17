@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sv5;
-import com.baidu.tieba.tj5;
+import com.baidu.tieba.tv5;
+import com.baidu.tieba.uj5;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -79,28 +79,28 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (sv5.d(this.a.j)) {
+                if (tv5.d(this.a.j)) {
                     if (x9.a(this.a.getContext()) instanceof TbPageContext) {
                         int i = this.a.i;
                         String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
                         if (i != 101 && this.a.i == 102) {
                             str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
                         }
-                        sv5.i((TbPageContext) x9.a(this.a.getContext()), this.a.j, str);
+                        tv5.i((TbPageContext) x9.a(this.a.getContext()), this.a.j, str);
                     }
                 } else {
-                    sv5.g(this.a.getContext(), this.a.j);
+                    tv5.g(this.a.getContext(), this.a.j);
                 }
                 int i2 = this.a.i;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
                 if (i2 == 101) {
                     StatisticItem statisticItem = new StatisticItem("c13556");
                     if (this.a.j.liveInfo != null) {
-                        int a = sv5.a(this.a.j.liveInfo);
+                        int a = tv5.a(this.a.j.liveInfo);
                         if (this.a.j.liveInfo.yyExt == null) {
                             str2 = "";
                         } else {
-                            TiebaStaticHelper.addYYParam(statisticItem, sv5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
+                            TiebaStaticHelper.addYYParam(statisticItem, tv5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
                         }
                         statisticItem.param("obj_param1", a);
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
@@ -112,11 +112,11 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 } else if (this.a.i == 102) {
                     StatisticItem statisticItem2 = new StatisticItem("c13559");
                     if (this.a.j.liveInfo != null) {
-                        int a2 = sv5.a(this.a.j.liveInfo);
+                        int a2 = tv5.a(this.a.j.liveInfo);
                         if (this.a.j.liveInfo.yyExt == null) {
                             str2 = "";
                         } else {
-                            TiebaStaticHelper.addYYParam(statisticItem2, sv5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
+                            TiebaStaticHelper.addYYParam(statisticItem2, tv5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
                         }
                         statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, a2);
                         statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
@@ -314,8 +314,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
                 if (liveAuthor != null) {
                     String name_show = liveAuthor.getName_show();
-                    if (tj5.d(name_show) > 16) {
-                        name_show = tj5.l(name_show, 16) + StringHelper.STRING_MORE;
+                    if (uj5.d(name_show) > 16) {
+                        name_show = uj5.l(name_show, 16) + StringHelper.STRING_MORE;
                     }
                     this.e.setText(name_show);
                     AlaUtilHelper.startLoadPortrait(this.b, sdkLiveInfoData.liveAuthor.portrait, false);

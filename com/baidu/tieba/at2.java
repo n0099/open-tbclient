@@ -136,7 +136,7 @@ public class at2 extends c63 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements f0a<File> {
+    public class c implements g0a<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -166,7 +166,7 @@ public class at2 extends c63 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0a
+        @Override // com.baidu.tieba.g0a
         public void call(File file) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
@@ -186,7 +186,7 @@ public class at2 extends c63 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements j0a<File, File> {
+    public class d implements k0a<File, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -212,7 +212,7 @@ public class at2 extends c63 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j0a
+        @Override // com.baidu.tieba.k0a
         public File call(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -436,7 +436,7 @@ public class at2 extends c63 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                 return;
             }
-            rz9.f(file).h(new d(this, context)).y(Schedulers.io()).k(b0a.b()).w(new c(this, callbackHandler, str, context));
+            sz9.f(file).h(new d(this, context)).y(Schedulers.io()).k(c0a.b()).w(new c(this, callbackHandler, str, context));
         }
     }
 }

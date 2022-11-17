@@ -2,36 +2,36 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kz5 extends oa5 {
+public class kz5 extends ln {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabFragment c;
+    public Context b;
+    public View c;
+    public ImageView d;
+    public TextView e;
+    public View f;
+    public View g;
+    public View.OnClickListener h;
 
-    @Override // com.baidu.tieba.oa5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public kz5() {
+    public kz5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,66 +41,66 @@ public class kz5 extends oa5 {
                 return;
             }
         }
-        this.c = new AlaGameFrsLiveTabFragment();
-        b().a = this.c;
+        this.b = context;
     }
 
-    @Override // com.baidu.tieba.oa5
-    public pa5 a() {
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.h = onClickListener;
+        }
+    }
+
+    @Override // com.baidu.tieba.ln
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pa5 pa5Var = new pa5();
-            pa5Var.e = 2;
-            pa5Var.b = R.string.obfuscated_res_0x7f0f0226;
-            pa5Var.i = pa5.k;
-            return pa5Var;
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f7, (ViewGroup) null);
+            this.c = inflate;
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901e9);
+            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901e8);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901ea);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901e7);
+            d(TbadkCoreApplication.getInst().getSkinType());
+            return this.c;
         }
-        return (pa5) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oa5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ln
+    public void c() {
+        View.OnClickListener onClickListener;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(gk6 gk6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, gk6Var) != null) || gk6Var == null || !gk6Var.h(2)) {
-            return;
-        }
-        gk6Var.a(this);
-    }
-
-    public void h(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.B1(str);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
+            onClickListener.onClick(view2);
         }
     }
 
-    public void i(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.C1(str);
-        }
-    }
-
-    public void j(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.D1(str);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            }
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
+            }
+            ImageView imageView = this.d;
+            if (imageView != null) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
+            }
+            View view3 = this.f;
+            if (view3 != null) {
+                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
+            }
+            View view4 = this.g;
+            if (view4 != null) {
+                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
+            }
         }
     }
 }

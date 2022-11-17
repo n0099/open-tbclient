@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.kf;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,9 +82,9 @@ public class ImmersiveStickySwitch extends kf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                py4.k().u("switch_immersive_sticky_status", true);
+                qy4.k().u("switch_immersive_sticky_status", true);
             } else {
-                py4.k().u("switch_immersive_sticky_status", false);
+                qy4.k().u("switch_immersive_sticky_status", false);
             }
         }
     }

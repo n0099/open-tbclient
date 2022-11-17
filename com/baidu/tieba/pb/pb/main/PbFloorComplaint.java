@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -116,16 +116,16 @@ public class PbFloorComplaint extends RelativeLayout {
             int i = this.f;
             if (i == 1) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f1032);
-                pw4.d(this.c).v(R.color.CAM_X0301);
+                qw4.d(this.c).v(R.color.CAM_X0301);
             } else if (i == 2) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0660);
-                pw4.d(this.c).v(R.color.CAM_X0105);
+                qw4.d(this.c).v(R.color.CAM_X0105);
             } else if (i == 3) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0661);
-                pw4.d(this.c).v(R.color.CAM_X0301);
+                qw4.d(this.c).v(R.color.CAM_X0301);
             } else {
                 this.c.setText(R.string.obfuscated_res_0x7f0f1032);
-                pw4.d(this.c).v(R.color.CAM_X0301);
+                qw4.d(this.c).v(R.color.CAM_X0301);
             }
             int i2 = this.g;
             if (i2 != 1 && i2 != 3) {
@@ -138,7 +138,7 @@ public class PbFloorComplaint extends RelativeLayout {
                 WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a6d, R.color.CAM_X0301, null);
             }
             WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0304, null);
-            pw4 d = pw4.d(this.d);
+            qw4 d = qw4.d(this.d);
             d.v(R.color.CAM_X0107);
             d.z(R.dimen.T_X09);
         }

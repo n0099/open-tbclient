@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.qw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,17 +130,17 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            pw4.d(this.b).v(R.color.CAM_X0105);
+            qw4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
-    public void setData(pu4 pu4Var) {
+    public void setData(qu4 qu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu4Var) != null) || pu4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu4Var) != null) || qu4Var == null) {
             return;
         }
         b();
-        this.a.K(pu4Var.a(), 10, false);
-        this.b.setText(pu4Var.b());
+        this.a.K(qu4Var.a(), 10, false);
+        this.b.setText(qu4Var.b());
     }
 }

@@ -21,7 +21,7 @@ public class qw1 extends pw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public xz9 c;
+    public yz9 c;
 
     /* loaded from: classes5.dex */
     public class a implements yi3<i93<k93.e>> {
@@ -174,7 +174,7 @@ public class qw1 extends pw1 {
                 return false;
             }
             zw1 zw1Var = (zw1) r(unitedSchemeEntity);
-            xz9 w = new e02(context, zw1Var).w();
+            yz9 w = new e02(context, zw1Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class qw1 extends pw1 {
                 String str = zw1Var.b;
                 lu2 lu2Var = zw1Var.h;
                 if (!TextUtils.isEmpty(str) && lu2Var != null && lu2Var.h()) {
-                    xz9 xz9Var = this.c;
-                    if (xz9Var == null) {
+                    yz9 yz9Var = this.c;
+                    if (yz9Var == null) {
                         y02.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    xz9Var.onCompleted();
+                    yz9Var.onCompleted();
                     f12.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

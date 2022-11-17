@@ -1,188 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.media.MediaPlayer;
-import android.text.TextUtils;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
-import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
-import com.baidu.tieba.ay8;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.ProgressView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.TextureMovieEncoder;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fz8 implements ez8.b {
+public class fz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaPlayer a;
+    public int a;
     public int b;
-    public String c;
-    public String d;
-    public boolean e;
-    public Context f;
-    public boolean g;
-    public nr7 h;
+    public RecordVideoActivity c;
+    public ProgressView d;
+    public List<b> e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    @Override // com.baidu.tieba.ez8.b
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    public void t(SelectMusicModel selectMusicModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, selectMusicModel) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i);
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ay8.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy8.a a;
-        public final /* synthetic */ MusicData b;
-        public final /* synthetic */ fz8 c;
-
-        public a(fz8 fz8Var, zy8.a aVar, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fz8Var, aVar, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fz8Var;
-            this.a = aVar;
-            this.b = musicData;
-        }
-
-        @Override // com.baidu.tieba.ay8.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.d != this.c.b) {
-                return;
-            }
-            this.c.g = false;
-            this.a.b.setVisibility(4);
-            this.a.a.setDrawBorder(true);
-            this.a.a.invalidate();
-            yi.P(TbadkCoreApplication.getInst(), str);
-            if (this.c.h != null) {
-                this.c.h.b(3, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ay8.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.d == this.c.b) {
-                this.c.g = false;
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-                this.a.b.setVisibility(4);
-            }
-        }
-
-        @Override // com.baidu.tieba.ay8.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.d == this.c.b) {
-                this.c.g = false;
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.c.p(str, this.b);
-                this.a.b.setVisibility(4);
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ay8.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MusicData a;
-        public final /* synthetic */ fz8 b;
-
-        @Override // com.baidu.tieba.ay8.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public b(fz8 fz8Var, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fz8Var, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fz8Var;
-            this.a = musicData;
-        }
-
-        @Override // com.baidu.tieba.ay8.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                yi.P(TbadkCoreApplication.getInst(), str);
-                if (this.b.h != null) {
-                    this.b.h.b(3, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ay8.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.b.p(str, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements MediaPlayer.OnPreparedListener {
+    public class a implements ProgressView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fz8 a;
 
-        public c(fz8 fz8Var) {
+        /* renamed from: com.baidu.tieba.fz8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0279a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ dz8 a;
+            public final /* synthetic */ a b;
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStartSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.fz8$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes4.dex */
+            public class RunnableC0280a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0279a a;
+
+                public RunnableC0280a(C0279a c0279a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0279a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0279a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
+                        this.a.b.a.c.x0();
+                    }
+                }
+            }
+
+            public C0279a(a aVar, dz8 dz8Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, dz8Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = dz8Var;
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStopSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    ah.a().post(new RunnableC0280a(this));
+                    this.a.setOnEncoderStatusUpdateListener(null);
+                }
+            }
+        }
+
+        public a(fz8 fz8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,63 +135,35 @@ public class fz8 implements ez8.b {
             this.a = fz8Var;
         }
 
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
+        @Override // com.baidu.tieba.video.record.ProgressView.a
+        public void a(int i) {
+            ez8 ez8Var;
+            dz8 q;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.a.setLooping(true);
-                this.a.a.start();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements MediaPlayer.OnErrorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fz8 a;
-
-        public d(fz8 fz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.h = i;
+                if (i != 100 || this.a.c == null || (ez8Var = this.a.c.k) == null || (q = ez8Var.q()) == null) {
                     return;
                 }
-            }
-            this.a = fz8Var;
-        }
-
-        @Override // android.media.MediaPlayer.OnErrorListener
-        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                if (this.a.h != null) {
-                    nr7 nr7Var = this.a.h;
-                    nr7Var.b(4, "what-->" + i + "  extra-->" + i2);
-                    return false;
+                if (q instanceof GLVideoPreviewView) {
+                    q.setOnEncoderStatusUpdateListener(new C0279a(this, q));
+                    this.a.o();
+                    return;
                 }
-                return false;
+                this.a.o();
+                if (this.a.c != null) {
+                    this.a.c.x0();
+                }
             }
-            return invokeLII.booleanValue;
         }
     }
 
-    public fz8(Activity activity) {
-        rr7 rr7Var;
+    public fz8(RecordVideoActivity recordVideoActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {recordVideoActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -266,201 +173,209 @@ public class fz8 implements ez8.b {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, rr7.class);
-        if (runTask != null) {
-            rr7Var = (rr7) runTask.getData();
-        } else {
-            rr7Var = null;
+        this.a = 1;
+        this.c = recordVideoActivity;
+        if (recordVideoActivity == null) {
+            return;
         }
-        if (rr7Var != null) {
-            this.h = rr7Var.get();
+        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f0904ac);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090a04);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0925b2);
+        this.d = progressView;
+        progressView.setListener(new a(this));
+        if (!yy8.f(true)) {
+            imageView2.setVisibility(4);
         }
-        this.f = activity;
+        if (!yy8.g(recordVideoActivity.getPackageManager())) {
+            imageView.setVisibility(8);
+        }
     }
 
-    public void g(EditVideoActivityConfig editVideoActivityConfig) {
+    public void m(int i) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editVideoActivityConfig) == null) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
-            editVideoActivityConfig.addMusicInfo(this.d, this.c, this.b);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.d.setVisibility(4);
+                this.d.d();
+                this.b = 0;
+                File file = new File(hx8.f);
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        if (file2.getPath().startsWith("rec_tmp_")) {
+                            file2.delete();
+                        }
+                    }
+                }
+            }
+            List<b> list = this.e;
+            if (list != null) {
+                for (b bVar : list) {
+                    bVar.a(this.a);
+                }
+            }
         }
     }
 
-    public void j(String str, String str2) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.e = false;
-            this.d = str;
-            this.c = str2;
-            p(str, null);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (this.e == null) {
+                this.e = new ArrayList();
+            }
+            this.e.add(bVar);
         }
     }
 
-    public String h() {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.DELETE);
+            }
+            this.b = this.d.getLastProgress();
+            ez8 ez8Var = this.c.k;
+            if (ez8Var != null) {
+                ez8Var.h();
+            }
+        }
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            gz8 gz8Var = this.c.I;
+            if (gz8Var != null) {
+                return gz8Var.i();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int f = f();
+            if (f != 2 && f != 7) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.d.b()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     public void l() {
+        ProgressView progressView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = true;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.a.pause();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
+            progressView.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
-    public void m() {
+    public void n() {
+        ez8 ez8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e = false;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                mediaPlayer.start();
-                this.a.seekTo(0);
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setVisibility(0);
+            this.d.setCurrentState(ProgressView.State.START);
+        }
+        if (!this.f) {
+            this.f = true;
+            this.g = System.currentTimeMillis();
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (ez8Var = recordVideoActivity.k) != null) {
+            ez8Var.L();
+            gz8 gz8Var = this.c.I;
+            if (gz8Var != null) {
+                gz8Var.n(this.b);
             }
         }
     }
 
     public void o() {
-        MediaPlayer mediaPlayer;
+        ez8 ez8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (mediaPlayer = this.a) != null && mediaPlayer.isPlaying()) {
-            this.a.pause();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                if (mediaPlayer.isPlaying()) {
-                    this.a.stop();
-                }
-                this.a.release();
-                this.a = null;
-            }
-            this.d = null;
-            this.c = null;
-        }
-    }
-
-    public void k(MusicData musicData, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, musicData, obj) != null) || musicData == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
             return;
         }
-        int i = musicData.editMusicType;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CloudMusicActivityConfig(this.f, 25032)));
-                    return;
-                }
-                return;
-            }
-            r();
-            return;
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setCurrentState(ProgressView.State.PAUSE);
         }
-        q(obj, musicData);
-    }
-
-    public final void s(String str, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, musicData) == null) {
-            this.d = null;
-            r();
-            if (str.startsWith("/")) {
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                ay8.g().d();
+        this.f = false;
+        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
+        ProgressView progressView2 = this.d;
+        if (progressView2 != null) {
+            int lastProgress = progressView2.getLastProgress();
+            int i = this.b;
+            if (lastProgress != i) {
+                this.d.c(i);
             }
-            q(null, musicData);
         }
-    }
-
-    public void n(int i) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (mediaPlayer = this.a) != null && mediaPlayer.getDuration() > 0) {
-            if (i < 0) {
-                i = 0;
-            }
-            if (i > this.a.getDuration()) {
-                i %= this.a.getDuration();
-            }
-            this.a.seekTo(i);
-            this.a.start();
-        }
-    }
-
-    public final void p(String str, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048586, this, str, musicData) != null) || this.e) {
-            return;
-        }
-        if (this.a == null) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            this.a = mediaPlayer;
-            mediaPlayer.setAudioStreamType(3);
-        }
-        try {
-            this.d = str;
-            this.a.reset();
-            this.a.setDataSource(str);
-            this.a.prepare();
-            this.a.setOnPreparedListener(new c(this));
-            this.a.setOnErrorListener(new d(this));
-        } catch (Exception e) {
-            e.printStackTrace();
-            s(str, musicData);
-        }
-    }
-
-    public final void q(Object obj, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, obj, musicData) == null) && musicData != null && !TextUtils.isEmpty(musicData.resource)) {
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.a.stop();
-            }
-            this.g = false;
-            this.c = musicData.id;
-            String f = ay8.g().f(musicData.resource);
-            if (obj != null && (obj instanceof zy8.a)) {
-                this.b = ((zy8.a) obj).d;
-            }
-            if (TextUtils.isEmpty(f)) {
-                if (obj instanceof zy8.a) {
-                    zy8.a aVar = (zy8.a) obj;
-                    aVar.b.setVisibility(0);
-                    aVar.a.setDrawBorder(false);
-                    aVar.a.invalidate();
-                    this.g = true;
-                    ay8.g().e(musicData.id, musicData.resource, new a(this, aVar, musicData));
-                    return;
-                }
-                ay8.g().e(musicData.id, musicData.resource, new b(this, musicData));
-                return;
-            }
-            p(f, musicData);
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (ez8Var = recordVideoActivity.k) != null) {
+            ez8Var.M();
         }
     }
 }

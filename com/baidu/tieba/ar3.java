@@ -99,7 +99,7 @@ public final class ar3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return bv5.a();
+            return cv5.a();
         }
         return (b) invokeV.objValue;
     }

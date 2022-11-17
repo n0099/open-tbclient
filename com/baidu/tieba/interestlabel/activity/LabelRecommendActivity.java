@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.uh7;
+import com.baidu.tieba.qy4;
 import com.baidu.tieba.vh7;
-import com.baidu.tieba.xh7;
+import com.baidu.tieba.wh7;
+import com.baidu.tieba.yh7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public xh7 b;
+    public yh7 b;
     public int c;
-    public vh7 d;
+    public wh7 d;
 
     /* loaded from: classes4.dex */
-    public class a implements vh7 {
+    public class a implements wh7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,14 +56,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.vh7
-        public void a(LabelRequestEnum labelRequestEnum, uh7 uh7Var, int i) {
+        @Override // com.baidu.tieba.wh7
+        public void a(LabelRequestEnum labelRequestEnum, vh7 vh7Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, uh7Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, vh7Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        py4.k().u("set_recommend_label", true);
+                        qy4.k().u("set_recommend_label", true);
                         this.a.z1();
                         this.a.finish();
                         return;
@@ -72,10 +72,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (uh7Var != null && !ListUtils.isEmpty(uh7Var.b()) && !ListUtils.isEmpty(uh7Var.a())) {
+                if (vh7Var != null && !ListUtils.isEmpty(vh7Var.b()) && !ListUtils.isEmpty(vh7Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(uh7Var);
+                    this.a.b.j(vh7Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
@@ -168,9 +168,9 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            xh7 xh7Var = new xh7(this);
-            this.b = xh7Var;
-            xh7Var.k(this);
+            yh7 yh7Var = new yh7(this);
+            this.b = yh7Var;
+            yh7Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
             labelSettingModel.G(this.d);
@@ -179,7 +179,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            py4.k().u("show_recommend_label", true);
+            qy4.k().u("show_recommend_label", true);
         }
     }
 

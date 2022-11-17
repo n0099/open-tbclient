@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.ta8;
-import com.baidu.tieba.wa8;
+import com.baidu.tieba.ua8;
+import com.baidu.tieba.xa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ta8 b;
+    public ua8 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<wa8> e = this.a.e(i);
+                List<xa8> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<wa8> e(int i) {
+    public final List<xa8> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ta8 ta8Var = this.b;
-            if (ta8Var != null && !ListUtils.isEmpty(ta8Var.a)) {
+            ua8 ua8Var = this.b;
+            if (ua8Var != null && !ListUtils.isEmpty(ua8Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    wa8 wa8Var = (wa8) ListUtils.getItem(this.b.a, i3);
-                    if (wa8Var != null) {
-                        arrayList.add(wa8Var);
+                    xa8 xa8Var = (xa8) ListUtils.getItem(this.b.a, i3);
+                    if (xa8Var != null) {
+                        arrayList.add(xa8Var);
                     }
                 }
                 return arrayList;

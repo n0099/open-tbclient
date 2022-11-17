@@ -1,16 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.yg5;
-import com.baidu.tieba.zg5;
 /* loaded from: classes3.dex */
-public interface ah5<Q extends yg5, P extends zg5> {
-    int a();
+public interface ah5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-    Q b();
+    int getErrorCode();
 
-    String c();
+    String getErrorMsg();
 
-    P d();
-
-    int e();
+    ug5 getPageInfo();
 }

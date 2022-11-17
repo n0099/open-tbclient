@@ -98,12 +98,12 @@ public final class o32 {
 
         /* renamed from: com.baidu.tieba.o32$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0367b implements Runnable {
+        public class RunnableC0370b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ l32 a;
 
-            public RunnableC0367b(b bVar, l32 l32Var) {
+            public RunnableC0370b(b bVar, l32 l32Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class o32 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0367b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0370b(this, this.c.m()));
             }
         }
 
