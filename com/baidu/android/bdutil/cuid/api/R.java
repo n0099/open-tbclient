@@ -298,18 +298,18 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int TextAppearance_Compat_Notification = 0x7f1001ee;
-        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001ef;
-        public static final int TextAppearance_Compat_Notification_Info_Media = 0x7f1001f0;
-        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001f1;
-        public static final int TextAppearance_Compat_Notification_Line2_Media = 0x7f1001f2;
-        public static final int TextAppearance_Compat_Notification_Media = 0x7f1001f3;
-        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001f4;
-        public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f1001f5;
-        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001f6;
-        public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f1001f7;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f10032a;
-        public static final int Widget_Compat_NotificationActionText = 0x7f10032b;
+        public static final int TextAppearance_Compat_Notification = 0x7f1001ef;
+        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001f0;
+        public static final int TextAppearance_Compat_Notification_Info_Media = 0x7f1001f1;
+        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001f2;
+        public static final int TextAppearance_Compat_Notification_Line2_Media = 0x7f1001f3;
+        public static final int TextAppearance_Compat_Notification_Media = 0x7f1001f4;
+        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001f5;
+        public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f1001f6;
+        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001f7;
+        public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f1001f8;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f10032b;
+        public static final int Widget_Compat_NotificationActionText = 0x7f100330;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {

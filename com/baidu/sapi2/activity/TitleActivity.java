@@ -269,11 +269,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                setTheme(R.style.obfuscated_res_0x7f10017c);
+                setTheme(R.style.obfuscated_res_0x7f10017d);
             } else {
                 SapiConfiguration sapiConfiguration2 = this.configuration;
                 if (sapiConfiguration2 != null && sapiConfiguration2.isNightMode) {
-                    setTheme(R.style.obfuscated_res_0x7f10017d);
+                    setTheme(R.style.obfuscated_res_0x7f10017e);
                 }
             }
             SapiConfiguration sapiConfiguration3 = this.configuration;

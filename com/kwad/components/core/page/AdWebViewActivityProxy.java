@@ -482,7 +482,7 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.i.a impleme
             } catch (Throwable unused) {
             }
             super.onCreate(bundle);
-            getActivity().setTheme(R.style.obfuscated_res_0x7f10022f);
+            getActivity().setTheme(R.style.obfuscated_res_0x7f100230);
             this.destroyed = false;
             this.mContext = Wrapper.wrapContextIfNeed(getActivity());
             String stringExtra = getIntent().getStringExtra("key_template_json");

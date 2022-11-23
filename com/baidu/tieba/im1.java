@@ -145,7 +145,7 @@ public class im1 implements mo1 {
                     }
                     Context context2 = this.a.get();
                     if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                        Dialog dialog2 = new Dialog(this.a.get(), R.style.obfuscated_res_0x7f1001a1);
+                        Dialog dialog2 = new Dialog(this.a.get(), R.style.obfuscated_res_0x7f1001a2);
                         this.b = dialog2;
                         dialog2.setContentView(R.layout.obfuscated_res_0x7f0d0848);
                         boolean a = mn2.M().a();

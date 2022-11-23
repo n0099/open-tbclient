@@ -61,7 +61,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES = 2131755829;
+    public static final int DEF_STYLE_RES = 2131755830;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;

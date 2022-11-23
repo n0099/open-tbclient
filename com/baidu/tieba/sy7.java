@@ -13,7 +13,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.yy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +123,7 @@ public abstract class sy7<V extends yy7, D extends IBaseDialogData> implements x
                 return;
             }
             if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003f1).create();
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003f2).create();
             } else {
                 this.a = new AlertDialog.Builder(this.c).create();
             }
@@ -161,9 +160,6 @@ public abstract class sy7<V extends yy7, D extends IBaseDialogData> implements x
             attributes.height = -2;
             window.setAttributes(attributes);
             window.setContentView(this.h.getViewGroup());
-            if (WindowGreySwitch.getIsOn()) {
-                u9.b(window.getDecorView());
-            }
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
             ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
             if (atomicBoolean.get()) {

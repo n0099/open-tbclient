@@ -25,7 +25,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class SwitchMaterial extends SwitchCompat {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755876;
+    public static final int DEF_STYLE_RES = 2131755877;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull

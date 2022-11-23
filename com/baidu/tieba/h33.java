@@ -368,7 +368,7 @@ public class h33 extends j33 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h33(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a8);
+        super(context, R.style.obfuscated_res_0x7f1001a9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -390,7 +390,7 @@ public class h33 extends j33 {
         if (window != null) {
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
         }
     }
 

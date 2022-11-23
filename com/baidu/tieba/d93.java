@@ -535,7 +535,7 @@ public final class d93 {
             if (window != null) {
                 window.setGravity(80);
                 window.setLayout(-1, -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
             }
             if (f43Var == null) {
                 w = null;

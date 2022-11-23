@@ -7150,7 +7150,7 @@ public class t18 {
             }
             this.c.getBaseFragmentActivity().getLayoutMode().k(this.X);
             if (this.W == null) {
-                Dialog dialog = new Dialog(this.c.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+                Dialog dialog = new Dialog(this.c.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a9);
                 this.W = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.W.setCancelable(true);

@@ -41,7 +41,7 @@ import com.google.android.material.shape.OffsetEdgeTreatment;
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     @StyleRes
-    public static final int DEFAULT_STYLE = 2131755930;
+    public static final int DEFAULT_STYLE = 2131755931;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130970410;
     public transient /* synthetic */ FieldHolder $fh;

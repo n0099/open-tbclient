@@ -80,7 +80,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int CHIP_BODY_VIRTUAL_ID = 0;
     public static final int CLOSE_ICON_VIRTUAL_ID = 1;
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
-    public static final int DEF_STYLE_RES = 2131755869;
+    public static final int DEF_STYLE_RES = 2131755870;
     public static final Rect EMPTY_BOUNDS;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;

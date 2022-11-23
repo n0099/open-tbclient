@@ -475,7 +475,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (i2 != 0) {
                     newTheme.applyStyle(i2, true);
                 } else {
-                    newTheme.applyStyle(R.style.obfuscated_res_0x7f10021b, true);
+                    newTheme.applyStyle(R.style.obfuscated_res_0x7f10021c, true);
                 }
                 ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
                 contextThemeWrapper.getTheme().setTo(newTheme);
@@ -3663,7 +3663,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     configuration = generateConfigDelta(configuration2, configuration3);
                 }
                 Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration);
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100227);
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100228);
                 contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
                 boolean z2 = false;
                 try {

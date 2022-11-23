@@ -148,7 +148,7 @@ public class u81 extends Dialog implements View.OnClickListener {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.width = -1;
             attributes.height = -2;
-            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003c3;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003c4;
             attributes.gravity = 17;
             window.setAttributes(attributes);
             window.setBackgroundDrawableResource(17170445);

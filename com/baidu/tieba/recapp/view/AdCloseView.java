@@ -1063,9 +1063,9 @@ public class AdCloseView extends FrameLayout {
         }
         this.b.setBackgroundDrawable(new ColorDrawable(0));
         if (p) {
-            this.b.setAnimationStyle(R.style.obfuscated_res_0x7f1003ed);
-        } else {
             this.b.setAnimationStyle(R.style.obfuscated_res_0x7f1003ee);
+        } else {
+            this.b.setAnimationStyle(R.style.obfuscated_res_0x7f1003ef);
         }
         this.b.showAtLocation(getRootView(), 0, iArr[0] - this.w, iArr[1]);
         if (!StringUtils.isNull(this.B)) {

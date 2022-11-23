@@ -43,7 +43,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
-    public static final int DEF_STYLE_RES = 2131755878;
+    public static final int DEF_STYLE_RES = 2131755879;
     public static final Property<View, Float> HEIGHT;
     public static final Property<View, Float> WIDTH;
     public transient /* synthetic */ FieldHolder $fh;

@@ -34,7 +34,7 @@ public class a extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100148);
+        super(context, R.style.obfuscated_res_0x7f100149);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

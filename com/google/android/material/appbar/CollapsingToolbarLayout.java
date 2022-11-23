@@ -53,7 +53,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 public class CollapsingToolbarLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
-    public static final int DEF_STYLE_RES = 2131755827;
+    public static final int DEF_STYLE_RES = 2131755828;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
@@ -478,8 +478,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
         this.collapsingTitleEnabled = obtainStyledAttributes.getBoolean(15, true);
         setTitle(obtainStyledAttributes.getText(14));
-        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001f8);
-        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001dc);
+        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001f9);
+        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001dd);
         if (obtainStyledAttributes.hasValue(9)) {
             this.collapsingTextHelper.setExpandedTextAppearance(obtainStyledAttributes.getResourceId(9, 0));
         }

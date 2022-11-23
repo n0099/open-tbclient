@@ -360,31 +360,31 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: PassBioBaseTheme */
-        public static final int obfuscated_res_0x7f100147 = 0x7f100147;
-
-        /* renamed from: PassBioBeautyDialog */
         public static final int obfuscated_res_0x7f100148 = 0x7f100148;
 
-        /* renamed from: PassBioSDKTheme */
+        /* renamed from: PassBioBeautyDialog */
         public static final int obfuscated_res_0x7f100149 = 0x7f100149;
 
-        /* renamed from: PassBio_SDK_Theme */
-        public static final int obfuscated_res_0x7f100141 = 0x7f100141;
+        /* renamed from: PassBioSDKTheme */
+        public static final int obfuscated_res_0x7f10014a = 0x7f10014a;
 
-        /* renamed from: PassBio_SDK_Theme_DayNight */
+        /* renamed from: PassBio_SDK_Theme */
         public static final int obfuscated_res_0x7f100142 = 0x7f100142;
 
-        /* renamed from: PassBio_SDK_Theme_NoTitleBar */
+        /* renamed from: PassBio_SDK_Theme_DayNight */
         public static final int obfuscated_res_0x7f100143 = 0x7f100143;
 
-        /* renamed from: PassBio_SDK_Theme_NoTitleBar_DayNight */
+        /* renamed from: PassBio_SDK_Theme_NoTitleBar */
         public static final int obfuscated_res_0x7f100144 = 0x7f100144;
 
-        /* renamed from: PassBio_SDK_Theme_NoTitleBar_Fullscreen */
+        /* renamed from: PassBio_SDK_Theme_NoTitleBar_DayNight */
         public static final int obfuscated_res_0x7f100145 = 0x7f100145;
 
-        /* renamed from: PassBio_SDK_Theme_NoTitleBar_Fullscreen_DayNight */
+        /* renamed from: PassBio_SDK_Theme_NoTitleBar_Fullscreen */
         public static final int obfuscated_res_0x7f100146 = 0x7f100146;
+
+        /* renamed from: PassBio_SDK_Theme_NoTitleBar_Fullscreen_DayNight */
+        public static final int obfuscated_res_0x7f100147 = 0x7f100147;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {

@@ -78,7 +78,7 @@ public class d extends Dialog {
     }
 
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f100420);
+        super(activity, R.style.obfuscated_res_0x7f100421);
         this.f = activity;
         this.d = cVar;
         this.g = str;

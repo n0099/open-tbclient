@@ -60,6 +60,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONException;
@@ -83,7 +84,8 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     public boolean p;
     public aq8 q;
     public CustomMessageListener r;
-    public final View.OnClickListener s;
+    public final CustomMessageListener s;
+    public final View.OnClickListener t;
 
     @Override // com.baidu.tieba.mk6
     public void W() {
@@ -229,11 +231,48 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<String> {
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TabWebFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(TabWebFragment tabWebFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tabWebFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tabWebFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.l != null) {
+                this.a.l.h(this.a.i, "writePostSuccess", new HashMap());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public d() {
+        public e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,12 +339,12 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements View.OnClickListener {
+    public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
 
-        public e(TabWebFragment tabWebFragment) {
+        public f(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -337,12 +376,12 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     }
 
     /* loaded from: classes4.dex */
-    public class f extends WebViewClient {
+    public class g extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
 
-        public f(TabWebFragment tabWebFragment) {
+        public g(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,7 +417,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
                         tabWebFragment2.hideLoadingView(tabWebFragment2.j);
                         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                         TabWebFragment tabWebFragment3 = this.a;
-                        tabWebFragment3.showNetRefreshView(tabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f1537), null, inst.getString(R.string.obfuscated_res_0x7f0f100a), false, this.a.s);
+                        tabWebFragment3.showNetRefreshView(tabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f1537), null, inst.getString(R.string.obfuscated_res_0x7f0f100a), false, this.a.t);
                         return;
                     }
                     this.a.m = false;
@@ -465,7 +504,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
                     tabWebFragment.hideLoadingView(tabWebFragment.j);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                     TabWebFragment tabWebFragment2 = this.a;
-                    tabWebFragment2.showNetRefreshView(tabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f1537), null, inst.getString(R.string.obfuscated_res_0x7f0f100a), false, this.a.s);
+                    tabWebFragment2.showNetRefreshView(tabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f1537), null, inst.getString(R.string.obfuscated_res_0x7f0f100a), false, this.a.t);
                 }
             }
         }
@@ -483,12 +522,12 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements DownloadListener {
+    public class h implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
 
-        public g(TabWebFragment tabWebFragment) {
+        public h(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -506,7 +545,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
             this.a = tabWebFragment;
         }
 
-        public /* synthetic */ g(TabWebFragment tabWebFragment, a aVar) {
+        public /* synthetic */ h(TabWebFragment tabWebFragment, a aVar) {
             this(tabWebFragment);
         }
 
@@ -542,7 +581,8 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
         this.q = new a(this);
         new b(this, 2005016);
         this.r = new c(this, 2921551);
-        this.s = new e(this);
+        this.s = new d(this, 2921757);
+        this.t = new f(this);
     }
 
     public final void x() {
@@ -619,7 +659,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
     public static void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new d());
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new e());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -636,6 +676,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             registerListener(this.r);
+            registerListener(this.s);
         }
     }
 
@@ -643,6 +684,7 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.r);
+            MessageManager.getInstance().unRegisterListener(this.s);
         }
     }
 
@@ -810,8 +852,8 @@ public class TabWebFragment extends BaseWebViewFragment implements mk6 {
             this.i.setHorizontalScrollbarOverlay(false);
             this.i.setInitialScale(100);
             this.i.setScrollBarStyle(33554432);
-            this.i.setWebViewClient(new f(this));
-            this.i.setDownloadListener(new g(this, null));
+            this.i.setWebViewClient(new g(this));
+            this.i.setDownloadListener(new h(this, null));
             vp4 vp4Var = new vp4(getPageContext());
             vp4Var.b(this.q);
             this.i.setWebChromeClient(vp4Var);

@@ -971,8 +971,8 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pendantData}) == null) {
             if (pendantData.pendantType != 4) {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003ab);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003ab);
                 float f2 = i;
                 float f3 = i3;
                 i2 = (int) ((yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07019a) * f2) / f3);
@@ -987,8 +987,8 @@ public class CoverPendantDragView extends FrameLayout {
                 this.e.setLayoutParams(layoutParams);
                 this.c.setPadding(yi.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0, yi.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0);
             } else {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
                 this.L = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                 this.e.setMaxLines(2);
                 this.d.setMaxLines(2);

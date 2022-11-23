@@ -41,6 +41,18 @@ public class GreyUtil {
         grey(activity.getWindow());
     }
 
+    public static void greyOrColor(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, null, view2) != null) || view2 == null) {
+            return;
+        }
+        if (WindowGreySwitch.getIsOn()) {
+            u9.b(view2);
+        } else {
+            u9.a(view2);
+        }
+    }
+
     public static void grey(Dialog dialog) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, null, dialog) != null) || dialog == null) {

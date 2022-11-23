@@ -121,7 +121,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0583a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            getActivity().setTheme(R.style.obfuscated_res_0x7f10022f);
+            getActivity().setTheme(R.style.obfuscated_res_0x7f100230);
             setContentView(R.layout.obfuscated_res_0x7f0d040f);
             d(getIntent());
             this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091165);

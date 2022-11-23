@@ -239,7 +239,7 @@ public class sv4 implements View.OnClickListener {
             WindowManager.LayoutParams layoutParams2 = this.g;
             layoutParams2.type = 1000;
             layoutParams2.format = -3;
-            layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1003d0;
+            layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1003d1;
             layoutParams2.flags = 262152;
             layoutParams2.gravity = 81;
         }

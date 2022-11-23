@@ -32,7 +32,6 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.pageInfo.TbPageTag;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -546,14 +545,11 @@ public class v38 {
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
         window.setAttributes(attributes);
-        window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+        window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
         window.setGravity(80);
         window.setLayout(-1, -2);
         window.setContentView(this.n.y());
         window.setDimAmount(this.o);
-        if (WindowGreySwitch.getIsOn()) {
-            u9.b(window.getDecorView());
-        }
         a18 a18Var = this.n;
         boolean z17 = false;
         if (b18Var == null) {

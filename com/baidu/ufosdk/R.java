@@ -404,16 +404,16 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: UFOMainTheme */
-        public static final int obfuscated_res_0x7f1002aa = 0x7f1002aa;
+        public static final int obfuscated_res_0x7f1002ab = 0x7f1002ab;
 
         /* renamed from: ufo_dialog_animation */
-        public static final int obfuscated_res_0x7f100421 = 0x7f100421;
-
-        /* renamed from: ufo_dialog_bottom_full */
         public static final int obfuscated_res_0x7f100422 = 0x7f100422;
 
-        /* renamed from: ufo_dialog_report_tort */
+        /* renamed from: ufo_dialog_bottom_full */
         public static final int obfuscated_res_0x7f100423 = 0x7f100423;
+
+        /* renamed from: ufo_dialog_report_tort */
+        public static final int obfuscated_res_0x7f100424 = 0x7f100424;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {

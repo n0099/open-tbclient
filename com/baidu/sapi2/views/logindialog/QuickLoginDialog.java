@@ -504,7 +504,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public QuickLoginDialog(@NonNull Context context, @NonNull Builder builder) {
-        this(context, R.style.obfuscated_res_0x7f1003e3, builder);
+        this(context, R.style.obfuscated_res_0x7f1003e4, builder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

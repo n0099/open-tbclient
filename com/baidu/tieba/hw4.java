@@ -171,8 +171,7 @@ public class hw4 {
                     if (dialogStrategy != null) {
                         for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : dialogStrategy) {
                             jw4 jw4Var = (jw4) this.b.a.get(strategiesConfigData.getType());
-                            if (!jw4Var.b(jw4Var.a(dialogStrategiesData, strategiesConfigData.A(), hashMap))) {
-                                break;
+                            if (jw4Var == null || jw4Var.b(jw4Var.a(dialogStrategiesData, strategiesConfigData.A(), hashMap))) {
                             }
                         }
                     }

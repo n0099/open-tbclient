@@ -274,7 +274,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100369;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f10036a;
     }
 
     private int getFirstVisibleChildIndex() {

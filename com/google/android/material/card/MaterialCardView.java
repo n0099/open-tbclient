@@ -42,7 +42,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES = 2131755867;
+    public static final int DEF_STYLE_RES = 2131755868;
     public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
     public transient /* synthetic */ FieldHolder $fh;

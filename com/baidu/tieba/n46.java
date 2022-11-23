@@ -1020,7 +1020,7 @@ public class n46 extends tv4 {
         if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
             if (this.q == null) {
                 View inflate = LayoutInflater.from(this.l).inflate(R.layout.obfuscated_res_0x7f0d01e7, (ViewGroup) null);
-                Dialog dialog = new Dialog(this.l, R.style.obfuscated_res_0x7f1003a8);
+                Dialog dialog = new Dialog(this.l, R.style.obfuscated_res_0x7f1003a9);
                 this.q = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.q.setCancelable(true);

@@ -480,7 +480,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             }
         }
         TAG = BaseSlider.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100382;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100383;
     }
 
     private float calculateStepIncrement() {
@@ -1249,7 +1249,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) {
-            return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f10039a));
+            return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f10039b));
         }
         return (TooltipDrawable) invokeLL.objValue;
     }

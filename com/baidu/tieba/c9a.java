@@ -332,7 +332,7 @@ public final class c9a {
             attributes.width = -2;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100150);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100151);
             window.setContentView(R.layout.obfuscated_res_0x7f0d06b6);
             View findViewById = window.findViewById(R.id.obfuscated_res_0x7f092469);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
@@ -351,7 +351,7 @@ public final class c9a {
                 RLog.info(a, "showDialog ActivityInvalid....");
                 return null;
             }
-            g9a g9aVar = new g9a(context, R.style.obfuscated_res_0x7f100153, payFlowType);
+            g9a g9aVar = new g9a(context, R.style.obfuscated_res_0x7f100154, payFlowType);
             g9aVar.setCancelable(true);
             g9aVar.setCanceledOnTouchOutside(false);
             g9aVar.show();

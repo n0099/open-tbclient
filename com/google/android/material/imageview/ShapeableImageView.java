@@ -42,7 +42,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755905;
+    public static final int DEF_STYLE_RES = 2131755906;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint borderPaint;
     public final Paint clearPaint;

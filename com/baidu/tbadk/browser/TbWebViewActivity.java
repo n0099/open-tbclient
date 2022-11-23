@@ -2948,6 +2948,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             setIsTranslucent(z);
             if (isTranslucent()) {
                 setNeedViewShowLoading(false);
+                getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f100140);
             }
             setIsAddSwipeBackLayout(!isTranslucent());
             super.onCreate(bundle);

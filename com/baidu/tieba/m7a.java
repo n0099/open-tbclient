@@ -50,7 +50,7 @@ public class m7a {
                 sb.append("&sdkVersion=4.3.36-bdpay");
                 int i = 0;
                 ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
-                if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {
+                if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100155) {
                     i = 1;
                 }
                 sb.append("&theme=" + i);

@@ -19,6 +19,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.vv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -475,11 +476,11 @@ public class tv4 extends Dialog {
                 if (this.c.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.c.getParent()).removeView(this.c);
                     this.d.addView(this.c);
-                    return;
                 }
-                return;
+            } else {
+                this.d.addView(this.c);
             }
-            this.d.addView(this.c);
+            GreyUtil.grey(this);
         }
     }
 }

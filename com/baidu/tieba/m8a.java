@@ -59,7 +59,7 @@ public final class m8a {
                 }
                 return themeResId.intValue();
             }
-            return R.style.obfuscated_res_0x7f10014e;
+            return R.style.obfuscated_res_0x7f10014f;
         }
         return invokeL.intValue;
     }
@@ -78,7 +78,7 @@ public final class m8a {
             } else {
                 num = null;
             }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f10014e) {
+            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f10014f) {
                 return true;
             }
             return false;

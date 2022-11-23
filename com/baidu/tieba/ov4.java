@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -267,13 +266,10 @@ public class ov4 {
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
                 window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
                 window.setGravity(80);
                 window.setLayout(-1, -2);
                 window.setContentView(this.d);
-                if (WindowGreySwitch.getIsOn()) {
-                    u9.b(window.getDecorView());
-                }
                 return this;
             }
             throw new RuntimeException("Dialog must be created by function create()!");

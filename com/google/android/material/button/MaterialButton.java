@@ -57,7 +57,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES = 2131755855;
+    public static final int DEF_STYLE_RES = 2131755856;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;

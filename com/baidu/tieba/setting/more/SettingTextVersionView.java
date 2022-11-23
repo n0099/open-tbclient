@@ -82,9 +82,9 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             TextView textView = this.e;
             Context context = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f1003f8;
+                i = R.style.obfuscated_res_0x7f1003f9;
             } else {
-                i = R.style.obfuscated_res_0x7f1003f7;
+                i = R.style.obfuscated_res_0x7f1003f8;
             }
             textView.setTextAppearance(context, i);
         }
