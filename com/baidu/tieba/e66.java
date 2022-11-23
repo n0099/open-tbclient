@@ -298,9 +298,9 @@ public class e66 {
         }
         this.d.setBackgroundDrawable(new ColorDrawable(0));
         if (i) {
-            this.d.setAnimationStyle(R.style.obfuscated_res_0x7f1003ed);
-        } else {
             this.d.setAnimationStyle(R.style.obfuscated_res_0x7f1003ee);
+        } else {
+            this.d.setAnimationStyle(R.style.obfuscated_res_0x7f1003ef);
         }
         this.d.showAtLocation(this.q, 0, iArr[0] - this.k, iArr[1]);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));

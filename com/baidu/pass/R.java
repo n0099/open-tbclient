@@ -117,7 +117,7 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: pass_base_ui_common_dialog_style */
-        public static final int obfuscated_res_0x7f1003d2 = 0x7f1003d2;
+        public static final int obfuscated_res_0x7f1003d4 = 0x7f1003d4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {

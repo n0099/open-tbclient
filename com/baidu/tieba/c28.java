@@ -28,7 +28,6 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.im.message.SettingChangeMessage;
@@ -600,13 +599,10 @@ public class c28 {
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0112);
             this.e.setOnDismissListener(new i(this));
             Window window = this.e.getWindow();
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d1);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d2);
             window.setGravity(17);
             window.setLayout(-2, -2);
             window.setContentView(inflate);
-            if (WindowGreySwitch.getIsOn()) {
-                u9.b(window.getDecorView());
-            }
         }
     }
 }

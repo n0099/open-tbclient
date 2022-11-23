@@ -738,7 +738,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             Context context = dialog.getContext();
             this.fullscreen = isFullscreen(context);
             int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04017e, MaterialDatePicker.class.getCanonicalName());
-            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b5, R.style.obfuscated_res_0x7f10036a);
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b5, R.style.obfuscated_res_0x7f10036b);
             this.background = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
             this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));

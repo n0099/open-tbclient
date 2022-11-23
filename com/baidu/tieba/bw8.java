@@ -388,7 +388,7 @@ public class bw8 implements View.OnClickListener, yv8 {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
             window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.b);

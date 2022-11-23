@@ -92,7 +92,7 @@ public class TabLayout extends HorizontalScrollView {
     public static final int DEFAULT_HEIGHT = 48;
     @Dimension(unit = 0)
     public static final int DEFAULT_HEIGHT_WITH_TEXT_ICON = 72;
-    public static final int DEF_STYLE_RES = 2131755832;
+    public static final int DEF_STYLE_RES = 2131755833;
     @Dimension(unit = 0)
     public static final int FIXED_WRAP_GUTTER_MIN = 16;
     public static final int GRAVITY_CENTER = 1;
@@ -2411,7 +2411,7 @@ public class TabLayout extends HorizontalScrollView {
         this.tabPaddingTop = obtainStyledAttributes.getDimensionPixelSize(19, this.tabPaddingTop);
         this.tabPaddingEnd = obtainStyledAttributes.getDimensionPixelSize(17, this.tabPaddingEnd);
         this.tabPaddingBottom = obtainStyledAttributes.getDimensionPixelSize(16, this.tabPaddingBottom);
-        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f100205);
+        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f100206);
         this.tabTextAppearance = resourceId;
         TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
         try {

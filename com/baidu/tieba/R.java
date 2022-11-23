@@ -31528,8 +31528,8 @@ public final class R {
         public static final int obfuscated_res_0x7f100234 = 0x7f100234;
         public static final int obfuscated_res_0x7f100235 = 0x7f100235;
         public static final int obfuscated_res_0x7f100236 = 0x7f100236;
-        public static final int Theme_LBSPaySDK_Transparent = 0x7f100237;
-        public static final int obfuscated_res_0x7f100238 = 0x7f100238;
+        public static final int obfuscated_res_0x7f100237 = 0x7f100237;
+        public static final int Theme_LBSPaySDK_Transparent = 0x7f100238;
         public static final int obfuscated_res_0x7f100239 = 0x7f100239;
         public static final int obfuscated_res_0x7f10023a = 0x7f10023a;
         public static final int obfuscated_res_0x7f10023b = 0x7f10023b;
@@ -32025,6 +32025,7 @@ public final class R {
         public static final int obfuscated_res_0x7f100427 = 0x7f100427;
         public static final int obfuscated_res_0x7f100428 = 0x7f100428;
         public static final int obfuscated_res_0x7f100429 = 0x7f100429;
+        public static final int obfuscated_res_0x7f10042a = 0x7f10042a;
     }
 
     public static final class raw {

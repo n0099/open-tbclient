@@ -25,12 +25,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qw4;
-import com.baidu.tieba.u9;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -209,21 +208,6 @@ public class TBAlertBuilder {
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public AlertDialog x(AlertDialog alertDialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, alertDialog)) == null) {
-            if (WindowGreySwitch.getIsOn() && alertDialog.getWindow() != null) {
-                u9.b(alertDialog.getWindow().getDecorView());
-            }
-            alertDialog.show();
-            d(alertDialog);
-            e(alertDialog);
-            return alertDialog;
-        }
-        return (AlertDialog) invokeL.objValue;
-    }
-
     public static void d(@NonNull Dialog dialog) {
         Window window;
         Interceptable interceptable = $ic;
@@ -389,6 +373,19 @@ public class TBAlertBuilder {
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
+    }
+
+    public AlertDialog x(AlertDialog alertDialog) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, alertDialog)) == null) {
+            GreyUtil.grey(alertDialog);
+            alertDialog.show();
+            d(alertDialog);
+            e(alertDialog);
+            return alertDialog;
+        }
+        return (AlertDialog) invokeL.objValue;
     }
 
     public AlertDialog c() {

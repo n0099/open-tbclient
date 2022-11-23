@@ -4236,7 +4236,7 @@ public class FeedbackInputActivity extends Activity {
                 if (feedbackInputActivity.o.get(feedbackInputActivity.H).containsKey("discontent_reason")) {
                     str = (String) feedbackInputActivity.o.get(feedbackInputActivity.H).get("discontent_reason");
                     if (feedbackInputActivity.G == null) {
-                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f100422);
+                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f100423);
                     }
                     g1Var = feedbackInputActivity.G;
                     if (g1Var == null) {
@@ -4315,7 +4315,7 @@ public class FeedbackInputActivity extends Activity {
                 }
             } else {
                 if (feedbackInputActivity.F == null) {
-                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f100422, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
+                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f100423, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
                 }
                 c1 c1Var = feedbackInputActivity.F;
                 c1Var.p = z2;

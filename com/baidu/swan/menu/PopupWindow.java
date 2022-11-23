@@ -281,9 +281,9 @@ public class PopupWindow {
             if (i == -1) {
                 if (this.d) {
                     if (this.G) {
-                        return R.style.obfuscated_res_0x7f100168;
+                        return R.style.obfuscated_res_0x7f100169;
                     }
-                    return R.style.obfuscated_res_0x7f100167;
+                    return R.style.obfuscated_res_0x7f100168;
                 }
                 return 0;
             }

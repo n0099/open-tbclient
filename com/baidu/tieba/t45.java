@@ -550,7 +550,7 @@ public class t45 {
                 this.i.setOnCheckedChangeListener(this.f);
                 this.p = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091a00);
                 q();
-                Dialog dialog = new Dialog(this.k, R.style.obfuscated_res_0x7f1003bb);
+                Dialog dialog = new Dialog(this.k, R.style.obfuscated_res_0x7f1003bc);
                 this.b = dialog;
                 dialog.setCanceledOnTouchOutside(false);
                 this.b.setCancelable(false);

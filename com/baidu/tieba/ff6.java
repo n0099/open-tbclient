@@ -218,7 +218,7 @@ public class ff6 {
         this.r = cashBitmap.getWidth();
         this.q = cashBitmap2.getWidth();
         this.s = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
-        this.w = new ef6(this.a, R.style.obfuscated_res_0x7f1003a8);
+        this.w = new ef6(this.a, R.style.obfuscated_res_0x7f1003a9);
         this.E = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f0906f7);
         i(tbPageContext);
     }

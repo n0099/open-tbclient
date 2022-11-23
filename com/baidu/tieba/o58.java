@@ -54,7 +54,6 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.TbMemeImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
@@ -2812,13 +2811,10 @@ public class o58 {
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
         window.setAttributes(attributes);
-        window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+        window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
         window.setGravity(80);
         window.setLayout(-1, -2);
         window.setContentView(this.u.y());
-        if (WindowGreySwitch.getIsOn()) {
-            u9.b(window.getDecorView());
-        }
         a18 a18Var = this.u;
         boolean z17 = false;
         if (b18Var == null) {
@@ -2948,7 +2944,7 @@ public class o58 {
             }
             this.a.getBaseFragmentActivity().getLayoutMode().k(this.i);
             if (this.g == null) {
-                Dialog dialog = new Dialog(this.a.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+                Dialog dialog = new Dialog(this.a.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a9);
                 this.g = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.g.setCancelable(true);
@@ -3138,7 +3134,7 @@ public class o58 {
         String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036b), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1204), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1114)};
         mv4 mv4Var = this.s;
         mv4Var.j(strArr, new l(this));
-        mv4Var.g(mv4.b.obfuscated_res_0x7f1003ad);
+        mv4Var.g(mv4.b.obfuscated_res_0x7f1003ae);
         mv4Var.h(17);
         mv4Var.c(this.a.getPageContext());
     }

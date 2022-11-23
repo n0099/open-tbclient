@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,6 +43,7 @@ public class wd7 extends Dialog {
             }
         }
         getWindow().setSoftInputMode(32);
+        GreyUtil.grey(this);
     }
 
     public void a(a aVar) {

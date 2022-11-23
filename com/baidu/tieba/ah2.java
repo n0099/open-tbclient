@@ -285,7 +285,7 @@ public final class ah2 {
             if (window != null) {
                 window.setGravity(80);
                 window.setLayout(wh3.s(activity), -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
             }
             return c2;
         }

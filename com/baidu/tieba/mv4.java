@@ -17,7 +17,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +54,7 @@ public class mv4 {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a */
-        public static final int obfuscated_res_0x7f1003ad = 2131755949;
+        public static final int obfuscated_res_0x7f1003ae = 2131755950;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -367,7 +366,7 @@ public class mv4 {
                 }
                 Window window = this.n.getWindow();
                 if (this.j == -1) {
-                    this.j = b.obfuscated_res_0x7f1003ad;
+                    this.j = b.obfuscated_res_0x7f1003ae;
                 }
                 if (this.k == -1) {
                     this.k = 17;
@@ -377,9 +376,6 @@ public class mv4 {
                 window.setAttributes(attributes);
                 window.setGravity(this.k);
                 window.setContentView(this.e);
-                if (WindowGreySwitch.getIsOn()) {
-                    u9.b(window.getDecorView());
-                }
                 return this;
             }
             throw new RuntimeException("Dialog must be created by function create()!");

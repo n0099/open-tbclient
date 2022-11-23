@@ -120,7 +120,7 @@ public class qv4 implements View.OnClickListener {
         layoutParams2.height = this.n;
         layoutParams2.type = 1000;
         layoutParams2.format = -3;
-        layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1002a7;
+        layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1002a8;
         layoutParams2.flags = 262152;
         layoutParams2.gravity = 81;
         layoutParams2.y = d();

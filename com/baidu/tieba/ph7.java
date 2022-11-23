@@ -33,7 +33,6 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.jh0;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -793,9 +792,6 @@ public class ph7 {
                     }
                 }
             });
-            if (WindowGreySwitch.getIsOn()) {
-                u9.b(this.c);
-            }
         }
     }
 

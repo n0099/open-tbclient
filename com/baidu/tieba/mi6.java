@@ -52,27 +52,17 @@ public class mi6 implements View.OnClickListener {
     public OriginalThreadInfo.ShareInfo k;
     public String l;
     public String m;
-    public View.OnClickListener n;
-    public Runnable o;
-    public CustomMessageListener p;
-    public CustomMessageListener q;
-    public oi6.b r;
-
-    public void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
+    public String n;
+    public String o;
+    public View.OnClickListener p;
+    public Runnable q;
+    public CustomMessageListener r;
+    public CustomMessageListener s;
+    public oi6.b t;
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
         }
     }
 
@@ -110,18 +100,15 @@ public class mi6 implements View.OnClickListener {
             this.a.a.getPageActivity().setResult(-1, intent);
             ri6 ri6Var = (ri6) view2.getTag();
             if (this.a.g != 1) {
-                if (this.a.g != 2) {
+                if (this.a.g != 2 && this.a.g != 4) {
                     if (this.a.g == 3) {
                         intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_ID, String.valueOf(ri6Var.h()));
                         intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_NAME, ri6Var.j());
                         this.a.a.getPageActivity().finish();
                         return;
-                    } else if (this.a.g != 4) {
-                        return;
-                    } else {
-                        this.a.r(String.valueOf(ri6Var.h()), ri6Var.j());
-                        return;
                     }
+                    this.a.r(String.valueOf(ri6Var.h()), ri6Var.j());
+                    return;
                 }
                 this.a.s(ri6Var);
                 TiebaStatic.log(new StatisticItem("c12609").param("fid", ri6Var.h()));
@@ -421,25 +408,32 @@ public class mi6 implements View.OnClickListener {
                 return;
             }
         }
-        this.n = new a(this);
-        this.o = new b(this);
-        this.p = new c(this, 2921021);
-        this.q = new d(this, 2921020);
-        this.r = new e(this);
+        this.p = new a(this);
+        this.q = new b(this);
+        this.r = new c(this, 2921021);
+        this.s = new d(this, 2921020);
+        this.t = new e(this);
         this.a = tbPageContext;
         this.b = new ni6(tbPageContext);
         m();
         oi6 oi6Var = new oi6(tbPageContext, tbPageContext.getUniqueId());
         this.c = oi6Var;
-        oi6Var.e(this.r);
+        oi6Var.e(this.t);
         this.e = new ArrayList<>();
         li6 li6Var = new li6(tbPageContext, this.b.g);
         this.d = li6Var;
-        li6Var.a(this.n);
+        li6Var.a(this.p);
         F();
-        tbPageContext.registerListener(this.q);
-        tbPageContext.registerListener(this.p);
-        ah.a().postDelayed(this.o, 500L);
+        tbPageContext.registerListener(this.s);
+        tbPageContext.registerListener(this.r);
+        ah.a().postDelayed(this.q, 500L);
+    }
+
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.n = str;
+        }
     }
 
     public void B(OriginalThreadInfo.ShareInfo shareInfo) {
@@ -499,6 +493,13 @@ public class mi6 implements View.OnClickListener {
         }
     }
 
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.o = str;
+        }
+    }
+
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -554,9 +555,9 @@ public class mi6 implements View.OnClickListener {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ah.a().removeCallbacks(this.o);
-            MessageManager.getInstance().unRegisterListener(this.q);
-            MessageManager.getInstance().unRegisterListener(this.p);
+            ah.a().removeCallbacks(this.q);
+            MessageManager.getInstance().unRegisterListener(this.s);
+            MessageManager.getInstance().unRegisterListener(this.r);
         }
     }
 
@@ -631,9 +632,15 @@ public class mi6 implements View.OnClickListener {
         }
         TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.a.getPageActivity(), 9, String.valueOf(ri6Var.h()), ri6Var.j(), null, null, 13011, null, null, this.k);
         transmitPostEditActivityConfig.setCallFrom("2");
-        transmitPostEditActivityConfig.setBaijiahaoData(this.j);
-        transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.l);
-        transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.m);
+        BaijiahaoData baijiahaoData = this.j;
+        if (baijiahaoData != null) {
+            transmitPostEditActivityConfig.setBaijiahaoData(baijiahaoData);
+            transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.l);
+            transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.m);
+        } else {
+            transmitPostEditActivityConfig.setMoreForumTitle(this.o);
+            transmitPostEditActivityConfig.setMoreForumUrl(this.n);
+        }
         transmitPostEditActivityConfig.setFrsTabInfo(p(ri6Var));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
         this.a.getPageActivity().finish();

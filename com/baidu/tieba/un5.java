@@ -354,13 +354,13 @@ public class un5 {
     public void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
-            Dialog dialog = new Dialog(this.a, R.style.obfuscated_res_0x7f1003ab);
+            Dialog dialog = new Dialog(this.a, R.style.obfuscated_res_0x7f1003ac);
             this.l = dialog;
             dialog.setCancelable(this.e.S);
             this.l.setContentView(this.d);
             Window window = this.l.getWindow();
             if (window != null) {
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d5);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d6);
                 window.setGravity(17);
             }
             this.l.setOnDismissListener(new f(this));

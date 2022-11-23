@@ -643,7 +643,7 @@ public final class f9a {
                 RLog.error("InputDialogManager", "showSimpleNumberInputDialog ActivityInvalid....", new Object[0]);
                 return null;
             }
-            a9a a9aVar = new a9a(activity, R.style.obfuscated_res_0x7f100152, payFlowType);
+            a9a a9aVar = new a9a(activity, R.style.obfuscated_res_0x7f100153, payFlowType);
             a9aVar.setCancelable(true);
             a9aVar.setCanceledOnTouchOutside(true);
             a9aVar.show();
@@ -657,7 +657,7 @@ public final class f9a {
             window.setContentView(inflate);
             window.clearFlags(131072);
             window.setSoftInputMode(21);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f10014f);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100150);
             WindowManager.LayoutParams attributes = window.getAttributes();
             Intrinsics.checkExpressionValueIsNotNull(attributes, "window.getAttributes()");
             attributes.width = -1;

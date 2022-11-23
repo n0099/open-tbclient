@@ -1584,7 +1584,7 @@ public class SwanAppAdLandingFragment extends t32 implements qs3 {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
                 window.setLayout(wh3.s(getContext()), -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
             }
             this.G1.a(false);
             this.G1.setCanceledOnTouchOutside(true);

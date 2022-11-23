@@ -267,7 +267,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (this.a) {
-                setTheme(R.style.obfuscated_res_0x7f10017c);
+                setTheme(R.style.obfuscated_res_0x7f10017d);
             }
             this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f0926a8);
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);

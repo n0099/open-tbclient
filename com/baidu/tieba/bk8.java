@@ -41,7 +41,6 @@ import com.baidu.tbadk.core.util.svg.SvgMaskType;
 import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.transmitShare.ShareGridLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -689,15 +688,12 @@ public class bk8 implements View.OnClickListener {
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
                 window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
                 window.setGravity(80);
                 window.setLayout(-1, -2);
                 window.setContentView(this.b);
                 e();
                 r();
-                if (WindowGreySwitch.getIsOn()) {
-                    u9.b(window.getDecorView());
-                }
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
             }
         }

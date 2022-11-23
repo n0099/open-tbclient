@@ -403,9 +403,9 @@ public class pp5 {
         }
         this.c.setBackgroundDrawable(new ColorDrawable(0));
         if (j) {
-            this.c.setAnimationStyle(R.style.obfuscated_res_0x7f1003ed);
-        } else {
             this.c.setAnimationStyle(R.style.obfuscated_res_0x7f1003ee);
+        } else {
+            this.c.setAnimationStyle(R.style.obfuscated_res_0x7f1003ef);
         }
         this.c.showAtLocation(this.r, 0, iArr[0] - this.l, iArr[1]);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));

@@ -54,7 +54,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755825;
+    public static final int DEF_STYLE_RES = 2131755826;
     public static final int MENU_PRESENTER_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -323,7 +323,7 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100331, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100332, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {

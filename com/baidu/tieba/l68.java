@@ -100,7 +100,7 @@ public class l68 extends Dialog {
             getWindow().setBackgroundDrawableResource(R.color.transparent);
             getWindow().setDimAmount(this.d);
             getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d4);
+            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d5);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cd4);

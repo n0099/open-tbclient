@@ -171,7 +171,7 @@ public class q45 {
         kv4Var.setContentViewSize(5);
         kv4Var.setContentView(newUserRewardDialogView);
         kv4Var.setCanceledOnTouchOutside(false);
-        kv4Var.setAnimRes(R.style.obfuscated_res_0x7f1003d5);
+        kv4Var.setAnimRes(R.style.obfuscated_res_0x7f1003d6);
         kv4Var.create(tbPageContext).show();
         newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, kv4Var));
         newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, kv4Var, i));

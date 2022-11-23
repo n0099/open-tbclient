@@ -257,7 +257,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             setOnDismissListener(this);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100421);
+            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100422);
             View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.ufo_evaluate_dialog, null);
             inflate.findViewById(com.baidu.tieba.R.id.btn_dialog_close).setOnClickListener(this);
             inflate.findViewById(com.baidu.tieba.R.id.header_transparent).setOnClickListener(this);

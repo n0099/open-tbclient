@@ -24,6 +24,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -515,7 +516,7 @@ public class GuidePopupWindow extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuidePopupWindow(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1003ac);
+        super(context, R.style.obfuscated_res_0x7f1003ad);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -578,17 +579,6 @@ public class GuidePopupWindow extends Dialog {
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(this.b);
-            getWindow().setLayout(-1, -1);
-            uw8.b(1, getWindow().getAttributes(), getWindow());
-        }
-    }
-
     public void r(UserData userData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, userData) == null) && userData != null) {
@@ -635,6 +625,18 @@ public class GuidePopupWindow extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             TextView textView = this.f;
             textView.setText("认证：" + str + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0839));
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(this.b);
+            getWindow().setLayout(-1, -1);
+            uw8.b(1, getWindow().getAttributes(), getWindow());
+            GreyUtil.grey(this);
         }
     }
 

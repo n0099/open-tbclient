@@ -301,7 +301,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.obfuscated_res_0x7f1003b3);
+        super(context, R.style.obfuscated_res_0x7f1003b4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

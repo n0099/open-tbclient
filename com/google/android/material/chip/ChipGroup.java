@@ -35,7 +35,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755873;
+    public static final int DEF_STYLE_RES = 2131755874;
     public transient /* synthetic */ FieldHolder $fh;
     @IdRes
     public int checkedId;

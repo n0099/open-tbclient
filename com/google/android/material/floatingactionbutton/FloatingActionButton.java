@@ -70,7 +70,7 @@ import java.util.List;
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
-    public static final int DEF_STYLE_RES = 2131755828;
+    public static final int DEF_STYLE_RES = 2131755829;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;

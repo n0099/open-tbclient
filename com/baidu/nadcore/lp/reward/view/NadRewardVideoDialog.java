@@ -566,7 +566,7 @@ public final class NadRewardVideoDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(0, R.style.obfuscated_res_0x7f1003ca);
+            setStyle(0, R.style.obfuscated_res_0x7f1003cb);
         }
     }
 

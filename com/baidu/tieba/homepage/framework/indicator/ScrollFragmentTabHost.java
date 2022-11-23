@@ -42,6 +42,7 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StatusbarColorUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -1756,6 +1757,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements l07 {
     }
 
     public void setPrimary(boolean z) {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
             this.y = z;
@@ -1763,9 +1765,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements l07 {
             if (newScrollFragmentAdapter != null) {
                 newScrollFragmentAdapter.I(z);
             }
-            qj5 qj5Var = this.g;
-            if (qj5Var != null) {
-                qj5Var.b(z);
+            if (!z && (tbPageContext = this.b) != null) {
+                StatusbarColorUtils.setStatusBarDarkIcon(tbPageContext.getPageActivity(), !UtilHelper.isNightOrDarkMode());
             }
         }
     }

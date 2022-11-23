@@ -355,9 +355,9 @@ public class ViewHelper {
                                 TextView textView = (TextView) view2;
                                 Application app = TbadkCoreApplication.getInst().getApp();
                                 if (this.val$isNight) {
-                                    i2 = R.style.obfuscated_res_0x7f1003fb;
+                                    i2 = R.style.obfuscated_res_0x7f1003fc;
                                 } else {
-                                    i2 = R.style.obfuscated_res_0x7f1003fa;
+                                    i2 = R.style.obfuscated_res_0x7f1003fb;
                                 }
                                 textView.setTextAppearance(app, i2);
                                 return false;

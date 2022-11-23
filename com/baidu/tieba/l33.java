@@ -150,7 +150,7 @@ public class l33 extends k33 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l33(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a8);
+        super(context, R.style.obfuscated_res_0x7f1001a9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

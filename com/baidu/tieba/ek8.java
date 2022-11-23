@@ -1384,9 +1384,9 @@ public class ek8 implements View.OnClickListener {
                     WindowManager.LayoutParams attributes = window.getAttributes();
                     attributes.y = yi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
                     window.setAttributes(attributes);
-                    window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f9);
+                    window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
                 } else {
-                    window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d1);
+                    window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d2);
                 }
                 window.setGravity(80);
                 k0(window);

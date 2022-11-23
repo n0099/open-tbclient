@@ -225,7 +225,7 @@ public class vd1 extends Dialog {
             Window window = getWindow();
             if (window != null) {
                 window.setGravity(80);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a5);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a6);
                 window.setLayout(-1, -2);
             }
             this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f0905ba);

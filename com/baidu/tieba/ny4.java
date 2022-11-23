@@ -624,7 +624,7 @@ public class ny4 {
     public final void y(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, activity) == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f1003df);
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f1003e0);
             builder.setMessage(R.string.obfuscated_res_0x7f0f03b5);
             builder.setCancelable(false);
             builder.setPositiveButton(R.string.obfuscated_res_0x7f0f05e5, new b(this, activity));

@@ -29,7 +29,6 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -874,9 +873,6 @@ public class kv4 {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 window.setContentView(this.mRootView);
-                if (WindowGreySwitch.getIsOn()) {
-                    u9.b(window.getDecorView());
-                }
                 AtomicBoolean atomicBoolean = new AtomicBoolean(false);
                 ViewHelper.processAllViewsIn(this.mRootView, false, new b(this, atomicBoolean));
                 if (atomicBoolean.get()) {

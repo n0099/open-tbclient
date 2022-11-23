@@ -22,7 +22,7 @@ public class CustomAlertDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100187);
+        super(context, R.style.obfuscated_res_0x7f100188);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

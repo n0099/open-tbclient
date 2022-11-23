@@ -61,7 +61,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755824;
+    public static final int DEF_STYLE_RES = 2131755825;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;

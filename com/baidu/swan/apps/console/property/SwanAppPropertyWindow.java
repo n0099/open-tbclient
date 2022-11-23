@@ -321,14 +321,14 @@ public class SwanAppPropertyWindow extends FrameLayout {
             for (b bVar : this.a) {
                 TextView textView = new TextView(context);
                 if (TextUtils.equals(bVar.a, "title")) {
-                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ab);
+                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ac);
                     textView.setText(bVar.b);
                 } else if (!TextUtils.equals(bVar.a, "api_info_expend") && !TextUtils.equals(bVar.a, "prelink_info_expend")) {
-                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001aa);
+                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ab);
                     textView.setTag(bVar.b);
                     textView.setVisibility(8);
                 } else {
-                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ab);
+                    textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ac);
                     textView.setText(bVar.b);
                     int g = wh3.g(5.0f);
                     textView.setPadding(0, g, 0, g);

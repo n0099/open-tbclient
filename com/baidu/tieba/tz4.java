@@ -12,6 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.headViewPendant.LightInteractiveLayout;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -199,7 +200,7 @@ public class tz4 {
             return;
         }
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION, TbConfig.SERVER_ADDRESS + "c/c/agree/agreeVirtualImage"));
-        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003b4);
+        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003b5);
         dialog.setCancelable(true);
         Window window = dialog.getWindow();
         if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
@@ -222,6 +223,7 @@ public class tz4 {
         lightInteractiveLayout.setNeedHomeIcon(z);
         lightInteractiveLayout.setLocation(i, i2);
         dialog.setContentView(lightInteractiveLayout);
+        GreyUtil.grey(dialog);
         a aVar = new a(2001304, window, lightInteractiveLayout, i, i2);
         dialog.setOnDismissListener(new b(aVar, lightInteractiveLayout));
         lightInteractiveLayout.setOnDismissListener(new c(dialog));

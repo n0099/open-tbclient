@@ -26,7 +26,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialToolbar extends Toolbar {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755926;
+    public static final int DEF_STYLE_RES = 2131755927;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

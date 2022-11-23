@@ -1139,7 +1139,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "chip");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = R.style.obfuscated_res_0x7f10035f;
+                styleAttribute = R.style.obfuscated_res_0x7f100360;
             }
             return createFromAttributes(context, parseDrawableXml, R.attr.obfuscated_res_0x7f04014a, styleAttribute);
         }

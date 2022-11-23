@@ -291,7 +291,7 @@ public class pr4 extends PopupWindow {
             setHeight(-1);
             setFocusable(true);
             setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.black_alpha35)));
-            setAnimationStyle(R.style.obfuscated_res_0x7f1002ab);
+            setAnimationStyle(R.style.obfuscated_res_0x7f1002ac);
             setClippingEnabled(false);
             setOnDismissListener(new c(this));
         }

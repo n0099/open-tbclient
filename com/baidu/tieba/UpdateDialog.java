@@ -564,7 +564,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            dq5 dq5Var = new dq5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+            dq5 dq5Var = new dq5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a9);
             this.j = dq5Var;
             dq5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));

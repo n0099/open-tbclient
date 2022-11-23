@@ -226,7 +226,7 @@ public class v33 {
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10041a;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10041b;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
         WindowManager.LayoutParams layoutParams2 = this.g;

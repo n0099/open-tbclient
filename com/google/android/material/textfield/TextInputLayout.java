@@ -86,7 +86,7 @@ public class TextInputLayout extends LinearLayout {
     public static final int BOX_BACKGROUND_FILLED = 1;
     public static final int BOX_BACKGROUND_NONE = 0;
     public static final int BOX_BACKGROUND_OUTLINE = 2;
-    public static final int DEF_STYLE_RES = 2131755834;
+    public static final int DEF_STYLE_RES = 2131755835;
     public static final int END_ICON_CLEAR_TEXT = 2;
     public static final int END_ICON_CUSTOM = -1;
     public static final int END_ICON_DROPDOWN_MENU = 3;
@@ -3447,7 +3447,7 @@ public class TextInputLayout extends LinearLayout {
             } catch (Exception unused) {
             }
             if (z) {
-                TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001bf);
+                TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001c0);
                 textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06071c));
             }
         }

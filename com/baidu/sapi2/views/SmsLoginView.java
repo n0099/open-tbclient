@@ -523,7 +523,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(SmsLoginView smsLoginView, Context context) {
-            super(context, R.style.obfuscated_res_0x7f1003e9);
+            super(context, R.style.obfuscated_res_0x7f1003ea);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

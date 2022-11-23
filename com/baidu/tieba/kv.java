@@ -100,7 +100,7 @@ public final class kv extends jv {
                     Toast unused = kv.b = new Toast(this.a.a);
                     kv.b.setView(this.a.b);
                     kv.b.setGravity(81, 0, this.a.c);
-                    sv.m(kv.b, R.style.obfuscated_res_0x7f10041a);
+                    sv.m(kv.b, R.style.obfuscated_res_0x7f10041b);
                     this.a.b.setOnClickListener(new View$OnClickListenerC0331a(this));
                     kv.b.show();
                 }
@@ -177,7 +177,7 @@ public final class kv extends jv {
                     Toast unused = kv.b = new Toast(this.a.a);
                     kv.b.setView(this.a.b);
                     kv.b.setGravity(81, 0, this.a.c);
-                    sv.m(kv.b, R.style.obfuscated_res_0x7f10041a);
+                    sv.m(kv.b, R.style.obfuscated_res_0x7f10041b);
                     kv.b.show();
                 }
             }
@@ -252,7 +252,7 @@ public final class kv extends jv {
                 lvVar.f(viewGroup);
                 lvVar.e(81, 0, this.b);
                 lvVar.d(this.c);
-                lvVar.j(R.style.obfuscated_res_0x7f10041a);
+                lvVar.j(R.style.obfuscated_res_0x7f10041b);
                 lvVar.c();
             }
         }

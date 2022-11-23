@@ -776,7 +776,7 @@ public class tl6 {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001af);
+            Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001b0);
             this.m = dialog;
             dialog.requestWindowFeature(1);
             this.m.setContentView(this.f);

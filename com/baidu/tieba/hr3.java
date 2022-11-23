@@ -1896,7 +1896,7 @@ public class hr3 extends UnitedSchemeBaseDispatcher {
                 if (window != null) {
                     window.setGravity(80);
                     window.setLayout(wh3.s(context), -2);
-                    window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                    window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
                 }
                 c2.a(false);
                 c2.setCanceledOnTouchOutside(true);

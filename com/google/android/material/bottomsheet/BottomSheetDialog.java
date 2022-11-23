@@ -230,7 +230,7 @@ public class BottomSheetDialog extends AppCompatDialog {
                 if (context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400f5, typedValue, true)) {
                     return typedValue.resourceId;
                 }
-                return R.style.obfuscated_res_0x7f100234;
+                return R.style.obfuscated_res_0x7f100235;
             }
             return i;
         }
