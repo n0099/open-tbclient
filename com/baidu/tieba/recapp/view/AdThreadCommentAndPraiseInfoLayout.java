@@ -27,7 +27,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.DisableZanSwitch;
+import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a11;
 import com.baidu.tieba.bh8;
@@ -436,7 +439,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 public void onClick(View view2) {
                     AgreeData data;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) || (data = this.a.e.getData()) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) || !PraiseSwitch.isOn() || (data = this.a.e.getData()) == null) {
                         return;
                     }
                     this.a.e.getImgAgree().cancelAnimation();
@@ -444,27 +447,36 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     if (data.hasAgree) {
                         if (data.agreeType == 2) {
                             data.agreeType = 2;
-                            data.hasAgree = false;
-                            data.diffAgreeNum--;
-                            data.agreeNum--;
-                            this.a.e.W();
+                            if (!DisableZanSwitch.getIsOn()) {
+                                data.hasAgree = false;
+                                data.diffAgreeNum--;
+                                data.agreeNum--;
+                                this.a.e.W();
+                            }
                             i = 1;
                         } else {
                             data.agreeType = 2;
-                            data.hasAgree = true;
-                            data.diffAgreeNum += 2;
-                            data.agreeNum++;
-                            data.disAgreeNum--;
-                            this.a.e.X(true);
+                            if (!DisableZanSwitch.getIsOn()) {
+                                data.hasAgree = true;
+                                data.diffAgreeNum += 2;
+                                data.agreeNum++;
+                                data.disAgreeNum--;
+                                this.a.e.X(true);
+                            }
                         }
                     } else {
                         data.agreeType = 2;
-                        data.hasAgree = true;
-                        data.diffAgreeNum++;
-                        data.agreeNum++;
-                        this.a.e.X(true);
+                        if (!DisableZanSwitch.getIsOn()) {
+                            data.hasAgree = true;
+                            data.diffAgreeNum++;
+                            data.agreeNum++;
+                            this.a.e.X(true);
+                        }
                     }
                     this.a.g0(i);
+                    if (WindowGreySwitch.getIsOnNew()) {
+                        return;
+                    }
                     this.a.e(view2);
                 }
             };

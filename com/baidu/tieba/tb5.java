@@ -32,66 +32,82 @@ public class tb5 {
         return (ContentResolver) invokeV.objValue;
     }
 
-    public static OrmObject c(String str, Class<?> cls) {
+    public static int c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return xg.e(f(str), i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static OrmObject d(String str, Class<?> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) {
             if (str != null && cls != null) {
-                return OrmObject.objectWithJsonStr(e(str), cls);
+                return OrmObject.objectWithJsonStr(f(str), cls);
             }
             return null;
         }
         return (OrmObject) invokeLL.objValue;
     }
 
-    public static String d(String str, String str2) {
+    public static String e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            String e = e(str);
-            if (e != null) {
-                return e;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = f(str);
+            if (f != null) {
+                return f;
             }
             return str2;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static void h(String str, String str2) {
+    public static void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            i(str, str2);
+        if (interceptable == null || interceptable.invokeLI(65544, null, str, i) == null) {
+            k(str, Integer.valueOf(i));
         }
     }
 
-    public static void i(String str, Object obj) {
+    public static void j(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
-            j(Uri.parse(a() + str), g(str, obj));
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            k(str, str2);
         }
     }
 
-    public static void j(Uri uri, ContentValues contentValues) {
+    public static void k(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, uri, contentValues) == null) {
-            k(uri, contentValues);
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, obj) == null) {
+            l(Uri.parse(a() + str), h(str, obj));
         }
     }
 
-    public static String e(String str) {
+    public static void l(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, uri, contentValues) == null) {
+            m(uri, contentValues);
+        }
+    }
+
+    public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return f(Uri.parse(a() + str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return g(Uri.parse(a() + str));
         }
         return (String) invokeL.objValue;
     }
 
-    public static String f(Uri uri) {
+    public static String g(Uri uri) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uri)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 str = b().getType(uri);
@@ -106,10 +122,10 @@ public class tb5 {
         return (String) invokeL.objValue;
     }
 
-    public static ContentValues g(String str, Object obj) {
+    public static ContentValues h(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, obj)) == null) {
             ContentValues contentValues = new ContentValues();
             String str2 = null;
             if (obj != null) {
@@ -133,9 +149,9 @@ public class tb5 {
         return (ContentValues) invokeLL.objValue;
     }
 
-    public static void k(Uri uri, ContentValues contentValues) {
+    public static void m(Uri uri, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, uri, contentValues) == null) {
+        if (interceptable == null || interceptable.invokeLL(65548, null, uri, contentValues) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 b().insert(uri, contentValues);

@@ -138,6 +138,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunSdkInitSwitch.class);
             SwitchManager.getInstance().registerSwitch(GifLibrarySwitch.class);
             SwitchManager.getInstance().registerSwitch(WorldCupEnableSwitch.class);
+            SwitchManager.getInstance().registerSwitch(PraiseSwitch.class);
         }
     }
 }

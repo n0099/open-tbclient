@@ -201,10 +201,10 @@ public final class n9 {
     public void r(boolean z) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048592, this, z) != null) || this.c == z) {
+        if ((interceptable != null && interceptable.invokeZ(1048592, this, z) != null) || !this.c) {
             return;
         }
-        this.c = z;
+        this.c = false;
         if (d == null) {
             return;
         }

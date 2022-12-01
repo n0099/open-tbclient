@@ -45,6 +45,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tbadk.data.VirtualImageCustomFigure;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.switchs.DisableZanSwitch;
+import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.widget.lottie.TBLazyLottieAnimationView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
@@ -185,19 +187,21 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         public boolean onLongClick(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
-                return invokeL.booleanValue;
-            }
-            this.a.O = true;
-            if (this.a.o != null) {
-                this.a.o.d = 3;
-            }
-            this.a.L();
-            if (this.a.P != null && TbadkCoreApplication.isLogin()) {
-                this.a.P.onLongPress();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (!PraiseSwitch.isOn()) {
+                    return false;
+                }
+                this.a.O = true;
+                if (this.a.o != null) {
+                    this.a.o.d = 3;
+                }
+                this.a.L();
+                if (this.a.P != null && TbadkCoreApplication.isLogin()) {
+                    this.a.P.onLongPress();
+                }
                 return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
     }
 
@@ -270,22 +274,23 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                kx4.a(1, 1);
-                if (this.a.x != null && this.a.x.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                    kx4.a(2, 1);
-                    return;
-                }
-                this.a.N(view2);
-                View.OnClickListener onClickListener = this.a.A;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-                if (this.a.B == 1 || this.a.B == 2) {
-                    TbSingleton.getInstance().saveHomeRecommendItemClickTime();
-                }
-                this.a.S();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !PraiseSwitch.isOn()) {
+                return;
             }
+            kx4.a(1, 1);
+            if (this.a.x != null && this.a.x.getType() == ThreadData.TYPE_FAKE_VIDEO) {
+                kx4.a(2, 1);
+                return;
+            }
+            this.a.N(view2);
+            View.OnClickListener onClickListener = this.a.A;
+            if (onClickListener != null) {
+                onClickListener.onClick(view2);
+            }
+            if (this.a.B == 1 || this.a.B == 2) {
+                TbSingleton.getInstance().saveHomeRecommendItemClickTime();
+            }
+            this.a.S();
         }
     }
 
@@ -1267,12 +1272,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     public void K() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            N(this.c);
-            zr4 zr4Var = this.o;
-            if (zr4Var != null) {
-                zr4Var.d = 1;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !PraiseSwitch.isOn()) {
+            return;
+        }
+        N(this.c);
+        zr4 zr4Var = this.o;
+        if (zr4Var != null) {
+            zr4Var.d = 1;
         }
     }
 
@@ -1431,14 +1437,15 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 zr4Var.a = 1;
             }
             this.w = true;
-            AgreeData agreeData = this.g;
-            if (agreeData.agreeType != 2 || !agreeData.hasAgree) {
-                this.g.agreeNum++;
+            this.g.agreeType = 2;
+            if (!DisableZanSwitch.getIsOn()) {
+                AgreeData agreeData = this.g;
+                if (agreeData.agreeType != 2 || !agreeData.hasAgree) {
+                    this.g.agreeNum++;
+                }
+                this.g.hasAgree = true;
+                W();
             }
-            AgreeData agreeData2 = this.g;
-            agreeData2.agreeType = 2;
-            agreeData2.hasAgree = true;
-            W();
             zr4 zr4Var2 = this.o;
             if (zr4Var2 != null) {
                 zr4Var2.e = 1;
@@ -1608,9 +1615,12 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 if (agreeData2.agreeType == 2) {
                                     this.w = false;
                                     agreeData2.agreeType = 2;
-                                    agreeData2.hasAgree = false;
-                                    agreeData2.agreeNum--;
-                                    W();
+                                    if (!DisableZanSwitch.getIsOn()) {
+                                        AgreeData agreeData3 = this.g;
+                                        agreeData3.hasAgree = false;
+                                        agreeData3.agreeNum--;
+                                        W();
+                                    }
                                     zr4 zr4Var11 = this.o;
                                     if (zr4Var11 != null) {
                                         zr4Var11.e = 1;
@@ -1619,10 +1629,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 } else {
                                     this.w = true;
                                     agreeData2.agreeType = 2;
-                                    agreeData2.hasAgree = true;
-                                    agreeData2.agreeNum++;
-                                    X(true);
-                                    kf8.g().l(getTbPageContext());
+                                    if (!DisableZanSwitch.getIsOn()) {
+                                        AgreeData agreeData4 = this.g;
+                                        agreeData4.hasAgree = true;
+                                        agreeData4.agreeNum++;
+                                        X(true);
+                                        kf8.g().l(getTbPageContext());
+                                    }
                                     zr4 zr4Var12 = this.o;
                                     if (zr4Var12 != null) {
                                         zr4Var12.e = 0;
@@ -1631,10 +1644,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             } else {
                                 this.w = true;
                                 agreeData2.agreeType = 2;
-                                agreeData2.hasAgree = true;
-                                agreeData2.agreeNum++;
-                                X(true);
-                                kf8.g().l(getTbPageContext());
+                                if (!DisableZanSwitch.getIsOn()) {
+                                    AgreeData agreeData5 = this.g;
+                                    agreeData5.hasAgree = true;
+                                    agreeData5.agreeNum++;
+                                    X(true);
+                                    kf8.g().l(getTbPageContext());
+                                }
                                 zr4 zr4Var13 = this.o;
                                 if (zr4Var13 != null) {
                                     zr4Var13.e = 0;

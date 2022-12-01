@@ -39,6 +39,7 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.ad.incentivevideo.net.GetIncentiveVideoTaskModel;
 import com.baidu.tieba.kv4;
@@ -58,13 +59,14 @@ public class as8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener A;
-    public final ItemCardHelper.c B;
-    public CustomMessageListener C;
+    public CustomMessageListener B;
+    public final ItemCardHelper.c C;
     public CustomMessageListener D;
     public CustomMessageListener E;
-    public Runnable F;
+    public CustomMessageListener F;
     public Runnable G;
     public Runnable H;
+    public Runnable I;
     public MainTabActivity a;
     public FragmentTabHost b;
     public TextView c;
@@ -89,8 +91,8 @@ public class as8 {
     public boolean v;
     public boolean w;
     public v39 x;
-    public FragmentTabHost.b y;
-    public CustomMessageListener z;
+    public boolean y;
+    public FragmentTabHost.b z;
 
     /* loaded from: classes3.dex */
     public class a implements FragmentTabHost.b {
@@ -226,10 +228,10 @@ public class as8 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:28:0x00f0, code lost:
-            if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r1) != false) goto L107;
+            if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r1) != false) goto L111;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:87:0x0268, code lost:
-            if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r14) != false) goto L45;
+        /* JADX WARN: Code restructure failed: missing block: B:91:0x02a0, code lost:
+            if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r14) != false) goto L47;
          */
         @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
         /*
@@ -310,6 +312,10 @@ public class as8 {
                     }
                     this.a.p = false;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921415));
+                    if (WindowGreySwitch.getIsOnNew()) {
+                        u9.a(this.a.b.getFragmentTabWidget());
+                        u9.a(this.a.f);
+                    }
                 } else {
                     if (this.a.p) {
                         MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.TRUE);
@@ -322,6 +328,10 @@ public class as8 {
                         this.a.n.x(this.a.p);
                     }
                     this.a.r = false;
+                    if (WindowGreySwitch.getIsOnNew()) {
+                        u9.b(this.a.b.getFragmentTabWidget());
+                        u9.b(this.a.f);
+                    }
                 }
                 if (this.a.z() != null) {
                     this.a.z().w = this.a.p;
@@ -571,7 +581,7 @@ public class as8 {
                 ch.l(this.a.h, fragmentTabWidget, measuredWidth2, -g);
                 qy4.k().u("show_maintab_last_message_tips", true);
                 this.a.i = true;
-                this.a.j.postDelayed(this.a.H, 5000L);
+                this.a.j.postDelayed(this.a.I, 5000L);
             }
         }
     }
@@ -1154,15 +1164,16 @@ public class as8 {
         this.u = false;
         this.v = false;
         this.w = false;
-        this.y = new a(this);
-        this.z = new j(this, 2921492);
-        this.A = new k(this, 2001440);
-        this.B = new l(this);
-        this.C = new m(this, 2921551);
-        this.D = new n(this, 2921382);
-        this.E = new o(this, 2921410);
-        this.G = new d(this);
-        this.H = new e(this);
+        this.y = false;
+        this.z = new a(this);
+        this.A = new j(this, 2921492);
+        this.B = new k(this, 2001440);
+        this.C = new l(this);
+        this.D = new m(this, 2921551);
+        this.E = new n(this, 2921382);
+        this.F = new o(this, 2921410);
+        this.H = new d(this);
+        this.I = new e(this);
         this.a = mainTabActivity;
     }
 
@@ -1236,18 +1247,10 @@ public class as8 {
         return invokeV.booleanValue;
     }
 
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ItemCardHelper.w(this.B);
-            MessageManager.getInstance().registerListener(this.A);
-        }
-    }
-
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.A);
+            MessageManager.getInstance().unRegisterListener(this.B);
         }
     }
 
@@ -1278,8 +1281,8 @@ public class as8 {
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.j.removeCallbacks(this.G);
             this.j.removeCallbacks(this.H);
+            this.j.removeCallbacks(this.I);
             ch.c(this.h);
         }
     }
@@ -1426,6 +1429,26 @@ public class as8 {
         }
     }
 
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ItemCardHelper.w(this.C);
+            MessageManager.getInstance().registerListener(this.B);
+            if (this.y != WindowGreySwitch.getIsOnNew()) {
+                if (this.p && this.b != null) {
+                    if (WindowGreySwitch.getIsOnNew()) {
+                        u9.b(this.b.getFragmentTabWidget());
+                        u9.b(this.f);
+                    } else {
+                        u9.a(this.b.getFragmentTabWidget());
+                        u9.a(this.f);
+                    }
+                }
+                this.y = WindowGreySwitch.getIsOnNew();
+            }
+        }
+    }
+
     public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -1436,7 +1459,7 @@ public class as8 {
             vr8.b(new q(this), 6);
             this.b.setup(this.a.getSupportFragmentManager());
             this.b.setAbsoluteWeight(true);
-            this.b.setOnTabSelectionListener(this.y);
+            this.b.setOnTabSelectionListener(this.z);
             this.b.s(TbadkCoreApplication.getInst().getSkinType());
             if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
                 this.b.setShouldDrawIndicatorLine(false);
@@ -1456,11 +1479,11 @@ public class as8 {
             gs8Var.f(false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001307, this.a.getPageContext()));
             if (!TbSingleton.getInstance().isShowHomeFloatRefreshButton()) {
-                this.a.registerListener(this.D);
+                this.a.registerListener(this.E);
             }
-            this.a.registerListener(this.E);
-            this.a.registerListener(this.z);
-            this.a.registerListener(this.C);
+            this.a.registerListener(this.F);
+            this.a.registerListener(this.A);
+            this.a.registerListener(this.D);
             this.x = new v39(this.a, "main_tab", 1, "8");
         }
     }
@@ -1479,11 +1502,11 @@ public class as8 {
                     Q(str, h2);
                     return;
                 }
-                if (this.F == null) {
-                    this.F = new c(this, str);
+                if (this.G == null) {
+                    this.G = new c(this, str);
                 }
-                TbadkCoreApplication.getInst().handler.removeCallbacks(this.F);
-                TbadkCoreApplication.getInst().handler.postDelayed(this.F, 5000L);
+                TbadkCoreApplication.getInst().handler.removeCallbacks(this.G);
+                TbadkCoreApplication.getInst().handler.postDelayed(this.G, 5000L);
                 return;
             }
             this.c.setVisibility(8);

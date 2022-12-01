@@ -318,9 +318,9 @@ public class u36 extends l36<a56> implements lq5 {
             this.l = (ThreadCommentAndPraiseInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ec);
             this.m = (ThreadCardBottomOpSegmentWeightLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ed);
             this.l.setUseDynamicLikeRes();
-            this.l.setNeedMatchStrategy(false);
+            this.l.setNeedMatchStrategy(true);
             this.m.setUseDynamicLikeRes();
-            this.m.setNeedMatchStrategy(false);
+            this.m.setNeedMatchStrategy(true);
             t(this.l);
             t(this.m);
             this.w.setOnClickListener(this);

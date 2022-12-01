@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.ActivityPrizeData;
 import com.baidu.tbadk.coreExtra.data.TiebaPlusConfigData;
 import com.baidu.tbadk.coreExtra.data.VideoPreloadData;
+import com.baidu.tbadk.switchs.DisableZanSwitch;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -787,7 +788,7 @@ public class g35 {
             qy4.k().w("index_activity_abtest_switch_json", this.V);
             this.h0 = jSONObject.optString(TiebaStatic.Params.SAMPLE_ID);
             qy4.k().y("key_ubs_sample_id", this.h0);
-            tb5.h("multi_process_sample_id", this.h0);
+            tb5.j("multi_process_sample_id", this.h0);
             o25.c(jSONObject.optString("js_whitelist"));
             zd5.f().j(jSONObject.optString("stat_keys_list"));
             this.W = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
@@ -868,7 +869,8 @@ public class g35 {
             qy4.k().y("world_cup_sponsor_flag", this.t0);
             String optString10 = jSONObject.optString("ios_lite_mode_info");
             if (!StringUtils.isNull(optString10)) {
-                int optInt5 = new JSONObject(optString10).optInt("themeIsBlack", 0);
+                JSONObject jSONObject4 = new JSONObject(optString10);
+                int optInt5 = jSONObject4.optInt("themeIsBlack", 0);
                 n9 g = n9.g();
                 if (optInt5 == 1) {
                     z6 = true;
@@ -877,6 +879,7 @@ public class g35 {
                 }
                 g.r(z6);
                 WindowGreySwitch.setNewValue(optInt5);
+                DisableZanSwitch.setNewValue(jSONObject4.optInt("disableZan", 0));
             }
         } catch (Exception e) {
             e.printStackTrace();

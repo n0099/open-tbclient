@@ -93,6 +93,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.switchs.DisableZanSwitch;
 import com.baidu.tbadk.util.SimpleMessageListener;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.TbImageView;
@@ -5535,19 +5536,26 @@ public class VideoPlayFragment extends BaseFragment implements go5.b, a19, OnSta
             int i3 = 0;
             if (i2 == this.d) {
                 if ("1".equals(videoItemData.is_agreed)) {
-                    VideoItemData videoItemData2 = this.b0;
-                    videoItemData2.agree_num = String.valueOf(xg.e(videoItemData2.agree_num, 0) - 1);
-                    this.b0.is_agreed = "0";
+                    if (!DisableZanSwitch.getIsOn()) {
+                        VideoItemData videoItemData2 = this.b0;
+                        videoItemData2.agree_num = String.valueOf(xg.e(videoItemData2.agree_num, 0) - 1);
+                        this.b0.is_agreed = "0";
+                    }
                     i3 = 1;
                 } else {
-                    VideoItemData videoItemData3 = this.b0;
-                    videoItemData3.agree_num = String.valueOf(xg.e(videoItemData3.agree_num, 0) + 1);
-                    this.b0.is_agreed = "1";
+                    if (!DisableZanSwitch.getIsOn()) {
+                        VideoItemData videoItemData3 = this.b0;
+                        videoItemData3.agree_num = String.valueOf(xg.e(videoItemData3.agree_num, 0) + 1);
+                        this.b0.is_agreed = "1";
+                    }
                     I3(1);
                 }
             } else {
-                videoItemData.agree_num = String.valueOf(xg.e(videoItemData.agree_num, 0) + 1);
-                this.b0.is_agreed = "1";
+                if (!DisableZanSwitch.getIsOn()) {
+                    VideoItemData videoItemData4 = this.b0;
+                    videoItemData4.agree_num = String.valueOf(xg.e(videoItemData4.agree_num, 0) + 1);
+                    this.b0.is_agreed = "1";
+                }
                 I3(1);
             }
             StatisticItem statisticItem = new StatisticItem("c12795");

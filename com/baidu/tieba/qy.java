@@ -241,7 +241,7 @@ public class qy extends ax<tr4> {
     public void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            E(false);
+            E(true);
             J();
         }
     }
