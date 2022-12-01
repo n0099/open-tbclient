@@ -292,9 +292,9 @@ public class ub5 {
     public final void e(@NonNull Class<? extends nb5> cls, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, bdUniqueId) == null) && StickyEvent.class.isAssignableFrom(cls)) {
-            OrmObject c2 = tb5.c(cls.getSimpleName(), cls);
-            if (c2 instanceof StickyEvent) {
-                StickyEvent stickyEvent = (StickyEvent) c2;
+            OrmObject d = tb5.d(cls.getSimpleName(), cls);
+            if (d instanceof StickyEvent) {
+                StickyEvent stickyEvent = (StickyEvent) d;
                 stickyEvent.resetPid();
                 stickyEvent.setTag(bdUniqueId);
                 stickyEvent.setType(2);

@@ -46,7 +46,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
@@ -361,13 +363,15 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.e.G()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !PraiseSwitch.isOn() || this.a.e.G()) {
                 return;
             }
             if (this.a.b0 != null) {
                 this.a.b0.onClick(view2);
             }
-            this.a.e(view2);
+            if (!WindowGreySwitch.getIsOnNew()) {
+                this.a.e(view2);
+            }
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.a;
             threadCommentAndPraiseInfoLayout.h(view2, threadCommentAndPraiseInfoLayout.D);
         }

@@ -1,8 +1,9 @@
 package com.baidu.tbadk.switchs;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.qy4;
+import com.baidu.tieba.tb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class WindowGreySwitch extends BaseNormalSwitch {
+public class DisableZanSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_SWITCH = "tb_window_grey_switch";
+    public static final String KEY_SWITCH = "tb_disable_zan_switch";
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;
     public static int mCachedSwitchValue = -1;
@@ -22,7 +23,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2021748741, "Lcom/baidu/tbadk/switchs/WindowGreySwitch;")) == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-361239851, "Lcom/baidu/tbadk/switchs/DisableZanSwitch;")) == null) {
             return;
         }
         Interceptable interceptable = invokeClinit.interceptor;
@@ -30,17 +31,8 @@ public class WindowGreySwitch extends BaseNormalSwitch {
             $ic = interceptable;
         }
         if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(2021748741, "Lcom/baidu/tbadk/switchs/WindowGreySwitch;");
+            classClinitInterceptable.invokePostClinit(-361239851, "Lcom/baidu/tbadk/switchs/DisableZanSwitch;");
         }
-    }
-
-    public static boolean getIsOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
@@ -50,7 +42,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    public WindowGreySwitch() {
+    public DisableZanSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,15 +56,20 @@ public class WindowGreySwitch extends BaseNormalSwitch {
         }
     }
 
-    public static boolean getIsOnNew() {
+    public static boolean getIsOn() {
         InterceptResult invokeV;
+        int c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
                 mCachedSwitchValue = qy4.k().l(KEY_SWITCH, 0);
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = tb5.c(KEY_SWITCH, -1)) >= 0) {
+                    mCachedSwitchValue = c;
+                    qy4.k().w(KEY_SWITCH, c);
+                }
             }
             if (mCachedSwitchValue != 1) {
                 return false;
@@ -84,9 +81,10 @@ public class WindowGreySwitch extends BaseNormalSwitch {
 
     public static void setNewValue(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
             qy4.k().w(KEY_SWITCH, i);
+            tb5.i(KEY_SWITCH, i);
         }
     }
 }

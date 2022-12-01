@@ -52,7 +52,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public int mNetres;
     public long mStartTime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -35,6 +35,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.cf5;
@@ -57,6 +58,7 @@ import com.baidu.tieba.m07;
 import com.baidu.tieba.p57;
 import com.baidu.tieba.qy4;
 import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.u9;
 import com.baidu.tieba.vr8;
 import com.baidu.tieba.wm4;
 import com.baidu.tieba.wq4;
@@ -81,19 +83,20 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
     public boolean f;
     public boolean g;
     public fn4 h;
-    public Runnable i;
-    public fn4.b j;
-    public CustomMessageListener k;
+    public boolean i;
+    public Runnable j;
+    public fn4.b k;
     public CustomMessageListener l;
     public CustomMessageListener m;
-    public final CustomMessageListener n;
-    public CustomMessageListener o;
+    public CustomMessageListener n;
+    public final CustomMessageListener o;
     public CustomMessageListener p;
-    public boolean q;
-    public CustomMessageListener r;
-    public k07 s;
-    public ConcernPageView.o t;
-    public CustomMessageListener u;
+    public CustomMessageListener q;
+    public boolean r;
+    public CustomMessageListener s;
+    public k07 t;
+    public ConcernPageView.o u;
+    public CustomMessageListener v;
 
     /* loaded from: classes4.dex */
     public static class ControlModelMessage extends CustomMessage<m07> {
@@ -632,7 +635,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 }
                 if (this.a.a != null && this.a.a.O()) {
                     if (this.a.isPrimary()) {
-                        ah.a().postDelayed(this.a.i, 10L);
+                        ah.a().postDelayed(this.a.j, 10L);
                     } else {
                         this.a.g = true;
                     }
@@ -842,13 +845,13 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 return;
             }
             if (!data.booleanValue()) {
-                if (TbadkCoreApplication.isLogin() && !this.a.q && this.a.b != null) {
+                if (TbadkCoreApplication.isLogin() && !this.a.r && this.a.b != null) {
                     this.a.b.b(false);
                     return;
                 }
                 return;
             }
-            this.a.q = false;
+            this.a.r = false;
         }
     }
 
@@ -870,18 +873,66 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         this.e = true;
         this.f = false;
         this.g = false;
-        this.i = new g(this);
-        this.j = new h(this);
-        this.k = new i(this, 2001378);
-        this.l = new j(this, 2921323);
-        this.m = new k(this, 2001371);
-        this.n = new l(this, 2000994);
-        this.o = new m(this, 2001384);
-        this.p = new n(this, 2921392);
-        this.r = new o(this, 2001011);
-        this.s = new a(this);
-        this.t = new b(this);
-        this.u = new f(this, 2921455);
+        this.i = false;
+        this.j = new g(this);
+        this.k = new h(this);
+        this.l = new i(this, 2001378);
+        this.m = new j(this, 2921323);
+        this.n = new k(this, 2001371);
+        this.o = new l(this, 2000994);
+        this.p = new m(this, 2001384);
+        this.q = new n(this, 2921392);
+        this.s = new o(this, 2001011);
+        this.t = new a(this);
+        this.u = new b(this);
+        this.v = new f(this, 2921455);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.e) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY);
+            }
+            super.onResume();
+            Boolean bool = this.c;
+            if (bool == null) {
+                this.c = Boolean.valueOf(cr4.c().g());
+                z = false;
+            } else {
+                if (bool.booleanValue() != cr4.c().g()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.c = Boolean.valueOf(cr4.c().g());
+            }
+            if (z) {
+                this.a.Q();
+            }
+            ScrollFragmentTabHost scrollFragmentTabHost = this.a;
+            if (scrollFragmentTabHost != null) {
+                scrollFragmentTabHost.setPrimary(isPrimary());
+                this.a.c0();
+            }
+            if (this.h != null && E1() && !this.h.d() && !this.f) {
+                this.h.f();
+            }
+            if (this.e) {
+                this.e = false;
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY);
+            }
+            if (this.i != WindowGreySwitch.getIsOnNew()) {
+                if (WindowGreySwitch.getIsOnNew()) {
+                    u9.b(this.a);
+                } else {
+                    u9.a(this.a);
+                }
+                this.i = WindowGreySwitch.getIsOnNew();
+            }
+        }
     }
 
     @Override // com.baidu.tieba.wq4
@@ -985,45 +1036,6 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onResume() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.e) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY);
-            }
-            super.onResume();
-            Boolean bool = this.c;
-            if (bool == null) {
-                this.c = Boolean.valueOf(cr4.c().g());
-                z = false;
-            } else {
-                if (bool.booleanValue() != cr4.c().g()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.c = Boolean.valueOf(cr4.c().g());
-            }
-            if (z) {
-                this.a.Q();
-            }
-            ScrollFragmentTabHost scrollFragmentTabHost = this.a;
-            if (scrollFragmentTabHost != null) {
-                scrollFragmentTabHost.setPrimary(isPrimary());
-                this.a.c0();
-            }
-            if (this.h != null && E1() && !this.h.d() && !this.f) {
-                this.h.f();
-            }
-            if (this.e) {
-                this.e = false;
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY);
-            }
-        }
-    }
-
     public void F1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) != null) || getHost() == null) {
@@ -1037,7 +1049,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         this.a.V(getPageContext());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4019);
-        this.a.W(getChildFragmentManager(), this.s, this.t);
+        this.a.W(getChildFragmentManager(), this.t, this.u);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY);
         this.a.setPageUniqueId(getUniqueId());
         if (this.b != null) {
@@ -1047,7 +1059,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         boolean z = false;
         this.a.j0(false);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY);
-        this.q = TbadkCoreApplication.isLogin();
+        this.r = TbadkCoreApplication.isLogin();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY);
         if (TbadkCoreApplication.isLogin() && this.a.getCurrentTabType() != 0) {
@@ -1101,8 +1113,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            ah.a().removeCallbacks(this.i);
-            MessageManager.getInstance().unRegisterListener(this.k);
+            ah.a().removeCallbacks(this.j);
+            MessageManager.getInstance().unRegisterListener(this.l);
             this.a.b0();
         }
     }
@@ -1155,18 +1167,18 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             j07.d().g(System.currentTimeMillis(), 1);
             cf5.b().B(System.currentTimeMillis());
             super.onCreate(bundle);
-            registerListener(this.o);
-            registerListener(this.n);
-            registerListener(this.r);
-            this.k.setSelfListener(true);
-            this.k.setTag(getPageContext().getUniqueId());
-            registerListener(this.k);
-            registerListener(this.l);
-            this.m.setPriority(Integer.MAX_VALUE);
-            registerListener(this.m);
             registerListener(this.p);
-            registerListener(this.u);
-            this.h = new fn4(getContext(), this.j);
+            registerListener(this.o);
+            registerListener(this.s);
+            this.l.setSelfListener(true);
+            this.l.setTag(getPageContext().getUniqueId());
+            registerListener(this.l);
+            registerListener(this.m);
+            this.n.setPriority(Integer.MAX_VALUE);
+            registerListener(this.n);
+            registerListener(this.q);
+            registerListener(this.v);
+            this.h = new fn4(getContext(), this.k);
             SpeedStatsManager.getInstance().addStatsTimeStamp(4003);
         }
     }
@@ -1183,6 +1195,9 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 scrollFragmentTabHost.setDrawingCacheEnabled(false);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(4005);
+            if (WindowGreySwitch.getIsOnNew()) {
+                u9.b(this.a);
+            }
             return this.a;
         }
         return (View) invokeLLL.objValue;

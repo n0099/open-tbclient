@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Decoder implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteBuffer EMPTY_BUFER;
@@ -27,7 +27,7 @@ public class Decoder implements INoProGuard {
     public final ReadableByteChannel source;
 
     /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

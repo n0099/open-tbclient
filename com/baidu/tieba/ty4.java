@@ -16,6 +16,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.pb.ejection.EjectionAnimationView;
 import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -194,6 +195,9 @@ public class ty4 {
                     if (parent instanceof ViewGroup) {
                         ((ViewGroup) parent).removeView(this.d);
                     }
+                }
+                if (WindowGreySwitch.getIsOnNew()) {
+                    u9.b(this.d);
                 }
                 linearLayout.getGlobalVisibleRect(new Rect());
                 Rect rect = new Rect();

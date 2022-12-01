@@ -1238,7 +1238,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             adThreadCommentAndPraiseInfoLayout.setStyle(1);
             if (c0() || d0()) {
                 setUseDynamicLikeRes();
-                setNeedMatchStrategy(c0());
+                setNeedMatchStrategy(true);
             }
             this.N = (AdThreadUserInfoLayout) this.m.findViewById(R.id.obfuscated_res_0x7f0904e6);
             this.Q = (FrameLayout) this.m.findViewById(R.id.obfuscated_res_0x7f090466);

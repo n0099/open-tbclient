@@ -324,7 +324,7 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(tb5.d("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(tb5.e("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }
