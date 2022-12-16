@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.vv4;
+import com.baidu.tieba.wv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,32 +26,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s05 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public q05 a;
     public WeakReference<r05> b;
     public TbPageContext c;
-    public r35 d;
+    public s35 d;
     public BdUniqueId e;
     public String f;
     public String g;
     public boolean h;
     public boolean i;
-    public tv4 j;
+    public uv4 j;
     public boolean k;
-    public iq4 l;
+    public jq4 l;
     public f m;
     public CustomMessageListener n;
     public CustomMessageListener o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class s05 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,10 +142,10 @@ public class s05 implements View.OnClickListener {
                     String str2 = blockPopInfoData.appeal_msg;
                     if (blockPopInfoData.appeal_status == 1) {
                         if (TextUtils.isEmpty(str2)) {
-                            str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0289);
+                            str2 = TbadkCoreApplication.getInst().getString(R.string.anti_account_exception_appealing);
                         }
                     } else if (TextUtils.isEmpty(str2)) {
-                        str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0293);
+                        str2 = TbadkCoreApplication.getInst().getString(R.string.anti_no_chance_com_tip);
                     }
                     this.a.c.showToast(str2);
                 } else if (data.a) {
@@ -157,7 +157,7 @@ public class s05 implements View.OnClickListener {
                         if (!this.a.i || this.a.k) {
                             fansNum--;
                             if (!this.a.h) {
-                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f14fa);
+                                this.a.c.showToast(R.string.un_attention_success);
                             }
                         } else {
                             this.a.k = false;
@@ -190,7 +190,7 @@ public class s05 implements View.OnClickListener {
                         str = "";
                     }
                     if (TextUtils.isEmpty(str)) {
-                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d4c);
+                        str = TbadkCoreApplication.getInst().getString(R.string.operation_failed);
                     }
                     BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), str);
                     b.f(BdToast.ToastIcon.FAILURE);
@@ -210,8 +210,8 @@ public class s05 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements vv4.d {
+    /* loaded from: classes6.dex */
+    public class c implements wv4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s05 a;
@@ -234,7 +234,7 @@ public class s05 implements View.OnClickListener {
             this.a = s05Var;
         }
 
-        @Override // com.baidu.tieba.vv4.d
+        @Override // com.baidu.tieba.wv4.d
         public void onClick() {
             String str;
             Interceptable interceptable = $ic;
@@ -257,8 +257,8 @@ public class s05 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements vv4.c {
+    /* loaded from: classes6.dex */
+    public class d implements wv4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s05 a;
@@ -281,7 +281,7 @@ public class s05 implements View.OnClickListener {
             this.a = s05Var;
         }
 
-        @Override // com.baidu.tieba.vv4.c
+        @Override // com.baidu.tieba.wv4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.j == null) {
@@ -291,7 +291,7 @@ public class s05 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class s05 implements View.OnClickListener {
         this.n = new a(this, 2921560);
         this.o = new b(this, 2001115);
         this.c = tbPageContext;
-        this.d = new r35(tbPageContext);
+        this.d = new s35(tbPageContext);
         this.e = this.c.getUniqueId();
         tbPageContext.registerListener(this.o);
         tbPageContext.registerListener(this.n);
@@ -352,7 +352,7 @@ public class s05 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.h = z;
-            this.d.i(z);
+            this.d.f(z);
         }
     }
 
@@ -441,12 +441,12 @@ public class s05 implements View.OnClickListener {
         q05 q05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            iq4 iq4Var = this.l;
-            if (iq4Var != null && iq4Var.a(view2)) {
+            jq4 jq4Var = this.l;
+            if (jq4Var != null && jq4Var.a(view2)) {
                 return;
             }
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.c.showToast(R.string.obfuscated_res_0x7f0f0c81);
+                this.c.showToast(R.string.obfuscated_res_0x7f0f0cb8);
                 return;
             }
             r05 r05Var = this.b.get();
@@ -458,9 +458,9 @@ public class s05 implements View.OnClickListener {
             }
             boolean z = !q05Var.getIsLike();
             if (this.e == null) {
-                this.d.m(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.c.getUniqueId(), null, "0", this.g);
+                this.d.j(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.c.getUniqueId(), null, "0", this.g);
             } else {
-                this.d.m(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.e, null, "0", this.g);
+                this.d.j(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.e, null, "0", this.g);
             }
         }
     }
@@ -469,17 +469,17 @@ public class s05 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.j == null) {
-                vv4 vv4Var = new vv4(TbadkCoreApplication.getInst().getCurrentActivity());
-                vv4Var.q(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f044a));
+                wv4 wv4Var = new wv4(TbadkCoreApplication.getInst().getCurrentActivity());
+                wv4Var.q(TbadkCoreApplication.getInst().getString(R.string.confirm_unlike));
                 ArrayList arrayList = new ArrayList();
-                rv4 rv4Var = new rv4(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0440), vv4Var);
-                rv4Var.m(new c(this));
-                arrayList.add(rv4Var);
-                vv4Var.m(new d(this));
-                vv4Var.j(arrayList);
-                tv4 tv4Var = new tv4(UtilHelper.getTbPageContext(TbadkCoreApplication.getInst().getCurrentActivity()), vv4Var);
-                this.j = tv4Var;
-                tv4Var.j(0.7f);
+                sv4 sv4Var = new sv4(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0446), wv4Var);
+                sv4Var.m(new c(this));
+                arrayList.add(sv4Var);
+                wv4Var.m(new d(this));
+                wv4Var.j(arrayList);
+                uv4 uv4Var = new uv4(UtilHelper.getTbPageContext(TbadkCoreApplication.getInst().getCurrentActivity()), wv4Var);
+                this.j = uv4Var;
+                uv4Var.j(0.7f);
             }
             this.j.setOnCancelListener(new e(this));
             ch.i(this.j, TbadkCoreApplication.getInst().getCurrentActivity());

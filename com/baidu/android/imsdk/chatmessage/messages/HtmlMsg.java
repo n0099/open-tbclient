@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -94,7 +95,7 @@ public class HtmlMsg extends NormalMsg {
                 return;
             }
         }
-        this.mDesc = "[新消息]";
+        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
         setMsgType(18);
     }
 
@@ -144,7 +145,7 @@ public class HtmlMsg extends NormalMsg {
                 return;
             }
         }
-        this.mDesc = "[新消息]";
+        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
         this.mHtml = parcel.readString();
         this.mDesc = parcel.readString();
     }
@@ -174,7 +175,7 @@ public class HtmlMsg extends NormalMsg {
                 return;
             }
         }
-        this.mDesc = "[新消息]";
+        this.mDesc = IMConstants.IM_GROUP_MSG_DEFAULT_RECOMMEND_DESC;
         setMsgType(18);
         this.mHtml = str;
         setText(str);

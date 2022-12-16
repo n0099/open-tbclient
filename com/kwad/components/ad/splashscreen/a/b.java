@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.core.response.model.TemplateConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

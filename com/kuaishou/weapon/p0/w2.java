@@ -17,7 +17,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "appkey";

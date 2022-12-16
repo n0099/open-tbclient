@@ -24,8 +24,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
 import java.io.File;
 import java.net.URI;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -306,7 +307,7 @@ public final class a {
                     iClientUpdaterCallback.onCompleted(null, null);
                 } else if (Integer.valueOf(optString).intValue() == 1) {
                     this.c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
-                    if (!new URI(this.c.mDownurl).getHost().endsWith("baidu.com")) {
+                    if (!new URI(this.c.mDownurl).getHost().endsWith(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("msgId", "3");
                         jSONObject2.put("messageDetail", "下载地址有问题");

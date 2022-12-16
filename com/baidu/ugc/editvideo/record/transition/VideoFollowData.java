@@ -3,14 +3,14 @@ package com.baidu.ugc.editvideo.record.transition;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pg9;
+import com.baidu.tieba.yj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoFollowData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_TYPE_FOLLOW = 0;
@@ -196,7 +196,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return (VideoFollowData) new pg9().b(str, VideoFollowData.class);
+                return (VideoFollowData) new yj9().b(str, VideoFollowData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -212,7 +212,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return new pg9().a(videoFollowData);
+                return new yj9().a(videoFollowData);
             } catch (Exception unused) {
                 return null;
             }

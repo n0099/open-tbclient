@@ -98,7 +98,7 @@ public class ex4 {
                     e.printStackTrace();
                 }
                 Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-                if (qy4.k().l("static_opt_open", 0) <= 0) {
+                if (ry4.l().m("static_opt_open", 0) <= 0) {
                     z = false;
                 }
                 b = z;

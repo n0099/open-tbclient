@@ -2,13 +2,11 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -112,7 +110,6 @@ public class IMPaSubscribedListMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "buildBody:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -130,7 +127,7 @@ public class IMPaSubscribedListMsg extends Message {
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                                long optLong = jSONObject2.optLong("pa_uid");
+                                long optLong = jSONObject2.optLong(Constants.EXTRA_PAUID_TYPE);
                                 String optString = jSONObject2.optString("pa_nickname");
                                 String optString2 = jSONObject2.optString("pa_avatar");
                                 boolean optBoolean = jSONObject2.optBoolean("is_accept_msg");
@@ -149,7 +146,6 @@ public class IMPaSubscribedListMsg extends Message {
                                 e = e;
                                 list = arrayList;
                                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 super.handleMessageResult(context, jSONObject, i, str);
                                 PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                             }
@@ -169,7 +165,6 @@ public class IMPaSubscribedListMsg extends Message {
                     e = e3;
                     i = 0;
                     LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     super.handleMessageResult(context, jSONObject, i, str);
                     PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                 }

@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.bc9;
-import com.baidu.tieba.fc9;
+import com.baidu.tieba.kf9;
+import com.baidu.tieba.of9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -123,9 +123,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 str = option.optString("version_asc");
             }
             boolean z = !"0".equals(str);
-            fc9 fc9Var = new fc9("", serviceData);
-            if (fc9Var.l()) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(fc9Var, z, new bc9(this, iCloudControlUBCCallBack, fc9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+            of9 of9Var = new of9("", serviceData);
+            if (of9Var.l()) {
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(of9Var, z, new kf9(this, iCloudControlUBCCallBack, of9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -152,7 +152,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                         this.val$step = r8;
                     }
 
-                    @Override // com.baidu.tieba.bc9
+                    @Override // com.baidu.tieba.kf9
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         Interceptable interceptable2 = $ic;

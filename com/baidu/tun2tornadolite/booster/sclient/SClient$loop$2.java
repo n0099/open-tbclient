@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$loop$2", f = "SClient.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SClient$loop$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,16 +105,16 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                             createPacketByHeader.encodeHeader2Buffer(byteBuffer);
                             byteBuffer2 = SClient.bodyBuffer;
                             byteBuffer2.clear();
-                            int m57getBodyLengthpVg5ArA = createPacketByHeader.m57getBodyLengthpVg5ArA();
+                            int m58getBodyLengthpVg5ArA = createPacketByHeader.m58getBodyLengthpVg5ArA();
                             int i = 0;
                             int i2 = 0;
                             int i3 = 0;
                             while (true) {
-                                if (i >= createPacketByHeader.m57getBodyLengthpVg5ArA()) {
+                                if (i >= createPacketByHeader.m58getBodyLengthpVg5ArA()) {
                                     break;
                                 }
                                 byteBuffer4 = SClient.bodyBuffer;
-                                int read = dataInputStream.read(byteBuffer4.array(), i2, m57getBodyLengthpVg5ArA);
+                                int read = dataInputStream.read(byteBuffer4.array(), i2, m58getBodyLengthpVg5ArA);
                                 if (read < 0) {
                                     SClient sClient = SClient.INSTANCE;
                                     SClient.looping = false;
@@ -122,7 +122,7 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 }
                                 i += read;
                                 i2 += read;
-                                m57getBodyLengthpVg5ArA -= read;
+                                m58getBodyLengthpVg5ArA -= read;
                                 LogTo logTo = LogTo.INSTANCE;
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("[Socket ");
@@ -134,14 +134,14 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 sb.append(" offset:");
                                 sb.append(i2);
                                 sb.append(" left:");
-                                sb.append(m57getBodyLengthpVg5ArA);
+                                sb.append(m58getBodyLengthpVg5ArA);
                                 sb.append(" all:");
-                                sb.append(createPacketByHeader.m57getBodyLengthpVg5ArA());
+                                sb.append(createPacketByHeader.m58getBodyLengthpVg5ArA());
                                 sb.append(" from:");
                                 str = SClient.address;
                                 sb.append((Object) str);
                                 logTo.d("*****", sb.toString());
-                                if (m57getBodyLengthpVg5ArA == 0) {
+                                if (m58getBodyLengthpVg5ArA == 0) {
                                     break;
                                 }
                                 i3++;

@@ -11,7 +11,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +178,7 @@ public class NetStateManager {
                 cursor = null;
             }
             if (cursor != null && cursor.moveToFirst()) {
-                String string = cursor.getString(cursor.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
+                String string = cursor.getString(cursor.getColumnIndex("proxy"));
                 if (string != null && string.trim().length() > 0) {
                     pair = new Pair<>(string, 80);
                 }

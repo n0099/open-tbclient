@@ -5,11 +5,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.Cancelable;
+import com.baidu.searchbox.http.HttpRuntime;
+import com.baidu.searchbox.http.IHttpContext;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
+import com.baidu.searchbox.http.model.MultipleConnectParams;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
@@ -21,6 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.Proxy;
+import okhttp3.Dns;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -31,6 +35,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String EXT_HEADER_MULTIPLE_CONNECT_DELAY_TIME_MS = "Multiple-Connect-Delay-Time";
+    public static final String EXT_HEADER_MULTIPLE_CONNECT_NUM = "Multiple-Connect-Num";
     public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
@@ -42,6 +48,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public int connectionTimeout;
     public CookieManager cookieManager;
     public Handler deliver;
+    public Dns dns;
     public boolean enableRetry;
     public JSONObject extraUserLog;
     public boolean followRedirects;
@@ -50,6 +57,9 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public AbstractHttpManager httpManager;
     public HttpUrl httpUrl;
     public boolean isConnReused;
+    public volatile boolean isFinished;
+    public boolean isMultipleConnectEnabled;
+    public boolean isOldHttpUseTurbonet;
     public boolean isReqNetStatEnable;
     public boolean isWifiOnly;
     public LogInterceptor.Level logLevel;
@@ -59,6 +69,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public Request.Builder okRequestBuilder;
     public Object originTag;
     public IAsyncRequestParamsHandler paramsHandler;
+    public int pingInterval;
     public Proxy proxy;
     public int readTimeout;
     public int requestFrom;
@@ -101,6 +112,9 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.requestNetStat = null;
         this.requestFrom = 0;
         this.requestSubFrom = 0;
+        this.isMultipleConnectEnabled = false;
+        this.isFinished = false;
+        this.isOldHttpUseTurbonet = false;
         AbstractHttpManager abstractHttpManager = t.httpManager;
         this.httpManager = abstractHttpManager;
         this.client = abstractHttpManager.getOkHttpClient();
@@ -127,9 +141,14 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.followRedirects = t.followRedirects;
         this.followSslRedirects = t.followSslRedirects;
         if (httpUrl != null) {
+            setOldHttpUseCronet();
             String generateBdTraceId = HttpUtils.generateBdTraceId();
             this.bdTraceId = generateBdTraceId;
             t.headersBuilder.add(EXT_HEADER_TRACE_ID, generateBdTraceId);
+            addMultiConnectHeader(t.headersBuilder);
+            if (t.enableBrotli) {
+                t.headersBuilder.add("bdapp-support-brotli", "1");
+            }
             this.headers = t.headersBuilder.build();
             if (this.isReqNetStatEnable) {
                 NetworkStatRecord networkStatRecord = new NetworkStatRecord();
@@ -139,15 +158,44 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
                 networkStatRecord2.from = t.requestFrom;
                 networkStatRecord2.subFrom = t.requestSubFrom;
             }
+            this.dns = t.dns;
+            this.pingInterval = t.pingInterval;
             initOkRequest(t);
             return;
         }
         throw new IllegalArgumentException(" url not set, please check");
     }
 
+    private void addMultiConnectHeader(Headers.Builder builder) {
+        IHttpContext httpContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, this, builder) != null) || builder == null || (httpContext = HttpRuntime.getHttpContext()) == null) {
+            return;
+        }
+        MultipleConnectParams multipleConnectParams = httpContext.getMultipleConnectParams();
+        if (multipleConnectParams != null && multipleConnectParams.isMultiConnectEnabledGlobal() && multipleConnectParams.isMultiConnectABSwitch() && multipleConnectParams.getMultiConnectFromList() != null && multipleConnectParams.getMultiConnectFromList().size() > 0 && multipleConnectParams.getMultiConnectFromList().contains(Integer.valueOf(getRequestFrom()))) {
+            int maxMultiConnectNum = multipleConnectParams.getMaxMultiConnectNum();
+            int multiConnectDelayInMsWifi = multipleConnectParams.getMultiConnectDelayInMsWifi();
+            int multiConnectDelayInMsMobile = multipleConnectParams.getMultiConnectDelayInMsMobile();
+            if (maxMultiConnectNum > 0 && multiConnectDelayInMsMobile > 0 && multiConnectDelayInMsWifi > 0) {
+                builder.add(EXT_HEADER_MULTIPLE_CONNECT_NUM, String.valueOf(maxMultiConnectNum));
+                if (this.httpManager.isWifi()) {
+                    builder.add(EXT_HEADER_MULTIPLE_CONNECT_DELAY_TIME_MS, String.valueOf(multiConnectDelayInMsWifi));
+                } else {
+                    builder.add(EXT_HEADER_MULTIPLE_CONNECT_DELAY_TIME_MS, String.valueOf(multiConnectDelayInMsMobile));
+                }
+                this.isMultipleConnectEnabled = true;
+                return;
+            }
+            this.isMultipleConnectEnabled = false;
+            return;
+        }
+        this.isMultipleConnectEnabled = false;
+    }
+
     private void initOkRequest(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, t) == null) {
             Request.Builder builder = new Request.Builder();
             this.okRequestBuilder = builder;
             builder.url(this.httpUrl);
@@ -166,6 +214,172 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
             initExtraHttpRequest(t);
             this.okRequest = buildOkRequest(buildOkRequestBody());
         }
+    }
+
+    private void setOldHttpUseCronet() {
+        IHttpContext httpContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || (httpContext = HttpRuntime.getHttpContext()) == null) {
+            return;
+        }
+        this.isOldHttpUseTurbonet = httpContext.isOldHttpUseTurbonet(this.httpUrl.host(), this.requestFrom);
+    }
+
+    public StatResponse executeStat() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new RequestCall(this).executeStat();
+        }
+        return (StatResponse) invokeV.objValue;
+    }
+
+    public Response executeSync() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return new RequestCall(this).executeSync();
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    public String getBdTraceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.bdTraceId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                return this.okRequest.body().contentLength();
+            } catch (IOException unused) {
+                return 0L;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public Dns getDns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.dns;
+        }
+        return (Dns) invokeV.objValue;
+    }
+
+    public JSONObject getExtraUserLog() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.extraUserLog;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public NetworkStat<Request> getNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.networkStat;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    public Request getOkRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.okRequest;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    public int getPingInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.pingInterval;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRequestFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.requestFrom;
+        }
+        return invokeV.intValue;
+    }
+
+    public NetworkStatRecord getRequestNetStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.requestNetStat;
+        }
+        return (NetworkStatRecord) invokeV.objValue;
+    }
+
+    public int getRequestSubFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.requestSubFrom;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.isFinished;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isMultiConnectEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.isMultipleConnectEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOldHttpUseTurbonet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.isOldHttpUseTurbonet;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public RequestCall makeRequestCall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return new RequestCall(this);
+        }
+        return (RequestCall) invokeV.objValue;
+    }
+
+    public Object tag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.originTag;
+        }
+        return invokeV.objValue;
     }
 
     public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
@@ -220,117 +434,5 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
             return new RequestCall(this).executeStatWithHandler(handler, statResponseCallback);
         }
         return (Cancelable) invokeLL.objValue;
-    }
-
-    public StatResponse executeStat() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new RequestCall(this).executeStat();
-        }
-        return (StatResponse) invokeV.objValue;
-    }
-
-    public Response executeSync() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return new RequestCall(this).executeSync();
-        }
-        return (Response) invokeV.objValue;
-    }
-
-    public String getBdTraceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.bdTraceId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long getContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                return this.okRequest.body().contentLength();
-            } catch (IOException unused) {
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public JSONObject getExtraUserLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.extraUserLog;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public NetworkStat<Request> getNetworkStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.networkStat;
-        }
-        return (NetworkStat) invokeV.objValue;
-    }
-
-    public Request getOkRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.okRequest;
-        }
-        return (Request) invokeV.objValue;
-    }
-
-    public int getRequestFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.requestFrom;
-        }
-        return invokeV.intValue;
-    }
-
-    public NetworkStatRecord getRequestNetStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.requestNetStat;
-        }
-        return (NetworkStatRecord) invokeV.objValue;
-    }
-
-    public int getRequestSubFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.requestSubFrom;
-        }
-        return invokeV.intValue;
-    }
-
-    public RequestCall makeRequestCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return new RequestCall(this);
-        }
-        return (RequestCall) invokeV.objValue;
-    }
-
-    public Object tag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.originTag;
-        }
-        return invokeV.objValue;
     }
 }

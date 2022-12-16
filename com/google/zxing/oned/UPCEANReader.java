@@ -22,7 +22,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class UPCEANReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] END_PATTERN;

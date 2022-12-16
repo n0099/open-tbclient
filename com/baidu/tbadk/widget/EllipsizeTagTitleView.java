@@ -18,8 +18,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq5;
 import com.baidu.tieba.tx;
+import com.baidu.tieba.vq5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,9 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class EllipsizeTagTitleView extends View implements tx {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: A */
-    public static final int CAM_X0301 = 2131099752;
+    public static final int A = 2131099752;
     public static final int B;
     public static final int C;
     public static final int D;
@@ -41,9 +39,7 @@ public class EllipsizeTagTitleView extends View implements tx {
     public static final int F;
     public static final int G;
     public static final int H;
-
-    /* renamed from: z */
-    public static final int CAM_X0105 = 2131099660;
+    public static final int z = 2131099660;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
@@ -156,7 +152,7 @@ public class EllipsizeTagTitleView extends View implements tx {
         }
         this.a = B;
         this.b = 1;
-        this.c = CAM_X0105;
+        this.c = z;
         this.d = C;
         this.e = 2;
         this.f = D;
@@ -164,7 +160,7 @@ public class EllipsizeTagTitleView extends View implements tx {
         this.h = H;
         this.i = E;
         this.j = F;
-        this.k = CAM_X0301;
+        this.k = A;
         this.l = "...#";
         this.m = new float[1];
         this.t = "";
@@ -398,8 +394,8 @@ public class EllipsizeTagTitleView extends View implements tx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aq5.EllipsizeTagTitleView);
-            this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vq5.EllipsizeTagTitleView);
+            this.c = obtainStyledAttributes.getInt(9, z);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
             this.d = obtainStyledAttributes.getDimensionPixelSize(1, C);
@@ -410,7 +406,7 @@ public class EllipsizeTagTitleView extends View implements tx {
             this.h = obtainStyledAttributes.getInt(6, H);
             this.i = obtainStyledAttributes.getInt(8, E);
             this.j = obtainStyledAttributes.getInt(4, F);
-            this.k = obtainStyledAttributes.getInt(9, CAM_X0301);
+            this.k = obtainStyledAttributes.getInt(9, A);
             obtainStyledAttributes.recycle();
             TextPaint textPaint = new TextPaint(1);
             this.v = textPaint;

@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class dx extends ax<tr4> implements o39 {
+/* loaded from: classes4.dex */
+public class dx extends ax<vr4> implements x69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public tr4 h;
+    public vr4 h;
     public b i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(tr4 tr4Var, View view2);
+        void a(vr4 vr4Var, View view2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,11 +124,11 @@ public class dx extends ax<tr4> implements o39 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: u */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tr4Var) == null) {
-            this.h = tr4Var;
-            this.f.setData(tr4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048587, this, vr4Var) == null) {
+            this.h = vr4Var;
+            this.f.setData(vr4Var.getThreadData());
         }
     }
 
@@ -168,7 +168,7 @@ public class dx extends ax<tr4> implements o39 {
         }
     }
 
-    @Override // com.baidu.tieba.o39
+    @Override // com.baidu.tieba.x69
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -177,13 +177,13 @@ public class dx extends ax<tr4> implements o39 {
         }
     }
 
-    @Override // com.baidu.tieba.o39
+    @Override // com.baidu.tieba.x69
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            tr4 tr4Var = this.h;
-            if (tr4Var != null && tr4Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
+            vr4 vr4Var = this.h;
+            if (vr4Var != null && vr4Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
                 return true;
             }
             return false;
@@ -191,7 +191,7 @@ public class dx extends ax<tr4> implements o39 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o39
+    @Override // com.baidu.tieba.x69
     public void d() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class dx extends ax<tr4> implements o39 {
         }
     }
 
-    @Override // com.baidu.tieba.o39
+    @Override // com.baidu.tieba.x69
     public void e() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public class dx extends ax<tr4> implements o39 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o39
+    @Override // com.baidu.tieba.x69
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

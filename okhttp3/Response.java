@@ -17,12 +17,13 @@ import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final ResponseBody body;
+    @Nullable
     public volatile CacheControl cacheControl;
     @Nullable
     public final Response cacheResponse;
@@ -40,21 +41,27 @@ public final class Response implements Closeable {
     public final Request request;
     public final long sentRequestAtMillis;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public ResponseBody body;
+        @Nullable
         public Response cacheResponse;
         public int code;
         @Nullable
         public Handshake handshake;
         public Headers.Builder headers;
         public String message;
+        @Nullable
         public Response networkResponse;
+        @Nullable
         public Response priorResponse;
+        @Nullable
         public Protocol protocol;
         public long receivedResponseAtMillis;
+        @Nullable
         public Request request;
         public long sentRequestAtMillis;
 
@@ -435,6 +442,7 @@ public final class Response implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Handshake handshake() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

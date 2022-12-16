@@ -2,14 +2,14 @@ package com.baidu.tieba.im.db.pojo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ec7;
+import com.baidu.tieba.ed7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.NativeApp;
-import tbclient.PbContent;
+import protobuf.PbContent;
 /* loaded from: classes4.dex */
 public class PbContentPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public ec7 item;
+    public ed7 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -74,63 +74,15 @@ public class PbContentPojo extends OrmObject {
     public Integer getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.type;
         }
         return (Integer) invokeV.objValue;
     }
 
-    public void A(PbContent pbContent) {
+    public void G(PbContent pbContent) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, pbContent) != null) || pbContent == null) {
-            return;
-        }
-        this.type = pbContent.type;
-        this.text = pbContent.text;
-        this.link = pbContent.link;
-        this.src = pbContent.src;
-        this.bsize = pbContent.bsize;
-        this.bigSrc = pbContent.big_src;
-        this.bigSize = pbContent.big_size;
-        this.cdnSrc = pbContent.cdn_src;
-        this.bigCdnSrc = pbContent.big_cdn_src;
-        this.imgtype = pbContent.imgtype;
-        this.c = pbContent.c;
-        this.voiceMd5 = pbContent.voice_md5;
-        this.duringTime = pbContent.during_time;
-        this.isSub = pbContent.is_sub;
-        this.uid = pbContent.uid;
-        this.dynamic = pbContent.dynamic;
-        this._static = pbContent._static;
-        this.width = pbContent.width;
-        this.height = pbContent.height;
-        this.packetName = pbContent.packet_name;
-        this.phonetype = pbContent.phonetype;
-        this.isNativeApp = pbContent.is_native_app;
-        this.eType = pbContent.e_type;
-        this.originSrc = pbContent.origin_src;
-        this.btnType = pbContent.btn_type;
-        this.originSize = pbContent.origin_size;
-        this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.A(pbContent.graffiti_info);
-        this.highTogether = TogetherHiPojo.A(pbContent.high_together);
-        this.mediaSubtitle = pbContent.media_subtitle;
-        this.urlType = pbContent.url_type;
-        this.memeInfo = MemeInfoPojo.A(pbContent.meme_info);
-        this.isLongPic = pbContent.is_long_pic;
-        this.showOriginalBtn = pbContent.show_original_btn;
-        this.cdnSrcActive = pbContent.cdn_src_active;
-        this.topicSpecialIcon = pbContent.topic_special_icon;
-        this.itemId = pbContent.item_id;
-        this.itemForumName = pbContent.item_forum_name;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.A(pbContent.tiebaplus_info);
-        this.item = ec7.b(pbContent.item);
-        this.picId = pbContent.pic_id;
-    }
-
-    public void z(protobuf.PbContent pbContent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbContent) != null) || pbContent == null) {
             return;
         }
         this.type = pbContent.type;
@@ -160,19 +112,67 @@ public class PbContentPojo extends OrmObject {
         this.btnType = pbContent.btnType;
         this.originSize = pbContent.originSize;
         this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.z(pbContent.graffitiInfo);
-        this.highTogether = TogetherHiPojo.z(pbContent.highTogether);
+        this.graffitiInfo = GraffitiInfoPojo.G(pbContent.graffitiInfo);
+        this.highTogether = TogetherHiPojo.G(pbContent.highTogether);
         this.mediaSubtitle = pbContent.mediaSubtitle;
         this.urlType = pbContent.urlType;
-        this.memeInfo = MemeInfoPojo.z(pbContent.memeInfo);
+        this.memeInfo = MemeInfoPojo.G(pbContent.memeInfo);
         this.isLongPic = pbContent.isLongPic;
         this.showOriginalBtn = pbContent.showOriginalBtn;
         this.cdnSrcActive = pbContent.cdnSrcActive;
         this.topicSpecialIcon = pbContent.topicSpecialIcon;
         this.itemId = pbContent.itemId;
         this.itemForumName = pbContent.itemForumName;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.z(pbContent.tiebaplusInfo);
-        this.item = ec7.a(pbContent.item);
+        this.tiebaplusInfo = TiebaPlusInfoPojo.G(pbContent.tiebaplusInfo);
+        this.item = ed7.a(pbContent.item);
         this.picId = pbContent.picId;
+    }
+
+    public void H(tbclient.PbContent pbContent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbContent) != null) || pbContent == null) {
+            return;
+        }
+        this.type = pbContent.type;
+        this.text = pbContent.text;
+        this.link = pbContent.link;
+        this.src = pbContent.src;
+        this.bsize = pbContent.bsize;
+        this.bigSrc = pbContent.big_src;
+        this.bigSize = pbContent.big_size;
+        this.cdnSrc = pbContent.cdn_src;
+        this.bigCdnSrc = pbContent.big_cdn_src;
+        this.imgtype = pbContent.imgtype;
+        this.c = pbContent.c;
+        this.voiceMd5 = pbContent.voice_md5;
+        this.duringTime = pbContent.during_time;
+        this.isSub = pbContent.is_sub;
+        this.uid = pbContent.uid;
+        this.dynamic = pbContent.dynamic;
+        this._static = pbContent._static;
+        this.width = pbContent.width;
+        this.height = pbContent.height;
+        this.packetName = pbContent.packet_name;
+        this.phonetype = pbContent.phonetype;
+        this.isNativeApp = pbContent.is_native_app;
+        this.eType = pbContent.e_type;
+        this.originSrc = pbContent.origin_src;
+        this.btnType = pbContent.btn_type;
+        this.originSize = pbContent.origin_size;
+        this.count = pbContent.count;
+        this.graffitiInfo = GraffitiInfoPojo.H(pbContent.graffiti_info);
+        this.highTogether = TogetherHiPojo.H(pbContent.high_together);
+        this.mediaSubtitle = pbContent.media_subtitle;
+        this.urlType = pbContent.url_type;
+        this.memeInfo = MemeInfoPojo.H(pbContent.meme_info);
+        this.isLongPic = pbContent.is_long_pic;
+        this.showOriginalBtn = pbContent.show_original_btn;
+        this.cdnSrcActive = pbContent.cdn_src_active;
+        this.topicSpecialIcon = pbContent.topic_special_icon;
+        this.itemId = pbContent.item_id;
+        this.itemForumName = pbContent.item_forum_name;
+        this.tiebaplusInfo = TiebaPlusInfoPojo.H(pbContent.tiebaplus_info);
+        this.item = ed7.b(pbContent.item);
+        this.picId = pbContent.pic_id;
     }
 }

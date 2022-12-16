@@ -13,7 +13,7 @@ import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.of1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";
@@ -60,8 +60,8 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
                 jSONObject.put("description", perfExpInfo.getException());
                 jSONObject.put("page", perfExpInfo.getPage());
-                jSONObject.put("processName", of1.b());
-                jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
+                jSONObject.put("processName", nf1.b());
+                jSONObject.put("business", perfExpInfo.getBusiness());
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
                     JSONArray jSONArray = new JSONArray();

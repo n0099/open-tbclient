@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser;
 import com.facebook.imageutils.WebpUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -589,7 +588,7 @@ public class ExifInterface {
         HEIF_BRAND_HEIC = new byte[]{104, Constants.SHORT_PING_CMD_TYPE, 105, 99};
         ORF_MAKER_NOTE_HEADER_1 = new byte[]{79, 76, 89, 77, 80, 0};
         ORF_MAKER_NOTE_HEADER_2 = new byte[]{79, 76, 89, 77, 80, 85, 83, 0, 73, 73};
-        PNG_SIGNATURE = new byte[]{-119, 80, 78, 71, StrictLineReader.CR, 10, 26, 10};
+        PNG_SIGNATURE = new byte[]{-119, 80, 78, 71, 13, 10, 26, 10};
         PNG_CHUNK_TYPE_EXIF = new byte[]{Constants.SHORT_PING_CMD_TYPE, 88, 73, 102};
         PNG_CHUNK_TYPE_IHDR = new byte[]{73, 72, 68, 82};
         PNG_CHUNK_TYPE_IEND = new byte[]{73, 69, 78, 68};

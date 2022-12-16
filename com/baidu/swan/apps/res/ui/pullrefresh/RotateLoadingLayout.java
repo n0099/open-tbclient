@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mg3;
+import com.baidu.tieba.lg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
+            this.g.setText(R.string.obfuscated_res_0x7f0f01b5);
         }
     }
 
@@ -81,7 +81,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             o();
             this.f.startAnimation(this.j);
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b1);
+            this.g.setText(R.string.obfuscated_res_0x7f0f01b4);
         }
     }
 
@@ -90,7 +90,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.i();
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b0);
+            this.g.setText(R.string.obfuscated_res_0x7f0f01b3);
         }
     }
 
@@ -98,7 +98,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b3);
+            this.g.setText(R.string.obfuscated_res_0x7f0f01b6);
         }
     }
 
@@ -107,7 +107,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             o();
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
+            this.g.setText(R.string.obfuscated_res_0x7f0f01b5);
         }
     }
 
@@ -115,7 +115,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.f.clearAnimation();
-            if (mg3.c()) {
+            if (lg3.c()) {
                 this.f.setRotation(0.0f);
             }
         }
@@ -177,7 +177,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && mg3.c()) {
+        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && lg3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -209,11 +209,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b4a);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b48);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4b);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bb5);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb6);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb9);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.f.setScaleType(ImageView.ScaleType.CENTER);
             this.f.setImageResource(R.drawable.obfuscated_res_0x7f080142);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);

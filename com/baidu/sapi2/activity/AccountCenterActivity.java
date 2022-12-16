@@ -301,7 +301,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0516);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -899,7 +899,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f10c3);
+                setTitleText(R.string.sapi_sdk_title_account_center);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -909,16 +909,16 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060956));
-                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060956));
-                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060958));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060956));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060958));
-                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060955));
-                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060957));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060955));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
+                    setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
+                    setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11

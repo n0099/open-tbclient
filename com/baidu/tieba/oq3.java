@@ -1,121 +1,119 @@
 package com.baidu.tieba;
 
 import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class oq3 extends lq3 {
+public class oq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040856, "Lcom/baidu/tieba/oq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040856, "Lcom/baidu/tieba/oq3;");
-                return;
-            }
-        }
-        a = pk1.a;
-    }
-
-    public oq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final Cursor a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
-            matrixCursor.newRow().add("params", str);
-            return matrixCursor;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return Base64.encodeToString(qq3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String b() {
+    public static HashMap<String, PMSAppInfo> a() {
         InterceptResult invokeV;
+        HashMap<String, PMSAppInfo> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("swan_sdk_version", qk1.a());
-                jSONObject.put("swan_core_version", kd3.h(0));
-                jSONObject.put("game_core_version", kd3.h(1));
-                jSONObject.put("uid", mn2.h0().i(AppRuntime.getAppContext()));
-                jSONObject.put("puid", mn2.h0().h(AppRuntime.getAppContext()));
-                jSONObject.put("ua", b12.s());
-                jSONObject.put("ut", b12.f());
-                jSONObject.put("timestamp", System.currentTimeMillis());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Cursor query = uc4.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
+            if (query != null && query.moveToFirst()) {
+                int columnIndex = query.getColumnIndex("app_id");
+                int columnIndex2 = query.getColumnIndex("app_key");
+                int columnIndex3 = query.getColumnIndex("app_sign");
+                int columnIndex4 = query.getColumnIndex("version_code");
+                int columnIndex5 = query.getColumnIndex("version_name");
+                int columnIndex6 = query.getColumnIndex("description");
+                int columnIndex7 = query.getColumnIndex("app_status");
+                int columnIndex8 = query.getColumnIndex("status_detail");
+                int columnIndex9 = query.getColumnIndex("status_desc");
+                int columnIndex10 = query.getColumnIndex("resume_date");
+                int columnIndex11 = query.getColumnIndex("icon_url");
+                int columnIndex12 = query.getColumnIndex("app_name");
+                int columnIndex13 = query.getColumnIndex("service_category");
+                int columnIndex14 = query.getColumnIndex("subject_info");
+                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
+                int columnIndex15 = query.getColumnIndex("type");
+                int columnIndex16 = query.getColumnIndex("pkg_size");
+                int columnIndex17 = query.getColumnIndex("pending_err_code");
+                int columnIndex18 = query.getColumnIndex("app_category");
+                int columnIndex19 = query.getColumnIndex("orientation");
+                int columnIndex20 = query.getColumnIndex("max_age");
+                int columnIndex21 = query.getColumnIndex("create_time");
+                int columnIndex22 = query.getColumnIndex("webview_domains");
+                int columnIndex23 = query.getColumnIndex("web_action");
+                int columnIndex24 = query.getColumnIndex("domains");
+                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
+                int columnIndex26 = query.getColumnIndex("server_ext");
+                int columnIndex27 = query.getColumnIndex("pay_protected");
+                while (true) {
+                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
+                    int i = columnIndex14;
+                    pMSAppInfo.appId = query.getString(columnIndex);
+                    pMSAppInfo.appKey = query.getString(columnIndex2);
+                    int i2 = columnIndex;
+                    int i3 = columnIndex2;
+                    pMSAppInfo.appSign = query.getLong(columnIndex3);
+                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
+                    pMSAppInfo.versionName = query.getString(columnIndex5);
+                    pMSAppInfo.description = query.getString(columnIndex6);
+                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
+                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
+                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
+                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
+                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
+                    pMSAppInfo.appName = query.getString(columnIndex12);
+                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
+                    pMSAppInfo.subjectInfo = query.getString(i);
+                    int i4 = columnIndex15;
+                    pMSAppInfo.type = query.getInt(i4);
+                    int i5 = columnIndex3;
+                    int i6 = columnIndex16;
+                    pMSAppInfo.pkgSize = query.getLong(i6);
+                    int i7 = columnIndex17;
+                    pMSAppInfo.pendingErrCode = query.getInt(i7);
+                    int i8 = columnIndex18;
+                    pMSAppInfo.appCategory = query.getInt(i8);
+                    int i9 = columnIndex19;
+                    pMSAppInfo.setOrientation(query.getInt(i9));
+                    int i10 = columnIndex4;
+                    int i11 = columnIndex20;
+                    pMSAppInfo.maxAge = query.getLong(i11);
+                    int i12 = columnIndex21;
+                    pMSAppInfo.createTime = query.getLong(i12);
+                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
+                    pMSAppInfo.webAction = query.getString(columnIndex23);
+                    pMSAppInfo.domains = query.getString(columnIndex24);
+                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
+                    pMSAppInfo.serverExt = query.getString(columnIndex26);
+                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
+                    hashMap = hashMap3;
+                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
+                    if (!query.moveToNext()) {
+                        break;
+                    }
+                    hashMap3 = hashMap;
+                    columnIndex = i2;
+                    columnIndex14 = i;
+                    columnIndex2 = i3;
+                    columnIndex21 = i12;
+                    columnIndex3 = i5;
+                    columnIndex15 = i4;
+                    columnIndex16 = i6;
+                    columnIndex17 = i7;
+                    columnIndex18 = i8;
+                    columnIndex20 = i11;
+                    columnIndex19 = i9;
+                    columnIndex4 = i10;
+                }
+            } else {
+                hashMap = hashMap2;
             }
-            return jSONObject.toString();
+            ik4.d(query);
+            return hashMap;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lq3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
-            String b = b();
-            if (a) {
-                Log.i("ParamsProcessor", "params: " + b);
-            }
-            String c = c(b);
-            if (a) {
-                Log.i("ParamsProcessor", "encryption params: " + c);
-            }
-            return a(c);
-        }
-        return (Cursor) invokeLLLLL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

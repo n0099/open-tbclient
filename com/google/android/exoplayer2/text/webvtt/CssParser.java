@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.ColorParser;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -253,7 +252,7 @@ public final class CssParser {
                 if (parseNextToken == null) {
                     return null;
                 }
-                if (!"}".equals(parseNextToken) && !ParamableElem.DIVIDE_PARAM.equals(parseNextToken)) {
+                if (!"}".equals(parseNextToken) && !";".equals(parseNextToken)) {
                     sb2.append(parseNextToken);
                 } else {
                     parsableByteArray.setPosition(position);
@@ -278,7 +277,7 @@ public final class CssParser {
             if (parsePropertyValue != null && !"".equals(parsePropertyValue)) {
                 int position = parsableByteArray.getPosition();
                 String parseNextToken = parseNextToken(parsableByteArray, sb);
-                if (!ParamableElem.DIVIDE_PARAM.equals(parseNextToken)) {
+                if (!";".equals(parseNextToken)) {
                     if ("}".equals(parseNextToken)) {
                         parsableByteArray.setPosition(position);
                     } else {

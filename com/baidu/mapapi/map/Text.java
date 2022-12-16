@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import vi.com.gdi.bgl.android.java.EnvDrawText;
 /* loaded from: classes2.dex */
 public final class Text extends Overlay {
@@ -202,7 +203,7 @@ public final class Text extends Overlay {
                 }
                 bundle.putFloat("align_y", f2);
                 bundle.putFloat("rotate", this.i);
-                bundle.putInt("update", this.j);
+                bundle.putInt(StickerDataChangeType.UPDATE, this.j);
                 return bundle;
             }
             throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");

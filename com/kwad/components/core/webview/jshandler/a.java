@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.playable.PlayableSource;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,13 +19,13 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0594a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes8.dex */
+    public static class C0611a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Ld;
 
-        public C0594a() {
+        public C0611a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @KsJson
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.Lb = cVar;
             try {
-                C0594a c0594a = new C0594a();
-                c0594a.parseJson(new JSONObject(str));
-                String target = c0594a.getTarget();
+                C0611a c0611a = new C0611a();
+                c0611a.parseJson(new JSONObject(str));
+                String target = c0611a.getTarget();
                 if (this.Lc != null) {
                     this.Lc.a(this, target);
                 }

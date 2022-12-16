@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
@@ -15,7 +14,7 @@ public class et {
     public static Vector<Pair<String, Long>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ConcurrentHashMap<String, Long> f326a;
+    public static ConcurrentHashMap<String, Long> f349a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +31,7 @@ public class et {
             }
         }
         a = new Vector<>();
-        f326a = new ConcurrentHashMap<>();
+        f349a = new ConcurrentHashMap<>();
     }
 
     public static String a() {
@@ -47,7 +46,7 @@ public class et {
                     sb.append(":");
                     sb.append(elementAt.second);
                     if (i < a.size() - 1) {
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                     }
                 }
                 a.clear();

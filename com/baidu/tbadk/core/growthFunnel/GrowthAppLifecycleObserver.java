@@ -54,8 +54,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fx4.p();
-            fx4.s(null, true);
+            fx4.o();
+            fx4.r(null, true);
             jx4.a().j(true);
         }
     }
@@ -64,7 +64,7 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fx4.s(null, true);
+            fx4.r(null, true);
             b = System.currentTimeMillis();
             fx4.b = false;
             jx4.a().j(false);
@@ -77,8 +77,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                fx4.l("lifecycle-1st-create", false);
-                fx4.w();
+                fx4.k("lifecycle-1st-create", false);
+                fx4.v();
                 return;
             }
             fx4.b = true;
@@ -86,9 +86,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            fx4.k(currentTimeMillis);
-            fx4.l("lifecycle", true);
-            fx4.w();
+            fx4.j(currentTimeMillis);
+            fx4.k("lifecycle", true);
+            fx4.v();
         }
     }
 }

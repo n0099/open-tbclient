@@ -42,8 +42,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         a();
     }
 
@@ -66,8 +66,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         a();
     }
 
@@ -90,8 +90,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         a();
     }
 

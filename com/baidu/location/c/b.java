@@ -36,7 +36,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class b {
     public boolean l;
     public boolean m;
     public a p;
-    public C0103b q;
+    public C0117b q;
     public c r;
     public boolean s;
     public boolean t;
@@ -137,12 +136,12 @@ public class b {
 
     /* renamed from: com.baidu.location.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0103b extends TelephonyManager.CellInfoCallback {
+    public class C0117b extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0103b(b bVar) {
+        public C0117b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +159,7 @@ public class b {
             this.a = bVar;
         }
 
-        public /* synthetic */ C0103b(b bVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0117b(b bVar, AnonymousClass1 anonymousClass1) {
             this(bVar);
         }
 
@@ -1059,10 +1058,10 @@ public class b {
                             if (!cellInfo.isRegistered() && (a2 = a(cellInfo, this.h, this.d)) != null) {
                                 if (a2.a != -1 && a2.b != -1) {
                                     if (aVar != null && aVar.a == a2.a) {
-                                        str = "|" + a2.b + "|" + a2.h + ParamableElem.DIVIDE_PARAM;
+                                        str = "|" + a2.b + "|" + a2.h + ";";
                                         sb.append(str);
                                     }
-                                    str = a2.a + "|" + a2.b + "|" + a2.h + ParamableElem.DIVIDE_PARAM;
+                                    str = a2.a + "|" + a2.b + "|" + a2.h + ";";
                                     sb.append(str);
                                 }
                                 if (Build.VERSION.SDK_INT > 28 && a2.k == 6 && a2.o != null && a2.b()) {
@@ -1078,7 +1077,7 @@ public class b {
                                     sb2.append(a2.g());
                                     sb2.append("_");
                                     sb2.append(a2.o);
-                                    sb2.append(ParamableElem.DIVIDE_PARAM);
+                                    sb2.append(";");
                                 }
                             }
                         }
@@ -1337,7 +1336,7 @@ public class b {
                             }
                             stringBuffer.append("|");
                             stringBuffer.append((System.currentTimeMillis() - aVar2.g) / 1000);
-                            stringBuffer.append(ParamableElem.DIVIDE_PARAM);
+                            stringBuffer.append(";");
                         }
                     }
                 }
@@ -1479,7 +1478,7 @@ public class b {
                                             createForSubscriptionId2 = this.d.createForSubscriptionId(i2);
                                         }
                                         if (this.q == null) {
-                                            this.q = new C0103b(this, null);
+                                            this.q = new C0117b(this, null);
                                         }
                                         if (this.e != null) {
                                             this.e.requestCellInfoUpdate(com.baidu.location.f.getServiceContext().getMainExecutor(), this.q);

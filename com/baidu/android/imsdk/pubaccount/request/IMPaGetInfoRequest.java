@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -12,7 +11,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -194,9 +192,9 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                         for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                                if (jSONObject2.optInt("pa_type") != 16) {
+                                if (jSONObject2.optInt(Constants.EXTRA_PA_TYPE) != 16) {
                                     PaInfo paInfo = new PaInfo();
-                                    paInfo.setPaId(jSONObject2.optLong("pa_uid"));
+                                    paInfo.setPaId(jSONObject2.optLong(Constants.EXTRA_PAUID_TYPE));
                                     paInfo.setNickName(jSONObject2.optString("pa_nickname"));
                                     paInfo.setUsername(jSONObject2.optString("pa_username"));
                                     paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
@@ -206,7 +204,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                     paInfo.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
                                     paInfo.setUrl(jSONObject2.optString("pa_url"));
                                     paInfo.setSubcribeTime(jSONObject2.optLong("create_time"));
-                                    paInfo.setSubtype(jSONObject2.optInt("pa_type"));
+                                    paInfo.setSubtype(jSONObject2.optInt(Constants.EXTRA_PA_TYPE));
                                     paInfo.setClassType(jSONObject2.optInt("pa_classtype", 0));
                                     paInfo.setClasstitle(jSONObject2.optString("pa_classtitle"));
                                     paInfo.setClassAvatar(jSONObject2.optString("pa_classavatar"));
@@ -218,7 +216,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                     paInfo.setPaExt(optString);
                                     if (!TextUtils.isEmpty(optString)) {
                                         try {
-                                            paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
+                                            paInfo.setSubsetType(new JSONObject(optString).optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
                                         } catch (JSONException e) {
                                             LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                         }
@@ -230,7 +228,6 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                 arrayList = arrayList2;
                                 LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                                 i2 = 1010;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                 PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
                             }

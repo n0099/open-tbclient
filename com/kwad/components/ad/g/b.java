@@ -10,7 +10,7 @@ import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements i.a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b BK;

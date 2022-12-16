@@ -16,7 +16,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Jdk9Platform extends Platform {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,11 +82,15 @@ public final class Jdk9Platform extends Platform {
                     if (!str.equals("")) {
                         return str;
                     }
-                    return null;
                 }
                 return null;
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw Util.assertionError("unable to get selected protocols", e);
+            } catch (IllegalAccessException e) {
+                throw Util.assertionError("failed to get ALPN selected protocol", e);
+            } catch (InvocationTargetException e2) {
+                if (e2.getCause() instanceof UnsupportedOperationException) {
+                    return null;
+                }
+                throw Util.assertionError("failed to get ALPN selected protocol", e2);
             }
         }
         return (String) invokeL.objValue;

@@ -37,7 +37,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DiskLruCache implements Closeable, Flushable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -74,7 +74,7 @@ public final class DiskLruCache implements Closeable, Flushable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -460,7 +460,7 @@ public final class DiskLruCache implements Closeable, Flushable {
                 return;
             }
         }
-        LEGAL_KEY_PATTERN = Pattern.compile("[a-z0-9_-]{1,120}");
+        LEGAL_KEY_PATTERN = Pattern.compile(com.baidu.searchbox.dns.cache.disk.DiskLruCache.STRING_KEY_PATTERN);
     }
 
     private synchronized void checkNotClosed() {
@@ -653,6 +653,7 @@ public final class DiskLruCache implements Closeable, Flushable {
                     @Override // java.util.Iterator
                     public boolean hasNext() {
                         InterceptResult invokeV2;
+                        Snapshot snapshot;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
                             if (this.nextSnapshot != null) {
@@ -663,8 +664,8 @@ public final class DiskLruCache implements Closeable, Flushable {
                                     return false;
                                 }
                                 while (this.delegate.hasNext()) {
-                                    Snapshot snapshot = this.delegate.next().snapshot();
-                                    if (snapshot != null) {
+                                    Entry next = this.delegate.next();
+                                    if (next.readable && (snapshot = next.snapshot()) != null) {
                                         this.nextSnapshot = snapshot;
                                         return true;
                                     }

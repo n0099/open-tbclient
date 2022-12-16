@@ -94,7 +94,6 @@ import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -881,7 +880,7 @@ public class CoreViewRouter implements NoProguard {
                         }
                         String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
                         this.e.params.put("retCode", "0");
-                        this.e.params.put(TiebaStatic.LogFields.RESULT, diCookieInfo);
+                        this.e.params.put("result", diCookieInfo);
                         this.c.onFinish(this.e);
                         return;
                     default:

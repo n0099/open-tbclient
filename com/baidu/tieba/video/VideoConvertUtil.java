@@ -7,8 +7,8 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hx8;
-import com.baidu.tieba.ix8;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.r09;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,6 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class VideoConvertUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +32,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public ix8 g;
+    public r09 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -170,7 +173,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = hx8.f;
+        String str = q09.f;
     }
 
     private void bindService() {
@@ -184,7 +187,7 @@ public class VideoConvertUtil {
 
     private void startService() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.a != null) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && this.a != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
             this.a.startService(intent);
@@ -194,7 +197,7 @@ public class VideoConvertUtil {
     private void unbindService() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && this.b != null && (context = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && this.b != null && (context = this.a) != null) {
             context.unbindService(this.m);
         }
     }
@@ -264,10 +267,38 @@ public class VideoConvertUtil {
         this.h = new IntenalConvertListener(this, null);
     }
 
-    public void o(ix8 ix8Var) {
+    public static String p(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ix8Var) == null) {
-            this.g = ix8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                try {
+                    byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
+                    StringBuilder sb = new StringBuilder(digest.length * 2);
+                    for (byte b : digest) {
+                        int i = b & 255;
+                        if (i < 16) {
+                            sb.append("0");
+                        }
+                        sb.append(Integer.toHexString(i));
+                    }
+                    return sb.toString();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                    return "";
+                } catch (NoSuchAlgorithmException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void o(r09 r09Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, r09Var) == null) {
+            this.g = r09Var;
         }
     }
 
@@ -283,12 +314,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            ix8 ix8Var = this.g;
-            if (ix8Var != null) {
+            r09 r09Var = this.g;
+            if (r09Var != null) {
                 if (i == 0) {
-                    ix8Var.b();
+                    r09Var.b();
                 } else {
-                    ix8Var.a(i);
+                    r09Var.a(i);
                 }
             }
         }

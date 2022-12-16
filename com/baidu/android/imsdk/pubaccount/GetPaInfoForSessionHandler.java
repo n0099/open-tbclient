@@ -11,8 +11,11 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic;
@@ -54,29 +57,33 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                         if (i != 19) {
                             if (i != 23) {
                                 if (i != 29) {
-                                    if (i != 100) {
-                                        if (i != 16) {
-                                            if (i != 17) {
-                                                switch (i) {
-                                                    case 25:
-                                                        i2 = 25;
-                                                        break;
-                                                    case 26:
-                                                        i2 = 26;
-                                                        break;
-                                                    case 27:
-                                                        i2 = 27;
-                                                        break;
-                                                    default:
-                                                        i2 = -1;
-                                                        break;
+                                    if (i != 60) {
+                                        if (i != 100) {
+                                            if (i != 16) {
+                                                if (i != 17) {
+                                                    switch (i) {
+                                                        case 25:
+                                                            i2 = 25;
+                                                            break;
+                                                        case 26:
+                                                            i2 = 26;
+                                                            break;
+                                                        case 27:
+                                                            i2 = 27;
+                                                            break;
+                                                        default:
+                                                            i2 = -1;
+                                                            break;
+                                                    }
                                                 }
+                                            } else {
+                                                i2 = 16;
                                             }
                                         } else {
-                                            i2 = 16;
+                                            i2 = 100;
                                         }
                                     } else {
-                                        i2 = 100;
+                                        i2 = 60;
                                     }
                                 } else {
                                     i2 = 29;
@@ -105,6 +112,27 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                 LogUtils.d("GetPaInfoForSessionHandler", "pa type as default -1");
             }
         }
+    }
+
+    private String getExtJson(PaInfo paInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, paInfo)) == null) {
+            if (paInfo == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("map_type", paInfo.getMapType());
+                if (paInfo.getSubtype() == 7 && paInfo.getSubsetType() == 0 && paInfo.getHasIdentity() == 0 && paInfo.getSubscribe() != 1 && paInfo.getSubscribe() != 3) {
+                    jSONObject.put("stranger", 1);
+                }
+            } catch (JSONException e) {
+                LogUtils.d("GetPaInfoForSessionHandler", e.toString());
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
@@ -176,7 +204,7 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
         PaInfo paInfo = (PaInfo) obj;
         if (!TextUtils.isEmpty(paInfo.getNickName()) && paInfo.getPaId() > 0) {
             chatObject.setPaid(paInfo.getPaId());
-            updateChatRecord(chatObject, paInfo.getNickName(), i, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime(), paInfo.getShield(), paInfo.getShieldTime(), paInfo.getVipId(), paInfo.getVPortrait(), paInfo.getIdentity());
+            updateChatRecord(chatObject, paInfo.getNickName(), i, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime(), paInfo.getShield(), paInfo.getShieldTime(), paInfo.getVipId(), paInfo.getVPortrait(), paInfo.getIdentity(), getExtJson(paInfo));
         }
     }
 }

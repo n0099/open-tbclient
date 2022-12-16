@@ -15,7 +15,7 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.utils.w;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public abstract class a {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
-                @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+                @Override // com.kwai.sodler.lib.ext.b.C0657b, com.kwai.sodler.lib.ext.b
                 public void a(com.kwai.sodler.lib.b.a aVar, PluginError pluginError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(65537, this, aVar, pluginError) == null) {
@@ -119,7 +119,7 @@ public abstract class a {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
-                @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+                @Override // com.kwai.sodler.lib.ext.b.C0657b, com.kwai.sodler.lib.ext.b
                 public void a(com.kwai.sodler.lib.b.a aVar, com.kwai.sodler.lib.kwai.a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(65538, this, aVar, aVar2) == null) {

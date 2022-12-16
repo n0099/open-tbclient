@@ -14,7 +14,7 @@ public final class aq implements Runnable {
     public final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f907a;
+    public final /* synthetic */ boolean f930a;
 
     public aq(List list, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class aq implements Runnable {
             }
         }
         this.a = list;
-        this.f907a = z;
+        this.f930a = z;
     }
 
     @Override // java.lang.Runnable
@@ -52,7 +52,7 @@ public final class aq implements Runnable {
                     b2 = ap.b(str);
                     if (!b2) {
                         b = false;
-                        if (!b && !this.f907a) {
+                        if (!b && !this.f930a) {
                             break;
                         }
                     }

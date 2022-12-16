@@ -382,7 +382,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
             if (oneKeyLoginResult != null && oneKeyLoginResult.enable) {
                 IPagerLoadCallback iPagerLoadCallback = this.j;
                 if (iPagerLoadCallback != null) {
-                    iPagerLoadCallback.onPageShow(QuickLoginDialog.HEIGHT_ONEKEY);
+                    iPagerLoadCallback.onPageShow(238);
                 }
                 IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
                 if (iQuickLoginDialogCallback != null) {
@@ -481,13 +481,13 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e1, this);
-            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091db3);
-            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091db5);
-            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091db1);
-            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091db4);
-            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091db6);
-            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091db0);
+            LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_dialog_login_pager, this);
+            this.c = (OneKeyLoginView) findViewById(R.id.sapi_sdk_login_dialog_onekeyloginview);
+            this.d = (ShareLoginView) findViewById(R.id.sapi_sdk_login_dialog_shareloginview);
+            this.e = (HistoryLoginView) findViewById(R.id.sapi_sdk_login_dialog_historyloginview);
+            this.f = (SendSmsView) findViewById(R.id.sapi_sdk_login_dialog_sendsmsview);
+            this.g = (ThirdPartyView) findViewById(R.id.sapi_sdk_login_dialog_thirdpartyview);
+            this.h = (AgreementView) findViewById(R.id.sapi_sdk_login_dialog_agreementview);
             this.g.setLoginCallback(this);
             this.h.a((Activity) this.a, this.i);
             b();

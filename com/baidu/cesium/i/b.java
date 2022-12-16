@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements Cloneable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int d = 6;

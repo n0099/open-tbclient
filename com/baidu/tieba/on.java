@@ -589,7 +589,7 @@ public class on extends BaseAdapter implements yn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             TextView textView = new TextView(this.a);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aa6));
             int d = yi.d(this.a, 15.0f);
             textView.setPadding(d, d, d, d);
             return textView;

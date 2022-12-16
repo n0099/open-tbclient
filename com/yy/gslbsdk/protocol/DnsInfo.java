@@ -28,7 +28,7 @@ public class DnsInfo {
     public String uip;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1090view;
+    public String f1115view;
 
     public DnsInfo() {
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class DnsInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f1090view;
+            return this.f1115view;
         }
         return (String) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class DnsInfo {
         if (interceptable == null || interceptable.invokeL(1048576, this, dnsInfo) == null) {
             this.host = dnsInfo.getHost();
             this.uip = dnsInfo.getUip();
-            this.f1090view = dnsInfo.getView();
+            this.f1115view = dnsInfo.getView();
             this.ttl = dnsInfo.getTtl();
             this.probeTime = dnsInfo.getProbeTime();
             this.endTime = dnsInfo.getEndTime();
@@ -296,7 +296,7 @@ public class DnsInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f1090view = str;
+            this.f1115view = str;
         }
     }
 

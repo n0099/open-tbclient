@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface j27 {
+    void F0(int i, b37 b37Var);
+
     void a();
-
-    void b(int i);
-
-    void onChangeSkinType(int i);
-
-    void setData(List<xn> list);
 }

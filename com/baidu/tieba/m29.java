@@ -1,35 +1,26 @@
 package com.baidu.tieba;
+
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes5.dex */
 public interface m29 {
-    void a();
 
-    void b(long j);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-    void c(double d);
+    void a(Camera camera);
 
-    void d(int i);
+    void b(Camera camera);
 
-    void e(int i, int i2);
+    void c(a aVar);
 
-    void f(int i, int i2);
+    void d(Camera camera);
 
-    void g(int i, int i2, int i3);
+    void e(Camera camera);
 
-    void h();
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
 
-    void i();
-
-    void j(int i, o29 o29Var);
-
-    void k();
-
-    void l(double d);
-
-    void m();
-
-    void n(long j, long j2);
-
-    void o(long j, long j2);
-
-    void onClick();
+    void setPreviewSize(int i, int i2);
 }

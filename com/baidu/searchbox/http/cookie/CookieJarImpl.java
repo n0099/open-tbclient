@@ -1,6 +1,8 @@
 package com.baidu.searchbox.http.cookie;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +15,6 @@ import java.util.List;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
-import okhttp3.internal.Util;
 /* loaded from: classes2.dex */
 public class CookieJarImpl implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
@@ -56,10 +57,40 @@ public class CookieJarImpl implements CookieJar {
         return (List) invokeL.objValue;
     }
 
+    public static int delimiterOffset(String str, int i, int i2, char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int delimiterOffset(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            while (i < i2) {
+                if (str2.indexOf(str.charAt(i)) != -1) {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
+    }
+
     private String encodeIllegalInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             if (str == null) {
                 return "";
             }
@@ -82,16 +113,16 @@ public class CookieJarImpl implements CookieJar {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, httpUrl, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, httpUrl, str)) == null) {
             ArrayList arrayList = new ArrayList();
             int length = str.length();
             int i = 0;
             while (i < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
-                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
+                int delimiterOffset = delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
+                int delimiterOffset2 = delimiterOffset(str, i, delimiterOffset, (char) a.h);
+                String trimSubstring = trimSubstring(str, i, delimiterOffset2);
                 if (delimiterOffset2 < delimiterOffset) {
-                    str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);
+                    str2 = trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);
                 } else {
                     str2 = "";
                 }
@@ -108,6 +139,47 @@ public class CookieJarImpl implements CookieJar {
             return arrayList;
         }
         return (List) invokeLL.objValue;
+    }
+
+    public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static String trimSubstring(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
+            int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i, i2);
+            return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i2));
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static int skipTrailingAsciiWhitespace(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
+        }
+        return invokeLII.intValue;
     }
 
     @Override // okhttp3.CookieJar

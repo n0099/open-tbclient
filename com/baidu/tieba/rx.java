@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class rx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadlinesCardView h;
-    public tr4 i;
+    public vr4 i;
     public int j;
     public az k;
 
@@ -30,7 +30,7 @@ public class rx extends hx {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements az {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,13 +117,13 @@ public class rx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: z */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tr4Var) == null) {
-            this.i = tr4Var;
-            if (y(tr4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, vr4Var) == null) {
+            this.i = vr4Var;
+            if (y(vr4Var)) {
                 this.h.setVisibility(0);
-                this.h.a(tr4Var);
+                this.h.a(vr4Var);
                 return;
             }
             this.h.setVisibility(8);
@@ -148,11 +148,11 @@ public class rx extends hx {
         }
     }
 
-    public final boolean y(tr4 tr4Var) {
+    public final boolean y(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null && tr4Var.getThreadData().getTaskInfoData().h() == 2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getTaskInfoData() != null && vr4Var.getThreadData().getTaskInfoData().e() != null && vr4Var.getThreadData().getTaskInfoData().h() == 2) {
                 return true;
             }
             return false;

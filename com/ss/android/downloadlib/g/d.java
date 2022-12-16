@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.g;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -14,7 +13,7 @@ public class d {
                 jSONObject.put("notification_jump_url", str2);
             }
             jSONObject.put("show_toast", z);
-            jSONObject.put(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, str3);
+            jSONObject.put("business_type", str3);
         } catch (JSONException e) {
             e.printStackTrace();
         }

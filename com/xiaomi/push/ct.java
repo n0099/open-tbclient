@@ -14,7 +14,7 @@ public final class ct {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f186a;
+    public String f209a;
 
     public ct(String str, int i) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class ct {
                 return;
             }
         }
-        this.f186a = str;
+        this.f209a = str;
         this.a = i;
     }
 
@@ -57,12 +57,12 @@ public final class ct {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m249a(String str, int i) {
+    public static InetSocketAddress m259a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             ct a = a(str, i);
-            return new InetSocketAddress(a.m250a(), a.a());
+            return new InetSocketAddress(a.m260a(), a.a());
         }
         return (InetSocketAddress) invokeLI.objValue;
     }
@@ -74,10 +74,10 @@ public final class ct {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m250a() {
+    public String m260a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f186a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f209a : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -85,9 +85,9 @@ public final class ct {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.a > 0) {
-                return this.f186a + ":" + this.a;
+                return this.f209a + ":" + this.a;
             }
-            return this.f186a;
+            return this.f209a;
         }
         return (String) invokeV.objValue;
     }

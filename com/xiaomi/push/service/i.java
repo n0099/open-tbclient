@@ -10,7 +10,7 @@ public class i {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f981a;
+    public static b f1004a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -25,7 +25,7 @@ public class i {
     public static void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
-            f981a = bVar;
+            f1004a = bVar;
         }
     }
 
@@ -36,12 +36,12 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iiVar)) == null) {
             if (a == null || iiVar == null) {
                 str = "rc params is null, not cpra";
-            } else if (com.xiaomi.push.m.m561a(com.xiaomi.push.v.m687a())) {
+            } else if (com.xiaomi.push.m.m571a(com.xiaomi.push.v.m697a())) {
                 return a.a(iiVar);
             } else {
                 str = "rc app not permission to cpra";
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a(str);
+            com.xiaomi.channel.commonutils.logger.b.m99a(str);
             return false;
         }
         return invokeL.booleanValue;

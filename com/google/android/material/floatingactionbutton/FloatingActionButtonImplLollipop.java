@@ -125,7 +125,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ObjectAnimator.ofFloat(this.f1074view, Key.ELEVATION, f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.f1074view, View.TRANSLATION_Z, f2).setDuration(100L));
+            animatorSet.play(ObjectAnimator.ofFloat(this.f1099view, Key.ELEVATION, f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.f1099view, View.TRANSLATION_Z, f2).setDuration(100L));
             animatorSet.setInterpolator(FloatingActionButtonImpl.ELEVATION_ANIM_INTERPOLATOR);
             return animatorSet;
         }
@@ -137,7 +137,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, colorStateList)) == null) {
-            Context context = this.f1074view.getContext();
+            Context context = this.f1099view.getContext();
             BorderDrawable borderDrawable = new BorderDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
             borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060723), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060722), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060720), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060721));
             borderDrawable.setBorderWidth(i);
@@ -163,7 +163,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f1074view.getElevation();
+            return this.f1099view.getElevation();
         }
         return invokeV.floatValue;
     }
@@ -196,7 +196,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             if (this.shadowViewDelegate.isCompatPaddingEnabled()) {
                 super.getPadding(rect);
             } else if (!shouldExpandBoundsForA11y()) {
-                int sizeDimension = (this.minTouchTargetSize - this.f1074view.getSizeDimension()) / 2;
+                int sizeDimension = (this.minTouchTargetSize - this.f1099view.getSizeDimension()) / 2;
                 rect.set(sizeDimension, sizeDimension, sizeDimension, sizeDimension);
             } else {
                 rect.set(0, 0, 0, 0);
@@ -215,7 +215,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             if (mode != null) {
                 this.shapeDrawable.setTintMode(mode);
             }
-            this.shapeDrawable.initializeElevationOverlay(this.f1074view.getContext());
+            this.shapeDrawable.initializeElevationOverlay(this.f1099view.getContext());
             if (i > 0) {
                 this.borderDrawable = createBorderDrawable(i, colorStateList);
                 drawable = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.borderDrawable), (Drawable) Preconditions.checkNotNull(this.shapeDrawable)});
@@ -233,21 +233,21 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public void onDrawableStateChanged(int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, iArr) == null) && Build.VERSION.SDK_INT == 21) {
-            if (this.f1074view.isEnabled()) {
-                this.f1074view.setElevation(this.elevation);
-                if (this.f1074view.isPressed()) {
-                    this.f1074view.setTranslationZ(this.pressedTranslationZ);
+            if (this.f1099view.isEnabled()) {
+                this.f1099view.setElevation(this.elevation);
+                if (this.f1099view.isPressed()) {
+                    this.f1099view.setTranslationZ(this.pressedTranslationZ);
                     return;
-                } else if (!this.f1074view.isFocused() && !this.f1074view.isHovered()) {
-                    this.f1074view.setTranslationZ(0.0f);
+                } else if (!this.f1099view.isFocused() && !this.f1099view.isHovered()) {
+                    this.f1099view.setTranslationZ(0.0f);
                     return;
                 } else {
-                    this.f1074view.setTranslationZ(this.hoveredFocusedTranslationZ);
+                    this.f1099view.setTranslationZ(this.hoveredFocusedTranslationZ);
                     return;
                 }
             }
-            this.f1074view.setElevation(0.0f);
-            this.f1074view.setTranslationZ(0.0f);
+            this.f1099view.setElevation(0.0f);
+            this.f1099view.setTranslationZ(0.0f);
         }
     }
 
@@ -256,7 +256,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             if (Build.VERSION.SDK_INT == 21) {
-                this.f1074view.refreshDrawableState();
+                this.f1099view.refreshDrawableState();
             } else {
                 StateListAnimator stateListAnimator = new StateListAnimator();
                 stateListAnimator.addState(FloatingActionButtonImpl.PRESSED_ENABLED_STATE_SET, createElevationAnimator(f, f3));
@@ -265,18 +265,18 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                 stateListAnimator.addState(FloatingActionButtonImpl.HOVERED_ENABLED_STATE_SET, createElevationAnimator(f, f2));
                 AnimatorSet animatorSet = new AnimatorSet();
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(ObjectAnimator.ofFloat(this.f1074view, Key.ELEVATION, f).setDuration(0L));
+                arrayList.add(ObjectAnimator.ofFloat(this.f1099view, Key.ELEVATION, f).setDuration(0L));
                 int i = Build.VERSION.SDK_INT;
                 if (i >= 22 && i <= 24) {
-                    FloatingActionButton floatingActionButton = this.f1074view;
+                    FloatingActionButton floatingActionButton = this.f1099view;
                     arrayList.add(ObjectAnimator.ofFloat(floatingActionButton, View.TRANSLATION_Z, floatingActionButton.getTranslationZ()).setDuration(100L));
                 }
-                arrayList.add(ObjectAnimator.ofFloat(this.f1074view, View.TRANSLATION_Z, 0.0f).setDuration(100L));
+                arrayList.add(ObjectAnimator.ofFloat(this.f1099view, View.TRANSLATION_Z, 0.0f).setDuration(100L));
                 animatorSet.playSequentially((Animator[]) arrayList.toArray(new Animator[0]));
                 animatorSet.setInterpolator(FloatingActionButtonImpl.ELEVATION_ANIM_INTERPOLATOR);
                 stateListAnimator.addState(FloatingActionButtonImpl.ENABLED_STATE_SET, animatorSet);
                 stateListAnimator.addState(FloatingActionButtonImpl.EMPTY_STATE_SET, createElevationAnimator(0.0f, 0.0f));
-                this.f1074view.setStateListAnimator(stateListAnimator);
+                this.f1099view.setStateListAnimator(stateListAnimator);
             }
             if (shouldAddPadding()) {
                 updatePadding();

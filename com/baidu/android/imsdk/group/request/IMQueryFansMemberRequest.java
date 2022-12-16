@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -11,7 +10,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -84,36 +82,52 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
         public void run() {
             int i;
             String str;
+            int i2;
+            int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str2 = "";
                 ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
-                    i = jSONObject.getInt("error_code");
+                    int i4 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i == 0 && jSONObject.has("response_params")) {
+                    if (i4 == 0 && jSONObject.has("response_params")) {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                         JSONArray jSONArray = jSONObject2.getJSONArray("members");
-                        int i2 = 0;
-                        int i3 = 0;
-                        while (i3 < jSONArray.length()) {
-                            JSONObject jSONObject3 = jSONArray.getJSONObject(i3);
+                        int i5 = 0;
+                        while (i5 < jSONArray.length()) {
+                            JSONObject jSONObject3 = jSONArray.getJSONObject(i5);
                             long optLong = jSONObject3.optLong("bd_uid");
                             int optInt = jSONObject3.optInt("role");
                             long optLong2 = jSONObject3.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
                             long optLong3 = jSONObject3.optLong("uk");
                             String optString = jSONObject3.optString("avatar");
-                            String optString2 = jSONObject3.optString("display_name");
-                            String optString3 = jSONObject3.optString("name");
-                            if (jSONObject3.optInt("status", i2) != 1) {
-                                GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, optString2, optLong, optInt, optLong2);
+                            String optString2 = jSONObject3.optString(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT, str2);
+                            String optString3 = jSONObject3.optString("display_name");
+                            String optString4 = jSONObject3.optString("name");
+                            String optString5 = jSONObject3.optString(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME);
+                            String optString6 = jSONObject3.optString(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION);
+                            String str3 = str2;
+                            JSONArray jSONArray2 = jSONArray;
+                            if (jSONObject3.optInt("status", 0) != 1) {
+                                i3 = i4;
+                                GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, optString3, optLong, optInt, optLong2);
                                 groupMember.setPortrait(optString);
-                                groupMember.setNickName(optString3);
+                                groupMember.setAvatarExt(optString2);
+                                groupMember.setNickName(optString4);
+                                groupMember.setRoleDisplayName(optString5);
+                                groupMember.setRoleDecoration(optString6);
                                 arrayList.add(groupMember);
+                            } else {
+                                i3 = i4;
                             }
-                            i3++;
-                            i2 = 0;
+                            i5++;
+                            str2 = str3;
+                            jSONArray = jSONArray2;
+                            i4 = i3;
                         }
+                        i2 = i4;
                         if (this.this$0.mBuids != null && this.this$0.mBuids.size() != 0) {
                             if (GroupInfoDAOImpl.delGroupMember(this.this$0.mContext, this.this$0.mGroupId, this.this$0.mBuids) > 0) {
                                 GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, this.this$0.mGroupId, arrayList);
@@ -123,11 +137,13 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
                         GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, this.this$0.mGroupId, arrayList);
                         GroupInfoDAOImpl.modifyGroupMemberVersion(this.this$0.mContext, this.this$0.mGroupId, jSONObject2.optLong("member_version"), System.currentTimeMillis());
                         GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, jSONObject2.optInt("member_count"));
+                    } else {
+                        i2 = i4;
                     }
+                    i = i2;
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

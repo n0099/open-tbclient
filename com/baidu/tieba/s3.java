@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface s3 {
     boolean a();
 
@@ -9,7 +9,7 @@ public interface s3 {
 
     int d();
 
-    int e();
+    int getDepth();
 
     int getHeight();
 

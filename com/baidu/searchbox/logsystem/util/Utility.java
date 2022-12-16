@@ -18,6 +18,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -49,7 +50,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -168,7 +169,7 @@ public class Utility {
             while (true) {
                 Map.Entry<String, String> next = it.next();
                 sb.append(next.getKey());
-                sb.append('=');
+                sb.append(a.h);
                 sb.append(next.getValue());
                 if (!it.hasNext()) {
                     sb.append('}');

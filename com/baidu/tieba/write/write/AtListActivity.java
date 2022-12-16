@@ -47,14 +47,14 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bo;
-import com.baidu.tieba.l59;
-import com.baidu.tieba.m49;
-import com.baidu.tieba.p49;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.sf5;
-import com.baidu.tieba.sq4;
+import com.baidu.tieba.kg5;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.tq4;
+import com.baidu.tieba.u89;
+import com.baidu.tieba.v79;
 import com.baidu.tieba.write.write.AtSelectFriendList;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.y79;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,7 +64,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class AtListActivity extends SuspendedActivity implements sf5, AdapterView.OnItemClickListener, l59.c {
+public class AtListActivity extends SuspendedActivity implements kg5, AdapterView.OnItemClickListener, u89.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -95,14 +95,14 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
     public LinearLayout s;
     public Button t;
     public l u;
-    public p49 v;
-    public l59 w;
+    public y79 v;
+    public u89 w;
     public String x;
     public RelativeLayout y;
     public View z;
 
-    @Override // com.baidu.tieba.sf5
-    public void n(int i2) {
+    @Override // com.baidu.tieba.kg5
+    public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
         }
@@ -116,12 +116,12 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0465a implements View.OnClickListener {
+        public class View$OnClickListenerC0476a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0465a(a aVar) {
+            public View$OnClickListenerC0476a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +145,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                     return;
                 }
-                this.a.a.M0();
+                this.a.a.L0();
             }
         }
 
@@ -177,7 +177,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 this.a.B.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.dialog_cancel), new View$OnClickListenerC0465a(this));
+                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0501), new View$OnClickListenerC0476a(this));
                 }
             }
         }
@@ -320,7 +320,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 if (z) {
                     if (5 <= this.a.r.getItemLength()) {
                         AtListActivity atListActivity = this.a;
-                        atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0985), 5), R.drawable.obfuscated_res_0x7f080af9);
+                        atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.invite_friend_exceed_max_count), 5), R.drawable.icon_toast_game_error);
                         tbCheckBox.setChecked(false);
                         ((MetaData) obj).setChecked(false);
                         return;
@@ -598,14 +598,14 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 if (!z) {
                     yi.z(this.a.getPageContext().getPageActivity(), view2);
                 } else {
-                    yi.N(this.a.getPageContext().getPageActivity(), view2);
+                    yi.O(this.a.getPageContext().getPageActivity(), view2);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class l extends BdAsyncTask<String, Integer, m49> {
+    public class l extends BdAsyncTask<String, Integer, v79> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -637,7 +637,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public m49 doInBackground(String... strArr) {
+        public v79 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -661,21 +661,21 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    m49 m49Var = new m49();
-                    m49Var.b(postNetData);
-                    return m49Var;
+                    v79 v79Var = new v79();
+                    v79Var.b(postNetData);
+                    return v79Var;
                 }
                 return null;
             }
-            return (m49) invokeL.objValue;
+            return (v79) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(m49 m49Var) {
+        public void onPostExecute(v79 v79Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m49Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v79Var) == null) {
                 this.b.u = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.H);
@@ -683,17 +683,17 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                     this.b.z.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.v.b(m49Var);
+                    this.b.v.b(v79Var);
                     if (this.b.w == null) {
                         return;
                     }
-                    if (m49Var == null || m49Var.a() == null || !m49Var.a().isEmpty()) {
+                    if (v79Var == null || v79Var.a() == null || !v79Var.a().isEmpty()) {
                         this.b.T1(0);
                     } else {
                         this.b.T1(2);
                     }
-                    if (m49Var != null) {
-                        this.b.k = m49Var.a();
+                    if (v79Var != null) {
+                        this.b.k = v79Var.a();
                     }
                     this.b.w.f(this.b.k);
                     this.b.w.notifyDataSetInvalidated();
@@ -701,9 +701,9 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 } else {
                     this.b.showToast(this.a.getErrorString());
                     AtListActivity atListActivity2 = this.b;
-                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f100d), null, this.b.getString(R.string.obfuscated_res_0x7f0f100c), true, this.b.getNetRefreshListener());
+                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.refresh_view_title_text), null, this.b.getString(R.string.refresh_view_button_text), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(m49Var);
+                super.onPostExecute(v79Var);
             }
         }
 
@@ -787,7 +787,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public sf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public kg5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -796,11 +796,11 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this.o, true);
             return this;
         }
-        return (sf5) invokeLL.objValue;
+        return (kg5) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.l59.c
-    public void r0(View view2, MetaData metaData) {
+    @Override // com.baidu.tieba.u89.c
+    public void p0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048598, this, view2, metaData) != null) || metaData == null) {
             return;
@@ -808,21 +808,21 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         this.r.g(metaData);
     }
 
-    private void U0() {
+    private void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1140));
-            View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d007a, new i(this));
+            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.select_friend));
+            View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new i(this));
             this.C = addCustomView;
-            this.D = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0916c2);
-            View addCustomView2 = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0641, (View.OnClickListener) null);
+            this.D = (ImageView) addCustomView.findViewById(R.id.new_friend_search);
+            View addCustomView2 = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
             this.B = addCustomView2;
             addCustomView2.setVisibility(8);
-            this.m = (EditText) this.B.findViewById(R.id.obfuscated_res_0x7f090952);
-            this.E = (ImageView) this.B.findViewById(R.id.obfuscated_res_0x7f09094c);
+            this.m = (EditText) this.B.findViewById(R.id.et_search);
+            this.E = (ImageView) this.B.findViewById(R.id.et_bar_icon);
             this.m.addTextChangedListener(new j(this));
             this.m.setOnFocusChangeListener(new k(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090953);
+            TextView textView = (TextView) findViewById(R.id.et_search_cancel_s);
             this.n = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -877,8 +877,8 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         this.q.setSelection(0);
     }
 
-    @Override // com.baidu.tieba.sf5
-    public boolean G0() {
+    @Override // com.baidu.tieba.kg5
+    public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -899,7 +899,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
     public final void O1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.v = new p49();
+            this.v = new y79();
             if (bundle != null) {
                 this.I = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.J = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -925,13 +925,13 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c99)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.no_chat_friends)));
                 this.s.setVisibility(8);
             } else if (i2 == 1) {
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ccc)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0d03)));
                 this.s.setVisibility(8);
             } else if (i2 == 0) {
                 this.q.setVisibility(0);
@@ -946,17 +946,17 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
     public final void P1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.y = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917cc);
-            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, yi.g(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c99)), null, true);
+            this.y = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091835);
+            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, yi.g(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_chat_friends)), null, true);
             this.z = findViewById(R.id.obfuscated_res_0x7f0902da);
             this.G.setOnTouchListener(new d(this));
-            U0();
-            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090430);
-            this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
-            this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f09135a);
-            l59 l59Var = new l59(this, this.I);
-            this.w = l59Var;
-            l59Var.g(this);
+            S0();
+            this.p = (LinearLayout) findViewById(R.id.bt_search_left);
+            this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906fd);
+            this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f0913ba);
+            u89 u89Var = new u89(this, this.I);
+            this.w = u89Var;
+            u89Var.g(this);
             this.w.e(new e(this));
             this.q.setAdapter((ListAdapter) this.w);
             this.q.setOnItemClickListener(this);
@@ -965,12 +965,12 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 ((View) this.m.getParent()).setFocusable(true);
                 ((View) this.m.getParent()).setFocusableInTouchMode(true);
             }
-            this.s = (LinearLayout) this.y.findViewById(R.id.obfuscated_res_0x7f090fb7);
-            Button button = (Button) this.y.findViewById(R.id.obfuscated_res_0x7f09049a);
+            this.s = (LinearLayout) this.y.findViewById(R.id.obfuscated_res_0x7f091012);
+            Button button = (Button) this.y.findViewById(R.id.obfuscated_res_0x7f09049b);
             this.t = button;
             button.setOnClickListener(new g(this));
             S1(0);
-            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.y.findViewById(R.id.obfuscated_res_0x7f0904be);
+            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.y.findViewById(R.id.obfuscated_res_0x7f0904bf);
             this.r = atSelectFriendList;
             atSelectFriendList.setMaxCount(5);
             this.r.setItemOPerationHandler(new h(this));
@@ -1037,7 +1037,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             super.onChangeSkinType(i2);
-            sq4 layoutMode = getLayoutMode();
+            tq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i2 != 1) {
                 z = false;
@@ -1051,28 +1051,28 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
             this.w.notifyDataSetChanged();
             SkinManager.setBackgroundResource(this.F, R.drawable.invite_friend_list_item_bg_color);
             SkinManager.setBackgroundResource(this.t, R.drawable.post_button_bg);
-            qw4 d2 = qw4.d(this.t);
+            rw4 d2 = rw4.d(this.t);
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101, 3);
-            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a44, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0201);
-            WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a9e, R.color.CAM_X0109, null);
-            qw4 d3 = qw4.d(this.p);
+            WebPManager.setPureDrawable(this.E, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
+            rw4 d3 = rw4.d(this.p);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0615);
             d3.f(R.color.CAM_X0209);
-            qw4.d(this.m).v(R.color.CAM_X0109);
-            qw4.d(this.n).A(R.string.F_X01);
-            qw4.d(this.e).v(R.color.CAM_X0109);
+            rw4.d(this.m).v(R.color.CAM_X0109);
+            rw4.d(this.n).A(R.string.F_X01);
+            rw4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
     public final void S1(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.t.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f02ab), Integer.valueOf(i2), 5));
+            this.t.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f02b0), Integer.valueOf(i2), 5));
         }
     }
 
@@ -1088,7 +1088,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.sf5
+    @Override // com.baidu.tieba.kg5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1154,8 +1154,8 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.sf5
-    public boolean s() {
+    @Override // com.baidu.tieba.kg5
+    public boolean t() {
         InterceptResult invokeV;
         View childAt;
         Interceptable interceptable = $ic;
@@ -1185,7 +1185,7 @@ public class AtListActivity extends SuspendedActivity implements sf5, AdapterVie
                 if (item.isChecked()) {
                     Q1(item);
                 } else if (5 <= this.r.getItemLength()) {
-                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0985), 5), R.drawable.obfuscated_res_0x7f080af9);
+                    showToastWithIcon(String.format(getPageContext().getString(R.string.invite_friend_exceed_max_count), 5), R.drawable.icon_toast_game_error);
                     return;
                 } else {
                     M1(item);

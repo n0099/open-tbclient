@@ -5,31 +5,53 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
 import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.GroupChatEntranceStatisticUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.commonGroupChatCard.TbGroupChatCardLinkLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u46;
+import com.baidu.tieba.p56;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.vy4;
+import com.baidu.tieba.wp4;
+import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SingleLinkCardView extends RelativeLayout {
+public class SingleLinkCardView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
     public TextView c;
+    public View d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
+    public ImageView h;
+    public p56 i;
+    public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SingleLinkCardView(Context context) {
@@ -49,6 +71,13 @@ public class SingleLinkCardView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 6).param("fid", GroupChatEntranceStatisticUtils.getForumIdByUrl(str)).param("room_id", GroupChatEntranceStatisticUtils.getRoomIdByUrl(str)));
         }
     }
 
@@ -92,8 +121,8 @@ public class SingleLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e9, this);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09105f);
+        LayoutInflater.from(context).inflate(R.layout.single_link_card_layout, this);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_single_link_icon);
         this.a = tbImageView;
         tbImageView.setBorderSurroundContent(true);
         this.a.setDrawCorner(true);
@@ -105,16 +134,25 @@ public class SingleLinkCardView extends RelativeLayout {
         this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.a.setRadius(yi.g(context, R.dimen.tbds10));
         this.a.setPlaceHolder(2);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092456);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0f);
-        b();
+        this.b = (TextView) findViewById(R.id.tv_single_link_text);
+        this.c = (TextView) findViewById(R.id.goods_price);
+        this.d = findViewById(R.id.extra_info_container);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09070e);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090710);
+        this.g = (ImageView) findViewById(R.id.content1_icon);
+        this.h = (ImageView) findViewById(R.id.content2_icon);
+        d();
     }
 
-    public void a(u46 u46Var) {
+    public void a(p56 p56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u46Var) == null) {
-            if (u46Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) u46Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, p56Var) == null) {
+            this.i = p56Var;
+            this.a.setPlaceHolder(2);
+            this.a.setUseNightOrDarkMask(false);
+            if (p56Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) p56Var;
+                this.a.setPlaceHolder(2);
                 this.a.K(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
@@ -137,22 +175,48 @@ public class SingleLinkCardView extends RelativeLayout {
                     spannableStringBuilder.append((CharSequence) pbLinkData.title);
                 }
                 this.b.setText(spannableStringBuilder);
-                if (pbLinkData.urlType == 2) {
+                this.c.setVisibility(8);
+                this.d.setVisibility(8);
+                int i = pbLinkData.urlType;
+                if (i == 2) {
                     if (TextUtils.isEmpty(pbLinkData.extTxt)) {
                         this.c.setVisibility(8);
                     } else {
                         this.b.setMaxLines(1);
-                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0423), pbLinkData.extTxt));
+                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
                         this.c.setVisibility(0);
                     }
-                } else {
-                    this.c.setVisibility(8);
+                } else if (i == 5) {
+                    this.a.setDefaultBgResource(R.drawable.icon_pure_group_chat_card_link_default);
+                    this.a.setUseNightOrDarkMask(true);
+                    if (TextUtils.isEmpty(pbLinkData.content1) && TextUtils.isEmpty(pbLinkData.content2)) {
+                        this.d.setVisibility(8);
+                    } else {
+                        this.d.setVisibility(0);
+                        if (TextUtils.isEmpty(pbLinkData.content1)) {
+                            this.e.setVisibility(8);
+                            this.g.setVisibility(8);
+                        } else {
+                            this.e.setVisibility(0);
+                            this.g.setVisibility(0);
+                            this.e.setText(pbLinkData.content1);
+                        }
+                        if (TextUtils.isEmpty(pbLinkData.content2)) {
+                            this.f.setVisibility(8);
+                            this.h.setVisibility(8);
+                        } else {
+                            this.f.setVisibility(0);
+                            this.h.setVisibility(0);
+                            this.f.setText(pbLinkData.content2);
+                        }
+                        TbGroupChatCardLinkLayout.c(this.e, this.g, this.f, pbLinkData.content1, pbLinkData.content2);
+                    }
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (u46Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) u46Var;
+            } else if (p56Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) p56Var;
                 this.a.K(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
@@ -179,30 +243,83 @@ public class SingleLinkCardView extends RelativeLayout {
                     this.c.setVisibility(8);
                 } else {
                     this.b.setMaxLines(1);
-                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0423), pbGoodsData.price));
+                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
                     this.c.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
                     this.b.setMaxLines(1);
                 }
             }
+            c(p56Var);
         }
     }
 
-    public void b() {
+    public final void c(@Nullable p56 p56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0305);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p56Var) == null) {
+            View.OnClickListener onClickListener = this.j;
+            if (onClickListener != null) {
+                setOnClickListener(onClickListener);
+            } else if ((p56Var instanceof PbLinkData) && ((PbLinkData) p56Var).urlType == 5) {
+                setOnClickListener(this);
+            } else {
+                setOnClickListener(null);
+            }
+        }
+    }
+
+    public void setItemOnClickListener(@Nullable View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.j = onClickListener;
+            setOnClickListener(onClickListener);
         }
     }
 
     public void setMarginTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             ((ViewGroup.MarginLayoutParams) getLayoutParams()).topMargin = i;
             requestLayout();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0305);
+            rw4 d = rw4.d(this.e);
+            d.A(R.string.F_X01);
+            d.z(R.dimen.T_X09);
+            d.v(R.color.CAM_X0109);
+            rw4 d2 = rw4.d(this.f);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.g, R.drawable.icon_group_chat_bar_icon, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.h, R.drawable.icon_group_chat_icon, R.color.CAM_X0109, null);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (this.i instanceof PbLinkData) && (getContext() instanceof TbPageContextSupport)) {
+            PbLinkData pbLinkData = (PbLinkData) this.i;
+            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) getContext();
+            if (pbLinkData.urlType == 5) {
+                b(pbLinkData.linkUrl);
+            }
+            int i = pbLinkData.urlType;
+            if (i != 1 && i != 5) {
+                UrlManager urlManager = UrlManager.getInstance();
+                TbPageContext<?> pageContext = tbPageContextSupport.getPageContext();
+                urlManager.dealOneLink(pageContext, new String[]{wp4.a + xi.getUrlEncode(pbLinkData.linkUrl)});
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});
         }
     }
 }

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -101,7 +100,7 @@ public final class BdZeusUtil implements INoProGuard {
             float f2 = (f / 6.0f) * 100.0f;
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(TiebaStatic.LogFields.RESULT, f > 0.0f ? "true" : "false");
+                jSONObject.put("result", f > 0.0f ? "true" : "false");
                 jSONObject.put("probability", f2 + "%");
                 jSONObject.put("hitreasons", list);
                 return jSONObject.toString();

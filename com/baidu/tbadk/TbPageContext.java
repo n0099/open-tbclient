@@ -12,13 +12,13 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sq4;
+import com.baidu.tieba.tq4;
 /* loaded from: classes3.dex */
 public interface TbPageContext<T> extends r9<T> {
     @Override // com.baidu.tieba.r9
     /* synthetic */ Context getContext();
 
-    sq4 getLayoutMode();
+    tq4 getLayoutMode();
 
     @Override // com.baidu.tieba.r9
     /* synthetic */ T getOrignalPage();

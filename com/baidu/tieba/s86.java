@@ -1,85 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public class s86 implements q86 {
+/* loaded from: classes6.dex */
+public final class s86 implements Comparator<p76> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q86 a;
-    public final Map<Integer, q86> b;
 
-    public s86(q86 defaultRenderer, Pair<Integer, ? extends q86>... renderers) {
+    public s86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
-        Intrinsics.checkNotNullParameter(renderers, "renderers");
-        this.a = defaultRenderer;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
-    }
-
-    @Override // com.baidu.tieba.q86
-    public c96 a(u66 item, u86 displayer, o66 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            q86 q86Var = this.b.get(Integer.valueOf(c(item)));
-            if (q86Var == null) {
-                q86Var = this.a;
-            }
-            return q86Var.a(item, displayer, config);
-        }
-        return (c96) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.q86
-    public void b(u66 item, Canvas canvas, u86 displayer, o66 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            q86 q86Var = this.b.get(Integer.valueOf(c(item)));
-            if (q86Var == null) {
-                q86Var = this.a;
-            }
-            q86Var.b(item, canvas, displayer, config);
         }
     }
 
-    public int c(u66 item) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(p76 o1, p76 o2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().g();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
+            Intrinsics.checkNotNullParameter(o1, "o1");
+            Intrinsics.checkNotNullParameter(o2, "o2");
+            return o1.compareTo(o2);
         }
-        return invokeL.intValue;
+        return invokeLL.intValue;
     }
 }

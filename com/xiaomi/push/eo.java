@@ -20,7 +20,7 @@ public class eo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f313a;
+    public Context f336a;
 
     public eo(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class eo {
                 return;
             }
         }
-        this.f313a = context;
+        this.f336a = context;
     }
 
     public static eo a(Context context) {
@@ -60,9 +60,9 @@ public class eo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, aVar) == null) {
             if (aVar instanceof PerfClientReport) {
-                ClientReportClient.reportPerf(this.f313a, (PerfClientReport) aVar);
+                ClientReportClient.reportPerf(this.f336a, (PerfClientReport) aVar);
             } else if (aVar instanceof EventClientReport) {
-                ClientReportClient.reportEvent(this.f313a, (EventClientReport) aVar);
+                ClientReportClient.reportEvent(this.f336a, (EventClientReport) aVar);
             }
         }
     }
@@ -72,7 +72,7 @@ public class eo {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = en.a(this.f313a, i, j, j2);
+        PerfClientReport a2 = en.a(this.f336a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("4_9_0");
         a(a2);
@@ -83,7 +83,7 @@ public class eo {
         if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, intent, i, str2) == null) || intent == null) {
             return;
         }
-        a(str, en.m309a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        a(str, en.m319a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
@@ -91,7 +91,7 @@ public class eo {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, intent, str2) == null) || intent == null) {
             return;
         }
-        a(str, en.m309a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
+        a(str, en.m319a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {
@@ -99,7 +99,7 @@ public class eo {
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Integer.valueOf(i), Long.valueOf(j), str4}) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = en.a(this.f313a, str2, str3, i, j, str4);
+        EventClientReport a2 = en.a(this.f336a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("4_9_0");
         a(a2);

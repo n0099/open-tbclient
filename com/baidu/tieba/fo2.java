@@ -1,29 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 /* loaded from: classes4.dex */
 public interface fo2 {
+    boolean a(Context context, uq2 uq2Var, nq2 nq2Var, e43 e43Var);
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(e73 e73Var);
+    boolean b(Context context, pq2 pq2Var, nq2 nq2Var, e43 e43Var);
 
-        void onFailed(int i);
-    }
+    boolean c(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
 
-    void a();
+    void d(kq1 kq1Var);
 
-    void b(String str, boolean z, boolean z2, a aVar);
+    boolean e(Context context, oq2 oq2Var, nq2 nq2Var, e43 e43Var);
 
-    void c();
+    void f(kq1 kq1Var);
 
-    void d();
+    boolean g(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
 
-    void e();
+    boolean h(Context context, sq2 sq2Var, nq2 nq2Var, e43 e43Var);
 
-    void f(a aVar);
+    void i(kq1 kq1Var);
 
-    double[] g(@NonNull e73 e73Var, @NonNull String str);
+    boolean j(Context context, tq2 tq2Var, nq2 nq2Var, e43 e43Var);
 
-    e73 h();
+    boolean k(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
+
+    boolean l(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
+
+    boolean m(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
+
+    boolean n(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
+
+    boolean update(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var);
 }

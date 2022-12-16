@@ -15,6 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class DuzhanUpMsgCreator {
     public static /* synthetic */ Interceptable $ic = null;
+    public static int REQ_TYPE_ADVISORY = 7;
     public static int REQ_TYPE_BOX = 0;
     public static int REQ_TYPE_CLUE = 3;
     public static int REQ_TYPE_LEMON = 4;
@@ -140,6 +141,9 @@ public class DuzhanUpMsgCreator {
             }
             if (i == 25) {
                 return REQ_TYPE_LEMON;
+            }
+            if (i == 58) {
+                return REQ_TYPE_ADVISORY;
             }
             return REQ_TYPE_BOX;
         }

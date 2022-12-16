@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ht;
 import com.xiaomi.push.ii;
 import com.xiaomi.push.service.XMPushService;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,10 +22,10 @@ public class cg implements XMPushService.n {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<Integer, Map<String, List<String>>> f970a;
+    public static final Map<Integer, Map<String, List<String>>> f993a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f971a;
+    public static final boolean f994a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +41,8 @@ public class cg implements XMPushService.n {
                 return;
             }
         }
-        f971a = Log.isLoggable("UNDatas", 3);
-        f970a = new HashMap();
+        f994a = Log.isLoggable("UNDatas", 3);
+        f993a = new HashMap();
     }
 
     public cg(Context context) {
@@ -90,7 +89,7 @@ public class cg implements XMPushService.n {
     public static void a(Context context, ii iiVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, iiVar) == null) {
-            if (f971a) {
+            if (f994a) {
                 com.xiaomi.channel.commonutils.logger.b.b("UNDatas upload message notification:" + iiVar);
             }
             com.xiaomi.push.al.a(context).a(new ch(iiVar));
@@ -101,7 +100,7 @@ public class cg implements XMPushService.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.putAll(f970a);
+            hashMap.putAll(f993a);
             if (hashMap.size() > 0) {
                 for (Integer num : hashMap.keySet()) {
                     Map map = (Map) hashMap.get(num);
@@ -119,15 +118,15 @@ public class cg implements XMPushService.n {
                                     sb.append((String) list.get(i));
                                 }
                             }
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         }
-                        ii a2 = a(null, bd.a(), ht.Y.f506a, null);
+                        ii a2 = a(null, bd.a(), ht.Y.f529a, null);
                         a2.a("removed_reason", String.valueOf(num));
                         a2.a("all_delete_msgId_appId", sb.toString());
                         com.xiaomi.channel.commonutils.logger.b.b("UNDatas upload all removed messages reason: " + num + " allIds: " + sb.toString());
                         a(a, a2);
                     }
-                    f970a.remove(num);
+                    f993a.remove(num);
                 }
             }
         }
@@ -135,12 +134,12 @@ public class cg implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo394a() {
+    public void mo404a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f970a.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f993a.size() <= 0) {
             return;
         }
-        synchronized (f970a) {
+        synchronized (f993a) {
             b();
         }
     }

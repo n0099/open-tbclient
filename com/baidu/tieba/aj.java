@@ -31,6 +31,7 @@ public class aj {
     public static final DeviceInfoManager b;
     @NonNull
     public static final Map<String, String> c;
+    public static dj d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -148,9 +149,14 @@ public class aj {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String str2 = c.get(str);
-            if (str2 != null) {
-                return str2;
+            dj djVar = d;
+            String str2 = "";
+            if (djVar != null && djVar.isBrowseMode()) {
+                return "";
+            }
+            String str3 = c.get(str);
+            if (str3 != null) {
+                return str3;
             }
             char c2 = 65535;
             int hashCode = str.hashCode();
@@ -193,41 +199,35 @@ public class aj {
             } else if (str.equals(CacheDeviceInfo.JSON_KEY_ANDROID_ID)) {
                 c2 = 0;
             }
-            String str3 = Config.NULL_DEVICE_ID;
             switch (c2) {
                 case 0:
                     androidId = b.getAndroidId(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str2 = Config.NULL_DEVICE_ID;
                     break;
                 case 1:
                     androidId = b.getIMEI(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str2 = Config.NULL_DEVICE_ID;
                     break;
                 case 2:
                     androidId = b.getMacAddress(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case 3:
                     androidId = b.getOperator(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case 4:
                     androidId = b.getHarmonyVersion(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case 5:
                     androidId = b.getManufacturer("初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case 6:
                     androidId = b.getModel("初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case 7:
                     androidId = b.getOAID("初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case '\b':
                     androidId = b.getOsVersion("初始化", "定位问题，安全保障，个性化展示");
-                    str3 = "";
                     break;
                 case '\t':
                     androidId = new DeviceIdBag();
@@ -236,16 +236,17 @@ public class aj {
                         if (tbadkCore.permissionUtilIsAgreePrivacyPolicy() && tbadkCore.permissionUtilCheckReadPhoneState(a) && (telephonyManager = (TelephonyManager) a.getSystemService("phone")) != null) {
                             androidId.deviceId = ApiReplaceUtil.getSubscriberId(telephonyManager);
                             ((IBehaviorApi) ServiceManager.getService(IBehaviorApi.SERVICE_REFERENCE)).addBehavior(1, "isi", "tieba", "tieba");
+                            break;
                         }
                     } catch (Exception e) {
                         BdLog.e(e);
+                        break;
                     }
-                    str3 = "";
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + str);
             }
-            String h = h(androidId, str3);
+            String h = h(androidId, str2);
             c.put(str, h);
             return h;
         }
@@ -283,5 +284,12 @@ public class aj {
             return sb.toString();
         }
         return (String) invokeV.objValue;
+    }
+
+    public static void m(dj djVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, djVar) == null) {
+            d = djVar;
+        }
     }
 }

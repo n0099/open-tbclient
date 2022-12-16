@@ -1,48 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class yu5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xu5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    public static synchronized xu5 a() {
         InterceptResult invokeV;
+        xu5 xu5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return mn2.M().a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            if (a()) {
-                i = 2;
-            } else {
-                i = 1;
+            synchronized (yu5.class) {
+                if (a == null) {
+                    a = new xu5();
+                }
+                xu5Var = a;
             }
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
-            }
+            return xu5Var;
         }
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
-        }
+        return (xu5) invokeV.objValue;
     }
 }

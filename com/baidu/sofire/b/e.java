@@ -25,7 +25,6 @@ import com.baidu.sofire.k.n;
 import com.baidu.sofire.k.o;
 import com.baidu.sofire.k.p;
 import com.baidu.sofire.mutiprocess.BinderHolder;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +39,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -54,7 +53,7 @@ public class e {
     public static List<GzfiCallback> i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +187,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +339,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -412,10 +411,10 @@ public class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x006e  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0072 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0081 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0085 A[Catch: all -> 0x008e, TRY_LEAVE, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0073 A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0082 A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0086 A[Catch: all -> 0x008f, TRY_LEAVE, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -460,7 +459,7 @@ public class e {
                                 bundle2.putInt("status", 8);
                             } else {
                                 callArgs.f = b2;
-                                bundle2.putParcelable(TiebaStatic.LogFields.RESULT, callArgs);
+                                bundle2.putParcelable("result", callArgs);
                                 bundle2.putInt("status", 0);
                             }
                             return bundle2;
@@ -514,7 +513,7 @@ public class e {
                             a(i2, str5, new h(bundle2, callArgs3, countDownLatch, str5), clsArr, objArr3);
                             countDownLatch.await(LiveFeedPageSdk.REFRESH_TIME, TimeUnit.MILLISECONDS);
                         }
-                        bundle2.putParcelable(TiebaStatic.LogFields.RESULT, callArgs3);
+                        bundle2.putParcelable("result", callArgs3);
                         return bundle2;
                     }
                 } else if ("gz".equals(str)) {
@@ -525,7 +524,7 @@ public class e {
                     } else {
                         CallArgs callArgs5 = new CallArgs();
                         callArgs5.f = c2;
-                        bundle2.putParcelable(TiebaStatic.LogFields.RESULT, callArgs5);
+                        bundle2.putParcelable("result", callArgs5);
                         bundle2.putInt("status", 0);
                     }
                     return bundle2;
@@ -681,7 +680,7 @@ public class e {
                     a3.setClassLoader(CallArgs.class.getClassLoader());
                     int i6 = a3.getInt("status");
                     if (i6 == 0) {
-                        callArgs = (CallArgs) a3.getParcelable(TiebaStatic.LogFields.RESULT);
+                        callArgs = (CallArgs) a3.getParcelable("result");
                     } else {
                         callArgs = null;
                     }
@@ -918,10 +917,10 @@ public class e {
                 int i2 = bundle.getInt("scene", 0);
                 String string2 = bundle.getString("para", "");
                 int i3 = 20;
-                int i4 = bundle.getInt("timeout", 20);
+                int i4 = bundle.getInt(com.alipay.sdk.data.a.O, 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    c cVar = new c(a.AbstractBinderC0165a.a(iBinder));
+                    c cVar = new c(a.AbstractBinderC0177a.a(iBinder));
                     synchronized (e.class) {
                         try {
                             if (d.e == null) {

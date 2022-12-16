@@ -9,6 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -187,7 +188,7 @@ public class HttpHelper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x006d  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x006e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -196,7 +197,7 @@ public class HttpHelper {
         String str2;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if ((i & 1) != 0) {
                 if (bArr != null && bArr.length > 0) {
                     str2 = str + "?" + new String(bArr);
@@ -226,7 +227,7 @@ public class HttpHelper {
 
     public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, Integer.valueOf(i), bArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{httpURLConnection, Integer.valueOf(i), bArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setConnectTimeout(i2);
             if (z) {
@@ -235,18 +236,15 @@ public class HttpHelper {
             httpURLConnection.setReadTimeout(i3);
             if (i != 1) {
                 if (i != 16) {
-                    if (i == 256) {
-                        if (bArr != null && bArr.length > 0) {
-                            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
-                            httpURLConnection.setDoOutput(true);
-                            DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                            dataOutputStream.write(bArr);
-                            dataOutputStream.close();
-                            return;
-                        }
+                    if (i == 256 && bArr != null && bArr.length > 0) {
+                        httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+                        httpURLConnection.setDoOutput(true);
+                        DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                        dataOutputStream.write(bArr);
+                        dataOutputStream.close();
                         return;
                     }
-                    throw new IllegalStateException("Unknown method type.");
+                    return;
                 } else if (bArr != null && bArr.length > 0) {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setRequestMethod("POST");
@@ -271,7 +269,7 @@ public class HttpHelper {
 
     public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, inputStream, responseHandler) == null) {
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, inputStream, responseHandler) == null) {
             byte[] dealResonsResult = dealResonsResult(inputStream);
             String str = new String(dealResonsResult);
             String str2 = TAG;
@@ -286,7 +284,7 @@ public class HttpHelper {
 
     public static void executor(Context context, Request request, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65542, null, context, request, responseHandler) != null) || responseHandler == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65543, null, context, request, responseHandler) != null) || responseHandler == null) {
             return;
         }
         if (context != null && request != null && !TextUtils.isEmpty(request.getHost())) {
@@ -340,7 +338,77 @@ public class HttpHelper {
                                 } else {
                                     i = 256;
                                 }
-                                HttpExecutor.getInstance().execute(i, this.val$request.getHost(), this.val$request.getRequestParameter(), this.val$request.getHeaders(), this.val$request.getContentType(), this.val$handler);
+                                HttpExecutor.getInstance().execute(i, this.val$request.getHost(), this.val$request.getRequestParameter(), HttpHelper.getHeaders(this.val$request), this.val$request.getContentType(), this.val$handler);
+                            } catch (Exception e) {
+                                LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
+                                this.val$handler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+        }
+        responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
+    }
+
+    public static void executorForTimeout(Context context, Request request, ResponseHandler responseHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65544, null, context, request, responseHandler) != null) || responseHandler == null) {
+            return;
+        }
+        if (context != null && request != null && !TextUtils.isEmpty(request.getHost())) {
+            if (Utility.getRestApiDisable() && !(request instanceof IMGetTokenByCuidRequest)) {
+                responseHandler.onFailure(1011, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR.getBytes(), null);
+                return;
+            } else if (request.shouldAbort()) {
+                return;
+            } else {
+                if (mContext == null) {
+                    mContext = context.getApplicationContext();
+                }
+                TaskManager.getInstance(context).submitForNetWork(new Runnable(request, responseHandler) { // from class: com.baidu.android.imsdk.utils.HttpHelper.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ResponseHandler val$handler;
+                    public final /* synthetic */ Request val$request;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {request, responseHandler};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$request = request;
+                        this.val$handler = responseHandler;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        int i;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                if (!this.val$request.getMethod().equals("GET") && !this.val$request.getMethod().equals("POST") && !this.val$request.getMethod().equals(HttpPut.METHOD_NAME)) {
+                                    this.val$handler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
+                                }
+                                if (this.val$request.getMethod().equals("GET")) {
+                                    i = 1;
+                                } else if (this.val$request.getMethod().equals("POST")) {
+                                    i = 16;
+                                } else {
+                                    i = 256;
+                                }
+                                HttpHelper.executor(i, this.val$request.getHost(), this.val$request.getRequestParameter(), HttpHelper.getHeaders(this.val$request), this.val$request.getConnectTimeout(), this.val$request.getReadTimeout(), this.val$handler);
                             } catch (Exception e) {
                                 LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
                                 this.val$handler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
@@ -357,7 +425,7 @@ public class HttpHelper {
     public static byte[] dealResonsResult(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byte[] bArr = new byte[1024];
             while (true) {
@@ -402,34 +470,29 @@ public class HttpHelper {
     public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) == null) {
             InputStream inputStream = null;
             try {
                 httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
                 try {
                     int responseCode = httpURLConnection.getResponseCode();
-                    if (responseCode != -1) {
-                        if (httpURLConnection.getResponseCode() != 200) {
-                            LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
-                            responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                                return;
-                            }
-                            return;
-                        }
-                        InputStream inputStream2 = httpURLConnection.getInputStream();
-                        dealResonsResult(responseCode, inputStream2, responseHandler);
-                        if (inputStream2 != null) {
-                            inputStream2.close();
-                        }
+                    if (responseCode != 200) {
+                        LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
+                        responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                             return;
                         }
                         return;
                     }
-                    throw new IOException("Could not retrieve response code from HttpUrlConnection.");
+                    InputStream inputStream2 = httpURLConnection.getInputStream();
+                    dealResonsResult(responseCode, inputStream2, responseHandler);
+                    if (inputStream2 != null) {
+                        inputStream2.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
                 } catch (Throwable th) {
                     th = th;
                     if (0 != 0) {
@@ -447,9 +510,30 @@ public class HttpHelper {
         }
     }
 
+    public static Map<String, String> getHeaders(Request request) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, request)) == null) {
+            Map<String, String> headers = request.getHeaders();
+            if (headers.containsKey("Cookie")) {
+                String str = headers.get("Cookie");
+                if (str == null) {
+                    str = "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(mContext).getBduss(mContext);
+                    headers.put("Cookie", str);
+                }
+                String tplSToken = Utility.getTplSToken(mContext);
+                if (!TextUtils.isEmpty(tplSToken) && !str.contains("PIMSTOKEN") && (request.getHost().contains("https://pim.baidu.com/") || request.getHost().contains("http://rd-im-server.bcc-szth.baidu.com:8080/") || request.getHost().contains(Constants.URL_HTTP_RD_8111) || request.getHost().contains(Constants.URL_HTTP_QA))) {
+                    headers.put("Cookie", str + ";PIMSTOKEN=" + tplSToken);
+                }
+            }
+            return headers;
+        }
+        return (Map) invokeL.objValue;
+    }
+
     public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65543, null, str, httpURLConnection, map) != null) || map == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65546, null, str, httpURLConnection, map) != null) || map == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes2.dex */
@@ -285,7 +284,7 @@ public class Base64Utils {
             if (r17.f == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
-            r2[r6] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
+            r2[r6] = 13;
             r6 = r6 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x00e1, code lost:
@@ -347,7 +346,7 @@ public class Base64Utils {
                 if (i11 == 0) {
                     if (this.f) {
                         i9 = 5;
-                        bArr3[4] = StrictLineReader.CR;
+                        bArr3[4] = 13;
                     } else {
                         i9 = 4;
                     }
@@ -388,7 +387,7 @@ public class Base64Utils {
                             }
                             if (this.e) {
                                 if (this.f) {
-                                    bArr3[i6] = StrictLineReader.CR;
+                                    bArr3[i6] = 13;
                                     i6++;
                                 }
                                 i7 = i6 + 1;
@@ -434,7 +433,7 @@ public class Base64Utils {
                                 }
                                 if (this.e) {
                                     if (this.f) {
-                                        bArr3[i25] = StrictLineReader.CR;
+                                        bArr3[i25] = 13;
                                         i25++;
                                     }
                                     bArr3[i25] = 10;
@@ -443,7 +442,7 @@ public class Base64Utils {
                                 i6 = i25;
                             } else if (this.e && i6 > 0 && i11 != 19) {
                                 if (this.f) {
-                                    bArr3[i6] = StrictLineReader.CR;
+                                    bArr3[i6] = 13;
                                     i6++;
                                 }
                                 i7 = i6 + 1;

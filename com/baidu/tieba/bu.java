@@ -61,8 +61,8 @@ public final class bu extends tt<TaskResponseData> {
                 e = e;
             }
             try {
-                tt a = this.a.a("ui");
-                String optString = jSONObject.optString("ui");
+                tt a = this.a.a(TaskUIData.key);
+                String optString = jSONObject.optString(TaskUIData.key);
                 Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
                 TaskUIData taskUIData = (TaskUIData) a.a(optString);
                 if (taskUIData == null) {

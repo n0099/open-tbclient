@@ -659,7 +659,7 @@ public class LogSender {
                 if (z2) {
                     str2 = "success";
                 } else {
-                    str2 = "failed";
+                    str2 = com.alipay.sdk.util.f.j;
                 }
                 bb.c().a("Send log " + str2);
             }

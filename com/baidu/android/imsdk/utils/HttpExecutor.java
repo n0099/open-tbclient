@@ -1,9 +1,7 @@
 package com.baidu.android.imsdk.utils;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,17 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
@@ -98,88 +87,6 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class MyTrustManager implements X509TrustManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // javax.net.ssl.X509TrustManager
-        @SuppressLint({"TrustAllX509TrustManager"})
-        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        @SuppressLint({"TrustAllX509TrustManager"})
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public X509Certificate[] getAcceptedIssuers() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;
-        }
-
-        public MyTrustManager() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class TrustAllHostnameVerifier implements HostnameVerifier {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HttpExecutor this$0;
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public TrustAllHostnameVerifier(HttpExecutor httpExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {httpExecutor};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = httpExecutor;
-        }
-
-        public /* synthetic */ TrustAllHostnameVerifier(HttpExecutor httpExecutor, AnonymousClass1 anonymousClass1) {
-            this(httpExecutor);
-        }
-    }
-
     public HttpExecutor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -196,27 +103,10 @@ public class HttpExecutor {
         this.okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
-    private SSLSocketFactory createSSLSocketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            try {
-                MyTrustManager myTrustManager = new MyTrustManager();
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{myTrustManager}, new SecureRandom());
-                return sSLContext.getSocketFactory();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (SSLSocketFactory) invokeV.objValue;
-    }
-
     private Headers getHeaders(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, map)) == null) {
             try {
                 Headers.Builder builder = new Headers.Builder();
                 if (map != null && map.size() > 0) {
@@ -237,7 +127,7 @@ public class HttpExecutor {
     public static HttpExecutor getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (mInstance == null) {
                 synchronized (HttpExecutor.class) {
                     if (mInstance == null) {
@@ -265,10 +155,6 @@ public class HttpExecutor {
                         str = str + "?" + new String(bArr);
                     }
                     build = new Request.Builder().url(str).headers(getHeaders(map)).build();
-                }
-                String str3 = map.get("Host");
-                if (!TextUtils.isEmpty(str3) && str3.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
-                    this.okHttpClient = this.okHttpClient.newBuilder().sslSocketFactory(createSSLSocketFactory(), new MyTrustManager()).hostnameVerifier(new TrustAllHostnameVerifier(this, null)).build();
                 }
                 try {
                     Response execute = this.okHttpClient.newCall(build).execute();

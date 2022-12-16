@@ -9,7 +9,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface Dns {
     public static final Dns SYSTEM = new Dns() { // from class: com.baidu.searchbox.network.support.dns.Dns.1
         public static /* synthetic */ Interceptable $ic;

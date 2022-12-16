@@ -1,69 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m07;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-/* loaded from: classes4.dex */
-public class ky6 implements gk7 {
+/* loaded from: classes5.dex */
+public class ky6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m07.d a;
 
-    @Override // com.baidu.tieba.gk7
-    public void c(long j, String str, Message message, boolean z) {
+    public static void a(String str) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    public ky6(m07.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if ((!TbadkCoreApplication.getInst().isDebugMode() && !vq4.h()) || StringUtils.isNull(str)) {
                 return;
             }
-        }
-        this.a = dVar;
-    }
-
-    @Override // com.baidu.tieba.gk7
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            ly6 ly6Var = new ly6();
-            zj7 zj7Var = new zj7();
-            zj7Var.a = j;
-            zj7Var.b = str;
-            vj7 a = ek7.d().a(zj7Var);
-            if (a != null) {
-                a.c(z, message, z2, i);
+            for (String str2 : str.split("\n")) {
+                System.out.println("[FunAdSdk] " + str2);
             }
-            ly6Var.b(a);
-            m07.d dVar = this.a;
-            if (dVar != null) {
-                dVar.e(z, ly6Var, z2, "", str, true);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gk7
-    public void b(long j, String str, String str2, int i) {
-        m07.d dVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (dVar = this.a) != null) {
-            dVar.c(str, str2, i, true, 1);
         }
     }
 }

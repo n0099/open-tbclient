@@ -10,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Base64 {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,7 +41,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Coder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +67,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Decoder extends Coder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] DECODE;
@@ -272,7 +271,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Encoder extends Coder {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -368,7 +367,7 @@ public class Base64 {
             if (r17.do_cr == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
-            r2[r6] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
+            r2[r6] = 13;
             r6 = r6 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x00e1, code lost:
@@ -429,7 +428,7 @@ public class Base64 {
                     if (i9 == 0) {
                         if (this.do_cr) {
                             i7 = 5;
-                            bArr3[4] = StrictLineReader.CR;
+                            bArr3[4] = 13;
                         } else {
                             i7 = 4;
                         }
@@ -480,7 +479,7 @@ public class Base64 {
                                 }
                                 if (this.do_newline) {
                                     if (this.do_cr) {
-                                        bArr3[i5] = StrictLineReader.CR;
+                                        bArr3[i5] = 13;
                                         i5++;
                                     }
                                     i6 = i5 + 1;
@@ -517,7 +516,7 @@ public class Base64 {
                                 }
                                 if (this.do_newline) {
                                     if (this.do_cr) {
-                                        bArr3[i24] = StrictLineReader.CR;
+                                        bArr3[i24] = 13;
                                         i24++;
                                     }
                                     bArr3[i24] = 10;
@@ -526,7 +525,7 @@ public class Base64 {
                                 i5 = i24;
                             } else if (this.do_newline && i5 > 0 && i9 != 19) {
                                 if (this.do_cr) {
-                                    bArr3[i5] = StrictLineReader.CR;
+                                    bArr3[i5] = 13;
                                     i5++;
                                 }
                                 i6 = i5 + 1;

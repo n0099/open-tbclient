@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DbHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "pms.db";
@@ -80,7 +79,7 @@ public class DbHelper extends SQLiteOpenHelper {
             sb.append(" ADD COLUMN ");
             sb.append(PackageTable.DEPENDENCY_PACKAGE);
             sb.append(" TEXT");
-            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(";");
             try {
                 sQLiteDatabase.execSQL(sb.toString());
             } catch (Exception e3) {

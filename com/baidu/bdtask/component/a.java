@@ -43,12 +43,12 @@ import kotlin.reflect.KProperty;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Lazy a;
-    public static final C0064a b;
+    public static final C0078a b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.bdtask.component.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0064a {
+    public static final class C0078a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ KProperty[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class a {
                     return;
                 }
             }
-            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C0064a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
+            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C0078a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
         }
 
         public final a a() {
@@ -80,7 +80,7 @@ public final class a {
             return (a) invokeV.objValue;
         }
 
-        public C0064a() {
+        public C0078a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C0064a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0078a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -112,7 +112,7 @@ public final class a {
                 return;
             }
         }
-        b = new C0064a(null);
+        b = new C0078a(null);
         a = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) GuideViewManager$Companion$INSTANCE$2.INSTANCE);
     }
 

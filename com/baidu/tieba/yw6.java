@@ -1,117 +1,77 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.FunSdkInitSwitch;
-import com.baidu.tbadk.switchs.VideoMiddleAdSwitch;
-import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.vc.FrsTabViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class yw6 {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class yw6 extends ft6 {
     public static /* synthetic */ Interceptable $ic;
-    public static yw6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
+    public su6 h;
+    public boolean i;
+    public HashMap<Integer, tk6> j;
+    public boolean k;
+    public CustomMessageListener l;
+    public final CustomMessageListener m;
+    public final CustomMessageListener n;
+    public final CustomMessageListener o;
+    public final CustomMessageListener p;
+    public ll6 q;
 
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a(String str);
-
-        void b(Activity activity, String str, int i, h hVar, g gVar);
-
-        void c(ImageView imageView, Object obj);
-
-        void d(Context context, String str, int i, int i2, h hVar, g gVar);
-
-        void destroyAd(String str);
-
-        ViewGroup e(@NonNull Context context);
-
-        View f(Object obj);
-
-        void g(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar);
-
-        boolean h(Object obj);
-
-        Object i(@NonNull Activity activity, @NonNull String str);
-
-        boolean isAdReady(String str);
-
-        void j(Object obj, j jVar);
-
-        void k(Application application, l lVar);
-
-        @NonNull
-        List<xw6> l(String str);
-
-        void m(Activity activity, @NonNull Object obj, i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, g gVar, String str);
-
-        void n(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar);
-
-        lx8 o(Object obj);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface h {
-        void a(String str, int i);
-
-        void onError(String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface i {
-        void a(String str);
-
-        void onAdClicked(String str, String str2, String str3);
-
-        void onAdClose(String str);
-
-        void onAdError(String str);
-
-        void onAdShow(String str, String str2, String str3);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface j {
-        void a(long j, long j2);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface l {
-        void initComplete();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements h {
+    /* loaded from: classes7.dex */
+    public class f implements ll6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yw6 a;
 
-        public a(yw6 yw6Var) {
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ f a;
+
+            public a(f fVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = fVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.a.k0() != null && this.a.a.f != null && this.a.a.a.k0().getVisibility() != 0) {
+                    this.a.a.f.o();
+                }
+            }
+        }
+
+        public f(yw6 yw6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,732 +83,404 @@ public class yw6 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yw6Var;
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void a(String str, int i) {
+        @Override // com.baidu.tieba.ll6
+        public void c1() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a002", "0", null, null, null);
-                StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a002").param("obj_locate", 0).eventStat();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.i = true;
+            if (this.a.a != null && this.a.f != null && this.a.d != null && this.a.b != null && this.a.b.isAdded()) {
+                if (this.a.a != null && this.a.a.m0() != null) {
+                    this.a.a.m0().y();
+                }
+                this.a.b.H4(false);
+                ah.a().postDelayed(new a(this), 110L);
+                this.a.a.v1(1, true);
+                if (BdNetTypeUtil.isNetWorkAvailable()) {
+                    this.a.b.refresh();
+                    this.a.b.H4(true);
+                } else {
+                    this.a.b.U4();
+                }
+                TiebaStatic.log(new StatisticItem("c11749").param("fid", this.a.b.W()).param("obj_locate", "1"));
             }
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void onError(String str) {
+        @Override // com.baidu.tieba.ll6
+        public void g0() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a002", "1", null, null, "0");
-                StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a002").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0).eventStat();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.b != null && this.a.b.isAdded()) {
+                if (this.a.i && this.a.b.G3() != null) {
+                    if (!this.a.k && !this.a.a0()) {
+                        this.a.b.G3().h0();
+                    }
+                    this.a.i = false;
+                }
+                if (this.a.h != null && this.a.b.q1() != null && this.a.b.q1().a0() != null && !this.a.b.q1().a0().o() && this.a.b.G3() != null && !this.a.b.G3().Y()) {
+                    this.a.h.b();
+                }
+                if (this.a.a != null && this.a.f != null && this.a.d != null && this.a.h != null) {
+                    this.a.a.m0().n(0, 0, true, true);
+                    this.a.b.p4();
+                    this.a.b.H4(true);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
+                    this.a.d.u0();
+                    if (!TbadkCoreApplication.isLogin() || this.a.b.A3().getVisibility() != 0 || ListUtils.isEmpty(this.a.b.S0().getThreadList())) {
+                    }
+                }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements h {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ yw6 a;
 
-        public b(yw6 yw6Var, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yw6 yw6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yw6Var, str};
+                Object[] objArr = {yw6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
+            this.a = yw6Var;
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void a(String str, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a006", "0", null, this.a, null);
-                StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", ax6.c("a006")).eventStat();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.yw6.h
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a006", "1", null, this.a, "0");
-                StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", ax6.c("a006")).eventStat();
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.a.k = false;
+                return;
             }
+            this.a.k = true;
+            this.a.b.G3().O();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements h {
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ yw6 a;
 
-        public c(yw6 yw6Var, h hVar, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(yw6 yw6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yw6Var, hVar, str};
+                Object[] objArr = {yw6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = hVar;
-            this.b = str;
+            this.a = yw6Var;
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void a(String str, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                h hVar = this.a;
-                if (hVar != null) {
-                    hVar.a(str, i);
-                }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.b).param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i));
-            }
-        }
-
-        @Override // com.baidu.tieba.yw6.h
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h hVar = this.a;
-                if (hVar != null) {
-                    hVar.onError(str);
-                }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.b).param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.a != null) {
+                this.a.a.X1();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements h {
+    /* loaded from: classes7.dex */
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ yw6 c;
+        public final /* synthetic */ yw6 a;
 
-        public d(yw6 yw6Var, h hVar, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(yw6 yw6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yw6Var, hVar, str};
+                Object[] objArr = {yw6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = yw6Var;
-            this.a = hVar;
-            this.b = str;
+            this.a = yw6Var;
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void a(String str, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                h hVar = this.a;
-                if (hVar != null) {
-                    hVar.a(str, i);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof tk6)) {
+                this.a.a.Z1();
+                tk6 tk6Var = (tk6) customResponsedMessage.getData();
+                ll6 ll6Var = tk6Var.b;
+                if (ll6Var == null) {
+                    int i = tk6Var.a;
+                    if (i == 1) {
+                        yw6 yw6Var = this.a;
+                        yw6Var.c0(i, yw6Var.q);
+                    } else {
+                        this.a.c0(i, null);
+                    }
+                } else {
+                    this.a.c0(tk6Var.a, ll6Var);
                 }
-                this.c.H(0, this.b, String.valueOf(1));
-            }
-        }
-
-        @Override // com.baidu.tieba.yw6.h
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h hVar = this.a;
-                if (hVar != null) {
-                    hVar.onError(str);
-                }
-                this.c.H(1, this.b, String.valueOf(0));
+                this.a.f0(tk6Var.a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements h {
+    /* loaded from: classes7.dex */
+    public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ yw6 a;
 
-        public e(yw6 yw6Var, String str, String str2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(yw6 yw6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yw6Var, str, str2};
+                Object[] objArr = {yw6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
+            this.a = yw6Var;
         }
 
-        @Override // com.baidu.tieba.yw6.h
-        public void a(String str, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.a, this.b, null);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 0));
-            }
-        }
-
-        @Override // com.baidu.tieba.yw6.h
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.a, this.b, "0");
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof tk6)) {
+                tk6 tk6Var = (tk6) customResponsedMessage.getData();
+                this.a.d0(tk6Var.a, tk6Var.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class g {
+    /* loaded from: classes7.dex */
+    public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public final /* synthetic */ yw6 a;
 
-        public g() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(yw6 yw6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yw6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = yw6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mk6)) {
+                mk6 mk6Var = (mk6) customResponsedMessage.getData();
+                this.a.e0(mk6Var.a, mk6Var.b);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static abstract class k implements i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yw6.i
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public yw6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yw6(FrsFragment frsFragment) {
+        super(frsFragment);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = k();
+        this.i = false;
+        this.k = false;
+        this.l = new a(this, 2921468);
+        this.m = new b(this, 2003003);
+        this.n = new c(this, 2921448);
+        this.o = new d(this, 9205410);
+        this.p = new e(this, 2921449);
+        this.q = new f(this);
+        this.h = frsFragment.v3();
+        this.j = new HashMap<>();
+        this.a.j1(1);
+        frsFragment.registerListener(this.m);
+        frsFragment.registerListener(this.n);
+        frsFragment.registerListener(this.o);
+        frsFragment.registerListener(this.p);
+        frsFragment.registerListener(this.l);
     }
 
-    public static String e() {
+    public final void e0(int i, boolean z) {
+        ik6 ik6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (ik6Var = this.a) != null) {
+            ik6Var.v1(i, z);
+        }
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+        }
+    }
+
+    public final boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String q = qy4.k().q("key_server_frs_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6051001001-2043781376";
-            }
-            A("frs广告位", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String q = qy4.k().q("key_server_pb_comment_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6051002523-210422477";
-            }
-            A("pb评论区广告位", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String q = qy4.k().q("key_server_homepage_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6051001980-1210572494";
-            }
-            A("首页推荐personalize-信息流广告位", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String q = qy4.k().q("key_server_pb_banner_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6051001308-627527144";
-            }
-            A("pb-banner广告位", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String q = qy4.k().q("key_server_splash_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6021002119-1732188456";
-            }
-            A("贴吧开屏广告位(先审后播广告)", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String q = qy4.k().q("key_server_splash_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6021002118-283136489";
-            }
-            A("贴吧开屏广告位(先播后审广告)", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String q = qy4.k().q("key_server_picpage_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6051001643-679358748";
-            }
-            A("贴吧大图页广告位", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String q = qy4.k().q("key_server_videoflow_bear_sid", "");
-            if (StringUtils.isNull(q)) {
-                q = "6061002410-390177882";
-            }
-            A("沉浸态", q);
-            return q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return n15.g();
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return n15.h();
-        }
-        return invokeV.intValue;
-    }
-
-    public static void A(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (TbadkCoreApplication.getInst().isDebugMode() || uq4.h()) {
-                PrintStream printStream = System.out;
-                printStream.println("FunAdSdk，" + str + "， sid is: " + str2);
-            }
-        }
-    }
-
-    public void x(Activity activity, String str, h hVar, g gVar) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048599, this, activity, str, hVar, gVar) == null) && (fVar = this.a) != null) {
-            fVar.b(activity, str, 1, hVar, gVar);
-        }
-    }
-
-    public static g b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            g gVar = new g();
-            gVar.a = str;
-            gVar.b = str2;
-            return gVar;
-        }
-        return (g) invokeLL.objValue;
-    }
-
-    public void B(ImageView imageView, Object obj) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, imageView, obj) != null) || (fVar = this.a) == null) {
-            return;
-        }
-        fVar.c(imageView, obj);
-    }
-
-    public void C(Object obj, j jVar) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, jVar) != null) || (fVar = this.a) == null) {
-            return;
-        }
-        fVar.j(obj, jVar);
-    }
-
-    public Object n(@NonNull Activity activity, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, activity, str)) == null) {
-            f fVar = this.a;
-            if (fVar != null) {
-                return fVar.i(activity, str);
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static yw6 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b == null) {
-                synchronized (yw6.class) {
-                    if (b == null) {
-                        b = new yw6();
-                    }
-                }
-            }
-            if (b.a == null && PermissionUtil.isAgreePrivacyPolicy()) {
-                b = new yw6();
-            }
-            return b;
-        }
-        return (yw6) invokeV.objValue;
-    }
-
-    public final f k() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!PermissionUtil.isAgreePrivacyPolicy() || !FunSdkInitSwitch.isOn() || (runTask = MessageManager.getInstance().runTask(2921525, f.class)) == null) {
-                return null;
-            }
-            return (f) runTask.getData();
-        }
-        return (f) invokeV.objValue;
-    }
-
-    public boolean D(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            f fVar = this.a;
-            if (fVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b.S0() == null || this.b.S0().getUserData() == null || this.b.S0().forumRule == null || this.b.S0().getForum() == null || !this.b.S0().getForum().getIsShowRule()) {
                 return false;
             }
-            return fVar.h(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public lx8 I(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            f fVar = this.a;
-            if (fVar == null) {
-                return null;
-            }
-            return fVar.o(obj);
-        }
-        return (lx8) invokeL.objValue;
-    }
-
-    public void c(String str) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (fVar = this.a) != null) {
-            fVar.a(str);
-        }
-    }
-
-    public void d(String str) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && (fVar = this.a) != null) {
-            fVar.destroyAd(str);
-        }
-    }
-
-    public List<xw6> j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            f fVar = this.a;
-            if (fVar != null) {
-                return fVar.l(str);
-            }
-            return new ArrayList(0);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public ViewGroup l(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
-            f fVar = this.a;
-            if (fVar != null) {
-                return fVar.e(context);
-            }
-            return null;
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    public View t(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) {
-            f fVar = this.a;
-            if (fVar == null) {
-                return null;
-            }
-            return fVar.f(obj);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void u(l lVar) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048596, this, lVar) != null) || (fVar = this.a) == null) {
-            return;
-        }
-        fVar.k(TbadkCoreApplication.getInst(), lVar);
-    }
-
-    public boolean v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            f fVar = this.a;
-            if (fVar != null && fVar.isAdReady(str)) {
+            if (this.b.S0().getUserData().getIs_manager() == 1) {
+                if (this.b.S0().forumRule.has_forum_rule.intValue() == 1 || this.b.S0().forumRule.audit_status.intValue() != 0 || ry4.l().m("key_forum_rule_first_show_frs_manager", 0) > 0) {
+                    return false;
+                }
+                return true;
+            } else if (this.b.S0().forumRule.has_forum_rule.intValue() != 1 || ry4.l().m("key_forum_rule_first_show_frs", 0) > 0) {
+                return false;
+            } else {
                 return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void E(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar) {
-        f fVar;
+    public void b0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048579, this, activity, str, viewGroup, iVar, gVar) == null) && (fVar = this.a) != null) {
-            fVar.n(activity, str, viewGroup, iVar, gVar);
-        }
-    }
-
-    public void G(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048581, this, activity, str, viewGroup, iVar, gVar) == null) && (fVar = this.a) != null) {
-            fVar.g(activity, str, viewGroup, iVar, gVar);
-        }
-    }
-
-    public void F(Activity activity, @NonNull Object obj, i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, g gVar, String str) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar, str}) == null) && (fVar = this.a) != null) {
-            fVar.m(activity, obj, iVar, viewGroup, list, list2, gVar, str);
-        }
-    }
-
-    public final void H(int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i2, str, str2) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_locate", i2).param("tid", "").param("fid", "").param("obj_type", str).param(TiebaStatic.Params.RESOURCE_ID, str2));
-        }
-    }
-
-    public void y(Activity activity, h hVar, String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048600, this, activity, hVar, str) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
             return;
         }
-        H(2, str, "");
-        f fVar = this.a;
-        String s = s();
-        d dVar = new d(this, hVar, str);
-        if (VideoMiddleAdSwitch.isOn() && UbsABTestHelper.isVideoAdDrawABTestB()) {
-            str2 = "1";
-        } else {
-            str2 = "0";
-        }
-        fVar.b(activity, s, 1, dVar, b(str, str2));
-    }
-
-    public boolean J(Activity activity, String str, g gVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, str, gVar)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && gVar != null) {
-                boolean isAdReady = this.a.isAdReady(str);
-                StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a002").eventStat();
-                System.currentTimeMillis();
-                FunAdRecordHttpMessage.uploadRequestRecord("a002", null, null, null, null);
-                this.a.b(activity, str, 1, new a(this), gVar);
-                return isAdReady;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public void z(Activity activity, h hVar, String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048601, this, activity, hVar, str) != null) || this.a == null) {
+        cx6 cx6Var = this.c;
+        if ((cx6Var instanceof FrsTabViewController) && ((FrsTabViewController) cx6Var).B() != null && (((FrsTabViewController) this.c).B().b instanceof ll6)) {
+            FrsTabViewController.i B = ((FrsTabViewController) this.c).B();
+            c0(B.a, (ll6) B.b);
+            f0(B.a);
             return;
         }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_locate", 2).param("tid", "").param("fid", "").param("obj_type", str));
-        f fVar = this.a;
-        c cVar = new c(this, hVar, str);
-        if (VideoMiddleAdSwitch.isOn()) {
-            str2 = "1";
-        } else {
-            str2 = "0";
-        }
-        fVar.b(activity, "6061002332-203360688", 1, cVar, b(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_VIDEO_MIDDLE, str2));
+        this.a.r1(this.q);
     }
 
-    public boolean K(Activity activity, String str, g gVar, String str2, int i2) {
-        InterceptResult invokeCommon;
+    public final void c0(int i, ll6 ll6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{activity, str, gVar, str2, Integer.valueOf(i2)})) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && gVar != null) {
-                boolean isAdReady = this.a.isAdReady(str);
-                StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_source", 6).param("fid", str2).param(TiebaStatic.Params.OBJ_PARAM2, i2).param("obj_type", "a006").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", ax6.c("a006")).eventStat();
-                FunAdRecordHttpMessage.uploadRequestRecord("a006", null, null, str2, null);
-                this.a.b(activity, str, i2, new b(this, str2), gVar);
-                return isAdReady;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ll6Var) == null) {
+            tk6 tk6Var = this.j.get(Integer.valueOf(i));
+            if (tk6Var == null) {
+                tk6 tk6Var2 = new tk6();
+                tk6Var2.a = i;
+                tk6Var2.b = ll6Var;
+                this.j.put(Integer.valueOf(i), tk6Var2);
+            } else {
+                tk6Var.b = ll6Var;
             }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean L(Activity activity, String str, g gVar, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, activity, str, gVar, str2, str3)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && gVar != null) {
-                boolean isAdReady = this.a.isAdReady(str);
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", null, str2, str3, null);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", str2).param("fid", str3).param("obj_type", "a005").param("obj_param1", "2"));
-                this.a.b(activity, str, 1, new e(this, str2, str3), gVar);
-                return isAdReady;
+            ik6 ik6Var = this.a;
+            if (ik6Var != null) {
+                ik6Var.r1(ll6Var);
             }
-            return false;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public void w(Context context, String str, int i2, h hVar, g gVar) {
-        f fVar;
+    public final void d0(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{context, str, Integer.valueOf(i2), hVar, gVar}) == null) && (fVar = this.a) != null) {
-            fVar.d(context, str, 1, i2, hVar, gVar);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            tk6 tk6Var = this.j.get(Integer.valueOf(i));
+            if (tk6Var == null) {
+                tk6 tk6Var2 = new tk6();
+                tk6Var2.a = i;
+                tk6Var2.c = z;
+                this.j.put(Integer.valueOf(i), tk6Var2);
+            } else {
+                tk6Var.c = z;
+            }
+            ik6 ik6Var = this.a;
+            if (ik6Var != null) {
+                ik6Var.G1(z);
+            }
+        }
+    }
+
+    public final void f0(int i) {
+        tk6 tk6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.a != null && (tk6Var = this.j.get(Integer.valueOf(i))) != null) {
+            this.a.j1(i);
+            this.a.r1(tk6Var.b);
+            this.a.G1(tk6Var.c);
+            if (tk6Var.b == null) {
+                this.a.G1(false);
+            }
         }
     }
 }

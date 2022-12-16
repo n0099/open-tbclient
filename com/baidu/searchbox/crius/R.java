@@ -152,9 +152,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: crius */
-        public static final int obfuscated = 0x7f08047b;
+        public static final int crius = 0x7f080486;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -175,56 +173,34 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: absolute */
-        public static final int obfuscated = 0x7f090028;
+        public static final int absolute = 0x7f090028;
         public static final int auto = 0x7f090309;
-        public static final int baseline = 0x7f09035e;
-        public static final int benchmarkSelect = 0x7f09038b;
-
-        /* renamed from: btn */
-        public static final int obfuscated = 0x7f090431;
-        public static final int center = 0x7f0905ec;
-
-        /* renamed from: column */
-        public static final int obfuscated = 0x7f090691;
-        public static final int column_reverse = 0x7f090692;
-
-        /* renamed from: flex */
-        public static final int obfuscated = 0x7f090a05;
-        public static final int flex_end = 0x7f090a06;
-        public static final int flex_start = 0x7f090a07;
-
-        /* renamed from: hidden */
-        public static final int obfuscated = 0x7f090d9c;
-
-        /* renamed from: inherit */
-        public static final int obfuscated = 0x7f090f5b;
-
-        /* renamed from: ltr */
-        public static final int obfuscated = 0x7f0914a1;
-        public static final int no_wrap = 0x7f091720;
-        public static final int none = 0x7f091723;
-
-        /* renamed from: relative */
-        public static final int obfuscated = 0x7f091c19;
-        public static final int root = 0x7f091cbd;
-
-        /* renamed from: row */
-        public static final int obfuscated = 0x7f091ce3;
-        public static final int row_reverse = 0x7f091ce5;
-
-        /* renamed from: rtl */
-        public static final int obfuscated = 0x7f091ce6;
-
-        /* renamed from: scroll */
-        public static final int obfuscated = 0x7f091e1b;
-        public static final int space_around = 0x7f091f76;
-        public static final int space_between = 0x7f091f77;
-        public static final int stretch = 0x7f091fe7;
-        public static final int text = 0x7f09215f;
-        public static final int visible = 0x7f09265a;
-        public static final int wrap = 0x7f0926fa;
+        public static final int baseline = 0x7f090360;
+        public static final int benchmarkSelect = 0x7f09038d;
+        public static final int btn = 0x7f090432;
+        public static final int center = 0x7f0905ed;
+        public static final int column = 0x7f0906a3;
+        public static final int column_reverse = 0x7f0906a4;
+        public static final int flex = 0x7f090a1f;
+        public static final int flex_end = 0x7f090a20;
+        public static final int flex_start = 0x7f090a21;
+        public static final int hidden = 0x7f090dec;
+        public static final int inherit = 0x7f090fb6;
+        public static final int ltr = 0x7f091502;
+        public static final int no_wrap = 0x7f091787;
+        public static final int none = 0x7f09178a;
+        public static final int relative = 0x7f091c84;
+        public static final int root = 0x7f091d2a;
+        public static final int row = 0x7f091d50;
+        public static final int row_reverse = 0x7f091d52;
+        public static final int rtl = 0x7f091d53;
+        public static final int scroll = 0x7f091e88;
+        public static final int space_around = 0x7f091fe6;
+        public static final int space_between = 0x7f091fe7;
+        public static final int stretch = 0x7f092056;
+        public static final int text = 0x7f0921ce;
+        public static final int visible = 0x7f0926ce;
+        public static final int wrap = 0x7f09276e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -271,13 +247,13 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int bm_child_6_text = 0x7f0f032c;
-        public static final int child_1_text = 0x7f0f03c8;
-        public static final int child_2_text = 0x7f0f03c9;
-        public static final int child_3_text = 0x7f0f03ca;
-        public static final int child_4_text = 0x7f0f03cb;
-        public static final int child_5_text = 0x7f0f03cc;
-        public static final int run_benchmark = 0x7f0f106d;
+        public static final int bm_child_6_text = 0x7f0f0331;
+        public static final int child_1_text = 0x7f0f03ce;
+        public static final int child_2_text = 0x7f0f03cf;
+        public static final int child_3_text = 0x7f0f03d0;
+        public static final int child_4_text = 0x7f0f03d1;
+        public static final int child_5_text = 0x7f0f03d2;
+        public static final int run_benchmark = 0x7f0f10a4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -371,7 +347,7 @@ public final class R {
                     return;
                 }
             }
-            crius = new int[]{com.baidu.tieba.R.attr.cr_alignContent, com.baidu.tieba.R.attr.cr_alignItems, com.baidu.tieba.R.attr.cr_alignSelf, com.baidu.tieba.R.attr.cr_aspectRatio, com.baidu.tieba.R.attr.cr_borderAll, com.baidu.tieba.R.attr.cr_borderBottom, com.baidu.tieba.R.attr.cr_borderEnd, com.baidu.tieba.R.attr.cr_borderHorizontal, com.baidu.tieba.R.attr.cr_borderLeft, com.baidu.tieba.R.attr.cr_borderRight, com.baidu.tieba.R.attr.cr_borderStart, com.baidu.tieba.R.attr.cr_borderTop, com.baidu.tieba.R.attr.cr_borderVertical, com.baidu.tieba.R.attr.cr_direction, com.baidu.tieba.R.attr.cr_display, com.baidu.tieba.R.attr.cr_flex, com.baidu.tieba.R.attr.cr_flexBasis, com.baidu.tieba.R.attr.cr_flexDirection, com.baidu.tieba.R.attr.cr_flexGrow, com.baidu.tieba.R.attr.cr_flexShrink, com.baidu.tieba.R.attr.cr_height, com.baidu.tieba.R.attr.cr_justifyContent, com.baidu.tieba.R.attr.cr_marginAll, com.baidu.tieba.R.attr.cr_marginBottom, com.baidu.tieba.R.attr.cr_marginEnd, com.baidu.tieba.R.attr.cr_marginHorizontal, com.baidu.tieba.R.attr.cr_marginLeft, com.baidu.tieba.R.attr.cr_marginRight, com.baidu.tieba.R.attr.cr_marginStart, com.baidu.tieba.R.attr.cr_marginTop, com.baidu.tieba.R.attr.cr_marginVertical, com.baidu.tieba.R.attr.cr_maxHeight, com.baidu.tieba.R.attr.cr_maxWidth, com.baidu.tieba.R.attr.cr_minHeight, com.baidu.tieba.R.attr.cr_minWidth, com.baidu.tieba.R.attr.cr_overflow, com.baidu.tieba.R.attr.cr_paddingAll, com.baidu.tieba.R.attr.cr_paddingBottom, com.baidu.tieba.R.attr.cr_paddingEnd, com.baidu.tieba.R.attr.cr_paddingHorizontal, com.baidu.tieba.R.attr.cr_paddingLeft, com.baidu.tieba.R.attr.cr_paddingRight, com.baidu.tieba.R.attr.cr_paddingStart, com.baidu.tieba.R.attr.cr_paddingTop, com.baidu.tieba.R.attr.cr_paddingVertical, com.baidu.tieba.R.attr.cr_positionAll, com.baidu.tieba.R.attr.cr_positionBottom, com.baidu.tieba.R.attr.cr_positionEnd, com.baidu.tieba.R.attr.cr_positionHorizontal, com.baidu.tieba.R.attr.cr_positionLeft, com.baidu.tieba.R.attr.cr_positionRight, com.baidu.tieba.R.attr.cr_positionStart, com.baidu.tieba.R.attr.cr_positionTop, com.baidu.tieba.R.attr.cr_positionType, com.baidu.tieba.R.attr.cr_positionVertical, com.baidu.tieba.R.attr.cr_width, com.baidu.tieba.R.attr.cr_wrap};
+            crius = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0401b5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401b6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401b9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ba, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401bb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401bc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401bd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401be, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401bf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401c9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ca, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401cb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401cc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ce, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401d9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401da, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401dd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401de, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401df, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401e9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ea, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401eb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ec, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ed};
         }
 
         public styleable() {

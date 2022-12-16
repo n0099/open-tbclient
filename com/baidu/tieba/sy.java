@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class sy extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,13 +86,13 @@ public class sy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: w */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().originalThreadData != null && tr4Var.getThreadData().originalThreadData.C != null) {
-                if (!tr4Var.getThreadData().originalThreadData.m && !tr4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().originalThreadData != null && vr4Var.getThreadData().originalThreadData.C != null) {
+                if (!vr4Var.getThreadData().originalThreadData.m && !vr4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(tr4Var.getThreadData().originalThreadData.D, 13, tr4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(vr4Var.getThreadData().originalThreadData.D, 13, vr4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

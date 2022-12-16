@@ -216,7 +216,7 @@ public class ai {
             a(hashMap, "oaid", ihVar.t);
             a(hashMap, "utbrand", ihVar.w);
             a(hashMap, "baiduapppb_ut", ihVar.x);
-            a(hashMap, HttpRequest.USER_AGENT, ihVar.y);
+            a(hashMap, "user_agent", ihVar.y);
             a(hashMap, "active_timestamp", ihVar.A);
             a(hashMap, "first_install_time", ihVar.B);
             a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, ihVar.C);

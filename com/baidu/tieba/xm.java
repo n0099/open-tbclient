@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,7 +101,7 @@ public class xm implements rm {
             try {
                 jSONObject4.put("load", jSONObject);
                 jSONObject4.put("install", jSONObject2);
-                jSONObject4.put("update", jSONObject3);
+                jSONObject4.put(StickerDataChangeType.UPDATE, jSONObject3);
             } catch (JSONException e7) {
                 e7.printStackTrace();
             }

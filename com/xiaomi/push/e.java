@@ -43,7 +43,7 @@ public abstract class e {
             try {
                 b a = b.a(bArr, i, i2);
                 a(a);
-                a.m179a(0);
+                a.m189a(0);
                 return this;
             } catch (d e) {
                 throw e;
@@ -57,7 +57,7 @@ public abstract class e {
     public abstract void a(c cVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m302a(byte[] bArr, int i, int i2) {
+    public void m312a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
             try {
@@ -73,17 +73,17 @@ public abstract class e {
     public boolean a(b bVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i)) == null) ? bVar.m181a(i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i)) == null) ? bVar.m191a(i) : invokeLI.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m303a() {
+    public byte[] m313a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int b = b();
             byte[] bArr = new byte[b];
-            m302a(bArr, 0, b);
+            m312a(bArr, 0, b);
             return bArr;
         }
         return (byte[]) invokeV.objValue;

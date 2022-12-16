@@ -1,148 +1,200 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wm5 extends BitmapDrawable {
+public class wm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Context b;
-    public Rect c;
+    public int b;
+    public int c;
     public String d;
-    public Matrix e;
-    public int f;
+    public String e;
+    public String f;
     public int g;
-    public float h;
-    public float i;
+    public UserData h;
+    public SparseArray<String> i;
+    public um5 j;
 
-    public wm5(Context context, int i) {
+    public wm5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0.9f;
-        this.i = 0.75f;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(i);
-    }
-
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        in inVar;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.a > 0 && this.b != null) {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            l95 k = l95.k();
-            if (k != null && (str2 = this.d) != null) {
-                inVar = k.m(str2);
-            } else {
-                inVar = null;
-            }
-            if (inVar == null) {
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
-                if (resBitmap != null) {
-                    inVar = new in(resBitmap, false, (String) null);
-                }
-                if (k != null && inVar != null && (str = this.d) != null) {
-                    k.d(str, inVar);
-                }
-            }
-            if (inVar != null) {
-                int r = inVar.r();
-                int m = inVar.m();
-                if (r > 0 && m > 0 && this.c != null) {
-                    canvas.save();
-                    canvas.clipRect(super.getBounds());
-                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
-                        inVar.e(canvas, 0.0f, 0.0f, null);
-                    } else {
-                        if (this.e == null) {
-                            Matrix matrix = new Matrix();
-                            this.e = matrix;
-                            matrix.postTranslate(this.f, this.g);
-                            Rect rect = this.c;
-                            float f = (rect.right - rect.left) / r;
-                            float f2 = (rect.bottom - rect.top) / m;
-                            if (f >= f2) {
-                                f = f2;
-                            }
-                            if (f < 1.0f) {
-                                this.e.postScale(f, f);
-                            }
-                        }
-                        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                            float f3 = this.i;
-                            colorMatrix.setScale(f3, f3, f3, 1.0f);
-                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                            inVar.f(canvas, this.e, paint);
-                        } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                            float f4 = this.h;
-                            colorMatrix.setScale(f4, f4, f4, 1.0f);
-                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                            inVar.f(canvas, this.e, paint);
-                        } else {
-                            inVar.f(canvas, this.e, null);
-                        }
-                    }
-                    canvas.restore();
-                }
             }
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.c = new Rect(i, i2, i3, i4);
-            this.e = null;
-            super.setBounds(i, i2, i3, i4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public um5 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return (um5) invokeV.objValue;
+    }
+
+    public SparseArray<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public UserData i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f = str;
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.c = new Rect(rect);
-            this.e = null;
-            super.setBounds(rect);
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void q(um5 um5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, um5Var) == null) {
+            this.j = um5Var;
+        }
+    }
+
+    public void r(SparseArray<String> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, sparseArray) == null) {
+            this.i = sparseArray;
+        }
+    }
+
+    public void s(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, userData) == null) {
+            this.h = userData;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.g = i;
         }
     }
 }

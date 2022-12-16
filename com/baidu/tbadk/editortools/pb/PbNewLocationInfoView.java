@@ -71,17 +71,17 @@ public class PbNewLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a87);
+                    str = getResources().getString(R.string.location_loading);
                 }
                 setText(str);
             } else if (i == 2) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a84);
+                    str = getResources().getString(R.string.location_default);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a84);
+                    str = getResources().getString(R.string.location_default);
                 }
                 setText(str);
             }

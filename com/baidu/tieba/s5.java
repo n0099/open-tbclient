@@ -19,7 +19,7 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class s5<T extends p3> implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Application, b7<s5>> i;
@@ -35,14 +35,14 @@ public abstract class s5<T extends p3> implements i7 {
     public boolean g;
     public c<? extends s5<T>> h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class c<U extends s5<? extends p3>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public abstract class s5<T extends p3> implements i7 {
 
     public abstract void k(T t);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public abstract class s5<T extends p3> implements i7 {
             }
             n3Var.r(this.b);
             if (i.get(f1.a) != null) {
-                i.get(f1.a).j(this, true);
+                i.get(f1.a).i(this, true);
             }
         }
     }
@@ -264,7 +264,7 @@ public abstract class s5<T extends p3> implements i7 {
                 }
                 i2 = i5;
             } else {
-                T j3 = j(this.h.c.f());
+                T j3 = j(this.h.c.first());
                 this.a.a(j3);
                 n3Var.N(j3.a, j3.i());
                 i2 = 0;
@@ -277,7 +277,7 @@ public abstract class s5<T extends p3> implements i7 {
                 d.position(0);
                 f1.g.c(i2, d);
             } else {
-                f(this.a.f());
+                f(this.a.first());
             }
             if (this.h.h) {
                 n3Var.k(36160, 36096, 36161, this.c);

@@ -75,7 +75,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 @SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BaiduActiveManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVE_DEVICE_BEHAVIOR_PURPOSE = "active";
@@ -107,7 +107,7 @@ public final class BaiduActiveManager {
     public String mOriginalLauncherExt;
     public SharedPreferences mSettings;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ActiveTimeParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "ActiveTimeParser";
@@ -416,7 +416,7 @@ public final class BaiduActiveManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:31:0x00ea  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x015f  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0160  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1014,23 +1014,23 @@ public final class BaiduActiveManager {
                         this.val$context = context;
                     }
 
-                    /* JADX WARN: Code restructure failed: missing block: B:49:0x01cb, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:49:0x01cc, code lost:
                         if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L48;
                      */
-                    /* JADX WARN: Code restructure failed: missing block: B:55:0x01db, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:55:0x01dc, code lost:
                         if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L48;
                      */
-                    /* JADX WARN: Code restructure failed: missing block: B:61:0x01ed, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:61:0x01ee, code lost:
                         if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L48;
                      */
-                    /* JADX WARN: Code restructure failed: missing block: B:62:0x01ef, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:62:0x01f0, code lost:
                         com.baidu.android.common.logging.Log.d(com.baidu.searchbox.util.BaiduActiveManager.TAG, "active request finished");
                      */
-                    /* JADX WARN: Code restructure failed: missing block: B:63:0x01f2, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:63:0x01f3, code lost:
                         r0 = com.baidu.searchbox.util.BaiduActiveManager.mStartRequest = false;
                         r14.this$0.sendActiveUBCEvent(-1, r6);
                      */
-                    /* JADX WARN: Code restructure failed: missing block: B:64:0x01fa, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:64:0x01fb, code lost:
                         return;
                      */
                     @Override // java.lang.Runnable
@@ -1077,9 +1077,9 @@ public final class BaiduActiveManager {
                                 } catch (Throwable th) {
                                     th = th;
                                 }
-                            } catch (IOException unused) {
-                            } catch (IllegalArgumentException unused2) {
-                            } catch (ClientProtocolException unused3) {
+                            } catch (IllegalArgumentException unused) {
+                            } catch (ClientProtocolException unused2) {
+                            } catch (IOException unused3) {
                             }
                             try {
                                 Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(appendParam)).params(activePostData).cookieManager(this.this$0.mIdentityContextImpl.obtainCookieManager(true, false))).enableStat(true)).requestFrom(10)).requestSubFrom(DebugConstants.HTTP_ERRCODE_VERSION_HIGH)).build().executeSync();

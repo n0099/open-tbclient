@@ -3,7 +3,6 @@ package cn.com.chinatelecom.gateway.lib.b;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,7 +125,7 @@ public class d {
             try {
                 if (!TextUtils.isEmpty(str2)) {
                     JSONObject jSONObject = new JSONObject(str2);
-                    i = jSONObject.getInt(TiebaStatic.LogFields.RESULT);
+                    i = jSONObject.getInt("result");
                     str4 = jSONObject.optString("msg");
                 }
             } catch (Exception e) {

@@ -26,6 +26,8 @@ public abstract class ResponsedMessage<T> {
     public long mProcessTime;
     public long mStartTime;
     public xb performanceData;
+    @Nullable
+    public Object resultData;
 
     public void afterDispatchInBackGround(int i, T t) {
         Interceptable interceptable = $ic;
@@ -141,10 +143,20 @@ public abstract class ResponsedMessage<T> {
         return invokeV.longValue;
     }
 
-    public long getStartTime() {
+    @Nullable
+    public Object getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.resultData;
+        }
+        return invokeV.objValue;
+    }
+
+    public long getStartTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mStartTime;
         }
         return invokeV.longValue;
@@ -153,7 +165,7 @@ public abstract class ResponsedMessage<T> {
     public Message<?> getmOrginalMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mOrginalMessage;
         }
         return (Message) invokeV.objValue;
@@ -161,63 +173,70 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ua.c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ua.c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }
 
     public void setCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.mCostTime = j;
         }
     }
 
     public void setDownSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.mDownSize = i;
         }
     }
 
     public void setError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.mError = i;
         }
     }
 
     public void setErrorString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.mErrorString = str;
         }
     }
 
     public void setOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, message) == null) {
             this.mOrginalMessage = message;
         }
     }
 
     public void setProcessTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             this.mProcessTime = j;
+        }
+    }
+
+    public void setResultData(@Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, obj) == null) {
+            this.resultData = obj;
         }
     }
 
     public void setStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
             this.mStartTime = j;
         }
     }
 
     public void setmOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, message) == null) {
             this.mOrginalMessage = message;
         }
     }

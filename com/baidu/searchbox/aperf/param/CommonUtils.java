@@ -24,7 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -141,7 +140,7 @@ public class CommonUtils {
             long j = memoryInfo.dalvikPss;
             StringBuilder sb = new StringBuilder();
             sb.append(memoryInfo.nativePss);
-            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(";");
             sb.append(j);
             return sb.toString();
         }
@@ -153,7 +152,7 @@ public class CommonUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             if (sROM == null) {
-                sROM = RomUtils.getName() + ParamableElem.DIVIDE_PARAM + RomUtils.getVersion();
+                sROM = RomUtils.getName() + ";" + RomUtils.getVersion();
             }
             return sROM;
         }
@@ -401,7 +400,7 @@ public class CommonUtils {
                 l = Long.valueOf(availableExternalMemorySize);
             }
             sb.append(l);
-            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(";");
             if (totalExternalMemorySize >= 0) {
                 obj = Long.valueOf(totalExternalMemorySize);
             }
@@ -432,7 +431,7 @@ public class CommonUtils {
                 l = Long.valueOf(availableInternalMemorySize);
             }
             sb.append(l);
-            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(";");
             if (totalInternalMemorySize >= 0) {
                 obj = Long.valueOf(totalInternalMemorySize);
             }
@@ -454,7 +453,7 @@ public class CommonUtils {
                 if (!TextUtils.isEmpty(arrays)) {
                     arrays = arrays.replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "");
                 }
-                sCPU = str + ParamableElem.DIVIDE_PARAM + num + ParamableElem.DIVIDE_PARAM + f + ParamableElem.DIVIDE_PARAM + arrays;
+                sCPU = str + ";" + num + ";" + f + ";" + arrays;
             }
             return sCPU;
         }
@@ -467,7 +466,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             long j = Runtime.getRuntime().totalMemory() / 1024;
             long freeMemory = j - (Runtime.getRuntime().freeMemory() / 1024);
-            return (Debug.getNativeHeapAllocatedSize() / 1024) + ParamableElem.DIVIDE_PARAM + freeMemory + ParamableElem.DIVIDE_PARAM + (Debug.getNativeHeapSize() / 1024) + ParamableElem.DIVIDE_PARAM + j + ParamableElem.DIVIDE_PARAM + (Runtime.getRuntime().maxMemory() / 1024);
+            return (Debug.getNativeHeapAllocatedSize() / 1024) + ";" + freeMemory + ";" + (Debug.getNativeHeapSize() / 1024) + ";" + j + ";" + (Runtime.getRuntime().maxMemory() / 1024);
         }
         return (String) invokeV.objValue;
     }
@@ -489,11 +488,11 @@ public class CommonUtils {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(prop);
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
                 sb.append(prop2);
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
                 sb.append(prop3);
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
                 if (j >= 0) {
                     obj = Long.valueOf(j);
                 } else {
@@ -526,12 +525,12 @@ public class CommonUtils {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x004d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x004e */
     /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: android.util.JsonReader */
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: android.util.JsonReader */
     /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: android.util.JsonReader */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0064 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -706,11 +705,11 @@ public class CommonUtils {
                                                 e = e2;
                                                 e.printStackTrace();
                                                 r0 = bufferedReader;
-                                                return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
+                                                return r0 + ";" + str + ";" + str3 + ";" + str2;
                                             }
                                         }
                                         r0 = bufferedReader;
-                                        return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
+                                        return r0 + ";" + str + ";" + str3 + ";" + str2;
                                     } catch (IOException e3) {
                                         e = e3;
                                         bufferedReader = bufferedReader2;
@@ -723,11 +722,11 @@ public class CommonUtils {
                                                 e = e4;
                                                 e.printStackTrace();
                                                 r0 = bufferedReader;
-                                                return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
+                                                return r0 + ";" + str + ";" + str3 + ";" + str2;
                                             }
                                         }
                                         r0 = bufferedReader;
-                                        return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
+                                        return r0 + ";" + str + ";" + str3 + ";" + str2;
                                     }
                                 }
                                 r0 = bufferedReader2;
@@ -786,7 +785,7 @@ public class CommonUtils {
                 str2 = null;
                 str3 = null;
             }
-            return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
+            return r0 + ";" + str + ";" + str3 + ";" + str2;
         }
         return (String) invokeV.objValue;
     }

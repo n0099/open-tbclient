@@ -1,23 +1,23 @@
 package com.baidu.tieba;
-
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public interface aj9 {
+    boolean available();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onCompletion();
+    int availableBytes();
 
-        boolean onError(int i, int i2, Object obj);
+    void clearQueues();
 
-        boolean onInfo(int i, int i2, Object obj);
-    }
+    void close();
 
-    void release();
+    void flush();
 
-    void setListener(a aVar);
+    int getBytes(byte[] bArr, int i);
 
-    void setSource(ArrayList<String> arrayList);
+    void initVoiceChanger(int i, int i2, int i3, int i4);
 
-    void start();
+    boolean putBytes(byte[] bArr, int i);
+
+    void setVoiceChangeType(int[] iArr);
+
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

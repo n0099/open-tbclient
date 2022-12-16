@@ -194,8 +194,8 @@ public class ShareActionProvider extends ActionProvider {
             this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040065, typedValue, true);
             activityChooserView.setExpandActivityOverflowButtonDrawable(AppCompatResources.getDrawable(this.mContext, typedValue.resourceId));
             activityChooserView.setProvider(this);
-            activityChooserView.setDefaultActionButtonContentDescription(R.string.obfuscated_res_0x7f0f0051);
-            activityChooserView.setExpandActivityOverflowButtonContentDescription(R.string.obfuscated_res_0x7f0f0050);
+            activityChooserView.setDefaultActionButtonContentDescription(R.string.obfuscated_res_0x7f0f0052);
+            activityChooserView.setExpandActivityOverflowButtonContentDescription(R.string.obfuscated_res_0x7f0f0051);
             return activityChooserView;
         }
         return (View) invokeV.objValue;
@@ -215,7 +215,7 @@ public class ShareActionProvider extends ActionProvider {
                 subMenu.add(0, i, i, activity.loadLabel(packageManager)).setIcon(activity.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
             }
             if (min < activityCount) {
-                SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.obfuscated_res_0x7f0f003c));
+                SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.obfuscated_res_0x7f0f003d));
                 for (int i2 = 0; i2 < activityCount; i2++) {
                     ResolveInfo activity2 = activityChooserModel.getActivity(i2);
                     addSubMenu.add(0, i2, i2, activity2.loadLabel(packageManager)).setIcon(activity2.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);

@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.nz5;
-import com.baidu.tieba.pk6;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.i06;
+import com.baidu.tieba.kl6;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,30 +24,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements kl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
     public boolean c;
-    public nz5 d;
+    public i06 d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
+    public void B1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void u1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
     }
 
     /* loaded from: classes3.dex */
@@ -130,7 +130,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.s1().contains(str) || str.contains(this.a.s1())) {
+                if (this.a.z1().contains(str) || str.contains(this.a.z1())) {
                     this.a.d.l();
                 }
             }
@@ -156,10 +156,24 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
         this.f = new b(this, 2921023);
     }
 
+    public void A1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void C1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.d.o(this);
             registerListener(this.f);
@@ -169,31 +183,17 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             registerListener(2001446, this.e, getBaseFragmentActivity().getUniqueId());
         }
     }
 
-    public void t1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void v1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.pk6
-    public NavigationBar L0() {
+    @Override // com.baidu.tieba.kl6
+    public NavigationBar P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d.j();
         }
         return (NavigationBar) invokeV.objValue;
@@ -202,11 +202,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            nz5 nz5Var = this.d;
-            if (nz5Var != null) {
-                nz5Var.C();
+            i06 i06Var = this.d;
+            if (i06Var != null) {
+                i06Var.C();
             }
         }
     }
@@ -214,7 +214,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
         }
     }
@@ -222,7 +222,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
         }
     }
@@ -230,15 +230,15 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.c) {
                 return;
             }
             if (i == 1) {
-                this.d.y(r1(s1()));
+                this.d.y(y1(z1()));
             } else {
-                this.d.y(s1());
+                this.d.y(z1());
             }
             this.d.A(i);
         }
@@ -248,10 +248,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            nz5 nz5Var = new nz5(this.a);
-            this.d = nz5Var;
-            return nz5Var.B(layoutInflater, viewGroup);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            i06 i06Var = new i06(this.a);
+            this.d = i06Var;
+            return i06Var.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }
@@ -259,27 +259,27 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.k().getUrl())) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.d.y(r1(s1()));
+                    this.d.y(y1(z1()));
                 } else {
-                    this.d.y(s1());
+                    this.d.y(z1());
                 }
                 this.c = false;
             }
         }
     }
 
-    public String s1() {
+    public String z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String q = qy4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
-            if (q != null) {
-                StringBuilder sb = new StringBuilder(q);
-                if (q.endsWith("?")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            String r = ry4.l().r("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            if (r != null) {
+                StringBuilder sb = new StringBuilder(r);
+                if (r.endsWith("?")) {
                     sb.append("fid=");
                     sb.append(this.b);
                 } else {
@@ -293,10 +293,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pk6 
         return (String) invokeV.objValue;
     }
 
-    public final String r1(String str) {
+    public final String y1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }

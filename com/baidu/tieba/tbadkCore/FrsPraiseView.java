@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj5;
+import com.baidu.tieba.vj5;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,7 +72,7 @@ public class FrsPraiseView extends LinearLayout {
                 } else {
                     str = "";
                 }
-                cj5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
+                vj5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
             }
         }
     }
@@ -249,13 +249,13 @@ public class FrsPraiseView extends LinearLayout {
                     }
                 }
                 if (num <= 2) {
-                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0427));
+                    this.c.setText(this.a.getString(R.string.common_praise_view_text));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d6) + num + this.a.getString(R.string.obfuscated_res_0x7f0f0428));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05dd) + num + this.a.getString(R.string.common_praise_view_text2));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d6) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f0428));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05dd) + "999999+" + this.a.getString(R.string.common_praise_view_text2));
                 }
             }
         }
@@ -264,11 +264,11 @@ public class FrsPraiseView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032f, this);
+            View inflate = View.inflate(this.a, R.layout.frs_item_praise, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b55);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf0);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bf1);
+            this.c = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
+            this.d = (TextView) this.b.findViewById(R.id.frs_praise_user_name_text1);
+            this.e = (TextView) this.b.findViewById(R.id.frs_praise_user_name_text2);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

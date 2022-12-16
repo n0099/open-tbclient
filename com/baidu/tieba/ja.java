@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ja {
     public static final int[] a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
 }

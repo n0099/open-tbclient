@@ -5,6 +5,7 @@ import android.media.session.MediaSessionManager;
 import androidx.annotation.RequiresApi;
 import androidx.media.MediaSessionManager;
 import androidx.media.MediaSessionManagerImplBase;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +87,7 @@ public class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
                 return;
             }
         }
-        this.mObject = (android.media.session.MediaSessionManager) context.getSystemService("media_session");
+        this.mObject = (android.media.session.MediaSessionManager) context.getSystemService(TableDefine.DB_TABLE_MEDIA_SESSION);
     }
 
     @Override // androidx.media.MediaSessionManagerImplApi21, androidx.media.MediaSessionManagerImplBase, androidx.media.MediaSessionManager.MediaSessionManagerImpl

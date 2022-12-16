@@ -92,7 +92,7 @@ public final class i70 implements u60 {
                 }
                 Cookie cookie = list.get(i);
                 sb.append(cookie.name());
-                sb.append('=');
+                sb.append(com.alipay.sdk.encrypt.a.h);
                 sb.append(cookie.value());
             }
             return sb.toString();

@@ -1,6 +1,7 @@
 package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -85,7 +86,7 @@ public final class CodedOutputStream {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i)) == null) {
-            if ((i & (-128)) == 0) {
+            if ((i & a.g) == 0) {
                 return 1;
             }
             if ((i & (-16384)) == 0) {
@@ -888,7 +889,7 @@ public final class CodedOutputStream {
     public void writeRawVarint32(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
-            while ((i & (-128)) != 0) {
+            while ((i & a.g) != 0) {
                 writeRawByte((i & 127) | 128);
                 i >>>= 7;
             }

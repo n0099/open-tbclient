@@ -57,20 +57,20 @@ public class uy extends cx implements sx<ThreadData>, tx {
         h(-1);
         UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
         this.e = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.obfuscated_res_0x7f090793);
+        unfollowedDecorView.setId(R.id.decor_item_right_id);
         g(this.e);
         k(align);
     }
 
-    public void l(tr4 tr4Var) {
+    public void l(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
-            if (tr4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) {
+            if (vr4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (tr4Var.isSupportBottom()) {
+            } else if (vr4Var.isSupportBottom()) {
                 oy oyVar = this.d;
                 if (oyVar != null) {
-                    oyVar.n(this);
+                    oyVar.o(this);
                 }
             } else {
                 k(Align.ALIGN_RIGHT_TOP);
@@ -126,7 +126,7 @@ public class uy extends cx implements sx<ThreadData>, tx {
             layoutParams3.rightMargin = g3;
             layoutParams3.bottomMargin = g4;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
             this.e.setPadding(g2, g2, g2, g2);
             this.e.setLayoutParams(layoutParams3);
         }

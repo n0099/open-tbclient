@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -486,7 +487,7 @@ public class MarkData implements Serializable {
                     builder.avatar_h = optJSONObject2.optString("avatar_h");
                     builder.brief = optJSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
                     builder.auth_id = Integer.valueOf(optJSONObject2.optInt("auth_id"));
-                    builder.auth_desc = optJSONObject2.optString("auth_desc");
+                    builder.auth_desc = optJSONObject2.optString(IMUserExtraData.KEY_AUTH_DESC);
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
                 if (xi.isEmpty(this.portrait)) {

@@ -53,7 +53,7 @@ public class FCMPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, cif) == null) {
             try {
-                MiPushMessage generateMessage = PushMessageHelper.generateMessage((im) ai.a(context, cif), cif.m465a(), false);
+                MiPushMessage generateMessage = PushMessageHelper.generateMessage((im) ai.a(context, cif), cif.m475a(), false);
                 PushMessageReceiver a = i.a(context);
                 if (a != null) {
                     a.onNotificationMessageArrived(context, generateMessage);
@@ -75,17 +75,17 @@ public class FCMPushHelper {
         if (interceptable != null && interceptable.invokeLL(65539, null, context, bArr) != null) {
             return;
         }
-        boolean m124a = ao.a(context).m124a();
+        boolean m134a = ao.a(context).m134a();
         boolean z = true;
         boolean z2 = !"com.xiaomi.xmsf".equals(context.getPackageName());
-        boolean m102a = m102a(context);
+        boolean m112a = m112a(context);
         boolean z3 = false;
-        if (m124a && z2 && m102a) {
-            bArr = com.xiaomi.push.service.n.a(bArr, b.m131a(context).d());
+        if (m134a && z2 && m112a) {
+            bArr = com.xiaomi.push.service.n.a(bArr, b.m141a(context).d());
             if (bArr != null) {
                 String encodeToString = Base64.encodeToString(bArr, 2);
                 if (TextUtils.isEmpty(encodeToString)) {
-                    com.xiaomi.channel.commonutils.logger.b.m89a("fcm message buf base64 encode failed");
+                    com.xiaomi.channel.commonutils.logger.b.m99a("fcm message buf base64 encode failed");
                     z = false;
                 } else {
                     Intent intent = new Intent(bk.n);
@@ -94,27 +94,27 @@ public class FCMPushHelper {
                     intent.putExtra("ext_fcm_container_buffer", encodeToString);
                     intent.putExtra("mipush_app_package", context.getPackageName());
                     context.startService(intent);
-                    com.xiaomi.channel.commonutils.logger.b.m89a("fcm message reroute to xmsf");
+                    com.xiaomi.channel.commonutils.logger.b.m99a("fcm message reroute to xmsf");
                 }
                 z3 = z;
                 if (z3) {
                     com.xiaomi.channel.commonutils.logger.b.b("fcm message post local");
-                    com.xiaomi.push.service.al.m605a(context, com.xiaomi.push.service.y.a(bArr), bArr);
+                    com.xiaomi.push.service.al.m615a(context, com.xiaomi.push.service.y.a(bArr), bArr);
                     return;
                 }
                 return;
             }
             format = "fcm message encrypt failed";
         } else {
-            format = String.format("xmsf can not receive fcm msg - shouldUseMIUIPush=%s;isNotXmsf=%s;xmsfSupport=%s", Boolean.valueOf(m124a), Boolean.valueOf(z2), Boolean.valueOf(m102a));
+            format = String.format("xmsf can not receive fcm msg - shouldUseMIUIPush=%s;isNotXmsf=%s;xmsfSupport=%s", Boolean.valueOf(m134a), Boolean.valueOf(z2), Boolean.valueOf(m112a));
         }
-        com.xiaomi.channel.commonutils.logger.b.m89a(format);
+        com.xiaomi.channel.commonutils.logger.b.m99a(format);
         if (z3) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m102a(Context context) {
+    public static boolean m112a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? ((long) com.xiaomi.push.m.b(context)) >= 50002000 && b(context) : invokeL.booleanValue;
@@ -129,7 +129,7 @@ public class FCMPushHelper {
     public static void clearToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            i.m152a(context, e.b);
+            i.m162a(context, e.b);
         }
     }
 
@@ -143,7 +143,7 @@ public class FCMPushHelper {
     public static boolean isFCMSwitchOpen(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? i.m155a(context, e.b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? i.m165a(context, e.b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
@@ -200,7 +200,7 @@ public class FCMPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            i.m153a(context, e.b, str);
+            i.m163a(context, e.b, str);
         }
     }
 }

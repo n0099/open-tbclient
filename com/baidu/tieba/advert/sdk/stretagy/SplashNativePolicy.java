@@ -2,7 +2,7 @@ package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.gt5;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.xx4;
 import com.baidu.tieba.yi;
@@ -83,15 +83,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        gt5.d().l(true);
+                        bu5.d().l(true);
                         return;
                     case 129:
-                        gt5.d().l(false);
+                        bu5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        gt5.d().b();
+                        bu5.d().b();
                         return;
                     case 131:
                     default:
@@ -129,11 +129,11 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    gt5.d().i(-1);
+                    bu5.d().i(-1);
                 } else if (i == 132) {
-                    gt5.d().i(-2);
+                    bu5.d().i(-2);
                 } else if (i == 130) {
-                    gt5.d().i(-3);
+                    bu5.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -144,20 +144,20 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                gt5.d().i(i2);
+                bu5.d().i(i2);
             }
             if (yi.E()) {
                 switch (i) {
                     case 128:
-                        gt5.d().l(true);
+                        bu5.d().l(true);
                         return;
                     case 129:
-                        gt5.d().l(false);
+                        bu5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        gt5.d().b();
+                        bu5.d().b();
                         return;
                     case 131:
                     default:

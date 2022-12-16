@@ -155,7 +155,7 @@ public final class GapWorker implements Runnable {
         public int position;
 
         /* renamed from: view  reason: collision with root package name */
-        public RecyclerView f1027view;
+        public RecyclerView f1050view;
         public int viewVelocity;
 
         public Task() {
@@ -178,7 +178,7 @@ public final class GapWorker implements Runnable {
                 this.immediate = false;
                 this.viewVelocity = 0;
                 this.distanceToItem = 0;
-                this.f1027view = null;
+                this.f1050view = null;
                 this.position = 0;
             }
         }
@@ -224,18 +224,18 @@ public final class GapWorker implements Runnable {
                 boolean z2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, task, task2)) == null) {
-                    if (task.f1027view == null) {
+                    if (task.f1050view == null) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    if (task2.f1027view == null) {
+                    if (task2.f1050view == null) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
                     if (z != z2) {
-                        if (task.f1027view == null) {
+                        if (task.f1050view == null) {
                             return 1;
                         }
                         return -1;
@@ -316,7 +316,7 @@ public final class GapWorker implements Runnable {
                         task.immediate = z;
                         task.viewVelocity = abs;
                         task.distanceToItem = i6;
-                        task.f1027view = recyclerView2;
+                        task.f1050view = recyclerView2;
                         task.position = layoutPrefetchRegistryImpl.mPrefetchArray[i5];
                         i3++;
                     }
@@ -335,7 +335,7 @@ public final class GapWorker implements Runnable {
             } else {
                 j2 = j;
             }
-            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1027view, task.position, j2);
+            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1050view, task.position, j2);
             if (prefetchPositionWithDeadline != null && prefetchPositionWithDeadline.mNestedRecyclerView != null && prefetchPositionWithDeadline.isBound() && !prefetchPositionWithDeadline.isInvalid()) {
                 prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
             }
@@ -363,7 +363,7 @@ public final class GapWorker implements Runnable {
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             for (int i = 0; i < this.mTasks.size(); i++) {
                 Task task = this.mTasks.get(i);
-                if (task.f1027view != null) {
+                if (task.f1050view != null) {
                     flushTaskWithDeadline(task, j);
                     task.clear();
                 } else {

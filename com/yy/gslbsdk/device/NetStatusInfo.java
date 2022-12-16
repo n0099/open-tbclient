@@ -111,7 +111,7 @@ public class NetStatusInfo {
             this.netType = netStatusInfo.netType;
             this.isp = netStatusInfo.isp;
             this.ssid = netStatusInfo.ssid;
-            this.networkStatus = netStatusInfo.networkStatus.m692clone();
+            this.networkStatus = netStatusInfo.networkStatus.m702clone();
         }
     }
 

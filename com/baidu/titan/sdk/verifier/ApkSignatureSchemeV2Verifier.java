@@ -1,7 +1,6 @@
 package com.baidu.titan.sdk.verifier;
 
 import android.util.Pair;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.internal.util.Closes;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -42,7 +41,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ApkSignatureSchemeV2Verifier {
     public static final int APK_SIGNATURE_SCHEME_V2_BLOCK_ID = 1896449818;
     public static final long APK_SIG_BLOCK_MAGIC_HI = 3617552046287187010L;
@@ -61,7 +60,7 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SIGNATURE_RSA_PSS_WITH_SHA256 = 257;
     public static final int SIGNATURE_RSA_PSS_WITH_SHA512 = 258;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface DataSource {
         void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
 
@@ -83,7 +82,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
@@ -112,7 +111,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
@@ -139,7 +138,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
@@ -156,7 +155,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
@@ -169,7 +168,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
@@ -184,7 +183,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 
@@ -612,7 +611,7 @@ public class ApkSignatureSchemeV2Verifier {
                     case SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                     case SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                     case 260:
-                        return RSAUtil.ALGORITHM_RSA;
+                        return "RSA";
                     default:
                         throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                 }

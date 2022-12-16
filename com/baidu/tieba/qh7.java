@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public List<rh7> c;
-    public ArrayList<Integer> d;
+    public ph7<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
     public qh7() {
         Interceptable interceptable = $ic;
@@ -33,98 +31,37 @@ public class qh7 {
         }
     }
 
-    public ArrayList<Integer> a() {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> ph7<T, Msg> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return (ph7<T, Msg>) this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (ph7) invokeV.objValue;
     }
 
-    public List<rh7> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static qh7 e(JSONObject jSONObject) {
+    @Nullable
+    public static qh7 b(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qh7 qh7Var = new qh7();
-            qh7Var.h(jSONObject.optInt("follow_forum_number"));
-            qh7Var.i(jSONObject.optInt("interest_board_stage"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
-            if (optJSONArray != null) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    arrayList.add(rh7.c(optJSONArray.optJSONObject(i)));
-                }
-                qh7Var.g(arrayList);
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
-            if (optJSONArray2 != null) {
-                ArrayList<Integer> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
-                }
-                qh7Var.f(arrayList2);
-            }
-            return qh7Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (qh7) view2.getTag(R.id.obfuscated_res_0x7f09212e);
         }
         return (qh7) invokeL.objValue;
     }
 
-    public void f(ArrayList<Integer> arrayList) {
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull ph7<T, Msg> ph7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.d = arrayList;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ph7Var) == null) {
+            this.a = ph7Var;
         }
     }
 
-    public void g(List<rh7> list) {
+    public static void d(@NonNull View view2, @NonNull qh7 qh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, qh7Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f09212e, qh7Var);
         }
     }
 }

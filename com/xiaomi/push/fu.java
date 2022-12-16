@@ -22,19 +22,19 @@ public class fu implements gi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f397a;
+    public a f420a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fw f398a;
+    public fw f421a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fz f399a;
+    public fz f422a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f400a;
+    public final String f423a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SimpleDateFormat f401a;
+    public SimpleDateFormat f424a;
     public a b;
 
     /* loaded from: classes8.dex */
@@ -44,10 +44,10 @@ public class fu implements gi {
         public final /* synthetic */ fu a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f402a;
+        public String f425a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f403a;
+        public boolean f426a;
 
         public a(fu fuVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public class fu implements gi {
                 }
             }
             this.a = fuVar;
-            this.f403a = true;
-            this.f403a = z;
-            this.f402a = z ? " RCV " : " Sent ";
+            this.f426a = true;
+            this.f426a = z;
+            this.f425a = z ? " RCV " : " Sent ";
         }
 
         @Override // com.xiaomi.push.gb
@@ -79,16 +79,16 @@ public class fu implements gi {
                 if (fu.a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.a.f401a.format(new Date()));
-                    sb.append(this.f402a);
+                    sb.append(this.a.f424a.format(new Date()));
+                    sb.append(this.f425a);
                     str = flVar.toString();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.a.f401a.format(new Date()));
-                    sb.append(this.f402a);
+                    sb.append(this.a.f424a.format(new Date()));
+                    sb.append(this.f425a);
                     sb.append(" Blob [");
-                    sb.append(flVar.m335a());
+                    sb.append(flVar.m345a());
                     sb.append(",");
                     sb.append(flVar.a());
                     sb.append(",");
@@ -100,18 +100,18 @@ public class fu implements gi {
                 if (flVar == null || flVar.a() != 99999) {
                     return;
                 }
-                String m335a = flVar.m335a();
+                String m345a = flVar.m345a();
                 fl flVar2 = null;
-                if (!this.f403a) {
-                    if ("BIND".equals(m335a)) {
-                        com.xiaomi.channel.commonutils.logger.b.m89a("build binded result for loopback.");
+                if (!this.f426a) {
+                    if ("BIND".equals(m345a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m99a("build binded result for loopback.");
                         dx.d dVar = new dx.d();
                         dVar.a(true);
                         dVar.c("login success.");
                         dVar.b("success");
                         dVar.a("success");
                         fl flVar3 = new fl();
-                        flVar3.a(dVar.m303a(), (String) null);
+                        flVar3.a(dVar.m313a(), (String) null);
                         flVar3.a((short) 2);
                         flVar3.a(VideoItemModel.TYPE_LOADING);
                         flVar3.a("BIND", (String) null);
@@ -119,21 +119,21 @@ public class fu implements gi {
                         flVar3.b((String) null);
                         flVar3.c(flVar.g());
                         flVar2 = flVar3;
-                    } else if (!"UBND".equals(m335a) && "SECMSG".equals(m335a)) {
+                    } else if (!"UBND".equals(m345a) && "SECMSG".equals(m345a)) {
                         fl flVar4 = new fl();
                         flVar4.a(VideoItemModel.TYPE_LOADING);
                         flVar4.a("SECMSG", (String) null);
                         flVar4.c(flVar.g());
                         flVar4.a(flVar.e());
-                        flVar4.a(flVar.m337a());
+                        flVar4.a(flVar.m347a());
                         flVar4.b(flVar.f());
-                        flVar4.a(flVar.m340a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
+                        flVar4.a(flVar.m350a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
                         flVar2 = flVar4;
                     }
                 }
                 if (flVar2 != null) {
-                    for (Map.Entry<gb, fw.a> entry : this.a.f398a.m355a().entrySet()) {
-                        if (this.a.f397a != entry.getKey()) {
+                    for (Map.Entry<gb, fw.a> entry : this.a.f421a.m365a().entrySet()) {
+                        if (this.a.f420a != entry.getKey()) {
                             entry.getValue().a(flVar2);
                         }
                     }
@@ -150,15 +150,15 @@ public class fu implements gi {
                 if (fu.a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.a.f401a.format(new Date()));
-                    sb.append(this.f402a);
+                    sb.append(this.a.f424a.format(new Date()));
+                    sb.append(this.f425a);
                     sb.append(" PKT ");
-                    str = gnVar.m371a();
+                    str = gnVar.m381a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.a.f401a.format(new Date()));
-                    sb.append(this.f402a);
+                    sb.append(this.a.f424a.format(new Date()));
+                    sb.append(this.f425a);
                     sb.append(" PKT [");
                     sb.append(gnVar.k());
                     sb.append(",");
@@ -211,28 +211,28 @@ public class fu implements gi {
                 return;
             }
         }
-        this.f401a = new SimpleDateFormat("hh:mm:ss aaa");
-        this.f398a = null;
-        this.f397a = null;
+        this.f424a = new SimpleDateFormat("hh:mm:ss aaa");
+        this.f421a = null;
+        this.f420a = null;
         this.b = null;
-        this.f399a = null;
-        this.f400a = "[Slim] ";
-        this.f398a = fwVar;
+        this.f422a = null;
+        this.f423a = "[Slim] ";
+        this.f421a = fwVar;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f397a = new a(this, true);
+            this.f420a = new a(this, true);
             this.b = new a(this, false);
-            fw fwVar = this.f398a;
-            a aVar = this.f397a;
+            fw fwVar = this.f421a;
+            a aVar = this.f420a;
             fwVar.a(aVar, aVar);
-            fw fwVar2 = this.f398a;
+            fw fwVar2 = this.f421a;
             a aVar2 = this.b;
             fwVar2.b(aVar2, aVar2);
-            this.f399a = new fv(this);
+            this.f422a = new fv(this);
         }
     }
 }

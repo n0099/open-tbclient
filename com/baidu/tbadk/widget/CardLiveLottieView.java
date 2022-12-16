@@ -150,15 +150,15 @@ public class CardLiveLottieView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0499, this);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091cd4);
-            this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09020b);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09020d);
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09020c);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0901f4);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.layout_ala_live_card_lottie, this);
+            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.f = (LinearLayout) inflate.findViewById(R.id.ala_live_watch_container);
+            this.c = (TextView) inflate.findViewById(R.id.ala_live_watch_number);
+            this.d = (ImageView) inflate.findViewById(R.id.ala_live_watch_icon);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.ala_live_lottie);
             this.e = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            SkinManager.setLottieAnimation(this.e, R.raw.obfuscated_res_0x7f110024);
+            SkinManager.setLottieAnimation(this.e, R.raw.lottie_ala_live_right_view);
             this.e.setImageAssetsFolder("lottie_ala_live_right_view");
             this.e.addOnAttachStateChangeListener(new a(this));
         }
@@ -168,7 +168,7 @@ public class CardLiveLottieView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f08067c, R.color.CAM_X0101, null);
+            WebPManager.setPureDrawable(this.d, R.drawable.icon_ala_live_right_bottom_eye, R.color.CAM_X0101, null);
         }
     }
 }

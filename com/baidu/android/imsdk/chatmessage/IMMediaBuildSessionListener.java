@@ -1,16 +1,17 @@
 package com.baidu.android.imsdk.chatmessage;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatuser.ChatUser;
-import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
+import com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.media.request.IMFetchBusinessSessionMsg;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfosListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
@@ -32,12 +33,13 @@ public class IMMediaBuildSessionListener implements IMListener {
     public static final String TAG = "IMMediaBuildSessionListener";
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger count;
+    public int mConsultUnreadNum;
     public Context mContext;
     public BIMValueCallBack<ArrayList<GroupInfo>> mGetGroupInfoListener;
     public IGetPaInfosListener mGetPaInfosListener;
-    public IGetUserIdentityListener mGetUserIdentityListener;
+    public IGetUsersProfileBatchListener mGetUserIdentityListener;
     public boolean mHasMore;
-    public IMediaGetChatSessionListener mListener;
+    public IMListener mListener;
     public int mNewNum;
     public int mResultCode;
     public List<ChatSession> mResultList;
@@ -70,16 +72,33 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
 
         private void updateChatSessionByGroupInfo(ChatSession chatSession, GroupInfo groupInfo) {
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, groupInfo) == null) && chatSession != null && groupInfo != null) {
                 chatSession.setName(groupInfo.getGroupName());
-                int i = 3;
                 if (groupInfo.getType() == 3) {
                     i = 57;
+                } else {
+                    i = 3;
                 }
                 chatSession.setChatType(i);
                 chatSession.setBusinessType(2);
                 chatSession.setIconUrl(groupInfo.getHeadUrl());
+                if (chatSession.getDisturb() == -1) {
+                    if (groupInfo.getType() != 2 && (groupInfo.getType() != 3 || (groupInfo.getSubType() != 0 && groupInfo.getSubType() != 2000 && groupInfo.getSubType() != 3))) {
+                        chatSession.setDisturb(0);
+                    } else {
+                        chatSession.setDisturb(1);
+                    }
+                }
+                try {
+                    if (groupInfo.getDisturb() != chatSession.getDisturb() || groupInfo.getMarkTop() != chatSession.getMarkTop() || groupInfo.getMarkTopTime() != chatSession.getMarkTopTime()) {
+                        long parseLong = Long.parseLong(groupInfo.getGroupId());
+                        GroupInfoDAOImpl.updateGroupInfoDoNotDisturb(this.this$0.mContext, parseLong, chatSession.getDisturb());
+                        GroupInfoDAOImpl.updateGroupInfoMarkTop(this.this$0.mContext, parseLong, chatSession.getMarkTop(), chatSession.getMarkTopTime());
+                    }
+                } catch (Exception unused) {
+                }
                 if (chatSession.getLastMsgUid() > 0) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(String.valueOf(chatSession.getLastMsgUid()));
@@ -140,29 +159,34 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         private void updateChatSessionByPaInfo(ChatSession chatSession, PaInfo paInfo) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, paInfo) == null) && chatSession != null && paInfo != null) {
-                chatSession.setName(paInfo.getNickName());
-                chatSession.setChatType(paInfo.getSubtype());
-                chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
-                chatSession.setIconUrl(paInfo.getAvatar());
-                chatSession.setClassType(paInfo.getClassType());
-                chatSession.setClassTitle(paInfo.getClassTitle());
-                chatSession.setClassAvatar(paInfo.getClassavatar());
-                chatSession.setClassShow(paInfo.getClassshow());
-                chatSession.setShield(paInfo.getShield());
-                chatSession.setShieldTime(paInfo.getShieldTime());
-                chatSession.setVipId(paInfo.getVipId());
-                chatSession.setVPortrait(paInfo.getVPortrait());
-                chatSession.setCertification(paInfo.getIdentity());
-                try {
-                    PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.this$0.mContext).queryPaInfo(paInfo.getPaId());
-                    if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
-                        paInfo.setMarkTop(chatSession.getMarkTop());
-                        paInfo.setMarkTopTime(chatSession.getLastMsgTime());
-                        PaInfoDBManager.getInstance(this.this$0.mContext).subscribePa(paInfo);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, paInfo) == null) && chatSession != null && paInfo != null && chatSession.getChatType() != 58 && chatSession.getBusinessType() != 27) {
+                if (chatSession.getClassType() > 0) {
+                    chatSession.setLastMsgName(paInfo.getNickName());
+                    chatSession.setNewMsgSum(ChatMessageDBManager.getInstance(this.this$0.mContext).getNewMsgCountOfClass(chatSession.getClassType()));
+                } else {
+                    chatSession.setName(paInfo.getNickName());
+                    chatSession.setChatType(paInfo.getSubtype());
+                    chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
+                    chatSession.setIconUrl(paInfo.getAvatar());
+                    chatSession.setClassType(paInfo.getClassType());
+                    chatSession.setClassTitle(paInfo.getClassTitle());
+                    chatSession.setClassAvatar(paInfo.getClassavatar());
+                    chatSession.setClassShow(paInfo.getClassshow());
+                    chatSession.setVipId(paInfo.getVipId());
+                    chatSession.setVPortrait(paInfo.getVPortrait());
+                    chatSession.setCertification(paInfo.getIdentity());
+                }
+                boolean z = false;
+                if (chatSession.getClassType() <= 0 && (paInfo.getShield() != chatSession.getShield() || paInfo.getShieldTime() != chatSession.getShieldTime() || paInfo.getMarkTop() != chatSession.getMarkTop() || paInfo.getMarkTopTime() != chatSession.getMarkTopTime())) {
+                    z = true;
+                    paInfo.setMarkTop(chatSession.getMarkTop());
+                    paInfo.setMarkTopTime(chatSession.getLastMsgTime());
+                    paInfo.setShield(chatSession.getShield());
+                    paInfo.setShieldTime(chatSession.getShieldTime());
+                }
+                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.this$0.mContext).queryPaInfo(paInfo.getPaId());
+                if (queryPaInfo == null || queryPaInfo.getPaId() < 1 || z) {
+                    PaInfoDBManager.getInstance(this.this$0.mContext).subscribePa(paInfo);
                 }
             }
         }
@@ -188,7 +212,7 @@ public class IMMediaBuildSessionListener implements IMListener {
     }
 
     /* loaded from: classes.dex */
-    public class GetUserIdentityListener implements IGetUserIdentityListener {
+    public class GetUserIdentityListener implements IGetUsersProfileBatchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Map<Long, ChatSession> mUserMap;
@@ -222,34 +246,32 @@ public class IMMediaBuildSessionListener implements IMListener {
                 chatSession.setIconUrl(chatUser.getIconUrl());
                 chatSession.setClassType(0);
                 chatSession.setClassShow(0);
-                chatSession.setShield(chatUser.getShield());
-                chatSession.setShieldTime(chatUser.getShieldTime());
                 chatSession.setVipId(chatUser.getVipId());
                 chatSession.setVPortrait(chatUser.getVPortrait());
                 chatSession.setCertification(chatUser.getIdentity());
                 chatSession.setContacter(chatUser.getUk());
-                try {
-                    ChatUser chatUser2 = ChatUserDBManager.getInstance(this.this$0.mContext).getChatUser(chatUser.getUk());
-                    if (chatUser2 == null || chatUser2.getUk() < 1) {
-                        chatUser.setMarkTop(chatSession.getMarkTop());
-                        chatUser.setMarkTopTime(chatSession.getLastMsgTime());
-                        ChatUserDBManager.getInstance(this.this$0.mContext).updateUser(chatUser);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                chatSession.setSubscribe(chatUser.getSubscribe());
+                if (chatSession.getShield() != chatUser.getShield() || chatSession.getShieldTime() != chatUser.getShieldTime() || chatSession.getMarkTop() != chatUser.getMarkTop() || chatSession.getMarkTopTime() != chatUser.getMarkTop()) {
+                    chatUser.setMarkTop(chatSession.getMarkTop());
+                    chatUser.setMarkTopTime(chatSession.getLastMsgTime());
+                    chatUser.setShield(chatSession.getShield());
+                    chatUser.setShieldTime(chatSession.getShieldTime());
+                    ChatUserDBManager.getInstance(this.this$0.mContext).updateUser(chatUser);
                 }
             }
         }
 
-        @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-        public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+        @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
+        public void onGetUsersProfileBatchResult(int i, String str, ArrayList<Long> arrayList, ArrayList<ChatUser> arrayList2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
-                if (i == 0 && list != null && this.mUserMap != null) {
-                    for (ChatUser chatUser : list) {
-                        ChatSession chatSession = this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, arrayList, arrayList2}) == null) {
+                if (i == 0 && arrayList2 != null && this.mUserMap != null) {
+                    Iterator<ChatUser> it = arrayList2.iterator();
+                    while (it.hasNext()) {
+                        ChatUser next = it.next();
+                        ChatSession chatSession = this.mUserMap.get(Long.valueOf(next.getBuid()));
                         if (chatSession != null) {
-                            updateChatSessionByChatUser(chatSession, chatUser);
+                            updateChatSessionByChatUser(chatSession, next);
                             this.this$0.mResultList.add(chatSession);
                         }
                     }
@@ -259,22 +281,23 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
     }
 
-    public IMMediaBuildSessionListener(Context context, int i, int i2, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public IMMediaBuildSessionListener(Context context, int i, int i2, int i3, boolean z, IMListener iMListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), iMediaGetChatSessionListener};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), iMListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mNewNum = 0;
+        this.mConsultUnreadNum = 0;
         this.mHasMore = false;
         this.mTopHasMore = 0;
         this.mResultList = Collections.synchronizedList(new ArrayList());
@@ -285,9 +308,39 @@ public class IMMediaBuildSessionListener implements IMListener {
         this.count = new AtomicInteger(0);
         this.mContext = context;
         this.mNewNum = i;
+        this.mConsultUnreadNum = i2;
         this.mHasMore = z;
-        this.mListener = iMediaGetChatSessionListener;
-        this.mTopHasMore = i2;
+        this.mListener = iMListener;
+        this.mTopHasMore = i3;
+    }
+
+    public IMMediaBuildSessionListener(Context context, IMListener iMListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, iMListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mNewNum = 0;
+        this.mConsultUnreadNum = 0;
+        this.mHasMore = false;
+        this.mTopHasMore = 0;
+        this.mResultList = Collections.synchronizedList(new ArrayList());
+        this.mGetPaInfosListener = null;
+        this.mGetUserIdentityListener = null;
+        this.mGetGroupInfoListener = null;
+        this.mResultCode = 0;
+        this.count = new AtomicInteger(0);
+        this.mContext = context;
+        this.mListener = iMListener;
     }
 
     public BIMValueCallBack<ArrayList<GroupInfo>> getGroupInfoListener(Map<String, ChatSession> map) {
@@ -316,7 +369,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         return (IGetPaInfosListener) invokeL.objValue;
     }
 
-    public IGetUserIdentityListener getUserIdentityListener(Map<Long, ChatSession> map) {
+    public IGetUsersProfileBatchListener getUserIdentityListener(Map<Long, ChatSession> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
@@ -326,13 +379,13 @@ public class IMMediaBuildSessionListener implements IMListener {
             }
             return this.mGetUserIdentityListener;
         }
-        return (IGetUserIdentityListener) invokeL.objValue;
+        return (IGetUsersProfileBatchListener) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callBack(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
             this.mResultCode |= i;
             if (this.count.decrementAndGet() == 0 && this.mListener != null) {
                 if (this.mResultList.size() > 0) {
@@ -340,7 +393,20 @@ public class IMMediaBuildSessionListener implements IMListener {
                 } else {
                     this.mResultCode = i;
                 }
-                this.mListener.onMediaGetChatSessionResult(0, this.mNewNum, this.mTopHasMore, this.mHasMore, this.mResultList);
+                onResult(0, this.mResultList, this.mListener);
+            }
+        }
+    }
+
+    public void onResult(int i, List<ChatSession> list, IMListener iMListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, list, iMListener) == null) {
+            if (iMListener instanceof IGetMediaMixedChatSessionListener) {
+                ((IGetMediaMixedChatSessionListener) iMListener).onMediaGetChatSessionResult(i, this.mNewNum, this.mConsultUnreadNum, this.mTopHasMore, this.mHasMore, list);
+            } else if (iMListener instanceof IMediaGetChatSessionListener) {
+                ((IMediaGetChatSessionListener) iMListener).onMediaGetChatSessionResult(i, this.mNewNum, this.mTopHasMore, this.mHasMore, list);
+            } else if (iMListener instanceof IMFetchBusinessSessionMsg.CompleteSessionInfoListener) {
+                ((IMFetchBusinessSessionMsg.CompleteSessionInfoListener) iMListener).onResult(i, "", list);
             }
         }
     }

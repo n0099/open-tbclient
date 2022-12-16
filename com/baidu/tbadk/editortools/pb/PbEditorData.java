@@ -19,6 +19,8 @@ public class PbEditorData implements Serializable {
     public String mContent;
     public String mDisableVoiceMessage;
     public int mEditorType;
+    public String mName;
+    public String mPortrait;
     public boolean mShowCustomFigure;
     public String mSubPbReplyPrefix;
     public ThreadData mThreadData;
@@ -243,10 +245,28 @@ public class PbEditorData implements Serializable {
         return invokeV.intValue;
     }
 
-    public String getSubPbReplyPrefix() {
+    public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPortrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSubPbReplyPrefix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mSubPbReplyPrefix;
         }
         return (String) invokeV.objValue;
@@ -255,7 +275,7 @@ public class PbEditorData implements Serializable {
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mThreadData;
         }
         return (ThreadData) invokeV.objValue;
@@ -264,7 +284,7 @@ public class PbEditorData implements Serializable {
     public VoiceData.VoiceModel getVoiceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mVoiceModel;
         }
         return (VoiceData.VoiceModel) invokeV.objValue;
@@ -273,7 +293,7 @@ public class PbEditorData implements Serializable {
     public WriteImagesInfo getWriteImagesInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mWriteImagesInfo;
         }
         return (WriteImagesInfo) invokeV.objValue;
@@ -282,7 +302,7 @@ public class PbEditorData implements Serializable {
     public boolean isOpenVoiceRecordButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.openVoiceRecordButton;
         }
         return invokeV.booleanValue;
@@ -291,7 +311,7 @@ public class PbEditorData implements Serializable {
     public boolean isShowCustomFigure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mShowCustomFigure;
         }
         return invokeV.booleanValue;
@@ -299,63 +319,77 @@ public class PbEditorData implements Serializable {
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.mContent = str;
         }
     }
 
     public void setDisableVoiceMessage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.mDisableVoiceMessage = str;
         }
     }
 
     public void setEditorType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.mEditorType = i;
+        }
+    }
+
+    public void setName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.mName = str;
         }
     }
 
     public void setOpenVoiceRecordButton(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.openVoiceRecordButton = z;
+        }
+    }
+
+    public void setPortrait(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mPortrait = str;
         }
     }
 
     public void setShowCustomFigure(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.mShowCustomFigure = z;
         }
     }
 
     public void setSubPbReplyPrefix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.mSubPbReplyPrefix = str;
         }
     }
 
     public void setThreadData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, threadData) == null) {
             this.mThreadData = threadData;
         }
     }
 
     public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, voiceModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, voiceModel) == null) {
             this.mVoiceModel = voiceModel;
         }
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, writeImagesInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, writeImagesInfo) == null) {
             this.mWriteImagesInfo = writeImagesInfo;
         }
     }

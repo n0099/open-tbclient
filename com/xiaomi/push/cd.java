@@ -39,13 +39,13 @@ public class cd extends cf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-            String m237a = cj.a(context).m237a(str);
-            if (TextUtils.isEmpty(m237a)) {
+            String m247a = cj.a(context).m247a(str);
+            if (TextUtils.isEmpty(m247a)) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("rowDataId in (select ");
-            sb.append("rowDataId from " + m237a);
+            sb.append("rowDataId from " + m247a);
             sb.append(" order by createTimeStamp asc");
             sb.append(" limit ?)");
             return new cd(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
@@ -56,7 +56,7 @@ public class cd extends cf {
     private void a(long j) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cj.d) this).f176a) == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cj.d) this).f199a) == null || strArr.length <= 0) {
             return;
         }
         strArr[0] = String.valueOf(j);
@@ -67,8 +67,8 @@ public class cd extends cf {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
-            long a = cp.a(m239a());
-            long j = cb.f159a;
+            long a = cp.a(m249a());
+            long j = cb.f182a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;

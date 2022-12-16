@@ -97,15 +97,15 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f1, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f4, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09102d);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09108b);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092442);
             this.c = textView;
             textView.setTextSize(0, yi.g(context, R.dimen.T_X06));
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092441);
             oz4 oz4Var = new oz4();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0436));
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f043c));
             this.d.setTextSize(R.dimen.T_X05);
             this.d.setTextHorizontalCenter(true);
             this.d.setConfig(oz4Var);
@@ -128,7 +128,7 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0923ce) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092441) {
             ViewHelper.checkUpIsLogin(this.a);
             HomePageStatic.a = true;
         }

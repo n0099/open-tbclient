@@ -20,6 +20,10 @@ public class TextMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TextMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public String advisoryEncodeAid;
+    public String advisoryExtraAnswerContent;
+    public String advisoryExtraContent;
+    public AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra;
     public long castId;
     public long priority;
     public String text;
@@ -94,13 +98,52 @@ public class TextMsg extends NormalMsg {
                 return;
             }
         }
+        this.advisoryExtraContent = "";
+        this.advisoryExtraAnswerContent = "";
+        this.advisoryEncodeAid = "";
         setMsgType(0);
+    }
+
+    public AdvisoryMsgBusinessExtra getAdvisoryBusinessExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.advisoryMsgBusinessExtra;
+        }
+        return (AdvisoryMsgBusinessExtra) invokeV.objValue;
+    }
+
+    public String getAdvisoryEncodeAid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.advisoryEncodeAid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAdvisoryExtraAnswerContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.advisoryExtraAnswerContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAdvisoryExtraContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.advisoryExtraContent;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getCastId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.castId;
         }
         return invokeV.longValue;
@@ -109,7 +152,7 @@ public class TextMsg extends NormalMsg {
     public long getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.priority;
         }
         return invokeV.longValue;
@@ -119,7 +162,7 @@ public class TextMsg extends NormalMsg {
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return getText();
         }
         return (String) invokeV.objValue;
@@ -128,7 +171,7 @@ public class TextMsg extends NormalMsg {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.text;
         }
         return (String) invokeV.objValue;
@@ -152,6 +195,9 @@ public class TextMsg extends NormalMsg {
                 return;
             }
         }
+        this.advisoryExtraContent = "";
+        this.advisoryExtraAnswerContent = "";
+        this.advisoryEncodeAid = "";
         this.text = parcel.readString();
         this.castId = parcel.readLong();
         this.priority = parcel.readLong();
@@ -160,7 +206,7 @@ public class TextMsg extends NormalMsg {
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.text);
             parcel.writeLong(this.castId);
@@ -183,15 +229,18 @@ public class TextMsg extends NormalMsg {
                 return;
             }
         }
+        this.advisoryExtraContent = "";
+        this.advisoryExtraAnswerContent = "";
+        this.advisoryEncodeAid = "";
         setMsgType(0);
         this.text = str;
         setText(str);
     }
 
-    private String getTextJson(String str) {
+    public String getTextJson(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("text", str);
@@ -205,21 +254,21 @@ public class TextMsg extends NormalMsg {
 
     public void setCastId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             this.castId = j;
         }
     }
 
     public void setPriority(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             this.priority = j;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             setMsgContent(getTextJson(str));
         }
     }
@@ -228,11 +277,20 @@ public class TextMsg extends NormalMsg {
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             String jsonContent = getJsonContent();
             if (!TextUtils.isEmpty(jsonContent)) {
                 try {
-                    this.text = new JSONObject(jsonContent).optString("text");
+                    JSONObject jSONObject = new JSONObject(jsonContent);
+                    this.text = jSONObject.optString("text");
+                    String optString = jSONObject.optString("business_ext");
+                    if (!TextUtils.isEmpty(optString)) {
+                        JSONObject jSONObject2 = new JSONObject(optString);
+                        this.advisoryExtraContent = jSONObject2.optString("extraContent");
+                        this.advisoryExtraAnswerContent = jSONObject2.optString("extraAnswerContent");
+                        this.advisoryEncodeAid = jSONObject2.optString("encodeAid");
+                    }
+                    this.advisoryMsgBusinessExtra = AdvisoryMsgBusinessExtra.parseAdvisoryExtra(optString);
                     return true;
                 } catch (JSONException e) {
                     LogUtils.e("TextMsg", "parse json err!", e);

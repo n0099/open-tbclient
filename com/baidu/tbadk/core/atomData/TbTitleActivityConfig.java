@@ -34,6 +34,6 @@ public class TbTitleActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("forumName", str);
-        intent.putExtra(FORUM_ID, str2);
+        intent.putExtra("forumId", str2);
     }
 }

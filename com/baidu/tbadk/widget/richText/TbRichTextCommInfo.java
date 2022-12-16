@@ -32,8 +32,9 @@ public class TbRichTextCommInfo extends OrmObject {
     public String g;
     public String h;
     public int i;
+    public int j;
     @Nullable
-    public PbContent j;
+    public PbContent k;
 
     public TbRichTextCommInfo() {
         Interceptable interceptable = $ic;
@@ -56,46 +57,64 @@ public class TbRichTextCommInfo extends OrmObject {
         this.i = 0;
     }
 
-    public String A() {
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public String B() {
+    public String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
         return (String) invokeV.objValue;
     }
 
     @Nullable
-    public PbContent C() {
+    public PbContent J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
         }
         return (PbContent) invokeV.objValue;
     }
 
-    public int D() {
+    public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.i;
         }
         return invokeV.intValue;
     }
 
-    public void E() {
+    public void M() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             String str = this.a;
             if (str != null) {
                 this.a = str.replaceAll("\n", "");
@@ -110,7 +129,7 @@ public class TbRichTextCommInfo extends OrmObject {
     public String getItemForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
@@ -119,7 +138,7 @@ public class TbRichTextCommInfo extends OrmObject {
     public String getLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
@@ -128,19 +147,10 @@ public class TbRichTextCommInfo extends OrmObject {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
     }
 
     public TbRichTextCommInfo(String str, String str2) {
@@ -197,6 +207,7 @@ public class TbRichTextCommInfo extends OrmObject {
         this.c = jSONObject.optString("item_id");
         this.e = jSONObject.optInt("type", 0);
         this.i = jSONObject.optInt("url_type", 0);
+        this.j = jSONObject.optInt("link_type", 0);
         int optInt = jSONObject.optInt("is_native_app", 0);
         this.f = optInt;
         if (optInt != 1) {
@@ -245,13 +256,14 @@ public class TbRichTextCommInfo extends OrmObject {
         if (pbContent == null) {
             return;
         }
-        this.j = pbContent;
+        this.k = pbContent;
         this.a = pbContent.text;
         this.b = pbContent.link;
         this.e = pbContent.type.intValue();
         this.c = pbContent.item_id + "";
         this.d = pbContent.item_forum_name;
         this.i = pbContent.url_type.intValue();
+        this.j = pbContent.link_type.intValue();
         int intValue = pbContent.is_native_app.intValue();
         this.f = intValue;
         if (intValue != 1) {
@@ -280,14 +292,14 @@ public class TbRichTextCommInfo extends OrmObject {
 
     public void setLink(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.b = str;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.a = str;
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.kernel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IKernelPlayer {
     void onBufferingUpdate(int i);
 

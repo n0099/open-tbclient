@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.gslbsdk.db.DelayTB;
 import java.nio.ByteBuffer;
@@ -174,7 +175,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
             bundle.putLong("itemaddr", this.mLayerID);
             bundle.putInt("bshow", 1);
             if (z) {
-                bundle.putString("extparam", "update");
+                bundle.putString("extparam", StickerDataChangeType.UPDATE);
             }
             for (int i = 0; i < list.size(); i++) {
                 OverlayItem overlayItem = list.get(i);

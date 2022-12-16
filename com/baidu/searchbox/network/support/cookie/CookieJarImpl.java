@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.support.cookie;
 
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.cookie.CookieManager;
 import com.baidu.searchbox.network.outback.core.UrlWrapper;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CookieJarImpl implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public class CookieJarImpl implements CookieJar {
             int i = 0;
             while (i < length) {
                 int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
+                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) a.h);
                 String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
                 if (delimiterOffset2 < delimiterOffset) {
                     str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);

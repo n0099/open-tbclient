@@ -2,7 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,17 +25,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.data.ChatTabUnreadCountData;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ec5;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.i79;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.z39;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f15f2);
+                        tbPageContext.showToast((int) R.string.vr_plugin_not_available);
                         return 1;
                     }
                 }
@@ -122,7 +122,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    ly4.d((Activity) data);
+                    my4.d((Activity) data);
                 }
             }
         }
@@ -162,10 +162,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            ly4.f(tbPageContext.getPageActivity(), 1, true);
+                            my4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            ly4.f(tbPageContext.getPageActivity(), 2, true);
+                            my4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -198,7 +198,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            ly4.f(tbPageContext.getPageActivity(), i, true);
+                            my4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -286,10 +286,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                mb5.b().m(mb5.b().j());
-                mb5.b().c();
-            } else if (!mb5.b().i() && mb5.b().k()) {
-                mb5.b().o();
+                ec5.b().m(ec5.b().j());
+                ec5.b().c();
+            } else if (!ec5.b().i() && ec5.b().k()) {
+                ec5.b().o();
             }
         }
     }
@@ -328,10 +328,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                mb5.b().m(mb5.b().j());
-                mb5.b().c();
-            } else if (!mb5.b().i() && mb5.b().k()) {
-                mb5.b().o();
+                ec5.b().m(ec5.b().j());
+                ec5.b().c();
+            } else if (!ec5.b().i() && ec5.b().k()) {
+                ec5.b().o();
             }
         }
     }
@@ -387,11 +387,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                z39.j(tbPageContext, "", forumWriteData);
+                                i79.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                z39.j(tbPageContext, str2, forumWriteData2);
+                                i79.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -622,8 +622,11 @@ public class MainTabActivityStatic {
         if (b2 != a || c2 != b) {
             a = b2;
             b = c2;
-            qy4.k().w("message_count", b2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
+            ry4.l().x("message_count", b2);
+            ChatTabUnreadCountData chatTabUnreadCountData = new ChatTabUnreadCountData();
+            chatTabUnreadCountData.setCountNum(b2);
+            chatTabUnreadCountData.setShowTip(c2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, chatTabUnreadCountData));
         }
     }
 

@@ -1,12 +1,11 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +17,8 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class DefaultConfig implements IIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int HEARTBEAT_TYPE_NORMAL = 0;
+    public static final int HEARTBEAT_TYPE_NO_ALAMRMANAGER = 1;
     public static final String TOKEN_SEPARATOR = ".";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mRootComplete;
@@ -81,16 +82,6 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public boolean isMsgTypeSupported(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IIMConfig
     public boolean isNeedPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,6 +141,16 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
+    public boolean isMsgTypeSupported(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return BIMManager.isSupportMsgType(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IIMConfig
     public void setRootComplete(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
@@ -182,7 +183,6 @@ public class DefaultConfig implements IIMConfig {
                 }
                 return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
             } catch (Exception e) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e("CRMConfig", "parseTokenToChatObject", e);
                 return null;
             }

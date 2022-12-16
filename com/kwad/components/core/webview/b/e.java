@@ -7,7 +7,7 @@ import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.components.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface e {
     void a(q qVar);
 

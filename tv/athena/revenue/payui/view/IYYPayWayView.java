@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.n7a;
-import com.baidu.tieba.o7a;
-import com.baidu.tieba.p8a;
+import com.baidu.tieba.uaa;
+import com.baidu.tieba.waa;
+import com.baidu.tieba.xaa;
+import com.baidu.tieba.yba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,15 +17,15 @@ import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends p8a {
+public interface IYYPayWayView extends yba {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(o7a o7aVar, l7a l7aVar, AppCustomExpand appCustomExpand);
+        void a(xaa xaaVar, uaa uaaVar, AppCustomExpand appCustomExpand);
 
-        void b(o7a o7aVar, l7a l7aVar, AppCustomExpand appCustomExpand);
+        void b(xaa xaaVar, uaa uaaVar, AppCustomExpand appCustomExpand);
 
-        void c(n7a n7aVar);
+        void c(waa waaVar);
 
         void onRefreshViewFail(int i, String str);
 
@@ -112,7 +112,7 @@ public interface IYYPayWayView extends p8a {
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
         public String b;
-        public l7a c;
+        public uaa c;
         public AppCustomExpand d;
         public Map<String, String> e;
         public boolean f;

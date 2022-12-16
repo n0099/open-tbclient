@@ -44,18 +44,19 @@ public class xf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public bg a;
-    public HttpURLConnection b;
-    public long c;
+    public boolean b;
+    public HttpURLConnection c;
     public long d;
     public long e;
     public long f;
     public long g;
-    public boolean h;
+    public long h;
     public boolean i;
-    public int j;
-    public TimerTask k;
+    public boolean j;
+    public int k;
     public TimerTask l;
-    public Timer m;
+    public TimerTask m;
+    public Timer n;
 
     /* loaded from: classes6.dex */
     public class a extends TimerTask {
@@ -123,7 +124,7 @@ public class xf {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    wg.f(this.a.b);
+                    wg.f(this.a.c);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -193,7 +194,7 @@ public class xf {
             if (bgVar != null && bgVar.c() != null) {
                 this.a.c().a = true;
             }
-            wg.f(this.b);
+            wg.f(this.c);
         }
     }
 
@@ -201,7 +202,7 @@ public class xf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return this.h;
         }
         return invokeV.longValue;
     }
@@ -210,7 +211,7 @@ public class xf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
+            return this.f;
         }
         return invokeV.longValue;
     }
@@ -219,7 +220,7 @@ public class xf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+            return this.d;
         }
         return invokeV.longValue;
     }
@@ -228,7 +229,7 @@ public class xf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
+            return this.e;
         }
         return invokeV.longValue;
     }
@@ -237,7 +238,7 @@ public class xf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
+            return this.g;
         }
         return invokeV.longValue;
     }
@@ -269,19 +270,21 @@ public class xf {
                 return;
             }
         }
-        this.c = 0L;
+        this.b = false;
         this.d = 0L;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.h = false;
-        this.i = true;
-        this.j = 0;
-        this.k = new a(this);
-        this.l = new b(this);
-        this.m = new Timer();
+        this.h = 0L;
+        this.i = false;
+        this.j = true;
+        this.k = 0;
+        this.l = new a(this);
+        this.m = new b(this);
+        this.n = new Timer();
         if (bgVar != null) {
             this.a = bgVar;
+            this.b = ((wf) ServiceManager.getService(wf.a)).netABTest();
             return;
         }
         throw new NullPointerException("init HttpImpl's args context is null");
@@ -290,14 +293,14 @@ public class xf {
     public void q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.j = i;
+            this.k = i;
         }
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.i = z;
+            this.j = z;
         }
     }
 
@@ -309,11 +312,11 @@ public class xf {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                 ui.c(byteArrayInputStream, byteArrayOutputStream);
-                this.g = System.currentTimeMillis();
+                this.h = System.currentTimeMillis();
                 return byteArrayOutputStream.toByteArray();
             }
-            if (this.g == 0) {
-                this.g = System.currentTimeMillis();
+            if (this.h == 0) {
+                this.h = System.currentTimeMillis();
             }
             return bArr;
         }
@@ -352,14 +355,14 @@ public class xf {
                 k = this.a.b().k(true);
                 agVar2.s = k;
                 m = m(k, false, agVar2, null);
-                this.b = g(m, i2, i);
+                this.c = g(m, i2, i);
             } catch (Throwable th) {
                 th = th;
             }
             if (this.a.c().a) {
-                this.f = System.currentTimeMillis();
+                this.g = System.currentTimeMillis();
                 wg.c(null);
-                wg.f(this.b);
+                wg.f(this.c);
                 wg.d(null);
                 return false;
             }
@@ -380,35 +383,35 @@ public class xf {
                     long length = i3.length();
                     FileOutputStream fileOutputStream2 = new FileOutputStream(i3, true);
                     try {
-                        this.a.b().t(this.b);
-                        this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                        this.b.connect();
-                        if (this.c <= 0) {
+                        this.a.b().t(this.c);
+                        this.c.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.c.connect();
+                        if (this.d <= 0) {
                             try {
-                                this.c = System.currentTimeMillis();
+                                this.d = System.currentTimeMillis();
                             } catch (Throwable th3) {
                                 th = th3;
                                 inputStream3 = null;
                                 fileOutputStream = fileOutputStream2;
                             }
                         }
-                        this.d = System.currentTimeMillis();
-                        int responseCode = this.b.getResponseCode();
                         this.e = System.currentTimeMillis();
+                        int responseCode = this.c.getResponseCode();
+                        this.f = System.currentTimeMillis();
                         if (responseCode == 302) {
-                            url = this.b.getURL();
+                            url = this.c.getURL();
                             if (url != null) {
                                 agVar2.r = url.toString();
                             }
                             if (url != null) {
                                 i6 = responseCode;
                                 if (!TextUtils.equals(url.getProtocol(), m.getProtocol())) {
-                                    wg.f(this.b);
-                                    this.b = g(new URL(url.toString()), i2, i);
-                                    this.a.b().t(this.b);
-                                    this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                                    this.b.connect();
-                                    responseCode = this.b.getResponseCode();
+                                    wg.f(this.c);
+                                    this.c = g(new URL(url.toString()), i2, i);
+                                    this.a.b().t(this.c);
+                                    this.c.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.c.connect();
+                                    responseCode = this.c.getResponseCode();
                                     z3 = true;
                                 }
                             } else {
@@ -421,13 +424,13 @@ public class xf {
                             url = null;
                         }
                         this.a.c().b = responseCode;
-                        String headerField2 = this.b.getHeaderField("Content-Range");
+                        String headerField2 = this.c.getHeaderField("Content-Range");
                         if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                             i4 = xg.e(headerField2.substring(indexOf + 1), 0);
                         } else {
                             i4 = 0;
                         }
-                        if (i4 == 0 && this.a.c().b == 200 && (headerField = this.b.getHeaderField("Content-Length")) != null) {
+                        if (i4 == 0 && this.a.c().b == 200 && (headerField = this.c.getHeaderField("Content-Length")) != null) {
                             i4 = xg.e(headerField, 0);
                         }
                         this.a.c().f = String.valueOf(i4);
@@ -440,41 +443,41 @@ public class xf {
                                 str2 = str2 + "url=" + m + "-newUrl=" + url;
                             } else if (responseCode == 416) {
                                 if (i4 > 0 && i4 == length) {
-                                    this.f = System.currentTimeMillis();
+                                    this.g = System.currentTimeMillis();
                                     wg.c(null);
-                                    wg.f(this.b);
+                                    wg.f(this.c);
                                     wg.d(fileOutputStream2);
                                     return false;
                                 }
                                 str2 = "fileLen=" + length + "-contentLen=" + i4;
                             }
                             throw new UnsupportedOperationException(str2);
-                        } else if (this.b.getContentType() != null && this.b.getContentType().contains("text/vnd.wap.wml")) {
-                            this.b.disconnect();
+                        } else if (this.c.getContentType() != null && this.c.getContentType().contains("text/vnd.wap.wml")) {
+                            this.c.disconnect();
                             this.a.c().b = 0;
                             boolean d = d(str, fgVar, i, i2, z, agVar2, z2);
-                            this.f = System.currentTimeMillis();
+                            this.g = System.currentTimeMillis();
                             wg.c(null);
-                            wg.f(this.b);
+                            wg.f(this.c);
                             wg.d(fileOutputStream2);
                             return d;
                         } else {
                             agVar2.a = k.getBytes().length;
-                            long length2 = this.b.getHeaderFields().toString().getBytes().length;
+                            long length2 = this.c.getHeaderFields().toString().getBytes().length;
                             agVar2.b = length2;
                             long j = i4;
                             agVar2.b = length2 + j;
                             if (i4 != 0 && length >= j) {
-                                this.f = System.currentTimeMillis();
-                                this.f = System.currentTimeMillis();
+                                this.g = System.currentTimeMillis();
+                                this.g = System.currentTimeMillis();
                                 wg.c(null);
-                                wg.f(this.b);
+                                wg.f(this.c);
                                 wg.d(fileOutputStream2);
                                 return true;
                             }
                             inputStream2 = null;
                             try {
-                                inputStream2 = this.b.getInputStream();
+                                inputStream2 = this.c.getInputStream();
                                 byte[] bArr = new byte[1024];
                                 if (i4 > 0) {
                                     i5 = i4 / 50;
@@ -522,9 +525,9 @@ public class xf {
                                     } else {
                                         z4 = false;
                                     }
-                                    this.f = System.currentTimeMillis();
+                                    this.g = System.currentTimeMillis();
                                     wg.c(inputStream2);
-                                    wg.f(this.b);
+                                    wg.f(this.c);
                                     wg.d(fileOutputStream2);
                                     return z4;
                                 } catch (Exception unused2) {
@@ -534,9 +537,9 @@ public class xf {
                                 th = th4;
                                 inputStream3 = inputStream2;
                                 fileOutputStream = fileOutputStream2;
-                                this.f = System.currentTimeMillis();
+                                this.g = System.currentTimeMillis();
                                 wg.c(inputStream3);
-                                wg.f(this.b);
+                                wg.f(this.c);
                                 wg.d(fileOutputStream);
                                 throw th;
                             }
@@ -559,9 +562,9 @@ public class xf {
             }
             inputStream3 = inputStream;
             fileOutputStream = inputStream3;
-            this.f = System.currentTimeMillis();
+            this.g = System.currentTimeMillis();
             wg.c(inputStream3);
-            wg.f(this.b);
+            wg.f(this.c);
             wg.d(fileOutputStream);
             throw th;
         }
@@ -606,7 +609,7 @@ public class xf {
                 if (httpsURLConnection == null) {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                if (this.h && url.getProtocol().equals("https")) {
+                if (this.i && url.getProtocol().equals("https")) {
                     HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
                     httpsURLConnection2.setSSLSocketFactory(new gg(httpsURLConnection2));
                     httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
@@ -652,14 +655,14 @@ public class xf {
                     URL m = m(f, z2, agVar, igVar);
                     if (!this.a.c().a) {
                         agVar.j = -2;
-                        if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                        if (this.b) {
                             hgVar = new zf(this.a, IHttpNet.HttpNetType.GET);
                         } else {
                             hgVar = new hg(this.a, IHttpNet.HttpNetType.GET);
                         }
                         IHttpNet iHttpNet2 = hgVar;
                         iHttpNet2.e(m);
-                        iHttpNet2.g(m, this.h);
+                        iHttpNet2.g(m, this.i);
                         agVar.j = -3;
                         long currentTimeMillis = System.currentTimeMillis();
                         iHttpNet2.a(m, i2, i);
@@ -668,19 +671,19 @@ public class xf {
                             agVar.g = new Date().getTime() - currentTimeMillis;
                             agVar.j = -4;
                             iHttpNet2.connect();
-                            if (this.c <= 0) {
-                                this.c = System.currentTimeMillis();
+                            if (this.d <= 0) {
+                                this.d = System.currentTimeMillis();
                             }
-                            this.d = System.currentTimeMillis();
+                            this.e = System.currentTimeMillis();
                             agVar.j = -5;
                             agVar.c = (new Date().getTime() - currentTimeMillis) - agVar.g;
                             if (!this.a.c().a) {
                                 byte[] execute = iHttpNet2.execute();
                                 this.a.c().a(iHttpNet2);
-                                if (this.a.b().m() && this.m != null && this.j >= 0 && this.j < 3) {
-                                    this.m.schedule(this.l, (this.j + 1) * 3000);
+                                if (this.a.b().m() && this.n != null && this.k >= 0 && this.k < 3) {
+                                    this.n.schedule(this.m, (this.k + 1) * 3000);
                                 }
-                                this.e = System.currentTimeMillis();
+                                this.f = System.currentTimeMillis();
                                 iHttpNet2.h();
                                 agVar.j = -8;
                                 if (f.contains("tiebac.baidu.com") && (map = this.a.c().h) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
@@ -692,8 +695,8 @@ public class xf {
                                 }
                                 agVar.i = this.a.c().b;
                                 agVar.b = iHttpNet2.b().toString().getBytes().length;
-                                if (this.m != null) {
-                                    this.m.cancel();
+                                if (this.n != null) {
+                                    this.n.cancel();
                                 }
                                 if (execute != null) {
                                     agVar.b += execute.length;
@@ -701,7 +704,7 @@ public class xf {
                                 }
                                 agVar.j = -9;
                                 agVar.d = new Date().getTime() - currentTimeMillis;
-                                Timer timer = this.m;
+                                Timer timer = this.n;
                                 if (timer != null) {
                                     timer.cancel();
                                 }
@@ -716,7 +719,7 @@ public class xf {
                 }
                 throw new BdHttpCancelException();
             } catch (Throwable th) {
-                Timer timer2 = this.m;
+                Timer timer2 = this.n;
                 if (timer2 != null) {
                     timer2.cancel();
                 }
@@ -740,14 +743,14 @@ public class xf {
                 URL m = m(k, z2, agVar, igVar);
                 if (!this.a.c().a) {
                     agVar.j = -2;
-                    if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                    if (this.b) {
                         hgVar = new zf(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     } else {
                         hgVar = new hg(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     }
                     IHttpNet iHttpNet2 = hgVar;
                     iHttpNet2.e(m);
-                    iHttpNet2.g(m, this.h);
+                    iHttpNet2.g(m, this.i);
                     agVar.j = -3;
                     System.currentTimeMillis();
                     iHttpNet2.a(m, i2, i);
@@ -758,15 +761,15 @@ public class xf {
                             agVar.g = new Date().getTime() - time;
                             agVar.j = -4;
                             iHttpNet2.connect();
-                            if (this.c <= 0) {
-                                this.c = System.currentTimeMillis();
+                            if (this.d <= 0) {
+                                this.d = System.currentTimeMillis();
                             }
-                            this.d = System.currentTimeMillis();
+                            this.e = System.currentTimeMillis();
                             agVar.j = -5;
                             agVar.c = (new Date().getTime() - time) - agVar.g;
                             if (!this.a.c().a) {
-                                if (this.m != null) {
-                                    this.m.schedule(this.k, 45000L);
+                                if (this.n != null) {
+                                    this.n.schedule(this.l, 45000L);
                                 }
                                 agVar.j = -6;
                                 iHttpNet2.c();
@@ -774,7 +777,7 @@ public class xf {
                                 byte[] execute = iHttpNet2.execute();
                                 this.a.c().a(iHttpNet2);
                                 iHttpNet2.h();
-                                this.e = System.currentTimeMillis();
+                                this.f = System.currentTimeMillis();
                                 if (!this.a.c().a) {
                                     agVar.j = -8;
                                     agVar.i = this.a.c().b;
@@ -787,7 +790,7 @@ public class xf {
                                     }
                                     agVar.d = new Date().getTime() - time;
                                     agVar.j = -9;
-                                    Timer timer = this.m;
+                                    Timer timer = this.n;
                                     if (timer != null) {
                                         timer.cancel();
                                     }
@@ -804,7 +807,7 @@ public class xf {
                 }
                 throw new BdHttpCancelException();
             } catch (Throwable th) {
-                Timer timer2 = this.m;
+                Timer timer2 = this.n;
                 if (timer2 != null) {
                     timer2.cancel();
                 }
@@ -816,7 +819,7 @@ public class xf {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0090  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -827,12 +830,11 @@ public class xf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), agVar, igVar})) == null) {
             String str3 = "hiphotos.baidu.com";
-            boolean netABTest = ((wf) ServiceManager.getService(wf.a)).netABTest();
             URL url = new URL(str);
-            if (netABTest && url.getProtocol().equals("https")) {
+            if (this.b) {
                 return url;
             }
-            if (!TextUtils.isEmpty(str) && this.i) {
+            if (!TextUtils.isEmpty(str) && this.j) {
                 try {
                     String host = url.getHost();
                     if (!TextUtils.isEmpty(host)) {
@@ -848,7 +850,7 @@ public class xf {
                                 z2 = true;
                                 if (b2 != null && b2.size() > 0) {
                                     agVar.p = b2.toString();
-                                    int size = this.j % b2.size();
+                                    int size = this.k % b2.size();
                                     str2 = b2.get(size);
                                     if (!TextUtils.isEmpty(str2)) {
                                         if (z2) {
@@ -861,7 +863,7 @@ public class xf {
                                             this.a.b().a("Host", str3);
                                             URL url2 = new URL(str.replaceFirst("://(.*)" + str3, "://" + str2));
                                             try {
-                                                this.h = true;
+                                                this.i = true;
                                                 agVar.q = size;
                                                 agVar.l = str2;
                                                 agVar.n = true;
@@ -880,7 +882,7 @@ public class xf {
                             b2 = r.a();
                             if (b2 != null) {
                                 agVar.p = b2.toString();
-                                int size2 = this.j % b2.size();
+                                int size2 = this.k % b2.size();
                                 str2 = b2.get(size2);
                                 if (!TextUtils.isEmpty(str2)) {
                                 }
@@ -908,14 +910,14 @@ public class xf {
                 URL m = m(k, z2, agVar, igVar);
                 if (!this.a.c().a) {
                     agVar.j = -2;
-                    if (((wf) ServiceManager.getService(wf.a)).netABTest()) {
+                    if (this.b) {
                         hgVar = new zf(this.a, IHttpNet.HttpNetType.POST_FORM);
                     } else {
                         hgVar = new hg(this.a, IHttpNet.HttpNetType.POST_FORM);
                     }
                     IHttpNet iHttpNet2 = hgVar;
                     iHttpNet2.e(m);
-                    iHttpNet2.g(m, this.h);
+                    iHttpNet2.g(m, this.i);
                     iHttpNet2.a(m, i2, i);
                     agVar.j = -3;
                     long currentTimeMillis = System.currentTimeMillis();
@@ -925,10 +927,10 @@ public class xf {
                             agVar.g = System.currentTimeMillis() - currentTimeMillis;
                             agVar.j = -4;
                             iHttpNet2.connect();
-                            if (this.c <= 0) {
-                                this.c = System.currentTimeMillis();
+                            if (this.d <= 0) {
+                                this.d = System.currentTimeMillis();
                             }
-                            this.d = System.currentTimeMillis();
+                            this.e = System.currentTimeMillis();
                             agVar.j = -5;
                             agVar.c = (System.currentTimeMillis() - currentTimeMillis) - agVar.g;
                             if (!this.a.c().a) {
@@ -937,10 +939,10 @@ public class xf {
                                 agVar.j = -7;
                                 if (!this.a.c().a) {
                                     iHttpNet2.h();
-                                    this.e = System.currentTimeMillis();
+                                    this.f = System.currentTimeMillis();
                                     agVar.j = -8;
                                     byte[] execute = iHttpNet2.execute();
-                                    this.f = System.currentTimeMillis();
+                                    this.g = System.currentTimeMillis();
                                     this.a.c().a(iHttpNet2);
                                     agVar.i = this.a.c().b;
                                     long length = this.a.c().h.toString().getBytes().length;

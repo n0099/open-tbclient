@@ -478,7 +478,7 @@ public final class RecyleController implements IListManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1039view;
+        public final View f1063view;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LiveHolder(View view2) {
@@ -498,14 +498,14 @@ public final class RecyleController implements IListManager {
                     return;
                 }
             }
-            this.f1039view = view2;
+            this.f1063view = view2;
         }
 
         public final View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f1039view;
+                return this.f1063view;
             }
             return (View) invokeV.objValue;
         }

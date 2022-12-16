@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DetailVideoView extends KSFrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
     public final RectF Kl;
     public Matrix mMatrix;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onClickRootView();
 

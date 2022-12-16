@@ -1,6 +1,7 @@
 package com.google.zxing.qrcode.encoder;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALPHANUMERIC_TABLE;
@@ -28,7 +29,7 @@ public final class Encoder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -336,7 +337,7 @@ public final class Encoder {
                 int sizeInBytes = i - bitArray.getSizeInBytes();
                 for (int i5 = 0; i5 < sizeInBytes; i5++) {
                     if ((i5 & 1) == 0) {
-                        i2 = 236;
+                        i2 = Constants.METHOD_IM_CONSULT_NOTIFY_MSG;
                     } else {
                         i2 = 17;
                     }

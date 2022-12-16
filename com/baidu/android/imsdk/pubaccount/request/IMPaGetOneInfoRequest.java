@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -13,7 +12,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfoListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -89,14 +88,28 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         ArrayList<Long> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65537, this, num, str, iGetPaInfoListener) == null) && (arrayList = this.mPaids) != null && arrayList.size() > 0) {
+            Integer num2 = 1025;
             PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(this.mPaids.get(0).longValue());
             if (iGetPaInfoListener != null) {
                 if (queryPaInfo != null) {
                     iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
                 } else {
-                    iGetPaInfoListener.onGetPaInfoResult(num.intValue(), str, null);
+                    iGetPaInfoListener.onGetPaInfoResult(num2.intValue(), str, null);
                 }
             }
+        }
+    }
+
+    private void reportPa(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, this, str, i, str2) == null) {
+            CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+            debugInfo.curClassName = TAG;
+            debugInfo.extInfo = "getPaInfoList == null, server msg: " + str;
+            if (i != 0) {
+                debugInfo.extInfo += ", getPa error : " + i;
+            }
+            CaseUbc.debugUbc(this.mContext, "all_pa_detail_list", i, str2, debugInfo);
         }
     }
 
@@ -149,7 +162,6 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 }
             } catch (JSONException e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
             return jSONObject.toString().getBytes();
         }
@@ -165,8 +177,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x020b  */
+    /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -196,9 +208,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                     for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                         try {
                             JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                            if (jSONObject2.optInt("pa_type") != 16) {
+                            if (jSONObject2.optInt(Constants.EXTRA_PA_TYPE) != 16) {
                                 PaInfo paInfo2 = new PaInfo();
-                                paInfo2.setPaId(jSONObject2.optLong("pa_uid"));
+                                paInfo2.setPaId(jSONObject2.optLong(Constants.EXTRA_PAUID_TYPE));
                                 paInfo2.setNickName(jSONObject2.optString("pa_nickname"));
                                 paInfo2.setUsername(jSONObject2.optString("pa_username"));
                                 paInfo2.setAvatar(jSONObject2.optString("pa_avatar"));
@@ -209,7 +221,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                                 paInfo2.setUrl(jSONObject2.optString("pa_url"));
                                 paInfo2.setSubcribeTime(jSONObject2.optLong("create_time"));
                                 paInfo2.setDisturb(jSONObject2.optInt("do_not_disturb"));
-                                paInfo2.setSubtype(jSONObject2.optInt("pa_type"));
+                                paInfo2.setSubtype(jSONObject2.optInt(Constants.EXTRA_PA_TYPE));
                                 paInfo2.setClassType(jSONObject2.optInt("pa_classtype", 0));
                                 paInfo2.setClasstitle(jSONObject2.optString("pa_classtitle"));
                                 paInfo2.setClassAvatar(jSONObject2.optString("pa_classavatar"));
@@ -219,9 +231,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                                 paInfo2.setPaExt(optString);
                                 if (!TextUtils.isEmpty(optString)) {
                                     try {
-                                        paInfo2.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                    } catch (JSONException e2) {
-                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+                                        JSONObject jSONObject3 = new JSONObject(optString);
+                                        paInfo2.setSubsetType(jSONObject3.optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                        paInfo2.setShieldMsg(new JSONObject(jSONObject3.optString("pa_attributes")).optInt(TableDefine.PaSubscribeColumns.COLUMN_SHIELD_MSG, 0));
+                                    } catch (JSONException unused) {
+                                        LogUtils.d(TAG, "set patype JSONException");
                                     }
                                 }
                                 paInfo2.setVipId(jSONObject2.optString("vip"));
@@ -231,19 +245,22 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                                 paInfo2.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
                                 paInfo2.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
                                 PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo2.getPaId());
+                                paInfo2.setBduid(jSONObject2.optLong("bduid"));
+                                paInfo2.setImUk(jSONObject2.optLong("uk"));
+                                paInfo2.setSubscribe(jSONObject2.optInt("relation_follow"));
                                 if (queryPaInfo != null) {
                                     paInfo2.setMarkTop(queryPaInfo.getMarkTop());
                                     paInfo2.setMarkTopTime(queryPaInfo.getMarkTopTime());
                                     paInfo2.setShield(queryPaInfo.getShield());
                                     paInfo2.setShieldTime(queryPaInfo.getShieldTime());
                                 }
+                                paInfo2.setMapType(jSONObject2.optInt("map_type", 0));
                                 arrayList.add(paInfo2);
                             }
-                        } catch (JSONException e3) {
-                            e = e3;
+                        } catch (JSONException e2) {
+                            e = e2;
                             LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                             i2 = 1010;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                             iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
                             if (iGetPaInfoListener != null) {
@@ -260,7 +277,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                             paInfo = (PaInfo) arrayList.get(0);
                         }
                         if (paInfo != null) {
-                            iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
+                            iGetPaInfoListener.onGetPaInfoResult(i2, str, paInfo);
                             return;
                         } else {
                             onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
@@ -269,8 +286,10 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                     }
                     return;
                 }
+                reportPa(str2, i2, str);
             } else {
                 LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
+                reportPa(str2, i2, str);
             }
             arrayList = null;
             iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);

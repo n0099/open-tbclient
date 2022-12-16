@@ -6,10 +6,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -116,18 +114,17 @@ public class IMDatabase {
             synchronized (IMDatabase.class) {
                 String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j + ".db").getPath();
                 if (mDbHelper == null) {
-                    mDbHelper = new DbOpenHelper(context, path2, 50);
+                    mDbHelper = new DbOpenHelper(context, path2, 77);
                 } else {
                     try {
                         path = mDbHelper.getReadableDatabase().getPath();
                     } catch (SQLiteException e) {
                         LogUtils.e("IMDatabase", "", e);
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                     }
                     if (!path.equals(path2)) {
                         mDbHelper.close();
                         mDbHelper = null;
-                        mDbHelper = new DbOpenHelper(context, path2, 50);
+                        mDbHelper = new DbOpenHelper(context, path2, 77);
                     }
                 }
                 dbOpenHelper = mDbHelper;
@@ -152,7 +149,6 @@ public class IMDatabase {
                 } catch (SQLException e) {
                     mDbHelper = null;
                     LogUtils.e("IMDatabase", "Exception ", e);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
                 return sQLiteDatabase;
             }
@@ -172,9 +168,8 @@ public class IMDatabase {
                 }
                 try {
                     sQLiteDatabase = dBOpenHelper.getWritableDatabase();
-                } catch (Exception e) {
+                } catch (Exception unused) {
                     mDbHelper = null;
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
                 return sQLiteDatabase;
             }

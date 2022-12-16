@@ -123,9 +123,9 @@ public class MessageUtils {
                     if (i != 3) {
                         if (i != 4) {
                             if (i != 5) {
-                                return "" + context.getString(R.string.obfuscated_res_0x7f0f0a5a);
+                                return "" + context.getString(R.string.obfuscated_res_0x7f0f0a90);
                             }
-                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0a5d);
+                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0a93);
                         }
                     }
                 }
@@ -133,7 +133,7 @@ public class MessageUtils {
                 if (messageBody != null && (txt2 = messageBody.txt) != null && !TextUtils.isEmpty(txt2.word)) {
                     str = liveMessageBean.message_body.txt.word;
                 }
-                return str + context.getString(R.string.obfuscated_res_0x7f0f0a5b);
+                return str + context.getString(R.string.obfuscated_res_0x7f0f0a91);
             }
             LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
             if (messageBody2 == null || (txt = messageBody2.txt) == null || TextUtils.isEmpty(txt.word)) {
@@ -166,7 +166,7 @@ public class MessageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, liveMessageBean)) == null) {
             if (liveMessageBean != null && !TextUtils.isEmpty(liveMessageBean.at_uid)) {
-                return context.getString(R.string.obfuscated_res_0x7f0f0a5c) + liveMessageBean.at_name + " ";
+                return context.getString(R.string.obfuscated_res_0x7f0f0a92) + liveMessageBean.at_name + " ";
             }
             return "";
         }

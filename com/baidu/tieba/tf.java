@@ -105,16 +105,16 @@ public class tf {
                     if (i != 2) {
                         if (i != 3) {
                             if (i == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abf);
                             }
                         } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab8);
                         }
                     } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abe);
                     }
                 } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abc);
                 }
                 this.a.i(i, str, address);
             }
@@ -161,19 +161,19 @@ public class tf {
                         if (i != 3) {
                             if (i != 4) {
                                 if (i == 6) {
-                                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abf);
                                 }
                             } else {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abf);
                             }
                         } else {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab8);
                         }
                     } else {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abe);
                     }
                 } else {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abc);
                 }
                 tf tfVar = this.a;
                 tfVar.i(tfVar.g, str, null);

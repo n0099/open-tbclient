@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mo8;
+import com.baidu.tieba.lr8;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.sb;
@@ -39,17 +39,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes4.dex */
     public interface f {
-        void L0(BarEmotionResponseMessage barEmotionResponseMessage);
+        void K0(BarEmotionResponseMessage barEmotionResponseMessage);
 
-        void N0(boolean z);
+        void M0(boolean z);
 
-        void P0(ForumDetailSocketResponse forumDetailSocketResponse);
+        void O0(ForumDetailSocketResponse forumDetailSocketResponse);
 
         void d(String str);
 
-        void m1(ForumDetailHttpResponse forumDetailHttpResponse);
+        void l1(ForumDetailHttpResponse forumDetailHttpResponse);
 
-        void q1(boolean z);
+        void p1(boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,12 +93,12 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mo8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lr8)) {
                 boolean z = true;
-                if (((mo8) customResponsedMessage.getData()).m() != 1) {
+                if (((lr8) customResponsedMessage.getData()).m() != 1) {
                     z = false;
                 }
-                this.a.a.J1(z);
+                this.a.a.I1(z);
             }
         }
     }
@@ -145,10 +145,10 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.m1((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.l1((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.b.P0((ForumDetailSocketResponse) responsedMessage);
+                        this.a.b.O0((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -201,20 +201,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
                 this.a.a.showToast(errorString);
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.b.N0(false);
+                    this.a.b.M0(false);
                 } else {
-                    this.a.b.q1(false);
+                    this.a.b.p1(false);
                 }
             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                this.a.b.N0(true);
+                this.a.b.M0(true);
             } else {
-                this.a.b.q1(true);
+                this.a.b.p1(true);
             }
         }
     }
@@ -251,7 +251,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f04c9);
+                this.a.a.showToast(R.string.delete_success);
             }
         }
     }
@@ -294,7 +294,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                         this.a.b.d(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.b.L0((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.b.K0((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -320,15 +320,15 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
         this.a = forumDetailActivity;
         this.b = forumDetailActivity;
-        E();
-        F();
-        B();
-        G();
-        C();
-        D();
+        L();
+        M();
+        I();
+        N();
+        J();
+        K();
     }
 
-    public void H(String str) {
+    public void O(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MSG_FORUM_EMOTION_CMD);
@@ -337,7 +337,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
     }
 
-    public void I(String str) {
+    public void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
@@ -346,35 +346,35 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
     }
 
-    public final void B() {
+    public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new d(this, 2001151));
         }
     }
 
-    public final void C() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             registerListener(new e(this, CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
         }
     }
 
-    public final void E() {
+    public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             registerListener(new b(this, CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
         }
     }
 
-    public final void F() {
+    public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             registerListener(new c(this, 104102));
         }
     }
 
-    public final void G() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new a(this, 2001266));
@@ -392,7 +392,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void D() {
+    public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");

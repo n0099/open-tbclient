@@ -90,16 +90,16 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                 setConfig(pz4Var);
                 setClickable(true);
                 if (i == 1) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else if (i == 2) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f053a));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
                 pz4 pz4Var2 = new pz4();
                 pz4Var2.r(R.color.CAM_X0302);
                 setConfig(pz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();

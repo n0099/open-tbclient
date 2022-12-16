@@ -12,10 +12,10 @@ public final class ea implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f300a;
+    public final /* synthetic */ Context f323a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f301a;
+    public final /* synthetic */ String f324a;
     public final /* synthetic */ String b;
 
     public ea(Context context, String str, int i, String str2) {
@@ -33,8 +33,8 @@ public final class ea implements Runnable {
                 return;
             }
         }
-        this.f300a = context;
-        this.f301a = str;
+        this.f323a = context;
+        this.f324a = str;
         this.a = i;
         this.b = str2;
     }
@@ -43,7 +43,7 @@ public final class ea implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dz.c(this.f300a, this.f301a, this.a, this.b);
+            dz.c(this.f323a, this.f324a, this.a, this.b);
         }
     }
 }

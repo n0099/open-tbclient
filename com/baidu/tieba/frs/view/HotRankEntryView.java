@@ -120,17 +120,17 @@ public class HotRankEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a4, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909ea);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03af, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a04);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f090ec4);
+            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f090f1f);
             this.c = imageOverlayView;
             imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
             this.c.setStrokeStyle(1);
             this.c.setLoadImageType(12);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09093b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090957);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
             setOnClickListener(new a(this, context));
             b(TbadkCoreApplication.getInst().getSkinType());
@@ -148,7 +148,7 @@ public class HotRankEntryView extends RelativeLayout {
                 i2 = R.drawable.frs_red_list_entrance_bg_white;
             }
             SkinManager.setBackgroundResource(this, i2);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.b, R.drawable.obfuscated_res_0x7f08115c, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.b, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
             this.c.d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             WebPManager.setPureDrawable(this.e, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -173,7 +173,7 @@ public class HotRankEntryView extends RelativeLayout {
             if (!xi.isEmpty(hotUserRankEntry.module_name)) {
                 string = hotUserRankEntry.module_name;
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f089c);
+                string = getResources().getString(R.string.hot_rank);
             }
             textView.setText(string);
             if (z) {

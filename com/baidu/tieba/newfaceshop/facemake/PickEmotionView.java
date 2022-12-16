@@ -127,9 +127,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080660);
+                SkinManager.setBackgroundResource(this.b, R.drawable.ic_post_image_selected_s);
             } else {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065f);
+                SkinManager.setBackgroundResource(this.b, R.drawable.ic_post_image_selected_n);
             }
         }
     }

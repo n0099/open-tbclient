@@ -44,28 +44,28 @@ public class b90 {
             LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
             if (parseFrom.hasLcmResponse()) {
                 LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
-                m90.a("PbProcessor", "methodId ：" + s80Var.i + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
+                l90.a("PbProcessor", "methodId ：" + s80Var.j + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
                 if (lcmResponse.getErrorCode() == 0) {
-                    long j = s80Var.i;
+                    long j = s80Var.j;
                     if (j == 1) {
-                        s80Var.j = 0;
-                        s80Var.g = lcmResponse.getNextIntervalMs();
+                        s80Var.k = 0;
+                        s80Var.h = lcmResponse.getNextIntervalMs();
                     } else if (j == 2) {
-                        s80Var.j = -1;
+                        s80Var.k = -1;
                     } else if (j == 3) {
-                        s80Var.g = lcmResponse.getNextIntervalMs();
+                        s80Var.h = lcmResponse.getNextIntervalMs();
                     } else if (j == 4) {
-                        m90.a("PbProcessor", "parseLcmResponse notify");
+                        l90.a("PbProcessor", "parseLcmResponse notify");
                     }
                 } else {
-                    s80Var.c = lcmResponse.getErrorCode();
-                    s80Var.d = lcmResponse.getErrorMsg();
-                    s80Var.j = -1;
+                    s80Var.d = lcmResponse.getErrorCode();
+                    s80Var.e = lcmResponse.getErrorMsg();
+                    s80Var.k = -1;
                 }
             } else if (parseFrom.hasLcmNotify()) {
-                m90.a("PbProcessor", "lcmpb hasLcmNotify");
+                l90.a("PbProcessor", "lcmpb hasLcmNotify");
             } else if (parseFrom.hasLcmRequest()) {
-                s80Var.n = parseFrom.getLcmRequest().getLogId();
+                s80Var.o = parseFrom.getLcmRequest().getLogId();
             }
             return s80Var;
         }
@@ -78,7 +78,7 @@ public class b90 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
             s80 s80Var = new s80();
             if (inputStream instanceof ByteArrayInputStream) {
-                m90.a("PbProcessor", "parseResponse quic");
+                l90.a("PbProcessor", "parseResponse quic");
             } else if (inputStream instanceof DataInputStream) {
                 DataInputStream dataInputStream = (DataInputStream) inputStream;
                 byte readByte = dataInputStream.readByte();
@@ -93,11 +93,11 @@ public class b90 {
                     int i = readInt - readInt2;
                     byte[] bArr2 = new byte[i];
                     dataInputStream.readFully(bArr2);
-                    m90.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
+                    l90.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
                     c(s80Var, bArr, bArr2);
                     return s80Var;
                 }
-                m90.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
+                l90.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
                 throw new Exception(" Failed to allocate a larger byte allocation, data length = " + readInt);
             }
             return s80Var;
@@ -112,34 +112,46 @@ public class b90 {
             RpcMetaPb$RpcMeta parseFrom = RpcMetaPb$RpcMeta.parseFrom(bArr);
             if (parseFrom.getCompressType() == 1) {
                 bArr2 = d(bArr2);
-                m90.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
+                l90.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
             }
-            s80Var.f = bArr2;
+            s80Var.g = bArr2;
+            int i = 0;
             if (parseFrom.hasNotify()) {
                 RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-                s80Var.c = 0;
-                s80Var.d = "notify";
-                s80Var.h = notify.getServiceId();
-                s80Var.i = notify.getMethodId();
-                s80Var.n = notify.getLogId();
-                s80Var.e = true;
+                s80Var.d = 0;
+                s80Var.e = "notify";
+                s80Var.i = notify.getServiceId();
+                s80Var.j = notify.getMethodId();
+                s80Var.o = notify.getLogId();
+                s80Var.f = true;
+                s80Var.q.clear();
+                while (i < notify.getEventListCount()) {
+                    s80Var.q.add(new n80(notify.getEventList(i).getEvent(), notify.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                s80Var.q.add(new n80("CLCPNotify", System.currentTimeMillis()));
             } else if (parseFrom.hasResponse()) {
                 RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-                s80Var.c = response.getErrorCode();
-                s80Var.d = response.getErrorText();
-                s80Var.h = response.getServiceId();
-                s80Var.i = response.getMethodId();
-                s80Var.n = response.getLogId();
-                s80Var.e = false;
-                if (s80Var.c == 0 && s80Var.h == 1) {
+                s80Var.d = response.getErrorCode();
+                s80Var.e = response.getErrorText();
+                s80Var.i = response.getServiceId();
+                s80Var.j = response.getMethodId();
+                s80Var.o = response.getLogId();
+                s80Var.f = false;
+                s80Var.q.clear();
+                while (i < response.getEventListCount()) {
+                    s80Var.q.add(new n80(response.getEventList(i).getEvent(), response.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                if (s80Var.d == 0 && s80Var.i == 1) {
                     a(s80Var, bArr2);
                     return s80Var;
                 }
             } else if (parseFrom.hasRequest()) {
                 RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-                s80Var.h = request.getServiceId();
-                s80Var.i = request.getMethodId();
-                m90.a("PbProcessor", "parseRpcMeta requestMeta");
+                s80Var.i = request.getServiceId();
+                s80Var.j = request.getMethodId();
+                l90.a("PbProcessor", "parseRpcMeta requestMeta");
                 a(s80Var, bArr2);
             }
             return s80Var;
@@ -180,17 +192,17 @@ public class b90 {
                             byteArrayInputStream.close();
                             byteArrayOutputStream.close();
                         } catch (Exception e2) {
-                            m90.c("SocketTransceiver", "Exception ", e2);
+                            l90.c("SocketTransceiver", "Exception ", e2);
                         }
                         return byteArray;
                     } catch (IOException e3) {
                         e = e3;
-                        m90.c("SocketTransceiver", "unzip exception :", e);
+                        l90.c("SocketTransceiver", "unzip exception :", e);
                         if (gZIPInputStream != null) {
                             try {
                                 gZIPInputStream.close();
                             } catch (Exception e4) {
-                                m90.c("SocketTransceiver", "Exception ", e4);
+                                l90.c("SocketTransceiver", "Exception ", e4);
                                 return bArr;
                             }
                         }
@@ -205,7 +217,7 @@ public class b90 {
                         try {
                             gZIPInputStream3.close();
                         } catch (Exception e5) {
-                            m90.c("SocketTransceiver", "Exception ", e5);
+                            l90.c("SocketTransceiver", "Exception ", e5);
                             throw th;
                         }
                     }

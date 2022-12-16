@@ -27,7 +27,7 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateProtocol, IVlogEditManager, IVlogEditViewManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -164,7 +164,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
             }
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             if (iMultiMediaDataSourceView != null) {
-                iMultiMediaDataSourceView.notifyStickerDataChange("add");
+                iMultiMediaDataSourceView.notifyStickerDataChange(StickerDataChangeType.ADD);
             }
         }
     }
@@ -1259,7 +1259,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
             }
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             if (iMultiMediaDataSourceView != null) {
-                iMultiMediaDataSourceView.notifyStickerDataChange("update");
+                iMultiMediaDataSourceView.notifyStickerDataChange(StickerDataChangeType.UPDATE);
             }
         }
     }

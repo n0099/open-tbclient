@@ -1,270 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"SwanCommentWar"})
-/* loaded from: classes6.dex */
-public class zq2 implements eu2 {
+/* loaded from: classes7.dex */
+public class zq2 implements du2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public yq2 b;
-    public String c;
-    public String d;
-    public double e;
-    public double f;
-    public int g;
-    public int h;
-    public b i;
-    public c j;
-    public a k;
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class a implements eu2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
-
-        @Override // com.baidu.tieba.eu2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0.5d;
-            this.b = 1.0d;
-        }
-
-        @Override // com.baidu.tieba.eu2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
-            double d = 1.0d;
-            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d2 = this.a;
-            if (d2 < 0.0d) {
-                d2 = 0.0d;
-            } else if (d2 > 1.0d) {
-                d2 = 1.0d;
-            }
-            this.a = d2;
-            double d3 = this.b;
-            if (d3 < 0.0d) {
-                d = 0.0d;
-            } else if (d3 <= 1.0d) {
-                d = d3;
-            }
-            this.b = d;
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class b extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public String g;
-        public int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zq2 zq2Var) {
-            super(zq2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((zq2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = "BYCLICK";
-            this.h = -1;
-        }
-
-        @Override // com.baidu.tieba.zq2.d, com.baidu.tieba.eu2
-        public void a(JSONObject jSONObject) throws JSONException {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
-            jSONObject.optDouble("borderWidth", 0.0d);
-            if (jSONObject.has(CriusAttrConstants.DISPLAY)) {
-                str = jSONObject.optString(CriusAttrConstants.DISPLAY);
-            } else {
-                str = "BYCLICK";
-            }
-            this.g = str;
-            this.h = sq2.a(jSONObject.optString("bgColor"), -1);
-            sq2.a(jSONObject.optString("borderColor"), this.h);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class c extends d implements eu2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public float g;
-        public float h;
-        public int i;
-        public float j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(zq2 zq2Var) {
-            super(zq2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((zq2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = 0.0f;
-            this.h = 0.0f;
-            this.i = 0;
-            this.j = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.zq2.d, com.baidu.tieba.eu2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = sq2.b(jSONObject.optDouble("x", 0.0d));
-            float b = sq2.b(jSONObject.optDouble("y", 0.0d));
-            this.g = b;
-            if (this.f == 0.0f && b == 0.0f) {
-                this.f = sq2.b(jSONObject.optDouble("anchorX", 0.0d));
-                this.g = sq2.b(jSONObject.optDouble("anchorY", 0.0d));
-            }
-            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
-            this.i = sq2.a(jSONObject.optString("borderColor"), 0);
-            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class d implements eu2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public float c;
-        public int d;
-        public float e;
-
-        public d(zq2 zq2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = -16777216;
-            this.c = sq2.b(10.0d);
-            this.d = 0;
-            this.e = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.eu2
-        public void a(JSONObject jSONObject) throws JSONException {
-            float b;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("content")) {
-                return;
-            }
-            this.a = jSONObject.optString("content");
-            this.b = sq2.a(jSONObject.optString("color"), -16777216);
-            if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
-                b = Math.abs(sq2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
-            } else {
-                b = sq2.b(10.0d);
-            }
-            this.c = b;
-            this.d = sq2.a(jSONObject.optString("bgColor"), 0);
-            this.e = sq2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
-            if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
-                jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            }
-        }
-
-        @Override // com.baidu.tieba.eu2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return !TextUtils.isEmpty(this.a);
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public ArrayList<xq2> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
     public zq2() {
         Interceptable interceptable = $ic;
@@ -279,71 +33,58 @@ public class zq2 implements eu2 {
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = 0.0d;
-        this.f = 1.0d;
-        this.g = -1;
-        this.h = -1;
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.eu2
-    public void a(JSONObject jSONObject) throws JSONException {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        yq2 yq2Var = new yq2();
-        this.b = yq2Var;
-        yq2Var.a(jSONObject);
-        if (!this.b.isValid()) {
-            return;
-        }
-        String optString = jSONObject.optString("markerId");
-        this.a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            this.a = jSONObject.optString("id");
-        }
-        this.c = jSONObject.optString("title");
-        this.d = jSONObject.optString("iconPath");
-        this.e = jSONObject.optDouble("rotate", 0.0d);
-        this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
-        int i2 = -1;
-        if (jSONObject.has("width")) {
-            i = Math.abs(wh3.g(jSONObject.optInt("width")));
-        } else {
-            i = -1;
-        }
-        this.g = i;
-        if (jSONObject.has("height")) {
-            i2 = Math.abs(wh3.g(jSONObject.optInt("height")));
-        }
-        this.h = i2;
-        jSONObject.optInt("zIndex", 0);
-        b bVar = new b(this);
-        this.i = bVar;
-        bVar.a(jSONObject.optJSONObject("callout"));
-        c cVar = new c(this);
-        this.j = cVar;
-        cVar.a(jSONObject.optJSONObject("label"));
-        a aVar = new a();
-        this.k = aVar;
-        aVar.a(jSONObject.optJSONObject("anchor"));
-    }
-
-    @Override // com.baidu.tieba.eu2
+    @Override // com.baidu.tieba.du2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yq2 yq2Var = this.b;
-            if (yq2Var != null && yq2Var.isValid()) {
+            ArrayList<xq2> arrayList = this.a;
+            if (arrayList != null && !arrayList.isEmpty()) {
                 return true;
             }
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.du2
+    public void a(JSONObject jSONObject) throws JSONException {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("points");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        if (length > 0) {
+            this.a = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    xq2 xq2Var = new xq2();
+                    xq2Var.a(optJSONObject);
+                    if (xq2Var.isValid()) {
+                        this.a.add(xq2Var);
+                    }
+                }
+            }
+        }
+        ArrayList<xq2> arrayList = this.a;
+        if (arrayList != null && arrayList.size() > 0) {
+            this.b = (int) Math.abs(rq2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = rq2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = rq2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
+        }
     }
 }

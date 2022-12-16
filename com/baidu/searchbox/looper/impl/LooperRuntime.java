@@ -14,11 +14,11 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.tieba.cx9;
+import com.baidu.tieba.jf1;
 import com.baidu.tieba.kf1;
 import com.baidu.tieba.lf1;
 import com.baidu.tieba.mf1;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.tt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,22 +26,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LooperRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT;
     public static LooperRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public nf1<ILooperRegister> mLooperMonitordList;
+    public mf1<ILooperRegister> mLooperMonitordList;
     @Inject
-    public mf1<ILooperNeedContext> mLooperNeedContext;
-    public mf1<ILooperUIContext> mLooperUIContext;
+    public lf1<ILooperNeedContext> mLooperNeedContext;
+    public lf1<ILooperUIContext> mLooperUIContext;
 
     public void initmLooperMonitordList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            lf1 b = lf1.b();
+            kf1 b = kf1.b();
             this.mLooperMonitordList = b;
             b.a(new ILooperRegister_LooperRuntime_ListProvider());
         }
@@ -50,7 +50,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kf1 b = kf1.b();
+            jf1 b = jf1.b();
             this.mLooperNeedContext = b;
             b.a(new ILooperNeedContext_LooperRuntime_Provider());
         }
@@ -132,13 +132,13 @@ public class LooperRuntime {
         return (LooperRuntime) invokeV.objValue;
     }
 
-    public nf1<ILooperRegister> getLooperMonitorList() {
+    public mf1<ILooperRegister> getLooperMonitorList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mLooperMonitordList;
         }
-        return (nf1) invokeV.objValue;
+        return (mf1) invokeV.objValue;
     }
 
     public ILooperNeedContext getLooperNeedContext() {
@@ -154,20 +154,20 @@ public class LooperRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            mf1<ILooperUIContext> mf1Var = this.mLooperUIContext;
-            if (mf1Var == null) {
+            lf1<ILooperUIContext> lf1Var = this.mLooperUIContext;
+            if (lf1Var == null) {
                 return EMPTY_RUKA_UI_CONTEXT;
             }
-            return mf1Var.get();
+            return lf1Var.get();
         }
         return (ILooperUIContext) invokeV.objValue;
     }
 
-    public void dispatchBlock(Context context, tt9 tt9Var) {
-        nf1<ILooperRegister> nf1Var;
+    public void dispatchBlock(Context context, cx9 cx9Var) {
+        mf1<ILooperRegister> mf1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, tt9Var) == null) && (nf1Var = this.mLooperMonitordList) != null && nf1Var.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(tt9Var.r, tt9Var.q, tt9Var.n, tt9Var.o, tt9Var.w);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, cx9Var) == null) && (mf1Var = this.mLooperMonitordList) != null && mf1Var.getList() != null) {
+            LooperBlock looperBlock = new LooperBlock(cx9Var.r, cx9Var.q, cx9Var.n, cx9Var.o, cx9Var.w);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
@@ -187,8 +187,8 @@ public class LooperRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nf1<ILooperRegister> nf1Var = this.mLooperMonitordList;
-            if (nf1Var != null && nf1Var.getList() != null) {
+            mf1<ILooperRegister> mf1Var = this.mLooperMonitordList;
+            if (mf1Var != null && mf1Var.getList() != null) {
                 for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
                     if (iLooperRegister != null && iLooperRegister.checkEnable()) {
                         if (AppConfig.isDebug()) {

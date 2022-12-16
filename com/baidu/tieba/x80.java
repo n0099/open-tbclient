@@ -108,7 +108,7 @@ public class x80 extends SQLiteOpenHelper {
                 }
                 d(cursor);
                 this.a.writeLock().unlock();
-                m90.a("TrackDBHelper", "flow checkFlowExist:" + z);
+                l90.a("TrackDBHelper", "flow checkFlowExist:" + z);
                 return z;
             } catch (Throwable th) {
                 d(cursor);
@@ -148,9 +148,9 @@ public class x80 extends SQLiteOpenHelper {
                     sQLiteDatabase = getWritableDatabase();
                     sQLiteDatabase.beginTransactionNonExclusive();
                     int delete = sQLiteDatabase.delete("flow", "begintime < ? AND ? != ?", new String[]{String.valueOf(System.currentTimeMillis() - 604800000), "state", String.valueOf(1)});
-                    m90.a("TrackDBHelper", "clear expired flow cout:" + delete);
+                    l90.a("TrackDBHelper", "clear expired flow cout:" + delete);
                     if (delete > 0) {
-                        m90.a("TrackDBHelper", "删除过期数据count:" + delete);
+                        l90.a("TrackDBHelper", "删除过期数据count:" + delete);
                     }
                     sQLiteDatabase.setTransactionSuccessful();
                 } catch (Exception e) {
@@ -202,7 +202,7 @@ public class x80 extends SQLiteOpenHelper {
                     int delete = sQLiteDatabase.delete("flow", "flowid = " + str + " AND flowhandle IN (" + TextUtils.join(",", arrayList) + SmallTailInfo.EMOTION_SUFFIX, (String[]) list.toArray(new String[list.size()]));
                     sQLiteDatabase.setTransactionSuccessful();
                     if (delete > 0) {
-                        m90.a("TrackDBHelper", "flow 删除：" + list.toString() + " success");
+                        l90.a("TrackDBHelper", "flow 删除：" + list.toString() + " success");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -217,7 +217,7 @@ public class x80 extends SQLiteOpenHelper {
         }
     }
 
-    public List<l80> g(String str, int i) {
+    public List<j80> g(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
@@ -227,7 +227,7 @@ public class x80 extends SQLiteOpenHelper {
                 return arrayList2;
             }
             String str2 = "SELECT * FROM flow WHERE flowid=\"" + str + "\" AND state = 1  limit " + i;
-            m90.a("TrackDBHelper", "flow getAllData querySql:" + str2);
+            l90.a("TrackDBHelper", "flow getAllData querySql:" + str2);
             this.a.readLock().lock();
             Cursor cursor = null;
             try {
@@ -241,19 +241,19 @@ public class x80 extends SQLiteOpenHelper {
                     int columnIndex = cursor.getColumnIndex("flowhandle");
                     int columnIndex2 = cursor.getColumnIndex("detail");
                     do {
-                        arrayList2.add(new l80(str, cursor.getString(columnIndex), cursor.getString(columnIndex2)));
+                        arrayList2.add(new j80(str, cursor.getString(columnIndex), cursor.getString(columnIndex2)));
                         arrayList.add(cursor.getString(columnIndex2));
                     } while (cursor.moveToNext());
-                    m90.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
+                    l90.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
                     d(cursor);
                     this.a.readLock().unlock();
-                    m90.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
+                    l90.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
                     return arrayList2;
                 }
-                m90.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
+                l90.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
                 d(cursor);
                 this.a.readLock().unlock();
-                m90.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
+                l90.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
                 return arrayList2;
             } catch (Throwable th) {
                 d(cursor);
@@ -264,16 +264,16 @@ public class x80 extends SQLiteOpenHelper {
         return (List) invokeLI.objValue;
     }
 
-    public void f(g80 g80Var) {
+    public void f(e80 e80Var) {
         SQLiteDatabase writableDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, g80Var) == null) {
-            if (g80Var == null) {
-                m90.a("TrackDBHelper", "flowData is null");
+        if (interceptable == null || interceptable.invokeL(1048579, this, e80Var) == null) {
+            if (e80Var == null) {
+                l90.a("TrackDBHelper", "flowData is null");
                 return;
             }
             this.a.writeLock().lock();
-            m90.a("TrackDBHelper", "flow insert to db:" + g80Var.g());
+            l90.a("TrackDBHelper", "flow insert to db:" + e80Var.g());
             SQLiteDatabase sQLiteDatabase = null;
             try {
                 try {
@@ -286,11 +286,11 @@ public class x80 extends SQLiteOpenHelper {
             }
             try {
                 writableDatabase.beginTransactionNonExclusive();
-                if (a(g80Var.a, g80Var.b, writableDatabase)) {
-                    ContentValues h = h(g80Var);
-                    String str = "flowid = " + g80Var.a + " AND flowhandle = " + g80Var.b;
-                    m90.a("TrackDBHelper", "flow update where:" + str);
-                    m90.a("TrackDBHelper", "endFlow update count:" + writableDatabase.update("flow", h, str, null));
+                if (a(e80Var.a, e80Var.b, writableDatabase)) {
+                    ContentValues h = h(e80Var);
+                    String str = "flowid = " + e80Var.a + " AND flowhandle = " + e80Var.b;
+                    l90.a("TrackDBHelper", "flow update where:" + str);
+                    l90.a("TrackDBHelper", "endFlow update count:" + writableDatabase.update("flow", h, str, null));
                 }
                 writableDatabase.setTransactionSuccessful();
                 if (writableDatabase != null) {
@@ -317,18 +317,18 @@ public class x80 extends SQLiteOpenHelper {
         }
     }
 
-    public final ContentValues h(g80 g80Var) {
+    public final ContentValues h(e80 e80Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, g80Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e80Var)) == null) {
             ContentValues contentValues = new ContentValues();
-            if (g80Var != null) {
-                contentValues.put("flowid", Integer.valueOf(g80Var.a));
-                contentValues.put("flowhandle", Integer.valueOf(g80Var.b));
-                contentValues.put("begintime", Long.valueOf(g80Var.c));
-                contentValues.put("endtime", Long.valueOf(g80Var.d));
-                contentValues.put("detail", g80Var.f());
-                if (g80Var.d == 0) {
+            if (e80Var != null) {
+                contentValues.put("flowid", Integer.valueOf(e80Var.a));
+                contentValues.put("flowhandle", Integer.valueOf(e80Var.b));
+                contentValues.put("begintime", Long.valueOf(e80Var.c));
+                contentValues.put("endtime", Long.valueOf(e80Var.d));
+                contentValues.put("detail", e80Var.f());
+                if (e80Var.d == 0) {
                     contentValues.put("state", (Integer) 0);
                 } else {
                     contentValues.put("state", (Integer) 1);
@@ -355,7 +355,7 @@ public class x80 extends SQLiteOpenHelper {
                         cursor.moveToFirst();
                         i = cursor.getInt(0);
                     }
-                    m90.a("TrackDBHelper", "flow getEndedFlowCount:" + i);
+                    l90.a("TrackDBHelper", "flow getEndedFlowCount:" + i);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -368,13 +368,13 @@ public class x80 extends SQLiteOpenHelper {
         return invokeL.intValue;
     }
 
-    public void k(g80 g80Var) {
+    public void k(e80 e80Var) {
         ContentValues h;
         SQLiteDatabase writableDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, g80Var) == null) {
-            if (g80Var == null) {
-                m90.a("TrackDBHelper", "flow must not be null");
+        if (interceptable == null || interceptable.invokeL(1048583, this, e80Var) == null) {
+            if (e80Var == null) {
+                l90.a("TrackDBHelper", "flow must not be null");
                 return;
             }
             this.a.writeLock().lock();
@@ -383,7 +383,7 @@ public class x80 extends SQLiteOpenHelper {
             SQLiteDatabase sQLiteDatabase3 = null;
             try {
                 try {
-                    h = h(g80Var);
+                    h = h(e80Var);
                     writableDatabase = getWritableDatabase();
                 } catch (Throwable th) {
                     th = th;
@@ -393,9 +393,9 @@ public class x80 extends SQLiteOpenHelper {
             }
             try {
                 writableDatabase.beginTransactionNonExclusive();
-                if (!a(g80Var.a, g80Var.b, writableDatabase)) {
+                if (!a(e80Var.a, e80Var.b, writableDatabase)) {
                     long insert = writableDatabase.insert("flow", null, h);
-                    m90.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
+                    l90.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
                     sQLiteDatabase2 = insert;
                 }
                 writableDatabase.setTransactionSuccessful();

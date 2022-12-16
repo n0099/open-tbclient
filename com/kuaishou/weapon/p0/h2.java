@@ -3,18 +3,17 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public class h2 {
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt(TiebaStatic.LogFields.RESULT, 0) == 1) {
+                if (jSONObject.optInt("result", 0) == 1) {
                     JSONObject jSONObject2 = new JSONObject(new n1(context).a(jSONObject.getString("dataRsp")));
                     String string = jSONObject2.getString("conjure");
                     if (jSONObject2.getInt("status") == 1) {

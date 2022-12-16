@@ -4,15 +4,15 @@ import android.opengl.GLES20;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.fg0;
-import com.baidu.tieba.ng0;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.mg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,15 +32,15 @@ public class BackgroundRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(fg0 fg0Var, int i, float[] fArr) {
+    public void onDrawFrame(eg0 eg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, fg0Var, i, fArr) == null) || fg0Var == null || fg0Var.l() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eg0Var, i, fArr) == null) || eg0Var == null || eg0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < fg0Var.l().size(); i2++) {
-            MediaTrack mediaTrack = fg0Var.l().get(i2);
-            if (mediaTrack != null && ng0.m(mediaTrack, "only_background")) {
-                long a = fg0Var.a();
+        for (int i2 = 1; i2 < eg0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = eg0Var.l().get(i2);
+            if (mediaTrack != null && mg0.m(mediaTrack, "only_background")) {
+                long a = eg0Var.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;

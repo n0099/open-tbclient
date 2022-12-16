@@ -21,6 +21,7 @@ import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,8 +86,16 @@ public class GroupInfoDAOImpl {
                 int i8 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY));
                 String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC));
                 long j6 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION));
-                long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
-                long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
+                long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
+                long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
+                int i9 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_ADMIN_SIZE_LIMIT));
+                int i10 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SUB_TYPE));
+                String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SETTING_INFO));
+                String string7 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE));
+                int i11 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_AUDIT_STATE));
+                int i12 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE));
+                String string8 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT));
+                String string9 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_WELCOME_JSON_TEXT));
                 GroupInfo groupInfo = new GroupInfo(string);
                 groupInfo.setGroupName(string2);
                 groupInfo.setType(i);
@@ -108,9 +117,68 @@ public class GroupInfoDAOImpl {
                 groupInfo.setLocalMembersVersion(j6);
                 groupInfo.setLocalInfoVersion(j7);
                 groupInfo.setInfoVersion(j8);
+                groupInfo.setMaxAdminCount(i9);
+                groupInfo.setSubType(i10);
+                groupInfo.setSettingInfo(string6);
+                groupInfo.setHomePage(string7);
+                groupInfo.setAuditState(i11);
+                groupInfo.setHasNotice(i12);
+                groupInfo.setNoticeExt(string8);
+                groupInfo.setWelcomeJsonTxt(string9);
                 return groupInfo;
             }
             return (GroupInfo) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class GroupMemberParser implements IResultParse<GroupMember> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupMemberParser() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.android.imsdk.db.IResultParse
+        public GroupMember onParse(Cursor cursor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
+                String string = cursor.getString(cursor.getColumnIndex("group_id"));
+                long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
+                int i = cursor.getInt(cursor.getColumnIndex("role"));
+                String string2 = cursor.getString(cursor.getColumnIndex("name"));
+                String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
+                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
+                int i2 = cursor.getInt(cursor.getColumnIndex("status"));
+                String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
+                String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT));
+                String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME));
+                String string7 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION));
+                GroupMember groupMember = new GroupMember(string, j3, string2, j2, i, j);
+                groupMember.setValid(i2);
+                groupMember.setNickName(string3);
+                groupMember.setPortrait(string4);
+                groupMember.setAvatarExt(string5);
+                groupMember.setRoleDisplayName(string6);
+                groupMember.setRoleDecoration(string7);
+                return groupMember;
+            }
+            return (GroupMember) invokeL.objValue;
         }
     }
 
@@ -209,58 +277,10 @@ public class GroupInfoDAOImpl {
         return (ArrayList) invokeLJ.objValue;
     }
 
-    public static int hasMemberInGroup(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                ArrayList arrayList = null;
-                DBOperation newDb = DBOperationFactory.getNewDb(context);
-                if (newDb != null) {
-                    arrayList = newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                }
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        /* JADX WARN: Can't rename method to resolve collision */
-                        @Override // com.baidu.android.imsdk.db.IResultParse
-                        public Long onParse(Cursor cursor) {
-                            InterceptResult invokeL;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                                return Long.valueOf(cursor.getLong(cursor.getColumnIndex("bduid")));
-                            }
-                            return (Long) invokeL.objValue;
-                        }
-                    }, "groupmember", new String[]{"bduid"}, "group_id = ? ", new String[]{str}, null, null, null, null);
-                }
-                if (arrayList != null) {
-                    return arrayList.size();
-                }
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
     public static boolean isExistGroup(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, context, str)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             LogUtils.e(TAG, "operation : " + newDb);
             if (newDb != null) {
@@ -279,12 +299,12 @@ public class GroupInfoDAOImpl {
     public static int quitGroup(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 int i = DBResponseCode.ERROR_DB_OPEN;
                 if (newDb != null) {
-                    i = newDb.execTransaction(new ITransaction(str) { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.12
+                    i = newDb.execTransaction(new ITransaction(str) { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.11
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ String val$groupid;
@@ -336,7 +356,7 @@ public class GroupInfoDAOImpl {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, context, groupInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, context, groupInfo)) == null) {
             if (context != null && groupInfo != null) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -390,6 +410,27 @@ public class GroupInfoDAOImpl {
         return invokeLLL.longValue;
     }
 
+    public static int updateGroupInfoDoNotDisturb(Context context, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (context == null) {
+                return DBResponseCode.ERROR_PARAMETER;
+            }
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            if (newDb == null) {
+                return DBResponseCode.ERROR_DB_OPEN;
+            }
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("disturb", Integer.valueOf(i));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        }
+        return invokeCommon.intValue;
+    }
+
     public static void clearGroupMarkTop(Context context) {
         DBOperation newDb;
         Interceptable interceptable = $ic;
@@ -403,7 +444,7 @@ public class GroupInfoDAOImpl {
     public static ArrayList<String> getStarGroupList(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
@@ -444,7 +485,7 @@ public class GroupInfoDAOImpl {
     public static int setAllStarDisturbDefault(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             if (context == null) {
                 return DBResponseCode.ERROR_PARAMETER;
             }
@@ -472,7 +513,7 @@ public class GroupInfoDAOImpl {
                 int intValue = newDb.execTransaction(new ITransaction(sqlCreateTableGroupMessage, contentValues) { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ String val$creatgroup;
+                    public final /* synthetic */ String val$createGroupSql;
                     public final /* synthetic */ ContentValues val$cv;
 
                     {
@@ -490,7 +531,7 @@ public class GroupInfoDAOImpl {
                                 return;
                             }
                         }
-                        this.val$creatgroup = sqlCreateTableGroupMessage;
+                        this.val$createGroupSql = sqlCreateTableGroupMessage;
                         this.val$cv = contentValues;
                     }
 
@@ -498,7 +539,7 @@ public class GroupInfoDAOImpl {
                     public void execTransaction(SQLiteDatabase sQLiteDatabase) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {
-                            sQLiteDatabase.execSQL(this.val$creatgroup);
+                            sQLiteDatabase.execSQL(this.val$createGroupSql);
                             long insert = sQLiteDatabase.insert("groupinfo", null, this.val$cv);
                             LogUtils.d(GroupInfoDAOImpl.TAG, "insertret : " + insert);
                         }
@@ -548,7 +589,7 @@ public class GroupInfoDAOImpl {
             if (newDb == null) {
                 return null;
             }
-            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
+            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -580,6 +621,58 @@ public class GroupInfoDAOImpl {
             }, "groupmember", new String[]{"bduid"}, "group_id = ? " + str2, new String[]{str}, null, null, null, null);
         }
         return (ArrayList) invokeLL.objValue;
+    }
+
+    public static List<GroupMember> getGroupNormalRoleMembers(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, context, str)) == null) {
+            boolean z = true;
+            if (context != null && !TextUtils.isEmpty(str)) {
+                DBOperation newDb = DBOperationFactory.getNewDb(context);
+                if (newDb == null) {
+                    return null;
+                }
+                return newDb.query(new GroupMemberParser(), "groupmember", null, "group_id = ? AND (role != 1 AND role != 2) ", new String[]{str}, null, null, null, null);
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("getGroupNormalRoleMembers failed, context null:");
+            if (context != null) {
+                z = false;
+            }
+            sb.append(z);
+            sb.append(";groupId empty:");
+            sb.append(TextUtils.isEmpty(str));
+            LogUtils.d(TAG, sb.toString());
+            return null;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<GroupMember> getGroupOwnerAndAdmins(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, context, str)) == null) {
+            boolean z = true;
+            if (context != null && !TextUtils.isEmpty(str)) {
+                DBOperation newDb = DBOperationFactory.getNewDb(context);
+                if (newDb == null) {
+                    return null;
+                }
+                return newDb.query(new GroupMemberParser(), "groupmember", null, "group_id = ? AND (role = 1 OR role = 2) ", new String[]{str}, null, null, null, null);
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("getGroupOwner failed, context null:");
+            if (context != null) {
+                z = false;
+            }
+            sb.append(z);
+            sb.append(";groupId empty:");
+            sb.append(TextUtils.isEmpty(str));
+            LogUtils.d(TAG, sb.toString());
+            return null;
+        }
+        return (List) invokeLL.objValue;
     }
 
     public static int delAllGroupMember(Context context, String str) {
@@ -658,11 +751,11 @@ public class GroupInfoDAOImpl {
         InterceptResult invokeLL;
         DBOperation newDb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str) || (newDb = DBOperationFactory.getNewDb(context)) == null) {
                 return null;
             }
-            return newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
+            return newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -696,10 +789,14 @@ public class GroupInfoDAOImpl {
                         long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("status"));
                         String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
+                        String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME));
+                        String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION));
                         GroupMember groupMember = new GroupMember(string, j3, string2, j2, i, j);
                         groupMember.setValid(i2);
                         groupMember.setNickName(string3);
                         groupMember.setPortrait(string4);
+                        groupMember.setRoleDisplayName(string5);
+                        groupMember.setRoleDecoration(string6);
                         return groupMember;
                     }
                     return (GroupMember) invokeL.objValue;
@@ -711,7 +808,7 @@ public class GroupInfoDAOImpl {
 
     public static void updateGroupListMarkTop(Context context, List<ChatSession> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65573, null, context, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(65578, null, context, list) == null) {
             clearGroupMarkTop(context);
             if (list != null) {
                 for (ChatSession chatSession : list) {
@@ -843,6 +940,17 @@ public class GroupInfoDAOImpl {
             if (groupInfo.getLocalInfoVersion() > 0) {
                 contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION, Long.valueOf(groupInfo.getLocalInfoVersion()));
             }
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SUB_TYPE, Integer.valueOf(groupInfo.getSubType()));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SETTING_INFO, groupInfo.getSettingInfo());
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_ADMIN_SIZE_LIMIT, Integer.valueOf(groupInfo.getMaxAdminCount()));
+            String homePage = groupInfo.getHomePage();
+            if (!TextUtils.isEmpty(homePage)) {
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE, homePage);
+            }
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_AUDIT_STATE, Integer.valueOf(groupInfo.getAuditState()));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE, Integer.valueOf(groupInfo.getHasGroupNotice()));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT, groupInfo.getNoticeExt());
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_WELCOME_JSON_TEXT, groupInfo.getWelcomeJsonTxt());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -904,7 +1012,7 @@ public class GroupInfoDAOImpl {
     public static int modifyGroupInfoVersion(Context context, String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (context != null && !TextUtils.isEmpty(str) && j >= 0) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -923,7 +1031,7 @@ public class GroupInfoDAOImpl {
     public static int modifyGroupMemberVersion(Context context, String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (context != null && !TextUtils.isEmpty(str) && j >= 0) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -942,7 +1050,7 @@ public class GroupInfoDAOImpl {
     public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
             if (context == null) {
                 return DBResponseCode.ERROR_PARAMETER;
             }
@@ -959,6 +1067,31 @@ public class GroupInfoDAOImpl {
             return DBResponseCode.ERROR_GROUP_NOT_EXIST;
         }
         return invokeCommon.intValue;
+    }
+
+    public static int updateGroupMembersRole(Context context, String str, List<Long> list, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65581, null, context, str, list, i)) == null) {
+            if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                DBOperation newDb = DBOperationFactory.getNewDb(context);
+                if (newDb == null) {
+                    return DBResponseCode.ERROR_DB_OPEN;
+                }
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("role", Integer.valueOf(i));
+                StringBuilder sb = new StringBuilder(" in (");
+                sb.append(list.get(0));
+                for (int i2 = 1; i2 < list.size(); i2++) {
+                    sb.append(",");
+                    sb.append(list.get(i2));
+                }
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                return newDb.update("groupmember", contentValues, "group_id = ? AND bduid" + sb.toString(), new String[]{str}).intValue();
+            }
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        return invokeLLLI.intValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:29:0x008f, code lost:
@@ -1001,94 +1134,10 @@ public class GroupInfoDAOImpl {
                         str3 = null;
                     }
                     str4 = "join_time ASC  ";
-                    arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                }
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        /* JADX WARN: Can't rename method to resolve collision */
-                        @Override // com.baidu.android.imsdk.db.IResultParse
-                        public GroupMember onParse(Cursor cursor) {
-                            InterceptResult invokeL;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                                String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                                long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                                int i3 = cursor.getInt(cursor.getColumnIndex("role"));
-                                String string2 = cursor.getString(cursor.getColumnIndex("name"));
-                                String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                                int i4 = cursor.getInt(cursor.getColumnIndex("status"));
-                                String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                                GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i3, j);
-                                groupMember2.setValid(i4);
-                                groupMember2.setNickName(string3);
-                                groupMember2.setPortrait(string4);
-                                return groupMember2;
-                            }
-                            return (GroupMember) invokeL.objValue;
-                        }
-                    }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
+                    arrayList2 = newDb.query(new GroupMemberParser(), "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
                 }
                 str4 = str5;
-                arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // com.baidu.android.imsdk.db.IResultParse
-                    public GroupMember onParse(Cursor cursor) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                            String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                            long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                            int i3 = cursor.getInt(cursor.getColumnIndex("role"));
-                            String string2 = cursor.getString(cursor.getColumnIndex("name"));
-                            String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                            long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                            long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                            int i4 = cursor.getInt(cursor.getColumnIndex("status"));
-                            String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                            GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i3, j);
-                            groupMember2.setValid(i4);
-                            groupMember2.setNickName(string3);
-                            groupMember2.setPortrait(string4);
-                            return groupMember2;
-                        }
-                        return (GroupMember) invokeL.objValue;
-                    }
-                }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
+                arrayList2 = newDb.query(new GroupMemberParser(), "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
             } else {
                 arrayList2 = null;
             }
@@ -1132,6 +1181,9 @@ public class GroupInfoDAOImpl {
             contentValues.put("status", Integer.valueOf(groupMember.getValid()));
             contentValues.put("name", groupMember.getName());
             contentValues.put("avatar", groupMember.getPortrait());
+            contentValues.put(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT, groupMember.getAvatarExt());
+            contentValues.put(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME, groupMember.getRoleDisplayName());
+            contentValues.put(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION, groupMember.getRoleDecoration());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -1141,11 +1193,11 @@ public class GroupInfoDAOImpl {
         InterceptResult invokeLLL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, context, str, str2)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb != null) {
-                    arrayList = newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.11
+                    arrayList = newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1186,10 +1238,58 @@ public class GroupInfoDAOImpl {
         return (String) invokeLLL.objValue;
     }
 
+    public static int getRole(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65560, null, context, str, str2)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                ArrayList arrayList = null;
+                DBOperation newDb = DBOperationFactory.getNewDb(context);
+                if (newDb != null) {
+                    arrayList = newDb.query(new IResultParse<Integer>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                }
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Can't rename method to resolve collision */
+                        @Override // com.baidu.android.imsdk.db.IResultParse
+                        public Integer onParse(Cursor cursor) {
+                            InterceptResult invokeL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
+                                return Integer.valueOf(cursor.getInt(cursor.getColumnIndex("role")));
+                            }
+                            return (Integer) invokeL.objValue;
+                        }
+                    }, "groupmember", new String[]{"role"}, "group_id = ?  AND bduid = ? ", new String[]{str, str2}, null, null, null, null);
+                }
+                if (arrayList != null && arrayList.size() > 0) {
+                    return ((Integer) arrayList.get(0)).intValue();
+                }
+            }
+            return -1;
+        }
+        return invokeLLL.intValue;
+    }
+
     public static int modifyGroupMemberNumber(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65562, null, context, str, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65564, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str) && i >= 0) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1207,7 +1307,7 @@ public class GroupInfoDAOImpl {
     public static int modifyGroupName(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65564, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, context, str, str2)) == null) {
             if (context != null && !TextUtils.isEmpty(str) && str2 != null) {
                 ConversationManagerImpl.getInstance(context).updateConversationName(str2, 1, String.valueOf(str));
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -1226,7 +1326,7 @@ public class GroupInfoDAOImpl {
     public static int setGroupDisturb(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65567, null, context, str, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65569, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1247,7 +1347,7 @@ public class GroupInfoDAOImpl {
     public static int setGroupPermit(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65568, null, context, str, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65570, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1268,7 +1368,7 @@ public class GroupInfoDAOImpl {
     public static int setGroupState(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65569, null, context, str, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65571, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1289,7 +1389,7 @@ public class GroupInfoDAOImpl {
     public static int setGroupType(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65570, null, context, str, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65572, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1310,7 +1410,7 @@ public class GroupInfoDAOImpl {
     public static int updateMemberToGroup(Context context, String str, GroupMember groupMember) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65578, null, context, str, groupMember)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65584, null, context, str, groupMember)) == null) {
             if (context != null && !TextUtils.isEmpty(str) && groupMember != null) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1326,21 +1426,65 @@ public class GroupInfoDAOImpl {
         return invokeLLL.intValue;
     }
 
+    public static void updateGroupDoNotDisturb(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            updateGroupInfoDoNotDisturb(context, j, i);
+            ChatMessageDBManager.getInstance(context).updateSessionDisturb(1, j, i);
+        }
+    }
+
+    public static int updateMasterAsCommon(Context context, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65582, null, context, str, i)) == null) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            if (newDb != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("role", Integer.valueOf(i));
+                return newDb.update("groupmember", contentValues, "group_id = ? AND role = 2 ", new String[]{str}).intValue();
+            }
+            return DBResponseCode.ERROR_DB_OPEN;
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static void updateGroupListDoNotDisturb(Context context, List<ChatSession> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65577, null, context, list) == null) && list != null) {
+            for (ChatSession chatSession : list) {
+                updateGroupDoNotDisturb(context, chatSession.getContacter(), chatSession.getDisturb());
+            }
+        }
+    }
+
     public static void updateGroupMarkTop(Context context, long j, int i, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65579, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
             updateGroupInfoMarkTop(context, j, i, j2);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("marktop", Integer.valueOf(i));
-            contentValues.put("marktoptime", Long.valueOf(j2));
-            ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
+            ChatMessageDBManager.getInstance(context).updateChatSessionMarkTop(1, j, i, j2);
         }
+    }
+
+    public static int updateGroupMemberRole(Context context, String str, String str2, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65580, null, context, str, str2, i)) == null) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            if (newDb != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("role", Integer.valueOf(i));
+                return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ? ", new String[]{str, str2}).intValue();
+            }
+            return DBResponseCode.ERROR_DB_OPEN;
+        }
+        return invokeLLLI.intValue;
     }
 
     public static int updateMemberNickName(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65577, null, context, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65583, null, context, str, str2, str3)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb == null) {
@@ -1353,35 +1497,5 @@ public class GroupInfoDAOImpl {
             return DBResponseCode.ERROR_PARAMETER;
         }
         return invokeLLLL.intValue;
-    }
-
-    public static int updateGroupMemberRole(Context context, String str, String str2, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65575, null, context, str, str2, i)) == null) {
-            DBOperation newDb = DBOperationFactory.getNewDb(context);
-            if (newDb != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("role", Integer.valueOf(i));
-                return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ? ", new String[]{str, str2}).intValue();
-            }
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        return invokeLLLI.intValue;
-    }
-
-    public static int updateMasterAsCommon(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65576, null, context, str, i)) == null) {
-            DBOperation newDb = DBOperationFactory.getNewDb(context);
-            if (newDb != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("role", Integer.valueOf(i));
-                return newDb.update("groupmember", contentValues, "group_id = ? AND role = 2 ", new String[]{str}).intValue();
-            }
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        return invokeLLI.intValue;
     }
 }

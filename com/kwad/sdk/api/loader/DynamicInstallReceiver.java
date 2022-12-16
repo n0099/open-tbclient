@@ -11,7 +11,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DynamicInstallReceiver extends BroadcastReceiver {
     public static final AtomicBoolean HAS_REGISTER = new AtomicBoolean(false);
     public static final String TAG = "DynamicInstallReceiver";

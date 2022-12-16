@@ -122,7 +122,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.F();
             this.e.setVisibilityListener(this.s0);
-            this.e.x(true);
+            this.e.y(true);
             cz4.b(this);
         }
     }
@@ -132,11 +132,11 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean F = this.e.F();
+            boolean G = this.e.G();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f2 = layoutParams.weight;
-            if (F) {
+            if (G) {
                 f = 1.0f;
             } else {
                 f = 2.0f;
@@ -154,7 +154,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092c, (ViewGroup) this, true);
+            return LayoutInflater.from(context).inflate(R.layout.weight_thread_comment_and_praise_info_layout, (ViewGroup) this, true);
         }
         return (View) invokeL.objValue;
     }
@@ -165,7 +165,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.q(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.J(true);
+            this.e.K(true);
         }
     }
 }

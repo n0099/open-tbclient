@@ -418,7 +418,7 @@ public class DBAccessMgr {
                         contentValues.put("ip", resultTB.getIp());
                     }
                     if (resultTB.getTtl() != -1) {
-                        contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                        contentValues.put("ttl", Integer.valueOf(resultTB.getTtl()));
                     }
                     if (resultTB.getEndTime() != -1) {
                         contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
@@ -466,7 +466,7 @@ public class DBAccessMgr {
                         contentValues.put("ip", resultTB.getIp());
                     }
                     if (resultTB.getTtl() != -1) {
-                        contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                        contentValues.put("ttl", Integer.valueOf(resultTB.getTtl()));
                     }
                     if (resultTB.getEndTime() != -1) {
                         contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
@@ -926,7 +926,7 @@ public class DBAccessMgr {
                     contentValues.put("network", resultTB.getNetwork());
                     contentValues.put("host", resultTB.getHost());
                     contentValues.put("ip", resultTB.getIp());
-                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                    contentValues.put("ttl", Integer.valueOf(resultTB.getTtl()));
                     contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     contentValues.put("cmd", resultTB.getCmd());
                     contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
@@ -957,7 +957,7 @@ public class DBAccessMgr {
                     contentValues.put("network", resultTB.getNetwork());
                     contentValues.put("host", resultTB.getHost());
                     contentValues.put("ip", resultTB.getIp());
-                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                    contentValues.put("ttl", Integer.valueOf(resultTB.getTtl()));
                     contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     contentValues.put("cmd", resultTB.getCmd());
                     contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));

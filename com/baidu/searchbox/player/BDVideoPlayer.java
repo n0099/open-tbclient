@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
@@ -137,7 +137,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class InternalPlayerDispatcher implements InternalEventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1547,20 +1547,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    public void resumeFromError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
-            BdVideoLog.i(wrapMessage("resumeFromError()"));
-            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-            if (baseKernelLayer != null) {
-                baseKernelLayer.stopPlayback();
-            }
-            setVideoScalingMode(getScaleMode());
-            setVideoUrl(this.mVideoTask.videoUrl);
-            resumePlayer(false);
-        }
-    }
-
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void start() {
@@ -1708,6 +1694,20 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             return baseKernelLayer;
         }
         return (BaseKernelLayer) invokeV.objValue;
+    }
+
+    public void resumeFromError() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
+            BdVideoLog.i(wrapMessage("resumeFromError()"));
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                baseKernelLayer.stopPlayback();
+            }
+            setVideoScalingMode(getScaleMode());
+            setVideoUrl(this.mVideoTask.videoUrl);
+            resumePlayer(false);
+        }
     }
 
     public void setupTrigger() {

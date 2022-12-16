@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.df;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                jv4.f();
-                df<String> g = jv4.g("tb_face_package");
+                kv4.f();
+                df<String> g = kv4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,8 +126,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    jv4.f();
-                    df<String> g = jv4.g("tb_face_package");
+                    kv4.f();
+                    df<String> g = kv4.g("tb_face_package");
                     if (g != null) {
                         String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
                         if (!xi.isEmpty(str)) {
@@ -209,28 +209,28 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void M(String str) {
+    public void T(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.e = str;
         }
     }
 
-    public void N(boolean z) {
+    public void U(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void O(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void V(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, loadDataCallBack) == null) {
             this.l = loadDataCallBack;
         }
     }
 
-    public void P(String str) {
+    public void W(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.f = str;
@@ -251,7 +251,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         }
     }
 
-    public FacePackageDetailData H() {
+    public FacePackageDetailData O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -260,7 +260,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         return (FacePackageDetailData) invokeV.objValue;
     }
 
-    public String I() {
+    public String P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -269,7 +269,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         return (String) invokeV.objValue;
     }
 
-    public boolean J() {
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -278,7 +278,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         return invokeV.booleanValue;
     }
 
-    public String K() {
+    public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -287,7 +287,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         return (String) invokeV.objValue;
     }
 
-    public int L() {
+    public int S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -345,7 +345,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         return invokeV.booleanValue;
     }
 
-    public void Q(FacePackageData facePackageData) {
+    public void X(FacePackageData facePackageData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, facePackageData) != null) || facePackageData == null) {
             return;

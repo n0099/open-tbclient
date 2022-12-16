@@ -25,10 +25,10 @@ public class dv extends al.a {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f234a;
+    public SharedPreferences f257a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.ba f235a;
+    public com.xiaomi.push.service.ba f258a;
 
     public dv(Context context) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class dv extends al.a {
             }
         }
         this.a = context;
-        this.f234a = context.getSharedPreferences("mipush_extra", 0);
-        this.f235a = com.xiaomi.push.service.ba.a(context);
+        this.f257a = context.getSharedPreferences("mipush_extra", 0);
+        this.f258a = com.xiaomi.push.service.ba.a(context);
     }
 
     private List<hr> a(File file) {
@@ -56,8 +56,8 @@ public class dv extends al.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            dm m269a = dn.a().m269a();
-            String a = m269a == null ? "" : m269a.a();
+            dm m279a = dn.a().m279a();
+            String a = m279a == null ? "" : m279a.a();
             FileLock fileLock = null;
             if (TextUtils.isEmpty(a)) {
                 return null;
@@ -67,7 +67,7 @@ public class dv extends al.a {
             synchronized (dq.a) {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                    ab.m161a(file2);
+                    ab.m171a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -149,7 +149,7 @@ public class dv extends al.a {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            SharedPreferences.Editor edit = this.f234a.edit();
+            SharedPreferences.Editor edit = this.f257a.edit();
             edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
             edit.commit();
         }
@@ -157,16 +157,16 @@ public class dv extends al.a {
 
     private void a(hr hrVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hrVar) == null) && hrVar.f497a == hl.b && !hrVar.f498a.startsWith("same_")) {
-            SharedPreferences.Editor edit = this.f234a.edit();
-            edit.putLong("dc_job_result_time_4", hrVar.f496a);
-            edit.putString("dc_job_result_4", bp.a(hrVar.f498a));
+        if ((interceptable == null || interceptable.invokeL(65539, this, hrVar) == null) && hrVar.f520a == hl.b && !hrVar.f521a.startsWith("same_")) {
+            SharedPreferences.Editor edit = this.f257a.edit();
+            edit.putLong("dc_job_result_time_4", hrVar.f519a);
+            edit.putString("dc_job_result_4", bp.a(hrVar.f521a));
             edit.commit();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m273a() {
+    private boolean m283a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -185,8 +185,8 @@ public class dv extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.f235a.a(ho.L.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(ho.M.a(), 432000)));
+            if (this.f258a.a(ho.L.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f257a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f258a.a(ho.M.a(), 432000)));
             }
             return false;
         }
@@ -197,8 +197,8 @@ public class dv extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (this.f235a.a(ho.J.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(ho.K.a(), 259200)));
+            if (this.f258a.a(ho.J.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f257a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f258a.a(ho.K.a(), 259200)));
             }
             return false;
         }
@@ -207,7 +207,7 @@ public class dv extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
@@ -222,7 +222,7 @@ public class dv extends al.a {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
-            } else if (!m273a() && file.exists()) {
+            } else if (!m283a() && file.exists()) {
                 List<hr> a = a(file);
                 if (!ag.a(a)) {
                     int size = a.size();
@@ -233,11 +233,11 @@ public class dv extends al.a {
                     icVar.a(a);
                     byte[] a2 = ab.a(it.a(icVar));
                     ii iiVar = new ii("-1", false);
-                    iiVar.c(ht.q.f506a);
+                    iiVar.c(ht.q.f529a);
                     iiVar.a(a2);
-                    dm m269a = dn.a().m269a();
-                    if (m269a != null) {
-                        m269a.a(iiVar, hj.i, null);
+                    dm m279a = dn.a().m279a();
+                    if (m279a != null) {
+                        m279a.a(iiVar, hj.i, null);
                     }
                     a();
                 }

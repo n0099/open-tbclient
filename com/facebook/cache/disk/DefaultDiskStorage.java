@@ -785,7 +785,7 @@ public class DefaultDiskStorage implements DiskStorage {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
-            return String.format(null, "%s.ols%d.%d", DEFAULT_DISK_STORAGE_VERSION_PREFIX, 100, Integer.valueOf(i));
+            return String.format(null, "%s.ols%d.%d", "v2", 100, Integer.valueOf(i));
         }
         return (String) invokeI.objValue;
     }

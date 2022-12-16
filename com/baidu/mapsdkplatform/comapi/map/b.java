@@ -1,7 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.platform.comapi.map.MapController;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,6 +25,6 @@ public class b extends c {
         }
         this.c = 10;
         this.b = MapController.HEATMAP_LAYER_TAG;
-        this.d = TiebaStatic.MAX_COST_VALUE;
+        this.d = 180000;
     }
 }

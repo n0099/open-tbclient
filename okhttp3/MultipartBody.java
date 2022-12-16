@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
+import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -40,7 +40,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +238,7 @@ public final class MultipartBody extends RequestBody {
                         sb.append(FilePart.FILE_NAME);
                         MultipartBody.appendQuotedString(sb, str2);
                     }
-                    return create(Headers.of("Content-Disposition", sb.toString()), requestBody);
+                    return create(new Headers.Builder().addUnsafeNonAscii("Content-Disposition", sb.toString()).build(), requestBody);
                 }
                 throw new NullPointerException("name == null");
             }
@@ -284,7 +284,7 @@ public final class MultipartBody extends RequestBody {
         PARALLEL = MediaType.get("multipart/parallel");
         FORM = MediaType.get(IMAudioTransRequest.CONTENT_TYPE);
         COLONSPACE = new byte[]{58, 32};
-        CRLF = new byte[]{StrictLineReader.CR, 10};
+        CRLF = new byte[]{13, 10};
         DASHDASH = new byte[]{45, 45};
     }
 

@@ -1,5 +1,5 @@
 package com.baidu.spswitch;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPanelConflictLayout {
     void handleHide();
 

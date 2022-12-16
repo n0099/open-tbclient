@@ -455,7 +455,7 @@ public final class WebSettingsImpl extends WebSettings {
             setDatabaseEnabled(true);
             setDomStorageEnabled(true);
             setAppCacheEnabled(true);
-            String path = context.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath();
+            String path = context.getDir("databases", 0).getPath();
             setGeolocationDatabasePath(context.getDir(NgWebView.APP_GEO_PATH, 0).getPath());
             setDatabasePath(path);
             setAppCachePath(context.getDir("appcache_sys", 0).getPath());

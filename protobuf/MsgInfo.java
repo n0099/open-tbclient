@@ -64,8 +64,6 @@ public final class MsgInfo extends Message {
     public final Long serviceId;
     @ProtoField(tag = 27)
     public final ImShareChatroomInfo shareChatroomInfo;
-    @ProtoField(tag = 26)
-    public final UserInfo shareUserInfo;
     @ProtoField(tag = 17, type = Message.Datatype.INT64)
     public final Long sid;
     @ProtoField(tag = 20, type = Message.Datatype.STRING)
@@ -112,7 +110,6 @@ public final class MsgInfo extends Message {
         public Integer relation;
         public Long serviceId;
         public ImShareChatroomInfo shareChatroomInfo;
-        public UserInfo shareUserInfo;
         public Long sid;
         public String stExt;
         public String stat;
@@ -183,7 +180,6 @@ public final class MsgInfo extends Message {
             this.relation = msgInfo.relation;
             this.threadInfo = msgInfo.threadInfo;
             this.isRenderStlog = msgInfo.isRenderStlog;
-            this.shareUserInfo = msgInfo.shareUserInfo;
             this.shareChatroomInfo = msgInfo.shareChatroomInfo;
         }
 
@@ -373,7 +369,6 @@ public final class MsgInfo extends Message {
             } else {
                 this.isRenderStlog = num8;
             }
-            this.shareUserInfo = builder.shareUserInfo;
             this.shareChatroomInfo = builder.shareChatroomInfo;
             return;
         }
@@ -401,7 +396,6 @@ public final class MsgInfo extends Message {
         this.relation = builder.relation;
         this.threadInfo = builder.threadInfo;
         this.isRenderStlog = builder.isRenderStlog;
-        this.shareUserInfo = builder.shareUserInfo;
         this.shareChatroomInfo = builder.shareChatroomInfo;
     }
 

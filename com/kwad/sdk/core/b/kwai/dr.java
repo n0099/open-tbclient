@@ -2,7 +2,6 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.util.BaiduActiveStatistic;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k> {
@@ -34,7 +33,7 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
             kVar.YL = "";
         }
         kVar.YM = jSONObject.optInt("has_data_v2");
-        kVar.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+        kVar.result = jSONObject.optInt("result");
         kVar.YN = jSONObject.optLong("response_done_cost");
         kVar.YO = jSONObject.optString("host_ip");
         if (jSONObject.opt("host_ip") == JSONObject.NULL) {
@@ -133,7 +132,7 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
         }
         int i4 = kVar.result;
         if (i4 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, TiebaStatic.LogFields.RESULT, i4);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "result", i4);
         }
         long j17 = kVar.YN;
         if (j17 != 0) {

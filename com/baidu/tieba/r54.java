@@ -2,11 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.cp2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.y34;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,59 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes5.dex */
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class r54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
+    public static volatile r54 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a extends l03 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q54 c;
-
-        public a(q54 q54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = q54Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l03, com.baidu.tieba.m03, com.baidu.tieba.k03
-        public void onEvent(@NonNull i03 i03Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i03Var) == null) {
-                if (!SwanAppNetworkUtils.i(null)) {
-                    i = -2;
-                } else if (i03Var.a() != null) {
-                    i = i03Var.a().getInt("net_quality");
-                } else {
-                    i = -1;
-                }
-                if (r54.a) {
-                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
-                }
-                q54 q54Var = this.c;
-                q54Var.m = i;
-                ya3.x("976", q54Var);
-            }
-        }
-    }
+    public y34 a;
 
     static {
         InterceptResult invokeClinit;
@@ -81,53 +34,145 @@ public class r54 {
                 return;
             }
         }
-        a = pk1.a;
+        b = ok1.a;
     }
 
-    public static void b(q54 q54Var) {
+    public r54() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, q54Var) != null) || q54Var == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        a13.Q().X(null, tv2.class, new a(q54Var));
     }
 
-    public static void c(yh1 yh1Var) {
-        V8ExceptionInfo a2;
-        int i;
+    public static r54 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, yh1Var) != null) || yh1Var == null || (a2 = yh1Var.a()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (r54.class) {
+                    if (c == null) {
+                        c = new r54();
+                    }
+                }
+            }
+            return c;
         }
-        String str = a2.exceptionMsg;
-        String str2 = a2.exceptionTrace;
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return;
+        return (r54) invokeV.objValue;
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        y34 y34Var;
+        y34.c cVar;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2) || (y34Var = this.a) == null || (cVar = y34Var.d) == null || (hashMap = cVar.a) == null) {
+                return null;
+            }
+            return hashMap.get(c2);
         }
-        if (a) {
-            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(p04.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(String str, int i) {
+        InterceptResult invokeLI;
+        y34 y34Var;
+        y34.b bVar;
+        List<y34.a> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str) && (y34Var = this.a) != null && (bVar = y34Var.c) != null && (list = bVar.a) != null) {
+                for (y34.a aVar : list) {
+                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
+                        if (i != 0) {
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        return aVar.b;
+                                    }
+                                    return aVar.d;
+                                }
+                                return aVar.c;
+                            }
+                            return aVar.b;
+                        }
+                        return aVar.a;
+                    }
+                    while (r0.hasNext()) {
+                    }
+                }
+            }
+            return null;
         }
-        if (a2.exceptionTime >= p04.a()) {
-            return;
+        return (String) invokeLI.objValue;
+    }
+
+    public void f(String str, boolean z) {
+        y34 y34Var;
+        y34.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (y34Var = this.a) != null && (bVar = y34Var.c) != null && bVar.b != null) {
+            if (b) {
+                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+            }
+            this.a.c.b.put(str, Boolean.valueOf(z));
         }
-        q54 q54Var = new q54();
-        q54Var.b = "stuck";
-        q54Var.e = "jserror";
-        q54Var.f = f43.g0();
-        if (f43.M() != null && f43.M().Y() != null) {
-            cp2.a Y = f43.M().Y();
-            q54Var.c = Y.T();
-            q54Var.a = ya3.n(Y.G());
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        y34.b bVar;
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2)) {
+                return false;
+            }
+            y34 y34Var = this.a;
+            if (y34Var != null && (bVar = y34Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
+                if (b) {
+                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
+                }
+                return this.a.c.b.get(c2).booleanValue();
+            }
+            if (b) {
+                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
+            }
+            String g0 = e43.g0();
+            if (e43.M() == null) {
+                return false;
+            }
+            String k0 = e43.M().k0();
+            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
+                return false;
+            }
+            boolean n = bc4.i().n(g0, k0, c2);
+            if (n) {
+                f(c2, true);
+            }
+            return n;
         }
-        q54Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
-        if (c54.d()) {
-            i = 20;
-        } else {
-            i = 10;
+        return invokeL.booleanValue;
+    }
+
+    public void e(y34 y34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, y34Var) == null) {
+            this.a = y34Var;
         }
-        q54Var.k = i;
-        q54Var.n = p04.b();
-        q54Var.o = System.currentTimeMillis() - a2.exceptionTime;
-        b(q54Var);
     }
 }

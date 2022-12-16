@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.Point;
 import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.zq2;
+import com.baidu.tieba.bh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements View.OnClickListener {
+    /* loaded from: classes4.dex */
+    public static class a implements bh3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p94 a;
-        public final /* synthetic */ zq2 b;
+        public final /* synthetic */ wq2 a;
+        public final /* synthetic */ o94 b;
+        public final /* synthetic */ k94 c;
 
-        public a(p94 p94Var, zq2 zq2Var) {
+        public a(wq2 wq2Var, o94 o94Var, k94 k94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p94Var, zq2Var};
+                Object[] objArr = {wq2Var, o94Var, k94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,73 +38,57 @@ public class d94 {
                     return;
                 }
             }
-            this.a = p94Var;
-            this.b = zq2Var;
+            this.a = wq2Var;
+            this.b = o94Var;
+            this.c = k94Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.bh3.b
+        public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                k94.a(this.a, this.b);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    e12.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
+                    }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    br2 br2Var = this.a.d;
+                    builder.point(new Point(br2Var.a, br2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    m94 m94Var = new m94();
+                    m94Var.a = this.a;
+                    m94Var.b = imageView;
+                    this.b.o.add(m94Var);
+                }
             }
         }
     }
 
-    public static View a(p94 p94Var, zq2 zq2Var) {
-        InterceptResult invokeLL;
+    public static void a(o94 o94Var, wq2 wq2Var, k94 k94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, p94Var, zq2Var)) == null) {
-            f12.i("map", "creatCallout start");
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(zq2Var.i.b);
-            paint.setTextSize(zq2Var.i.c);
-            zq2.b bVar = zq2Var.i;
-            float f = bVar.e;
-            float f2 = bVar.f;
-            Paint paint2 = new Paint();
-            paint2.setAntiAlias(true);
-            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(zq2Var.i.h);
-            String str = zq2Var.i.a;
-            int g = wh3.g(6.0f);
-            float f3 = f * 2.0f;
-            float measureText = paint.measureText(str) + f3;
-            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
-            float f5 = g + f4 + f3;
-            if (f5 > 0.0f && measureText > 0.0f) {
-                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
-                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                RectF rectF = new RectF();
-                rectF.left = 0.0f;
-                rectF.top = 0.0f;
-                float f6 = f4 + f3;
-                rectF.bottom = f6;
-                rectF.right = measureText;
-                canvas.drawRoundRect(rectF, f2, f2, paint2);
-                Path path = new Path();
-                float f7 = measureText / 2.0f;
-                float f8 = g / 2;
-                path.moveTo(f7 - f8, f6);
-                path.lineTo(f7, f5);
-                path.lineTo(f7 + f8, f6);
-                path.close();
-                canvas.drawPath(path, paint2);
-                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
-                ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                imageView.setImageBitmap(createBitmap);
-                imageView.setOnClickListener(new a(p94Var, zq2Var));
-                f12.i("map", "creatCallout end");
-                return imageView;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, o94Var, wq2Var, k94Var) == null) {
+            e12.i("map", "createControl start");
+            if (wq2Var != null && wq2Var.isValid()) {
+                bh3.e(wq2Var.b, new a(wq2Var, o94Var, k94Var));
             }
-            f12.o("map", "callout height or wodth is 0");
-            return new ImageView(AppRuntime.getAppContext());
+            e12.i("map", "createControl end");
         }
-        return (View) invokeLL.objValue;
     }
 }

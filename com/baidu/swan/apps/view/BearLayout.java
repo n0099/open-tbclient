@@ -19,8 +19,8 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj3;
-import com.baidu.tieba.pk1;
+import com.baidu.tieba.bj3;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,16 +93,16 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj3 a;
+        public final /* synthetic */ bj3 a;
         public final /* synthetic */ SwanAppBearInfo b;
         public final /* synthetic */ BearLayout c;
 
-        public b(BearLayout bearLayout, cj3 cj3Var, SwanAppBearInfo swanAppBearInfo) {
+        public b(BearLayout bearLayout, bj3 bj3Var, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bearLayout, cj3Var, swanAppBearInfo};
+                Object[] objArr = {bearLayout, bj3Var, swanAppBearInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -113,7 +113,7 @@ public class BearLayout extends LinearLayout {
                 }
             }
             this.c = bearLayout;
-            this.a = cj3Var;
+            this.a = bj3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -172,9 +172,9 @@ public class BearLayout extends LinearLayout {
                 TextView textView = this.a.e;
                 BearLayout bearLayout = this.a;
                 if (z) {
-                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0116);
+                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0119);
                 } else {
-                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0161);
+                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0164);
                 }
                 textView.setText(text);
                 TextView textView2 = this.a.e;
@@ -223,7 +223,7 @@ public class BearLayout extends LinearLayout {
                 return;
             }
         }
-        j = pk1.a;
+        j = ok1.a;
     }
 
     public d getCallback() {
@@ -349,25 +349,25 @@ public class BearLayout extends LinearLayout {
         this.c.setImageDrawable(this.i.getResources().getDrawable(i));
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, cj3 cj3Var) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, bj3 bj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, cj3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, bj3Var) == null) {
             this.i = context;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0098, this);
             linearLayout.setOnClickListener(new a(this, swanAppBearInfo));
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090381);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090383);
             this.a = textView;
             textView.setText(swanAppBearInfo.bearName);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090380);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090382);
             this.b = simpleDraweeView;
             simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-            this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090382);
+            this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090384);
             setVipLogo(swanAppBearInfo.bearVipType);
-            this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09037b);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09037c);
+            this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09037d);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09037e);
             this.e = textView2;
-            textView2.setOnClickListener(new b(this, cj3Var, swanAppBearInfo));
-            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09037f);
+            textView2.setOnClickListener(new b(this, bj3Var, swanAppBearInfo));
+            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090381);
             this.f = bdBaseImageView;
             bdBaseImageView.setVisibility(8);
             this.h = new c(this);

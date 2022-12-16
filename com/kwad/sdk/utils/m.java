@@ -7,6 +7,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.WorkerThread;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.kuaishou.weapon.p0.i1;
 import com.kuaishou.weapon.p0.p0;
@@ -118,8 +119,8 @@ public final class m {
                     Charset forName = Charset.forName("UTF-8");
                     File file = new File("/data/su_test");
                     try {
-                        o.a(file, "ok", forName, false);
-                        return o.a(file, forName).equals("ok");
+                        o.a(file, DnsModel.MSG_OK, forName, false);
+                        return o.a(file, forName).equals(DnsModel.MSG_OK);
                     } catch (Throwable unused) {
                         return false;
                     }

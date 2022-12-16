@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class kv extends jv {
     public static /* synthetic */ Interceptable $ic;
     public static WeakReference<lv> a;
@@ -25,7 +25,7 @@ public final class kv extends jv {
     public static Handler c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,20 +34,20 @@ public final class kv extends jv {
         public final /* synthetic */ int c;
         public final /* synthetic */ iv.a d;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
             /* renamed from: com.baidu.tieba.kv$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class View$OnClickListenerC0331a implements View.OnClickListener {
+            /* loaded from: classes5.dex */
+            public class View$OnClickListenerC0338a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0331a(a aVar) {
+                public View$OnClickListenerC0338a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class kv extends jv {
                     kv.b.setView(this.a.b);
                     kv.b.setGravity(81, 0, this.a.c);
                     sv.m(kv.b, R.style.obfuscated_res_0x7f10041b);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0331a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0338a(this));
                     kv.b.show();
                 }
             }
@@ -137,7 +137,7 @@ public final class kv extends jv {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,13 +146,13 @@ public final class kv extends jv {
         public final /* synthetic */ int c;
 
         /* renamed from: com.baidu.tieba.kv$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0330a implements Runnable {
+        /* loaded from: classes5.dex */
+        public class RunnableC0337a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0330a(a aVar) {
+            public RunnableC0337a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,12 +207,12 @@ public final class kv extends jv {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kv.c.post(new RunnableC0330a(this));
+                kv.c.post(new RunnableC0337a(this));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements jv.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,7 +258,7 @@ public final class kv extends jv {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d implements iv.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public final class kv extends jv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i), str, charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, aVar, gtVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070645);
+            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
             if (gtVar != null) {
                 dimension = gtVar.a();
             }
@@ -358,7 +358,7 @@ public final class kv extends jv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i), str, str2, str3, gtVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070645);
+            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
             if (gtVar != null) {
                 dimension = gtVar.a();
             }

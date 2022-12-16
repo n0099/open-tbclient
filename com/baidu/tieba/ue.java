@@ -155,7 +155,7 @@ public abstract class ue<T> {
                 this.f.clear();
             }
             if (d(str)) {
-                BdCacheService.k().f().delete(str);
+                BdCacheService.n().g().delete(str);
             }
         }
     }

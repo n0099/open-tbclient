@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface cc9 {
-    void a(boolean z, wb9 wb9Var);
+    void e(List<String> list);
 }

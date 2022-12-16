@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +116,7 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("cmd");
                     if (this.cmd == optInt) {
-                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                        this.result = jSONObject.optInt("result");
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
                         this.expand = jSONObject.optString("expand");

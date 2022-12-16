@@ -1,148 +1,347 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gp9 extends vo9<hp9> {
+public class gp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public hp9 a;
+    public JSONObject b;
+    public JSONObject c;
 
     /* loaded from: classes4.dex */
-    public class a implements TTAdNative.FullScreenVideoAdListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gp9 a;
+    }
 
-        public a(gp9 gp9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gp9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gp9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-768275429, "Lcom/baidu/tieba/gp9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-768275429, "Lcom/baidu/tieba/gp9$b;");
                     return;
                 }
             }
-            this.a = gp9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
-                LogPrinter.d();
-                this.a.onAdLoaded((gp9) new hp9(tTFullScreenVideoAd));
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
-            }
+            a = new gp9(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gp9(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801753, "Lcom/baidu/tieba/gp9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947801753, "Lcom/baidu/tieba/gp9;");
                 return;
             }
         }
+        d = AppConfig.isDebug();
+        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public gp9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            hp9 hp9Var = (hp9) obj;
-        }
-    }
-
-    public AdSlot e(FunAdSlot funAdSlot) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdSlot)) == null) {
-            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
-        }
-        return (AdSlot) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            AdSlot e = e(funAdSlot);
-            onLoadStart(funAdSlot);
-            this.e.loadFullScreenVideoAd(e, new a(this));
+        }
+        i();
+    }
+
+    public static gp9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (gp9) invokeV.objValue;
+    }
+
+    public Map<String, ip9> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.c();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.d();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.e();
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<jp9> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.f();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.g();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.h();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.i();
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null) {
+                this.a = new hp9();
+            }
+            j();
+            k();
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            hp9 hp9Var = (hp9) obj;
-            onShowStart(hp9Var);
-            ((TTFullScreenVideoAd) hp9Var.a).setFullScreenVideoAdInteractionListener(new jp9(this, hp9Var));
-            ((TTFullScreenVideoAd) hp9Var.a).setDownloadListener(new no9(null));
-            ((TTFullScreenVideoAd) hp9Var.a).showFullScreenVideoAd(activity);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.j();
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a.k();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ gp9(a aVar) {
+        this();
+    }
+
+    public final void j() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
+                }
+                this.a.l();
+                return;
+            }
+            String a2 = np9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                this.a.l();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.b = jSONObject;
+                this.a.p(jSONObject.optString(TbConfig.SW_APID));
+                this.a.m(this.b.optString("cl"));
+                this.a.w((float) this.b.optDouble("tosize"));
+                this.a.s((float) this.b.optDouble("sisize"));
+                this.a.u((float) this.b.optDouble("spsize"));
+                this.a.v((float) this.b.optDouble("sptime"));
+                this.a.r((float) this.b.optDouble("idsize"));
+                if (this.b.has("spdelist")) {
+                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
+                    if (asList.size() > 0) {
+                        this.a.o(asList);
+                    }
+                }
+                if (this.b.has("splist")) {
+                    JSONObject optJSONObject = this.b.optJSONObject("splist");
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONObject != null && optJSONObject.length() > 0) {
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                            if (optJSONObject2 != null) {
+                                if (!TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID))) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                arrayList.add(new jp9(next, z, (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
+                            }
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        this.a.t(arrayList);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        boolean z;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_id_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
+                    return;
+                }
+                return;
+            }
+            String a2 = np9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (!TextUtils.isEmpty(a2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(a2);
+                    this.c = jSONObject;
+                    if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
+                        HashMap hashMap = new HashMap();
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            hashMap.put(next, optJSONObject.optString(next));
+                        }
+                        if (hashMap.size() > 0) {
+                            this.a.n(hashMap);
+                        }
+                    }
+                    if (this.c.has("idlist")) {
+                        JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
+                        HashMap hashMap2 = new HashMap();
+                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                            Iterator<String> keys2 = optJSONObject2.keys();
+                            while (keys2.hasNext()) {
+                                String next2 = keys2.next();
+                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
+                                if (optJSONObject3 != null) {
+                                    String optString = optJSONObject3.optString(TbConfig.SW_APID);
+                                    long optLong = optJSONObject3.optLong("v");
+                                    if (!TextUtils.equals("0", optString)) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    hashMap2.put(next2, new ip9(next2, optLong, z, (float) optJSONObject3.optDouble("size")));
+                                }
+                            }
+                        }
+                        if (hashMap2.size() > 0) {
+                            this.a.q(hashMap2);
+                        }
+                    }
+                } catch (JSONException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }

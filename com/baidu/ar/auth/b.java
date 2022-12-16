@@ -15,7 +15,6 @@ import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -274,7 +273,7 @@ public class b implements k {
             String gx = com.baidu.ar.h.c.gx();
             a(sb, "app_id", TextUtils.isEmpty(this.js) ? DuMixARConfig.getAipAppId() : this.js);
             a(sb, com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
-            a(sb, Config.DEVICE_PART, Build.DEVICE);
+            a(sb, "device", Build.DEVICE);
             a(sb, "dumix_type", gx);
             a(sb, "fr", "-1");
             a(sb, HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);

@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDEmotionBagVerticalLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_BAG = -460552;
@@ -91,7 +91,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     public RectF mValidLongPressedRect;
     public ViewPager mViewPager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public StatisticData mStatisticData;
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public interface LongClickCallback {
             void onLongClick(View view2);
         }
@@ -118,7 +118,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class StatisticData {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -393,7 +393,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BaseViewHolder<DATA> extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -457,7 +457,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -553,7 +553,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -616,7 +616,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -640,7 +640,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionViewHolder extends BaseViewHolder<EmotionTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -904,7 +904,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ListMetaData<DATA> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -931,7 +931,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OffsetLinearLayoutManager extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -993,7 +993,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PaddingTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1013,7 +1013,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PaddingViewHolder extends BaseViewHolder<PaddingTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1048,7 +1048,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TitleTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1070,7 +1070,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TitleViewHolder extends BaseViewHolder<TitleTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1434,7 +1434,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_root, this);
             this.mViewPager = (ViewPager) findViewById(R.id.view_pager);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090f54);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090faf);
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_page1_root, (ViewGroup) this, false);
             ImageView imageView = (ImageView) viewGroup.findViewById(R.id.delete_btn);

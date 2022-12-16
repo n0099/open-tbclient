@@ -3,7 +3,8 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tieba.u46;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.p56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,9 +14,11 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
 /* loaded from: classes3.dex */
-public class PbLinkData extends u46 implements Serializable {
+public class PbLinkData extends p56 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String content1;
+    public String content2;
     public String extTxt;
     public String linkFrom;
     public String linkUrl;
@@ -38,7 +41,7 @@ public class PbLinkData extends u46 implements Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.u46
+    @Override // com.baidu.tieba.p56
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,6 +62,8 @@ public class PbLinkData extends u46 implements Serializable {
                 this.extTxt = jSONObject.optString("ext_txt");
                 this.sort = jSONObject.optInt(QuickPersistConfigConst.KEY_SPLASH_SORT);
                 this.urlType = jSONObject.optInt("url_type");
+                this.content1 = jSONObject.optString(GameGuideConfigInfo.KEY_CONTENT1);
+                this.content2 = jSONObject.optString(GameGuideConfigInfo.KEY_CONTENT2);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -77,5 +82,7 @@ public class PbLinkData extends u46 implements Serializable {
         this.extTxt = pbLinkInfo.ext_txt;
         this.sort = pbLinkInfo.sort.intValue();
         this.urlType = pbLinkInfo.url_type.intValue();
+        this.content1 = pbLinkInfo.content1;
+        this.content2 = pbLinkInfo.content2;
     }
 }

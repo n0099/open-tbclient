@@ -1,100 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes5.dex */
-public class ol5 implements pg<jl5> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface ol5 {
+    void a();
 
-    public jl5 e(jl5 jl5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jl5Var)) == null) ? jl5Var : (jl5) invokeL.objValue;
-    }
+    void b(Canvas canvas);
 
-    public jl5 i(jl5 jl5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jl5Var)) == null) ? jl5Var : (jl5) invokeL.objValue;
-    }
+    void c(ListView listView, Context context, AttributeSet attributeSet);
 
-    public ol5(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-    }
+    void onDraw(Canvas canvas);
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.pg
-    public /* bridge */ /* synthetic */ jl5 a(jl5 jl5Var) {
-        jl5 jl5Var2 = jl5Var;
-        e(jl5Var2);
-        return jl5Var2;
-    }
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.pg
-    public /* bridge */ /* synthetic */ jl5 c(jl5 jl5Var) {
-        jl5 jl5Var2 = jl5Var;
-        i(jl5Var2);
-        return jl5Var2;
-    }
+    void onMeasure(int i, int i2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pg
-    /* renamed from: f */
-    public void b(jl5 jl5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jl5Var) == null) && jl5Var != null && jl5Var.b() != null) {
-            jl5Var.b().recycle();
-        }
-    }
+    void onSizeChanged(int i, int i2, int i3, int i4);
 
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
-        }
-    }
+    boolean onTouchEvent(MotionEvent motionEvent);
 
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
+    void requestLayout();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pg
-    /* renamed from: h */
-    public jl5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new jl5(this.a);
-        }
-        return (jl5) invokeV.objValue;
-    }
+    void setAdapter(ListAdapter listAdapter);
 }

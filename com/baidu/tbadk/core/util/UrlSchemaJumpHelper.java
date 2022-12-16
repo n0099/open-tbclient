@@ -18,13 +18,16 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.PersonalChatUtil;
-import com.baidu.tieba.if5;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ag5;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sp4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.uq4;
+import com.baidu.tieba.vq4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,8 +87,8 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
-            if (uq4.c().contains("-Flutter") && findTask == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new if5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.10
+            if (vq4.c().contains("-Flutter") && findTask == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new ag5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CheckSchemeFlutterCallBack val$callBack;
@@ -108,7 +111,7 @@ public class UrlSchemaJumpHelper {
                         this.val$callBack = checkSchemeFlutterCallBack;
                     }
 
-                    @Override // com.baidu.tieba.if5
+                    @Override // com.baidu.tieba.ag5
                     public void onFail() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -117,7 +120,7 @@ public class UrlSchemaJumpHelper {
                         }
                     }
 
-                    @Override // com.baidu.tieba.if5
+                    @Override // com.baidu.tieba.ag5
                     public void onSuccess() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -155,12 +158,12 @@ public class UrlSchemaJumpHelper {
         if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
             return;
         }
-        String q = qy4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
-        if (TextUtils.isEmpty(q)) {
+        String r = ry4.l().r(KEY_APP_JUMP_BLACK_LIST, null);
+        if (TextUtils.isEmpty(r)) {
             return;
         }
         try {
-            setBlackList(new JSONArray(q));
+            setBlackList(new JSONArray(r));
         } catch (JSONException e) {
             BdLog.e(e);
         }
@@ -289,6 +292,7 @@ public class UrlSchemaJumpHelper {
                         String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GOD_ID);
                         String queryParameter3 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_PAY);
                         String queryParameter4 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_FROM_NATIVE);
+                        String queryParameter5 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_AUDIO_ROOM_ID);
                         HashMap hashMap = new HashMap();
                         hashMap.put("game_id", queryParameter);
                         hashMap.put("god_id", queryParameter2);
@@ -298,6 +302,10 @@ public class UrlSchemaJumpHelper {
                             queryParameter3 = "1";
                         }
                         hashMap.put("open_pay", queryParameter3);
+                        if (queryParameter5 == null) {
+                            queryParameter5 = "";
+                        }
+                        hashMap.put("room_id", queryParameter5);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.val$context, "GameGodsDetailPage", hashMap)));
                     }
                 }
@@ -406,7 +414,7 @@ public class UrlSchemaJumpHelper {
                         String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_IS_GOD);
                         HashMap hashMap = new HashMap();
                         hashMap.put("order_id", queryParameter);
-                        hashMap.put("is_god", queryParameter2);
+                        hashMap.put(IMUserExtraData.KEY_IS_GOD, queryParameter2);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.val$context, "GameOrderDetail", hashMap)));
                     }
                 }
@@ -510,9 +518,16 @@ public class UrlSchemaJumpHelper {
         }
     }
 
+    public static void jumpNativeH5Page(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && !StringUtils.isNull(str)) {
+            sp4.o(context, Uri.parse(str).getQueryParameter("url"));
+        }
+    }
+
     public static void jumpUnPaidListPage(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
             checkFlutterInit(new CheckSchemeFlutterCallBack(str, context) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -558,7 +573,7 @@ public class UrlSchemaJumpHelper {
 
     public static void jumpUnPaidOrderPage(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) {
             checkFlutterInit(new CheckSchemeFlutterCallBack(str, context) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -608,7 +623,7 @@ public class UrlSchemaJumpHelper {
     public static boolean tryDeeplinkFromWebview(String str, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, context)) == null) {
             if (TextUtils.isEmpty(str) || isHitBlackList(str) || launchApplication(context, str) != 1000) {
                 return false;
             }
@@ -619,7 +634,7 @@ public class UrlSchemaJumpHelper {
 
     public static void jumpPersonChat(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65549, null, context, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65550, null, context, str, z) == null) {
             Uri parse = Uri.parse(str);
             String queryParameter = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_USER_ID);
             String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_KEY_URI);
@@ -642,10 +657,21 @@ public class UrlSchemaJumpHelper {
         }
     }
 
+    public static void jumpPostDetailPage(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65551, null, context, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(Uri.parse(str).getQueryParameter("id"), null, "allthread");
+        createNormalCfg.setVideo_source("push");
+        createNormalCfg.setStartFrom(25);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+    }
+
     public static int launchApplication(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
@@ -668,7 +694,7 @@ public class UrlSchemaJumpHelper {
 
     public static void setBlackList(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, jSONArray) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 ArrayList arrayList = new ArrayList(jSONArray.length());
                 int length = jSONArray.length();
@@ -682,10 +708,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                qy4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                ry4.l().z(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            qy4.k().D(KEY_APP_JUMP_BLACK_LIST);
+            ry4.l().E(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

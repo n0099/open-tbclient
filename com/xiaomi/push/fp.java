@@ -20,13 +20,13 @@ public class fp {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte f390a;
+    public byte f413a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f391a;
+    public int f414a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f392a;
+    public short f415a;
     public byte[] b;
 
     /* loaded from: classes8.dex */
@@ -35,7 +35,7 @@ public class fp {
         public static final c a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final d f393a;
+        public static final d f416a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,22 +52,22 @@ public class fp {
                 }
             }
             a = new c();
-            f393a = new d();
+            f416a = new d();
         }
 
         public static byte[] a(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f393a) : (byte[]) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f416a) : (byte[]) invokeL.objValue;
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fp.m346a(bArr)) {
+                if (fp.m356a(bArr)) {
                     fp a2 = fp.a(bArr);
-                    return (a2.f390a == 0 || a2.f390a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f391a);
+                    return (a2.f413a == 0 || a2.f413a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f414a);
                 }
                 return bArr;
             }
@@ -229,10 +229,10 @@ public class fp {
                 return;
             }
         }
-        this.f392a = (short) 1;
-        this.f392a = s;
-        this.f390a = b2;
-        this.f391a = i;
+        this.f415a = (short) 1;
+        this.f415a = s;
+        this.f413a = b2;
+        this.f414a = i;
         this.b = bArr;
     }
 
@@ -252,7 +252,7 @@ public class fp {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m346a(bArr)) {
+            if (m356a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
@@ -268,7 +268,7 @@ public class fp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m346a(byte[] bArr) {
+    public static boolean m356a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {

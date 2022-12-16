@@ -21,13 +21,13 @@ public class fs extends gd {
     public fn a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fo f394a;
+    public fo f417a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Thread f395a;
+    public Thread f418a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f396a;
+    public byte[] f419a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fs(XMPushService xMPushService, fx fxVar) {
@@ -58,11 +58,11 @@ public class fs extends gd {
             if (z) {
                 frVar.a("1");
             }
-            byte[] m334a = fj.m334a();
-            if (m334a != null) {
+            byte[] m344a = fj.m344a();
+            if (m344a != null) {
                 dx.j jVar = new dx.j();
-                jVar.a(a.a(m334a));
-                frVar.a(jVar.m303a(), (String) null);
+                jVar.a(a.a(m344a));
+                frVar.a(jVar.m313a(), (String) null);
             }
             return frVar;
         }
@@ -73,10 +73,10 @@ public class fs extends gd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.a = new fn(((gd) this).f424a.getInputStream(), this, ((fw) this).f409a);
-                this.f394a = new fo(((gd) this).f424a.getOutputStream(), this);
+                this.a = new fn(((gd) this).f447a.getInputStream(), this, ((fw) this).f432a);
+                this.f417a = new fo(((gd) this).f447a.getOutputStream(), this);
                 ft ftVar = new ft(this, "Blob Reader (" + ((fw) this).b + SmallTailInfo.EMOTION_SUFFIX);
-                this.f395a = ftVar;
+                this.f418a = ftVar;
                 ftVar.start();
             } catch (Exception e) {
                 throw new gh("Error to init reader and writer", e);
@@ -90,7 +90,7 @@ public class fs extends gd {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 h();
-                this.f394a.a();
+                this.f417a.a();
             }
         }
     }
@@ -104,15 +104,15 @@ public class fs extends gd {
                     this.a.b();
                     this.a = null;
                 }
-                if (this.f394a != null) {
+                if (this.f417a != null) {
                     try {
-                        this.f394a.b();
+                        this.f417a.b();
                     } catch (Exception e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
-                    this.f394a = null;
+                    this.f417a = null;
                 }
-                this.f396a = null;
+                this.f419a = null;
                 super.a(i, exc);
             }
         }
@@ -123,18 +123,18 @@ public class fs extends gd {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flVar) == null) || flVar == null) {
             return;
         }
-        if (flVar.m338a()) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("[Slim] RCV blob chid=" + flVar.a() + "; id=" + flVar.e() + "; errCode=" + flVar.b() + "; err=" + flVar.m342c());
+        if (flVar.m348a()) {
+            com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] RCV blob chid=" + flVar.a() + "; id=" + flVar.e() + "; errCode=" + flVar.b() + "; err=" + flVar.m352c());
         }
         if (flVar.a() == 0) {
-            if ("PING".equals(flVar.m335a())) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("[Slim] RCV ping id=" + flVar.e());
+            if ("PING".equals(flVar.m345a())) {
+                com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] RCV ping id=" + flVar.e());
                 g();
-            } else if ("CLOSE".equals(flVar.m335a())) {
+            } else if ("CLOSE".equals(flVar.m345a())) {
                 c(13, null);
             }
         }
-        for (fw.a aVar : ((fw) this).f413a.values()) {
+        for (fw.a aVar : ((fw) this).f436a.values()) {
             aVar.a(flVar);
         }
     }
@@ -170,14 +170,14 @@ public class fs extends gd {
 
     @Override // com.xiaomi.push.gd
     /* renamed from: a  reason: collision with other method in class */
-    public void mo348a(boolean z) {
+    public void mo358a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (this.f394a == null) {
+            if (this.f417a == null) {
                 throw new gh("The BlobWriter is null.");
             }
             fl a = a(z);
-            com.xiaomi.channel.commonutils.logger.b.m89a("[Slim] SND ping id=" + a.e());
+            com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] SND ping id=" + a.e());
             b(a);
             f();
         }
@@ -210,11 +210,11 @@ public class fs extends gd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                if (this.f396a == null && !TextUtils.isEmpty(((fw) this).f410a)) {
-                    String m648a = com.xiaomi.push.service.bv.m648a();
-                    this.f396a = com.xiaomi.push.service.bp.a(((fw) this).f410a.getBytes(), (((fw) this).f410a.substring(((fw) this).f410a.length() / 2) + m648a.substring(m648a.length() / 2)).getBytes());
+                if (this.f419a == null && !TextUtils.isEmpty(((fw) this).f433a)) {
+                    String m658a = com.xiaomi.push.service.bv.m658a();
+                    this.f419a = com.xiaomi.push.service.bp.a(((fw) this).f433a.getBytes(), (((fw) this).f433a.substring(((fw) this).f433a.length() / 2) + m658a.substring(m658a.length() / 2)).getBytes());
                 }
-                bArr = this.f396a;
+                bArr = this.f419a;
             }
             return bArr;
         }
@@ -225,7 +225,7 @@ public class fs extends gd {
     public void b(fl flVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, flVar) == null) {
-            fo foVar = this.f394a;
+            fo foVar = this.f417a;
             if (foVar == null) {
                 throw new gh("the writer is null.");
             }
@@ -234,9 +234,9 @@ public class fs extends gd {
                 ((fw) this).d = SystemClock.elapsedRealtime();
                 String f = flVar.f();
                 if (!TextUtils.isEmpty(f)) {
-                    hb.a(((fw) this).f409a, f, a, false, true, System.currentTimeMillis());
+                    hb.a(((fw) this).f432a, f, a, false, true, System.currentTimeMillis());
                 }
-                for (fw.a aVar : ((fw) this).f416b.values()) {
+                for (fw.a aVar : ((fw) this).f439b.values()) {
                     aVar.a(flVar);
                 }
             } catch (Exception e) {
@@ -250,7 +250,7 @@ public class fs extends gd {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, gnVar) == null) || gnVar == null) {
             return;
         }
-        for (fw.a aVar : ((fw) this).f413a.values()) {
+        for (fw.a aVar : ((fw) this).f436a.values()) {
             aVar.a(gnVar);
         }
     }

@@ -51,12 +51,12 @@ public class PassFaceRecogResult extends PassBiometricResult {
                 return;
             }
         }
-        ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.pass_bio_error_msg_liveness_recognize_time_out);
-        ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.pass_bio_error_msg_contrast_fail);
-        ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.pass_bio_error_msg_face_sdk_init_fail);
-        ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.pass_bio_error_msg_open_camera_failure);
-        ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.pass_bio_error_msg_image_file_empty);
-        ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.pass_bio_error_msg_may_be_no_camera_permission);
+        ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dbf);
+        ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dba);
+        ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dbc);
+        ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc4);
+        ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dbd);
+        ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc0);
     }
 
     public PassFaceRecogResult() {

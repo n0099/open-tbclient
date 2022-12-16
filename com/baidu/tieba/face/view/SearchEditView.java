@@ -35,9 +35,9 @@ public class SearchEditView extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface d {
-        void X(String str);
+        void a0(String str);
 
-        void p1(String str);
+        void v1(String str);
     }
 
     /* loaded from: classes4.dex */
@@ -83,7 +83,7 @@ public class SearchEditView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (this.a.e != null) {
-                    this.a.e.X(editable.toString().trim());
+                    this.a.e.a0(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
                     this.a.d.setVisibility(4);
@@ -126,7 +126,7 @@ public class SearchEditView extends RelativeLayout {
                 if (i == 3) {
                     String trim = this.a.a.getText().toString().trim();
                     if (!TextUtils.isEmpty(trim) && this.a.e != null) {
-                        this.a.e.p1(trim);
+                        this.a.e.v1(trim);
                         return true;
                     }
                     return true;
@@ -271,11 +271,11 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0264, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09089b);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105d);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091031);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091032);
+            LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.edit_search);
+            this.b = (ImageView) findViewById(R.id.iv_search);
+            this.c = (ImageView) findViewById(R.id.iv_del_all);
+            this.d = (LinearLayout) findViewById(R.id.iv_del_all_layout);
             SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
             SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

@@ -1,7 +1,25 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface xx3 {
-    void p(String str, JSONObject jSONObject);
+public class xx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile int a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static synchronized int a() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (xx3.class) {
+                i = a;
+                a = i + 1;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
 }

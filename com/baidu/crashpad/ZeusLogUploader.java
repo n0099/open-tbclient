@@ -33,7 +33,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class ZeusLogUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
@@ -66,12 +66,12 @@ public final class ZeusLogUploader {
     public String mType;
     public boolean mUseHttps;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class MyRunner implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -694,7 +694,7 @@ public final class ZeusLogUploader {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x0015 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:48:0x0076  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0077 A[Catch: Exception -> 0x0099, TRY_LEAVE, TryCatch #7 {Exception -> 0x0099, blocks: (B:46:0x0067, B:49:0x0077), top: B:77:0x0067 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0077 A[Catch: Exception -> 0x009a, TRY_LEAVE, TryCatch #7 {Exception -> 0x009a, blocks: (B:46:0x0067, B:49:0x0077), top: B:77:0x0067 }] */
     /* JADX WARN: Type inference failed for: r2v0, types: [boolean] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v10 */

@@ -1,24 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes5.dex */
-public class nx6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nx6<T> {
+    void a(View view2, T t, int i);
 
-    public static void a(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if ((!TbadkCoreApplication.getInst().isDebugMode() && !uq4.h()) || StringUtils.isNull(str)) {
-                return;
-            }
-            for (String str2 : str.split("\n")) {
-                System.out.println("[FunAdSdk] " + str2);
-            }
-        }
-    }
+    void b(View view2, T t, int i);
 }

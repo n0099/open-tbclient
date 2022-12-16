@@ -148,7 +148,7 @@ public class e {
             Log.d("LuaMsgHelper", "swichCameraByEvent cameraFace = " + str2);
             if ("front".equals(str2)) {
                 this.sX.onRequireSwitchCamera(1);
-            } else if ("back".equals(str2)) {
+            } else if (com.alipay.sdk.widget.d.u.equals(str2)) {
                 this.sX.onRequireSwitchCamera(0);
             } else {
                 this.sX.onRequireSwitchCamera(-1);

@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -250,7 +251,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                     this.author.baijiahaoData.name = (String) map3.get("name");
                     this.author.baijiahaoData.avatar = (String) map3.get("avatar");
                     this.author.baijiahaoData.auth_id = Integer.valueOf(xg.e((String) map3.get("auth_id"), 0));
-                    this.author.baijiahaoData.auth_desc = (String) map3.get("auth_desc");
+                    this.author.baijiahaoData.auth_desc = (String) map3.get(IMUserExtraData.KEY_AUTH_DESC);
                     this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
                 }
             }

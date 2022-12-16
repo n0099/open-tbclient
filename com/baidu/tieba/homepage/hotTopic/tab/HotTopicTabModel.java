@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c27;
+import com.baidu.tieba.b37;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
-import com.baidu.tieba.j17;
+import com.baidu.tieba.j27;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.xn;
@@ -30,7 +30,7 @@ import java.util.List;
 public class HotTopicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j17 a;
+    public j27 a;
     public qb b;
     public boolean c;
     public String d;
@@ -41,7 +41,7 @@ public class HotTopicTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -78,23 +78,22 @@ public class HotTopicTabModel extends BdBaseModel {
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.c = false;
+                if (this.a.a == null || !(responsedMessage instanceof b37) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
+                    return;
+                }
+                if (responsedMessage.getOrginalMessage() == null) {
+                    this.a.a.F0(-1, null);
+                    return;
+                }
+                HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
+                b37 b37Var = (b37) responsedMessage;
+                if (!TextUtils.isEmpty(this.a.d)) {
+                    this.a.f.put(this.a.d, b37Var.getDataList());
+                }
+                this.a.a.F0(responsedMessage.getError(), b37Var);
             }
-            this.a.c = false;
-            if (this.a.a == null || !(responsedMessage instanceof c27) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() == null) {
-                this.a.a.C0(-1, null);
-                return;
-            }
-            HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-            c27 c27Var = (c27) responsedMessage;
-            if (!TextUtils.isEmpty(this.a.d)) {
-                this.a.f.put(this.a.d, c27Var.getDataList());
-            }
-            this.a.a.C0(responsedMessage.getError(), c27Var);
         }
     }
 
@@ -119,10 +118,10 @@ public class HotTopicTabModel extends BdBaseModel {
         this.d = "all";
         this.e = 0;
         this.f = new HashMap<>();
-        H();
+        O();
     }
 
-    public List<xn> F(String str) {
+    public List<xn> M(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -131,47 +130,33 @@ public class HotTopicTabModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void I(j17 j17Var) {
+    public void P(j27 j27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, j17Var) == null) {
-            this.a = j17Var;
-        }
-    }
-
-    public void J(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void setTabId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j27Var) == null) {
+            this.a = j27Var;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
             this.b.setTag(bdUniqueId);
             registerListener(this.b);
         }
     }
 
-    public List<xn> E() {
+    public List<xn> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return F(this.d);
+            return M(this.d);
         }
         return (List) invokeV.objValue;
     }
 
-    public String G() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -180,7 +165,7 @@ public class HotTopicTabModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public final void H() {
+    public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
@@ -190,7 +175,7 @@ public class HotTopicTabModel extends BdBaseModel {
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
@@ -198,7 +183,7 @@ public class HotTopicTabModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.b);
             this.c = false;
         }
@@ -208,9 +193,9 @@ public class HotTopicTabModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c81);
+                yi.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0cb8);
                 return false;
             } else if (this.c) {
                 return false;

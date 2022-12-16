@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.message.Message;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface rb<T extends Message<?>> {
     boolean a(T t);
 }

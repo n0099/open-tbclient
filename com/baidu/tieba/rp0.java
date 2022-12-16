@@ -7,25 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.DelayTB;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class rp0 {
+/* loaded from: classes6.dex */
+public final class rp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
     public int a;
     @JvmField
-    public int b;
+    public long b;
     @JvmField
-    public Object c;
-    @JvmField
-    public lp0 d;
-    @JvmField
-    public op0 e;
+    public long c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,10 +37,10 @@ public class rp0 {
                 return;
             }
         }
-        f = new a(null);
+        d = new a(null);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,24 +68,18 @@ public class rp0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
+                if (jSONObject != null) {
+                    rp0 rp0Var = new rp0();
+                    rp0Var.a = jSONObject.optInt("style");
+                    long j = 0;
+                    if (jSONObject.optLong(DelayTB.DELAY) >= 0) {
+                        j = jSONObject.optLong(DelayTB.DELAY);
+                    }
+                    rp0Var.b = j;
+                    rp0Var.c = jSONObject.optLong("duration");
+                    return rp0Var;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
-                if (optJSONObject == null) {
-                    optJSONObject = q01.c(jSONObject.optString("popover"));
-                }
-                if (optJSONObject == null) {
-                    return null;
-                }
-                rp0 rp0Var = new rp0();
-                rp0Var.a = optJSONObject.optInt("type");
-                rp0Var.b = optJSONObject.optInt("show_time");
-                optJSONObject.optInt("async_get_popover_data_switch");
-                optJSONObject.optInt("async_get_popover_data_delay_time");
-                optJSONObject.optString("popover_data_request_url");
-                optJSONObject.optJSONObject("popover_data_request_params");
-                return rp0Var;
+                return null;
             }
             return (rp0) invokeL.objValue;
         }

@@ -1,58 +1,52 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SportScheduleInfo;
 /* loaded from: classes6.dex */
 public class vu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
+    public TbPageContext a;
+    public View b;
+    public TextView c;
+    public TbImageView d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public String k;
+    public String l;
+    public final View.OnClickListener m;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ vu6 a;
 
-        public a(vu6 vu6Var, Context context) {
+        public a(vu6 vu6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vu6Var, context};
+                Object[] objArr = {vu6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,27 +56,25 @@ public class vu6 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = vu6Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !xi.isEmpty(this.a.k)) {
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
+                TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
             }
         }
     }
 
-    public vu6(Context context) {
+    public vu6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsSportsRecommendFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,52 +84,67 @@ public class vu6 {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
-            return;
+        this.m = new a(this);
+        if (frsSportsRecommendFragment != null && view2 != null) {
+            this.a = frsSportsRecommendFragment.getPageContext();
+            BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090c2d);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c35);
+            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c2e);
+            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c33);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c2f);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c34);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c32);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c31);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c30);
+            this.d.setPageId(uniqueId);
+            this.e.setPageId(uniqueId);
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0306, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d66);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090d69);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d67);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f77);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b7e);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090aac);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b6d);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909a6);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a5);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090d7f);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a8);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909aa);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a7);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a9);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02e7));
-        this.d.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        qw4 d = qw4.d(this.i);
-        d.m(1);
-        d.n(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f08062e);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080630, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a3a, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f08062f, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802dc, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+        }
+    }
+
+    public void e(SportScheduleInfo sportScheduleInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
+            if (sportScheduleInfo == null) {
+                this.b.setVisibility(8);
+                this.c.setVisibility(0);
+                this.c.setText(R.string.obfuscated_res_0x7f0f077d);
+                return;
+            }
+            this.b.setVisibility(0);
+            this.c.setVisibility(8);
+            this.d.K(sportScheduleInfo.home_team_icon, 10, false);
+            this.e.K(sportScheduleInfo.guest_team_icon, 10, false);
+            String str2 = sportScheduleInfo.home_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
+                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
+            }
+            String str3 = sportScheduleInfo.guest_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
+                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
+            }
+            this.f.setText(str2);
+            this.g.setText(str3);
+            this.h.setText(sportScheduleInfo.match_top_info);
+            this.i.setText(sportScheduleInfo.match_middle_info);
+            this.j.setText(sportScheduleInfo.match_bottom_info);
+            this.k = sportScheduleInfo.msg_url;
+            this.l = str;
+            this.b.setOnClickListener(this.m);
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.outback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IOutbackClientIPProvider {
     String getClientIP();
 

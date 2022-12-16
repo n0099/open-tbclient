@@ -1,27 +1,38 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.an0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class hw0 {
+public class hw0 implements an0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gw0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized gw0 a() {
-        InterceptResult invokeV;
-        gw0 gw0Var;
+    @Override // com.baidu.tieba.an0
+    public void a(@Nullable String str, @Nullable String str2, an0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (hw0.class) {
-                if (a == null) {
-                    a = new gw0();
-                }
-                gw0Var = a;
-            }
-            return gw0Var;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
         }
-        return (gw0) invokeV.objValue;
+    }
+
+    public hw0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

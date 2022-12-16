@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -40,7 +39,7 @@ import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class zz4 {
     public static /* synthetic */ Interceptable $ic;
     public static zz4 c;
@@ -48,7 +47,7 @@ public class zz4 {
     public final HashSet<String> a;
     public final HashMap<String, String> b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public class zz4 {
                 if (downloadData != null) {
                     if (itemFetchUrlHttpResponsedMsg.getError() != 0 || !itemFetchUrlHttpResponsedMsg.isSuccess() || xi.isEmpty(itemFetchUrlHttpResponsedMsg.getDownloadUrl())) {
                         this.a.l(pkgName, downloadData.getUrl());
-                        if (ba5.l(downloadData)) {
+                        if (ca5.l(downloadData)) {
                             a05.a(downloadData, 300);
                         }
                     } else {
@@ -105,7 +104,7 @@ public class zz4 {
                             itemDownloadExtraData.appName = itemFetchUrlHttpResponsedMsg.getAppname();
                         }
                         b05.f().m(itemDownloadExtraData.pkgName, itemDownloadExtraData.shouzhuSource);
-                        if (ba5.l(downloadData)) {
+                        if (ca5.l(downloadData)) {
                             a05.a(downloadData, 300);
                             if (itemFetchUrlHttpResponsedMsg.isBussinessApk() && !xi.isEmpty(itemFetchUrlHttpResponsedMsg.getRcvUrl())) {
                                 new c().execute(itemFetchUrlHttpResponsedMsg.getRcvUrl());
@@ -123,7 +122,7 @@ public class zz4 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +157,7 @@ public class zz4 {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Intent) {
                     Intent intent = (Intent) data;
-                    String g = ba5.g(intent);
+                    String g = ca5.g(intent);
                     if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
                         return;
                     }
@@ -168,7 +167,7 @@ public class zz4 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +205,7 @@ public class zz4 {
                             httpURLConnection.setRequestMethod("GET");
                             httpURLConnection.setConnectTimeout(zb.d().c().b());
                             httpURLConnection.setReadTimeout(zb.d().b().b());
-                            httpURLConnection.addRequestProperty("User-Agent", fk5.b());
+                            httpURLConnection.addRequestProperty("User-Agent", al5.b());
                             if (CookieHandler.getDefault() != null && CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()) != null && !ListUtils.isEmpty(CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()).get("Cookie"))) {
                                 str = CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()).get("Cookie").get(0);
                             } else {
@@ -217,12 +216,12 @@ public class zz4 {
                                 if (!str.contains("BAIDUCUID")) {
                                     sb.append("BAIDUCUID=");
                                     sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                    sb.append(";");
                                 }
                                 if (!str.contains("BAIDUID")) {
                                     sb.append("BAIDUID=");
                                     sb.append(sp4.f());
-                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                    sb.append(";");
                                 }
                             }
                             httpURLConnection.addRequestProperty("Cookie", sb.toString());
@@ -324,7 +323,7 @@ public class zz4 {
                 return;
             }
             downloadData.setUrl(g);
-            ba5.l(downloadData);
+            ca5.l(downloadData);
         }
     }
 
@@ -332,7 +331,7 @@ public class zz4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemData, downloadData, str, bdUniqueId) == null) && itemData != null && downloadData != null) {
             if (this.a.contains(itemData.pkgName)) {
-                yi.P(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c0));
+                yi.Q(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.item_downloading_tip));
                 return;
             }
             this.a.add(itemData.pkgName);

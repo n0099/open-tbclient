@@ -45,7 +45,7 @@ import com.kwad.sdk.utils.t;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class d {
     public final com.kwad.components.core.video.h td;
 
     /* renamed from: com.kwad.components.core.webview.b.d$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class d {
                                 this.Nx.Nv.a(this.Nw, new a(this) { // from class: com.kwad.components.core.webview.b.d.1.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ RunnableC05921 Ny;
+                                    public final /* synthetic */ RunnableC06091 Ny;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -206,7 +206,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void kU();
 
@@ -1040,7 +1040,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || (findStyleTemplateFromConfigById = this.Ng.findStyleTemplateFromConfigById(this.Nf.bZ())) == null) {
             return;
         }
-        TkLoggerReporter.get().reportTKPerform(ILoggerReporter.Category.ERROR_LOG, new TKPerformMsg(findStyleTemplateFromConfigById.tkSouce).setRenderState(3).setErrorReason("timeout").setTemplateId(this.Nf.bZ()).setVersionCode(String.valueOf(findStyleTemplateFromConfigById.templateVersionCode)).toJson());
+        TkLoggerReporter.get().reportTKPerform(ILoggerReporter.Category.ERROR_LOG, new TKPerformMsg(findStyleTemplateFromConfigById.tkSouce).setRenderState(3).setErrorReason(com.alipay.sdk.data.a.O).setTemplateId(this.Nf.bZ()).setVersionCode(String.valueOf(findStyleTemplateFromConfigById.templateVersionCode)).toJson());
     }
 
     public final void a(Activity activity, AdTemplate adTemplate, e eVar) {

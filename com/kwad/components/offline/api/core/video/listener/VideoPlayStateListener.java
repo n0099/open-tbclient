@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api.core.video.listener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface VideoPlayStateListener {
     void onVideoPlayBufferingPaused();
 

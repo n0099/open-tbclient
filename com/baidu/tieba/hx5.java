@@ -1,371 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hx5 implements sv5 {
+public class hx5 extends kn<lx5, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int s;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public View c;
-    public TbImageView d;
-    public View e;
-    public TextView f;
-    public EMTextView g;
-    public EMTextView h;
-    public EMTextView i;
-    public TbImageView j;
-    public int k;
-    public ov5 l;
-    public SdkLiveInfoData m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public final View.OnClickListener r;
+    public TbPageContext a;
+    public vx5 b;
+    public wx5 c;
 
-    /* loaded from: classes4.dex */
-    public class a implements TbImageView.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hx5 a;
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a(hx5 hx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hx5Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                hx5 hx5Var = this.a;
-                this.a.j.setLayoutParams(new RelativeLayout.LayoutParams(hx5Var.i(hx5Var.j.getLoadedHeight(), this.a.j.getLoadedWidth()), hx5.s));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hx5 a;
-
-        public b(hx5 hx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hx5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (tv5.d(this.a.m)) {
-                    if ((this.a.a.getPageActivity() instanceof nv5) && ((nv5) this.a.a.getPageActivity()).w0()) {
-                        nx5.b(this.a.l, ((nv5) this.a.a.getPageActivity()).getFrom());
-                        str2 = YYLiveUtil.SOURCE_FORUM_USER_LIVE_PAGE;
-                    } else if (this.a.l.b) {
-                        str2 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + this.a.b;
-                    } else {
-                        str2 = YYLiveUtil.SOURCE_HOME_LIVE_TAB_CARD_ + this.a.b;
-                    }
-                    tv5.i(this.a.a, this.a.m, str2);
-                }
-                if (this.a.l != null && this.a.l.b) {
-                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FORUM_INSIDE_LIVE_CLICK);
-                    if (this.a.m != null) {
-                        statisticItem.param("tid", this.a.m.tid);
-                        statisticItem.param("fid", this.a.l.c);
-                        statisticItem.param("fname", this.a.l.d);
-                    }
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", this.a.p);
-                    if (this.a.m != null && this.a.m.liveInfo != null) {
-                        int a = tv5.a(this.a.m.liveInfo);
-                        if (this.a.m.liveInfo.yyExt != null) {
-                            TiebaStaticHelper.addYYParam(statisticItem, tv5.j(this.a.m.liveInfo.yyExt, this.a.m.roomId));
-                            str = TiebaStatic.YYValues.YY_LIVE;
-                        } else {
-                            str = "";
-                        }
-                        statisticItem.param("obj_param1", a);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-                    }
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839108, "Lcom/baidu/tieba/hx5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947839108, "Lcom/baidu/tieba/hx5;");
-                return;
-            }
-        }
-        s = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds55);
-    }
-
-    @Override // com.baidu.tieba.sv5
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public hx5(TbPageContext<?> tbPageContext, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hx5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), lx5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 3;
-        this.n = 0;
-        this.o = 2;
-        this.p = 6;
-        this.q = 9;
-        this.r = new b(this);
         this.a = tbPageContext;
-        this.b = i;
-        j(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.sv5
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.k != i) {
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-            qw4 d = qw4.d(this.c);
-            d.m(0);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0201);
-            this.k = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.sv5
-    public void a(ov5 ov5Var) {
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ov5Var) == null) {
-            if (ov5Var != null && ov5Var.a != null) {
-                getView().setVisibility(0);
-                this.l = ov5Var;
-                this.m = ov5Var.a;
-                int l = yi.l(this.c.getContext());
-                if (l != this.n) {
-                    ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-                    int l2 = yi.l(this.c.getContext()) - this.c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-                    int dimensionPixelSize = this.c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds34);
-                    int i = this.o;
-                    int i2 = l2 - (dimensionPixelSize * i);
-                    if (layoutParams == null) {
-                        layoutParams = new ViewGroup.LayoutParams(i2 / this.o, -2);
-                    } else {
-                        layoutParams.width = i2 / i;
-                        layoutParams.height = -2;
-                    }
-                    this.c.setLayoutParams(layoutParams);
-                    ViewGroup.LayoutParams layoutParams2 = this.d.getLayoutParams();
-                    if (layoutParams2 == null) {
-                        layoutParams2 = new RelativeLayout.LayoutParams(i2 / this.o, (i2 / 32) * this.q);
-                    } else {
-                        layoutParams2.width = i2 / this.o;
-                        layoutParams2.height = (i2 / 32) * this.q;
-                    }
-                    this.d.setLayoutParams(layoutParams2);
-                    ViewGroup.LayoutParams layoutParams3 = this.e.getLayoutParams();
-                    if (layoutParams3 == null) {
-                        layoutParams3 = new RelativeLayout.LayoutParams(i2 / this.o, this.c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
-                    } else {
-                        layoutParams3.width = i2 / this.o;
-                        layoutParams3.height = this.c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72);
-                    }
-                    this.e.setLayoutParams(layoutParams3);
-                    this.n = l;
-                }
-                SdkLiveInfoData.AlaLiveInfo alaLiveInfo2 = this.m.liveInfo;
-                if (alaLiveInfo2 != null) {
-                    if (!TextUtils.isEmpty(alaLiveInfo2.coverWide)) {
-                        this.d.K(this.m.liveInfo.coverWide, 10, false);
-                    }
-                    if (!TextUtils.isEmpty(this.m.liveAuthor.nameShow)) {
-                        this.f.setText(this.m.liveAuthor.nameShow);
-                    }
-                    this.g.setText(StringHelper.numberUniformFormatExtraWithRound(this.m.liveInfo.audienceCount));
-                    if (!TextUtils.isEmpty(this.m.title)) {
-                        this.h.setText(this.m.title);
-                    }
-                    if (!TextUtils.isEmpty(this.m.liveInfo.showLabel)) {
-                        this.i.setText(this.m.liveInfo.showLabel);
-                    }
-                    if (!StringUtils.isNull(this.m.labelUrl)) {
-                        this.j.setVisibility(0);
-                        this.j.K(this.m.labelUrl, 10, false);
-                        this.j.setEvent(new a(this));
-                    } else {
-                        this.j.setVisibility(8);
-                    }
-                    if (ov5Var.b) {
-                        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FORUM_INSIDE_LIVE_SHOW);
-                        SdkLiveInfoData sdkLiveInfoData = this.m;
-                        if (sdkLiveInfoData != null) {
-                            statisticItem.param("tid", sdkLiveInfoData.tid);
-                            statisticItem.param("fid", ov5Var.c);
-                            statisticItem.param("fname", ov5Var.d);
-                        }
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("obj_locate", this.p);
-                        SdkLiveInfoData sdkLiveInfoData2 = this.m;
-                        if (sdkLiveInfoData2 != null && (alaLiveInfo = sdkLiveInfoData2.liveInfo) != null) {
-                            int a2 = tv5.a(alaLiveInfo);
-                            SdkLiveInfoData sdkLiveInfoData3 = this.m;
-                            SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData3.liveInfo.yyExt;
-                            if (yYExt != null) {
-                                TiebaStaticHelper.addYYParam(statisticItem, tv5.j(yYExt, sdkLiveInfoData3.roomId));
-                                str = TiebaStatic.YYValues.YY_LIVE;
-                            } else {
-                                str = "";
-                            }
-                            statisticItem.param("obj_param1", a2);
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-                        }
-                        TiebaStatic.log(statisticItem);
-                    }
-                }
-                if ((this.a.getPageActivity() instanceof nv5) && ((nv5) this.a.getPageActivity()).w0()) {
-                    nx5.c(ov5Var, ((nv5) this.a.getPageActivity()).getFrom());
-                }
-                onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            vx5 vx5Var = new vx5(this.a, viewGroup);
+            this.b = vx5Var;
+            wx5 wx5Var = this.c;
+            if (wx5Var != null) {
+                vx5Var.s(wx5Var);
             }
-            getView().setVisibility(4);
+            return new LiveTabConcernRecommendLineHolder(this.b);
+        }
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+    }
+
+    public void u(wx5 wx5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wx5Var) == null) {
+            this.c = wx5Var;
+            vx5 vx5Var = this.b;
+            if (vx5Var != null) {
+                vx5Var.s(wx5Var);
+            }
         }
     }
 
-    public final int i(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lx5 lx5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        InterceptResult invokeCommon;
+        vx5 vx5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return (int) (s * (i2 / i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lx5Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder != null && (vx5Var = liveTabConcernRecommendLineHolder.a) != null) {
+                vx5Var.i(lx5Var);
+                return liveTabConcernRecommendLineHolder.getView();
+            }
+            return null;
         }
-        return invokeII.intValue;
-    }
-
-    public final void j(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0958, (ViewGroup) null, false);
-            this.c = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f0b);
-            this.d = tbImageView;
-            tbImageView.setDrawCorner(true);
-            this.d.setConrers(3);
-            this.d.setRadiusById(R.string.J_X13);
-            this.d.setPlaceHolder(2);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090f1e);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092186);
-            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092169);
-            EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092196);
-            this.h = eMTextView;
-            qw4.d(eMTextView).A(R.string.F_X02);
-            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092180);
-            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f7e);
-            this.j = tbImageView2;
-            tbImageView2.setDrawCorner(true);
-            this.j.setConrers(1);
-            this.j.setRadius((int) tbPageContext.getResources().getDimension(R.dimen.tbds21));
-            qw4 d = qw4.d(this.c);
-            d.m(0);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0201);
-            this.c.setOnClickListener(this.r);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

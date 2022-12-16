@@ -14,6 +14,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ErrorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String DATA = "data";
+    public static final String ERRMSG = "errmsg";
+    public static final String ERRNO = "errno";
     public static final long serialVersionUID = -2582050549890612990L;
     public transient /* synthetic */ FieldHolder $fh;
     public int error_code;
@@ -108,11 +111,21 @@ public class ErrorData implements Serializable {
                 this.error_code = jSONObject.optInt("error_code", 0);
                 this.error_msg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 this.error_data = jSONObject.optString("error_data");
-            } else {
-                this.error_code = optJSONObject.optInt("errno", 0);
-                this.error_msg = optJSONObject.optString("errmsg");
-                this.error_data = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+                if (jSONObject.has("errno")) {
+                    this.error_code = jSONObject.optInt("errno", 0);
+                }
+                if (jSONObject.has("errmsg")) {
+                    this.error_msg = jSONObject.optString("errmsg");
+                }
+                if (jSONObject.has("data")) {
+                    this.error_data = jSONObject.optString("data");
+                    return;
+                }
+                return;
             }
+            this.error_code = optJSONObject.optInt("errno", 0);
+            this.error_msg = optJSONObject.optString("errmsg");
+            this.error_data = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

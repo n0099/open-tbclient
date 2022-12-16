@@ -30,7 +30,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0060a {
+    public class C0074a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer uE;
@@ -38,7 +38,7 @@ public class a {
         public long uG;
         public final /* synthetic */ a uH;
 
-        public C0060a(a aVar, ByteBuffer byteBuffer, int i, long j) {
+        public C0074a(a aVar, ByteBuffer byteBuffer, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,8 +99,8 @@ public class a {
                         this.uH.fK();
                         return;
                     case 1003:
-                        C0060a c0060a = (C0060a) message.obj;
-                        this.uH.b(c0060a.uE, c0060a.uF, c0060a.uG);
+                        C0074a c0074a = (C0074a) message.obj;
+                        this.uH.b(c0074a.uE, c0074a.uF, c0074a.uG);
                         return;
                     case 1004:
                         this.uH.fL();
@@ -235,12 +235,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || byteBuffer == null || i <= 0) {
             return;
         }
-        C0060a c0060a = new C0060a(this, byteBuffer, i, j);
+        C0074a c0074a = new C0074a(this, byteBuffer, i, j);
         if (this.uC == null || !this.ua) {
             return;
         }
         Handler handler = this.uC;
-        handler.sendMessage(handler.obtainMessage(1003, c0060a));
+        handler.sendMessage(handler.obtainMessage(1003, c0074a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

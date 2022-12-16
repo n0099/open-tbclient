@@ -1,14 +1,14 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
 import com.baidu.tieba.fm;
-import com.baidu.tieba.jf1;
+import com.baidu.tieba.if1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements jf1 {
+/* loaded from: classes3.dex */
+public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements if1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider impleme
         }
     }
 
-    @Override // com.baidu.tieba.jf1
+    @Override // com.baidu.tieba.if1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -23,9 +23,9 @@ public class FrsH5ItemView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final BaseWebView.f c;
-    public final BaseWebView.e d;
-    public final BaseWebView.h e;
+    public final BaseWebView.e c;
+    public final BaseWebView.d d;
+    public final BaseWebView.g e;
     public final BaseWebView f;
     public final LinearLayout g;
     public final View h;
@@ -38,7 +38,7 @@ public class FrsH5ItemView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements BaseWebView.f {
+    public class a implements BaseWebView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsH5ItemView a;
@@ -61,8 +61,8 @@ public class FrsH5ItemView extends FrameLayout {
             this.a = frsH5ItemView;
         }
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
-        public void m(WebView webView, String str) {
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+        public void l(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 if (!this.a.a) {
@@ -77,7 +77,7 @@ public class FrsH5ItemView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements BaseWebView.e {
+    public class b implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsH5ItemView a;
@@ -100,7 +100,7 @@ public class FrsH5ItemView extends FrameLayout {
             this.a = frsH5ItemView;
         }
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLL(1048576, this, webView, str) != null) {
@@ -118,7 +118,7 @@ public class FrsH5ItemView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements BaseWebView.h {
+    public class c implements BaseWebView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsH5ItemView a;
@@ -141,7 +141,7 @@ public class FrsH5ItemView extends FrameLayout {
             this.a = frsH5ItemView;
         }
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.g
         public void a(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
@@ -181,11 +181,11 @@ public class FrsH5ItemView extends FrameLayout {
         this.f.setOnPageFinishedListener(this.d);
         this.f.setOnReceivedErrorListener(this.e);
         addView(this.f);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0340, (ViewGroup) this, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.frs_no_list_item_view, (ViewGroup) this, false);
         this.h = inflate;
         inflate.setVisibility(8);
         addView(this.h);
-        this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d020a, null);
+        this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070247);

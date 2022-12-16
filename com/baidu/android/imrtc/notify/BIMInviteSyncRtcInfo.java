@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +116,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
                 jSONObject.put("media_type", this.mMediaType);
                 jSONObject.put("room_id", getRtcRoomId());
                 jSONObject.put("inviter_passuk", jSONObject3.optString("inviter_passuk"));
-                jSONObject.put(TiebaStatic.Params.RESOURCE_ID, jSONObject3.optString(TiebaStatic.Params.RESOURCE_ID));
+                jSONObject.put("resource_id", jSONObject3.optString("resource_id"));
                 jSONObject.put("session_type", jSONObject3.optInt("session_type"));
                 jSONObject.put("inviter_imuk", this.mInitiatorUk);
             } catch (Exception e) {

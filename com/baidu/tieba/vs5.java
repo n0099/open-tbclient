@@ -1,128 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class vs5 {
     public static /* synthetic */ Interceptable $ic;
+    public static vs5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
+    public List<a45> b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void q(List<a45> list);
+    }
+
+    public vs5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String imei = TbadkCoreApplication.getInst().getImei();
-            if (imei == null || Config.NULL_DEVICE_ID.equals(imei)) {
-                return "-";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return imei;
         }
-        return (String) invokeL.objValue;
+        this.a = new ArrayList();
     }
 
-    public static Integer e(Context context) {
-        InterceptResult invokeL;
+    public static synchronized vs5 d() {
+        InterceptResult invokeV;
+        vs5 vs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer b(Context context) {
-        InterceptResult invokeL;
-        int value;
-        WirelessNetworkType wirelessNetworkType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                String typeName = activeNetworkInfo.getTypeName();
-                if (typeName.equalsIgnoreCase("WIFI")) {
-                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (vs5.class) {
+                if (c == null) {
+                    c = new vs5();
                 }
-                if (typeName.equalsIgnoreCase("MOBILE")) {
-                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                        if (g(context)) {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
-                        } else {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
-                        }
-                        value = wirelessNetworkType.getValue();
-                    } else {
-                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
-                    }
-                    return Integer.valueOf(value);
-                }
-                return valueOf;
+                vs5Var = c;
             }
-            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+            return vs5Var;
         }
-        return (Integer) invokeL.objValue;
+        return (vs5) invokeV.objValue;
     }
 
-    public static String c() {
+    public List<a45> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return aj.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return aj.k();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                    return true;
-                case 4:
-                case 7:
-                case 11:
-                default:
-                    return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.q(this.b);
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public void a(a45 a45Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, a45Var) == null) && this.b != null && a45Var != null) {
+            String a2 = a45Var.a();
+            if (TextUtils.isEmpty(a2)) {
+                a2 = "#";
+                a45Var.j("#");
+            }
+            String e = a45Var.e();
+            if (e == null) {
+                e = "";
+            }
+            boolean z = false;
+            boolean z2 = false;
+            for (a45 a45Var2 : this.b) {
+                if (e.equals(a45Var2.e())) {
+                    z = true;
+                }
+                if (a2.equals(a45Var2.a())) {
+                    z2 = true;
+                }
+            }
+            if (z) {
+                return;
+            }
+            if (!z2) {
+                a45 a45Var3 = new a45();
+                a45Var3.j(a2);
+                this.b.add(a45Var3);
+            }
+            this.b.add(a45Var);
+            Collections.sort(this.b, new ContactComparator());
+            e();
+        }
+    }
+
+    public void b(long j) {
+        List<a45> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<a45> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            a45 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (a45 a45Var : this.b) {
+                if (str.equals(a45Var.a())) {
+                    arrayList.add(a45Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
+            this.a.add(aVar);
+        }
+    }
+
+    public void g(List<a45> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
+        }
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
+            this.a.remove(aVar);
+        }
     }
 }

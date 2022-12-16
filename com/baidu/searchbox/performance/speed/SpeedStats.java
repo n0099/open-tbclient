@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -326,22 +326,6 @@ public class SpeedStats {
             }
             if (appLaunchDuration > 50 && appLaunchDuration < 60000) {
                 return String.valueOf(appLaunchDuration);
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calculateStage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
-                JSONObject jSONObject = new JSONObject();
-                if (this.mSpeedStatsManager.packData(jSONObject)) {
-                    return jSONObject.toString();
-                }
             }
             return null;
         }
@@ -656,6 +640,22 @@ public class SpeedStats {
             }
             this.mStartMainActivityType = i;
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calculateStage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
+            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
+                JSONObject jSONObject = new JSONObject();
+                if (this.mSpeedStatsManager.packData(jSONObject)) {
+                    return jSONObject.toString();
+                }
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

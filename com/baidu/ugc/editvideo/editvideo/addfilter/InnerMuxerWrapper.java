@@ -6,7 +6,7 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.mm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class InnerMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMuxerWrapper";
@@ -52,7 +52,7 @@ public class InnerMuxerWrapper {
     public static void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-            dj9.i(str2);
+            mm9.i(str2);
         }
     }
 

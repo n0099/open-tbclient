@@ -485,12 +485,12 @@ public class ChangeBounds extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f1028view;
+            View view2 = transitionValues.f1051view;
             if (ViewCompat.isLaidOut(view2) || view2.getWidth() != 0 || view2.getHeight() != 0) {
                 transitionValues.values.put(PROPNAME_BOUNDS, new Rect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom()));
-                transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1028view.getParent());
+                transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1051view.getParent());
                 if (this.mReparent) {
-                    transitionValues.f1028view.getLocationInWindow(this.mTempLocation);
+                    transitionValues.f1051view.getLocationInWindow(this.mTempLocation);
                     transitionValues.values.put(PROPNAME_WINDOW_X, Integer.valueOf(this.mTempLocation[0]));
                     transitionValues.values.put(PROPNAME_WINDOW_Y, Integer.valueOf(this.mTempLocation[1]));
                 }
@@ -513,7 +513,7 @@ public class ChangeBounds extends Transition {
                 if (view2 == view3) {
                     return true;
                 }
-            } else if (view3 == matchedTransitionValues.f1028view) {
+            } else if (view3 == matchedTransitionValues.f1051view) {
                 return true;
             }
             return false;
@@ -564,7 +564,7 @@ public class ChangeBounds extends Transition {
                 ViewGroup viewGroup2 = (ViewGroup) map.get(PROPNAME_PARENT);
                 ViewGroup viewGroup3 = (ViewGroup) map2.get(PROPNAME_PARENT);
                 if (viewGroup2 != null && viewGroup3 != null) {
-                    View view3 = transitionValues2.f1028view;
+                    View view3 = transitionValues2.f1051view;
                     if (parentMatches(viewGroup2, viewGroup3)) {
                         Rect rect3 = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
                         Rect rect4 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);

@@ -13,7 +13,7 @@ import com.baidu.ufosdk.k1;
 import com.baidu.ufosdk.o;
 import com.baidu.ufosdk.p;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BDServiceTools implements IBridgeApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class BDServiceTools implements IBridgeApi {
                 oVar.a((JSONObject) null);
             } catch (Exception e) {
                 e.printStackTrace();
-                b.f.post(new k1(R.string.feedback_start_host_service_fail, 0));
+                b.f.post(new k1(R.string.obfuscated_res_0x7f0f062f, 0));
                 oVar.a("10102", "Unknow Exception!");
             }
         }

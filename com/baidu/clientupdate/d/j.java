@@ -26,7 +26,7 @@ import com.baidu.util.LogUtil;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;

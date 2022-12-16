@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,25 +19,21 @@ import java.util.Set;
 /* loaded from: classes5.dex */
 public final class lq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
+    public static final boolean d;
+    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final int b;
+    public final Object b;
     public final int c;
-    public final String d;
-    public final Object e;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public int b;
+        public Object b;
         public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
+        public RuntimeException d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,11 +49,11 @@ public final class lq2 {
             }
         }
 
-        public Exception d() {
+        public Exception c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
             }
             return (Exception) invokeV.objValue;
         }
@@ -66,33 +64,39 @@ public final class lq2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (!lq2.f) {
+                if (this.d != null) {
+                    if (!lq2.d) {
                         return null;
                     }
-                    throw this.f;
+                    throw this.d;
                 } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (!lq2.f) {
+                    this.d = new IllegalStateException("key == null");
+                    if (!lq2.d) {
                         return null;
                     }
-                    throw this.f;
+                    throw this.d;
                 } else {
                     synchronized (a.class) {
-                        if (lq2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (!lq2.f) {
+                        if (lq2.e.contains(this.a)) {
+                            this.d = new IllegalStateException("the key of switch has been occupied");
+                            if (!lq2.d) {
                                 return null;
                             }
-                            throw this.f;
-                        } else if (this.e == null) {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (!lq2.f) {
+                            throw this.d;
+                        } else if (this.b == null) {
+                            this.d = new IllegalStateException("defaultValue == null");
+                            if (!lq2.d) {
                                 return null;
                             }
-                            throw this.f;
+                            throw this.d;
+                        } else if (!lq2.c(this.c, this.b)) {
+                            this.d = new IllegalStateException("valueType error");
+                            if (!lq2.d) {
+                                return null;
+                            }
+                            throw this.d;
                         } else {
-                            lq2.g.add(this.a);
+                            lq2.e.add(this.a);
                             return new lq2(this);
                         }
                     }
@@ -101,74 +105,45 @@ public final class lq2 {
             return (lq2) invokeV.objValue;
         }
 
-        public a b(@NonNull String str) {
+        public a b(@NonNull Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                this.b = obj;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
+        public a e(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.c = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
         @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!lq2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
+        public a d(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!lq2.f) {
+                    this.d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!lq2.d) {
                         this.a = null;
                         return this;
                     }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!lq2.f) {
+                    throw this.d;
+                } else if (TextUtils.equals(Config.SID, str)) {
+                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!lq2.d) {
                         this.a = null;
                         return this;
                     }
-                    throw this.f;
+                    throw this.d;
                 } else {
                     this.a = str;
                     return this;
@@ -191,20 +166,20 @@ public final class lq2 {
                 return;
             }
         }
-        f = pk1.a;
-        g = new HashSet();
+        d = ok1.a;
+        e = new HashSet();
     }
 
-    public int c() {
+    public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.intValue;
+        return invokeV.objValue;
     }
 
-    public String d() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -213,17 +188,16 @@ public final class lq2 {
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public Object e() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            return this.c;
         }
-        return invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public lq2(a aVar) {
+    public lq2(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -241,8 +215,30 @@ public final class lq2 {
         this.a = aVar.a;
         this.b = aVar.b;
         this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
+    }
+
+    public static boolean c(int i, Object obj) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return false;
+                            }
+                            return obj instanceof String;
+                        }
+                        return obj instanceof Long;
+                    }
+                    return obj instanceof Integer;
+                }
+                return obj instanceof Double;
+            }
+            return obj instanceof Boolean;
+        }
+        return invokeIL.booleanValue;
     }
 
     @NonNull
@@ -250,8 +246,8 @@ public final class lq2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+            if (d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
             }
             return super.toString();
         }

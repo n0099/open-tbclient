@@ -30,11 +30,11 @@ public class nl {
     public volatile bm a;
 
     /* loaded from: classes5.dex */
-    public static class a implements s91 {
+    public static class a implements r91 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.s91
+        @Override // com.baidu.tieba.r91
         public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -55,7 +55,7 @@ public class nl {
             }
         }
 
-        @Override // com.baidu.tieba.s91
+        @Override // com.baidu.tieba.r91
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {

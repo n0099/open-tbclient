@@ -2,96 +2,104 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Handler;
-import android.widget.ImageView;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.gc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
-public class ec1 implements Runnable {
+/* loaded from: classes4.dex */
+public class ec1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Handler b;
-    public String c;
-    public ImageView d;
-    public int e;
-    public int f;
+    public gc1 a;
 
-    public ec1(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
+    public ec1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-        this.b = handler;
-        this.c = str;
-        this.d = imageView;
-        this.e = i;
-        this.f = i2;
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
+        }
+        try {
+            this.a = gc1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Bitmap a(String str, int i, int i2) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
+            return;
+        }
+        try {
+            gc1.c m = this.a.m(kc1.b(str));
+            if (m == null) {
+                return;
+            }
+            if (ac1.b(str, m.f(0))) {
+                m.e();
+            } else {
+                m.a();
+            }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public Bitmap c(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
-            try {
-                bitmap = yb1.b(this.a).c(str, i, i2);
-            } catch (IOException e) {
-                e = e;
-                bitmap = null;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
+                return null;
             }
-            try {
-            } catch (IOException e2) {
-                e = e2;
-                e.printStackTrace();
-                bitmap2 = bitmap;
-                if (bitmap2 != null) {
-                }
+            gc1.e o = this.a.o(kc1.b(str));
+            if (o == null) {
+                return null;
             }
-            if (bitmap != null) {
-                yb1.c().a(str, bitmap);
-                return bitmap;
+            FileInputStream fileInputStream = (FileInputStream) o.a(0);
+            if (i > 0 && i2 > 0) {
+                return jc1.b(fileInputStream.getFD(), i, i2);
             }
-            yb1.b(this.a).a(str);
-            bitmap2 = yb1.b(this.a).c(str, i, i2);
-            if (bitmap2 != null) {
-                return bc1.a(str);
-            }
-            return bitmap2;
+            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
         }
         return (Bitmap) invokeLII.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Bitmap a = a(this.c, this.e, this.f);
-            if (this.b != null) {
-                this.b.obtainMessage(1, new dc1(this.d, this.c, a)).sendToTarget();
-            }
-        }
     }
 }

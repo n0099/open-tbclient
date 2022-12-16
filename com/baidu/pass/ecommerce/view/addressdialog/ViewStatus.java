@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce.view.addressdialog;
 
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ public final class ViewStatus {
             }
         }
         LOADING = new ViewStatus("LOADING", 0);
-        SUCCESS = new ViewStatus("SUCCESS", 1);
+        SUCCESS = new ViewStatus(c.p, 1);
         ERROR = new ViewStatus("ERROR", 2);
         ViewStatus viewStatus = new ViewStatus("EMPTY", 3);
         EMPTY = viewStatus;

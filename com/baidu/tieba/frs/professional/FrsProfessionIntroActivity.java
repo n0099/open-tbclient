@@ -113,31 +113,10 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         this.r = new a(this);
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = true;
-            if (!DeviceInfoUtil.isMiNotchDevice() && !DeviceInfoUtil.isHonor30NotchDevice() && !DeviceInfoUtil.isHuaWeiP40() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
-                z = false;
-            }
-            if (z) {
-                int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
-                ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-                if (layoutParams instanceof LinearLayout.LayoutParams) {
-                    ((LinearLayout.LayoutParams) layoutParams).height = g;
-                    ViewGroup.LayoutParams layoutParams2 = this.j.getLayoutParams();
-                    if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                        ((RelativeLayout.LayoutParams) layoutParams2).height = g;
-                    }
-                }
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             SkinManager.setViewTextColor(this.a.mCenterText, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
@@ -161,37 +140,58 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04b0);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091af4);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091aff);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091af5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091afc);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091afd);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090419);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091af8);
+            setContentView(R.layout.obfuscated_res_0x7f0d04c0);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b5f);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b6a);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091b60);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b67);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091b68);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09041a);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091b63);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f6e));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091af7);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0fa5));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091b62);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f77);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091af6);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091b03);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091af9);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091afa);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091afb);
-            this.m = findViewById(R.id.obfuscated_res_0x7f091b00);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091b01);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091b02);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f9f);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091b61);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091b6e);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091b65);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091b66);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091b6b);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091b6c);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091b6d);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);
-            A1();
+            z1();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.j.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
             this.i.K(stringExtra, 10, false);
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean z = true;
+            if (!DeviceInfoUtil.isMiNotchDevice() && !DeviceInfoUtil.isHonor30NotchDevice() && !DeviceInfoUtil.isHuaWeiP40() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
+                z = false;
+            }
+            if (z) {
+                int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+                if (layoutParams instanceof LinearLayout.LayoutParams) {
+                    ((LinearLayout.LayoutParams) layoutParams).height = g;
+                    ViewGroup.LayoutParams layoutParams2 = this.j.getLayoutParams();
+                    if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
+                        ((RelativeLayout.LayoutParams) layoutParams2).height = g;
+                    }
+                }
+            }
         }
     }
 }

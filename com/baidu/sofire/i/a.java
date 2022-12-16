@@ -27,12 +27,12 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0174a a;
+    public HandlerC0186a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -40,14 +40,14 @@ public class a {
     public long f;
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class HandlerC0174a extends Handler {
+    /* loaded from: classes3.dex */
+    public class HandlerC0186a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0174a(a aVar, Looper looper) {
+        public HandlerC0186a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -230,7 +230,7 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0174a(this, h.a());
+        this.a = new HandlerC0186a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }

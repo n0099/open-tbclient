@@ -164,9 +164,9 @@ public class ua {
             int i3 = a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.im_error_codec);
+                return app.getString(R.string.obfuscated_res_0x7f0f0914);
             }
-            return app.getString(R.string.im_error_default);
+            return app.getString(R.string.obfuscated_res_0x7f0f0915);
         }
         return (String) invokeI.objValue;
     }

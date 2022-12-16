@@ -85,11 +85,11 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
             }
         }
         this.a = yi.g(TbadkApplication.getInst(), R.dimen.tbds22);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089d, this);
-        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a86);
-        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a88);
-        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a87);
-        this.e = findViewById(R.id.obfuscated_res_0x7f09040b);
+        LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.e = findViewById(R.id.bottom_placeholder);
         int l = (((yi.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
         int l2 = (((yi.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
     }

@@ -19,7 +19,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActionBarH5 extends FrameLayout implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class ActionBarH5 extends FrameLayout implements c {
     public a wR;
     public View wS;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void R(boolean z);
     }
@@ -102,17 +102,17 @@ public class ActionBarH5 extends FrameLayout implements c {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0481, this);
-            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ed);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
-            this.wS = findViewById(R.id.obfuscated_res_0x7f0910cc);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0490, this);
+            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09114c);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
+            this.wS = findViewById(R.id.obfuscated_res_0x7f09112e);
         }
     }
 
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0577a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;

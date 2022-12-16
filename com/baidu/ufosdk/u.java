@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity;
 import com.baidu.ufosdk.hybrid.base.WebLoaderActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class u extends WebChromeClient {
                 FeedbackBrowserActivity feedbackBrowserActivity = (FeedbackBrowserActivity) hVar;
                 if (feedbackBrowserActivity != null) {
                     Bitmap createBitmap = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.common_black));
+                    createBitmap.eraseColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060469));
                     return createBitmap;
                 }
                 throw null;
@@ -105,7 +105,7 @@ public class u extends WebChromeClient {
                 FeedbackBrowserActivity feedbackBrowserActivity = (FeedbackBrowserActivity) hVar;
                 if (feedbackBrowserActivity != null) {
                     FrameLayout frameLayout = new FrameLayout(feedbackBrowserActivity);
-                    frameLayout.setBackgroundColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.common_transparent));
+                    frameLayout.setBackgroundColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060635));
                     frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
                     return frameLayout;
                 }

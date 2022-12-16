@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.android.imsdk.upload.action.logpb.BIMLogPb;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,7 +170,7 @@ public class IMPushUploadManager {
             }
         }
         this.mOkHttpClient = createOkHttpClient();
-        this.mContext = context;
+        this.mContext = context.getApplicationContext();
     }
 
     private RequestBody convertRequestBody(byte[] bArr, String str) {
@@ -191,7 +192,7 @@ public class IMPushUploadManager {
             }
             BIMLogPb.LogRequest.AuthInfo build = newBuilder.setToken(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return BIMLogPb.LogRequest.newBuilder().setVersion(1L).setServiceName(IMPushUploadConstants.Service.BAIDU_APP).setAuthInfo(build).setRequestTimestampMs(currentTimeMillis).setSign(IMPushUploadConstants.sign(this.mContext, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).setPayload(ByteString.copyFrom(bArr)).build().toByteArray();
+            return BIMLogPb.LogRequest.newBuilder().setVersion(1L).setServiceName(IMPushUploadConstants.Service.BAIDU_APP).setAuthInfo(build).setRequestTimestampMs(currentTimeMillis).setSign(IMPushUploadConstants.sign(IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).setPayload(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -303,7 +304,7 @@ public class IMPushUploadManager {
                     IMPushUploadResponseListener iMPushUploadResponseListener2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                        String str3 = "ok";
+                        String str3 = DnsModel.MSG_OK;
                         int i = 0;
                         try {
                             try {

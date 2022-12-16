@@ -19,34 +19,34 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetWork a;
     public a b;
-    public b25 c;
+    public c25 c;
     public String d;
     public String e;
     public List<b> f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public a25 c;
+        public b25 c;
         public NetWork d;
         public boolean e;
         public String f;
 
-        public a(d15 d15Var, String str, a25 a25Var, String str2, String str3) {
+        public a(d15 d15Var, String str, b25 b25Var, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d15Var, str, a25Var, str2, str3};
+                Object[] objArr = {d15Var, str, b25Var, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class d15 {
             this.e = false;
             this.f = null;
             this.a = str;
-            this.c = a25Var;
+            this.c = b25Var;
             this.b = str2;
             this.f = str3;
         }
@@ -72,13 +72,13 @@ public class d15 {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public b25 a() throws IOException {
+        public c25 a() throws IOException {
             InterceptResult invokeV;
             int i;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b25 b25Var = new b25();
+                c25 c25Var = new c25();
                 long c = this.c.c();
                 long j = 30720;
                 long j2 = c / 30720;
@@ -116,11 +116,11 @@ public class d15 {
                                         if (this.d.postMultiNetData() != null && this.d.getNetContext().getResponse().isRequestSuccess()) {
                                             z = false;
                                             if (!z) {
-                                                b25Var.f(this.d.getServerErrorCode());
-                                                b25Var.g(this.d.getErrorString());
-                                                b25Var.e(this.c);
-                                                b25Var.h(false);
-                                                return b25Var;
+                                                c25Var.f(this.d.getServerErrorCode());
+                                                c25Var.g(this.d.getErrorString());
+                                                c25Var.e(this.c);
+                                                c25Var.h(false);
+                                                return c25Var;
                                             }
                                         } else {
                                             this.c.d(a);
@@ -140,19 +140,19 @@ public class d15 {
                             }
                         }
                     } else {
-                        b25Var.h(false);
+                        c25Var.h(false);
                         randomAccessFile.close();
-                        return b25Var;
+                        return c25Var;
                     }
                 }
-                b25Var.h(true);
-                return b25Var;
+                c25Var.h(true);
+                return c25Var;
             }
-            return (b25) invokeV.objValue;
+            return (c25) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,13 +238,13 @@ public class d15 {
         return invokeJ.longValue;
     }
 
-    public final String c(String str, a25 a25Var) {
+    public final String c(String str, b25 b25Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, a25Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, b25Var)) == null) {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
             this.a = netWork;
-            netWork.addPostData("voice_md5", a25Var.b());
+            netWork.addPostData("voice_md5", b25Var.b());
             if (ListUtils.getCount(this.f) != 0) {
                 for (b bVar : this.f) {
                     if (bVar != null) {
@@ -257,8 +257,8 @@ public class d15 {
                 ChunkUploadDatabaseService.delChunkUploadData(str);
                 return postNetData;
             }
-            a25Var.d((int) b(a25Var.c()));
-            ChunkUploadDatabaseService.saveChunkUploadData(a25Var);
+            b25Var.d((int) b(b25Var.c()));
+            ChunkUploadDatabaseService.saveChunkUploadData(b25Var);
             this.c.f(this.a.getServerErrorCode());
             this.c.g(this.a.getErrorString());
             this.c.h(false);
@@ -267,7 +267,7 @@ public class d15 {
         return (String) invokeLL.objValue;
     }
 
-    public final b25 e(String str, File file) throws IOException {
+    public final c25 e(String str, File file) throws IOException {
         InterceptResult invokeLL;
         String c;
         Interceptable interceptable = $ic;
@@ -276,24 +276,24 @@ public class d15 {
             if (b2 != null && b2.length() > 0) {
                 b2 = b2.toLowerCase();
             }
-            a25 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
+            b25 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
             if (chunkUploadDataByMd5 == null) {
-                chunkUploadDataByMd5 = new a25();
+                chunkUploadDataByMd5 = new b25();
                 chunkUploadDataByMd5.e(b2);
                 chunkUploadDataByMd5.d(0);
                 chunkUploadDataByMd5.f(file.length());
             }
-            a25 a25Var = chunkUploadDataByMd5;
-            a aVar = new a(this, str, a25Var, TbConfig.SERVER_ADDRESS + this.d, b2);
+            b25 b25Var = chunkUploadDataByMd5;
+            a aVar = new a(this, str, b25Var, TbConfig.SERVER_ADDRESS + this.d, b2);
             this.b = aVar;
-            b25 a2 = aVar.a();
+            c25 a2 = aVar.a();
             this.c = a2;
-            if (a2.d() && (c = c(b2, a25Var)) != null && !c.equals("")) {
+            if (a2.d() && (c = c(b2, b25Var)) != null && !c.equals("")) {
                 AudioInfoData audioInfoData = new AudioInfoData();
                 audioInfoData.parserJson(c);
                 if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                    a25Var.e(audioInfoData.getVoiceId());
-                    this.c.e(a25Var);
+                    b25Var.e(audioInfoData.getVoiceId());
+                    this.c.e(b25Var);
                 } else {
                     this.c.f(audioInfoData.getErrorCode());
                     this.c.g(audioInfoData.getErrorUserMsg());
@@ -302,10 +302,10 @@ public class d15 {
             }
             return this.c;
         }
-        return (b25) invokeLL.objValue;
+        return (c25) invokeLL.objValue;
     }
 
-    public b25 d(String str) {
+    public c25 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -321,6 +321,6 @@ public class d15 {
                 return null;
             }
         }
-        return (b25) invokeL.objValue;
+        return (c25) invokeL.objValue;
     }
 }

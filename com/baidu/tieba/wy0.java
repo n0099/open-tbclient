@@ -1,7 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface wy0 extends ov0 {
-    void g(@NonNull nu0 nu0Var);
+public final /* synthetic */ class wy0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        int[] iArr = new int[PlayerStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[PlayerStatus.PREPARED.ordinal()] = 1;
+        $EnumSwitchMapping$0[PlayerStatus.COMPLETE.ordinal()] = 2;
+    }
 }

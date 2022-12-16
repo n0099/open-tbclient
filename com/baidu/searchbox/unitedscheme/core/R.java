@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int alpha = 0x7f04008a;
@@ -44,7 +44,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int androidx_core_ripple_material_light = 0x7f060408;
@@ -68,7 +68,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int compat_button_inset_horizontal_material = 0x7f0701ca;
@@ -110,21 +110,21 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_background = 0x7f080e9f;
-        public static final int notification_bg = 0x7f080ea0;
-        public static final int notification_bg_low = 0x7f080ea1;
-        public static final int notification_bg_low_normal = 0x7f080ea2;
-        public static final int notification_bg_low_pressed = 0x7f080ea3;
-        public static final int notification_bg_normal = 0x7f080ea4;
-        public static final int notification_bg_normal_pressed = 0x7f080ea5;
-        public static final int notification_icon_background = 0x7f080ea6;
-        public static final int notification_template_icon_bg = 0x7f080ea7;
-        public static final int notification_template_icon_low_bg = 0x7f080ea8;
-        public static final int notification_tile_bg = 0x7f080ea9;
-        public static final int notify_panel_notification_icon_bg = 0x7f080eab;
+        public static final int notification_action_background = 0x7f080ec7;
+        public static final int notification_bg = 0x7f080ec8;
+        public static final int notification_bg_low = 0x7f080ec9;
+        public static final int notification_bg_low_normal = 0x7f080eca;
+        public static final int notification_bg_low_pressed = 0x7f080ecb;
+        public static final int notification_bg_normal = 0x7f080ecc;
+        public static final int notification_bg_normal_pressed = 0x7f080ecd;
+        public static final int notification_icon_background = 0x7f080ece;
+        public static final int notification_template_icon_bg = 0x7f080ecf;
+        public static final int notification_template_icon_low_bg = 0x7f080ed0;
+        public static final int notification_tile_bg = 0x7f080ed1;
+        public static final int notify_panel_notification_icon_bg = 0x7f080ed3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -142,7 +142,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int accessibility_action_clickable_span = 0x7f090030;
@@ -185,33 +185,33 @@ public final class R {
         public static final int actions = 0x7f090070;
         public static final int async = 0x7f0902d9;
         public static final int blocking = 0x7f0903c5;
-        public static final int chronometer = 0x7f090655;
-        public static final int dialog_button = 0x7f0907cf;
-        public static final int forever = 0x7f090a60;
-        public static final int icon = 0x7f090e46;
-        public static final int icon_group = 0x7f090e4e;
-        public static final int info = 0x7f090f56;
-        public static final int italic = 0x7f090fbe;
-        public static final int line1 = 0x7f091340;
-        public static final int line3 = 0x7f091342;
-        public static final int normal = 0x7f091729;
-        public static final int notification_background = 0x7f09173e;
-        public static final int notification_main_column = 0x7f091740;
-        public static final int notification_main_column_container = 0x7f091741;
-        public static final int right_icon = 0x7f091c8a;
-        public static final int right_side = 0x7f091c90;
-        public static final int tag_accessibility_actions = 0x7f09208c;
-        public static final int tag_accessibility_clickable_spans = 0x7f09208d;
-        public static final int tag_accessibility_heading = 0x7f09208e;
-        public static final int tag_accessibility_pane_title = 0x7f09208f;
-        public static final int tag_screen_reader_focusable = 0x7f0920d8;
-        public static final int tag_transition_group = 0x7f0920e6;
-        public static final int tag_unhandled_key_event_manager = 0x7f0920e8;
-        public static final int tag_unhandled_key_listeners = 0x7f0920e9;
-        public static final int text = 0x7f09215f;
-        public static final int text2 = 0x7f092160;
-        public static final int time = 0x7f092232;
-        public static final int title = 0x7f092263;
+        public static final int chronometer = 0x7f090665;
+        public static final int dialog_button = 0x7f0907e8;
+        public static final int forever = 0x7f090a7b;
+        public static final int icon = 0x7f090e96;
+        public static final int icon_group = 0x7f090e9e;
+        public static final int info = 0x7f090fb1;
+        public static final int italic = 0x7f091019;
+        public static final int line1 = 0x7f0913a0;
+        public static final int line3 = 0x7f0913a2;
+        public static final int normal = 0x7f091790;
+        public static final int notification_background = 0x7f0917a8;
+        public static final int notification_main_column = 0x7f0917aa;
+        public static final int notification_main_column_container = 0x7f0917ab;
+        public static final int right_icon = 0x7f091cf5;
+        public static final int right_side = 0x7f091cfc;
+        public static final int tag_accessibility_actions = 0x7f0920fa;
+        public static final int tag_accessibility_clickable_spans = 0x7f0920fb;
+        public static final int tag_accessibility_heading = 0x7f0920fc;
+        public static final int tag_accessibility_pane_title = 0x7f0920fd;
+        public static final int tag_screen_reader_focusable = 0x7f092147;
+        public static final int tag_transition_group = 0x7f092155;
+        public static final int tag_unhandled_key_event_manager = 0x7f092157;
+        public static final int tag_unhandled_key_listeners = 0x7f092158;
+        public static final int text = 0x7f0921ce;
+        public static final int text2 = 0x7f0921cf;
+        public static final int time = 0x7f0922a1;
+        public static final int title = 0x7f0922d4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -229,7 +229,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int status_bar_notification_info_maxnum = 0x7f0a0027;
@@ -250,16 +250,16 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int custom_dialog = 0x7f0d0209;
-        public static final int notification_action = 0x7f0d067f;
-        public static final int notification_action_tombstone = 0x7f0d0680;
-        public static final int notification_template_custom_big = 0x7f0d0687;
-        public static final int notification_template_icon_group = 0x7f0d0688;
-        public static final int notification_template_part_chronometer = 0x7f0d068c;
-        public static final int notification_template_part_time = 0x7f0d068d;
+        public static final int custom_dialog = 0x7f0d020c;
+        public static final int notification_action = 0x7f0d0690;
+        public static final int notification_action_tombstone = 0x7f0d0691;
+        public static final int notification_template_custom_big = 0x7f0d0698;
+        public static final int notification_template_icon_group = 0x7f0d0699;
+        public static final int notification_template_part_chronometer = 0x7f0d069d;
+        public static final int notification_template_part_time = 0x7f0d069e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -277,29 +277,29 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int activity_not_found = 0x7f0f008d;
+        public static final int activity_not_found = 0x7f0f008e;
         public static final int app_name = 0x7f0f029e;
-        public static final int liveshow_teletext_time_day_before = 0x7f0f0a66;
-        public static final int liveshow_teletext_time_hour_before = 0x7f0f0a67;
-        public static final int liveshow_teletext_time_min_before = 0x7f0f0a68;
-        public static final int liveshow_teletext_time_sec_before = 0x7f0f0a69;
-        public static final int status_bar_notification_info_overflow = 0x7f0f124a;
-        public static final int time_liveshow_teletext_time_day_before = 0x7f0f1455;
-        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f1456;
-        public static final int time_liveshow_teletext_time_min_before = 0x7f0f1457;
-        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f1458;
-        public static final int united_scheme_err_message_action_acl_check_fail = 0x7f0f150d;
-        public static final int united_scheme_err_message_action_allow_close = 0x7f0f150e;
-        public static final int united_scheme_err_message_action_notfound = 0x7f0f150f;
-        public static final int united_scheme_err_message_action_sec_check_fail = 0x7f0f1510;
-        public static final int united_scheme_err_message_module_notfound = 0x7f0f1511;
-        public static final int united_scheme_err_message_not_support = 0x7f0f1512;
-        public static final int united_scheme_err_message_ok = 0x7f0f1513;
-        public static final int united_scheme_err_message_params_parse_fail = 0x7f0f1514;
-        public static final int united_scheme_err_message_parse_fail = 0x7f0f1515;
+        public static final int liveshow_teletext_time_day_before = 0x7f0f0a9c;
+        public static final int liveshow_teletext_time_hour_before = 0x7f0f0a9d;
+        public static final int liveshow_teletext_time_min_before = 0x7f0f0a9e;
+        public static final int liveshow_teletext_time_sec_before = 0x7f0f0a9f;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1283;
+        public static final int time_liveshow_teletext_time_day_before = 0x7f0f1490;
+        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f1491;
+        public static final int time_liveshow_teletext_time_min_before = 0x7f0f1492;
+        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f1493;
+        public static final int united_scheme_err_message_action_acl_check_fail = 0x7f0f1548;
+        public static final int united_scheme_err_message_action_allow_close = 0x7f0f1549;
+        public static final int united_scheme_err_message_action_notfound = 0x7f0f154a;
+        public static final int united_scheme_err_message_action_sec_check_fail = 0x7f0f154b;
+        public static final int united_scheme_err_message_module_notfound = 0x7f0f154c;
+        public static final int united_scheme_err_message_not_support = 0x7f0f154d;
+        public static final int united_scheme_err_message_ok = 0x7f0f154e;
+        public static final int united_scheme_err_message_params_parse_fail = 0x7f0f154f;
+        public static final int united_scheme_err_message_parse_fail = 0x7f0f1550;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -317,7 +317,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TextAppearance_Compat_Notification = 0x7f1001ef;
@@ -344,7 +344,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ColorStateListItem;

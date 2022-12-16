@@ -13,14 +13,14 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.b50;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         try {
                             if (Build.VERSION.SDK_INT >= 17) {
-                                qy4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                                ry4.l().z("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                                 return false;
                             }
                             return false;
@@ -136,10 +136,10 @@ public class MainTabLoadFinishTask extends LaunchTask {
             });
             try {
                 String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                String q = qy4.k().q("key_last_cached_oid", "");
-                if (StringUtils.isNull(q) || !q.equals(lastCachedOid)) {
-                    qy4.k().y("key_last_cached_oid", lastCachedOid);
-                    qy4.k().y("key_last_cached_real_oid", getRealOaid(lastCachedOid));
+                String r = ry4.l().r("key_last_cached_oid", "");
+                if (StringUtils.isNull(r) || !r.equals(lastCachedOid)) {
+                    ry4.l().z("key_last_cached_oid", lastCachedOid);
+                    ry4.l().z("key_last_cached_real_oid", getRealOaid(lastCachedOid));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

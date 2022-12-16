@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean JD;
@@ -45,7 +45,7 @@ public final class b {
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0618c JU;
+    public c.InterfaceC0635c JU;
     public c.d JV;
     public c.a JW;
     public int Jn;
@@ -56,7 +56,7 @@ public final class b {
     public Handler mHandler;
     public long mStartTime;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         @WorkerThread
         void onReleaseSuccess();
@@ -210,7 +210,7 @@ public final class b {
                 }
             }
         };
-        this.JU = new c.InterfaceC0618c(this) { // from class: com.kwad.components.core.video.b.5
+        this.JU = new c.InterfaceC0635c(this) { // from class: com.kwad.components.core.video.b.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b JX;
@@ -233,7 +233,7 @@ public final class b {
                 this.JX = this;
             }
 
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0618c
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0635c
             public final boolean j(int i3, int i4) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
@@ -508,7 +508,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (cVar = this.JG) == null) {
             return;
         }
-        cVar.a((c.InterfaceC0618c) null);
+        cVar.a((c.InterfaceC0635c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);

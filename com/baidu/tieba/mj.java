@@ -10,6 +10,7 @@ public class mj {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 300000;
     public static int b = 60000;
+    public static int c = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

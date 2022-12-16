@@ -18,7 +18,7 @@ public class cs {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<cr> f185a;
+    public final ArrayList<cr> f208a;
 
     public cs() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class cs {
                 return;
             }
         }
-        this.f185a = new ArrayList<>();
+        this.f208a = new ArrayList<>();
     }
 
     public cs(String str) {
@@ -51,7 +51,7 @@ public class cs {
                 return;
             }
         }
-        this.f185a = new ArrayList<>();
+        this.f208a = new ArrayList<>();
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -63,10 +63,10 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                for (int size = this.f185a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f185a.get(size);
-                    if (crVar.m245a()) {
-                        cv.a().m255a(crVar.a());
+                for (int size = this.f208a.size() - 1; size >= 0; size--) {
+                    cr crVar = this.f208a.get(size);
+                    if (crVar.m255a()) {
+                        cv.a().m265a(crVar.a());
                         return crVar;
                     }
                 }
@@ -84,7 +84,7 @@ public class cs {
                 this.a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    this.f185a.add(new cr(this.a).a(jSONArray.getJSONObject(i)));
+                    this.f208a.add(new cr(this.a).a(jSONArray.getJSONObject(i)));
                 }
             }
             return this;
@@ -93,21 +93,21 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m246a() {
+    public String m256a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cr> m247a() {
+    public ArrayList<cr> m257a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f185a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f208a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m248a() {
+    public synchronized JSONObject m258a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -116,9 +116,9 @@ public class cs {
                 jSONObject = new JSONObject();
                 jSONObject.put("host", this.a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<cr> it = this.f185a.iterator();
+                Iterator<cr> it = this.f208a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m243a());
+                    jSONArray.put(it.next().m253a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }
@@ -133,17 +133,17 @@ public class cs {
             synchronized (this) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.f185a.size()) {
+                    if (i >= this.f208a.size()) {
                         break;
-                    } else if (this.f185a.get(i).a(crVar)) {
-                        this.f185a.set(i, crVar);
+                    } else if (this.f208a.get(i).a(crVar)) {
+                        this.f208a.set(i, crVar);
                         break;
                     } else {
                         i++;
                     }
                 }
-                if (i >= this.f185a.size()) {
-                    this.f185a.add(crVar);
+                if (i >= this.f208a.size()) {
+                    this.f208a.add(crVar);
                 }
             }
         }
@@ -154,15 +154,15 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             synchronized (this) {
-                for (int size = this.f185a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f185a.get(size);
+                for (int size = this.f208a.size() - 1; size >= 0; size--) {
+                    cr crVar = this.f208a.get(size);
                     if (z) {
                         if (crVar.c()) {
-                            arrayList = this.f185a;
+                            arrayList = this.f208a;
                             arrayList.remove(size);
                         }
                     } else if (!crVar.b()) {
-                        arrayList = this.f185a;
+                        arrayList = this.f208a;
                         arrayList.remove(size);
                     }
                 }
@@ -177,7 +177,7 @@ public class cs {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("\n");
-            Iterator<cr> it = this.f185a.iterator();
+            Iterator<cr> it = this.f208a.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
             }

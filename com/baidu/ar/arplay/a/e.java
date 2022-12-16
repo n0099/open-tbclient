@@ -672,7 +672,7 @@ public class e {
                         }
                     }
                     if (this.dH.dF.size() <= 0 || (a2 = (eVar3 = this.dH).a(eVar3.dF, this.dJ.getId())) <= 1) {
-                        this.dH.c(ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, this.cZ);
+                        this.dH.c(1030, this.cZ);
                         return;
                     }
                     int i = a2 - 1;
@@ -897,7 +897,7 @@ public class e {
     public void d(com.baidu.ar.arplay.a.a.e eVar, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, eVar, hashMap) == null) {
-            c(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES, hashMap);
+            c(1028, hashMap);
             a(new a(this, hashMap) { // from class: com.baidu.ar.arplay.a.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

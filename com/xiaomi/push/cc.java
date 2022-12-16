@@ -14,7 +14,7 @@ public class cc implements Runnable {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<Context> f161a;
+    public WeakReference<Context> f184a;
 
     public cc(String str, WeakReference<Context> weakReference) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class cc implements Runnable {
             }
         }
         this.a = str;
-        this.f161a = weakReference;
+        this.f184a = weakReference;
     }
 
     @Override // java.lang.Runnable
@@ -40,10 +40,10 @@ public class cc implements Runnable {
         WeakReference<Context> weakReference;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f161a) == null || (context = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f184a) == null || (context = weakReference.get()) == null) {
             return;
         }
-        if (cp.a(this.a) <= cb.f159a) {
+        if (cp.a(this.a) <= cb.f182a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }

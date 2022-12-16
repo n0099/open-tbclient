@@ -49,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            yi.P(context, antiData.getForbid_info());
+            yi.Q(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

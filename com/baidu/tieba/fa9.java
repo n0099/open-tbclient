@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface fa9 {
-    void a();
+    void i(String str);
 
-    void b();
+    void k(String str);
 
-    void c();
+    void u(String str);
+
+    void v(String str);
 }

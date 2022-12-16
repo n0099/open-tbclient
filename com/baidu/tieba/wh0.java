@@ -1,97 +1,97 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.view.ViewGroup;
+import androidx.annotation.FloatRange;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.dq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wh0 extends w81 {
+public class wh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
 
-    public wh0(AdBaseModel adBaseModel, View view2) {
+    public static boolean a(dq0 dq0Var) {
+        InterceptResult invokeL;
+        dq0.b bVar;
+        dq0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dq0Var)) == null) {
+            if (dq0Var == null) {
+                return false;
             }
+            if (TextUtils.isEmpty(dq0Var.f) && TextUtils.isEmpty(dq0Var.d) && (((bVar = dq0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = dq0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
+                return false;
+            }
+            return true;
         }
-        this.a = adBaseModel;
-        this.b = view2;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w81
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        tp0 tp0Var;
-        op0 op0Var;
+    public static int b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (tp0Var = adBaseModel.f) != null && !TextUtils.isEmpty(tp0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-            clogBuilder.j(str);
-            pp0 pp0Var = adBaseModel.m;
-            if (pp0Var != null && (op0Var = pp0Var.f) != null) {
-                clogBuilder.v(op0Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
             }
-            clogBuilder.p(adBaseModel.f.d);
-            a11.b(clogBuilder);
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int blue = Color.blue(i);
+            int green = Color.green(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
         }
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.w81
-    public void b(@NonNull zp0 zp0Var) {
+    public static String c(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zp0Var) == null) {
-            if (zp0Var.c) {
-                ji0.b(zp0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), str})) == null) {
+            String hexString = Integer.toHexString(Math.round(f * 255.0f));
+            if (hexString.length() < 2) {
+                hexString = "0" + hexString;
             }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
+            if (hexString.length() != 2) {
+                return "";
             }
+            return "#" + hexString + str;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public void h(View.OnClickListener onClickListener) {
+    public static int d(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(zi0.b(), i);
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(zi0.b(), i);
+            }
         }
+        return invokeLI.intValue;
     }
 
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        tp0 tp0Var;
-        op0 op0Var;
+    public static void e(View view2) {
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (tp0Var = adBaseModel.f) != null && !TextUtils.isEmpty(tp0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str);
-            pp0 pp0Var = adBaseModel.m;
-            if (pp0Var != null && (op0Var = pp0Var.f) != null) {
-                clogBuilder.v(op0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            a11.b(clogBuilder);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
+            viewGroup.removeView(view2);
         }
     }
 }

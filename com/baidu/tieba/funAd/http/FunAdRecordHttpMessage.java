@@ -85,7 +85,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
                 jSONObject.put("fid", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                jSONObject.put(TiebaStatic.Params.RESOURCE_ID, str5);
+                jSONObject.put("resource_id", str5);
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(REQUEST_RECORD, jSONObject);

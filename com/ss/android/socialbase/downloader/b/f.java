@@ -29,7 +29,7 @@ public class f implements ServiceConnection, t {
     public static long d;
     @Nullable
     public c a;
-    public c.a.InterfaceC0696a g;
+    public c.a.InterfaceC0713a g;
     public Future<?> i;
     public Handler e = new Handler(Looper.getMainLooper());
     public b f = null;
@@ -130,7 +130,7 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC0696a a(f fVar) {
+    public static /* synthetic */ c.a.InterfaceC0713a a(f fVar) {
         return fVar.g;
     }
 
@@ -558,8 +558,8 @@ public class f implements ServiceConnection, t {
         }
     }
 
-    public void a(c.a.InterfaceC0696a interfaceC0696a) {
-        this.g = interfaceC0696a;
+    public void a(c.a.InterfaceC0713a interfaceC0713a) {
+        this.g = interfaceC0713a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j

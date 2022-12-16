@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -224,7 +223,7 @@ public final class HttpDns {
                                     sb.append(readLine);
                                 }
                                 JSONObject jSONObject = new JSONObject(sb.toString());
-                                long j = jSONObject.getLong(ResultTB.TTL);
+                                long j = jSONObject.getLong("ttl");
                                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                                 if (optJSONObject != null) {
                                     if (j == 0) {

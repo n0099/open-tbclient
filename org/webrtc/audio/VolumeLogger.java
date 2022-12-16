@@ -3,7 +3,6 @@ package org.webrtc.audio;
 import android.media.AudioManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -100,7 +99,7 @@ public class VolumeLogger {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Logging.d(TAG, IntentConfig.STOP + WebRtcAudioUtils.getThreadInfo());
+            Logging.d(TAG, "stop" + WebRtcAudioUtils.getThreadInfo());
             Timer timer = this.timer;
             if (timer != null) {
                 timer.cancel();

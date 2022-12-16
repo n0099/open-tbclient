@@ -20,21 +20,22 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.TbChannelJsInterface;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq4;
-import com.baidu.tieba.aq8;
 import com.baidu.tieba.ch;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.yp8;
+import com.baidu.tieba.xs8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,60 +43,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String TB_NA_CHANNEL = "__tb_channel__";
     public static final String USER_SKIN_OVERLAY = "user_skin_overlay=1";
     public transient /* synthetic */ FieldHolder $fh;
-    public aq8 jsCallback;
+    public long initFinishedTime;
+    public final long initStartTime;
+    public zs8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
-    public d mDownloadListener;
     public boolean mIsLoaded;
-    public yp8 mJsBridge;
-    public d mOnLoadUrlListener;
-    public e mOnPageFinishedListener;
-    public f mOnPageStartedListener;
-    public g mOnProgressChangedListener;
-    public h mOnReceivedErrorListener;
-    public i mOnReceivedSslErrorListener;
-    public j mOnScrollChangeListener;
-    public k mWebChromeClient;
+    public xs8 mJsBridge;
+    public c mOnLoadUrlListener;
+    public d mOnPageFinishedListener;
+    public e mOnPageStartedListener;
+    public f mOnProgressChangedListener;
+    public g mOnReceivedErrorListener;
+    public h mOnReceivedSslErrorListener;
+    public i mOnScrollChangeListener;
+    public j mWebChromeClient;
     public WebViewClient mWebViewClient;
     public View skinOverlayView;
+    public TbChannelJsInterface tbChannelJsInterface;
 
     /* loaded from: classes3.dex */
-    public interface d {
+    public interface c {
         boolean shouldOverrideUrlLoading(WebView webView, String str);
     }
 
     /* loaded from: classes3.dex */
-    public interface e {
+    public interface d {
         void onPageFinished(WebView webView, String str);
     }
 
     /* loaded from: classes3.dex */
-    public interface f {
-        void m(WebView webView, String str);
+    public interface e {
+        void l(WebView webView, String str);
     }
 
     /* loaded from: classes3.dex */
-    public interface g {
+    public interface f {
         void a(WebView webView, int i);
     }
 
     /* loaded from: classes3.dex */
-    public interface h {
+    public interface g {
         void a(WebView webView, int i, String str, String str2);
     }
 
     /* loaded from: classes3.dex */
-    public interface i {
+    public interface h {
         void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
     }
 
     /* loaded from: classes3.dex */
-    public interface j {
+    public interface i {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
@@ -107,7 +112,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements aq8 {
+    public class a implements zs8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -130,15 +135,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.aq8
+        @Override // com.baidu.tieba.zs8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                yp8 yp8Var = baseWebView.mJsBridge;
-                if (yp8Var != null) {
-                    return yp8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                xs8 xs8Var = baseWebView.mJsBridge;
+                if (xs8Var != null) {
+                    return xs8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -147,55 +152,12 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements d {
+    public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
 
         public b(BaseWebView baseWebView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseWebView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = baseWebView;
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (str == null) {
-                    return true;
-                }
-                try {
-                    sp4.l(this.a.mContext, str);
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends WebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseWebView a;
-
-        public c(BaseWebView baseWebView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -273,7 +235,7 @@ public class BaseWebView extends WebView {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
                 if (this.a.mOnPageStartedListener != null) {
-                    this.a.mOnPageStartedListener.m(webView, str);
+                    this.a.mOnPageStartedListener.l(webView, str);
                 }
             }
         }
@@ -305,12 +267,12 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class k extends WebChromeClient {
+    public class j extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
 
-        public k(BaseWebView baseWebView) {
+        public j(BaseWebView baseWebView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -328,7 +290,7 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        public /* synthetic */ k(BaseWebView baseWebView, a aVar) {
+        public /* synthetic */ j(BaseWebView baseWebView, a aVar) {
             this(baseWebView);
         }
 
@@ -418,13 +380,14 @@ public class BaseWebView extends WebView {
         this.mContext = null;
         this.mIsLoaded = false;
         this.mOnScrollChangeListener = null;
-        this.mDownloadListener = null;
         this.mOnLoadUrlListener = null;
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
         this.mOnProgressChangedListener = null;
+        this.initStartTime = System.currentTimeMillis();
+        this.tbChannelJsInterface = null;
         this.jsCallback = new a(this);
         this.mContext = context;
         init();
@@ -452,13 +415,49 @@ public class BaseWebView extends WebView {
         this.mContext = null;
         this.mIsLoaded = false;
         this.mOnScrollChangeListener = null;
-        this.mDownloadListener = null;
         this.mOnLoadUrlListener = null;
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
         this.mOnProgressChangedListener = null;
+        this.initStartTime = System.currentTimeMillis();
+        this.tbChannelJsInterface = null;
+        this.jsCallback = new a(this);
+        this.mContext = context;
+        init();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BaseWebView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mContext = null;
+        this.mIsLoaded = false;
+        this.mOnScrollChangeListener = null;
+        this.mOnLoadUrlListener = null;
+        this.mOnPageStartedListener = null;
+        this.mOnPageFinishedListener = null;
+        this.mOnReceivedErrorListener = null;
+        this.mOnReceivedSslErrorListener = null;
+        this.mOnProgressChangedListener = null;
+        this.initStartTime = System.currentTimeMillis();
+        this.tbChannelJsInterface = null;
         this.jsCallback = new a(this);
         this.mContext = context;
         init();
@@ -473,10 +472,25 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void resetProxy(int i2) {
+    @Override // android.webkit.WebView
+    public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            CompatibleUtile.dealWebView(null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
+            if (tbChannelJsInterface != null) {
+                tbChannelJsInterface.startLoadUrl(str);
+            }
+            super.loadUrl(str);
+        }
+    }
+
+    public final void registerPerformanceTracker(@NonNull TbChannelJsInterface tbChannelJsInterface) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, tbChannelJsInterface) == null) && tbChannelJsInterface != null) {
+            this.tbChannelJsInterface = tbChannelJsInterface;
+            tbChannelJsInterface.setWebViewInitStartTime(this.initStartTime);
+            this.tbChannelJsInterface.setWebViewInitFinishTime(this.initFinishedTime);
+            addJavascriptInterface(tbChannelJsInterface, TB_NA_CHANNEL);
         }
     }
 
@@ -484,7 +498,7 @@ public class BaseWebView extends WebView {
     public final void setAcceptThirdPartyCookies(boolean z) {
         CookieManager cookieManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             try {
                 CookieSyncManager.createInstance(getContext());
                 cookieManager = CookieManager.getInstance();
@@ -498,80 +512,66 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setDownloadEnabled(boolean z) {
+    public void setOnJsPromptCallback(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                if (this.mDownloadListener == null) {
-                    initDownload();
-                }
-                setOnLoadUrlListener(this.mDownloadListener);
-                return;
-            }
-            setOnLoadUrlListener(null);
+        if (interceptable == null || interceptable.invokeL(1048587, this, zs8Var) == null) {
+            this.jsCallback = zs8Var;
         }
     }
 
-    public void setOnJsPromptCallback(aq8 aq8Var) {
+    public void setOnLoadUrlListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aq8Var) == null) {
-            this.jsCallback = aq8Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
+            this.mOnLoadUrlListener = cVar;
         }
     }
 
-    public void setOnLoadUrlListener(d dVar) {
+    public void setOnPageFinishedListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.mOnLoadUrlListener = dVar;
+        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
+            this.mOnPageFinishedListener = dVar;
         }
     }
 
-    public void setOnPageFinishedListener(e eVar) {
+    public void setOnPageStartedListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) {
-            this.mOnPageFinishedListener = eVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) {
+            this.mOnPageStartedListener = eVar;
         }
     }
 
-    public void setOnPageStartedListener(f fVar) {
+    public void setOnProgressChangedListener(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
-            this.mOnPageStartedListener = fVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, fVar) == null) {
+            this.mOnProgressChangedListener = fVar;
         }
     }
 
-    public void setOnProgressChangedListener(g gVar) {
+    public void setOnReceivedErrorListener(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
-            this.mOnProgressChangedListener = gVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) {
+            this.mOnReceivedErrorListener = gVar;
         }
     }
 
-    public void setOnReceivedErrorListener(h hVar) {
+    public void setOnReceivedSslErrorListener(h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, hVar) == null) {
-            this.mOnReceivedErrorListener = hVar;
+        if (interceptable == null || interceptable.invokeL(1048593, this, hVar) == null) {
+            this.mOnReceivedSslErrorListener = hVar;
         }
     }
 
-    public void setOnReceivedSslErrorListener(i iVar) {
+    public void setOnScrollChangeListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, iVar) == null) {
-            this.mOnReceivedSslErrorListener = iVar;
-        }
-    }
-
-    public void setOnScrollChangeListener(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) {
-            this.mOnScrollChangeListener = jVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, iVar) == null) {
+            this.mOnScrollChangeListener = iVar;
         }
     }
 
     @Override // android.webkit.WebView
     public void setWebChromeClient(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, webChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, webChromeClient) == null) {
             super.setWebChromeClient(webChromeClient);
         }
     }
@@ -579,14 +579,14 @@ public class BaseWebView extends WebView {
     @Override // android.webkit.WebView
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, webViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, webViewClient) == null) {
             super.setWebViewClient(webViewClient);
         }
     }
 
     public void setWebViewSkinOverly(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             if (!TextUtils.isEmpty(str) && str.contains(USER_SKIN_OVERLAY)) {
                 showSkinOverly();
             } else {
@@ -595,11 +595,23 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void sendNotification(String str, HashMap hashMap) {
-        yp8 yp8Var;
+    @Override // android.webkit.WebView
+    public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) && (yp8Var = this.mJsBridge) != null) {
-            yp8Var.h(getWebView(), str, hashMap);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
+            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
+            if (tbChannelJsInterface != null) {
+                tbChannelJsInterface.startLoadUrl(str);
+            }
+            super.loadUrl(str, map);
+        }
+    }
+
+    public void sendNotification(String str, HashMap hashMap) {
+        xs8 xs8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (xs8Var = this.mJsBridge) != null) {
+            xs8Var.h(getWebView(), str, hashMap);
         }
     }
 
@@ -611,19 +623,12 @@ public class BaseWebView extends WebView {
         }
     }
 
-    private void initDownload() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.mDownloadListener = new b(this);
-        }
-    }
-
     private void showSkinOverly() {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && (view2 = this.skinOverlayView) != null) {
+        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (view2 = this.skinOverlayView) != null) {
             view2.setVisibility(0);
-            qw4.d(this.skinOverlayView).f(R.color.CAM_X0503);
+            rw4.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -639,7 +644,6 @@ public class BaseWebView extends WebView {
             this.mContext = null;
             this.mWebViewClient = null;
             this.mWebChromeClient = null;
-            this.mDownloadListener = null;
             this.mOnLoadUrlListener = null;
             this.mOnPageStartedListener = null;
             this.mOnPageFinishedListener = null;
@@ -660,10 +664,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        yp8 yp8Var;
+        xs8 xs8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (yp8Var = this.mJsBridge) != null) {
-            yp8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (xs8Var = this.mJsBridge) != null) {
+            xs8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -675,9 +679,9 @@ public class BaseWebView extends WebView {
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
             sp4.a(getSettings());
-            this.mWebViewClient = new c(this);
-            this.mWebChromeClient = new k(this, null);
-            this.mJsBridge = new yp8();
+            this.mWebViewClient = new b(this);
+            this.mWebChromeClient = new j(this, null);
+            this.mJsBridge = new xs8();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -691,13 +695,14 @@ public class BaseWebView extends WebView {
                 getSettings().setMixedContentMode(0);
             }
             initSkinOverlyView();
+            this.initFinishedTime = System.currentTimeMillis();
         }
     }
 
     private void initSkinOverlyView() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (context = this.mContext) != null && this.skinOverlayView == null) {
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (context = this.mContext) != null && this.skinOverlayView == null) {
             View view2 = new View(context);
             this.skinOverlayView = view2;
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -708,7 +713,7 @@ public class BaseWebView extends WebView {
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mJsBridge != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
@@ -716,7 +721,7 @@ public class BaseWebView extends WebView {
             }
             View view2 = this.skinOverlayView;
             if (view2 != null) {
-                qw4.d(view2).f(R.color.CAM_X0503);
+                rw4.d(view2).f(R.color.CAM_X0503);
             }
         }
     }
@@ -724,11 +729,11 @@ public class BaseWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            j jVar = this.mOnScrollChangeListener;
-            if (jVar != null) {
-                jVar.onScrollChanged(i2, i3, i4, i5);
+            i iVar = this.mOnScrollChangeListener;
+            if (iVar != null) {
+                iVar.onScrollChanged(i2, i3, i4, i5);
             }
             View view2 = this.skinOverlayView;
             if (view2 != null && view2.getVisibility() == 0) {

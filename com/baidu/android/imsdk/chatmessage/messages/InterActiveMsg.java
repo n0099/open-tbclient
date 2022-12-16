@@ -96,6 +96,20 @@ public class InterActiveMsg extends NormalMsg {
         setMsgType(24);
     }
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String localUrl = getLocalUrl();
+            if (TextUtils.isEmpty(localUrl)) {
+                return IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC;
+            }
+            return localUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public int getTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -162,31 +176,6 @@ public class InterActiveMsg extends NormalMsg {
             }
         }
         this.mTemplate = parcel.readInt();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "";
-            try {
-                JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
-                if (optJSONObject != null) {
-                    str = optJSONObject.optString("level2");
-                    if (TextUtils.isEmpty(str)) {
-                        str = optJSONObject.optString("level1");
-                    }
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "getRecommendDescription JSONException", e);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 
     public void setTemplate(int i) {

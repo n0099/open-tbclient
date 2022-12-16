@@ -1,96 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context;
+import android.media.MediaMetadataRetriever;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.view.Surface;
+import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.write.write.WriteMultiImgsActivity;
-import com.baidu.tieba.write.write.sticker.view.StickerLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.editvideo.player.VideoPlayData;
+import com.baidu.ugc.editvideo.record.source.AMediaPlayer;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.DefaultRenderersFactory;
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener;
+import com.google.android.exoplayer2.source.ClippingMediaSource;
+import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.dash.DashMediaSource;
+import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
+import com.google.android.exoplayer2.source.smoothstreaming.DefaultSsChunkSource;
+import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
+import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.util.Util;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class u59 {
+public class u59 extends AMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public kv4 b;
-    public k59 c;
-    public j59 d;
-    public BdBaseViewPager e;
-    public StickerLayout f;
-    public TextView g;
-    public FragmentTabWidget h;
-    public TbPageContext<WriteMultiImgsActivity> i;
-    public int j;
-    public LinearLayout k;
-    public List<String> l;
-    public WriteImagesInfo m;
-    public y89 n;
-    public NavigationBar o;
-    public ArrayList<FragmentTabIndicator> p;
+    public Context a;
+    public b b;
+    public final SimpleExoPlayer c;
+    public IMediaPlayer.OnSpeedChangeListener d;
+    public boolean e;
+    public int f;
+    public String g;
+    public Handler h;
+    public MediaSource i;
+    public DefaultDataSourceFactory j;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u59 a;
-
-        public a(u59 u59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u59Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null && this.a.i.getPageActivity() != null) {
-                this.a.i.getPageActivity().setResult(0);
-                this.a.i.getPageActivity().finish();
-            }
-        }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements p59 {
+    public class b extends Player.DefaultEventListener implements SimpleExoPlayer.VideoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u59 a;
+        public boolean a;
+        public boolean b;
+        public boolean c;
+        public boolean d;
+        public final /* synthetic */ u59 e;
 
         public b(u59 u59Var) {
             Interceptable interceptable = $ic;
@@ -107,168 +92,100 @@ public class u59 {
                     return;
                 }
             }
-            this.a = u59Var;
+            this.e = u59Var;
+            this.a = false;
+            this.b = false;
+            this.c = false;
+            this.d = false;
         }
 
-        @Override // com.baidu.tieba.p59
-        public void a(Bitmap bitmap, boolean z) {
+        public /* synthetic */ b(u59 u59Var, a aVar) {
+            this(u59Var);
+        }
+
+        @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
+        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) {
-                if (this.a.n != null && this.a.n.c(bitmap)) {
-                    return;
-                }
-                this.a.i(bitmap);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, playbackParameters) == null) && this.e.d != null && playbackParameters != null) {
+                this.e.d.onSpeedChange(playbackParameters.speed);
             }
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class c implements FragmentTabWidget.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u59 a;
-
-        public c(u59 u59Var) {
+        @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
+        public void onPlayerError(ExoPlaybackException exoPlaybackException) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exoPlaybackException) != null) {
+                return;
             }
-            this.a = u59Var;
+            this.e.notifyOnError(1, 1, exoPlaybackException);
         }
 
-        @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.b
-        public void onTabSelectionChanged(int i, boolean z) {
+        @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
+        public void onPlayerStateChanged(boolean z, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                u59 u59Var = this.a;
-                if (i == u59Var.j) {
-                    return;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                this.e.setPlaybackState(i);
+                if (this.c && (i == 3 || i == 4)) {
+                    this.c = false;
+                    u59 u59Var = this.e;
+                    u59Var.notifyOnInfo(702, u59Var.c.getBufferedPercentage());
                 }
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            StickerLayout stickerLayout = u59Var.f;
-                            if (stickerLayout != null) {
-                                stickerLayout.e();
+                if (this.a && i == 3) {
+                    this.a = false;
+                    this.e.e = true;
+                    this.e.notifyOnPrepared();
+                }
+                if (this.b && i == 3) {
+                    this.b = false;
+                    this.e.notifyOnSeekComplete();
+                }
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4 && !this.d) {
+                            this.d = true;
+                            if (!this.e.isLooping()) {
+                                this.e.notifyOnPlayStateChange(2);
+                                this.e.notifyOnCompletion();
+                                return;
                             }
-                            this.a.c.k().setVisibility(8);
-                            this.a.d.k().setVisibility(0);
+                            this.e.seekTo(0L);
+                            this.e.notifyOnLooping();
+                            return;
                         }
-                    } else {
-                        StickerLayout stickerLayout2 = u59Var.f;
-                        if (stickerLayout2 != null) {
-                            stickerLayout2.e();
-                        }
-                        this.a.c.k().setVisibility(8);
-                        this.a.d.k().setVisibility(0);
+                        return;
                     }
-                } else {
-                    u59Var.c.k().setVisibility(0);
-                    this.a.d.k().setVisibility(8);
-                    if (ListUtils.isEmpty(this.a.l)) {
-                        if (this.a.n != null) {
-                            this.a.n.b();
-                        }
-                    } else {
-                        u59 u59Var2 = this.a;
-                        u59Var2.c.m(u59Var2.l);
-                    }
-                }
-                u59 u59Var3 = this.a;
-                u59Var3.j = i;
-                u59Var3.h.setCurrentTab(this.a.j, true, true);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements kv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u59 a;
-
-        public d(u59 u59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    this.d = false;
                     return;
                 }
+                u59 u59Var2 = this.e;
+                u59Var2.notifyOnInfo(701, u59Var2.c.getBufferedPercentage());
+                this.c = true;
             }
-            this.a = u59Var;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.google.android.exoplayer2.SimpleExoPlayer.VideoListener
+        public void onRenderedFirstFrame() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                if (this.a.b != null) {
-                    this.a.b.dismiss();
-                }
-                this.a.j(true);
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.e.notifyOnInfo(3, 0);
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.SimpleExoPlayer.VideoListener
+        public void onVideoSizeChanged(int i, int i2, int i3, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
+                this.e.notifyOnVideoSizeChanged(i, i2, i3, f);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements kv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u59 a;
-
-        public e(u59 u59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u59Var;
-        }
-
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                if (this.a.b != null) {
-                    this.a.b.dismiss();
-                }
-                this.a.j(false);
-            }
-        }
-    }
-
-    public u59(TbPageContext<WriteMultiImgsActivity> tbPageContext, y89 y89Var) {
+    public u59(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, y89Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -278,170 +195,465 @@ public class u59 {
                 return;
             }
         }
-        this.a = 3;
-        this.e = null;
-        this.g = null;
-        this.j = 0;
-        this.p = new ArrayList<>();
-        this.i = tbPageContext;
-        this.n = y89Var;
-        this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0954, (ViewGroup) null);
-        m();
+        String str = "QMExoMP@" + Integer.toHexString(hashCode());
+        this.a = context.getApplicationContext();
+        DefaultBandwidthMeter defaultBandwidthMeter = new DefaultBandwidthMeter();
+        this.c = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(context, null), new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(defaultBandwidthMeter)), new DefaultLoadControl());
+        b bVar = new b(this, null);
+        this.b = bVar;
+        this.c.addListener(bVar);
+        this.c.addVideoListener(this.b);
+        this.c.setPlayWhenReady(false);
+        this.h = new Handler(Looper.getMainLooper());
+        String userAgent = Util.getUserAgent(this.a, "ExoMediaPlayer");
+        this.g = userAgent;
+        this.j = new DefaultDataSourceFactory(this.a, userAgent, defaultBandwidthMeter);
     }
 
-    public void a(List<String> list) {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void setDataSource(List<VideoPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.l = list;
-            this.c.m(list);
+        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
+            this.e = false;
+            this.f = 0;
+            MediaSource[] mediaSourceArr = new MediaSource[list.size()];
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                VideoPlayData videoPlayData = list.get(i2);
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                mediaMetadataRetriever.setDataSource(videoPlayData.videoPath);
+                String extractMetadata = mediaMetadataRetriever.extractMetadata(24);
+                String extractMetadata2 = mediaMetadataRetriever.extractMetadata(18);
+                String extractMetadata3 = mediaMetadataRetriever.extractMetadata(19);
+                String extractMetadata4 = mediaMetadataRetriever.extractMetadata(9);
+                mediaMetadataRetriever.release();
+                int b2 = qm9.b(extractMetadata, 0);
+                int b3 = qm9.b(extractMetadata2, 0);
+                int b4 = qm9.b(extractMetadata3, 0);
+                int b5 = qm9.b(extractMetadata4, 0);
+                videoPlayData.rotation = b2;
+                videoPlayData.width = b3;
+                videoPlayData.height = b4;
+                videoPlayData.offset = i;
+                int i3 = videoPlayData.end - videoPlayData.start;
+                i += i3;
+                this.f += i3;
+                MediaSource o = o(Uri.parse(videoPlayData.videoPath), "");
+                int i4 = videoPlayData.start;
+                if (i4 < 0) {
+                    i4 = 0;
+                }
+                int i5 = videoPlayData.end;
+                if (i5 <= b5) {
+                    b5 = i5;
+                }
+                mediaSourceArr[i2] = new ClippingMediaSource(o, i4 * 1000, b5 * 1000);
+            }
+            this.i = new ConcatenatingMediaSource(mediaSourceArr);
+            setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
         }
     }
 
-    public final void j(boolean z) {
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
+    @Override // com.baidu.ugc.editvideo.player.IPlayer
+    public void seekToForce(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (tbPageContext = this.i) != null && tbPageContext.getOrignalPage() != null) {
-            this.i.getOrignalPage().z1(z, this.m);
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            seekTo(j);
         }
     }
 
-    public void p(WriteImagesInfo writeImagesInfo) {
+    @Override // com.baidu.ugc.editvideo.record.source.AMediaPlayer, com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, writeImagesInfo) == null) {
-            this.m = writeImagesInfo;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            setDataSource(null, Uri.parse(Uri.encode(str)), null);
         }
     }
 
-    public void k(boolean z, WriteImagesInfo writeImagesInfo) {
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public void setDisplay(SurfaceHolder surfaceHolder) {
+        SimpleExoPlayer simpleExoPlayer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048580, this, z, writeImagesInfo) == null) && (tbPageContext = this.i) != null && tbPageContext.getOrignalPage() != null) {
-            this.i.getOrignalPage().z1(z, writeImagesInfo);
+        if ((interceptable == null || interceptable.invokeL(1048595, this, surfaceHolder) == null) && (simpleExoPlayer = this.c) != null) {
+            simpleExoPlayer.setVideoSurfaceHolder(surfaceHolder);
         }
     }
 
-    public void h(int i) {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public void setOnSpeedChangeListener(IMediaPlayer.OnSpeedChangeListener onSpeedChangeListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == i) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, onSpeedChangeListener) == null) {
+            this.d = onSpeedChangeListener;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public boolean setPlaybackSpeed(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048597, this, f)) == null) {
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer != null) {
+                simpleExoPlayer.setPlaybackParameters(new PlaybackParameters(f, 1.0f));
+                return true;
+            }
+            return true;
+        }
+        return invokeF.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void setSurface(Surface surface) {
+        SimpleExoPlayer simpleExoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, surface) == null) && (simpleExoPlayer = this.c) != null) {
+            simpleExoPlayer.setVideoSurface(surface);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void setVolume(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.c.setVolume(f);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public long getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer == null) {
+                return 0L;
+            }
+            Timeline currentTimeline = simpleExoPlayer.getCurrentTimeline();
+            int currentWindowIndex = this.c.getCurrentWindowIndex();
+            long currentPosition = this.c.getCurrentPosition();
+            Timeline.Window window = new Timeline.Window();
+            if (currentTimeline != null) {
+                for (int i = 0; i < currentTimeline.getWindowCount(); i++) {
+                    long durationMs = currentTimeline.getWindow(i, window).getDurationMs();
+                    if (i < currentWindowIndex) {
+                        currentPosition += durationMs;
+                    }
+                }
+            }
+            return currentPosition;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.e = false;
+            this.i = null;
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a = false;
+            }
+            this.f = 0;
+            this.c.release();
+            b bVar2 = this.b;
+            if (bVar2 != null) {
+                this.c.removeVideoListener(bVar2);
+                this.c.removeListener(this.b);
+            }
+            this.b = null;
+            releaseListeners();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public long getDuration() {
+        InterceptResult invokeV;
+        SimpleExoPlayer simpleExoPlayer;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e && (simpleExoPlayer = this.c) != null) {
+                Timeline currentTimeline = simpleExoPlayer.getCurrentTimeline();
+                this.c.getCurrentWindowIndex();
+                this.c.getCurrentPosition();
+                Timeline.Window window = new Timeline.Window();
+                if (currentTimeline != null) {
+                    j = 0;
+                    for (int i = 0; i < currentTimeline.getWindowCount(); i++) {
+                        j += currentTimeline.getWindow(i, window).getDurationMs();
+                    }
+                } else {
+                    j = 0;
+                }
+                if (j == 0) {
+                    return this.f;
+                }
+                return j;
+            }
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public float getPlaybackSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer != null) {
+                return simpleExoPlayer.getPlaybackParameters().speed;
+            }
+            return 1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.AMediaPlayer, com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public int getPlaybackState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getPlaybackState();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public float getVolume() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer != null) {
+                return simpleExoPlayer.getVolume();
+            }
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.player.IPlayer
+    public boolean isEnd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (getCurrentPosition() >= getDuration() - 200 && getPlaybackState() == 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public boolean isPlayable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int playbackState = this.c.getPlaybackState();
+            if (playbackState != 1 && playbackState != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        SimpleExoPlayer simpleExoPlayer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (isPlayable() && (simpleExoPlayer = this.c) != null && simpleExoPlayer.getPlaybackState() != 4 && this.c.getPlayWhenReady()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void pause() throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !this.e) {
             return;
         }
-        this.a = i;
-        SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.obfuscated_res_0x7f08062e, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.o.onChangeSkinType(this.i, i);
-        SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0302, R.color.s_navbar_title_color);
-        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080acd);
-        this.c.n();
-        this.d.l();
-        Iterator<FragmentTabIndicator> it = this.p.iterator();
-        while (it.hasNext()) {
-            FragmentTabIndicator next = it.next();
-            if (next != null) {
-                next.e(i);
-            }
+        SimpleExoPlayer simpleExoPlayer = this.c;
+        if (simpleExoPlayer != null) {
+            simpleExoPlayer.setPlayWhenReady(false);
         }
-        this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
+        notifyOnPlayStateChange(2);
     }
 
-    public void i(Bitmap bitmap) {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void prepareAsync() throws IllegalStateException {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-            this.f.setVisibility(0);
-            try {
-                Matrix matrix = new Matrix();
-                matrix.postScale(0.6f, 0.6f);
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            } catch (Throwable th) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                th.printStackTrace();
-            }
-            this.f.b(bitmap, this.n);
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.e && this.i != null && (bVar = this.b) != null && !bVar.a) {
+            this.c.prepare(this.i);
+            this.b.a = true;
         }
     }
 
-    public final void l() {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f09207a);
-            Resources resources = this.i.getResources();
-            String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f03000f);
-            this.p.clear();
-            for (int i = 0; i < stringArray.length; i++) {
-                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.i.getContext());
-                fragmentTabIndicator.setText(stringArray[i]);
-                fragmentTabIndicator.setTextColorResId(R.color.CAM_X0105);
-                fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.obfuscated_res_0x7f07032f));
-                fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
-                this.h.addView(fragmentTabIndicator, i);
-                this.p.add(fragmentTabIndicator);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.i = null;
+            this.e = false;
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a = false;
             }
-            this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
-            this.h.setCurrentTab(this.j, true, false);
-            this.h.setDviderRectWidth(yi.g(this.i.getContext(), R.dimen.obfuscated_res_0x7f070258));
-            this.h.setTabSelectionListener(new c(this));
+            this.f = 0;
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer != null) {
+                simpleExoPlayer.stop();
+            }
         }
     }
 
-    public final void m() {
-        Resources resources;
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void start() throws IllegalStateException {
+        SimpleExoPlayer simpleExoPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f09270b);
-            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091fe3);
-            if (this.i.getResources() == null) {
-                resources = TbadkCoreApplication.getInst().getResources();
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.e && (simpleExoPlayer = this.c) != null) {
+            if (simpleExoPlayer.getPlaybackState() == 4) {
+                seekTo(0L);
             } else {
-                resources = this.i.getResources();
+                this.c.setPlayWhenReady(true);
             }
-            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f09270a);
-            this.o = navigationBar;
-            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0ec7));
-            this.o.showBottomLine();
-            this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f0510));
-            this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090886);
-            k59 k59Var = new k59(this.i);
-            this.c = k59Var;
-            k59Var.o(new b(this));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
-            layoutParams.setMargins(0, yi.g(this.i.getContext(), R.dimen.obfuscated_res_0x7f070215), 0, 0);
-            this.c.k().setLayoutParams(layoutParams);
-            frameLayout.addView(this.c.k());
-            j59 j59Var = new j59(this.i);
-            this.d = j59Var;
-            frameLayout.addView(j59Var.k());
-            this.d.k().setVisibility(8);
-            l();
+            notifyOnPlayStateChange(1);
         }
     }
 
-    public void n() {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void stop() throws IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.l();
-        }
-    }
-
-    public void o() {
-        StickerLayout stickerLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (stickerLayout = this.f) != null) {
-            stickerLayout.f(null);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.b == null) {
-                kv4 kv4Var = new kv4(this.i.getPageActivity());
-                this.b = kv4Var;
-                kv4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d52);
-                this.b.setPositiveButton(R.string.obfuscated_res_0x7f0f026b, new d(this));
-                this.b.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new e(this));
-                this.b.create(this.i);
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.i = null;
+            this.e = false;
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a = false;
             }
-            this.b.show();
+            SimpleExoPlayer simpleExoPlayer = this.c;
+            if (simpleExoPlayer != null) {
+                simpleExoPlayer.stop();
+            }
+            notifyOnPlayStateChange(2);
+        }
+    }
+
+    public final MediaSource o(Uri uri, String str) {
+        InterceptResult invokeLL;
+        int inferContentType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                inferContentType = Util.inferContentType(uri);
+            } else {
+                inferContentType = Util.inferContentType("." + str);
+            }
+            if (inferContentType != 0) {
+                if (inferContentType != 1) {
+                    if (inferContentType != 2) {
+                        if (inferContentType == 3) {
+                            return new ExtractorMediaSource(uri, this.j, new DefaultExtractorsFactory(), this.h, null);
+                        }
+                        throw new IllegalStateException("Unsupported type: " + inferContentType);
+                    }
+                    return new HlsMediaSource(uri, this.j, this.h, null);
+                }
+                return new SsMediaSource(uri, new DefaultDataSourceFactory(this.a, this.g), new DefaultSsChunkSource.Factory(this.j), this.h, (AdaptiveMediaSourceEventListener) null);
+            }
+            return new DashMediaSource(uri, new DefaultDataSourceFactory(this.a, this.g), new DefaultDashChunkSource.Factory(this.j), this.h, (AdaptiveMediaSourceEventListener) null);
+        }
+        return (MediaSource) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void seekTo(long j) throws IllegalStateException {
+        SimpleExoPlayer simpleExoPlayer;
+        int currentWindowIndex;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && this.e && (simpleExoPlayer = this.c) != null) {
+            Timeline currentTimeline = simpleExoPlayer.getCurrentTimeline();
+            if (!currentTimeline.isEmpty()) {
+                int windowCount = currentTimeline.getWindowCount();
+                currentWindowIndex = 0;
+                while (true) {
+                    long durationMs = currentTimeline.getWindow(currentWindowIndex, new Timeline.Window()).getDurationMs();
+                    if (j < durationMs) {
+                        break;
+                    } else if (currentWindowIndex == windowCount - 1) {
+                        j = durationMs;
+                        break;
+                    } else {
+                        j -= durationMs;
+                        currentWindowIndex++;
+                    }
+                }
+            } else {
+                currentWindowIndex = this.c.getCurrentWindowIndex();
+            }
+            this.c.seekTo(currentWindowIndex, j);
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.b = true;
+            }
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.player.IPlayer
+    public void setAudioDataSource(List<AudioPlayData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            this.e = false;
+            this.f = 0;
+            int size = list.size();
+            MediaSource[] mediaSourceArr = new MediaSource[size];
+            int i = 0;
+            for (int i2 = 0; i2 < list.size() && i2 < size; i2++) {
+                AudioPlayData audioPlayData = list.get(i2);
+                int i3 = audioPlayData.realDuration;
+                audioPlayData.offset = i;
+                int i4 = audioPlayData.end - audioPlayData.start;
+                i += i4;
+                this.f += i4;
+                MediaSource o = o(Uri.parse(audioPlayData.audioPath), "");
+                int i5 = audioPlayData.start;
+                if (i5 < 0) {
+                    i5 = 0;
+                }
+                int i6 = audioPlayData.end;
+                if (i6 <= i3) {
+                    i3 = i6;
+                }
+                mediaSourceArr[i2] = new ClippingMediaSource(o, i5 * 1000, i3 * 1000);
+            }
+            this.i = new ConcatenatingMediaSource(mediaSourceArr);
+            setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.AMediaPlayer, com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048592, this, context, uri, map) == null) {
+            this.e = false;
+            super.setDataSource(context, uri, map);
+            this.i = o(uri, "");
+            setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            mediaMetadataRetriever.setDataSource(uri.getPath());
+            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
+            mediaMetadataRetriever.release();
+            this.f = qm9.b(extractMetadata, 0);
         }
     }
 }

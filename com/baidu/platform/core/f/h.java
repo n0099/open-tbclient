@@ -23,7 +23,6 @@ import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -410,7 +409,7 @@ public class h extends com.baidu.platform.base.d {
                         return true;
                     }
                     int optInt2 = jSONObject.optInt("type");
-                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("result");
                     if (optJSONObject == null) {
                         return false;
                     }

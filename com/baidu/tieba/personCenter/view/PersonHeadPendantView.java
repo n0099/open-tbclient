@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonHeadPendantView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int o;
-    public View p;
+    public int n;
+    public View o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonHeadPendantView(Context context) {
@@ -38,7 +38,7 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.o = 0;
+        this.n = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +60,7 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.o = 0;
+        this.n = 0;
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
@@ -68,13 +68,13 @@ public class PersonHeadPendantView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.p.getLayoutParams();
-            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.o;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.n;
             layoutParams.leftMargin = measuredWidth;
             layoutParams.topMargin = measuredWidth;
             layoutParams.rightMargin = measuredWidth;
             layoutParams.bottomMargin = measuredWidth;
-            this.p.setLayoutParams(layoutParams);
+            this.o.setLayoutParams(layoutParams);
         }
     }
 
@@ -97,7 +97,7 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.o = 0;
+        this.n = 0;
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
@@ -105,26 +105,26 @@ public class PersonHeadPendantView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.d();
-            this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.p = new View(getContext());
+            this.n = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.o = new View(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            addView(this.p, 0, layoutParams);
+            addView(this.o, 0, layoutParams);
         }
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            this.p.setBackgroundDrawable(drawable);
+            this.o.setBackgroundDrawable(drawable);
         }
     }
 
     public void setBorderColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i).into(this.p);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i).into(this.o);
         }
     }
 
@@ -132,7 +132,7 @@ public class PersonHeadPendantView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             getHeadView().setBorderWidth(0);
-            this.o = i;
+            this.n = i;
         }
     }
 }

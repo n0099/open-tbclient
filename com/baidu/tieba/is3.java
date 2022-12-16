@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.zr3;
 /* loaded from: classes4.dex */
 public interface is3 {
-    void a();
+    void a(DownloadInfo downloadInfo);
 
-    void b(DownloadException downloadException);
+    void b(DownloadInfo downloadInfo);
 
-    void c();
+    void c(DownloadInfo downloadInfo);
 
-    void d();
+    void d(DownloadInfo downloadInfo);
 
-    void e(long j, long j2);
+    void destroy();
 
-    void f(long j, long j2);
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull zr3.d<Boolean> dVar);
 
-    void onStart();
+    DownloadInfo g(String str);
 }

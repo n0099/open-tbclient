@@ -14,9 +14,10 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zk6;
+import com.baidu.tieba.ul6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,15 +28,16 @@ public class ScanningView extends View {
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
     public Bitmap b;
-    public Rect c;
-    public RectF d;
-    public float e;
-    public double f;
-    public ValueAnimator g;
-    public float h;
+    public BitmapFactory.Options c;
+    public Rect d;
+    public RectF e;
+    public float f;
+    public double g;
+    public ValueAnimator h;
     public float i;
-    public int j;
+    public float j;
     public int k;
+    public int l;
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -65,7 +67,7 @@ public class ScanningView extends View {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.i = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                this.a.j = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 this.a.postInvalidate();
             }
         }
@@ -132,12 +134,12 @@ public class ScanningView extends View {
                 return;
             }
         }
-        this.j = R.drawable.obfuscated_res_0x7f08058b;
-        this.k = 400;
+        this.k = R.drawable.obfuscated_res_0x7f080596;
+        this.l = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zk6.ScanningView);
-            this.j = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f08058b);
-            this.k = obtainStyledAttributes.getInt(0, 400);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ul6.ScanningView);
+            this.k = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080596);
+            this.l = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();
         }
         b();
@@ -146,16 +148,19 @@ public class ScanningView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), this.j);
-            this.b = decodeResource;
-            if (decodeResource == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            this.c = options;
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeResource(getResources(), this.k, this.c);
+            if (this.c == null) {
                 return;
             }
-            this.c = new Rect(0, 0, this.b.getWidth(), this.b.getHeight());
-            this.d = new RectF();
-            float f = -this.b.getHeight();
-            this.h = f;
+            BitmapFactory.Options options2 = this.c;
+            this.d = new Rect(0, 0, options2.outWidth, options2.outHeight);
+            this.e = new RectF();
+            float f = -this.c.outHeight;
             this.i = f;
+            this.j = f;
             Paint paint = new Paint(1);
             this.a = paint;
             paint.setDither(true);
@@ -165,36 +170,48 @@ public class ScanningView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.h, this.e);
-            this.g = ofFloat;
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.i, this.f);
+            this.h = ofFloat;
             ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.g.setDuration(this.k);
-            this.g.addUpdateListener(new a(this));
+            this.h.setDuration(this.l);
+            this.h.addUpdateListener(new a(this));
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                this.b = BitmapFactory.decodeResource(getResources(), this.k);
+            } catch (Exception e) {
+                BdLog.e(e);
+                this.b = null;
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b == null) {
             return;
         }
-        ValueAnimator valueAnimator = this.g;
+        ValueAnimator valueAnimator = this.h;
         if (valueAnimator == null) {
             c();
         } else if (valueAnimator.isRunning()) {
-            this.g.cancel();
+            this.h.cancel();
         }
-        this.g.start();
+        this.h.start();
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            ValueAnimator valueAnimator = this.g;
+            ValueAnimator valueAnimator = this.h;
             if (valueAnimator != null && valueAnimator.isRunning()) {
-                this.g.cancel();
+                this.h.cancel();
             }
         }
     }
@@ -202,15 +219,15 @@ public class ScanningView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
             if (this.b == null) {
                 return;
             }
             canvas.save();
-            canvas.rotate((float) (-this.f));
-            canvas.translate((-getWidth()) / 2.0f, this.i);
-            canvas.drawBitmap(this.b, this.c, this.d, this.a);
+            canvas.rotate((float) (-this.g));
+            canvas.translate((-getWidth()) / 2.0f, this.j);
+            canvas.drawBitmap(this.b, this.d, this.e, this.a);
             canvas.restore();
         }
     }
@@ -218,17 +235,17 @@ public class ScanningView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            if (this.b == null) {
+            if (this.c == null) {
                 return;
             }
             double d = i;
             double atan = Math.atan(i2 / d);
-            this.f = Math.toDegrees(atan);
-            this.e = (float) (Math.sin(atan) * d * 2.0d);
+            this.g = Math.toDegrees(atan);
+            this.f = (float) (Math.sin(atan) * d * 2.0d);
             int max = Math.max(i, i2);
-            this.d.set(-max, 0.0f, max * 2, this.b.getHeight());
+            this.e.set(-max, 0.0f, max * 2, this.c.outHeight);
         }
     }
 }

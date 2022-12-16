@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ik8;
+import com.baidu.tieba.mv7;
 import com.baidu.tieba.nearby.message.NearbyFriendsHttpResponseMessage;
-import com.baidu.tieba.os7;
-import com.baidu.tieba.ps7;
-import com.baidu.tieba.qh8;
-import com.baidu.tieba.qs7;
+import com.baidu.tieba.nv7;
+import com.baidu.tieba.ov7;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements ps7 {
+public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements nv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qs7 a;
+    public ov7 a;
     public int b;
     public List<xn> c;
     public boolean d;
@@ -79,7 +79,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003520 || !(httpResponsedMessage instanceof NearbyFriendsHttpResponseMessage) || this.a.a == null) {
                 return;
             }
-            this.a.a.m();
+            this.a.a.n();
             if (httpResponsedMessage.getError() != 0) {
                 if (this.a.b == 1) {
                     if (this.a.a != null) {
@@ -100,28 +100,28 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             if (this.a.b == 1) {
                 this.a.c.clear();
             }
-            os7 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
+            mv7 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
             if (!ListUtils.isEmpty(nearbyFriendData.a)) {
                 this.a.c.addAll(nearbyFriendData.a);
             }
             this.a.d = nearbyFriendData.b;
-            this.a.a.m();
+            this.a.a.n();
             this.a.a.c(false);
             this.a.a.l(0);
             this.a.a.g(this.a.e, this.a.c);
-            this.a.a.n(this.a.d);
+            this.a.a.m(this.a.d);
             if (this.a.d) {
-                NearbyFriendsModel.B(this.a);
+                NearbyFriendsModel.I(this.a);
             }
         }
     }
 
-    public NearbyFriendsModel(qs7 qs7Var, BdUniqueId bdUniqueId) {
+    public NearbyFriendsModel(ov7 ov7Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qs7Var, bdUniqueId};
+            Object[] objArr = {ov7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,25 +134,25 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         this.b = 1;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
         this.f = aVar;
-        this.a = qs7Var;
+        this.a = ov7Var;
         aVar.setTag(bdUniqueId);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int B(NearbyFriendsModel nearbyFriendsModel) {
+    public static /* synthetic */ int I(NearbyFriendsModel nearbyFriendsModel) {
         int i = nearbyFriendsModel.b;
         nearbyFriendsModel.b = i + 1;
         return i;
     }
 
-    public void H(Intent intent) {
+    public void O(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
             this.e = intent.getBooleanExtra(NearbyFriendsActivityConfig.KEY_NEED_COMPLETE_PROFILE, false);
         }
     }
 
-    @Override // com.baidu.tieba.ps7
+    @Override // com.baidu.tieba.nv7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -160,7 +160,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.ps7
+    @Override // com.baidu.tieba.nv7
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,27 +177,27 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.ps7
+    @Override // com.baidu.tieba.nv7
     public void refresh() {
-        qs7 qs7Var;
+        ov7 ov7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (qs7Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (ov7Var = this.a) == null) {
             return;
         }
-        qs7Var.p();
-        this.a.m();
+        ov7Var.p();
+        this.a.n();
         this.b = 1;
         loadData();
     }
 
-    @Override // com.baidu.tieba.ps7
+    @Override // com.baidu.tieba.nv7
     public void reload() {
-        qs7 qs7Var;
+        ov7 ov7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (qs7Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (ov7Var = this.a) == null) {
             return;
         }
-        qs7Var.p();
+        ov7Var.p();
         this.a.a();
         this.b = 1;
         loadData();
@@ -211,7 +211,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
             httpMessage.addParam("pn", this.b);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam("app_pos", qh8.e().b());
+            httpMessage.addParam("app_pos", ik8.e().b());
             MessageManager.getInstance().sendMessage(httpMessage);
             return false;
         }

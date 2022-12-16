@@ -1,0 +1,218 @@
+package com.baidu.android.imsdk.chatmessage.messages;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class AdvisoryExtensionMsg extends NormalMsg {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<AdvisoryExtensionMsg> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Object mAdvisoryBusinessExt;
+    public String mAdvisoryMsgControl;
+    public String mAdvisoryMsgDescription;
+    public AdvisoryExtensionMsgExtra mExtensionMsgExtra;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-681569020, "Lcom/baidu/android/imsdk/chatmessage/messages/AdvisoryExtensionMsg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-681569020, "Lcom/baidu/android/imsdk/chatmessage/messages/AdvisoryExtensionMsg;");
+                return;
+            }
+        }
+        CREATOR = new Parcelable.Creator<AdvisoryExtensionMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AdvisoryExtensionMsg.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public AdvisoryExtensionMsg createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new AdvisoryExtensionMsg(parcel);
+                }
+                return (AdvisoryExtensionMsg) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public AdvisoryExtensionMsg[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new AdvisoryExtensionMsg[i];
+                }
+                return (AdvisoryExtensionMsg[]) invokeI.objValue;
+            }
+        };
+    }
+
+    public AdvisoryExtensionMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setMsgType(53);
+    }
+
+    public Object getAdvisoryBusinessExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAdvisoryBusinessExt;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getAdvisoryDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAdvisoryMsgDescription;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getAdvisoryMsgControl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAdvisoryMsgControl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AdvisoryExtensionMsgExtra getExtensionExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mExtensionMsgExtra;
+        }
+        return (AdvisoryExtensionMsgExtra) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdvisoryExtensionMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mExtensionMsgExtra = (AdvisoryExtensionMsgExtra) parcel.readParcelable(AdvisoryExtensionMsgExtra.class.getClassLoader());
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String jsonContent = getJsonContent();
+            if (!TextUtils.isEmpty(jsonContent)) {
+                try {
+                    String optString = new JSONObject(jsonContent).optString("business_ext");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.mExtensionMsgExtra = AdvisoryExtensionMsgExtra.parseAdvisoryExtensionMsgExtra(optString);
+                    }
+                    return true;
+                } catch (JSONException e) {
+                    LogUtils.e("AdvisoryExtensionMsg", "parse json err!", e);
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setAdvisoryBusinessExt(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.mAdvisoryBusinessExt = obj;
+        }
+    }
+
+    public void setAdvisoryMsgControl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.mAdvisoryMsgControl = str;
+        }
+    }
+
+    public void setAdvisoryMsgDescription(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.mAdvisoryMsgDescription = str;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeParcelable(this.mExtensionMsgExtra, i);
+        }
+    }
+}

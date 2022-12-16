@@ -1,90 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class bd2 extends ProviderDelegation {
+public class bd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641049, "Lcom/baidu/tieba/bd2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641049, "Lcom/baidu/tieba/bd2;");
-                return;
-            }
-        }
-        mn2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
-    }
-
-    public bd2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void c(ld2 ld2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, ld2Var) != null) || !a || ld2Var == null) {
-            return;
-        }
-        if (ProcessUtils.isMainProcess()) {
-            cd2.a(ld2Var).b();
-            kd2.b().a(ld2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", ld2Var.a);
-        bundle.putStringArrayList("recovery_app_list", ld2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), bd2.class, bundle);
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    @SuppressLint({"SwitchIntDef"})
+    public static md2 a(@NonNull kd2 kd2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, kd2Var)) == null) {
+            int i = kd2Var.a;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return new ld2(kd2Var);
+                        }
+                        return new pd2(kd2Var);
+                    }
+                    return new nd2(kd2Var);
+                }
+                return new qd2(kd2Var);
             }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            ld2 ld2Var = new ld2();
-            ld2Var.a = i;
-            if (stringArrayList != null) {
-                ld2Var.b = stringArrayList;
-            }
-            cd2.a(ld2Var).b();
-            kd2.b().a(ld2Var.a);
-            return null;
+            return new od2(kd2Var);
         }
-        return (Bundle) invokeL.objValue;
+        return (md2) invokeL.objValue;
     }
 }

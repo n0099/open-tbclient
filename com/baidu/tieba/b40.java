@@ -33,7 +33,7 @@ public class b40 implements x30 {
 
         /* renamed from: com.baidu.tieba.b40$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0216a {
+        public static class C0221a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class b40 implements x30 {
             public String c;
             public int d;
 
-            public C0216a(Context context) {
+            public C0221a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class b40 implements x30 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0216a c0216a = new C0216a(context);
-                String d = c0216a.d();
-                int c = c0216a.c();
+                C0221a c0221a = new C0221a(context);
+                String d = c0221a.d();
+                int c = c0221a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

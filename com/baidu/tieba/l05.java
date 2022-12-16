@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class l05 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +59,10 @@ public class l05 implements SpanWatcher {
         }
         if (obj == Selection.SELECTION_END && this.c != i3) {
             this.c = i3;
-            j05 B = spanGroupManager.B(i3);
-            if (B != null) {
-                int f = B.f();
-                int c = B.c();
+            j05 A = spanGroupManager.A(i3);
+            if (A != null) {
+                int f = A.f();
+                int c = A.c();
                 if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
                     f = c;
                 }
@@ -78,10 +78,10 @@ public class l05 implements SpanWatcher {
         }
         if (obj == Selection.SELECTION_START && this.b != i3) {
             this.b = i3;
-            j05 B2 = this.a.B(i3);
-            if (B2 != null) {
-                int f2 = B2.f();
-                int c2 = B2.c();
+            j05 A2 = this.a.A(i3);
+            if (A2 != null) {
+                int f2 = A2.f();
+                int c2 = A2.c();
                 if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
                     f2 = c2;
                 }

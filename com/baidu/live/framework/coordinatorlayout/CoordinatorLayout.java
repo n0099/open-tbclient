@@ -48,9 +48,9 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.appbar.AppBarLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ob0;
+import com.baidu.tieba.pa0;
 import com.baidu.tieba.pb0;
-import com.baidu.tieba.qa0;
-import com.baidu.tieba.qb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<View> a;
-    public final pb0<View> b;
+    public final ob0<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -746,7 +746,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.g = 0;
             this.h = 0;
             this.q = new Rect();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, qa0.LiveCoordinatorLayout_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pa0.LiveCoordinatorLayout_Layout);
             this.c = obtainStyledAttributes.getInteger(0, 0);
             this.f = obtainStyledAttributes.getResourceId(1, -1);
             this.d = obtainStyledAttributes.getInteger(2, 0);
@@ -1402,22 +1402,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         this.a = new ArrayList();
-        this.b = new pb0<>();
+        this.b = new ob0<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];
         this.g = new int[2];
         this.t = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, qa0.LiveCoordinatorLayout, 0, R.style.obfuscated_res_0x7f100121);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pa0.LiveCoordinatorLayout, 0, R.style.obfuscated_res_0x7f100121);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, qa0.LiveCoordinatorLayout, i, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pa0.LiveCoordinatorLayout, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, qa0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f100121);
+                saveAttributeDataForStyleable(context, pa0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f100121);
             } else {
-                saveAttributeDataForStyleable(context, qa0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
+                saveAttributeDataForStyleable(context, pa0.LiveCoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
         int resourceId = obtainStyledAttributes.getResourceId(0, 0);
@@ -2067,7 +2067,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void n(View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, view2, rect) == null) {
-            qb0.a(this, view2, rect);
+            pb0.a(this, view2, rect);
         }
     }
 

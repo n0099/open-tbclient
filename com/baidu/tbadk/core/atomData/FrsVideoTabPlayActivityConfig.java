@@ -45,7 +45,6 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";
     public static final String PAGE_FROM = "page_from";
-    public static final String PARAM_IS_VERTAIL = "is_vertail";
     public static final String PARAM_ST_TYPE = "st_type";
     public static final String PARAM_YUELAOU_LACATION = "yuelaou_locate";
     public static final String SOURCE_FROM = "source_from";
@@ -295,24 +294,17 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         }
     }
 
-    public void setParamIsVertail(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
-            getIntent().putExtra("is_vertail", z);
-        }
-    }
-
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

@@ -199,7 +199,7 @@ public final class TaskProcess implements ITaskModelData {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) {
-                return new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, 199, null);
+                return new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG, null);
             }
             return (TaskProcess) invokeL.objValue;
         }

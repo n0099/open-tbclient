@@ -69,20 +69,20 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         }
         this.n = tbPageContext;
         this.o = z;
-        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090701);
+        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091799);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922f5);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a7e);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252f);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c49);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aac);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c3a);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fc7);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fd1);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091956);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091802);
+        this.h = (LinearLayout) view2.findViewById(R.id.top_line);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ae9);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a3);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb4);
+        this.l = (TextView) view2.findViewById(R.id.forum_name);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca5);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091023);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091037);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09102d);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c0);
         this.g = yi.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
@@ -99,9 +99,8 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x000d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x009f A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a0  */
-    /* JADX WARN: Type inference failed for: r11v10, types: [android.widget.TextView] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00a7 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
     /* JADX WARN: Type inference failed for: r11v11, types: [android.widget.TextView] */
     /* JADX WARN: Type inference failed for: r11v12, types: [android.widget.TextView] */
     /* JADX WARN: Type inference failed for: r11v9, types: [android.widget.TextView] */
@@ -114,19 +113,14 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     /* JADX WARN: Type inference failed for: r12v3 */
     /* JADX WARN: Type inference failed for: r12v30 */
     /* JADX WARN: Type inference failed for: r12v31 */
-    /* JADX WARN: Type inference failed for: r12v4 */
     /* JADX WARN: Type inference failed for: r12v6, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.lang.Object[]] */
     /* JADX WARN: Type inference failed for: r2v11 */
     /* JADX WARN: Type inference failed for: r2v13 */
     /* JADX WARN: Type inference failed for: r2v14 */
     /* JADX WARN: Type inference failed for: r2v15 */
-    /* JADX WARN: Type inference failed for: r2v16 */
-    /* JADX WARN: Type inference failed for: r2v17 */
     /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.CharSequence] */
     /* JADX WARN: Type inference failed for: r3v10, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r3v12, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r3v15 */
@@ -137,16 +131,16 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     */
     public void c(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
         Object[] objArr;
-        Object obj;
-        Object obj2;
-        Object obj3;
-        Object obj4;
+        CharSequence charSequence;
+        CharSequence charSequence2;
         ?? r12;
+        CharSequence charSequence3;
+        Object obj;
+        CharSequence charSequence4;
+        CharSequence charSequence5;
         boolean z2;
-        ?? r122;
-        Object obj5;
         ?? r3;
-        ?? r2;
+        CharSequence charSequence6;
         boolean z3;
         boolean z4;
         Interceptable interceptable = $ic;
@@ -157,9 +151,9 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             }
         }
         String[] strArr = new String[4];
-        ?? r22 = 1000;
-        r22 = 1000;
-        Object obj6 = null;
+        ?? r2 = 1000;
+        r2 = 1000;
+        CharSequence charSequence7 = null;
         try {
             try {
                 try {
@@ -174,9 +168,9 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
                             strArr[1] = String.valueOf(postInfoList.post_id);
                             String formatTime = StringHelper.getFormatTime(postInfoList.create_time * 1000);
                             ?? r32 = postInfoList.forum_name;
-                            obj6 = String.valueOf(postInfoList.reply_num);
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            r22 = formatTime;
+                            r2 = formatTime;
                             objArr = r32;
                             z = z4;
                         } else {
@@ -186,89 +180,89 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
                                 z3 = postInfoList.name_show;
                             }
                             strArr[0] = String.valueOf(postInfoList.thread_id);
-                            strArr[1] = String.valueOf(postInfoList.content[0].post_id);
-                            strArr[2] = String.valueOf(postInfoList.content[0].post_type);
+                            strArr[1] = String.valueOf(postInfoList.content.get(0).post_id);
+                            strArr[2] = String.valueOf(postInfoList.content.get(0).post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
                             String formatTime2 = StringHelper.getFormatTime(postInfoList.create_time * 1000);
                             ?? r33 = postInfoList.forum_name;
-                            obj6 = String.valueOf(postInfoList.reply_num);
-                            r22 = formatTime2;
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
+                            r2 = formatTime2;
                             objArr = r33;
                             z = z3;
                         }
                         z2 = true;
-                        r2 = r22;
+                        charSequence6 = r2;
                         r3 = objArr;
-                        r12 = z;
+                        charSequence5 = z;
                     } catch (Exception unused) {
-                        obj = obj6;
-                        obj2 = obj;
-                        obj5 = r22;
-                        r122 = z;
-                        obj6 = r122;
-                        obj3 = obj5;
-                        obj4 = obj2;
-                        r12 = obj6;
-                        obj6 = obj;
+                        charSequence = null;
+                        charSequence4 = null;
+                        obj = null;
+                        charSequence5 = charSequence7;
+                        charSequence7 = charSequence;
                         z2 = false;
-                        r2 = obj3;
-                        r3 = obj4;
+                        charSequence6 = charSequence4;
+                        r3 = obj;
                         if (!z2) {
                         }
                     }
                 } catch (Exception unused2) {
-                    obj = null;
-                    obj3 = null;
-                    obj4 = null;
-                    r12 = obj6;
-                    obj6 = obj;
+                    charSequence = charSequence7;
+                    CharSequence charSequence8 = charSequence;
+                    charSequence2 = charSequence8;
+                    charSequence3 = charSequence8;
+                    r12 = z;
+                    charSequence7 = r12;
+                    charSequence4 = charSequence3;
+                    obj = charSequence2;
+                    charSequence5 = charSequence7;
+                    charSequence7 = charSequence;
                     z2 = false;
-                    r2 = obj3;
-                    r3 = obj4;
+                    charSequence6 = charSequence4;
+                    r3 = obj;
                     if (!z2) {
                     }
                 }
             } catch (Exception unused3) {
-                obj = obj6;
-                obj5 = r22;
-                obj2 = objArr;
-                r122 = z;
-                obj6 = r122;
-                obj3 = obj5;
-                obj4 = obj2;
-                r12 = obj6;
-                obj6 = obj;
+                charSequence = charSequence7;
+                charSequence2 = charSequence;
+                charSequence3 = r2;
+                r12 = z;
+                charSequence7 = r12;
+                charSequence4 = charSequence3;
+                obj = charSequence2;
+                charSequence5 = charSequence7;
+                charSequence7 = charSequence;
                 z2 = false;
-                r2 = obj3;
-                r3 = obj4;
+                charSequence6 = charSequence4;
+                r3 = obj;
                 if (!z2) {
                 }
             }
         } catch (Exception unused4) {
-            obj = obj6;
-            Object obj7 = obj;
-            obj2 = obj7;
-            obj5 = obj7;
-            r122 = z;
-            obj6 = r122;
-            obj3 = obj5;
-            obj4 = obj2;
-            r12 = obj6;
-            obj6 = obj;
+            charSequence = charSequence7;
+            charSequence3 = r2;
+            charSequence2 = objArr;
+            r12 = z;
+            charSequence7 = r12;
+            charSequence4 = charSequence3;
+            obj = charSequence2;
+            charSequence5 = charSequence7;
+            charSequence7 = charSequence;
             z2 = false;
-            r2 = obj3;
-            r3 = obj4;
+            charSequence6 = charSequence4;
+            r3 = obj;
             if (!z2) {
             }
         }
         if (!z2) {
             return;
         }
-        this.j.setText(r12);
-        this.k.setText(r2);
+        this.j.setText(charSequence5);
+        this.k.setText(charSequence6);
         this.l.setText(r3);
         this.l.setTag(r3);
-        this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f041a), new Object[]{obj6}));
+        this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), charSequence7));
         this.l.setOnClickListener(this);
         b(str);
         LinearLayout linearLayout = this.d;

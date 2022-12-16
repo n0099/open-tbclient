@@ -7,6 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShareEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShareEntity> CREATOR;
@@ -24,6 +25,7 @@ public class ShareEntity implements Parcelable {
     public Bundle diskPicOperate;
     public String extLiveInfo;
     public String fName;
+    public GroupInfoData groupData;
     public Uri imageUri;
     public boolean isFromDuXiaoMan;
     public boolean isVideoThread;
@@ -32,6 +34,7 @@ public class ShareEntity implements Parcelable {
     public Location location;
     public String mTopicId;
     public long readCount;
+    public int shareMediaType;
     public int shareTo;
     public int shareType;
     public Bundle stats;
@@ -53,7 +56,7 @@ public class ShareEntity implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<ShareEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,6 +125,8 @@ public class ShareEntity implements Parcelable {
                 shareEntity.setFromDuXiaoMan(z3);
                 shareEntity.userGrowthWeight = parcel.readString();
                 shareEntity.mTopicId = parcel.readString();
+                shareEntity.groupData = (GroupInfoData) parcel.readParcelable(GroupInfoData.class.getClassLoader());
+                shareEntity.shareMediaType = parcel.readInt();
                 return shareEntity;
             }
             return (ShareEntity) invokeL.objValue;
@@ -572,6 +577,8 @@ public class ShareEntity implements Parcelable {
             parcel.writeByte(this.isFromDuXiaoMan ? (byte) 1 : (byte) 0);
             parcel.writeString(this.userGrowthWeight);
             parcel.writeString(this.mTopicId);
+            parcel.writeParcelable(this.groupData, i);
+            parcel.writeInt(this.shareMediaType);
         }
     }
 }

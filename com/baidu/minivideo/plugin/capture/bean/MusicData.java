@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
@@ -118,7 +119,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 musicData.soundSrc = jSONObject.optString("sound_src");
                 musicData.bgSound = jSONObject.optString("bg_sound");
                 musicData.mVolume = (float) jSONObject.optDouble("volume", 1.0d);
-                musicData.collectStatus = jSONObject.optString("collect_status");
+                musicData.collectStatus = jSONObject.optString(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
                 musicData.mProgress = jSONObject.optInt("progress");
                 return musicData;
             } catch (Exception e2) {
@@ -186,7 +187,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
             musicData.title = jSONObject.optString("name");
             musicData.singer = jSONObject.optString("singer");
             musicData.duration = jSONObject.optString("duration");
-            musicData.collectStatus = jSONObject.optString("collect_status");
+            musicData.collectStatus = jSONObject.optString(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
             return musicData;
         }
         return (MusicData) invokeL.objValue;
@@ -253,7 +254,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 jSONObject.put("music_name", musicData.musicName);
                 jSONObject.put("music_author", musicData.musicAuthor);
                 jSONObject.put("volume", musicData.mVolume);
-                jSONObject.put("collect_status", musicData.collectStatus);
+                jSONObject.put(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS, musicData.collectStatus);
                 jSONObject.put("progress", musicData.mProgress);
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -1,43 +1,225 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.m33;
+import com.baidu.tieba.hs1;
+import com.baidu.tieba.i33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class zs1 extends ys1 {
+/* loaded from: classes7.dex */
+public class zs1 extends xs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.is1
+    @Override // com.baidu.tieba.hs1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ModalApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements hs1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zs1 a;
+
+        /* renamed from: com.baidu.tieba.zs1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0504a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e43 a;
+            public final /* synthetic */ JSONObject b;
+            public final /* synthetic */ String c;
+            public final /* synthetic */ String d;
+            public final /* synthetic */ a e;
+
+            /* renamed from: com.baidu.tieba.zs1$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class DialogInterface$OnClickListenerC0505a implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0504a a;
+
+                public DialogInterface$OnClickListenerC0505a(RunnableC0504a runnableC0504a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0504a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0504a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "cancel");
+                            RunnableC0504a runnableC0504a = this.a;
+                            runnableC0504a.e.a.d(runnableC0504a.c, new ew1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0504a runnableC0504a2 = this.a;
+                            runnableC0504a2.e.a.d(runnableC0504a2.c, new ew1(201));
+                        }
+                    }
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.zs1$a$a$b */
+            /* loaded from: classes7.dex */
+            public class b implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0504a a;
+
+                public b(RunnableC0504a runnableC0504a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0504a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0504a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "confirm");
+                            RunnableC0504a runnableC0504a = this.a;
+                            runnableC0504a.e.a.d(runnableC0504a.c, new ew1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0504a runnableC0504a2 = this.a;
+                            runnableC0504a2.e.a.d(runnableC0504a2.c, new ew1(201));
+                        }
+                    }
+                }
+            }
+
+            public RunnableC0504a(a aVar, e43 e43Var, JSONObject jSONObject, String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, e43Var, jSONObject, str, str2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.e = aVar;
+                this.a = e43Var;
+                this.b = jSONObject;
+                this.c = str;
+                this.d = str2;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.w() != null && !this.a.w().isFinishing() && !this.a.w().isDestroyed()) {
+                    i33.a aVar = new i33.a(this.e.a.getContext());
+                    aVar.V(this.b.optString("title"));
+                    aVar.x(this.b.optString("content"));
+                    aVar.n(new mj3());
+                    aVar.m(false);
+                    if (this.b.optBoolean("showCancel", true)) {
+                        aVar.E(this.b.optString("cancelColor"), R.color.obfuscated_res_0x7f0603dd);
+                        String optString = this.b.optString("cancelText");
+                        if (TextUtils.isEmpty(optString)) {
+                            optString = this.e.a.getContext().getString(R.string.obfuscated_res_0x7f0f0115);
+                        }
+                        aVar.C(optString, new DialogInterface$OnClickListenerC0505a(this));
+                    }
+                    aVar.R(this.b.optString("confirmColor"), R.color.obfuscated_res_0x7f0603de);
+                    aVar.P(this.d, new b(this));
+                    aVar.X();
+                }
+            }
+        }
+
+        public a(zs1 zs1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zs1Var;
+        }
+
+        @Override // com.baidu.tieba.hs1.a
+        public ew1 a(e43 e43Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, e43Var, jSONObject, str)) == null) {
+                String optString = jSONObject.optString("confirmText");
+                if (TextUtils.isEmpty(optString)) {
+                    optString = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f011d);
+                }
+                yh3.e0(new RunnableC0504a(this, e43Var, jSONObject, str, optString));
+                return ew1.f();
+            }
+            return (ew1) invokeLLL.objValue;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zs1(@NonNull gs1 gs1Var) {
-        super(gs1Var);
+    public zs1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gs1Var};
+            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gs1) newInitContext.callArgs[0]);
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,74 +227,13 @@ public class zs1 extends ys1 {
         }
     }
 
-    public fw1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#hideLoading", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new fw1(1001, "context not support");
-            }
-            o32 X = ((SwanAppActivity) context).X();
-            if (X == null) {
-                return new fw1(1001, "none fragmentManger");
-            }
-            l32 m = X.m();
-            if (!(m instanceof m33.a)) {
-                return new fw1(1001, "fragment not support");
-            }
-            if (m.getContext() == null) {
-                return new fw1(1001, "fragment has detached");
-            }
-            n33.c(m);
-            f12.i("LoadingViewApi", "hide loading success");
-            return fw1.f();
-        }
-        return (fw1) invokeV.objValue;
-    }
-
-    public fw1 y(String str) {
+    public ew1 A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#showLoading", false);
-            if (n()) {
-                f12.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
-                return new fw1(1001, "LoadingViewApi does not supported when app is invisible.");
-            }
-            Pair<fw1, JSONObject> s = s(str);
-            fw1 fw1Var = (fw1) s.first;
-            if (!fw1Var.isSuccess()) {
-                return fw1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            f12.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
-            String optString = jSONObject.optString("title");
-            if (TextUtils.isEmpty(optString)) {
-                return new fw1(202, "none title");
-            }
-            boolean optBoolean = jSONObject.optBoolean("mask", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new fw1(1001, "context not support");
-            }
-            o32 X = ((SwanAppActivity) context).X();
-            if (X == null) {
-                return new fw1(1001, "none fragment");
-            }
-            l32 m = X.m();
-            if (!(m instanceof m33.a)) {
-                return new fw1(1001, "fragment not support");
-            }
-            m33 d = ((m33.a) m).d();
-            if (d == null) {
-                return new fw1(1001, "can't get floatLayer");
-            }
-            n33.f(d, context, optString, optBoolean);
-            f12.i("LoadingViewApi", "show loading success");
-            return fw1.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#showModal", false);
+            return l(str, true, new a(this));
         }
-        return (fw1) invokeL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

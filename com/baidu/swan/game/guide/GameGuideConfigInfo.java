@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.xu3;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.wu3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -253,7 +253,7 @@ public class GameGuideConfigInfo implements Serializable {
                 }
                 RecommendGameInfo recommendGameInfo = new RecommendGameInfo();
                 recommendGameInfo.appName = jSONObject.optString("app_name");
-                recommendGameInfo.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                recommendGameInfo.appKey = jSONObject.optString("app_key");
                 recommendGameInfo.iconUrl = jSONObject.optString("icon_url");
                 return recommendGameInfo;
             }
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (pk1.a) {
+                if (ok1.a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -348,7 +348,7 @@ public class GameGuideConfigInfo implements Serializable {
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
             int optInt = jSONObject.optInt("status", 0);
             gameGuideConfigInfo.status = optInt;
-            xu3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+            wu3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
             gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
             gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
             gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (pk1.a) {
+                if (ok1.a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

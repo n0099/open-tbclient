@@ -16,7 +16,7 @@ import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends a implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public final class d extends a implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onCreate();
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091119);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091178);
             this.fl = frameLayout;
             frameLayout.setVisibility(0);
         }

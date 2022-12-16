@@ -7,12 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "/proc/cpuinfo";
@@ -42,11 +41,11 @@ public class k1 {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (!TextUtils.isEmpty(str2)) {
-                    sb.append(ParamableElem.DIVIDE_PARAM + str2);
+                    sb.append(";" + str2);
                 }
                 String a2 = h1.a("ro.product.cpu.abilist");
                 if (!TextUtils.isEmpty(a2)) {
-                    sb.append(ParamableElem.DIVIDE_PARAM + a2);
+                    sb.append(";" + a2);
                 }
                 return sb.toString();
             } catch (Throwable unused) {

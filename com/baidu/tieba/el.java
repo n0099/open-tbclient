@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class el extends hl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,14 +56,14 @@ public class el extends hl {
             if (blVar.e()) {
                 Bitmap bitmap = blVar.a.getBitmap();
                 if (this.w) {
-                    x(canvas, bitmap);
+                    v(canvas, bitmap);
                     return;
                 }
                 this.A.set(0, 0, blVar.b(), blVar.a());
                 blVar.b.g(canvas, this.A, this.g, this.c);
             } else if (blVar.d()) {
                 if (this.w) {
-                    x(canvas, blVar.b.p());
+                    v(canvas, blVar.b.p());
                     return;
                 }
                 this.A.set(0, 0, blVar.b(), blVar.a());
@@ -75,7 +75,7 @@ public class el extends hl {
         }
     }
 
-    public void x(Canvas canvas, Bitmap bitmap) {
+    public void v(Canvas canvas, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
             this.A.set(0, 0, bitmap.getWidth(), bitmap.getHeight());

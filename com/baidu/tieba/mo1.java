@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public interface mo1 {
-    void a(Activity activity, Bundle bundle, bs2 bs2Var);
+    long a(Context context);
+
+    void b(Context context, String str, xi3<String> xi3Var);
+
+    void c(Context context, JSONArray jSONArray, xi3<String> xi3Var);
 }

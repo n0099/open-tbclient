@@ -48,7 +48,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return qy4.k().l("fun_ad_big_image_density", 6);
+            return ry4.l().m("fun_ad_big_image_density", 6);
         }
         return invokeV.intValue;
     }
@@ -57,7 +57,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return qy4.k().l("fun_ad_big_image_floor", 5);
+            return ry4.l().m("fun_ad_big_image_floor", 5);
         }
         return invokeV.intValue;
     }
@@ -66,7 +66,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return qy4.k().l("fun_ad_big_image_size", 1);
+            return ry4.l().m("fun_ad_big_image_size", 1);
         }
         return invokeV.intValue;
     }
@@ -87,11 +87,11 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int l = qy4.k().l("pref_key_fun_ad_density", 6);
-            if (l <= 0) {
+            int m = ry4.l().m("pref_key_fun_ad_density", 6);
+            if (m <= 0) {
                 return 6;
             }
-            return l;
+            return m;
         }
         return invokeV.intValue;
     }
@@ -100,7 +100,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return qy4.k().l("pref_key_fun_ad_frs_density", 5);
+            return ry4.l().m("pref_key_fun_ad_frs_density", 5);
         }
         return invokeV.intValue;
     }
@@ -109,7 +109,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return qy4.k().l("pref_key_fun_ad_frs_first_floor", 2);
+            return ry4.l().m("pref_key_fun_ad_frs_first_floor", 2);
         }
         return invokeV.intValue;
     }
@@ -118,7 +118,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return qy4.k().l("key_pb_comment_bear_density", 6);
+            return ry4.l().m("key_pb_comment_bear_density", 6);
         }
         return invokeV.intValue;
     }
@@ -127,11 +127,11 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int l = qy4.k().l("key_pb_comment_bear_first", 4);
-            if (l <= 0) {
+            int m = ry4.l().m("key_pb_comment_bear_first", 4);
+            if (m <= 0) {
                 return 4;
             }
-            return l;
+            return m;
         }
         return invokeV.intValue;
     }
@@ -140,7 +140,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return qy4.k().l("key_pb_comment_bear_maxsize", 1);
+            return ry4.l().m("key_pb_comment_bear_maxsize", 1);
         }
         return invokeV.intValue;
     }
@@ -149,7 +149,7 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return qy4.k().l("key_video_middle_density", 4);
+            return ry4.l().m("key_video_middle_density", 4);
         }
         return invokeV.intValue;
     }
@@ -158,11 +158,11 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int l = qy4.k().l("key_video_middle_first", 2);
-            if (l <= 0) {
+            int m = ry4.l().m("key_video_middle_first", 2);
+            if (m <= 0) {
                 return 2;
             }
-            return l;
+            return m;
         }
         return invokeV.intValue;
     }
@@ -171,12 +171,12 @@ public class n15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int l = qy4.k().l("pref_key_fun_ad_first_floor_min", 2);
-            int l2 = qy4.k().l("pref_key_fun_ad_first_floor_max", 3);
-            if (l < l2) {
-                a = k87.a(l, l2);
+            int m = ry4.l().m("pref_key_fun_ad_first_floor_min", 2);
+            int m2 = ry4.l().m("pref_key_fun_ad_first_floor_max", 3);
+            if (m < m2) {
+                a = i97.a(m, m2);
             } else {
-                a = k87.a(l2, l);
+                a = i97.a(m2, m);
             }
             if (a < 0) {
                 a = 2;
@@ -194,32 +194,32 @@ public class n15 {
         try {
             int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
             int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-            qy4.k().w("pref_key_fun_ad_frs_first_floor", optInt);
-            qy4.k().w("pref_key_fun_ad_frs_density", optInt2);
+            ry4.l().x("pref_key_fun_ad_frs_first_floor", optInt);
+            ry4.l().x("pref_key_fun_ad_frs_density", optInt2);
             int optInt3 = jSONObject.optInt("index_bear_density", 6);
             int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
             int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
-            qy4.k().w("pref_key_fun_ad_density", optInt3);
-            qy4.k().w("pref_key_fun_ad_first_floor_max", optInt4);
-            qy4.k().w("pref_key_fun_ad_first_floor_min", optInt5);
+            ry4.l().x("pref_key_fun_ad_density", optInt3);
+            ry4.l().x("pref_key_fun_ad_first_floor_max", optInt4);
+            ry4.l().x("pref_key_fun_ad_first_floor_min", optInt5);
             int optInt6 = jSONObject.optInt("video_bear_density", 4);
             int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
-            qy4.k().w("key_video_middle_density", optInt6);
-            qy4.k().w("key_video_middle_first", optInt7);
+            ry4.l().x("key_video_middle_density", optInt6);
+            ry4.l().x("key_video_middle_first", optInt7);
             int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
             int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
             int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
-            qy4.k().w("key_pb_comment_bear_density", optInt8);
-            qy4.k().w("key_pb_comment_bear_first", optInt9);
-            qy4.k().w("key_pb_comment_bear_maxsize", optInt10);
+            ry4.l().x("key_pb_comment_bear_density", optInt8);
+            ry4.l().x("key_pb_comment_bear_first", optInt9);
+            ry4.l().x("key_pb_comment_bear_maxsize", optInt10);
             int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
             int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
             int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
             int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
-            qy4.k().w("fun_ad_big_image_floor", optInt11);
-            qy4.k().w("fun_ad_big_image_density", optInt12);
-            qy4.k().w("fun_ad_big_image_size", optInt13);
-            qy4.k().w("fun_ad_big_image_switch", optInt14);
+            ry4.l().x("fun_ad_big_image_floor", optInt11);
+            ry4.l().x("fun_ad_big_image_density", optInt12);
+            ry4.l().x("fun_ad_big_image_size", optInt13);
+            ry4.l().x("fun_ad_big_image_switch", optInt14);
         } catch (Exception e) {
             e.printStackTrace();
         }

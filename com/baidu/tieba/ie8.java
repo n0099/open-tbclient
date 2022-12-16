@@ -1,57 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ie8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public ut4 b;
+    public TbPageContext a;
+    public lv4 b;
+    public boolean c;
+    public View d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public final View.OnClickListener i;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public long c;
-        public String d;
-        public String e;
-        public long f;
-        public int g;
-        public int h;
-        public String i;
+        public final /* synthetic */ ie8 a;
 
-        public a() {
+        public a(ie8 ie8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ie8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null) {
+                this.a.b.dismiss();
             }
         }
     }
 
-    public ie8() {
+    public ie8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,95 +76,77 @@ public class ie8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ut4();
+        this.i = new a(this);
+        this.a = tbPageContext;
+        this.c = ry4.l().i("key_person_dynamic_tab_guide_has_shown", false);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void e(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.a;
-            if (list != null && list.size() != 0) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
+        int l = yi.l(this.a.getPageActivity()) - (yi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
+        layoutParams.width = l;
+        layoutParams.height = (l * 214) / 380;
+        tbImageView.setLayoutParams(layoutParams);
     }
 
-    public boolean b() {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0722, (ViewGroup) null);
+            this.d = inflate;
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ec1);
+            this.e = tbImageView;
+            e(tbImageView);
+            this.e.setAutoChangeStyle(true);
+            this.e.setRadius(yi.g(this.a.getPageActivity(), R.dimen.tbds24));
+            this.e.setConrers(3);
+            this.e.setIsBitmapPic(true);
+            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ec2);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ec3);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ec0);
+            this.h = textView;
+            textView.setOnClickListener(this.i);
+            d();
+        }
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ut4 ut4Var = this.b;
-            if (ut4Var != null && ut4Var.b() == 1) {
-                return true;
-            }
-            return false;
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        String str;
-        int i;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String str2 = "";
-            if (jSONObject == null) {
-                return;
-            }
-            try {
-                this.b.i(jSONObject.getJSONObject("page"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.a.clear();
-                    int i2 = 0;
-                    while (i2 < optJSONArray.length()) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        if (jSONObject2 == null) {
-                            jSONArray = optJSONArray;
-                            str = str2;
-                            i = i2;
-                        } else {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
-                            String optString = jSONObject3.optString("name_show", str2);
-                            jSONObject3.optString("name", str2);
-                            long optLong = jSONObject2.optLong("pid", 0L);
-                            String optString2 = jSONObject2.optString("title", str2);
-                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
-                            String optString3 = jSONObject2.optString("content", str2);
-                            String optString4 = jSONObject2.optString("fname", str2);
-                            long optLong3 = jSONObject2.optLong("tid", 0L);
-                            jSONArray = optJSONArray;
-                            int optInt = jSONObject2.optInt("is_floor", 0);
-                            str = str2;
-                            int optInt2 = jSONObject2.optInt("is_replay", 0);
-                            i = i2;
-                            if (jSONObject2.optInt("thread_type", 0) != 33) {
-                                a aVar = new a();
-                                aVar.a = optLong;
-                                aVar.b = optString2;
-                                aVar.c = optLong2;
-                                aVar.d = optString3;
-                                aVar.e = optString4;
-                                aVar.f = optLong3;
-                                aVar.g = optInt;
-                                aVar.h = optInt2;
-                                aVar.i = optString;
-                                this.a.add(aVar);
-                            }
-                        }
-                        i2 = i + 1;
-                        optJSONArray = jSONArray;
-                        str2 = str;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.d(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080fe4);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
         }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        ry4.l().v("key_person_dynamic_tab_guide_has_shown", true);
+        b();
+        lv4 lv4Var = new lv4(this.a.getPageActivity());
+        this.b = lv4Var;
+        lv4Var.setContentViewSize(1);
+        this.b.setCancelable(true);
+        this.b.setCanceledOnTouchOutside(false);
+        this.b.setContentView(this.d);
+        this.b.create(this.a).show();
     }
 }

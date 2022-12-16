@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ae7;
+import com.baidu.tieba.df7;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -94,16 +94,16 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgMultiImageTextView a2 = msgViewHolder.a();
-            a2.E(this.c);
-            a2.F(i);
-            a2.v(this.d);
-            a2.B(chatMessage.getCacheData().getLastMsgTime());
-            a2.W(this.a, chatMessage, viewGroup);
+            a2.F(this.c);
+            a2.G(i);
+            a2.w(this.d);
+            a2.C(chatMessage.getCacheData().getLastMsgTime());
+            a2.Y(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
-            ae7.c().e(chatMessage, this.a.getPageActivity());
-            ae7.c().f(chatMessage, this.a.getPageActivity());
-            ae7.c().d(chatMessage);
+            df7.c().e(chatMessage, this.a.getPageActivity());
+            df7.c().f(chatMessage, this.a.getPageActivity());
+            df7.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

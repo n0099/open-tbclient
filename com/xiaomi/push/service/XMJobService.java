@@ -27,7 +27,7 @@ public class XMJobService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public IBinder f839a;
+    public IBinder f862a;
 
     @TargetApi(21)
     /* loaded from: classes8.dex */
@@ -37,17 +37,17 @@ public class XMJobService extends Service {
         public Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Handler f840a;
+        public Handler f863a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class HandlerC0716a extends Handler {
+        public static class HandlerC0736a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public JobService a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0716a(JobService jobService) {
+            public HandlerC0736a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -72,7 +72,7 @@ public class XMJobService extends Service {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                     JobParameters jobParameters = (JobParameters) message.obj;
-                    com.xiaomi.channel.commonutils.logger.b.m89a("Job finished " + jobParameters.getJobId());
+                    com.xiaomi.channel.commonutils.logger.b.m99a("Job finished " + jobParameters.getJobId());
                     this.a.jobFinished(jobParameters, false);
                     if (jobParameters.getJobId() == 1) {
                         eu.a(false);
@@ -106,15 +106,15 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("Job started " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m99a("Job started " + jobParameters.getJobId());
                 Intent intent = new Intent(this, XMPushService.class);
                 intent.setAction("com.xiaomi.push.timer");
                 intent.setPackage(getPackageName());
                 startService(intent);
-                if (this.f840a == null) {
-                    this.f840a = new HandlerC0716a(this);
+                if (this.f863a == null) {
+                    this.f863a = new HandlerC0736a(this);
                 }
-                Handler handler = this.f840a;
+                Handler handler = this.f863a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));
                 return true;
             }
@@ -126,7 +126,7 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("Job stop " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m99a("Job stop " + jobParameters.getJobId());
                 return false;
             }
             return invokeL.booleanValue;
@@ -161,7 +161,7 @@ public class XMJobService extends Service {
                 return;
             }
         }
-        this.f839a = null;
+        this.f862a = null;
     }
 
     @Override // android.app.Service
@@ -169,7 +169,7 @@ public class XMJobService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            IBinder iBinder = this.f839a;
+            IBinder iBinder = this.f862a;
             return iBinder != null ? iBinder : new Binder();
         }
         return (IBinder) invokeL.objValue;
@@ -181,7 +181,7 @@ public class XMJobService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f839a = new a(this).a;
+                this.f862a = new a(this).a;
             }
             a = this;
         }

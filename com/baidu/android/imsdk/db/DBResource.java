@@ -4,11 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -112,25 +110,23 @@ public class DBResource {
                 if (this.mDatabase == null) {
                     try {
                         this.mDatabase = IMDatabase.getWritableDb(mContext, this.mUid, this.appid);
-                    } catch (SQLiteDatabaseCorruptException e) {
+                    } catch (SQLiteDatabaseCorruptException unused) {
                         if (this.mDatabase != null) {
                             closeDatabase();
                             this.mDatabase = null;
                             LogUtils.e("DBManager", "getWritableDb  DatabaseCorruptException");
                         }
-                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     }
                 } else if (!TextUtils.isEmpty(path) && !this.mDatabase.getPath().equals(path)) {
                     closeDatabase();
                     try {
                         this.mDatabase = IMDatabase.getWritableDb(mContext, this.mUid, this.appid);
-                    } catch (SQLiteDatabaseCorruptException e2) {
+                    } catch (SQLiteDatabaseCorruptException unused2) {
                         if (this.mDatabase != null) {
                             closeDatabase();
                             this.mDatabase = null;
                             LogUtils.e("DBManager", "getWritableDb  DatabaseCorruptException");
                         }
-                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                 }
                 return this.mDatabase;

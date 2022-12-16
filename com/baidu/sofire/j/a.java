@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.k.e;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a k;
@@ -375,19 +374,19 @@ public class a {
                         if (c != 2) {
                             if (c != 3) {
                                 if (c == 4) {
-                                    bundle3.putBoolean(TiebaStatic.LogFields.RESULT, a.getBoolean(string3, Boolean.parseBoolean(string4)));
+                                    bundle3.putBoolean("result", a.getBoolean(string3, Boolean.parseBoolean(string4)));
                                 }
                             } else {
-                                bundle3.putFloat(TiebaStatic.LogFields.RESULT, a.getFloat(string3, Float.parseFloat(string4)));
+                                bundle3.putFloat("result", a.getFloat(string3, Float.parseFloat(string4)));
                             }
                         } else {
-                            bundle3.putLong(TiebaStatic.LogFields.RESULT, a.getLong(string3, Long.parseLong(string4)));
+                            bundle3.putLong("result", a.getLong(string3, Long.parseLong(string4)));
                         }
                     } else {
-                        bundle3.putInt(TiebaStatic.LogFields.RESULT, a.getInt(string3, Integer.parseInt(string4)));
+                        bundle3.putInt("result", a.getInt(string3, Integer.parseInt(string4)));
                     }
                 } else {
-                    bundle3.putString(TiebaStatic.LogFields.RESULT, a.getString(string3, string4));
+                    bundle3.putString("result", a.getString(string3, string4));
                 }
                 return bundle3;
             }

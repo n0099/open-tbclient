@@ -3,7 +3,6 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f86a;
+    public final Context f109a;
 
     public s(Context context) {
         Interceptable interceptable = $ic;
@@ -38,7 +37,7 @@ public class s {
                 return;
             }
         }
-        this.f86a = context.getApplicationContext();
+        this.f109a = context.getApplicationContext();
     }
 
     public static s a(Context context) {
@@ -73,16 +72,16 @@ public class s {
 
     private void a(Cif cif, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m561a(this.f86a) && com.xiaomi.push.m.m560a() && cif != null && cif.f626a == hj.e && cif.m465a() != null && z) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("click to start activity result:" + String.valueOf(i));
-            ii iiVar = new ii(cif.m465a().m431a(), false);
-            iiVar.c(ht.ae.f506a);
-            iiVar.b(cif.m466a());
-            iiVar.d(cif.f633b);
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m571a(this.f109a) && com.xiaomi.push.m.m570a() && cif != null && cif.f649a == hj.e && cif.m475a() != null && z) {
+            com.xiaomi.channel.commonutils.logger.b.m99a("click to start activity result:" + String.valueOf(i));
+            ii iiVar = new ii(cif.m475a().m441a(), false);
+            iiVar.c(ht.ae.f529a);
+            iiVar.b(cif.m476a());
+            iiVar.d(cif.f656b);
             HashMap hashMap = new HashMap();
-            iiVar.f645a = hashMap;
-            hashMap.put(TiebaStatic.LogFields.RESULT, String.valueOf(i));
-            ao.a(this.f86a).a(iiVar, hj.i, false, false, null, true, cif.f633b, cif.f629a, true, false);
+            iiVar.f668a = hashMap;
+            hashMap.put("result", String.valueOf(i));
+            ao.a(this.f109a).a(iiVar, hj.i, false, false, null, true, cif.f656b, cif.f652a, true, false);
         }
     }
 
@@ -112,14 +111,14 @@ public class s {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65544, null, context, cif, z) == null) {
-            b m131a = b.m131a(context);
-            if (TextUtils.isEmpty(m131a.m139c()) || TextUtils.isEmpty(m131a.d())) {
+            b m141a = b.m141a(context);
+            if (TextUtils.isEmpty(m141a.m149c()) || TextUtils.isEmpty(m141a.d())) {
                 a2 = a(context);
                 i = 6;
             } else {
-                boolean m143f = m131a.m143f();
+                boolean m153f = m141a.m153f();
                 a2 = a(context);
-                i = m143f ? 7 : 5;
+                i = m153f ? 7 : 5;
             }
             a2.a(cif, i, z);
         }

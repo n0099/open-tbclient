@@ -2,6 +2,7 @@ package com.facebook.datasource;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -83,7 +84,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                 }
             }
             IN_PROGRESS = new DataSourceStatus("IN_PROGRESS", 0);
-            SUCCESS = new DataSourceStatus("SUCCESS", 1);
+            SUCCESS = new DataSourceStatus(c.p, 1);
             DataSourceStatus dataSourceStatus = new DataSourceStatus("FAILURE", 2);
             FAILURE = dataSourceStatus;
             $VALUES = new DataSourceStatus[]{IN_PROGRESS, SUCCESS, dataSourceStatus};

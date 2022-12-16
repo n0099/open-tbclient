@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.pq4;
 import com.baidu.tieba.qa5;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.ra5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ThreadDelegateStatic extends pa5 {
+public class ThreadDelegateStatic extends qa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,15 +64,15 @@ public class ThreadDelegateStatic extends pa5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            qa5 b;
+            ra5 b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof pq4)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof qq4)) {
                 return;
             }
-            pq4 pq4Var = (pq4) customResponsedMessage.getData();
+            qq4 qq4Var = (qq4) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            pq4Var.a(threadDelegateStatic);
-            if (pq4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
+            qq4Var.a(threadDelegateStatic);
+            if (qq4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -111,26 +111,26 @@ public class ThreadDelegateStatic extends pa5 {
         }
     }
 
-    @Override // com.baidu.tieba.pa5
-    public qa5 a() {
+    @Override // com.baidu.tieba.qa5
+    public ra5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qa5 qa5Var = new qa5();
-            qa5Var.a = ThreadFragment.F1();
-            qa5Var.e = 1;
-            qa5Var.b = R.string.obfuscated_res_0x7f0f040b;
-            return qa5Var;
+            ra5 ra5Var = new ra5();
+            ra5Var.a = ThreadFragment.L1();
+            ra5Var.e = 1;
+            ra5Var.b = R.string.obfuscated_res_0x7f0f0411;
+            return ra5Var;
         }
-        return (qa5) invokeV.objValue;
+        return (ra5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
             this.b = fragmentTabIndicator;
             return fragmentTabIndicator;
         }

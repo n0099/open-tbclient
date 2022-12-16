@@ -26,14 +26,14 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.fb7;
 import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.na7;
-import com.baidu.tieba.oa7;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.mb7;
+import com.baidu.tieba.nb7;
 import com.baidu.tieba.om;
-import com.baidu.tieba.pa7;
+import com.baidu.tieba.xa7;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.z97;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,9 +62,9 @@ public class ImEmojiUtil {
         public final /* synthetic */ FrameLayout b;
         public final /* synthetic */ Context c;
         public final /* synthetic */ TbRichTextView d;
-        public final /* synthetic */ pa7 e;
+        public final /* synthetic */ nb7 e;
         public final /* synthetic */ int f;
-        public final /* synthetic */ pa7 g;
+        public final /* synthetic */ nb7 g;
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
@@ -80,12 +80,12 @@ public class ImEmojiUtil {
             }
         }
 
-        public a(ImageView imageView, FrameLayout frameLayout, Context context, TbRichTextView tbRichTextView, pa7 pa7Var, int i, pa7 pa7Var2) {
+        public a(ImageView imageView, FrameLayout frameLayout, Context context, TbRichTextView tbRichTextView, nb7 nb7Var, int i, nb7 nb7Var2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageView, frameLayout, context, tbRichTextView, pa7Var, Integer.valueOf(i), pa7Var2};
+                Object[] objArr = {imageView, frameLayout, context, tbRichTextView, nb7Var, Integer.valueOf(i), nb7Var2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -99,9 +99,9 @@ public class ImEmojiUtil {
             this.b = frameLayout;
             this.c = context;
             this.d = tbRichTextView;
-            this.e = pa7Var;
+            this.e = nb7Var;
             this.f = i;
-            this.g = pa7Var2;
+            this.g = nb7Var2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -114,14 +114,14 @@ public class ImEmojiUtil {
                 Context context = this.c;
                 FrameLayout frameLayout = this.b;
                 TbRichTextView tbRichTextView = this.d;
-                pa7 pa7Var = this.e;
+                nb7 nb7Var = this.e;
                 int i = this.f;
-                if (pa7Var.a <= this.g.a) {
+                if (nb7Var.a <= this.g.a) {
                     z = true;
                 } else {
                     z = false;
                 }
-                ImEmojiUtil.h(context, frameLayout, tbRichTextView, pa7Var, i, z);
+                ImEmojiUtil.h(context, frameLayout, tbRichTextView, nb7Var, i, z);
             }
         }
 
@@ -137,7 +137,7 @@ public class ImEmojiUtil {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements oa7 {
+    public static class b implements mb7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
@@ -164,7 +164,7 @@ public class ImEmojiUtil {
             this.c = vibrator;
         }
 
-        @Override // com.baidu.tieba.oa7
+        @Override // com.baidu.tieba.mb7
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -173,11 +173,11 @@ public class ImEmojiUtil {
             }
         }
 
-        @Override // com.baidu.tieba.oa7
+        @Override // com.baidu.tieba.mb7
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.setText(new TbRichText(z97.c("#(黑头瞪眼)", 0)));
+                this.a.setText(new TbRichText(xa7.c("#(黑头瞪眼)", 0)));
             }
         }
     }
@@ -186,7 +186,7 @@ public class ImEmojiUtil {
     public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oa7 a;
+        public final /* synthetic */ mb7 a;
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
@@ -196,13 +196,13 @@ public class ImEmojiUtil {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(long j, long j2, oa7 oa7Var) {
+        public c(long j, long j2, mb7 mb7Var) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), oa7Var};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), mb7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -214,7 +214,7 @@ public class ImEmojiUtil {
                     return;
                 }
             }
-            this.a = oa7Var;
+            this.a = mb7Var;
         }
 
         @Override // android.os.CountDownTimer
@@ -266,9 +266,9 @@ public class ImEmojiUtil {
     }
 
     public static /* synthetic */ void b(ImageView imageView, ValueAnimator valueAnimator) {
-        pa7 pa7Var = (pa7) valueAnimator.getAnimatedValue();
-        imageView.setX(pa7Var.a);
-        imageView.setY(pa7Var.b);
+        nb7 nb7Var = (nb7) valueAnimator.getAnimatedValue();
+        imageView.setX(nb7Var.a);
+        imageView.setY(nb7Var.b);
     }
 
     public static /* synthetic */ void g(AlphaVideo alphaVideo, PopupWindow popupWindow) {
@@ -276,12 +276,12 @@ public class ImEmojiUtil {
         popupWindow.dismiss();
     }
 
-    public static /* synthetic */ void c(AlphaVideo alphaVideo, PopupWindow popupWindow, oa7 oa7Var, CountDownTimer countDownTimer) {
+    public static /* synthetic */ void c(AlphaVideo alphaVideo, PopupWindow popupWindow, mb7 mb7Var, CountDownTimer countDownTimer) {
         alphaVideo.destroy();
         popupWindow.dismiss();
-        if (oa7Var != null) {
+        if (mb7Var != null) {
             countDownTimer.start();
-            oa7Var.b();
+            mb7Var.b();
         }
     }
 
@@ -292,10 +292,10 @@ public class ImEmojiUtil {
         f = false;
     }
 
-    public static void h(Context context, FrameLayout frameLayout, TbRichTextView tbRichTextView, pa7 pa7Var, int i, boolean z) {
+    public static void h(Context context, FrameLayout frameLayout, TbRichTextView tbRichTextView, nb7 nb7Var, int i, boolean z) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, frameLayout, tbRichTextView, pa7Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, frameLayout, tbRichTextView, nb7Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i != c && i != d) {
                 return;
             }
@@ -304,21 +304,21 @@ public class ImEmojiUtil {
             vibrator.vibrate(500L);
             if (tbRichTextView != null) {
                 b bVar2 = new b(tbRichTextView, tbRichTextView.getRichText(), vibrator);
-                pa7Var.b += tbRichTextView.getTextView().getHeight() / 2.0f;
+                nb7Var.b += tbRichTextView.getTextView().getHeight() / 2.0f;
                 bVar = bVar2;
             } else {
                 bVar = null;
             }
-            j(context, frameLayout, pa7Var, i, i2, i2, bVar, z);
+            j(context, frameLayout, nb7Var, i, i2, i2, bVar, z);
         }
     }
 
-    public static void i(Context context, FrameLayout frameLayout, TbRichTextView tbRichTextView, int i, pa7 pa7Var, pa7 pa7Var2) {
+    public static void i(Context context, FrameLayout frameLayout, TbRichTextView tbRichTextView, int i, nb7 nb7Var, nb7 nb7Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, frameLayout, tbRichTextView, Integer.valueOf(i), pa7Var, pa7Var2}) == null) {
-            ValueAnimator ofObject = ValueAnimator.ofObject(new na7(new pa7(Math.min(pa7Var.a, pa7Var2.a) + (Math.abs(pa7Var.a - pa7Var2.a) / 2.0f), Math.min(pa7Var2.b, pa7Var.b) - 100.0f)), pa7Var, pa7Var2);
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, frameLayout, tbRichTextView, Integer.valueOf(i), nb7Var, nb7Var2}) == null) {
+            ValueAnimator ofObject = ValueAnimator.ofObject(new lb7(new nb7(Math.min(nb7Var.a, nb7Var2.a) + (Math.abs(nb7Var.a - nb7Var2.a) / 2.0f), Math.min(nb7Var2.b, nb7Var.b) - 100.0f)), nb7Var, nb7Var2);
             final ImageView imageView = new ImageView(context);
-            ofObject.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ia7
+            ofObject.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.jb7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,21 +330,21 @@ public class ImEmojiUtil {
                     }
                 }
             });
-            ofObject.addListener(new a(imageView, frameLayout, context, tbRichTextView, pa7Var2, i, pa7Var));
+            ofObject.addListener(new a(imageView, frameLayout, context, tbRichTextView, nb7Var2, i, nb7Var));
             ofObject.setDuration(500L);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds60), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds60));
-            imageView.setX(pa7Var.a);
-            imageView.setY(pa7Var.b);
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f3, WebPManager.ResourceStateType.NORMAL);
+            imageView.setX(nb7Var.a);
+            imageView.setY(nb7Var.b);
+            WebPManager.setMaskDrawable(imageView, R.drawable.icon_mask_emoji_firecrackers, WebPManager.ResourceStateType.NORMAL);
             frameLayout.addView(imageView, layoutParams);
             ofObject.start();
         }
     }
 
-    public static void j(Context context, FrameLayout frameLayout, pa7 pa7Var, int i, int i2, int i3, final oa7 oa7Var, boolean z) {
+    public static void j(Context context, FrameLayout frameLayout, nb7 nb7Var, int i, int i2, int i3, final mb7 mb7Var, boolean z) {
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, frameLayout, pa7Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), oa7Var, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, frameLayout, nb7Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), mb7Var, Boolean.valueOf(z)}) == null) {
             String str = e.get(Integer.valueOf(i));
             if (!TextUtils.isEmpty(str) && BdBaseApplication.getInst().getResHashMap().containsKey(str)) {
                 final PopupWindow popupWindow = new PopupWindow();
@@ -354,10 +354,10 @@ public class ImEmojiUtil {
                 alphaVideo.setLayoutParams(new FrameLayout.LayoutParams(i2, i3));
                 alphaVideo.setSourcePath(om.b(str));
                 final c cVar = null;
-                if (oa7Var != null) {
-                    cVar = new c(1000L, 1000L, oa7Var);
+                if (mb7Var != null) {
+                    cVar = new c(1000L, 1000L, mb7Var);
                 }
-                alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.ka7
+                alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.hb7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -365,7 +365,7 @@ public class ImEmojiUtil {
                     public final void onVideoEnded() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ImEmojiUtil.c(AlphaVideo.this, popupWindow, oa7Var, cVar);
+                            ImEmojiUtil.c(AlphaVideo.this, popupWindow, mb7Var, cVar);
                         }
                     }
                 });
@@ -386,11 +386,11 @@ public class ImEmojiUtil {
                         i4 = -g;
                     }
                 } else if (i == c) {
-                    i4 = (int) (pa7Var.a - (i2 / 2));
+                    i4 = (int) (nb7Var.a - (i2 / 2));
                 } else {
                     i4 = 0;
                 }
-                popupWindow.showAtLocation(frameLayout, 0, i4, ((int) pa7Var.b) - (i3 / 2));
+                popupWindow.showAtLocation(frameLayout, 0, i4, ((int) nb7Var.b) - (i3 / 2));
                 alphaVideo.play();
             }
         }
@@ -403,9 +403,9 @@ public class ImEmojiUtil {
             if (!TextUtils.isEmpty(str) && BdBaseApplication.getInst().getResHashMap().containsKey(str)) {
                 Rect rect = new Rect();
                 tbRichTextView.getTextView().getGlobalVisibleRect(rect);
-                pa7 pa7Var = new pa7(rect.left, rect.top);
+                nb7 nb7Var = new nb7(rect.left, rect.top);
                 tbRichTextView2.getTextView().getGlobalVisibleRect(rect);
-                i(context, frameLayout, tbRichTextView2, i, pa7Var, new pa7(rect.left, rect.top));
+                i(context, frameLayout, tbRichTextView2, i, nb7Var, new nb7(rect.left, rect.top));
             }
         }
     }
@@ -456,7 +456,7 @@ public class ImEmojiUtil {
                 alphaVideo.setRotationY(-180.0f);
             }
             alphaVideo.setSourcePath(om.b(str));
-            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.ja7
+            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.ib7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -468,7 +468,7 @@ public class ImEmojiUtil {
                     }
                 }
             });
-            ah.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.ha7
+            ah.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.gb7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -480,7 +480,7 @@ public class ImEmojiUtil {
                     }
                 }
             }, 560L);
-            alphaVideo.setOnVideoErrorListener(ma7.a);
+            alphaVideo.setOnVideoErrorListener(fb7.a);
             frameLayout.addView(alphaVideo);
             popupWindow.setContentView(frameLayout);
             popupWindow.setHeight(-2);
@@ -505,7 +505,7 @@ public class ImEmojiUtil {
                 int i2 = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.8f);
                 alphaVideo.setLayoutParams(new FrameLayout.LayoutParams(i2, i2));
                 alphaVideo.setSourcePath(om.b(str));
-                alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.la7
+                alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.kb7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -526,9 +526,9 @@ public class ImEmojiUtil {
                 int i3 = (int) (0.35f * context.getResources().getDisplayMetrics().widthPixels);
                 int i4 = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.2f);
                 Random random = new Random();
-                pa7 pa7Var = new pa7(i3 + random.nextInt((((int) (f2 * 0.3f)) + i3) - i3), i4 + random.nextInt((i4 + i4) - i4));
+                nb7 nb7Var = new nb7(i3 + random.nextInt((((int) (f2 * 0.3f)) + i3) - i3), i4 + random.nextInt((i4 + i4) - i4));
                 int i5 = i2 / 2;
-                popupWindow.showAtLocation(view2, 0, (int) (pa7Var.a - i5), ((int) pa7Var.b) - i5);
+                popupWindow.showAtLocation(view2, 0, (int) (nb7Var.a - i5), ((int) nb7Var.b) - i5);
                 alphaVideo.play();
             }
         }
@@ -542,11 +542,11 @@ public class ImEmojiUtil {
             String str = e.get(Integer.valueOf(i));
             if (!TextUtils.isEmpty(str) && BdBaseApplication.getInst().getResHashMap().containsKey(str)) {
                 tbRichTextView.getTextView().getGlobalVisibleRect(new Rect());
-                pa7 pa7Var = new pa7(rect.left, rect.top);
+                nb7 nb7Var = new nb7(rect.left, rect.top);
                 int i2 = (int) (0.35f * context.getResources().getDisplayMetrics().widthPixels);
                 int i3 = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.2f);
                 Random random = new Random();
-                i(context, frameLayout, null, i, pa7Var, new pa7(i2 + random.nextInt((((int) (f2 * 0.3f)) + i2) - i2), i3 + random.nextInt((i3 + i3) - i3)));
+                i(context, frameLayout, null, i, nb7Var, new nb7(i2 + random.nextInt((((int) (f2 * 0.3f)) + i2) - i2), i3 + random.nextInt((i3 + i3) - i3)));
             }
         }
     }

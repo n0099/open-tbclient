@@ -1,356 +1,325 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
-public class lg8 extends kn<v46, CardAppLegoViewHolder> implements yf8, dg8 {
+/* loaded from: classes5.dex */
+public class lg8 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static in p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public boolean c;
-    public AdvertAppInfo.ILegoAdvert d;
-    public String e;
-    public Runnable f;
-    public CustomMessageListener g;
+    public final LinearLayout a;
+    public final LinearLayout b;
+    public final LinearLayout c;
+    public final ColumnLayout d;
+    public final ColumnLayout e;
+    public a f;
+    public int g;
+    public LinearLayout h;
+    public HeadImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
+    public TbPageContext<?> o;
 
-    @Override // com.baidu.tieba.yf8
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(View view2);
     }
 
-    @Override // com.baidu.tieba.yf8
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements ui7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-
-        public a(lg8 lg8Var, AdvertAppInfo advertAppInfo, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lg8Var, advertAppInfo, Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.ui7
-        public void a(int i, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
-                return;
-            }
-            if (ig8.h(i)) {
-                uh8.g(this.a, this.b, hashMap, i);
-            } else {
-                uh8.n(this.a, this.b, this.c, null, hashMap);
-            }
-            cj7.c(this.a);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg8 a;
-
-        public b(lg8 lg8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lg8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lg8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(lg8 lg8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lg8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lg8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.viewholder == null) {
-                return;
-            }
-            if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else {
-                int c = ((CardAppLegoViewHolder) this.a.viewholder).c();
-                if (((CardAppLegoViewHolder) this.a.viewholder).b()) {
-                    if (c == -1) {
-                        ah.a().removeCallbacks(this.a.f);
-                        ah.a().postDelayed(this.a.f, 500L);
-                    }
-                } else if (c != -1) {
-                    ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lg8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public lg8(View view2, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            Object[] objArr = {view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 3;
-        this.c = false;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.g = new c(this, 2921517);
-        this.a = tbPageContext;
-        this.e = str;
-        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
-            if (bdUniqueId == AdvertAppInfo.C || bdUniqueId == AdvertAppInfo.E) {
-                MessageManager.getInstance().registerListener(this.g);
-            }
+        this.o = tbPageContext;
+        this.h = (LinearLayout) view2.findViewById(R.id.top_line);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ae9);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a3);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb4);
+        this.l = (TextView) view2.findViewById(R.id.forum_name);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca5);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091023);
+        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091037);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09102d);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a3a);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c0);
+        this.n = (ImageView) view2.findViewById(R.id.comment_icon);
+        this.g = yi.d(view2.getContext(), 42.0f);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setOnClickListener(this);
+        }
+        this.i.setOnClickListener(this);
+        this.j.setOnClickListener(this);
+        this.l.setOnClickListener(this);
+        this.m.setOnClickListener(this);
+        this.d.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.m.setText(R.string.reply_me);
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.b, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 
-    @Override // com.baidu.tieba.dg8
-    public void setIsFromCDN(boolean z) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final boolean A(View view2) {
-        InterceptResult invokeL;
-        V v;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f09209e) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f09209e));
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: B */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            if (this.d == null || (view2 = (View) vi7.h().a(this.a, this.d, 2)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.obfuscated_res_0x7f09209e, this.d);
-            return new CardAppLegoViewHolder((qj7) view2);
-        }
-        return (CardAppLegoViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: C */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, v46 v46Var) {
-        InterceptResult invokeLL;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, v46Var)) == null) {
-            if (v46Var != null && (advertAppInfo = v46Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                return onCreateViewHolder(viewGroup);
-            }
-            return null;
-        }
-        return (CardAppLegoViewHolder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: D */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v46 v46Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v46Var, cardAppLegoViewHolder})) == null) {
-            TbPageContext<?> tbPageContext = this.a;
-            if (tbPageContext != null && v46Var != null && v46Var.a != null) {
-                if (tbPageContext.getPageActivity() instanceof ei0) {
-                    AdvertAppInfo advertAppInfo = v46Var.a;
-                    advertAppInfo.r = gi0.b(advertAppInfo.r, (ei0) this.a.getPageActivity(), cardAppLegoViewHolder.itemView);
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.forum_name) {
+                TbPageContext<?> tbPageContext = this.o;
+                if (tbPageContext != null) {
+                    tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));
+                    return;
                 }
-                AdvertAppInfo.ILegoAdvert iLegoAdvert = v46Var.a.h;
-                this.d = iLegoAdvert;
-                if (iLegoAdvert != null && view2 != null) {
-                    if (this.viewholder == 0) {
-                        this.viewholder = cardAppLegoViewHolder;
-                    }
-                    yr4.d(v46Var);
-                    sq4 layoutMode = this.a.getLayoutMode();
-                    if (this.b == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    layoutMode.l(z);
-                    this.a.getLayoutMode().k(view2);
-                    AdvertAppInfo c2 = v46Var.c();
-                    c2.u = 1;
-                    qj7 qj7Var = (qj7) view2;
-                    this.d.setAdvertAppInfo(c2);
-                    qj7Var.setFromCDN(this.c);
-                    qj7Var.update(this.d);
-                    int i2 = v46Var.c;
-                    String str = v46Var.b;
-                    mh8.e(v46Var.c(), qj7Var, str, this.e, 1, -1);
-                    qj7Var.setAfterClickSchemeListener(new a(this, c2, i2, str));
-                    if (bg8.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.d(((bg8) view2).getVideoOrVrView());
-                    }
-                    return view2;
-                }
+                return;
             }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.yf8
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a(view2);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: z */
-    public View getView(int i, View view2, ViewGroup viewGroup, v46 v46Var) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v46Var})) == null) {
-            if (v46Var != null && (advertAppInfo = v46Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                if (A(view2)) {
-                    CardAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
-                    this.viewholder = onCreateViewHolder;
-                    if (onCreateViewHolder != null) {
-                        view2 = onCreateViewHolder.getView();
-                    }
-                }
-                View view3 = view2;
-                if (view3 != null) {
-                    view3 = onFillViewHolder(i, view3, viewGroup, v46Var, (CardAppLegoViewHolder) view3.getTag());
-                    if (bg8.class.isAssignableFrom(view3.getClass())) {
-                        ((CardAppLegoViewHolder) this.viewholder).d(((bg8) view3).getVideoOrVrView());
-                    }
-                }
-                return view3;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String str2 = q;
+            if (str2 != null && !str2.equals(str)) {
+                p = null;
             }
-            return null;
+            in inVar = p;
+            if (inVar != null) {
+                this.i.setImageBitmap(inVar.p());
+                q = str;
+                return;
+            }
+            HeadImageView headImageView = this.i;
+            int i = this.g;
+            headImageView.G(str, 12, i, i, false);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0008 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0094 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0095  */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    /* JADX WARN: Type inference failed for: r1v16 */
+    /* JADX WARN: Type inference failed for: r1v17 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    /* JADX WARN: Type inference failed for: r9v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v2 */
+    /* JADX WARN: Type inference failed for: r9v20 */
+    /* JADX WARN: Type inference failed for: r9v28 */
+    /* JADX WARN: Type inference failed for: r9v29 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(PersonPostModel.PostInfoList postInfoList, boolean z, String str, int i) {
+        ?? r1;
+        CharSequence charSequence;
+        CharSequence charSequence2;
+        CharSequence charSequence3;
+        CharSequence charSequence4;
+        CharSequence charSequence5;
+        CharSequence charSequence6;
+        CharSequence charSequence7;
+        CharSequence charSequence8;
+        CharSequence charSequence9;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r1 = 1048579;
+            if (interceptable.invokeCommon(1048579, this, new Object[]{postInfoList, Boolean.valueOf((boolean) z), str, Integer.valueOf(i)}) != null) {
+                return;
+            }
+        }
+        ?? r0 = 1000;
+        r0 = 1000;
+        boolean z2 = false;
+        CharSequence charSequence10 = null;
+        try {
+            try {
+                try {
+                    try {
+                        if (z != 0) {
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str3 = postInfoList.user_name;
+                            } else {
+                                str3 = postInfoList.name_show;
+                            }
+                            String.valueOf(postInfoList.thread_id);
+                            String.valueOf(postInfoList.post_id);
+                            String formatTime = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str4 = postInfoList.forum_name;
+                            charSequence10 = String.valueOf(postInfoList.reply_num);
+                            String.valueOf(postInfoList.thread_type);
+                            r0 = formatTime;
+                            r1 = str4;
+                            z = str3;
+                        } else {
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str2 = postInfoList.user_name;
+                            } else {
+                                str2 = postInfoList.name_show;
+                            }
+                            String.valueOf(postInfoList.thread_id);
+                            String.valueOf(postInfoList.content.get(0).post_id);
+                            String.valueOf(postInfoList.content.get(0).post_type);
+                            String.valueOf(postInfoList.thread_type);
+                            String formatTime2 = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str5 = postInfoList.forum_name;
+                            charSequence10 = String.valueOf(postInfoList.reply_num);
+                            r0 = formatTime2;
+                            r1 = str5;
+                            z = str2;
+                        }
+                        z2 = true;
+                        charSequence9 = r0;
+                        charSequence8 = r1;
+                        charSequence5 = z;
+                    } catch (Exception e) {
+                        e = e;
+                        charSequence = charSequence10;
+                        charSequence7 = r0;
+                        charSequence6 = z;
+                        charSequence10 = charSequence6;
+                        charSequence2 = charSequence;
+                        charSequence3 = charSequence7;
+                        charSequence4 = charSequence;
+                        BdLog.e(e);
+                        CharSequence charSequence11 = charSequence10;
+                        charSequence10 = charSequence2;
+                        charSequence5 = charSequence11;
+                        charSequence9 = charSequence3;
+                        charSequence8 = charSequence4;
+                        if (!z2) {
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    charSequence2 = null;
+                    charSequence3 = null;
+                    charSequence4 = null;
+                    BdLog.e(e);
+                    CharSequence charSequence112 = charSequence10;
+                    charSequence10 = charSequence2;
+                    charSequence5 = charSequence112;
+                    charSequence9 = charSequence3;
+                    charSequence8 = charSequence4;
+                    if (!z2) {
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                CharSequence charSequence12 = charSequence10;
+                charSequence10 = z;
+                charSequence2 = charSequence12;
+                charSequence3 = r0;
+                charSequence4 = r1;
+                BdLog.e(e);
+                CharSequence charSequence1122 = charSequence10;
+                charSequence10 = charSequence2;
+                charSequence5 = charSequence1122;
+                charSequence9 = charSequence3;
+                charSequence8 = charSequence4;
+                if (!z2) {
+                }
+            }
+        } catch (Exception e4) {
+            e = e4;
+            CharSequence charSequence13 = charSequence10;
+            charSequence = charSequence13;
+            charSequence7 = charSequence13;
+            charSequence6 = z;
+            charSequence10 = charSequence6;
+            charSequence2 = charSequence;
+            charSequence3 = charSequence7;
+            charSequence4 = charSequence;
+            BdLog.e(e);
+            CharSequence charSequence11222 = charSequence10;
+            charSequence10 = charSequence2;
+            charSequence5 = charSequence11222;
+            charSequence9 = charSequence3;
+            charSequence8 = charSequence4;
+            if (!z2) {
+            }
+        }
+        if (!z2) {
+            return;
+        }
+        this.j.setText(charSequence5);
+        this.k.setText(charSequence9);
+        this.l.setText(charSequence8);
+        this.l.setTag(charSequence8);
+        this.m.setText(charSequence10);
+        this.m.setTag(Integer.valueOf(i));
+        this.l.setOnClickListener(this);
+        b(str);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setTag(Integer.valueOf(i));
+        }
+        this.d.setTag(Integer.valueOf(i));
+        this.e.setTag(Integer.valueOf(i));
     }
 }

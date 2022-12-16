@@ -1,7 +1,6 @@
 package com.baidu.mobstat;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +35,7 @@ public class bv {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65537, null, z, bArr)) == null) {
-            KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             if (z) {
                 return (RSAPrivateKey) keyFactory.generatePrivate(new PKCS8EncodedKeySpec(bArr));
             }

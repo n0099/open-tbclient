@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.vh7;
-import com.baidu.tieba.wh7;
-import com.baidu.tieba.yh7;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sk7;
+import com.baidu.tieba.tk7;
+import com.baidu.tieba.vk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public yh7 b;
+    public vk7 b;
     public int c;
-    public wh7 d;
+    public tk7 d;
 
     /* loaded from: classes4.dex */
-    public class a implements wh7 {
+    public class a implements tk7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,15 +56,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.wh7
-        public void a(LabelRequestEnum labelRequestEnum, vh7 vh7Var, int i) {
+        @Override // com.baidu.tieba.tk7
+        public void a(LabelRequestEnum labelRequestEnum, sk7 sk7Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, vh7Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, sk7Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        qy4.k().u("set_recommend_label", true);
-                        this.a.z1();
+                        ry4.l().v("set_recommend_label", true);
+                        this.a.y1();
                         this.a.finish();
                         return;
                     }
@@ -72,14 +72,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (vh7Var != null && !ListUtils.isEmpty(vh7Var.b()) && !ListUtils.isEmpty(vh7Var.a())) {
+                if (sk7Var != null && !ListUtils.isEmpty(sk7Var.b()) && !ListUtils.isEmpty(sk7Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(vh7Var);
+                    this.a.b.j(sk7Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c81), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cb8), true);
             }
         }
     }
@@ -135,7 +135,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.E();
+            this.a.L();
             showLoadingView(this.b.c(), true);
         }
     }
@@ -158,7 +158,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 TiebaStatic.log(new StatisticItem("c12245").param("obj_type", this.c));
                 finish();
             } else if (view2 == this.b.f()) {
-                this.a.F(this.b.d());
+                this.a.M(this.b.d());
             }
         }
     }
@@ -168,22 +168,22 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            yh7 yh7Var = new yh7(this);
-            this.b = yh7Var;
-            yh7Var.k(this);
+            vk7 vk7Var = new vk7(this);
+            this.b = vk7Var;
+            vk7Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
-            labelSettingModel.G(this.d);
+            labelSettingModel.N(this.d);
             if (getIntent() != null) {
                 this.c = getIntent().getIntExtra("from", -1);
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            qy4.k().u("show_recommend_label", true);
+            ry4.l().v("show_recommend_label", true);
         }
     }
 
-    public final void z1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             List<Integer> d = this.b.d();

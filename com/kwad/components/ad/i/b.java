@@ -36,7 +36,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class b {
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0539b Cg;
+    public InterfaceC0556b Cg;
     public KsAdWebView bF;
     public int bH;
     public aa bI;
@@ -67,14 +67,14 @@ public class b {
     public int mScreenOrientation;
     public ae uF;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(b bVar);
     }
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0539b {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0556b {
         void hk();
     }
 
@@ -269,7 +269,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int i = this.bH;
-            String str = i == -1 ? "timeout" : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+            String str = i == -1 ? com.alipay.sdk.data.a.O : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
             com.kwad.sdk.core.e.b.w("PlayEndWebCard", "show webCard fail, reason: " + str);
         }
     }
@@ -287,7 +287,7 @@ public class b {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d0416 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d0425 : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -403,10 +403,10 @@ public class b {
         }
     }
 
-    public final void a(@Nullable InterfaceC0539b interfaceC0539b) {
+    public final void a(@Nullable InterfaceC0556b interfaceC0556b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0539b) == null) {
-            this.Cg = interfaceC0539b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0556b) == null) {
+            this.Cg = interfaceC0556b;
             this.bS.setVisibility(4);
             this.bH = -1;
             String l = l(this.mAdTemplate);
@@ -564,7 +564,7 @@ public class b {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091271);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0912d0);
             this.bF = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.bF.getBackground().setAlpha(0);

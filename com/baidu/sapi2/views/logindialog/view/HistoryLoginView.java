@@ -146,12 +146,12 @@ public class HistoryLoginView extends RelativeLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e4, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091df5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d68);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d67);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d69);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091de9);
+            LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_dialog_quick_login_history, this);
+            this.c = findViewById(R.id.sapi_sdk_view_history_login_shade);
+            this.d = (ImageView) findViewById(R.id.sapi_sdk_civ_history_portrait);
+            this.e = (TextView) findViewById(R.id.sapi_sdk_civ_history_displayname);
+            this.f = (TextView) findViewById(R.id.sapi_sdk_civ_history_subtitle);
+            this.g = (TextView) findViewById(R.id.sapi_sdk_tv_history_button);
             View.OnClickListener onClickListener = new View.OnClickListener(this) { // from class: com.baidu.sapi2.views.logindialog.view.HistoryLoginView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -270,7 +270,7 @@ public class HistoryLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ed4));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_quick_login_dialog_share_bg_dark));
         }
     }
 

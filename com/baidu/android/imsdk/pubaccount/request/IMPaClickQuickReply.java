@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +9,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.pubaccount.IClickPaQuickReplyListener;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -147,8 +145,7 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
             }
             try {
                 i2 = new JSONObject(str).getInt("error_code");
-            } catch (JSONException e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            } catch (JSONException unused) {
             }
             if (i2 == 54000 || i2 == 54001 || i2 == 54002 || i2 == 54003) {
                 PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, "", System.currentTimeMillis());

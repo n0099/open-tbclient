@@ -665,31 +665,31 @@ public final class MenuItemImpl implements SupportMenuItem {
             Resources resources = this.mMenu.getContext().getResources();
             StringBuilder sb = new StringBuilder();
             if (ViewConfiguration.get(this.mMenu.getContext()).hasPermanentMenuKey()) {
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0049));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f004a));
             }
             if (this.mMenu.isQwertyMode()) {
                 i = this.mShortcutAlphabeticModifiers;
             } else {
                 i = this.mShortcutNumericModifiers;
             }
-            appendModifier(sb, i, 65536, resources.getString(R.string.obfuscated_res_0x7f0f0045));
-            appendModifier(sb, i, 4096, resources.getString(R.string.obfuscated_res_0x7f0f0041));
-            appendModifier(sb, i, 2, resources.getString(R.string.obfuscated_res_0x7f0f0040));
-            appendModifier(sb, i, 1, resources.getString(R.string.obfuscated_res_0x7f0f0046));
-            appendModifier(sb, i, 4, resources.getString(R.string.obfuscated_res_0x7f0f0048));
-            appendModifier(sb, i, 8, resources.getString(R.string.obfuscated_res_0x7f0f0044));
+            appendModifier(sb, i, 65536, resources.getString(R.string.obfuscated_res_0x7f0f0046));
+            appendModifier(sb, i, 4096, resources.getString(R.string.obfuscated_res_0x7f0f0042));
+            appendModifier(sb, i, 2, resources.getString(R.string.obfuscated_res_0x7f0f0041));
+            appendModifier(sb, i, 1, resources.getString(R.string.obfuscated_res_0x7f0f0047));
+            appendModifier(sb, i, 4, resources.getString(R.string.obfuscated_res_0x7f0f0049));
+            appendModifier(sb, i, 8, resources.getString(R.string.obfuscated_res_0x7f0f0045));
             if (shortcut != '\b') {
                 if (shortcut != '\n') {
                     if (shortcut != ' ') {
                         sb.append(shortcut);
                     } else {
-                        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0047));
+                        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0048));
                     }
                 } else {
-                    sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0043));
+                    sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0044));
                 }
             } else {
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0042));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0043));
             }
             return sb.toString();
         }

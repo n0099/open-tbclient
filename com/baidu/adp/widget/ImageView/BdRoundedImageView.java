@@ -254,19 +254,10 @@ public class BdRoundedImageView extends AppCompatImageView {
         return invokeV.intValue;
     }
 
-    public ColorStateList getBorderColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
     public int getBorderWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
@@ -275,7 +266,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     public int getCornerRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
@@ -285,7 +276,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     public ImageView.ScaleType getScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.h;
         }
         return (ImageView.ScaleType) invokeV.objValue;
@@ -293,7 +284,7 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             f(this.f, false);
         }
     }
@@ -301,7 +292,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
             this.g = jn.b(drawable);
             g();
             super.setBackgroundDrawable(this.g);
@@ -310,14 +301,14 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setBorderColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             setBorderColors(ColorStateList.valueOf(i2));
         }
     }
 
     public void setBorderColors(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, colorStateList) != null) || this.c.equals(colorStateList)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, colorStateList) != null) || this.c.equals(colorStateList)) {
             return;
         }
         if (colorStateList == null) {
@@ -333,7 +324,7 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setBorderWidth(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i2) != null) || this.b == i2) {
+        if ((interceptable != null && interceptable.invokeI(1048587, this, i2) != null) || this.b == i2) {
             return;
         }
         this.b = i2;
@@ -344,7 +335,7 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048589, this, i2) != null) || this.a == i2) {
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i2) != null) || this.a == i2) {
             return;
         }
         this.a = i2;
@@ -355,7 +346,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
                 this.f = new jn(bitmap);
                 k();
@@ -369,7 +360,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
             if (drawable != null) {
                 this.f = jn.b(drawable);
                 k();
@@ -383,7 +374,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageResource(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             super.setImageResource(i2);
             setImageDrawable(getDrawable());
         }
@@ -391,7 +382,7 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setOval(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.e = z;
             k();
             g();
@@ -399,20 +390,10 @@ public class BdRoundedImageView extends AppCompatImageView {
         }
     }
 
-    public void setRoundBackground(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048594, this, z) != null) || this.d == z) {
-            return;
-        }
-        this.d = z;
-        g();
-        invalidate();
-    }
-
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, scaleType) == null) {
             if (scaleType != null) {
                 if (this.h != scaleType) {
                     this.h = scaleType;

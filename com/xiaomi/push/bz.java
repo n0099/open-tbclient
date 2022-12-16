@@ -35,7 +35,7 @@ public class bz extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10054" : (String) invokeV.objValue;
@@ -50,9 +50,9 @@ public class bz extends al.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
             c = this.a.c();
-            context = this.a.f150a;
+            context = this.a.f173a;
             cc ccVar = new cc(c, new WeakReference(context));
-            context2 = this.a.f150a;
+            context2 = this.a.f173a;
             cj.a(context2).a(ccVar);
             this.a.b("check_time");
         }

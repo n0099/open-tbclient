@@ -18,7 +18,7 @@ public class fj {
     public static final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f369a;
+    public static long f392a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -58,14 +58,14 @@ public class fj {
             }
         }
         a = ez.c.a();
-        f369a = 0L;
+        f392a = 0L;
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (f369a == 0 || SystemClock.elapsedRealtime() - f369a > IMUserListModel.REQUEST_SPACE) {
-                f369a = SystemClock.elapsedRealtime();
+            if (f392a == 0 || SystemClock.elapsedRealtime() - f392a > IMUserListModel.REQUEST_SPACE) {
+                f392a = SystemClock.elapsedRealtime();
                 a(0, a);
             }
         }
@@ -74,10 +74,10 @@ public class fj {
     public static void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            fa m330a = fh.m328a().m330a();
-            m330a.a(ez.k.a());
-            m330a.c(i);
-            fh.m328a().a(m330a);
+            fa m340a = fh.m338a().m340a();
+            m340a.a(ez.k.a());
+            m340a.c(i);
+            fh.m338a().a(m340a);
         }
     }
 
@@ -97,13 +97,13 @@ public class fj {
     public static void a(int i, int i2, int i3, String str, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {
-            fa m330a = fh.m328a().m330a();
-            m330a.a((byte) i);
-            m330a.a(i2);
-            m330a.b(i3);
-            m330a.b(str);
-            m330a.c(i4);
-            fh.m328a().a(m330a);
+            fa m340a = fh.m338a().m340a();
+            m340a.a((byte) i);
+            m340a.a(i2);
+            m340a.b(i3);
+            m340a.b(str);
+            m340a.c(i4);
+            fh.m338a().a(m340a);
         }
     }
 
@@ -114,14 +114,14 @@ public class fj {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i4 = (i << 24) | i2;
                 if (a.a.containsKey(Integer.valueOf(i4))) {
-                    fa m330a = fh.m328a().m330a();
-                    m330a.a(i2);
-                    m330a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                    m330a.b(str);
+                    fa m340a = fh.m338a().m340a();
+                    m340a.a(i2);
+                    m340a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                    m340a.b(str);
                     if (i3 > -1) {
-                        m330a.c(i3);
+                        m340a.c(i3);
                     }
-                    fh.m328a().a(m330a);
+                    fh.m338a().a(m340a);
                     a.a.remove(Integer.valueOf(i2));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -140,23 +140,23 @@ public class fj {
     public static void a(String str, int i, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i, exc) == null) {
-            fa m330a = fh.m328a().m330a();
-            if (fh.a() != null && fh.a().f361a != null) {
-                m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
+            fa m340a = fh.m338a().m340a();
+            if (fh.a() != null && fh.a().f384a != null) {
+                m340a.c(bj.c(fh.a().f384a) ? 1 : 0);
             }
             if (i > 0) {
-                m330a.a(ez.l.a());
-                m330a.b(str);
-                m330a.b(i);
-                fh.m328a().a(m330a);
+                m340a.a(ez.l.a());
+                m340a.b(str);
+                m340a.b(i);
+                fh.m338a().a(m340a);
                 return;
             }
             try {
                 ff.a a2 = ff.a(exc);
-                m330a.a(a2.a.a());
-                m330a.c(a2.f358a);
-                m330a.b(str);
-                fh.m328a().a(m330a);
+                m340a.a(a2.a.a());
+                m340a.c(a2.f381a);
+                m340a.b(str);
+                fh.m338a().a(m340a);
             } catch (NullPointerException unused) {
             }
         }
@@ -167,27 +167,27 @@ public class fj {
         if (interceptable == null || interceptable.invokeLL(65544, null, str, exc) == null) {
             try {
                 ff.a b = ff.b(exc);
-                fa m330a = fh.m328a().m330a();
-                m330a.a(b.a.a());
-                m330a.c(b.f358a);
-                m330a.b(str);
-                if (fh.a() != null && fh.a().f361a != null) {
-                    m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
+                fa m340a = fh.m338a().m340a();
+                m340a.a(b.a.a());
+                m340a.c(b.f381a);
+                m340a.b(str);
+                if (fh.a() != null && fh.a().f384a != null) {
+                    m340a.c(bj.c(fh.a().f384a) ? 1 : 0);
                 }
-                fh.m328a().a(m330a);
+                fh.m338a().a(m340a);
             } catch (NullPointerException unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m334a() {
+    public static byte[] m344a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            fb m331a = fh.m328a().m331a();
-            if (m331a != null) {
-                return it.a(m331a);
+            fb m341a = fh.m338a().m341a();
+            if (m341a != null) {
+                return it.a(m341a);
             }
             return null;
         }
@@ -206,14 +206,14 @@ public class fj {
         if (interceptable == null || interceptable.invokeLL(65547, null, str, exc) == null) {
             try {
                 ff.a d = ff.d(exc);
-                fa m330a = fh.m328a().m330a();
-                m330a.a(d.a.a());
-                m330a.c(d.f358a);
-                m330a.b(str);
-                if (fh.a() != null && fh.a().f361a != null) {
-                    m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
+                fa m340a = fh.m338a().m340a();
+                m340a.a(d.a.a());
+                m340a.c(d.f381a);
+                m340a.b(str);
+                if (fh.a() != null && fh.a().f384a != null) {
+                    m340a.c(bj.c(fh.a().f384a) ? 1 : 0);
                 }
-                fh.m328a().a(m330a);
+                fh.m338a().a(m340a);
             } catch (NullPointerException unused) {
             }
         }

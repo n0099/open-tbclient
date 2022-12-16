@@ -17,7 +17,6 @@ import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.session.VideoSessionManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsVideoKernel implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CYBER_PLAYER = "CyberVideoKernel";
@@ -361,7 +360,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            printLog(IntentConfig.STOP);
+            printLog("stop");
             this.mPercent = 0;
             this.mSpeed = 0;
             this.mCurrentPlayUrl = null;

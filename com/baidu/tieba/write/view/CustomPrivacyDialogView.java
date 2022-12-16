@@ -99,10 +99,10 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020b, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091aca);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076e);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076f);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020e, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091b35);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090786);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090787);
             this.b.setTextSize(R.dimen.tbds34);
             qz4 qz4Var = new qz4();
             qz4Var.r(R.color.CAM_X0105);

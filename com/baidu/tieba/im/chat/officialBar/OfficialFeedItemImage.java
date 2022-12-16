@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ic7;
-import com.baidu.tieba.uc7;
+import com.baidu.tieba.id7;
+import com.baidu.tieba.td7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069d, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091557);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09155e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09155d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091563);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0903bb);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915b9);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915c0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915bf);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c5);
+            this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
             this.b.setRadius(yi.g(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090ec0);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0915c3);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090f1a);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091626);
             c();
         }
     }
@@ -120,7 +120,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080947, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -136,7 +136,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0eba, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;
@@ -146,13 +146,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(uc7.a aVar, int i, ic7 ic7Var) {
+    public void setData(td7.a aVar, int i, id7 id7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, ic7Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, id7Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (ic7Var != null) {
-                i = ic7Var.i();
+            if (id7Var != null) {
+                i = id7Var.i();
             }
             d(i);
         }

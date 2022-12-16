@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,9 +45,9 @@ public class ABTestExtraData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String q = qy4.k().q("abtest_extra_info_json", null);
-                if (!TextUtils.isEmpty(q)) {
-                    parseJson(new JSONObject(q));
+                String r = ry4.l().r("abtest_extra_info_json", null);
+                if (!TextUtils.isEmpty(r)) {
+                    parseJson(new JSONObject(r));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -64,7 +64,7 @@ public class ABTestExtraData implements Serializable {
             } else {
                 str = "";
             }
-            qy4.k().y("abtest_extra_info_json", str);
+            ry4.l().z("abtest_extra_info_json", str);
         }
     }
 

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.album.MediaFileInfo;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.video.VideoItemModel;
+/* loaded from: classes5.dex */
 public interface j49 {
-    boolean a(int i, MediaFileInfo mediaFileInfo);
+    VideoItemModel G0();
+
+    void p0(int i);
+
+    int s();
 }

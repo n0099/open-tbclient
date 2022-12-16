@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c5a;
-import com.baidu.tieba.w7a;
+import com.baidu.tieba.fba;
+import com.baidu.tieba.l8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,11 +86,11 @@ public class NoScrollGridView extends GridView {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c5a.PayUi_NoScrollGridView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l8a.PayUi_NoScrollGridView);
             int integer = obtainStyledAttributes.getInteger(0, 536870911);
             this.a = integer;
             if (integer != 536870911) {
-                this.a = w7a.a(integer);
+                this.a = fba.a(integer);
             }
             obtainStyledAttributes.recycle();
         }

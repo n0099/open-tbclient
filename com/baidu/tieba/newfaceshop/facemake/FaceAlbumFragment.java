@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap4;
-import com.baidu.tieba.bu7;
-import com.baidu.tieba.cp4;
-import com.baidu.tieba.cu7;
+import com.baidu.tieba.ax7;
+import com.baidu.tieba.bp4;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yo4;
 import com.baidu.tieba.zo4;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,21 +42,21 @@ import java.util.List;
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ap4 a;
+    public zo4 a;
     public GridView b;
-    public cu7 c;
+    public ax7 c;
     public List<ImageFileInfo> d;
-    public bu7 e;
+    public zw7 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
     /* loaded from: classes5.dex */
-    public class a implements cp4 {
+    public class a implements bp4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
 
-        @Override // com.baidu.tieba.cp4
+        @Override // com.baidu.tieba.bp4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -81,8 +81,8 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.cp4
-        public void a(List<zo4> list, List<ImageFileInfo> list2, String str) {
+        @Override // com.baidu.tieba.bp4
+        public void a(List<yo4> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
@@ -97,7 +97,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     /* loaded from: classes5.dex */
-    public class b implements k95 {
+    public class b implements l95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -120,7 +120,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.k95
+        @Override // com.baidu.tieba.l95
         public void a(in inVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -144,93 +144,59 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDestroy();
-            ap4 ap4Var = this.a;
-            if (ap4Var != null) {
-                ap4Var.d();
-            }
-        }
-    }
-
-    public LinkedHashMap<String, ImageFileInfo> u1() {
+    public LinkedHashMap<String, ImageFileInfo> B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            cu7 cu7Var = this.c;
-            if (cu7Var != null) {
-                return cu7Var.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ax7 ax7Var = this.c;
+            if (ax7Var != null) {
+                return ax7Var.f();
             }
             return null;
         }
         return (LinkedHashMap) invokeV.objValue;
     }
 
-    public final void x1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.i(zo4.f, new a(this));
-        }
-    }
-
-    public void z1(bu7 bu7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bu7Var) == null) {
-            this.e = bu7Var;
-            cu7 cu7Var = this.c;
-            if (cu7Var != null) {
-                cu7Var.j(bu7Var);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.i(yo4.f, new a(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.g = (BaseFragmentActivity) getPageContext().getPageActivity();
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null);
-            SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
-            NoDataView a2 = NoDataViewFactory.a(this.g, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(this.g, R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.c(this.g.getText(R.string.obfuscated_res_0x7f0f060c).toString()), null);
-            this.f = a2;
-            a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f.setVisibility(8);
-            this.b = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f090d25);
-            v1();
-            x1();
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
-            super.onScrollStateChanged(absListView, i);
-            if (i == 2) {
-                this.c.l(true);
-            } else if (this.c.i()) {
-                this.c.l(false);
-                y1();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroy();
+            zo4 zo4Var = this.a;
+            if (zo4Var != null) {
+                zo4Var.d();
             }
         }
     }
 
-    public final void v1() {
+    public void F1(zw7 zw7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zw7Var) == null) {
+            this.e = zw7Var;
+            ax7 ax7Var = this.c;
+            if (ax7Var != null) {
+                ax7Var.j(zw7Var);
+            }
+        }
+    }
+
+    public final void C1() {
         Serializable serializable;
         ImageFileInfo imageFileInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.d = new ArrayList();
-            this.a = new ap4(getActivity());
-            cu7 cu7Var = new cu7(this.g, this.d);
-            this.c = cu7Var;
-            cu7Var.j(this.e);
+            this.a = new zo4(getActivity());
+            ax7 ax7Var = new ax7(this.g, this.d);
+            this.c = ax7Var;
+            ax7Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
@@ -247,22 +213,56 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public final void y1() {
-        cu7 cu7Var;
+    public final void E1() {
+        ax7 ax7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (cu7Var = this.c) != null && cu7Var.g() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ax7Var = this.c) != null && ax7Var.g() != null) {
             int childCount = this.b.getChildCount();
             int firstVisiblePosition = this.b.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.b.getChildAt(i);
                 if (childAt != null) {
-                    TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090eba);
+                    TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090f14);
                     ImageFileInfo item = this.c.getItem(firstVisiblePosition + i);
                     if (item != null && tbImageView != null) {
                         tbImageView.setTag(item.toCachedKey(false));
                         this.c.g().e(item, new b(this), false, false);
                     }
                 }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            this.g = (BaseFragmentActivity) getPageContext().getPageActivity();
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null);
+            SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
+            NoDataView a2 = NoDataViewFactory.a(this.g, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(this.g, R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.c(this.g.getText(R.string.obfuscated_res_0x7f0f0613).toString()), null);
+            this.f = a2;
+            a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f.setVisibility(8);
+            this.b = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f090d40);
+            C1();
+            D1();
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, absListView, i) == null) {
+            super.onScrollStateChanged(absListView, i);
+            if (i == 2) {
+                this.c.l(true);
+            } else if (this.c.i()) {
+                this.c.l(false);
+                E1();
             }
         }
     }

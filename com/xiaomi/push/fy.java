@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +56,10 @@ public class fy {
                 if (message.indexOf("No route to host") != -1) {
                     return 104;
                 }
-                return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
+                if (message.endsWith("EINVAL (Invalid argument)")) {
+                    return 106;
+                }
+                return Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG;
             }
         }
         return invokeL.intValue;

@@ -1,76 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public final class lb1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeight = 0;
-    public static final int MaxHeightScrollView_maxHeightRatio = 1;
-    public static final int MaxHeightScrollView_minHeightRatio = 2;
-    public static final int[] PolyVerificationCodeView;
-    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
-    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
-    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
-    public static final int PolyVerificationCodeView_vcv_et_number = 3;
-    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
-    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
-    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
-    public static final int PolyVerificationCodeView_vcv_et_width = 7;
-    public static final int[] PopupWindow;
-    public static final int PopupWindow_android_popupAnimationStyle = 1;
-    public static final int PopupWindow_android_popupBackground = 0;
-    public static final int PopupWindow_overlapAnchor = 2;
-    public static final int PopupWindow_popupAnimationStyle = 3;
-    public static final int PopupWindow_popupBackground = 4;
-    public static final int[] ProgressButton;
-    public static final int ProgressButton_textColor = 0;
-    public static final int[] SwitchButton;
-    public static final int SwitchButton_kswAnimationDuration = 0;
-    public static final int SwitchButton_kswBackColor = 1;
-    public static final int SwitchButton_kswBackDrawable = 2;
-    public static final int SwitchButton_kswBackRadius = 3;
-    public static final int SwitchButton_kswFadeBack = 4;
-    public static final int SwitchButton_kswTextAdjust = 5;
-    public static final int SwitchButton_kswTextExtra = 6;
-    public static final int SwitchButton_kswTextOff = 7;
-    public static final int SwitchButton_kswTextOn = 8;
-    public static final int SwitchButton_kswTextThumbInset = 9;
-    public static final int SwitchButton_kswThumbColor = 10;
-    public static final int SwitchButton_kswThumbDrawable = 11;
-    public static final int SwitchButton_kswThumbHeight = 12;
-    public static final int SwitchButton_kswThumbMargin = 13;
-    public static final int SwitchButton_kswThumbMarginBottom = 14;
-    public static final int SwitchButton_kswThumbMarginLeft = 15;
-    public static final int SwitchButton_kswThumbMarginRight = 16;
-    public static final int SwitchButton_kswThumbMarginTop = 17;
-    public static final int SwitchButton_kswThumbRadius = 18;
-    public static final int SwitchButton_kswThumbRangeRatio = 19;
-    public static final int SwitchButton_kswThumbWidth = 20;
-    public static final int SwitchButton_kswTintColor = 21;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public abstract class lb1<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947937006, "Lcom/baidu/tieba/lb1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947937006, "Lcom/baidu/tieba/lb1;");
-                return;
+    public void a(Throwable th, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+        }
+    }
+
+    public void b(Throwable th, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
+        }
+    }
+
+    public abstract void c(T t);
+
+    public lb1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404c0, R.attr.obfuscated_res_0x7f0404d0};
-        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f040762, R.attr.obfuscated_res_0x7f040763, R.attr.obfuscated_res_0x7f040764, R.attr.obfuscated_res_0x7f040765, R.attr.obfuscated_res_0x7f040766, R.attr.obfuscated_res_0x7f040767, R.attr.obfuscated_res_0x7f040768, R.attr.obfuscated_res_0x7f040769};
-        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040514, R.attr.popupAnimationStyle, R.attr.popupBackground};
-        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f0406e4};
-        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e1, R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0403eb, R.attr.obfuscated_res_0x7f0403ec, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f0403ef, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f0403f1, R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5};
     }
 }

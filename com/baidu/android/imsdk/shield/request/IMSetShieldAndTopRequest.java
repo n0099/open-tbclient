@@ -83,6 +83,19 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.user = new ChatSession();
     }
 
+    private boolean isShieldBusiness() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            int i = this.mSubBusiness;
+            if (i == 1 || i == 6 || i == 7 || i == 8 || i == 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() {
         InterceptResult invokeV;
@@ -123,18 +136,20 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        IStatusListener iStatusListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
             Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            int i2 = this.mSubBusiness;
-            if (i2 == 1) {
+            if (isShieldBusiness()) {
                 if (this.mContacterType == 0) {
-                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mSubBusiness, this.mKey);
+                    return;
                 } else {
-                    ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+                    ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mSubBusiness, this.mKey);
+                    return;
                 }
-            } else if (i2 == 2) {
+            }
+            int i2 = this.mSubBusiness;
+            if (i2 == 2) {
                 int i3 = this.mContacterType;
                 if (i3 == 0) {
                     ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
@@ -143,8 +158,8 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
                 }
-            } else if (i2 == 3 && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
-                iStatusListener.onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mState, this.mContacter);
+            } else if (i2 == 3 && this.mContacterType == 2) {
+                ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
             }
         }
     }
@@ -169,24 +184,31 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             }
             if (i2 == 0) {
                 this.user.setContacter(this.mContacter);
-                int i3 = this.mSubBusiness;
-                if (i3 == 1) {
+                if (isShieldBusiness()) {
                     this.user.setShield(this.mState);
                     this.user.setShieldTime(this.timeStamp);
-                } else if (i3 == 2) {
-                    this.user.setMarkTop(this.mState);
-                    this.user.setMarkTopTime(this.timeStamp);
+                } else {
+                    int i3 = this.mSubBusiness;
+                    if (i3 == 2) {
+                        this.user.setMarkTop(this.mState);
+                        this.user.setMarkTopTime(this.timeStamp);
+                    } else if (i3 == 3) {
+                        this.user.setDisturb(this.mState);
+                    }
                 }
                 this.user.setChatType(this.mContacterType);
             }
-            int i4 = this.mSubBusiness;
-            if (i4 == 1) {
+            if (isShieldBusiness()) {
                 if (this.mContacterType == 0) {
-                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldResult(i2, str, this.user, this.mKey);
+                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldResult(i2, str, this.user, this.mSubBusiness, this.mKey);
+                    return;
                 } else {
-                    ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(i2, str, this.user, this.mKey);
+                    ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(i2, str, this.user, this.mSubBusiness, this.mKey);
+                    return;
                 }
-            } else if (i4 == 2) {
+            }
+            int i4 = this.mSubBusiness;
+            if (i4 == 2) {
                 int i5 = this.mContacterType;
                 if (i5 == 0) {
                     ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(i2, str, this.user, this.mKey);
@@ -195,8 +217,13 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
                 }
-            } else if ((i4 == 3 || i4 == 4 || i4 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
-                iStatusListener.onResult(i2, str, this.mState, this.mContacter);
+            } else if (i4 == 3 && this.mContacterType == 2) {
+                ShieldAndTopManager.getInstance(this.mContext).onSetGroupNotDisturbResult(i2, str, this.user, this.mKey);
+            } else {
+                int i6 = this.mSubBusiness;
+                if ((i6 == 3 || i6 == 4 || i6 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+                    iStatusListener.onResult(i2, str, this.mState, this.mContacter);
+                }
             }
         }
     }

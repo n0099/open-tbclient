@@ -18,10 +18,11 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ResponseBody implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Reader reader;
 
     public abstract long contentLength();
@@ -31,12 +32,13 @@ public abstract class ResponseBody implements Closeable {
 
     public abstract BufferedSource source();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class BomAwareReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Charset charset;
         public boolean closed;
+        @Nullable
         public Reader delegate;
         public final BufferedSource source;
 

@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FetchUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

@@ -132,7 +132,7 @@ public final class BufferUtils {
         if (interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) {
             int capacity = byteBuffer.capacity();
             synchronized (a) {
-                if (!a.j(byteBuffer, true)) {
+                if (!a.i(byteBuffer, true)) {
                     throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
                 }
             }

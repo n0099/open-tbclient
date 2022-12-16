@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax4;
-import com.baidu.tieba.hq4;
-import com.baidu.tieba.r78;
+import com.baidu.tieba.iq4;
+import com.baidu.tieba.ja8;
 import com.baidu.tieba.ww4;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xw4;
@@ -30,9 +30,9 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<r78> a;
-    public List<r78> b;
-    public hq4 c;
+    public CoverFlowView<ja8> a;
+    public List<ja8> b;
+    public iq4 c;
 
     /* loaded from: classes5.dex */
     public class a extends ww4 {
@@ -64,8 +64,8 @@ public class AutoBannerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 xw4 xw4Var = new xw4();
-                xw4Var.c(R.drawable.obfuscated_res_0x7f0806a5);
-                xw4Var.g(R.drawable.obfuscated_res_0x7f0806a7);
+                xw4Var.c(R.drawable.icon_banner_gray_n);
+                xw4Var.g(R.drawable.icon_banner_s);
                 xw4Var.d(81);
                 xw4Var.e(R.dimen.tbds26);
                 xw4Var.h(R.dimen.tbds10);
@@ -195,7 +195,7 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void d(List<r78> list) {
+    public void d(List<ja8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -204,7 +204,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void e(int i) {
-        CoverFlowView<r78> coverFlowView;
+        CoverFlowView<ja8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.s();
@@ -228,15 +228,15 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(hq4 hq4Var) {
+    public void setIWindowChangedListener(iq4 iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hq4Var) == null) {
-            this.c = hq4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iq4Var) == null) {
+            this.c = iq4Var;
         }
     }
 
     public void setIndicatorVisible(int i) {
-        CoverFlowView<r78> coverFlowView;
+        CoverFlowView<ja8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setIndicatorVisible(i);
@@ -244,7 +244,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<r78> coverFlowView;
+        CoverFlowView<ja8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
@@ -266,7 +266,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void f() {
-        CoverFlowView<r78> coverFlowView;
+        CoverFlowView<ja8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.w();

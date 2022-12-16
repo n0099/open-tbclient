@@ -77,8 +77,8 @@ public class ChangeTransform extends Transition {
             if (interceptable == null || interceptable.invokeL(1048576, this, transition) == null) {
                 transition.removeListener(this);
                 GhostViewUtils.removeGhost(this.mView);
-                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09237a, null);
-                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cf, null);
+                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0923eb, null);
+                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091838, null);
             }
         }
 
@@ -496,7 +496,7 @@ public class ChangeTransform extends Transition {
         Matrix matrix;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f1028view;
+            View view2 = transitionValues.f1051view;
             if (view2.getVisibility() == 8) {
                 return;
             }
@@ -515,8 +515,8 @@ public class ChangeTransform extends Transition {
                 ViewUtils.transformMatrixToGlobal(viewGroup, matrix3);
                 matrix3.preTranslate(-viewGroup.getScrollX(), -viewGroup.getScrollY());
                 transitionValues.values.put(PROPNAME_PARENT_MATRIX, matrix3);
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09237a));
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cf));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0923eb));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091838));
             }
         }
     }
@@ -524,14 +524,14 @@ public class ChangeTransform extends Transition {
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup, transitionValues, transitionValues2) == null) {
-            View view2 = transitionValues2.f1028view;
+            View view2 = transitionValues2.f1051view;
             Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
             ViewUtils.transformMatrixToLocal(viewGroup, matrix);
             GhostView addGhost = GhostViewUtils.addGhost(view2, viewGroup, matrix);
             if (addGhost == null) {
                 return;
             }
-            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1028view);
+            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1051view);
             Transition transition = this;
             while (true) {
                 Transition transition2 = transition.mParent;
@@ -542,8 +542,8 @@ public class ChangeTransform extends Transition {
             }
             transition.addListener(new GhostListener(view2, addGhost));
             if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                View view3 = transitionValues.f1028view;
-                if (view3 != transitionValues2.f1028view) {
+                View view3 = transitionValues.f1051view;
+                if (view3 != transitionValues2.f1051view) {
                     ViewUtils.setTransitionAlpha(view3, 0.0f);
                 }
                 ViewUtils.setTransitionAlpha(view2, 1.0f);
@@ -568,7 +568,7 @@ public class ChangeTransform extends Transition {
                 return null;
             }
             Transforms transforms = (Transforms) transitionValues2.values.get(PROPNAME_TRANSFORMS);
-            View view2 = transitionValues2.f1028view;
+            View view2 = transitionValues2.f1051view;
             setIdentityTransforms(view2);
             float[] fArr = new float[9];
             matrix.getValues(fArr);
@@ -616,7 +616,7 @@ public class ChangeTransform extends Transition {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, matrix4) == null) {
                         this.mTempMatrix.set(matrix4);
-                        this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09237a, this.mTempMatrix);
+                        this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0923eb, this.mTempMatrix);
                         this.val$transforms.restore(this.val$view);
                     }
                 }
@@ -653,8 +653,8 @@ public class ChangeTransform extends Transition {
                             if (this.val$handleParentChange && this.this$0.mUseOverlay) {
                                 setCurrentMatrix(this.val$finalEndMatrix);
                             } else {
-                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09237a, null);
-                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cf, null);
+                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0923eb, null);
+                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091838, null);
                             }
                         }
                         ViewUtils.setAnimationMatrix(this.val$view, null);
@@ -670,7 +670,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001b, code lost:
-        if (r6 == r5.f1028view) goto L12;
+        if (r6 == r5.f1051view) goto L12;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x001e, code lost:
         if (r5 == r6) goto L12;
@@ -721,7 +721,7 @@ public class ChangeTransform extends Transition {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
             if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                ((ViewGroup) transitionValues.f1028view.getParent()).startViewTransition(transitionValues.f1028view);
+                ((ViewGroup) transitionValues.f1051view.getParent()).startViewTransition(transitionValues.f1051view);
             }
         }
     }
@@ -744,7 +744,7 @@ public class ChangeTransform extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, transitionValues, transitionValues2) == null) {
             Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-            transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cf, matrix);
+            transitionValues2.f1051view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091838, matrix);
             Matrix matrix2 = this.mTempMatrix;
             matrix2.reset();
             matrix.invert(matrix2);
@@ -801,7 +801,7 @@ public class ChangeTransform extends Transition {
                 if (z && createTransformAnimator != null && this.mUseOverlay) {
                     createGhostView(viewGroup, transitionValues, transitionValues2);
                 } else if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                    viewGroup2.endViewTransition(transitionValues.f1028view);
+                    viewGroup2.endViewTransition(transitionValues.f1051view);
                 }
                 return createTransformAnimator;
             }

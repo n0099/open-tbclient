@@ -21,7 +21,6 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -126,9 +125,11 @@ public class BdStatisticsManager {
                         removeMessages(2);
                         BdStatisticsManager.getInstance().checkLogToUpload();
                     }
-                } else if (BdStatisticsManager.getInstance().permissionUtil != null && BdStatisticsManager.getInstance().permissionUtil.isAgreePrivacyPolicy()) {
-                    BdStatisticsManager.getInstance().forceUploadAllLog();
-                    BdStatisticsManager.getInstance().startOrNextUploadTimer();
+                } else if (BdStatisticsManager.getInstance().permissionUtil != null) {
+                    if (BdStatisticsManager.getInstance().permissionUtil.isAgreePrivacyPolicy() || BdStatisticsManager.getInstance().permissionUtil.isBrowseMode()) {
+                        BdStatisticsManager.getInstance().forceUploadAllLog();
+                        BdStatisticsManager.getInstance().startOrNextUploadTimer();
+                    }
                 }
             }
         }
@@ -239,24 +240,6 @@ public class BdStatisticsManager {
             }
         }
         mHandler = new a(Looper.getMainLooper());
-    }
-
-    public BdStatisticsManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.isSwitchReady = false;
-        this.mUploadInterval = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
-        this.mLogSwitchInitCallback = new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -436,6 +419,39 @@ public class BdStatisticsManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             hi.i().p();
+        }
+    }
+
+    public BdStatisticsManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mWriteFileDir = "newStat";
+        this.mNotUploadWriteFileDir = "newStat/notUpload";
+        this.isSwitchReady = false;
+        this.mUploadInterval = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
+        this.mLogSwitchInitCallback = new b(this);
+    }
+
+    public void forceUploadAllLogIgnoreSwitch() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
+            return;
+        }
+        hi.i().t(false);
+        if (this.mIsMainProcess) {
+            Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
+            intent.setPackage(BdBaseApplication.getInst().getPackageName());
+            this.mContext.sendBroadcast(intent);
         }
     }
 
@@ -632,25 +648,28 @@ public class BdStatisticsManager {
                     BdLog.e(e.getMessage());
                     return processName;
                 }
-            }
-            ActivityManager activityManager = (ActivityManager) this.mContext.getSystemService("activity");
-            if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-                int myPid = Process.myPid();
-                for (int i = 0; i < runningAppProcesses.size(); i++) {
-                    if (runningAppProcesses.get(i).pid == myPid) {
-                        String str = runningAppProcesses.get(i).processName;
-                        if (!TextUtils.isEmpty(str)) {
-                            try {
-                                return formatProcessNameMd5(str);
-                            } catch (UnsupportedEncodingException e2) {
-                                BdLog.e(e2.getMessage());
-                                return str;
+            } else if (this.permissionUtil.isBrowseMode()) {
+                return String.valueOf(Process.myPid());
+            } else {
+                ActivityManager activityManager = (ActivityManager) this.mContext.getSystemService("activity");
+                if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+                    int myPid = Process.myPid();
+                    for (int i = 0; i < runningAppProcesses.size(); i++) {
+                        if (runningAppProcesses.get(i).pid == myPid) {
+                            String str = runningAppProcesses.get(i).processName;
+                            if (!TextUtils.isEmpty(str)) {
+                                try {
+                                    return formatProcessNameMd5(str);
+                                } catch (UnsupportedEncodingException e2) {
+                                    BdLog.e(e2.getMessage());
+                                    return str;
+                                }
                             }
                         }
                     }
                 }
+                return null;
             }
-            return null;
         }
         return (String) invokeV.objValue;
     }
@@ -676,10 +695,10 @@ public class BdStatisticsManager {
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || kh.c().a(IMTrackDatabase.DbEnum.TABLE_NAME)) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), str3, objArr}) != null) || kh.c().a("db")) {
             return;
         }
-        op(true, IMTrackDatabase.DbEnum.TABLE_NAME, str, str2, 0L, i, str3, objArr);
+        op(true, "db", str, str2, 0L, i, str3, objArr);
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
@@ -843,19 +862,6 @@ public class BdStatisticsManager {
             return currentTimeMillis;
         }
         return invokeCommon.longValue;
-    }
-
-    public void forceUploadAllLogIgnoreSwitch() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
-            return;
-        }
-        hi.i().t(false);
-        if (this.mIsMainProcess) {
-            Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.mContext.sendBroadcast(intent);
-        }
     }
 
     public void init(Context context, boolean z, String str, String str2, String str3, String str4, ih ihVar, gh ghVar, long j, String str5) {

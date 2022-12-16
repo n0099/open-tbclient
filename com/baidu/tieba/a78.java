@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class a78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b78 a;
-    public TbPageContext b;
-    public List<xn> c;
-    public PersonMoreData d;
+    public ArrayList<e78> a;
 
-    public a78(TbPageContext tbPageContext, Bundle bundle, m46<a88> m46Var) {
+    public a78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, m46Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,56 +29,67 @@ public class a78 {
                 return;
             }
         }
-        this.b = tbPageContext;
-        b78 b78Var = new b78(tbPageContext);
-        this.a = b78Var;
-        b78Var.f(m46Var);
-        a(bundle);
+        this.a = new ArrayList<>();
     }
 
-    public final void a(Bundle bundle) {
+    public ArrayList<e78> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void b() {
+    public final boolean b(ExcContent excContent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        a88 a88Var = new a88();
-                        a88Var.e = personMoreItemData.mName;
-                        a88Var.a = 36;
-                        a88Var.g = personMoreItemData.mUrl;
-                        a88Var.k = personMoreItemData.mId;
-                        this.c.add(a88Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        h78 h78Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                h78Var = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            d78 a = g78.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (h78Var != null) {
+                                    this.a.add(h78Var);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (h78Var == null) {
+                                    h78Var = new h78();
+                                }
+                                h78Var.c(a.b());
+                            }
+                        } else {
+                            if (h78Var != null) {
+                                this.a.add(h78Var);
+                            }
+                            this.a.add(g78.b(excContent));
+                        }
                     }
                 }
+                break loop0;
             }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0714);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919c1));
-            b();
-            this.a.e(this.c);
-        }
-    }
-
-    public void d() {
-        b78 b78Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b78Var = this.a) != null) {
-            b78Var.d();
+            if (h78Var != null) {
+                this.a.add(h78Var);
+            }
         }
     }
 }

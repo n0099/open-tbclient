@@ -11,7 +11,6 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +95,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                     return false;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
                     geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                     return false;

@@ -15,7 +15,7 @@ public class my extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public tr4 i;
+    public vr4 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -76,11 +76,11 @@ public class my extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: x */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) {
-            this.i = tr4Var;
-            this.h.a(tr4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) {
+            this.i = vr4Var;
+            this.h.a(vr4Var);
         }
     }
 

@@ -14,7 +14,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebSocketWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class WebSocketWriter {
     public final Buffer sinkBuffer;
     public boolean writerClosed;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class FrameSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

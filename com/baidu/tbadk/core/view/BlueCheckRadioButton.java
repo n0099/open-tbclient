@@ -53,7 +53,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.setButtonDrawable(R.drawable.obfuscated_res_0x7f08045a);
+                this.a.c.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
                 this.a.c.toggle();
             }
         }
@@ -139,9 +139,9 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0207, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090769);
-            this.c = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090768);
+            LayoutInflater.from(this.a).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+            this.c = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
             c();
             setOnClickListener(new a(this));
         }

@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
-import com.baidu.android.common.security.RSAUtil;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -35,7 +34,7 @@ public class c {
         StringBuilder sb;
         String message;
         try {
-            return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b(str)));
+            return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(b(str)));
         } catch (IOException e) {
             sb = new StringBuilder();
             sb.append("loadPublicKey IOException ");

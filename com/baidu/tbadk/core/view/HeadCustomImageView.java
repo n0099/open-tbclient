@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.qq8;
 import com.baidu.tieba.tz4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.yi;
@@ -227,7 +227,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(rn8.a(rn8.f(str), 0.3f));
+            this.a.setBackgroundColor(qq8.a(qq8.f(str), 0.3f));
         }
     }
 
@@ -235,13 +235,13 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.n = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.head_custom_image_view, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
-            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5e);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d5d);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d5b);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d5c);
+            this.c = (RoundRelativeLayout) findViewById(R.id.head_image_view_container);
+            this.b = (TbImageView) findViewById(R.id.head_image_view);
+            this.a = (TbImageView) findViewById(R.id.head_image_background);
+            this.d = (RoundRelativeLayout) findViewById(R.id.head_image_background_container);
             int g = yi.g(context, R.dimen.tbds90);
             this.e = g;
             this.d.setRoundLayoutRadius(new float[]{g, g, g, g, g, g, g, g});

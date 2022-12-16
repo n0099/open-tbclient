@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.CmdQueueMsg;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,12 +17,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class DBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBManager";
     public static volatile DBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: com.baidu.android.imsdk.db.DBManager$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,6 +45,68 @@ public class DBManager extends DBBase {
         }
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(-799319594, "Lcom/baidu/android/imsdk/db/DBManager;");
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class CmdQueueMsgListParse implements CursorParse {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<CmdQueueMsg> msgs;
+
+        public CmdQueueMsgListParse() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.msgs = new ArrayList();
+        }
+
+        public /* synthetic */ CmdQueueMsgListParse(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.android.imsdk.db.CursorParse
+        public List<CmdQueueMsg> getResult() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.msgs;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.db.CursorParse
+        public void parseCursor(Cursor cursor) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) == null) && cursor != null) {
+                while (cursor.moveToNext()) {
+                    CmdQueueMsg cmdQueueMsg = new CmdQueueMsg();
+                    String string = cursor.getString(cursor.getColumnIndex("uuid"));
+                    String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
+                    if (!cursor.isNull(cursor.getColumnIndex("extra"))) {
+                        str = cursor.getString(cursor.getColumnIndex("extra"));
+                    } else {
+                        str = "";
+                    }
+                    int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+                    cmdQueueMsg.setUuid(string);
+                    cmdQueueMsg.setBody(string2);
+                    cmdQueueMsg.setMethodId(i);
+                    cmdQueueMsg.setExtra(str);
+                    this.msgs.add(cmdQueueMsg);
+                }
+            }
         }
     }
 
@@ -181,6 +253,27 @@ public class DBManager extends DBBase {
         return invokeL.booleanValue;
     }
 
+    public int setCentainTypeIDel(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iArr)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                String makePlaceholders = makePlaceholders(iArr.length);
+                if (makePlaceholders == null) {
+                    return -1;
+                }
+                String[] transToStringArray = transToStringArray(iArr);
+                if (transToStringArray == null) {
+                    return -1;
+                }
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, (Integer) 1);
+                return update(TableDefine.DB_TABLE_PA_CMD_QUEUE, "type IN (" + makePlaceholders + SmallTailInfo.EMOTION_SUFFIX, transToStringArray, contentValues);
+            }
+        }
+        return invokeL.intValue;
+    }
+
     public CmdQueueMsg getCmdQueueMsg(int i) {
         InterceptResult invokeI;
         CmdQueueMsg result;
@@ -211,12 +304,30 @@ public class DBManager extends DBBase {
         return (CmdQueueMsg) invokeLI.objValue;
     }
 
+    public List<CmdQueueMsg> getCmdQueueMsg(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                long queryCount = queryCount(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "methodId= ? AND type=?", new String[]{String.valueOf(i), String.valueOf(i2)});
+                LogUtils.d("DBManager", "getCmdQueueMsg count :" + queryCount);
+                if (queryCount <= 0) {
+                    return null;
+                }
+                CmdQueueMsgListParse cmdQueueMsgListParse = new CmdQueueMsgListParse(null);
+                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "methodId= ? AND type=?", new String[]{String.valueOf(i), String.valueOf(i2)}, null, null, null, cmdQueueMsgListParse);
+                return cmdQueueMsgListParse.getResult();
+            }
+        }
+        return (List) invokeII.objValue;
+    }
+
     public boolean saveCmdMsg(String str, int i, String str2, String str3, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (DBBase.mSyncLock) {
-                LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i + " , cmdMsgBody:" + str2 + " , extra" + str3 + SmallTailInfo.EMOTION_SUFFIX);
+                LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i + " , cmdMsgBody:" + str2 + " , extra：" + str3 + SmallTailInfo.EMOTION_SUFFIX);
                 boolean z = true;
                 if (getCmdQueueMsg(str, i3) != null) {
                     return true;
@@ -240,32 +351,11 @@ public class DBManager extends DBBase {
         return invokeCommon.booleanValue;
     }
 
-    public int setCentainTypeIDel(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iArr)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                String makePlaceholders = makePlaceholders(iArr.length);
-                if (makePlaceholders == null) {
-                    return -1;
-                }
-                String[] transToStringArray = transToStringArray(iArr);
-                if (transToStringArray == null) {
-                    return -1;
-                }
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, (Integer) 1);
-                return update(TableDefine.DB_TABLE_PA_CMD_QUEUE, "type IN (" + makePlaceholders + SmallTailInfo.EMOTION_SUFFIX, transToStringArray, contentValues);
-            }
-        }
-        return invokeL.intValue;
-    }
-
     public boolean updateCmdMsgSendStatus(String str, int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
             synchronized (DBBase.mSyncLock) {
                 LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
                 ContentValues contentValues = new ContentValues();
@@ -284,7 +374,7 @@ public class DBManager extends DBBase {
         InterceptResult invokeLLLI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048583, this, str, str2, str3, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, i)) == null) {
             synchronized (DBBase.mSyncLock) {
                 LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
                 ContentValues contentValues = new ContentValues();

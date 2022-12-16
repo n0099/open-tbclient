@@ -12,10 +12,10 @@ public class ae {
     public static int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f93a;
+    public static final String f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f94a;
+    public static final boolean f117a;
     public static final boolean b;
     public static final boolean c;
     public static final boolean d;
@@ -38,25 +38,25 @@ public class ae {
                 return;
             }
         }
-        String str = ah.f95a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f93a = str;
+        String str = ah.f118a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f116a = str;
         boolean contains = str.contains("2A2FE0D7");
-        f94a = contains;
+        f117a = contains;
         boolean z = false;
-        b = contains || "DEBUG".equalsIgnoreCase(f93a);
-        c = "LOGABLE".equalsIgnoreCase(f93a);
-        d = f93a.contains("YY");
-        e = f93a.equalsIgnoreCase("TEST");
-        f = "BETA".equalsIgnoreCase(f93a);
-        String str2 = f93a;
+        b = contains || "DEBUG".equalsIgnoreCase(f116a);
+        c = "LOGABLE".equalsIgnoreCase(f116a);
+        d = f116a.contains("YY");
+        e = f116a.equalsIgnoreCase("TEST");
+        f = "BETA".equalsIgnoreCase(f116a);
+        String str2 = f116a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
         g = z;
         a = 1;
-        if (f93a.equalsIgnoreCase("SANDBOX")) {
+        if (f116a.equalsIgnoreCase("SANDBOX")) {
             i = 2;
-        } else if (!f93a.equalsIgnoreCase("ONEBOX")) {
+        } else if (!f116a.equalsIgnoreCase("ONEBOX")) {
             a = 1;
             return;
         } else {
@@ -79,7 +79,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m163a() {
+    public static boolean m173a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a == 2 : invokeV.booleanValue;

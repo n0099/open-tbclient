@@ -11,10 +11,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements com.kwad.sdk.collector.a {
         @Override // com.kwad.sdk.collector.a
         public final List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {

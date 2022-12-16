@@ -1,5 +1,6 @@
 package com.bumptech.glide.request;
 
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +54,7 @@ public interface RequestCoordinator {
             RUNNING = new RequestState(TornadoLiteRuntime.STATE_RUNNING, 0, false);
             PAUSED = new RequestState("PAUSED", 1, false);
             CLEARED = new RequestState("CLEARED", 2, false);
-            SUCCESS = new RequestState("SUCCESS", 3, true);
+            SUCCESS = new RequestState(c.p, 3, true);
             RequestState requestState = new RequestState("FAILED", 4, true);
             FAILED = requestState;
             $VALUES = new RequestState[]{RUNNING, PAUSED, CLEARED, SUCCESS, requestState};

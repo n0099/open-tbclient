@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.aj;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,6 +30,7 @@ public class RomTypeUtil {
     public static final String ROM_SMARTISAN = "SMARTISAN";
     public static final String ROM_VIVO = "VIVO";
     public static final String TAG = "Rom";
+    public static dj permissionUtil;
     public static String sName;
     public static String sVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -163,45 +165,56 @@ public class RomTypeUtil {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (PermissionUtil.isBrowseMode()) {
+                return "";
+            }
             BufferedReader bufferedReader2 = null;
             try {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-            } catch (IOException unused) {
-                bufferedReader = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                bufferedReader.close();
                 try {
+                    String readLine = bufferedReader.readLine();
                     bufferedReader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return readLine;
-            } catch (IOException unused2) {
-                if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+                    return readLine;
+                } catch (IOException unused) {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return null;
+            } catch (IOException unused2) {
+                bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                throw th;
             }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void setPermissionUtil(dj djVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, djVar) == null) {
+            permissionUtil = djVar;
+        }
     }
 }

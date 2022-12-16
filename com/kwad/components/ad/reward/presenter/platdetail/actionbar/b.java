@@ -33,7 +33,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     public RewardActionBarControl.b rw;
 
     /* renamed from: rx  reason: collision with root package name */
-    public com.kwad.components.ad.reward.d.e f1086rx;
+    public com.kwad.components.ad.reward.d.e f1111rx;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 }
             }
         };
-        this.f1086rx = new com.kwad.components.ad.reward.d.e(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
+        this.f1111rx = new com.kwad.components.ad.reward.d.e(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b ry;
@@ -249,7 +249,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911cc);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09122b);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
@@ -388,7 +388,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             this.mAdInfo = bQ;
             if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911b8);
+                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091217);
             }
             this.pM.T(this.mAdTemplate);
             k kVar = this.nM;
@@ -396,7 +396,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             RewardActionBarControl rewardActionBarControl = kVar.ml;
             this.ml = rewardActionBarControl;
             rewardActionBarControl.a(this.rw);
-            this.nM.a(this.f1086rx);
+            this.nM.a(this.f1111rx);
         }
     }
 
@@ -674,11 +674,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091086);
-            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f09125b);
-            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f09125c);
-            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f09125d);
-            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f09125e);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e8);
+            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0912ba);
+            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0912bb);
+            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0912bc);
+            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0912bd);
         }
     }
 
@@ -692,7 +692,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 rewardActionBarControl.a((RewardActionBarControl.b) null);
             }
             com.kwad.components.core.webview.b.c.a.pR().b(this);
-            this.nM.b(this.f1086rx);
+            this.nM.b(this.f1111rx);
             aL();
         }
     }

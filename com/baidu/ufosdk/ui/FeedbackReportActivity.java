@@ -48,7 +48,6 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +68,6 @@ import com.baidu.ufosdk.q1;
 import com.baidu.ufosdk.s1;
 import com.baidu.ufosdk.t1;
 import com.baidu.ufosdk.z0;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -81,7 +79,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FeedbackReportActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -564,7 +562,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -609,7 +607,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -651,7 +649,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -729,7 +727,7 @@ public class FeedbackReportActivity extends Activity {
                             if (this.a.G != null) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put(TiebaStatic.LogFields.RESULT, "success");
+                                    jSONObject.put("result", "success");
                                     jSONObject.put("reasonOne", this.a.E.toString());
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -755,7 +753,7 @@ public class FeedbackReportActivity extends Activity {
                     if (this.a.G != null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put(TiebaStatic.LogFields.RESULT, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                            jSONObject2.put("result", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -792,7 +790,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements i0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -941,7 +939,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1036,7 +1034,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1093,7 +1091,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1137,7 +1135,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1218,7 +1216,7 @@ public class FeedbackReportActivity extends Activity {
                 if (i == arrayList.size() - 1) {
                     str = str + arrayList.get(i);
                 } else {
-                    str = str + arrayList.get(i) + ParamableElem.DIVIDE_PARAM;
+                    str = str + arrayList.get(i) + ";";
                 }
             }
             return str;
@@ -1423,7 +1421,7 @@ public class FeedbackReportActivity extends Activity {
             }
             hashMap.put("extra", com.baidu.ufosdk.b.g());
             hashMap.put("extend_feedback_channel", Integer.valueOf(this.c));
-            hashMap.put(TiebaStatic.Params.RESOURCE_ID, this.O);
+            hashMap.put("resource_id", this.O);
             hashMap.put("daily_type", "24961");
             if (this.Q.equals(SupportMenuInflater.XML_MENU)) {
                 str6 = "框架";

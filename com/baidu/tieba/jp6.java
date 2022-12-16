@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.List;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.core.data.ForumRuleBaseData;
+/* loaded from: classes5.dex */
 public interface jp6 {
-    void a(int i, int i2, List<xn> list, List<mp6> list2, boolean z, boolean z2, int i3);
+    void X0(ForumRuleBaseData forumRuleBaseData, boolean z);
 
-    void b(int i, int i2, String str);
+    void j1(int i, ForumRuleBaseData forumRuleBaseData, String str);
+
+    void r1(int i, String str, boolean z);
 }

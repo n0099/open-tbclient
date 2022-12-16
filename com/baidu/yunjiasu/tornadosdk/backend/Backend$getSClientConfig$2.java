@@ -2,7 +2,6 @@ package com.baidu.yunjiasu.tornadosdk.backend;
 
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +96,7 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
                     Request.Builder addHeader = url2.addHeader("X-Channel-Name", str);
                     str2 = Backend.device;
                     if (str2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(Config.DEVICE_PART);
+                        Intrinsics.throwUninitializedPropertyAccessException("device");
                         str2 = null;
                     }
                     Request.Builder addHeader2 = addHeader.addHeader("X-Device-Name", str2);

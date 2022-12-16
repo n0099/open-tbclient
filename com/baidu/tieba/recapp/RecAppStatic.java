@@ -8,16 +8,16 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ep5;
-import com.baidu.tieba.hg8;
-import com.baidu.tieba.jg8;
-import com.baidu.tieba.pf8;
+import com.baidu.tieba.bj8;
+import com.baidu.tieba.hi8;
+import com.baidu.tieba.ji8;
+import com.baidu.tieba.li8;
+import com.baidu.tieba.ni8;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.rf8;
-import com.baidu.tieba.tf8;
-import com.baidu.tieba.vf8;
-import com.baidu.tieba.xq5;
+import com.baidu.tieba.sr5;
+import com.baidu.tieba.zi8;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,13 +28,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RecAppStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements vf8.a {
+    /* loaded from: classes6.dex */
+    public static class a implements ni8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.baidu.tieba.vf8.a
+        @Override // com.baidu.tieba.ni8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,19 +142,19 @@ public class RecAppStatic {
                 return;
             }
         }
-        hg8.a.set(new jg8());
+        zi8.a.set(new bj8());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        xq5.l().e(new a());
-        ep5.b().c(1, new tf8());
-        ep5.b().c(2, new rf8());
+        sr5.l().e(new a());
+        zp5.b().c(1, new li8());
+        zp5.b().c(2, new ji8());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        pf8.t().b();
-        pf8.t().f();
+        hi8.t().b();
+        hi8.t().f();
     }
 
     public RecAppStatic() {

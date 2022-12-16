@@ -1,7 +1,6 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -1092,7 +1091,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            RSA = new KeyType(RSAUtil.ALGORITHM_RSA, 0);
+            RSA = new KeyType("RSA", 0);
             KeyType keyType = new KeyType("ECDSA", 1);
             ECDSA = keyType;
             $VALUES = new KeyType[]{RSA, keyType};

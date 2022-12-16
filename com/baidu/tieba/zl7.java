@@ -1,67 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
-/* loaded from: classes6.dex */
+import java.util.Iterator;
+/* loaded from: classes7.dex */
 public class zl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<xn> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    public static yl7 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof yl7)) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                vl7 vl7Var = new vl7();
-                vl7Var.j(recommendForumInfo);
-                arrayList.add(vl7Var);
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                wl7 wl7Var = new wl7();
-                wl7Var.j(item);
-                arrayList.add(wl7Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                xl7 xl7Var = new xl7();
-                xl7Var.o(str);
-                xl7Var.n(sugLiveInfo);
-                arrayList.add(xl7Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                yl7 yl7Var = new yl7();
-                yl7Var.h(str);
-                yl7Var.g(sugRankingInfo);
-                arrayList.add(yl7Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                ul7 ul7Var = new ul7();
-                ul7Var.c(str);
-                ul7Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, ul7Var);
-                } else {
-                    arrayList.add(ul7Var);
-                }
-            }
-            return arrayList;
+            return (yl7) iLegoAdvert;
         }
-        return (List) invokeLL.objValue;
+        return (yl7) invokeL.objValue;
+    }
+
+    public static void b(yl7 yl7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, yl7Var) == null) && yl7Var != null && yl7Var.getParallelCharge() != null) {
+            a11.b(yl7Var.getParallelCharge().b);
+            Iterator<String> it = yl7Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                a11.b(it.next());
+            }
+        }
+    }
+
+    public static void c(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            z01.b(clogBuilder);
+        }
+    }
+
+    public static boolean d(yl7 yl7Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yl7Var)) == null) {
+            if (yl7Var == null || yl7Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = yl7Var.getParallelCharge().a;
+            a11.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = yl7Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                a11.b(next);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

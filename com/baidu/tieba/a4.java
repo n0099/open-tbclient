@@ -73,7 +73,7 @@ public class a4 extends b2<z3, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, n1Var, str, k3Var, aVar)) == null) {
-            return f(new d4((Texture) n1Var.i(n1Var.n(str).f())), k3Var);
+            return f(new d4((Texture) n1Var.i(n1Var.n(str).first())), k3Var);
         }
         return (z3) invokeLLLL.objValue;
     }

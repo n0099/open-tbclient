@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.jd7;
-import com.baidu.tieba.ld7;
+import com.baidu.tieba.ie7;
+import com.baidu.tieba.ke7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,10 +26,10 @@ public class GroupMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void h2(String str, ld7 ld7Var) {
+    public void g2(String str, ke7 ke7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ld7Var) == null) {
-            jd7.k().o(str, ld7Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ke7Var) == null) {
+            ie7.k().o(str, ke7Var);
         }
     }
 }

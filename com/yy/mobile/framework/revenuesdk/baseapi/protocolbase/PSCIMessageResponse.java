@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +50,7 @@ public class PSCIMessageResponse extends ResponsePacket {
                 this.responseJson = popStingWithOutLength();
                 JSONObject jSONObject = new JSONObject(this.responseJson);
                 this.seq = jSONObject.optString("seq");
-                this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                this.result = jSONObject.optInt("result");
                 this.cmd = jSONObject.optInt("cmd");
                 this.appId = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
                 this.version = jSONObject.optInt("version");

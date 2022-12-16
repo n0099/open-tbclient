@@ -71,12 +71,12 @@ public class mv extends jv {
 
             /* renamed from: com.baidu.tieba.mv$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0350a implements Runnable {
+            public class RunnableC0362a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0350a(a aVar) {
+                public RunnableC0362a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class mv extends jv {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0350a(this));
+                        this.a.a.post(new RunnableC0362a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {
@@ -193,7 +193,7 @@ public class mv extends jv {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f010127);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.sdk_toast_exit);
                 loadAnimation.setAnimationListener(new a(this));
                 this.a.startAnimation(loadAnimation);
             }
@@ -331,7 +331,7 @@ public class mv extends jv {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 81;
                 layoutParams.bottomMargin = this.a;
-                mv.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f010126);
+                mv.k(this.b, viewGroup, this.c, layoutParams, R.anim.sdk_toast_enter);
             }
         }
     }
@@ -408,7 +408,7 @@ public class mv extends jv {
         }
         activity.getResources();
         Context context = d2.getContext();
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070645);
+        int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
         if (gtVar != null) {
             dimension = gtVar.a();
         }

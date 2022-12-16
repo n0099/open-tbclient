@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.qg;
 import com.baidu.tieba.rg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -170,7 +170,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            in l = l95.k().l(str);
+            in l = m95.k().l(str);
             if (z) {
                 if (l != null) {
                     z2 = true;
@@ -205,7 +205,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
             if (inVar.u()) {
                 inVar.A(i);
                 inVar.z(i2);
-                l95.k().b(str, inVar);
+                m95.k().b(str, inVar);
             }
         }
     }

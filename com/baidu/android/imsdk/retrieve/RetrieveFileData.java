@@ -18,6 +18,7 @@ import org.json.JSONObject;
 public class RetrieveFileData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_PATH_IV = "1357902468135246";
+    public static final int DECRYPT_KEY_LENGTH = 16;
     public static final String EXPIRED = "expiredTime";
     public static final String INFO = "info";
     public static final String JOB_ID = "jobId";
@@ -115,7 +116,15 @@ public class RetrieveFileData {
                 return null;
             } else {
                 try {
-                    str = new String(Utility.decrypt(AES_PATH_IV, String.format("aperf_%s", optString3), Base64.decode(optJSONObject.optString("path"), 0)));
+                    String optString4 = optJSONObject.optString("path");
+                    StringBuilder sb = new StringBuilder(String.format("aperf_%s", optString3));
+                    int length = sb.length();
+                    if (length < 16) {
+                        for (int i = 0; i < 16 - length; i++) {
+                            sb.append("\u0000");
+                        }
+                    }
+                    str = new String(Utility.decrypt(AES_PATH_IV, sb.toString(), Base64.decode(optString4, 0)));
                     LogUtils.d("FetchFileData", "解密后的path路径：" + str);
                 } catch (Exception e2) {
                     e2.printStackTrace();

@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpNetworkFetcher;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -207,7 +206,7 @@ public class y10 {
             sb.append("(");
             sb.append(appName);
             if (!TextUtils.isEmpty(schemeHeader)) {
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
                 sb.append(this.a);
                 sb.append(schemeHeader);
             }

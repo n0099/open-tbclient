@@ -61,7 +61,7 @@ import java.util.Map;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera.ErrorCallback, ISecurityCallback, com.baidu.sofire.face.a.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,20 +130,20 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* renamed from: com.baidu.sofire.face.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0168a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0180a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0168a(a aVar) {
+            public RunnableC0180a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,14 +172,14 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
 
         /* renamed from: com.baidu.sofire.face.a.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0169b implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0181b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0169b(a aVar, int i) {
+            public RunnableC0181b(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     com.baidu.sofire.face.b.b.a(bVar7.a, bVar7.o, 0, 0, null);
                     b bVar8 = this.a;
                     if (bVar8.d != null && (activity3 = bVar8.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0168a(this));
+                        activity3.runOnUiThread(new RunnableC0180a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.k.a()) {
                         this.a.a(-15);
@@ -332,7 +332,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                             i2 = 1;
                             bVar3 = this.a;
                             if (bVar3.d != null && (activity2 = bVar3.b) != null) {
-                                activity2.runOnUiThread(new RunnableC0169b(this, i2));
+                                activity2.runOnUiThread(new RunnableC0181b(this, i2));
                             }
                             if (c2 != 65534) {
                                 this.a.a(-3);
@@ -371,7 +371,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         i2 = -1;
                         bVar3 = this.a;
                         if (bVar3.d != null) {
-                            activity2.runOnUiThread(new RunnableC0169b(this, i2));
+                            activity2.runOnUiThread(new RunnableC0181b(this, i2));
                         }
                         if (c2 != 65534) {
                         }
@@ -389,13 +389,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -516,13 +516,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
     }
 
     /* renamed from: com.baidu.sofire.face.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0170b implements Runnable {
+    /* loaded from: classes3.dex */
+    public class RunnableC0182b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0170b(b bVar) {
+        public RunnableC0182b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -552,7 +552,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -682,7 +682,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -725,7 +725,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -818,7 +818,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -868,7 +868,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Camera.ErrorCallback, Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -927,7 +927,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h implements IDetectStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -996,7 +996,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class i implements ILivenessStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1065,7 +1065,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class j implements ILivenessViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1982,7 +1982,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new RunnableC0170b(this));
+                com.baidu.sofire.face.b.e.a().a(new RunnableC0182b(this));
             } catch (Throwable unused) {
             }
         }

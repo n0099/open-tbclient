@@ -15,23 +15,24 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.ai5;
+import com.baidu.tieba.cj5;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.ki5;
+import com.baidu.tieba.jj5;
 import com.baidu.tieba.qg;
-import com.baidu.tieba.qi5;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.re5;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sf5;
+import com.baidu.tieba.si5;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -425,6 +426,7 @@ public class TiebaStatic {
         public static final String POST_ID = "post_id";
         public static final String POST_TYPE = "post_type";
         public static final String POST_TYPE_MERGE = "post_types";
+        public static final String PURE_BROWSING = "pure_browsing";
         public static final String QD = "qd";
         public static final String QUERY = "query";
         public static final String RECOM_AB_TAG = "recom_ab_tag";
@@ -661,21 +663,21 @@ public class TiebaStatic {
             synchronized (lock) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = qy4.k().m("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = qy4.k().l("operate_msg_arrive_click_count", 0);
+                    lastLogOperateMsgTime = ry4.l().n("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = ry4.l().m("operate_msg_arrive_click_count", 0);
                 }
                 if (lastLogOperateMsgTime > 0) {
                     if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
                         return;
                     }
-                    qy4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
+                    ry4.l().y("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
                 }
                 lastLogOperateMsgTime = currentTimeMillis;
                 operateMsgUploadCount++;
-                qy4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
+                ry4.l().x("operate_msg_arrive_click_count", operateMsgUploadCount);
                 BdStatisticsManager.getInstance().saveAndUploadlog("msg");
             }
         }
@@ -721,7 +723,7 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
                 qg.g();
-                af5.d();
+                sf5.d();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -748,12 +750,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = ai5.d().c();
+        String c = si5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        zd5.f().e(statisticItem);
-        statisticItem.addParam("session_id", qi5.g().i());
+        re5.f().e(statisticItem);
+        statisticItem.addParam("session_id", jj5.g().i());
     }
 
     public static String getCua(Context context) {
@@ -1002,29 +1004,28 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     ihVar.i = TbadkCoreApplication.getInst().getImei();
                     ihVar.j = TbConfig.getSubappType();
-                    ihVar.r = ki5.c().f(context) + "_" + ki5.c().e(context);
+                    ihVar.r = cj5.c().f(context) + "_" + cj5.c().e(context);
                     ihVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     ihVar.s = getCua(context);
                     ihVar.t = PermissionUtil.getLastCachedOid(context);
                     ihVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ihVar.w = ki5.c().a();
-                    ihVar.x = ki5.c().g() + "_" + ki5.c().h();
+                    ihVar.w = cj5.c().a();
+                    ihVar.x = cj5.c().g() + "_" + cj5.c().h();
                     ihVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     ihVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     ihVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
                     ihVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
                     ihVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
-                    if (qy4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                    if (ry4.l().m("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
                     }
                     if (z2) {
-                        j = qy4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                        j = ry4.l().n("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
                     } else {
                         j = 3600000;
                     }
                     long j2 = j;
-                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, ihVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
                     dj djVar = new dj() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -1052,8 +1053,20 @@ public class TiebaStatic {
                             }
                             return invokeV.booleanValue;
                         }
+
+                        @Override // com.baidu.tieba.dj
+                        public boolean isBrowseMode() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return PermissionUtil.isBrowseMode();
+                            }
+                            return invokeV.booleanValue;
+                        }
                     };
                     BdStatisticsManager.getInstance().setPermissionUtil(djVar);
+                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, ihVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+                    BdLog.setPermissionUtil(djVar);
                     vh.o().A(djVar);
                     vh.o().p();
                 } catch (Exception e) {

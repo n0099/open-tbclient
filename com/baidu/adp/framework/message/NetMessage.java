@@ -2,6 +2,7 @@ package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,6 +22,7 @@ public abstract class NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public long clientLogID;
     public int httpCmd;
+    public IHttpNet.EngineType mHttpEngineType;
     public HttpMessage mHttpMessage;
     public NetType mNetType;
     public SocketMessage mSocketMessage;
@@ -132,6 +134,7 @@ public abstract class NetMessage {
         this.mHttpMessage = null;
         this.mSocketMessage = null;
         this.mNetType = NetType.AUTO;
+        this.mHttpEngineType = IHttpNet.EngineType.TIEBA;
         this.socketErrNo = 0;
         this.socketCostTime = 0L;
         init(i, i2, null);
@@ -155,6 +158,7 @@ public abstract class NetMessage {
         this.mHttpMessage = null;
         this.mSocketMessage = null;
         this.mNetType = NetType.AUTO;
+        this.mHttpEngineType = IHttpNet.EngineType.TIEBA;
         this.socketErrNo = 0;
         this.socketCostTime = 0L;
         init(i, i2, bdUniqueId);
@@ -178,30 +182,37 @@ public abstract class NetMessage {
         mGlobalSwitchToHttpStrategy = aVar;
     }
 
+    public void setHttpEngineType(IHttpNet.EngineType engineType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, engineType) == null) {
+            this.mHttpEngineType = engineType;
+        }
+    }
+
     public void setNetType(NetType netType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, netType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, netType) == null) {
             this.mNetType = netType;
         }
     }
 
     public void setSocketCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             this.socketCostTime = j;
         }
     }
 
     public void setSocketErrNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.socketErrNo = i;
         }
     }
 
     public void setSwitchToHttpStrategy(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, aVar) != null) || aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048592, this, aVar) != null) || aVar == null) {
             return;
         }
         this.mSwitchToHttpStrategy = aVar;
@@ -209,15 +220,90 @@ public abstract class NetMessage {
 
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
             this.tag = bdUniqueId;
+        }
+    }
+
+    public IHttpNet.EngineType getHttpEngineType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mHttpEngineType;
+        }
+        return (IHttpNet.EngineType) invokeV.objValue;
+    }
+
+    public long getLogID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.clientLogID;
+        }
+        return invokeV.longValue;
+    }
+
+    public NetType getNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mNetType;
+        }
+        return (NetType) invokeV.objValue;
+    }
+
+    public long getSocketCostTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.socketCostTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSocketErrNo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.socketErrNo;
+        }
+        return invokeV.intValue;
+    }
+
+    public a getSwitchToHttpStrategy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            a aVar = this.mSwitchToHttpStrategy;
+            if (aVar == null) {
+                return mGlobalSwitchToHttpStrategy;
+            }
+            return aVar;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public BdUniqueId getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.tag;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void resetData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.mHttpMessage = null;
+            this.mSocketMessage = null;
         }
     }
 
     public final HttpMessage getHttpMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.mHttpMessage == null) {
                 HttpMessage httpMessage = new HttpMessage(this.httpCmd, this.tag);
                 this.mHttpMessage = httpMessage;
@@ -235,7 +321,7 @@ public abstract class NetMessage {
     public final SocketMessage getSocketMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.mSocketMessage == null) {
                 SocketMessage socketMessage = new SocketMessage(this.socketCmd, this.tag);
                 this.mSocketMessage = socketMessage;
@@ -248,71 +334,5 @@ public abstract class NetMessage {
             return this.mSocketMessage;
         }
         return (SocketMessage) invokeV.objValue;
-    }
-
-    public long getLogID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.clientLogID;
-        }
-        return invokeV.longValue;
-    }
-
-    public NetType getNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mNetType;
-        }
-        return (NetType) invokeV.objValue;
-    }
-
-    public long getSocketCostTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.socketCostTime;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getSocketErrNo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.socketErrNo;
-        }
-        return invokeV.intValue;
-    }
-
-    public a getSwitchToHttpStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            a aVar = this.mSwitchToHttpStrategy;
-            if (aVar == null) {
-                return mGlobalSwitchToHttpStrategy;
-            }
-            return aVar;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public BdUniqueId getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.tag;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void resetData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.mHttpMessage = null;
-            this.mSocketMessage = null;
-        }
     }
 }

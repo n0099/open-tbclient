@@ -1,13 +1,11 @@
 package com.baidu.android.imsdk;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatuser.Utility;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -119,7 +117,7 @@ public class GetChatObjectInfoForRecordManager {
                     String str = GetChatObjectInfoForRecordManager.TAG;
                     LogUtils.i(str, "testsession callback type ," + i + " ,category :" + i2 + ", contacterId" + j);
                     if (i2 == 0 && i == 10) {
-                        this.val$handler.updateChatRecord(this.val$fChatObject, Utility.createAnonyMousUserName(null), 0, "", 0, "", "", 0, 0, 0L, 0, 0L, "", "", "");
+                        this.val$handler.updateChatRecord(this.val$fChatObject, Utility.createAnonyMousUserName(null), 0, "", 0, "", "", 0, 0, 0L, 0, 0L, "", "", "", "");
                         return;
                     }
                     int i3 = this.retryTimes + 1;
@@ -161,7 +159,6 @@ public class GetChatObjectInfoForRecordManager {
                 return Class.forName(str).getConstructor(Context.class).newInstance(context);
             } catch (Exception e) {
                 LogUtils.e(LogUtils.TAG, "Class.forName error", e);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }
@@ -184,5 +181,45 @@ public class GetChatObjectInfoForRecordManager {
             }
         }
         return invokeCommon.objValue;
+    }
+
+    public static void updateChatInfoDbFromSession(Context context, ChatObject chatObject) {
+        GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, context, chatObject) != null) || (getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) newInstance(context, chatObject.getCategory(), chatObject.getContacter(), chatObject.getType())) == null) {
+            return;
+        }
+        getChatObjectInfoForRecordHandler.getChatObjectInfo(chatObject.getContacter(), new CallBack() { // from class: com.baidu.android.imsdk.GetChatObjectInfoForRecordManager.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.android.imsdk.CallBack
+            public void onError(int i, int i2, long j) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                }
+            }
+
+            @Override // com.baidu.android.imsdk.CallBack
+            public void onSuccess(int i, int i2, Object obj) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+                }
+            }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        });
     }
 }

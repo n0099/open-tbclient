@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.mm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,20 +12,20 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OnAudioMixListener mOnAudioMixListener;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnAudioMixListener {
         void onMixComplete();
 
@@ -36,7 +36,7 @@ public abstract class MultiAudioMixer {
 
     public abstract byte[] mixRawAudioBytes(byte[][] bArr, float[] fArr);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -63,7 +63,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class AverageAudioMixer extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public abstract class MultiAudioMixer {
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     if (bArr[i].length != bArr2.length) {
-                        dj9.d("column of the road of audio + " + i + " is diffrent.");
+                        mm9.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface da {
     @NonNull
     public static final ServiceReference a;

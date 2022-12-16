@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
 import com.baidu.tieba.qz4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams.height = -2;
         this.d.setLayoutParams(layoutParams);
         this.d.setOrientation(0);
-        qw4 d = qw4.d(this.d);
+        rw4 d = rw4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
         this.d.addView(this.a);
@@ -99,7 +99,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         qz4 qz4Var = new qz4();
         qz4Var.p(R.color.CAM_X0304);
         this.b.setConfig(qz4Var);
-        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0348));
+        this.b.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
         this.b.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams3.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
@@ -107,10 +107,10 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
         this.a.setLayoutParams(layoutParams3);
-        qw4 d2 = qw4.d(this.a);
+        rw4 d2 = rw4.d(this.a);
         d2.z(R.dimen.T_X06);
         d2.v(R.color.CAM_X0105);
-        this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0349));
+        this.a.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
         this.a.setSingleLine();
         this.a.setEllipsize(TextUtils.TruncateAt.END);
     }
@@ -118,7 +118,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qw4 d = qw4.d(this.d);
+            rw4 d = rw4.d(this.d);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

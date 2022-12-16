@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
@@ -28,14 +33,11 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public int getConnectTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 15000;
         }
         return invokeV.intValue;
     }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public abstract Map<String, String> getHeaders();
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public abstract String getHost();
@@ -44,14 +46,14 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public String getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "GET" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return 15000;
         }
         return invokeV.intValue;
@@ -61,20 +63,20 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new byte[0] : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new byte[0] : (byte[]) invokeV.objValue;
     }
 
     public abstract void onFailure(int i, byte[] bArr, Throwable th);
 
     public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, bArr) == null) {
         }
     }
 
     public void saveRequestToDB(Context context, BaseHttpRequest baseHttpRequest, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, context, baseHttpRequest, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, baseHttpRequest, str) == null) {
         }
     }
 
@@ -94,6 +96,18 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         this.mUUId = UUID.randomUUID().toString();
         this.mIsNeedSaveToDb = false;
         this.mPriority = 15;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Cookie", "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public BaseHttpRequest(boolean z) {
@@ -139,7 +153,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public String getMd5(String str) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             return Utility.byte2Hex(messageDigest.digest());
@@ -149,15 +163,38 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
 
     public void setUUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.mUUId = str;
         }
+    }
+
+    public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            TreeSet<String> treeSet = new TreeSet();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                treeSet.add(keys.next());
+            }
+            for (String str : treeSet) {
+                sb.append(str);
+                sb.append("=");
+                sb.append(jSONObject.opt(str));
+            }
+            return getMd5(sb.toString());
+        }
+        return (String) invokeL.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mType;
         }
         return invokeV.intValue;
@@ -166,7 +203,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public String getUUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mUUId;
         }
         return (String) invokeV.objValue;
@@ -176,7 +213,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, bArr, th)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048590, this, i, bArr, th)) == null) {
             if (bArr != null) {
                 str = new String(bArr);
             } else {

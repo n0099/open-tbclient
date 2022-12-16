@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduActiveStatistic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_ACTIVE_UBC_ID = "3822";

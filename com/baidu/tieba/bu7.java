@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface bu7 {
-    void h();
+    void a();
 
-    boolean k();
+    void b();
 
-    void t();
+    void resetData();
 }

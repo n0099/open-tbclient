@@ -42,6 +42,9 @@ public class CommonStatisticKey {
     public static final String KEY_CARD_ENTER_FORUM_CLICK = "C12888";
     public static final String KEY_CARD_ENTER_FORUM_SHOW = "c12887";
     public static final String KEY_CHANGE_RICH_TEXT_MODE = "c14553";
+    public static final String KEY_CHAT_GROUP_BOTTOM_BANNER_CLICKED = "c15096";
+    public static final String KEY_CHAT_GROUP_CLICK = "c15076";
+    public static final String KEY_CHAT_GROUP_DIALOG_SHOW = "c15074";
     public static final String KEY_CHECK_DIALOG_CLICK = "c15029";
     public static final String KEY_CHECK_DIALOG_SHOW = "c15028";
     public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
@@ -62,6 +65,8 @@ public class CommonStatisticKey {
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
+    public static final String KEY_FORUM_REC_THREAD_CLICK = "c19001";
+    public static final String KEY_FORUM_REC_THREAD_SHOW = "c19000";
     public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
@@ -95,6 +100,9 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_STAR_PIC_CLICK = "c12883";
     public static final String KEY_FRS_TRANSMIT_THREAD = "c12940";
     public static final String KEY_FUNCTION_PANEL_CLIKED = "c12612";
+    public static final String KEY_GET_ALI_PAY_USER_INFO = "c15118";
+    public static final String KEY_GROUP_CHAT_ENTRANCE_CLICK = "c15075";
+    public static final String KEY_GROUP_CHAT_LINK_SHOW = "c15077";
     public static final String KEY_HEATING_THREAD_AGREE = "c14204";
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";

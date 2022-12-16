@@ -43,7 +43,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
         this.a = context;
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090a2a);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090a45);
     }
 
     public void a() {

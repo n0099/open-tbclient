@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wo0;
+import com.baidu.tieba.vo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,8 +56,8 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.Z0(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d060c);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091cd5);
+            setContentView(R.layout.nad_max_activity);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d42);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
@@ -68,7 +68,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             }
             Intent intent = getIntent();
             Intrinsics.checkNotNullExpressionValue(intent, "intent");
-            componentArchManager.m(intent);
+            componentArchManager.f(intent);
             ComponentArchManager componentArchManager2 = this.u;
             if (componentArchManager2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
@@ -77,32 +77,32 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (frameLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("rootView");
             }
-            componentArchManager2.h(frameLayout);
+            componentArchManager2.a(frameLayout);
             ComponentArchManager componentArchManager3 = this.u;
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            wo0 wo0Var = (wo0) componentArchManager3.p(wo0.class);
-            if (wo0Var != null) {
+            vo0 vo0Var = (vo0) componentArchManager3.j(vo0.class);
+            if (vo0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                wo0Var.a(str, "");
+                vo0Var.a(str, "");
             }
             t1(false);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void b1(Intent intent) {
+    public void c1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            super.b1(intent);
+            super.c1(intent);
             if (intent != null) {
                 ComponentArchManager componentArchManager = this.u;
                 if (componentArchManager == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("componentManager");
                 }
-                componentArchManager.m(intent);
+                componentArchManager.f(intent);
             }
         }
     }
@@ -140,7 +140,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            return componentArchManager.n(i, event);
+            return componentArchManager.h(i, event);
         }
         return invokeIL.booleanValue;
     }
@@ -155,42 +155,42 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager, new AlsComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager, new AlsComponent(), false, 2, null);
             ComponentArchManager componentArchManager2 = this.u;
             if (componentArchManager2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager2, new WebViewComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager2, new WebViewComponent(), false, 2, null);
             ComponentArchManager componentArchManager3 = this.u;
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager3, new VideoViewComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager3, new VideoViewComponent(), false, 2, null);
             ComponentArchManager componentArchManager4 = this.u;
             if (componentArchManager4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager4, new NestedScrollComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager4, new NestedScrollComponent(), false, 2, null);
             ComponentArchManager componentArchManager5 = this.u;
             if (componentArchManager5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager5, new TopBarComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager5, new TopBarComponent(), false, 2, null);
             ComponentArchManager componentArchManager6 = this.u;
             if (componentArchManager6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager6, new PanelComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager6, new PanelComponent(), false, 2, null);
             ComponentArchManager componentArchManager7 = this.u;
             if (componentArchManager7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager7, new PopoverComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager7, new PopoverComponent(), false, 2, null);
             ComponentArchManager componentArchManager8 = this.u;
             if (componentArchManager8 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            ComponentArchManager.r(componentArchManager8, new ArrowGuideComponent(), false, 2, null);
+            ComponentArchManager.l(componentArchManager8, new ArrowGuideComponent(), false, 2, null);
             Lifecycle lifecycle2 = getLifecycle();
             ComponentArchManager componentArchManager9 = this.u;
             if (componentArchManager9 == null) {

@@ -8,7 +8,6 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -37,7 +36,7 @@ public class ClearTempService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +71,7 @@ public class ClearTempService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +159,7 @@ public class ClearTempService extends BdBaseService {
                             deleteCache(file2, false);
                         } else if (length > 0 && i < length) {
                             file2.delete();
-                        } else if (time - listFiles[i].lastModified() > ImagesInvalidService.FILE_VALID_TIME) {
+                        } else if (time - listFiles[i].lastModified() > 259200000) {
                             file2.delete();
                         }
                     }
@@ -183,7 +182,7 @@ public class ClearTempService extends BdBaseService {
                 long time = new Date().getTime();
                 if (listFiles != null) {
                     for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
-                        if (time - listFiles[i].lastModified() > ImagesInvalidService.FILE_VALID_TIME) {
+                        if (time - listFiles[i].lastModified() > 259200000) {
                             listFiles[i].delete();
                         }
                     }

@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Locale;
@@ -54,7 +53,7 @@ public class DataUri {
             }
             String substring = str.substring(5, indexOf);
             String substring2 = str.substring(indexOf + 1);
-            String[] split = substring.split(ParamableElem.DIVIDE_PARAM);
+            String[] split = substring.split(";");
             if (split.length != 2 || !"base64".equalsIgnoreCase(split[1])) {
                 return null;
             }

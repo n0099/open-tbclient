@@ -16,8 +16,8 @@ import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.vh7;
-import com.baidu.tieba.wh7;
+import com.baidu.tieba.sk7;
+import com.baidu.tieba.tk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public wh7 b;
-    public vh7 c;
+    public tk7 b;
+    public sk7 c;
     public qb d;
     public qb e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            vh7 vh7Var;
+            sk7 sk7Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    wh7 wh7Var = this.a.b;
+                    tk7 tk7Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        vh7Var = this.a.c;
+                        sk7Var = this.a.c;
                     } else {
-                        vh7Var = null;
+                        sk7Var = null;
                     }
-                    wh7Var.a(labelRequestEnum, vh7Var, responsedMessage.getError());
+                    tk7Var.a(labelRequestEnum, sk7Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,16 +158,16 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new vh7();
+        this.c = new sk7();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void F(List<Integer> list) {
+    public void M(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c81);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0cb8);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -177,20 +177,20 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(wh7 wh7Var) {
+    public void N(tk7 tk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wh7Var) == null) {
-            this.b = wh7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tk7Var) == null) {
+            this.b = tk7Var;
         }
     }
 
-    public void E() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                wh7 wh7Var = this.b;
-                if (wh7Var != null) {
-                    wh7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                tk7 tk7Var = this.b;
+                if (tk7Var != null) {
+                    tk7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

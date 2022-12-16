@@ -8,6 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +25,7 @@ public class BdLog {
     public static final String LOG_TAG = "BaiduLog";
     public static String LogFilter_classNameStartsWith;
     public static ArrayList<String> logPackage;
+    public static dj permissionUtil;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -60,12 +62,11 @@ public class BdLog {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
+            ExceptionHandler exceptionHandler;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ExceptionHandler exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE);
-                if (exceptionHandler != null) {
+                if (!BdLog.permissionUtil.isBrowseMode() && (exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE)) != null) {
                     exceptionHandler.onException(this.a, this.b, this.c, this.d);
-                    return null;
                 }
                 return null;
             }
@@ -106,7 +107,7 @@ public class BdLog {
     public static boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             if (BdBaseApplication.getInst() == null) {
                 return false;
             }
@@ -117,7 +118,7 @@ public class BdLog {
 
     public static void addLogPackage(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str) || logPackage.contains(str)) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str) || logPackage.contains(str)) {
             return;
         }
         logPackage.add(str);
@@ -126,7 +127,7 @@ public class BdLog {
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             return printLog(3, str);
         }
         return invokeL.intValue;
@@ -135,7 +136,7 @@ public class BdLog {
     public static int detailException(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, th)) == null) {
             return detailException(null, th, null, null, null, false);
         }
         return invokeL.intValue;
@@ -144,7 +145,7 @@ public class BdLog {
     public static int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             return printLog(0, str);
         }
         return invokeL.intValue;
@@ -153,7 +154,7 @@ public class BdLog {
     public static int i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
             return printLog(2, str);
         }
         return invokeL.intValue;
@@ -161,15 +162,22 @@ public class BdLog {
 
     public static void setClassNameStartWithLogFilter(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
             LogFilter_classNameStartsWith = str;
+        }
+    }
+
+    public static void setPermissionUtil(dj djVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65560, null, djVar) == null) {
+            permissionUtil = djVar;
         }
     }
 
     public static int v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
             return printLog(4, str);
         }
         return invokeL.intValue;
@@ -178,7 +186,7 @@ public class BdLog {
     public static int w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
             return printLog(1, str);
         }
         return invokeL.intValue;
@@ -187,7 +195,7 @@ public class BdLog {
     public static String createMsg(boolean z, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
             if (!isDebugMode()) {
                 return null;
             }
@@ -212,7 +220,7 @@ public class BdLog {
     public static void d(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
             Log.d(LOG_TAG, createMsg);
         }
     }
@@ -220,7 +228,7 @@ public class BdLog {
     public static int detailException(String str, Throwable th, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, str, th, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, str, th, z)) == null) {
             return detailException(str, th, null, null, null, z);
         }
         return invokeLLZ.intValue;
@@ -229,7 +237,7 @@ public class BdLog {
     public static void e(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65552, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
             Log.e(LOG_TAG, createMsg);
         }
     }
@@ -237,7 +245,7 @@ public class BdLog {
     public static void i(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65553, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65554, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
             Log.i(LOG_TAG, createMsg);
         }
     }
@@ -245,7 +253,7 @@ public class BdLog {
     public static void v(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65560, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65562, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
             Log.v(LOG_TAG, createMsg);
         }
     }
@@ -253,7 +261,7 @@ public class BdLog {
     public static void w(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65562, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65564, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
             Log.w(LOG_TAG, createMsg);
         }
     }
@@ -261,7 +269,7 @@ public class BdLog {
     public static int detailException(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, th)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, th)) == null) {
             return detailException(str, th, null, null, null, false);
         }
         return invokeLL.intValue;
@@ -270,7 +278,7 @@ public class BdLog {
     public static int e(Throwable th, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, th, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65551, null, th, z)) == null) {
             return e(th, null, null, null, z);
         }
         return invokeLZ.intValue;
@@ -279,7 +287,7 @@ public class BdLog {
     public static int detailException(String str, Throwable th, String str2, String str3, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, th, str2, str3, map, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, th, str2, str3, map, Boolean.valueOf(z)})) == null) {
             if ((th instanceof Exception) && !isDebugMode() && !z) {
                 reportException((Exception) th, str2, str3, map);
             }
@@ -298,7 +306,7 @@ public class BdLog {
     public static int detailException(Throwable th, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, th, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, th, z)) == null) {
             return detailException(null, th, null, null, null, z);
         }
         return invokeLZ.intValue;
@@ -307,7 +315,7 @@ public class BdLog {
     public static int e(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, th)) == null) {
             return e(th, null, null, null, false);
         }
         return invokeL.intValue;
@@ -316,7 +324,7 @@ public class BdLog {
     public static int e(Throwable th, String str, String str2, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{th, str, str2, map, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{th, str, str2, map, Boolean.valueOf(z)})) == null) {
             if ((th instanceof Exception) && !isDebugMode() && !z) {
                 reportException((Exception) th, str, str2, map);
             }
@@ -328,7 +336,7 @@ public class BdLog {
     public static boolean isLogable(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
             boolean z = false;
             if (logPackage.size() == 0) {
                 return false;
@@ -347,7 +355,7 @@ public class BdLog {
     public static int printLog(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65556, null, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65557, null, i, str)) == null) {
             if (!isDebugMode()) {
                 return -1;
             }
@@ -383,7 +391,7 @@ public class BdLog {
 
     public static void reportException(Exception exc, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65557, null, exc, str, str2, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65558, null, exc, str, str2, map) == null) {
             new a(exc, str, str2, map).execute(new Void[0]);
         }
     }

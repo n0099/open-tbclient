@@ -2,6 +2,7 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,9 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,10 +23,11 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public String b;
-    public long c;
-    public TextView d;
-    public CountDownTimer e;
-    public b f;
+    public String c;
+    public long d;
+    public TextView e;
+    public CountDownTimer f;
+    public b g;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -64,7 +66,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.setText(this.a.b);
+                this.a.e.setText(this.a.b);
                 this.a.e();
             }
         }
@@ -104,7 +106,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65542, this, j) == null) {
             if (j <= 0) {
-                this.d.setText(this.b);
+                this.e.setText(this.b);
                 return;
             }
             long j2 = j % 86400000;
@@ -137,27 +139,18 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         g();
     }
 
-    public void setData(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048585, this, j, str) == null) {
-            this.b = str;
-            this.c = j;
-            setData((j * 1000) - System.currentTimeMillis());
-        }
-    }
-
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            qw4.d(this.d).v(R.color.CAM_X0109);
+            rw4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
     public final void j(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && this.e == null) {
+        if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && this.f == null) {
             a aVar = new a(this, j, 1000L);
-            this.e = aVar;
+            this.f = aVar;
             aVar.start();
         }
     }
@@ -165,7 +158,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void setOnCountDownFinished(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f = bVar;
+            this.g = bVar;
         }
     }
 
@@ -173,14 +166,14 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             h();
-            this.d.setText(str);
+            this.e.setText(str);
         }
     }
 
     public final void e() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.g) != null) {
             bVar.a();
         }
     }
@@ -188,7 +181,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090d93);
+            this.e = (TextView) findViewById(R.id.headlines_item_count_down_view);
         }
     }
 
@@ -196,7 +189,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = getContext();
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.headlines_item_count_down_view, (ViewGroup) this, true);
             f();
         }
     }
@@ -204,9 +197,9 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void h() {
         CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (countDownTimer = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (countDownTimer = this.f) != null) {
             countDownTimer.cancel();
-            this.e = null;
+            this.f = null;
         }
     }
 
@@ -215,9 +208,9 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            long j = this.c;
+            long j = this.d;
             if (j > 0) {
-                setData(j, this.b);
+                setData(j, this.b, this.c);
             }
         }
     }
@@ -234,7 +227,29 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void setContent(long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            this.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0868), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)));
+            String generateTimeStrByWidth = StringHelper.generateTimeStrByWidth(j, j2, j3, j4, this.e.getPaint(), this.e.getMeasuredWidth(), this.c);
+            if (TextUtils.isEmpty(generateTimeStrByWidth)) {
+                generateTimeStrByWidth = this.c;
+            }
+            this.e.setText(generateTimeStrByWidth);
+        }
+    }
+
+    public void setData(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                this.c = str2;
+            } else {
+                this.c = "";
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.b = str;
+            } else {
+                this.b = "";
+            }
+            this.d = j;
+            setData((j * 1000) - System.currentTimeMillis());
         }
     }
 }

@@ -3,19 +3,18 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class x2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -545,7 +544,7 @@ public class x2 implements Runnable {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt(TiebaStatic.LogFields.RESULT, 0) == 1) {
+                if (jSONObject.optInt("result", 0) == 1) {
                     String a2 = new n1(this.a).a(jSONObject.getString("antispamPluginRsp"));
                     if (TextUtils.isEmpty(a2)) {
                         return;

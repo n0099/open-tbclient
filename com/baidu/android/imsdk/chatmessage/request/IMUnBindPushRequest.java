@@ -1,12 +1,10 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.util.io.BaseJsonData;
@@ -120,8 +118,8 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         int i2;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
@@ -141,9 +139,8 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
                 }
             } catch (JSONException e) {
                 LogUtils.e("IMUnBindPushRequest", e.getMessage(), e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
+                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
         }

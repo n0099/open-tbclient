@@ -5,7 +5,6 @@ import android.util.Pair;
 import android.util.SparseArray;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,7 +151,7 @@ public final class f {
                                     case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                                     case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                                     case 260:
-                                        return RSAUtil.ALGORITHM_RSA;
+                                        return "RSA";
                                     default:
                                         throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                                 }
@@ -161,7 +160,7 @@ public final class f {
                         }
                         return "EC";
                     }
-                    return RSAUtil.ALGORITHM_RSA;
+                    return "RSA";
                 }
                 return "DSA";
             }

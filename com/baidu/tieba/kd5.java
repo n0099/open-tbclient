@@ -1,174 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tieba.df;
-import com.baidu.tieba.xc5;
+import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class kd5<T extends xc5> extends id5<T> {
+/* loaded from: classes5.dex */
+public class kd5 implements gc5<ThirdPartyActivityLifecycleEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd5(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    public kd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
-    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v36 */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gc5
+    /* renamed from: a */
+    public boolean onEvent(ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent) {
         InterceptResult invokeL;
-        String str;
-        ?? arrayList;
-        String str2;
-        xc5 xc5Var;
-        byte[] bArr;
-        xc5 xc5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            xc5 xc5Var3 = null;
-            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thirdPartyActivityLifecycleEvent)) == null) {
+            if (thirdPartyActivityLifecycleEvent == null || thirdPartyActivityLifecycleEvent.event == null || !TbadkCoreApplication.getInst().isMainProcess(false) || !UbsABTestHelper.isFixHotSplashRule()) {
+                return true;
             }
-            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-            xc5 xc5Var4 = (xc5) a();
-            try {
-                try {
-                    if (readCacheMessage.isNeedUid()) {
-                        str = TbadkCoreApplication.getCurrentAccount();
-                        if (str == null) {
-                            str = "";
-                        }
-                    } else {
-                        str = null;
-                    }
-                    if (xc5Var4 != null) {
-                        if (readCacheMessage.getRequestData() == null) {
-                            try {
-                                if (xc5Var4 instanceof wc5) {
-                                    jv4.f();
-                                    List<df.b<byte[]>> a = ej.a(jv4.e(this.b, str));
-                                    if (a != null) {
-                                        arrayList = new ArrayList(a.size());
-                                        for (df.b<byte[]> bVar : a) {
-                                            if (bVar != null && (bArr = bVar.b) != null && (xc5Var2 = (xc5) a()) != null) {
-                                                ((wc5) xc5Var2).initByByteArray(bArr);
-                                                arrayList.add(xc5Var2);
-                                            }
-                                        }
-                                        xc5Var3 = arrayList;
-                                    }
-                                } else if (xc5Var4 instanceof zc5) {
-                                    jv4.f();
-                                    List<df.b<String>> b = ej.b(jv4.h(this.b, str));
-                                    if (b != null) {
-                                        arrayList = new ArrayList(b.size());
-                                        for (df.b<String> bVar2 : b) {
-                                            if (bVar2 != null && (str2 = bVar2.b) != null && (xc5Var = (xc5) a()) != null) {
-                                                ((zc5) xc5Var).q(str2);
-                                                arrayList.add(xc5Var);
-                                            }
-                                        }
-                                        xc5Var3 = arrayList;
-                                    }
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                xc5Var3 = xc5Var4;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, xc5Var3);
-                            } catch (Throwable th) {
-                                th = th;
-                                xc5Var3 = xc5Var4;
-                                new ReadCacheRespMsg(this.a, xc5Var3);
-                                throw th;
-                            }
-                        } else {
-                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                            String y = readCacheMessage.getRequestData().y();
-                            try {
-                                if (xc5Var4 instanceof wc5) {
-                                    jv4.f();
-                                    byte[] bArr2 = jv4.e(y, str).get(cacheKey);
-                                    if (bArr2 != null) {
-                                        ((wc5) xc5Var4).initByByteArray(bArr2);
-                                        ArrayList arrayList2 = new ArrayList();
-                                        arrayList2.add(xc5Var4);
-                                        y = arrayList2;
-                                        xc5Var3 = y;
-                                    }
-                                } else if (xc5Var4 instanceof zc5) {
-                                    jv4.f();
-                                    String str3 = jv4.h(y, str).get(cacheKey);
-                                    if (str3 != null) {
-                                        ((zc5) xc5Var4).q(str3);
-                                        ?? arrayList3 = new ArrayList();
-                                        arrayList3.add(xc5Var4);
-                                        y = arrayList3;
-                                        xc5Var3 = y;
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                xc5Var3 = y;
-                                e = e2;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, xc5Var3);
-                            } catch (Throwable th2) {
-                                xc5Var3 = y;
-                                th = th2;
-                                new ReadCacheRespMsg(this.a, xc5Var3);
-                                throw th;
-                            }
-                        }
-                    }
-                    return new ReadCacheRespMsg(this.a, xc5Var3);
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            } catch (Throwable th3) {
-                th = th3;
+            if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_PAUSE)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, TbadkCoreApplication.getInst()));
+            } else if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_RESUME) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, TbadkCoreApplication.getInst()));
             }
-        } else {
-            return (CustomResponsedMessage) invokeL.objValue;
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -40,10 +40,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.dc;
 import com.baidu.tieba.ec;
-import com.baidu.tieba.fy4;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.gy4;
+import com.baidu.tieba.hm5;
 import com.baidu.tieba.in;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.ml5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -72,7 +72,7 @@ public class DragImageView extends ImageView {
     public boolean L;
     public boolean M;
     public float N;
-    public ml5 O;
+    public hm5 O;
     public ImageUrlData P;
     public Interpolator Q;
     public Matrix R;
@@ -795,9 +795,9 @@ public class DragImageView extends ImageView {
     public void T() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.O == null) {
-            ml5 ml5Var = new ml5(this);
-            this.O = ml5Var;
-            ml5Var.S(this.p);
+            hm5 hm5Var = new hm5(this);
+            this.O = hm5Var;
+            hm5Var.S(this.p);
             this.O.T(this.q);
         }
     }
@@ -818,9 +818,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                return ml5Var.D();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                return hm5Var.D();
             }
             return false;
         }
@@ -840,11 +840,11 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var == null) {
+            hm5 hm5Var = this.O;
+            if (hm5Var == null) {
                 return false;
             }
-            return ml5Var.G();
+            return hm5Var.G();
         }
         return invokeV.booleanValue;
     }
@@ -853,11 +853,11 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var == null) {
+            hm5 hm5Var = this.O;
+            if (hm5Var == null) {
                 return false;
             }
-            return ml5Var.H();
+            return hm5Var.H();
         }
         return invokeV.booleanValue;
     }
@@ -874,10 +874,10 @@ public class DragImageView extends ImageView {
 
     @Override // android.view.View
     public void computeScroll() {
-        ml5 ml5Var;
+        hm5 hm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (ml5Var = this.O) != null) {
-            ml5Var.t();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (hm5Var = this.O) != null) {
+            hm5Var.t();
         }
     }
 
@@ -911,9 +911,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                return ml5Var.F();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                return hm5Var.F();
             }
             if (this.g == this.i) {
                 return true;
@@ -1003,9 +1003,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                return ml5Var.z();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                return hm5Var.z();
             }
             return this.g / 4.0f;
         }
@@ -1137,8 +1137,8 @@ public class DragImageView extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, motionEvent)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null && ml5Var.M(motionEvent)) {
+            hm5 hm5Var = this.O;
+            if (hm5Var != null && hm5Var.M(motionEvent)) {
                 if (getScrollX() != 0 || getScrollY() != 0) {
                     this.O.I(getScrollX(), getScrollY());
                     scrollTo(0, 0);
@@ -1387,11 +1387,11 @@ public class DragImageView extends ImageView {
         }
     }
 
-    public void setImageLoadCallBack(ll5 ll5Var) {
-        ml5 ml5Var;
+    public void setImageLoadCallBack(gm5 gm5Var) {
+        hm5 hm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048637, this, ll5Var) == null) && (ml5Var = this.O) != null) {
-            ml5Var.R(ll5Var);
+        if ((interceptable == null || interceptable.invokeL(1048637, this, gm5Var) == null) && (hm5Var = this.O) != null) {
+            hm5Var.R(gm5Var);
         }
     }
 
@@ -1413,9 +1413,9 @@ public class DragImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, onLongClickListener) == null) {
             this.q = onLongClickListener;
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                ml5Var.T(onLongClickListener);
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                hm5Var.T(onLongClickListener);
             }
         }
     }
@@ -1457,12 +1457,12 @@ public class DragImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
-        ml5 ml5Var;
+        hm5 hm5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048623, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (getMeasuredHeight() != 0 && getMeasuredWidth() != 0 && (ml5Var = this.O) != null) {
-                ml5Var.V();
+            if (getMeasuredHeight() != 0 && getMeasuredWidth() != 0 && (hm5Var = this.O) != null) {
+                hm5Var.V();
             }
         }
     }
@@ -1471,9 +1471,9 @@ public class DragImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048636, this, bitmap, bArr) == null) {
             this.l = bArr;
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                ml5Var.Q(bitmap, bArr);
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                hm5Var.Q(bitmap, bArr);
             }
             setImageBitmap(bitmap);
         }
@@ -1705,7 +1705,7 @@ public class DragImageView extends ImageView {
                 if (this.M) {
                     super.setImageBitmap(BitmapHelper.getCashBitmap(R.drawable.icon_default_avatar100));
                 } else {
-                    super.setImageBitmap(BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0803fa));
+                    super.setImageBitmap(BitmapHelper.getCashBitmap(R.drawable.btn_see_default));
                 }
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
@@ -1767,9 +1767,9 @@ public class DragImageView extends ImageView {
                 this.B.close();
                 this.B = null;
             }
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                ml5Var.O();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                hm5Var.O();
                 System.gc();
             }
         }
@@ -1842,9 +1842,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bitmap)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                return ml5Var.y();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                return hm5Var.y();
             }
             if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
                 return 1.0f;
@@ -1925,7 +1925,7 @@ public class DragImageView extends ImageView {
                     this.A = 0;
                 }
             } else {
-                fy4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
+                gy4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
                 return;
             }
         }
@@ -1949,9 +1949,9 @@ public class DragImageView extends ImageView {
         float min;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, bitmap)) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null) {
-                return ml5Var.N();
+            hm5 hm5Var = this.O;
+            if (hm5Var != null) {
+                return hm5Var.N();
             }
             float f2 = 1.0f;
             if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
@@ -2170,8 +2170,8 @@ public class DragImageView extends ImageView {
         float f5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, canvas) == null) {
-            ml5 ml5Var = this.O;
-            if (ml5Var != null && ml5Var.K(canvas, getImageBitmap())) {
+            hm5 hm5Var = this.O;
+            if (hm5Var != null && hm5Var.K(canvas, getImageBitmap())) {
                 return;
             }
             if (this.w == 2 && this.J != 0 && !this.s.a()) {

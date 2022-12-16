@@ -30,7 +30,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a, e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -369,7 +369,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
             com.kwad.components.ad.reward.k kVar = this.nM;
             hVar2.a(frameLayout, kVar.mRootContainer, this.mAdTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
             com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "startPreloadWebView");
-            this.mp.a(new b.InterfaceC0539b(this) { // from class: com.kwad.components.ad.reward.presenter.o.2
+            this.mp.a(new b.InterfaceC0556b(this) { // from class: com.kwad.components.ad.reward.presenter.o.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ o qT;
@@ -392,7 +392,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
                     this.qT = this;
                 }
 
-                @Override // com.kwad.components.ad.i.b.InterfaceC0539b
+                @Override // com.kwad.components.ad.i.b.InterfaceC0556b
                 public final void hk() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -536,12 +536,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.qA = findViewById(R.id.obfuscated_res_0x7f091137);
-            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125f);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09122c);
-            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a5);
-            this.qD = findViewById(R.id.obfuscated_res_0x7f091157);
-            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091138);
+            this.qA = findViewById(R.id.obfuscated_res_0x7f091196);
+            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0912be);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09128b);
+            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f091107);
+            this.qD = findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091197);
         }
     }
 

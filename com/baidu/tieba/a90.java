@@ -8,6 +8,7 @@ import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
 import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$event_timestamp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,8 +58,8 @@ public class a90 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s80Var, z)) == null) {
-            s80Var.o = z;
-            h(s80Var, f(s80Var.h, s80Var.i, s80Var.n, d(false)), a(s80Var.a, d(false)));
+            s80Var.p = z;
+            h(s80Var, f(s80Var.i, s80Var.j, s80Var.o, d(false)), a(s80Var.a, d(false)));
             return s80Var;
         }
         return (s80) invokeLZ.objValue;
@@ -71,21 +72,21 @@ public class a90 {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
             long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
             s80 s80Var = new s80();
-            s80Var.n = random;
+            s80Var.o = random;
             boolean z2 = true;
-            s80Var.o = true;
-            s80Var.h = 1L;
-            s80Var.i = j;
+            s80Var.p = true;
+            s80Var.i = 1L;
+            s80Var.j = j;
             if (j == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            s80Var.l = z;
+            s80Var.m = z;
             if (j != 3) {
                 z2 = false;
             }
-            s80Var.k = z2;
+            s80Var.l = z2;
             h(s80Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
             return s80Var;
         }
@@ -112,19 +113,19 @@ public class a90 {
                     LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
                     newBuilder3.z(j);
                     newBuilder3.x(lcmPb$Common);
-                    newBuilder3.C(n90.j(context));
+                    newBuilder3.C(m90.j(context));
                     newBuilder3.B(System.currentTimeMillis());
-                    newBuilder3.A(k80.c(context));
-                    newBuilder3.y(n90.d(context));
+                    newBuilder3.A(i80.c(context));
+                    newBuilder3.y(m90.d(context));
                     build = newBuilder3.build();
-                    m90.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                    l90.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
                 } catch (Exception unused) {
                     LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
                     newBuilder4.z(j);
-                    newBuilder4.C(n90.j(context));
+                    newBuilder4.C(m90.j(context));
                     newBuilder4.B(System.currentTimeMillis());
-                    newBuilder4.A(k80.c(context));
-                    newBuilder4.y(n90.d(context));
+                    newBuilder4.A(i80.c(context));
+                    newBuilder4.y(m90.d(context));
                     build = newBuilder4.build();
                 }
             } else if (j2 == 2) {
@@ -138,7 +139,7 @@ public class a90 {
                 newBuilder6.B(System.currentTimeMillis());
                 build = newBuilder6.build();
             }
-            m90.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            l90.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
             LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
             newBuilder7.E(build);
             return newBuilder7.build().toByteArray();
@@ -150,18 +151,23 @@ public class a90 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
-            RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder();
-            newBuilder.u(j3);
-            newBuilder.x(j);
-            newBuilder.v(j2);
-            newBuilder.w(1);
-            RpcMetaPb$RpcRequestMeta build = newBuilder.build();
-            RpcMetaPb$RpcMeta.b newBuilder2 = RpcMetaPb$RpcMeta.newBuilder();
-            newBuilder2.F(build);
-            newBuilder2.E(j3);
-            newBuilder2.D(i);
-            newBuilder2.A(1);
-            return newBuilder2.build().toByteArray();
+            RpcMetaPb$event_timestamp.b newBuilder = RpcMetaPb$event_timestamp.newBuilder();
+            newBuilder.u(n80.a(true));
+            newBuilder.v(System.currentTimeMillis());
+            RpcMetaPb$event_timestamp build = newBuilder.build();
+            RpcMetaPb$RpcRequestMeta.b newBuilder2 = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder2.w(j3);
+            newBuilder2.z(j);
+            newBuilder2.x(j2);
+            newBuilder2.y(1);
+            newBuilder2.m(build);
+            RpcMetaPb$RpcRequestMeta build2 = newBuilder2.build();
+            RpcMetaPb$RpcMeta.b newBuilder3 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder3.F(build2);
+            newBuilder3.E(j3);
+            newBuilder3.D(i);
+            newBuilder3.A(1);
+            return newBuilder3.build().toByteArray();
         }
         return (byte[]) invokeCommon.objValue;
     }

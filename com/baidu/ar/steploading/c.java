@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.ImagesContract;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c extends com.baidu.ar.e.a<String, Void> {
@@ -94,7 +93,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) {
             if (TextUtils.isEmpty(str)) {
                 iError.onError(2, "res url is not exists", null);
-            } else if (ImagesContract.LOCAL.equals(str)) {
+            } else if ("local".equals(str)) {
                 iCallbackWith.run(null);
             } else {
                 f aN = this.xz.aN(this.xy);

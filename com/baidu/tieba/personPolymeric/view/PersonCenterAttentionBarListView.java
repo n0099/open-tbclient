@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.md8;
 import com.baidu.tieba.og;
+import com.baidu.tieba.pd8;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.ua8;
-import com.baidu.tieba.xa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ua8 b;
+    public md8 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -39,7 +39,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d072d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d073e : invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<xa8> e = this.a.e(i);
+                List<pd8> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -228,11 +228,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d072d, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073e, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906b2);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0906b3);
-            this.f = this.e.findViewById(R.id.divider_line);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906c4);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0906c5);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090840);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<xa8> e(int i) {
+    public final List<pd8> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ua8 ua8Var = this.b;
-            if (ua8Var != null && !ListUtils.isEmpty(ua8Var.a)) {
+            md8 md8Var = this.b;
+            if (md8Var != null && !ListUtils.isEmpty(md8Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    xa8 xa8Var = (xa8) ListUtils.getItem(this.b.a, i3);
-                    if (xa8Var != null) {
-                        arrayList.add(xa8Var);
+                    pd8 pd8Var = (pd8) ListUtils.getItem(this.b.a, i3);
+                    if (pd8Var != null) {
+                        arrayList.add(pd8Var);
                     }
                 }
                 return arrayList;

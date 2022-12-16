@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.vz4;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,8 +62,8 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
                 }
             }
             this.c = context;
-            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908f4);
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0908e3);
+            this.a = (TbImageView) view2.findViewById(R.id.emotion_view);
+            this.b = (EMTextView) view2.findViewById(R.id.emotion_name);
             a();
         }
 
@@ -71,7 +71,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
-                qw4 d = qw4.d(eMTextView);
+                rw4 d = rw4.d(eMTextView);
                 d.v(R.color.CAM_X0101);
                 d.A(R.string.F_X01);
                 d.n(R.string.J_X07);
@@ -120,7 +120,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            this.b = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d052f, viewGroup, false);
+            this.b = LayoutInflater.from(this.a).inflate(R.layout.light_emotion_view, viewGroup, false);
             return new LightEmotionView(this.a, this.b);
         }
         return (LightEmotionView) invokeLI.objValue;
@@ -129,7 +129,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public void g(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, lightEmotionView, str) == null) && str != null && lightEmotionView != null && lightEmotionView.a != null) {
-            Glide.with(this.a).load(str).placeholder((int) R.drawable.obfuscated_res_0x7f080a74).into(lightEmotionView.a);
+            Glide.with(this.a).load(str).placeholder((int) R.drawable.icon_qinghudong_emotion_load_error).into(lightEmotionView.a);
         }
     }
 

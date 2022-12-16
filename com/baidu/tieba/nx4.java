@@ -18,7 +18,7 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.hybrid.WebViewBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -485,10 +485,10 @@ public class nx4 extends WebChromeClient {
             }
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
             WebViewBridge webViewBridge = this.c;
-            if (webViewBridge != null && (webViewBridge.getContext() instanceof TbWebViewActivity)) {
-                TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.c.getContext();
-                tbWebViewActivity.setUploadMessageAboveL(valueCallback);
-                tbWebViewActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+            if (webViewBridge != null && (webViewBridge.getContext() instanceof TBWebViewActivity)) {
+                TBWebViewActivity tBWebViewActivity = (TBWebViewActivity) this.c.getContext();
+                tBWebViewActivity.setUploadMessageAboveL(valueCallback);
+                tBWebViewActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
             }
             return true;
         }

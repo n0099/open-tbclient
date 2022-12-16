@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,13 +96,13 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d028c, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925d7);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0903bb);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925a5);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0909ab);
+            RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
+            this.a = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.b = findViewById(R.id.black_mask);
+            this.c = (ImageView) findViewById(R.id.video_play);
+            this.d = (EMTextView) findViewById(R.id.fake_video_info);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            qw4 d = qw4.d(this.d);
+            rw4 d = rw4.d(this.d);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X01);
             this.a.s();
@@ -116,7 +116,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1576));
+            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.video_is_checking));
             b.f(BdToast.ToastIcon.FAILURE);
             b.i();
         }

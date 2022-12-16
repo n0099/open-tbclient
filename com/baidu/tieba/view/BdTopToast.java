@@ -250,10 +250,10 @@ public class BdTopToast extends LinearLayout {
                 this.a = new View(getContext());
                 addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0152, this);
-            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090373);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090374);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090372);
+            LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
+            this.b = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+            this.c = (ImageView) findViewById(R.id.bd_top_toast_icon);
+            this.d = (TextView) findViewById(R.id.bd_top_toast_content);
             d();
         }
     }
@@ -261,7 +261,7 @@ public class BdTopToast extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
+            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c0);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
@@ -274,10 +274,10 @@ public class BdTopToast extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
             if (this.i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080621, R.color.CAM_X0302, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0301, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
             }
             this.b.b();

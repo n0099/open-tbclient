@@ -89,8 +89,8 @@ public class ChangeScroll extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            transitionValues.values.put(PROPNAME_SCROLL_X, Integer.valueOf(transitionValues.f1028view.getScrollX()));
-            transitionValues.values.put(PROPNAME_SCROLL_Y, Integer.valueOf(transitionValues.f1028view.getScrollY()));
+            transitionValues.values.put(PROPNAME_SCROLL_X, Integer.valueOf(transitionValues.f1051view.getScrollX()));
+            transitionValues.values.put(PROPNAME_SCROLL_Y, Integer.valueOf(transitionValues.f1051view.getScrollY()));
         }
     }
 
@@ -121,7 +121,7 @@ public class ChangeScroll extends Transition {
             if (transitionValues == null || transitionValues2 == null) {
                 return null;
             }
-            View view2 = transitionValues2.f1028view;
+            View view2 = transitionValues2.f1051view;
             int intValue = ((Integer) transitionValues.values.get(PROPNAME_SCROLL_X)).intValue();
             int intValue2 = ((Integer) transitionValues2.values.get(PROPNAME_SCROLL_X)).intValue();
             int intValue3 = ((Integer) transitionValues.values.get(PROPNAME_SCROLL_Y)).intValue();

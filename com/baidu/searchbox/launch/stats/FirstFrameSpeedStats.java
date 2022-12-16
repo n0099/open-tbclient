@@ -458,7 +458,7 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:128:0x02f4
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:128:0x02fa
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -468,7 +468,7 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
         /*
             r57 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.FirstFrameSpeedStats.$ic
-            if (r0 != 0) goto L362
+            if (r0 != 0) goto L368
         L4:
             r1 = r57
             r2 = r58
@@ -578,125 +578,125 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             long r4 = r0.getDurationWithoutAD(r14, r4)
             r14 = 0
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             r55 = 60000(0xea60, double:2.9644E-319)
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r2 > r14 ? 1 : (r2 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r2 > r55 ? 1 : (r2 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r10 > r14 ? 1 : (r10 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r10 > r55 ? 1 : (r10 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r6 > r14 ? 1 : (r6 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r6 > r55 ? 1 : (r6 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r12 > r55 ? 1 : (r12 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r48 > r14 ? 1 : (r48 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r48 > r55 ? 1 : (r48 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r16 > r14 ? 1 : (r16 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r16 > r55 ? 1 : (r16 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r18 > r14 ? 1 : (r18 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r18 > r55 ? 1 : (r18 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r20 > r14 ? 1 : (r20 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r20 > r55 ? 1 : (r20 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r22 > r14 ? 1 : (r22 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r22 > r55 ? 1 : (r22 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r24 > r14 ? 1 : (r24 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r24 > r55 ? 1 : (r24 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r26 > r14 ? 1 : (r26 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r26 > r55 ? 1 : (r26 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r28 > r14 ? 1 : (r28 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r28 > r55 ? 1 : (r28 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r42 > r14 ? 1 : (r42 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r42 > r55 ? 1 : (r42 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r44 > r14 ? 1 : (r44 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r44 > r55 ? 1 : (r44 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r46 > r14 ? 1 : (r46 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r46 > r55 ? 1 : (r46 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r38 > r14 ? 1 : (r38 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r38 > r55 ? 1 : (r38 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r40 > r14 ? 1 : (r40 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r40 > r55 ? 1 : (r40 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r34 > r14 ? 1 : (r34 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r34 > r55 ? 1 : (r34 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r36 > r14 ? 1 : (r36 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r36 > r55 ? 1 : (r36 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r30 > r14 ? 1 : (r30 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r30 > r55 ? 1 : (r30 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             int r0 = (r32 > r14 ? 1 : (r32 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r32 > r55 ? 1 : (r32 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mSearchboxViewOnMeasureTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mSearchboxViewOnLayoutTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mFeedTabLayoutOnMeasureTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mFeedTabLayoutOnLayoutTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mTabViewPagerOnMeasureTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
-            if (r0 > 0) goto L360
+            if (r0 > 0) goto L366
             long r8 = r1.mTabViewPagerOnLayoutTotal
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 < 0) goto L360
+            if (r0 < 0) goto L366
             int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
             if (r0 <= 0) goto L1cd
-            goto L360
+            goto L366
         L1cd:
             java.util.HashMap r8 = new java.util.HashMap
             r8.<init>()
@@ -795,77 +795,77 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             r7 = 0
             r9 = r50
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r9, r7)
-            if (r0 == 0) goto L301
+            if (r0 == 0) goto L307
             java.lang.String r9 = "attach2frame"
             r10 = r58
-            r10.put(r9, r0)     // Catch: org.json.JSONException -> L2f2
-            goto L303
-        L2f2:
+            r10.put(r9, r0)     // Catch: org.json.JSONException -> L2f8
+            goto L309
+        L2f8:
             r0 = move-exception
-            goto L2f7
-        L2f4:
+            goto L2fd
+        L2fa:
             r0 = move-exception
             r10 = r58
-        L2f7:
+        L2fd:
             boolean r9 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r9 == 0) goto L303
+            if (r9 == 0) goto L309
             r0.printStackTrace()
-            goto L303
-        L301:
+            goto L309
+        L307:
             r10 = r58
-        L303:
+        L309:
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r8)
-            if (r0 == 0) goto L319
+            if (r0 == 0) goto L31f
             java.lang.String r2 = "firstFrame"
-            r10.put(r2, r0)     // Catch: org.json.JSONException -> L30f
-            goto L319
-        L30f:
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L315
+            goto L31f
+        L315:
             r0 = move-exception
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto L319
+            if (r2 == 0) goto L31f
             r0.printStackTrace()
-        L319:
+        L31f:
             r2 = r53
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r7)
-            if (r0 == 0) goto L331
+            if (r0 == 0) goto L337
             java.lang.String r2 = "frame2layout"
-            r10.put(r2, r0)     // Catch: org.json.JSONException -> L327
-            goto L331
-        L327:
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L32d
+            goto L337
+        L32d:
             r0 = move-exception
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto L331
+            if (r2 == 0) goto L337
             r0.printStackTrace()
-        L331:
+        L337:
             long r2 = r1.mTabOnLayoutCoreDuration
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r7)
-            if (r0 == 0) goto L348
-            r10.put(r6, r0)     // Catch: org.json.JSONException -> L33d
-            goto L348
-        L33d:
+            if (r0 == 0) goto L34e
+            r10.put(r6, r0)     // Catch: org.json.JSONException -> L343
+            goto L34e
+        L343:
             r0 = move-exception
             r2 = r0
             boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r0 == 0) goto L348
+            if (r0 == 0) goto L34e
             r2.printStackTrace()
-        L348:
+        L34e:
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r4, r7)
-            if (r0 == 0) goto L35e
+            if (r0 == 0) goto L364
             java.lang.String r2 = "layout2end"
-            r10.put(r2, r0)     // Catch: org.json.JSONException -> L354
-            goto L35e
-        L354:
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L35a
+            goto L364
+        L35a:
             r0 = move-exception
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto L35e
+            if (r2 == 0) goto L364
             r0.printStackTrace()
-        L35e:
+        L364:
             r2 = 1
             return r2
-        L360:
+        L366:
             r0 = 0
             return r0
-        L362:
+        L368:
             r55 = r0
             r56 = 1048580(0x100004, float:1.469374E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r55.invokeL(r56, r57, r58)

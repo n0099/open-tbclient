@@ -17,13 +17,13 @@ public class da implements Comparable<da> {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f199a;
+    public long f222a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f200a;
+    public String f223a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final LinkedList<cq> f201a;
+    public final LinkedList<cq> f224a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public da() {
@@ -80,9 +80,9 @@ public class da implements Comparable<da> {
                 return;
             }
         }
-        this.f201a = new LinkedList<>();
-        this.f199a = 0L;
-        this.f200a = str;
+        this.f224a = new LinkedList<>();
+        this.f222a = 0L;
+        this.f223a = str;
         this.a = i;
     }
 
@@ -106,12 +106,12 @@ public class da implements Comparable<da> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f199a = jSONObject.getLong("tt");
+                this.f222a = jSONObject.getLong("tt");
                 this.a = jSONObject.getInt("wt");
-                this.f200a = jSONObject.getString("host");
+                this.f223a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("ah");
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    this.f201a.add(new cq().a(jSONArray.getJSONObject(i)));
+                    this.f224a.add(new cq().a(jSONArray.getJSONObject(i)));
                 }
             }
             return this;
@@ -126,13 +126,13 @@ public class da implements Comparable<da> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put("tt", this.f199a);
+                jSONObject.put("tt", this.f222a);
                 jSONObject.put("wt", this.a);
-                jSONObject.put("host", this.f200a);
+                jSONObject.put("host", this.f223a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<cq> it = this.f201a.iterator();
+                Iterator<cq> it = this.f224a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m241a());
+                    jSONArray.put(it.next().m251a());
                 }
                 jSONObject.put("ah", jSONArray);
             }
@@ -146,19 +146,19 @@ public class da implements Comparable<da> {
         if (interceptable == null || interceptable.invokeL(1048579, this, cqVar) == null) {
             synchronized (this) {
                 if (cqVar != null) {
-                    this.f201a.add(cqVar);
+                    this.f224a.add(cqVar);
                     int a = cqVar.a();
                     if (a > 0) {
                         this.a += cqVar.a();
                     } else {
                         int i = 0;
-                        for (int size = this.f201a.size() - 1; size >= 0 && this.f201a.get(size).a() < 0; size--) {
+                        for (int size = this.f224a.size() - 1; size >= 0 && this.f224a.get(size).a() < 0; size--) {
                             i++;
                         }
                         this.a += a * i;
                     }
-                    if (this.f201a.size() > 30) {
-                        this.a -= this.f201a.remove().a();
+                    if (this.f224a.size() > 30) {
+                        this.a -= this.f224a.remove().a();
                     }
                 }
             }
@@ -169,7 +169,7 @@ public class da implements Comparable<da> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f200a + ":" + this.a;
+            return this.f223a + ":" + this.a;
         }
         return (String) invokeV.objValue;
     }

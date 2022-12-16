@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TailFrameBarH5View extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,8 +94,8 @@ public class TailFrameBarH5View extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, context, i) == null) {
             LinearLayout.inflate(context, i, this);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f09123a);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09123b);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091299);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09129a);
         }
     }
 
@@ -161,7 +161,7 @@ public class TailFrameBarH5View extends LinearLayout {
     public final void e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d048a : R.layout.obfuscated_res_0x7f0d0489 : R.layout.obfuscated_res_0x7f0d0488);
+            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d0499 : R.layout.obfuscated_res_0x7f0d0498 : R.layout.obfuscated_res_0x7f0d0497);
         }
     }
 

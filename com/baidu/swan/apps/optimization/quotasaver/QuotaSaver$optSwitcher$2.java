@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cq2;
+import com.baidu.tieba.bq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
     }
 
     /* loaded from: classes3.dex */
-    public static final class a implements cq2 {
+    public static final class a implements bq2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,7 +73,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             }
         }
 
-        @Override // com.baidu.tieba.cq2
+        @Override // com.baidu.tieba.bq2
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.cq2
+        @Override // com.baidu.tieba.bq2
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.cq2
+        @Override // com.baidu.tieba.bq2
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.cq2
+        @Override // com.baidu.tieba.bq2
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.cq2
+        @Override // com.baidu.tieba.bq2
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

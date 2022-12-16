@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KernelErrorElement extends AbsElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class KernelErrorElement extends AbsElement {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0155, null);
             this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a3c);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa7);
             this.mTextNetError = textView;
             textView.setOnClickListener(this.mParent);
         }

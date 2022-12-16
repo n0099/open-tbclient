@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.sx;
-import com.baidu.tieba.tr4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,14 +37,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
-public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
+/* loaded from: classes2.dex */
+public class HeadlinesCardView extends FrameLayout implements sx<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public tr4 a;
+    public vr4 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -58,7 +58,7 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements TbImageAutoSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,19 +126,19 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pu4 a;
+        public final /* synthetic */ qu4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, pu4 pu4Var) {
+        public b(HeadlinesCardView headlinesCardView, qu4 qu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, pu4Var};
+                Object[] objArr = {headlinesCardView, qu4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -149,7 +149,7 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = pu4Var;
+            this.a = qu4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -166,19 +166,19 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pu4 a;
+        public final /* synthetic */ qu4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, pu4 pu4Var) {
+        public c(HeadlinesCardView headlinesCardView, qu4 qu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, pu4Var};
+                Object[] objArr = {headlinesCardView, qu4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -189,15 +189,15 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = pu4Var;
+            this.a = qu4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!TextUtils.isEmpty(this.a.h())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, this.a.h(), true)));
+                if (!TextUtils.isEmpty(this.a.i())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, this.a.i(), true)));
                 }
                 if (this.b.k != null) {
                     this.b.k.b();
@@ -206,7 +206,7 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                p45.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                q45.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -327,9 +327,9 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            qw4.d(this.i).v(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0305, null);
-            qw4.d(this.e).v(R.color.CAM_X0305);
+            rw4.d(this.i).v(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_card_toutiao_yaoqing16, R.color.CAM_X0305, null);
+            rw4.d(this.e).v(R.color.CAM_X0305);
         }
     }
 
@@ -343,21 +343,21 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0392, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d8f);
+            LayoutInflater.from(getContext()).inflate(R.layout.headlines_card_view, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.headlines_background);
             this.b = tbImageView;
             tbImageView.setRadiusById(R.string.J_X05);
             this.b.r(15);
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f0808ec);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c7f);
+            this.b.setImageResource(R.drawable.icon_pic_bg_toutiaotie);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.right_bottom_icon);
             this.c = tbImageView2;
             tbImageView2.setAutoChangeStyle(true);
             this.c.setDrawCorner(true);
             this.c.setRadiusById(R.string.J_X05);
             this.c.r(8);
-            this.c.setImageResource(R.drawable.obfuscated_res_0x7f0808eb);
-            this.g = (ImageProgressView) findViewById(R.id.obfuscated_res_0x7f090d92);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.obfuscated_res_0x7f090d8d);
+            this.c.setImageResource(R.drawable.icon_pic_bg_toutiao_duihuan);
+            this.g = (ImageProgressView) findViewById(R.id.headlines_image_progress_view);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.headlines_auto_switch);
             this.h = tbImageAutoSwitch;
             int i = n;
             tbImageAutoSwitch.l(4, i, i, o);
@@ -365,11 +365,11 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
             this.h.setCarouselDelayPeriod(2000);
             this.h.setCarouselPeriod(2000);
             this.h.setAdapter(this.m);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090d8e);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d99);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d9a);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090d98);
-            this.j = (HeadlinesItemInfoView) findViewById(R.id.obfuscated_res_0x7f090d95);
+            this.i = (TextView) findViewById(R.id.headlines_auto_switch_text);
+            this.d = (ImageView) findViewById(R.id.headlines_share_icon);
+            this.e = (TextView) findViewById(R.id.headlines_share_text);
+            this.f = findViewById(R.id.headlines_share_container);
+            this.j = (HeadlinesItemInfoView) findViewById(R.id.headlines_item_info);
             i(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -377,18 +377,18 @@ public class HeadlinesCardView extends FrameLayout implements sx<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: h */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
-            this.a = tr4Var;
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null) {
-                pu4 e = tr4Var.getThreadData().getTaskInfoData().e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) {
+            this.a = vr4Var;
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getTaskInfoData() != null && vr4Var.getThreadData().getTaskInfoData().e() != null) {
+                qu4 e = vr4Var.getThreadData().getTaskInfoData().e();
                 this.g.c(e);
                 this.l.clear();
-                this.l.addAll(e.d());
+                this.l.addAll(e.e());
                 this.h.p();
-                if (!TextUtils.isEmpty(e.g())) {
-                    this.i.setText(e.g());
+                if (!TextUtils.isEmpty(e.h())) {
+                    this.i.setText(e.h());
                 }
                 this.j.b(e);
                 this.j.setOnBannerClickListener(new b(this, e));

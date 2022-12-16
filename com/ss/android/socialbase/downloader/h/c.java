@@ -520,11 +520,11 @@ public class c implements f, Runnable {
                                 if (com.ss.android.socialbase.downloader.i.f.d(this.p.getSavePath()) < 16384) {
                                     throw new BaseException(1006, "download savePath directory can not created:" + this.p.getSavePath());
                                 }
-                                throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "download savePath directory can not created:" + this.p.getSavePath());
+                                throw new BaseException(1030, "download savePath directory can not created:" + this.p.getSavePath());
                             }
                             return;
                         }
-                        throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "download savePath directory can not created:" + this.p.getSavePath());
+                        throw new BaseException(1030, "download savePath directory can not created:" + this.p.getSavePath());
                     }
                     return;
                 } else if (!file.isDirectory()) {
@@ -540,9 +540,9 @@ public class c implements f, Runnable {
                     return;
                 }
             }
-            throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FAILED, "download name can not be empty");
+            throw new BaseException(1029, "download name can not be empty");
         }
-        throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_STOP_RES, "download savePath can not be empty");
+        throw new BaseException(1028, "download savePath can not be empty");
     }
 
     private void G() {
@@ -1278,7 +1278,7 @@ public class c implements f, Runnable {
                     this.B--;
                 } else if (this.p.getCurBytes() != this.p.getTotalBytes()) {
                     com.ss.android.socialbase.downloader.c.a.b(a, this.p.getErrorBytesLog());
-                    this.v.a(new com.ss.android.socialbase.downloader.exception.f(ARPMessageType.MSG_TYPE_VIDEO_STOP, "current bytes is not equals to total bytes, bytes invalid retry status is : " + this.p.getByteInvalidRetryStatus()));
+                    this.v.a(new com.ss.android.socialbase.downloader.exception.f(1027, "current bytes is not equals to total bytes, bytes invalid retry status is : " + this.p.getByteInvalidRetryStatus()));
                     return;
                 } else if (this.p.getCurBytes() <= 0) {
                     com.ss.android.socialbase.downloader.c.a.b(a, this.p.getErrorBytesLog());

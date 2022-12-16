@@ -2,9 +2,7 @@ package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
-import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -17,7 +15,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,21 +81,23 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMQueryFansGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0186  */
-        /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:44:0x01e9  */
+        /* JADX WARN: Removed duplicated region for block: B:60:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
+            ArrayList arrayList;
             String str;
             int i;
             IMListener removeListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList arrayList = new ArrayList();
+                Mytask mytask = this;
+                ArrayList arrayList2 = new ArrayList();
                 try {
-                    JSONObject jSONObject = new JSONObject(this.mJson);
+                    JSONObject jSONObject = new JSONObject(mytask.mJson);
                     int i2 = jSONObject.getInt("error_code");
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0 && jSONObject.has("response_params")) {
@@ -119,67 +118,107 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                             JSONArray jSONArray2 = jSONArray;
                             int optInt3 = jSONObject2.optInt("status", -1);
                             String trim = jSONObject2.optString("group_image").trim();
-                            ArrayList arrayList2 = arrayList;
+                            ArrayList arrayList3 = arrayList2;
                             try {
                                 String optString3 = jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE);
                                 String optString4 = jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC);
                                 int optInt4 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE);
                                 int optInt5 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY);
                                 long optLong5 = jSONObject2.optLong("group_version", 0L);
-                                int optInt6 = jSONObject2.optInt("user_status", 0);
+                                int optInt6 = jSONObject2.optInt("group_max_admin_count", 10);
+                                int optInt7 = jSONObject2.optInt("user_status", 0);
+                                int optInt8 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SUB_TYPE);
+                                String optString5 = jSONObject2.optString("display_info");
+                                JSONObject optJSONObject = jSONObject2.optJSONObject("home_page");
+                                int optInt9 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE, 0);
+                                String optString6 = jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT);
+                                String optString7 = jSONObject2.optString("group_welcome_message_info");
                                 if (optInt3 == 1) {
-                                    GroupInfoDAOImpl.quitGroup(this.this$0.mContext, String.valueOf(optLong));
-                                    DialogRecordDBManager.getInstance(this.this$0.mContext).delete(1, optLong);
-                                    ConversationManagerImpl.getInstance(this.this$0.mContext).deleteConversation(1, String.valueOf(optLong));
-                                } else if (optInt3 == 0) {
-                                    GroupInfo groupInfo = new GroupInfo(String.valueOf(optLong));
-                                    groupInfo.setGroupName(optString2);
-                                    groupInfo.setType(optInt);
-                                    groupInfo.setNum(optInt2);
-                                    groupInfo.setCreateTime(optLong2);
-                                    groupInfo.setBuid(optLong3);
-                                    groupInfo.setUk(optLong4);
-                                    groupInfo.setHeadUrl(trim);
-                                    groupInfo.setGroupCapacity(optInt4);
-                                    groupInfo.setGroupVerify(optInt5);
-                                    groupInfo.setGroupNotice(optString3);
-                                    groupInfo.setDescription(optString4);
-                                    groupInfo.setState(optInt3);
-                                    groupInfo.setInfoVersion(optLong5);
-                                    groupInfo.setLocalInfoVersion(System.currentTimeMillis());
-                                    this.this$0.updateGroupInfo(optLong, optInt3, optInt6, groupInfo);
-                                    arrayList = arrayList2;
-                                    arrayList.add(groupInfo);
-                                    i3 = i5 + 1;
-                                    i2 = i4;
-                                    optString = str2;
-                                    jSONArray = jSONArray2;
+                                    GroupInfoDAOImpl.quitGroup(mytask.this$0.mContext, String.valueOf(optLong));
+                                    DialogRecordDBManager.getInstance(mytask.this$0.mContext).delete(1, optLong);
+                                    ConversationManagerImpl.getInstance(mytask.this$0.mContext).deleteConversation(1, String.valueOf(optLong));
+                                } else {
+                                    if (optInt3 != 0) {
+                                        if (optInt3 == 2) {
+                                        }
+                                    }
+                                    try {
+                                        GroupInfo groupInfo = new GroupInfo(String.valueOf(optLong));
+                                        groupInfo.setGroupName(optString2);
+                                        groupInfo.setType(optInt);
+                                        groupInfo.setNum(optInt2);
+                                        groupInfo.setCreateTime(optLong2);
+                                        groupInfo.setBuid(optLong3);
+                                        groupInfo.setUk(optLong4);
+                                        groupInfo.setHeadUrl(trim);
+                                        groupInfo.setGroupCapacity(optInt4);
+                                        groupInfo.setGroupVerify(optInt5);
+                                        groupInfo.setGroupNotice(optString3);
+                                        groupInfo.setDescription(optString4);
+                                        groupInfo.setState(optInt3);
+                                        groupInfo.setInfoVersion(optLong5);
+                                        groupInfo.setMaxAdminCount(optInt6);
+                                        groupInfo.setLocalInfoVersion(System.currentTimeMillis());
+                                        groupInfo.setSubType(optInt8);
+                                        groupInfo.setSettingInfo(optString5);
+                                        if (optJSONObject != null) {
+                                            groupInfo.setHomePage(optJSONObject.toString());
+                                        }
+                                        groupInfo.setAuditState(jSONObject2.optInt("group_audit", 0));
+                                        groupInfo.setHasNotice(optInt9);
+                                        groupInfo.setNoticeExt(optString6);
+                                        groupInfo.setWelcomeJsonTxt(optString7);
+                                        mytask = this;
+                                        mytask.this$0.updateGroupInfo(optLong, optInt3, optInt7, groupInfo);
+                                        arrayList = arrayList3;
+                                        try {
+                                            arrayList.add(groupInfo);
+                                            i3 = i5 + 1;
+                                            arrayList2 = arrayList;
+                                            i2 = i4;
+                                            optString = str2;
+                                            jSONArray = jSONArray2;
+                                        } catch (JSONException e) {
+                                            e = e;
+                                            LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                                            i = 1010;
+                                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                            removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
+                                            if (removeListener instanceof BIMValueCallBack) {
+                                            }
+                                        }
+                                    } catch (JSONException e2) {
+                                        e = e2;
+                                        mytask = this;
+                                        arrayList = arrayList3;
+                                        LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                                        i = 1010;
+                                        str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                        removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
+                                        if (removeListener instanceof BIMValueCallBack) {
+                                        }
+                                    }
                                 }
-                                arrayList = arrayList2;
+                                arrayList = arrayList3;
                                 i3 = i5 + 1;
+                                arrayList2 = arrayList;
                                 i2 = i4;
                                 optString = str2;
                                 jSONArray = jSONArray2;
-                            } catch (JSONException e) {
-                                e = e;
-                                arrayList = arrayList2;
-                                LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                                i = 1010;
-                                new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                                removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                                if (!(removeListener instanceof BIMValueCallBack)) {
-                                }
+                            } catch (JSONException e3) {
+                                e = e3;
                             }
                         }
                     }
+                    arrayList = arrayList2;
                     i = i2;
                     str = optString;
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e4) {
+                    e = e4;
+                    arrayList = arrayList2;
                 }
-                removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                if (!(removeListener instanceof BIMValueCallBack)) {
+                removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
+                if (removeListener instanceof BIMValueCallBack) {
                     ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
                 }
             }
@@ -221,7 +260,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateGroupInfo(long j, int i, int i2, GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) != null) || i != 0) {
+        if ((interceptable != null && interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) != null) || i == 1) {
             return;
         }
         String valueOf = String.valueOf(j);
@@ -238,13 +277,13 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     private void updateGroupSession(long j, String str, String str2) {
-        ChatSession chatRecordByContacter;
+        ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) != null) {
-            if (!TextUtils.equals(str, chatRecordByContacter.getName()) || !TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {
-                chatRecordByContacter.setName(str);
-                chatRecordByContacter.setIconUrl(str2);
-                ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecordByContacter);
+        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(1, j)) != null) {
+            if (!TextUtils.equals(str, chatRecord.getName()) || !TextUtils.equals(str2, chatRecord.getIconUrl())) {
+                chatRecord.setName(str);
+                chatRecord.setIconUrl(str2);
+                ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecord);
             }
         }
     }

@@ -13,18 +13,18 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ej {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Comparator<df.b<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class ej {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r3v11, types: [byte[], T] */
     @SuppressLint({"Range"})
     public static List<df.b<byte[]>> a(df<byte[]> dfVar) {
         InterceptResult invokeL;

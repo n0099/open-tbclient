@@ -41,6 +41,8 @@ public class NetWorkErr {
     public static final int NEED_UEG_VALIDATE = 220009;
     public static final int NEED_VCODE = 5;
     public static final int NETWORK_CANCEL = -14;
+    public static final int NETWORK_DATA_EXCEPTION = -21;
+    public static final String NETWORK_DATA_EXCEPTION_MSG = "网络数据处理异常";
     public static final int NETWORK_DATA_TOO_BIG = -11;
     public static final int NETWORK_ERR = -1;
     public static final int NETWORK_HTTP_EXCEPTION = -18;

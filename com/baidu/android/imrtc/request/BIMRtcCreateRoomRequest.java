@@ -9,7 +9,6 @@ import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -181,7 +180,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 jSONObject.put("signal_sdk_version", 103050L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
-                jSONObject.put(TiebaStatic.Params.RESOURCE_ID, this.mResourceId);
+                jSONObject.put("resource_id", this.mResourceId);
                 jSONObject.put("ts", currentTimeMillis);
                 jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
                 StringBuilder sb = new StringBuilder();

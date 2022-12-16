@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface r70 {
-    String a();
+    String getContentType();
 
-    String b();
+    Map<String, String> getHeaders();
 
-    String c();
+    String getHost();
 
-    Map<String, String> d();
+    String getMethod();
+
+    byte[] getRequestParameter();
 }

@@ -2,7 +2,6 @@ package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
@@ -22,7 +21,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         JSONObject jSONObject = new JSONObject();
         r.putValue(jSONObject, "llsid", this.llsid);
         r.putValue(jSONObject, "extra", this.extra);
-        r.putValue(jSONObject, TiebaStatic.LogFields.RESULT, this.result);
+        r.putValue(jSONObject, "result", this.result);
         r.putValue(jSONObject, "hasAd", this.hasAd);
         r.putValue(jSONObject, "errorMsg", this.errorMsg);
         r.putValue(jSONObject, "cookie", this.cookie);
@@ -47,7 +46,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
             return;
         }
         this.llsid = jSONObject.optLong("llsid");
-        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+        this.result = jSONObject.optInt("result");
         this.hasAd = jSONObject.optBoolean("hasAd");
         this.errorMsg = jSONObject.optString("errorMsg");
         String optString = jSONObject.optString("extra");

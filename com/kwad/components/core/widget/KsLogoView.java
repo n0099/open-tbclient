@@ -21,7 +21,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsLogoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class KsLogoView extends LinearLayout {
     public TextView Py;
     public ImageView Pz;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
@@ -291,7 +291,7 @@ public class KsLogoView extends LinearLayout {
             }
         };
         if (z) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080cb5);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdd);
         }
         init(context);
     }
@@ -301,17 +301,17 @@ public class KsLogoView extends LinearLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0449, this);
-            this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f091135);
-            this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f091134);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0458, this);
+            this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f091194);
+            this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f091193);
             boolean z = getBackground() == null;
             this.Px = z;
             if (z) {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c6c));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c94));
                 textView = this.Py;
                 i = -6513508;
             } else {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c6d));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c95));
                 textView = this.Py;
                 i = -1711276033;
             }
@@ -323,14 +323,14 @@ public class KsLogoView extends LinearLayout {
     public void qg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c6c : R.drawable.obfuscated_res_0x7f080c6d));
+            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c94 : R.drawable.obfuscated_res_0x7f080c95));
         }
     }
 
     public final void T(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091133);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091192);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             String str = this.Px ? bQ.adBaseInfo.adGrayMarkIcon : bQ.adBaseInfo.adMarkIcon;
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(bQ.adBaseInfo.adSourceDescription)) {

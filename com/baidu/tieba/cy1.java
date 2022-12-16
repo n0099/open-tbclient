@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
-public class cy1 extends lx1 {
+/* loaded from: classes4.dex */
+public class cy1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public boolean e;
+    public RectF a;
 
     public cy1() {
         Interceptable interceptable = $ic;
@@ -27,29 +25,34 @@ public class cy1 extends lx1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = false;
     }
 
-    @Override // com.baidu.tieba.lx1
-    public void a(mx1 mx1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, mx1Var, canvas) == null) && this.e) {
-            mx1Var.f.quadTo(this.a, this.b, this.c, this.d);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && (rectF = this.a) != null) {
+            lx1Var.f.addRect(rectF, Path.Direction.CW);
         }
     }
 
-    @Override // com.baidu.tieba.lx1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
-            this.a = wh3.g((float) jSONArray.optDouble(0));
-            this.b = wh3.g((float) jSONArray.optDouble(1));
-            this.c = wh3.g((float) jSONArray.optDouble(2));
-            this.d = wh3.g((float) jSONArray.optDouble(3));
-            this.e = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = vh3.g((float) jSONArray.optDouble(0));
+                    int g2 = vh3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + vh3.g((float) jSONArray.optDouble(2)), g2 + vh3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

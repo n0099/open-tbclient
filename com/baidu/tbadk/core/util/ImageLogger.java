@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.fh;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.nj5;
 import com.baidu.tieba.qe;
-import com.baidu.tieba.ui5;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xi;
@@ -108,7 +108,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return l95.k().v();
+            return m95.k().v();
         }
         return (String) invokeV.objValue;
     }
@@ -221,7 +221,7 @@ public class ImageLogger {
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, agVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && yi.F() && agVar != null) {
             String str9 = "";
             String str10 = "";
-            boolean a = ui5.a(str2);
+            boolean a = nj5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -283,7 +283,7 @@ public class ImageLogger {
             } else {
                 str4 = "0";
             }
-            logItem.b(TiebaStatic.LogFields.RESULT, str4);
+            logItem.b("result", str4);
             logItem.b("requrl", str2);
             if (agVar.v == 0) {
                 str5 = "Apache";

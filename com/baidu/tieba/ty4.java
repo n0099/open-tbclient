@@ -38,14 +38,14 @@ public class ty4 {
     public PopupWindow g;
 
     /* loaded from: classes6.dex */
-    public class a implements oy7 {
+    public class a implements g18 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ty4 a;
 
-        @Override // com.baidu.tieba.oy7
+        @Override // com.baidu.tieba.g18
         public /* synthetic */ void onStart() {
-            ny7.a(this);
+            f18.a(this);
         }
 
         public a(ty4 ty4Var) {
@@ -66,7 +66,7 @@ public class ty4 {
             this.a = ty4Var;
         }
 
-        @Override // com.baidu.tieba.oy7
+        @Override // com.baidu.tieba.g18
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -75,7 +75,7 @@ public class ty4 {
                     ch.d(this.a.g, this.a.a.getPageActivity());
                 }
                 if (this.a.f != null) {
-                    this.a.f.R();
+                    this.a.f.S();
                 }
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k90 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -32,7 +32,7 @@ public class k90 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return n90.g(context);
+            return m90.g(context);
         }
         return invokeL.intValue;
     }
@@ -41,7 +41,7 @@ public class k90 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return n90.l(context);
+            return m90.l(context);
         }
         return invokeL.booleanValue;
     }
@@ -49,14 +49,14 @@ public class k90 {
     public static void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
-            n90.v(context, z);
+            m90.u(context, z);
         }
     }
 
     public static void d(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {
-            n90.u(context, i);
+            m90.t(context, i);
         }
     }
 }

@@ -1,14 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import androidx.annotation.NonNull;
-import java.io.File;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public interface lp1 {
-    void a(@NonNull JSONArray jSONArray);
+    void a(boolean z);
 
-    i82 b(Context context, File file, long j);
-
-    void c(@NonNull JSONArray jSONArray);
+    boolean b();
 }

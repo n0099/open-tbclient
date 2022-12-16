@@ -27,24 +27,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0164a a;
+    public C0176a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0164a extends SQLiteOpenHelper {
+    /* loaded from: classes3.dex */
+    public class C0176a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0164a(a aVar, Context context) {
+        public C0176a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.getClass());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -130,10 +130,10 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0164a c0164a = new C0164a(this, context.getApplicationContext());
-        this.a = c0164a;
+        C0176a c0176a = new C0176a(this, context.getApplicationContext());
+        this.a = c0176a;
         try {
-            this.b = c0164a.getWritableDatabase();
+            this.b = c0176a.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.k.a.a(th);
         }

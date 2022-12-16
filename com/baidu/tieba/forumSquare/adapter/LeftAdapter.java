@@ -60,8 +60,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c9);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09240b);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09243c);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09247e);
         }
     }
 
@@ -104,7 +104,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     this.d.b.a(this.b.itemView, this.a, this.c);
                 }
                 StatisticItem statisticItem = new StatisticItem("c13649");
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.c);
+                statisticItem.param("resource_id", this.c);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -223,7 +223,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0528, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0538, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }

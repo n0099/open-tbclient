@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 import com.baidu.searchbox.network.outback.statistics.RecordObserver;
@@ -17,7 +16,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class jg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +25,13 @@ public final class jg {
     public final c c;
     public final d d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final jg a;
@@ -55,7 +54,7 @@ public final class jg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements RecordObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +103,7 @@ public final class jg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d implements RecordObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +133,7 @@ public final class jg {
                 JSONObject uBCJson = networkStatRecord.toUBCJson();
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {
-                    uBCManager.onEvent(HttpConfig.UBC_HTTP_EXCEPTION_ID, uBCJson.toString());
+                    uBCManager.onEvent("850", uBCJson.toString());
                 }
             }
         }
@@ -148,7 +147,7 @@ public final class jg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e implements RecordObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +189,7 @@ public final class jg {
                 JSONObject uBCJson = networkStatRecord.toUBCJson();
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {
-                    uBCManager.onEvent(HttpConfig.UBC_HTTP_ID, uBCJson.toString());
+                    uBCManager.onEvent("94", uBCJson.toString());
                 }
             }
         }

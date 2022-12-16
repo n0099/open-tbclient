@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -129,12 +130,12 @@ public class IMMediaGetContactorSettingRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
-                jSONObject.put("setting", this.mSetting);
+                jSONObject.put(a.s, this.mSetting);
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (JSONException e) {
                 LogUtils.e(TAG, "getRequestParameter Exception ", e);

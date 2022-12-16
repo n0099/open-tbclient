@@ -3,6 +3,7 @@ package org.webrtc;
 import android.hardware.Camera;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -203,7 +204,7 @@ public class Camera1Enumerator implements CameraEnumerator {
             if (cameraInfo.facing == 1) {
                 str = "front";
             } else {
-                str = "back";
+                str = d.u;
             }
             return "Camera " + i + ", Facing " + str + ", Orientation " + cameraInfo.orientation;
         }

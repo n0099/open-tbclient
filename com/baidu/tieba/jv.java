@@ -18,17 +18,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface e {
         void a(ViewGroup viewGroup);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,20 +37,20 @@ public class jv {
         public final /* synthetic */ e c;
         public final /* synthetic */ LinearLayout d;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Function0<Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
 
             /* renamed from: com.baidu.tieba.jv$d$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class RunnableC0322a implements Runnable {
+            /* loaded from: classes5.dex */
+            public class RunnableC0330a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0322a(a aVar) {
+                public RunnableC0330a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,20 +103,20 @@ public class jv {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    lt.c(new RunnableC0322a(this));
+                    lt.c(new RunnableC0330a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b implements Function0<Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
 
-            /* loaded from: classes4.dex */
+            /* loaded from: classes5.dex */
             public class a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class jv {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public class jv {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public class jv {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,14 +331,14 @@ public class jv {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, charSequence, str, str2)) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d07b2, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810eb);
-            gradientDrawable.setColor(ov.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060af9)));
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.sdk_normal_toast_view, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.sdk_normal_toast_view_bg);
+            gradientDrawable.setColor(ov.a.a(str, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091733);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.normal_toast_text);
             if (textView != null) {
-                textView.setTextColor(ov.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060af8)));
+                textView.setTextColor(ov.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(charSequence);
             }
             return relativeLayout;
@@ -352,24 +352,24 @@ public class jv {
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), str, str2, str3, str4, str5, str6, eVar, aVar}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d07b3, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810eb);
-            gradientDrawable.setColor(ov.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060af9)));
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.sdk_right_button_toast_view, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.sdk_normal_toast_view_bg);
+            gradientDrawable.setColor(ov.a.a(str, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c83)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.right_button_toast_info_view)) != null) {
                 textView.setText(charSequence);
-                textView.setTextColor(ov.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060af8)));
+                textView.setTextColor(ov.a.a(str3, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c82);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810ec);
-            gradientDrawable2.setColor(ov.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060af9)));
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.right_button_toast_btn_view);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.sdk_toast_btn_bg);
+            gradientDrawable2.setColor(ov.a.a(str4, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             textView2.setBackground(gradientDrawable2);
             if (!TextUtils.isEmpty(charSequence2)) {
                 textView2.setText(charSequence2);
-                textView2.setTextColor(ov.a.a(str6, resources.getColor(R.color.obfuscated_res_0x7f060af8)));
+                textView2.setTextColor(ov.a.a(str6, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView2.setTextSize(1, i2);
             }
             textView2.setOnClickListener(new c(aVar));

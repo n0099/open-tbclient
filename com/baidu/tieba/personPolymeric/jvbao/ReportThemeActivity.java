@@ -27,14 +27,14 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h98;
-import com.baidu.tieba.hc8;
-import com.baidu.tieba.nb8;
+import com.baidu.tieba.fe8;
+import com.baidu.tieba.le8;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.tb8;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zb8;
+import com.baidu.tieba.ze8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public hc8 a;
+    public ze8 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public nb8 g;
+    public fe8 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -139,14 +139,14 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 this.a.k1(message.arg1);
                 if (message.arg1 > 10) {
-                    this.a.b.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03da, new Object[]{10}));
+                    this.a.b.setText(this.a.getString(R.string.choose_report_theme_num, new Object[]{10}));
                     BdTopToast bdTopToast = new BdTopToast(this.a.getActivity());
                     bdTopToast.h(false);
-                    bdTopToast.g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0adc));
+                    bdTopToast.g(this.a.getResources().getString(R.string.max_choose_report_theme_num));
                     bdTopToast.i(this.a.c);
                     return;
                 }
-                this.a.b.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03da, new Object[]{Integer.valueOf(message.arg1)}));
+                this.a.b.setText(this.a.getString(R.string.choose_report_theme_num, new Object[]{Integer.valueOf(message.arg1)}));
             }
         }
     }
@@ -179,7 +179,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.g != null && this.a.p) {
-                if (this.a.m != null && !this.a.m.n()) {
+                if (this.a.m != null && !this.a.m.o()) {
                     this.a.m1(true);
                 }
                 this.a.m1(false);
@@ -251,12 +251,12 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-        public void q0(PersonPostModel personPostModel, boolean z) {
+        public void v0(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLZ(1048576, this, personPostModel, z) != null) {
                 return;
             }
-            this.a.b1(personPostModel, z);
+            this.a.c1(personPostModel, z);
         }
     }
 
@@ -285,12 +285,12 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void i0(PersonPostModel personPostModel, boolean z) {
+        public void l0(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLZ(1048576, this, personPostModel, z) != null) {
                 return;
             }
-            this.a.b1(personPostModel, z);
+            this.a.c1(personPostModel, z);
         }
     }
 
@@ -356,7 +356,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onNetRefreshButtonClicked();
-            d1(true);
+            e1(true);
         }
     }
 
@@ -364,8 +364,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.f.setNextPage(this.m);
-            this.m.N(0);
-            this.m.S();
+            this.m.O(0);
+            this.m.T();
         }
     }
 
@@ -373,9 +373,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.f.setNextPage(this.m);
-            this.m.N(0);
-            this.m.f();
-            this.m.E(getPageContext().getString(R.string.obfuscated_res_0x7f0f0a1c));
+            this.m.O(0);
+            this.m.g();
+            this.m.F(getPageContext().getString(R.string.list_no_more));
         }
     }
 
@@ -410,10 +410,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void j1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f104c));
-            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0440));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.report_user));
+            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0446));
             this.d = this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setOnClickListener(new d(this));
         }
@@ -422,7 +422,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void i1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            PersonPostModel personPostModel = new PersonPostModel(getPageContext(), getUniqueId(), this.v, true, PersonPostModel.FROM_PERSON_POST);
+            PersonPostModel personPostModel = new PersonPostModel(getPageContext(), getUniqueId(), this.v, true, 2);
             this.h = personPostModel;
             personPostModel.setUniqueId(getUniqueId());
             TiebaStatic.log("c14572");
@@ -452,10 +452,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d079f);
+            setContentView(R.layout.obfuscated_res_0x7f0d07b2);
             i1(bundle);
             initView();
-            d1(true);
+            e1(true);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -479,7 +479,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         return invokeLZ.booleanValue;
     }
 
-    public final void b1(PersonPostModel personPostModel, boolean z) {
+    public final void c1(PersonPostModel personPostModel, boolean z) {
         PersonPostModel personPostModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, personPostModel, z) == null) {
@@ -493,7 +493,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(tb8.c(personPostModel.threadList));
+                this.h.threadList.addAll(le8.c(personPostModel.threadList));
             }
             this.p = a1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -510,12 +510,12 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     n1(this.h.threadList);
                 }
             }
-            h98.d().l(System.currentTimeMillis() - currentTimeMillis);
-            h98.d().p(System.currentTimeMillis() - h98.d().g());
+            zb8.d().l(System.currentTimeMillis() - currentTimeMillis);
+            zb8.d().p(System.currentTimeMillis() - zb8.d().g());
         }
     }
 
-    public void d1(boolean z) {
+    public void e1(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.h != null && this.i != null && (view2 = this.k) != null) {
@@ -543,7 +543,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (this.f.getHeaderViewsCount() == 0) {
                     this.l.setVisibility(8);
                     this.b.setVisibility(8);
-                    q1(R.string.obfuscated_res_0x7f0f0bff);
+                    q1(R.string.nad_no_network);
                 }
             } else {
                 NoDataView noDataView = this.n;
@@ -571,8 +571,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             }
             PbListView pbListView = this.m;
             if (pbListView != null) {
-                pbListView.G(SkinManager.getColor(R.color.CAM_X0107));
-                this.m.d(i);
+                pbListView.H(SkinManager.getColor(R.color.CAM_X0107));
+                this.m.e(i);
             }
         }
     }
@@ -581,26 +581,26 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             j1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091cbe);
-            this.j = findViewById(R.id.obfuscated_res_0x7f09135e);
-            this.k = findViewById(R.id.obfuscated_res_0x7f091363);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090636);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c50);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e1);
-            nb8 nb8Var = new nb8(this, this.t);
-            this.g = nb8Var;
-            this.f.setAdapter((ListAdapter) nb8Var);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091d2b);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0913bf);
+            this.k = findViewById(R.id.obfuscated_res_0x7f0913c4);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090646);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091cbb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906f3);
+            fe8 fe8Var = new fe8(this, this.t);
+            this.g = fe8Var;
+            this.f.setAdapter((ListAdapter) fe8Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
             this.m = pbListView;
             pbListView.a();
-            this.m.q(R.color.CAM_X0205);
-            this.m.u(yi.g(this, R.dimen.tbds182));
-            this.m.z();
-            this.m.I(R.dimen.tbfontsize33);
-            this.m.G(SkinManager.getColor(R.color.CAM_X0107));
-            this.m.C(R.color.CAM_X0110);
+            this.m.r(R.color.CAM_X0205);
+            this.m.v(yi.g(this, R.dimen.tbds182));
+            this.m.A();
+            this.m.J(R.dimen.tbfontsize33);
+            this.m.H(SkinManager.getColor(R.color.CAM_X0107));
+            this.m.D(R.color.CAM_X0110);
         }
     }
 
@@ -614,7 +614,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         ArrayList<String> stringArrayListExtra = getIntent().getStringArrayListExtra(ReportThemeActivityConfig.REPORT_TID_LIST);
         this.r = stringArrayListExtra;
         this.q = stringArrayListExtra.size();
-        this.b.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03da, new Object[]{Integer.valueOf(f1())}));
+        this.b.setText(getPageContext().getPageActivity().getString(R.string.choose_report_theme_num, new Object[]{Integer.valueOf(f1())}));
         this.b.setVisibility(8);
         this.l.setVisibility(8);
         this.e.setEnabled(false);
@@ -624,7 +624,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void q1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c9c);
+            String string = getResources().getString(R.string.no_data_common_txt);
             if (this.n == null) {
                 this.n = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070260)), NoDataViewFactory.e.d(null, string), null);
             }
@@ -641,11 +641,11 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, view2, str, z) == null) {
             if (this.a == null) {
-                hc8 hc8Var = new hc8(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = hc8Var;
-                hc8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f100d));
+                ze8 ze8Var = new ze8(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = ze8Var;
+                ze8Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f100c));
+                this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

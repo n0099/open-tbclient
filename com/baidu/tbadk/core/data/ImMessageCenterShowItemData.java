@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.it4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import java.util.Objects;
 /* loaded from: classes3.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -23,6 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
     public String avatar;
+    public String cacheGroupMsgContent;
     public int dataType;
     public long forumId;
     public String forumName;
@@ -32,9 +33,12 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String friendNameShow;
     public String friendPortrait;
     public int friendStatus;
+    public String groupJumpUrl;
     public ChatSetting groupSetting;
     public int hasMore;
+    public boolean isGroupDelete;
     public int isLike;
+    public boolean isNotify;
     public boolean isSelected;
     public boolean isSelf;
     public long markTopIndex;
@@ -51,7 +55,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public it4 userExtraData;
+    public IMUserExtraData userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -73,7 +77,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m40clone() {
+    public ImMessageCenterShowItemData m41clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -90,8 +94,17 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.avatar;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getCacheGroupMsgContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.cacheGroupMsgContent;
         }
         return (String) invokeV.objValue;
     }
@@ -99,7 +112,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getDataType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.dataType;
         }
         return invokeV.intValue;
@@ -108,7 +121,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public long getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.forumId;
         }
         return invokeV.longValue;
@@ -117,7 +130,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.forumName;
         }
         return (String) invokeV.objValue;
@@ -126,7 +139,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getFriendBjhAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.friendBjhAvatar;
         }
         return (String) invokeV.objValue;
@@ -135,7 +148,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getFriendId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.friendId;
         }
         return (String) invokeV.objValue;
@@ -144,7 +157,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getFriendName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.friendName;
         }
         return (String) invokeV.objValue;
@@ -153,7 +166,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getFriendNameShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (!StringUtils.isNull(this.friendNameShow)) {
                 return this.friendNameShow;
             }
@@ -165,8 +178,17 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getFriendPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.friendPortrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getGroupJumpUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.groupJumpUrl;
         }
         return (String) invokeV.objValue;
     }
@@ -174,7 +196,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public ChatSetting getGroupSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.groupSetting;
         }
         return (ChatSetting) invokeV.objValue;
@@ -183,7 +205,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getHasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.hasMore;
         }
         return invokeV.intValue;
@@ -192,7 +214,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.isLike;
         }
         return invokeV.intValue;
@@ -201,7 +223,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public long getMarkTopIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.markTopIndex;
         }
         return invokeV.longValue;
@@ -210,7 +232,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getMemberCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.memberCount;
         }
         return invokeV.intValue;
@@ -219,7 +241,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getMsgContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.msgContent;
         }
         return (String) invokeV.objValue;
@@ -228,7 +250,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getOwnerName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.ownerName;
         }
         return (String) invokeV.objValue;
@@ -237,7 +259,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getRelation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.relation;
         }
         return invokeV.intValue;
@@ -246,7 +268,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getSendStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.sendStatus;
         }
         return invokeV.intValue;
@@ -255,7 +277,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public long getServerTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.serverTime;
         }
         return invokeV.longValue;
@@ -264,7 +286,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getSlogan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.slogan;
         }
         return (String) invokeV.objValue;
@@ -273,7 +295,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.status;
         }
         return invokeV.intValue;
@@ -282,7 +304,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getThreadCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.threadCount;
         }
         return invokeV.intValue;
@@ -291,7 +313,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.title;
         }
         return (String) invokeV.objValue;
@@ -300,34 +322,61 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public int getUnReadCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.unReadCount;
         }
         return invokeV.intValue;
     }
 
-    public it4 getUserExtraData() {
+    public IMUserExtraData getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.userExtraData;
         }
-        return (it4) invokeV.objValue;
+        return (IMUserExtraData) invokeV.objValue;
     }
 
     public int getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.userType;
         }
         return invokeV.intValue;
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return Objects.hash(this.friendId);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isGroupDelete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.isGroupDelete;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNotify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.isNotify;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean isSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.isSelected;
         }
         return invokeV.booleanValue;
@@ -336,211 +385,254 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public boolean isSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.isSelf;
         }
         return invokeV.booleanValue;
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && ImMessageCenterShowItemData.class == obj.getClass()) {
+                return this.friendId.equals(((ImMessageCenterShowItemData) obj).friendId);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public void setAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.avatar = str;
+        }
+    }
+
+    public void setCacheGroupMsgContent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.cacheGroupMsgContent = str;
         }
     }
 
     public void setDataType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.dataType = i;
         }
     }
 
     public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
             this.forumId = j;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             this.forumName = str;
         }
     }
 
     public void setFriendBjhAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.friendBjhAvatar = str;
         }
     }
 
     public void setFriendId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.friendId = str;
         }
     }
 
     public void setFriendName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.friendName = str;
         }
     }
 
     public void setFriendNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
             this.friendNameShow = str;
         }
     }
 
     public void setFriendPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             this.friendPortrait = str;
+        }
+    }
+
+    public void setGroupDelete(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+            this.isGroupDelete = z;
+        }
+    }
+
+    public void setGroupJumpUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            this.groupJumpUrl = str;
         }
     }
 
     public void setGroupSetting(ChatSetting chatSetting) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, chatSetting) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, chatSetting) == null) {
             this.groupSetting = chatSetting;
         }
     }
 
     public void setHasMore(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.hasMore = i;
         }
     }
 
     public void setIsLike(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             this.isLike = i;
         }
     }
 
     public void setMarkTopIndex(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
             this.markTopIndex = j;
         }
     }
 
     public void setMemberCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
             this.memberCount = i;
         }
     }
 
     public void setMsgContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
             this.msgContent = str;
+        }
+    }
+
+    public void setNotify(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+            this.isNotify = z;
         }
     }
 
     public void setOwnerId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
             this.ownerId = str;
         }
     }
 
     public void setOwnerName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
             this.ownerName = str;
         }
     }
 
     public void setRelation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
             this.relation = i;
         }
     }
 
     public void setSelected(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
             this.isSelected = z;
         }
     }
 
     public void setSelf(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             this.isSelf = z;
         }
     }
 
     public void setSendStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             this.sendStatus = i;
         }
     }
 
     public void setServerTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048637, this, j) == null) {
             this.serverTime = j;
         }
     }
 
     public void setSlogan(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
             this.slogan = str;
         }
     }
 
     public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
             this.status = i;
         }
     }
 
     public void setThreadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             this.threadCount = i;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             this.title = str;
         }
     }
 
     public void setUnReadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
             this.unReadCount = i;
         }
     }
 
-    public void setUserExtraData(it4 it4Var) {
+    public void setUserExtraData(IMUserExtraData iMUserExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, it4Var) == null) {
-            this.userExtraData = it4Var;
+        if (interceptable == null || interceptable.invokeL(1048643, this, iMUserExtraData) == null) {
+            this.userExtraData = iMUserExtraData;
         }
     }
 
     public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
             this.userType = i;
         }
     }

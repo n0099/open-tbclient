@@ -51,7 +51,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
-                jSONObject.putOpt("an", aPPStatus.getAPPName());
+                jSONObject.putOpt(com.alipay.sdk.sys.a.r, aPPStatus.getAPPName());
                 jSONObject.putOpt("appkey", aPPStatus.getAPPID());
                 jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
                 jSONObject.putOpt("appn", aPPStatus.getAPPRealName());
@@ -76,7 +76,7 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject.putOpt("so", deviceStatus.getScreenOrientation());
-                jSONObject.putOpt(Config.DEVICE_NAME, deviceStatus.getDataNet());
+                jSONObject.putOpt("dn", deviceStatus.getDataNet());
                 try {
                     activeNetworkInfo = ((ConnectivityManager) GDTADManager.getInstance().getAppContext().getSystemService("connectivity")).getActiveNetworkInfo();
                 } catch (Exception unused) {

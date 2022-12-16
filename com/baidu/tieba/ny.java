@@ -70,7 +70,7 @@ public class ny extends cx implements sx<ThreadData> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{pq8.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{ot8.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
@@ -149,13 +149,13 @@ public class ny extends cx implements sx<ThreadData> {
             }
             if (!StringUtils.isNull(themeCard.getExclusiveNo()) && !StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
                 this.g.setText(themeCard.getExclusiveNo());
-                WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a73, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_zb_no, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 try {
-                    this.g.setTypeface(ResourcesCompat.getFont(this.e.getPageActivity(), R.font.obfuscated));
+                    this.g.setTypeface(ResourcesCompat.getFont(this.e.getPageActivity(), R.font.baidunumber_medium));
                 } catch (Resources.NotFoundException e) {
                     BdLog.e(e);
                 }
-                qw4 d = qw4.d(this.g);
+                rw4 d = rw4.d(this.g);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0105);
                 this.h.setAlpha(0.7f);

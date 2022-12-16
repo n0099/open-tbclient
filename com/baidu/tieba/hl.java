@@ -26,18 +26,6 @@ public abstract class hl extends al {
         void b(Canvas canvas);
     }
 
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
     public hl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,18 +51,18 @@ public abstract class hl extends al {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, blVar, imageView, scaleType) == null) {
             super.c(blVar, imageView, scaleType);
             a aVar = this.v;
-            if (aVar != null && (a2 = aVar.a(j())) != null) {
-                this.t.set(a2);
-                if (this.u == null) {
-                    Paint paint = new Paint();
-                    this.u = paint;
-                    paint.setStyle(Paint.Style.STROKE);
-                    this.u.setAntiAlias(true);
-                    this.u.setColor(637534208);
-                    this.u.setDither(true);
-                    this.u.setStrokeWidth(2.0f);
-                }
-                t();
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
+                return;
+            }
+            this.t.set(a2);
+            if (this.u == null) {
+                Paint paint = new Paint();
+                this.u = paint;
+                paint.setStyle(Paint.Style.STROKE);
+                this.u.setAntiAlias(true);
+                this.u.setColor(637534208);
+                this.u.setDither(true);
+                this.u.setStrokeWidth(2.0f);
             }
         }
     }
@@ -84,26 +72,27 @@ public abstract class hl extends al {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, blVar, imageView) == null) {
             super.g(canvas, blVar, imageView);
-            if (this.w) {
-                canvas.drawPath(this.t, this.u);
-                a aVar = this.v;
-                if (aVar != null) {
-                    aVar.b(canvas);
-                }
+            if (!this.w) {
+                return;
+            }
+            canvas.drawPath(this.t, this.u);
+            a aVar = this.v;
+            if (aVar != null) {
+                aVar.b(canvas);
             }
         }
     }
 
-    public void v(a aVar) {
+    public void t(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.v = aVar;
         }
     }
 
-    public void w(boolean z) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.w = z;
         }
     }

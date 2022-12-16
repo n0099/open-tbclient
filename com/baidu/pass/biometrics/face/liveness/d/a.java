@@ -58,20 +58,20 @@ public class a extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.layout_pass_liveness_alert_dialog);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d5);
             setCanceledOnTouchOutside(false);
-            this.b = (ViewSwitcher) findViewById(R.id.view_switcher);
-            this.d = (TextView) findViewById(R.id.dialog_title);
-            this.e = (TextView) findViewById(R.id.dialog_msg);
-            this.f = (TextView) findViewById(R.id.msg_text);
-            this.g = (TextView) findViewById(R.id.pass_bio_dialog_time_left);
-            this.h = (TextView) findViewById(R.id.pass_bio_dialog_time_center);
-            this.i = (TextView) findViewById(R.id.pass_bio_dialog_time_right);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a82);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0916aa);
-            this.l = (TextView) findViewById(R.id.neutral_btn);
-            this.m = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
-            this.c = (LinearLayout) findViewById(R.id.pass_bio_dialog_ll_content);
+            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092693);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090806);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0907fd);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091628);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091848);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091847);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091849);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091aed);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09170e);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09171e);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922a2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091846);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
@@ -160,34 +160,34 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
-                this.d.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-                this.e.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
-                this.f.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.g.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.h.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.i.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.k.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-                this.j.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-                this.l.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
-                this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
+                this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eef));
+                this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e3));
+                this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608d8));
+                this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e2));
+                this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e2));
+                this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e2));
+                this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e2));
+                this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608dc));
+                this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e0));
+                this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e0));
+                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee9));
+                this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eeb));
+                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eeb));
                 return;
             }
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
-            this.d.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-            this.e.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
-            this.f.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.g.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.h.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.i.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.k.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-            this.j.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-            this.l.setTextColor(this.a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
-            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
-            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eee));
+            this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e3));
+            this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608d7));
+            this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e1));
+            this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e1));
+            this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e1));
+            this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e1));
+            this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608db));
+            this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608df));
+            this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608df));
+            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee8));
+            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eea));
+            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eea));
         }
     }
 

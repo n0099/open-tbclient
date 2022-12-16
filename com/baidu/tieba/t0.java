@@ -20,13 +20,13 @@ public class t0 {
     public b f;
     public boolean g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends a8<e7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class t0 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class t0 {
                                 i2 = i3;
                             }
                         }
-                        this.d.i(i);
+                        this.d.h(i);
                         i--;
                     }
                     i++;
@@ -248,26 +248,26 @@ public class t0 {
                         f2.k(g);
                     } else {
                         e2.j(c2);
-                        c3.j(p0Var, true);
+                        c3.i(p0Var, true);
                         f2.c(g);
                     }
                 }
             }
             this.g = true;
-            c[] p = this.d.p();
+            c[] o = this.d.o();
             try {
                 for (int i = e2.i(0); i >= 0; i = e2.i(i + 1)) {
-                    p[i].a.a(p0Var);
+                    o[i].a.a(p0Var);
                 }
                 for (int i2 = e.i(0); i2 >= 0; i2 = e.i(i2 + 1)) {
-                    p[i2].a.b(p0Var);
+                    o[i2].a.b(p0Var);
                 }
             } finally {
                 e.b();
                 e2.b();
                 this.f.c(e);
                 this.f.c(e2);
-                this.d.q();
+                this.d.p();
                 this.g = false;
             }
         }

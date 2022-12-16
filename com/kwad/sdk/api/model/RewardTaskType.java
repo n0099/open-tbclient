@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public @interface RewardTaskType {
     public static final int LOOK_LANDING_PAGE = 1;
     public static final int LOOK_VIDEO = 0;

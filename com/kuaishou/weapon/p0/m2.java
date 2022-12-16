@@ -5,9 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -24,7 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +234,7 @@ public class m2 {
                     jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK));
                     jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
                     jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK));
-                    jSONObject.put("55", t0Var.c("55"));
+                    jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK));
                     jSONObject.put("73", t0Var.c("73"));
                     jSONObject.put("74", t0Var.c("74"));
                     jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, t0Var.c(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE));
@@ -262,8 +260,8 @@ public class m2 {
                     jSONObject.put("75", t0Var.c("75"));
                     jSONObject.put("88", t0Var.c("88"));
                     jSONObject.put("92", t0Var.c("92"));
-                    jSONObject.put(BaseUtils.METHOD_RECEIVEESSAGE, t0Var.c(BaseUtils.METHOD_RECEIVEESSAGE));
-                    jSONObject.put(HttpConfig.UBC_HTTP_ID, t0Var.c(HttpConfig.UBC_HTTP_ID));
+                    jSONObject.put("93", t0Var.c("93"));
+                    jSONObject.put("94", t0Var.c("94"));
                     jSONObject.put("95", t0Var.c("95"));
                     jSONObject.put("98", t0Var.c("98"));
                     jSONObject.put("100", t0Var.c("100"));

@@ -15,7 +15,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.PushSocket;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +109,7 @@ public class f {
         };
         this.i = new Handler(context.getMainLooper());
         this.h = context.getApplicationContext();
-        this.b = TiebaStatic.MAX_COST_VALUE;
+        this.b = 180000;
     }
 
     public static f a(Context context) {

@@ -29,7 +29,7 @@ public class RecordTabLayout extends LinearLayout {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void x(int i, boolean z);
+        void w(int i, boolean z);
     }
 
     /* loaded from: classes6.dex */
@@ -71,7 +71,7 @@ public class RecordTabLayout extends LinearLayout {
             }
             this.b.setCurrentTab(i2, true);
             if (this.b.e != null) {
-                this.b.e.x(this.a, true);
+                this.b.e.w(this.a, true);
             }
         }
     }

@@ -126,18 +126,18 @@ public class xx extends cx implements tx, sx<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.l != null && this.a.k != null && !this.a.l.isTransportThread() && this.a.n) {
-                if (!this.a.l.isMarkToDel() && yi6.f().i()) {
-                    if (yi6.f().a(this.a.l)) {
+                if (!this.a.l.isMarkToDel() && tj6.f().i()) {
+                    if (tj6.f().a(this.a.l)) {
                         this.a.l.setMarkToDel(true);
                     }
-                } else if (!this.a.l.isMarkToMove() && xi6.h().j()) {
-                    if (xi6.h().a(this.a.l)) {
+                } else if (!this.a.l.isMarkToMove() && sj6.h().j()) {
+                    if (sj6.h().a(this.a.l)) {
                         this.a.l.setMarkToMove(true);
                     }
                 } else {
-                    yi6.f().l(this.a.l);
+                    tj6.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    xi6.h().l(this.a.l);
+                    sj6.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
                 }
                 this.a.r();
@@ -164,17 +164,17 @@ public class xx extends cx implements tx, sx<ThreadData> {
         this.m = false;
         this.n = true;
         this.o = new a(this, 2921402);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.multi_del_decor_layout, (ViewGroup) null);
         this.g = inflate;
-        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0915e4);
-        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0915de);
+        this.h = inflate.findViewById(R.id.multi_del_mask_top_view);
+        this.f = (LinearLayout) this.g.findViewById(R.id.multi_del_bottom_layout);
         this.h.setAlpha(0.5f);
-        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0915e3);
+        View findViewById = this.g.findViewById(R.id.multi_del_mask_bottom_view);
         this.i = findViewById;
         findViewById.setAlpha(0.5f);
-        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0914d3);
-        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0915df);
-        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0914d5);
+        this.j = (ImageView) this.g.findViewById(R.id.manage_select_img);
+        this.e = (RelativeLayout) this.g.findViewById(R.id.multi_del_bottom_root);
+        this.k = (TextView) this.g.findViewById(R.id.manage_select_txt);
         g(this.g);
         this.g.setFocusable(true);
         this.g.setOnClickListener(new b(this));
@@ -200,11 +200,11 @@ public class xx extends cx implements tx, sx<ThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0107, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
             } else {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080970, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
             }
-            qw4 d = qw4.d(this.h);
+            rw4 d = rw4.d(this.h);
             d.n(R.string.J_X06);
             if (this.m) {
                 i2 = 2;
@@ -213,11 +213,11 @@ public class xx extends cx implements tx, sx<ThreadData> {
             }
             d.m(i2);
             d.f(R.color.CAM_X0201);
-            qw4 d2 = qw4.d(this.i);
+            rw4 d2 = rw4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            qw4.d(this.k).A(R.string.F_X01);
+            rw4.d(this.k).A(R.string.F_X01);
             TextView textView = this.k;
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
                 i3 = R.drawable.selector_comment_and_prise_item_text_color;
@@ -242,13 +242,13 @@ public class xx extends cx implements tx, sx<ThreadData> {
                 z = false;
             }
             this.n = z;
-            if (!yi6.f().i() && !xi6.h().j()) {
-                this.d.o(new zy.a(4, Boolean.TRUE));
+            if (!tj6.f().i() && !sj6.h().j()) {
+                this.d.p(new zy.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;
             }
             this.g.setVisibility(0);
-            this.d.o(new zy.a(4, Boolean.FALSE));
+            this.d.p(new zy.a(4, Boolean.FALSE));
             r();
         }
     }
@@ -277,9 +277,9 @@ public class xx extends cx implements tx, sx<ThreadData> {
                 boolean isMarkToDel = this.l.isMarkToDel();
                 int i3 = R.color.CAM_X0304;
                 if (!isMarkToDel && !this.l.isMarkToMove()) {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0107, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
                 } else {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080970, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
                 }
                 TextView textView = this.k;
                 if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
@@ -302,7 +302,7 @@ public class xx extends cx implements tx, sx<ThreadData> {
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, pyVar) == null) {
             this.f.setWeightSum(i);
             if (this.f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(pyVar.f, pyVar.d, pyVar.g, pyVar.e);
+                ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(pyVar.g, pyVar.d, pyVar.h, pyVar.f);
             }
         }
     }

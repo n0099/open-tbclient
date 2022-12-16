@@ -19,7 +19,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i extends h implements com.kwad.components.ad.splashscreen.g, com.kwad.sdk.core.g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,10 +160,10 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09120b)).inflate();
-            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09120c);
-            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f09120a);
-            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f09120d);
+            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09126a)).inflate();
+            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09126b);
+            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f091269);
+            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f09126c);
         }
     }
 
@@ -282,7 +282,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void kl() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09120a), -1, 60, -1, -1);
+            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091269), -1, 60, -1, -1);
         }
     }
 

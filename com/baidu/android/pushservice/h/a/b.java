@@ -154,14 +154,14 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0039b {
+    public static final class C0053b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
         public com.baidu.android.pushservice.c.a.b b;
         public boolean c;
 
-        public C0039b(Context context) {
+        public C0053b(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,34 +188,34 @@ public class b {
             bVar.g = -1L;
         }
 
-        public C0039b a(long j) {
+        public C0053b a(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
                 this.b.a = j;
                 return this;
             }
-            return (C0039b) invokeJ.objValue;
+            return (C0053b) invokeJ.objValue;
         }
 
-        public C0039b a(String str) {
+        public C0053b a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.b.c = str;
                 return this;
             }
-            return (C0039b) invokeL.objValue;
+            return (C0053b) invokeL.objValue;
         }
 
-        public C0039b a(boolean z) {
+        public C0053b a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.c = z;
                 return this;
             }
-            return (C0039b) invokeZ.objValue;
+            return (C0053b) invokeZ.objValue;
         }
 
         public void a() {
@@ -229,44 +229,44 @@ public class b {
             }
         }
 
-        public C0039b b(long j) {
+        public C0053b b(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
                 this.b.b = j;
                 return this;
             }
-            return (C0039b) invokeJ.objValue;
+            return (C0053b) invokeJ.objValue;
         }
 
-        public C0039b b(String str) {
+        public C0053b b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 this.b.f = str;
                 return this;
             }
-            return (C0039b) invokeL.objValue;
+            return (C0053b) invokeL.objValue;
         }
 
-        public C0039b c(long j) {
+        public C0053b c(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
                 this.b.e = j;
                 return this;
             }
-            return (C0039b) invokeJ.objValue;
+            return (C0053b) invokeJ.objValue;
         }
 
-        public C0039b d(long j) {
+        public C0053b d(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
                 this.b.g = j;
                 return this;
             }
-            return (C0039b) invokeJ.objValue;
+            return (C0053b) invokeJ.objValue;
         }
     }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
 import com.kwad.components.offline.api.tk.model.StyleTemplate;
 import com.kwad.sdk.components.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a extends com.kwad.sdk.components.a {
     StyleTemplate findStyleTemplateFromConfigById(String str);
 

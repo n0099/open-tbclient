@@ -1,8 +1,6 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,15 +70,13 @@ public class IMConfigInternal {
                 if (cls != null) {
                     try {
                         return (IIMConfig) cls.newInstance();
-                    } catch (Exception e) {
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                    } catch (Exception unused) {
                         LogUtils.d(TAG, "Product line of jar is ERROR!");
                     }
                 }
                 LogUtils.d(TAG, "Init ERROR!");
                 return null;
-            } catch (ClassNotFoundException e2) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (ClassNotFoundException unused2) {
                 LogUtils.d(TAG, "Product line of jar is ERROR!");
                 return null;
             }
@@ -119,6 +115,20 @@ public class IMConfigInternal {
         return (IIMConfig) invokeL.objValue;
     }
 
+    public int getSDKVersionValue(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            try {
+                int productLine = getProductLine(context);
+                return Integer.valueOf(com.tencent.connect.common.Constants.DEFAULT_UIN + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
     public int getProductLine(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,21 +141,6 @@ public class IMConfigInternal {
                 return 1;
             }
             return readIntData;
-        }
-        return invokeL.intValue;
-    }
-
-    public int getSDKVersionValue(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            try {
-                int productLine = getProductLine(context);
-                return Integer.valueOf("740" + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                return 0;
-            }
         }
         return invokeL.intValue;
     }

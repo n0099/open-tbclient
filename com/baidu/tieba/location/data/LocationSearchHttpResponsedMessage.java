@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.zk7;
+import com.baidu.tieba.xn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk7 mLocationData;
+    public xn7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -49,26 +49,26 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            zk7 zk7Var = new zk7();
-            this.mLocationData = zk7Var;
-            zk7Var.b(getSuggestionByAddrNameResIdl.data);
+            xn7 xn7Var = new xn7();
+            this.mLocationData = xn7Var;
+            xn7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }
 
-    public zk7 getLocationData() {
+    public xn7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mLocationData;
         }
-        return (zk7) invokeV.objValue;
+        return (xn7) invokeV.objValue;
     }
 
-    public void setLocationData(zk7 zk7Var) {
+    public void setLocationData(xn7 xn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zk7Var) == null) {
-            this.mLocationData = zk7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, xn7Var) == null) {
+            this.mLocationData = xn7Var;
         }
     }
 }

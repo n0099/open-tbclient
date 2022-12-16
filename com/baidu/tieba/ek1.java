@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.p.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ek1 implements zj1 {
+/* loaded from: classes4.dex */
+public class ek1 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dk1 a;
+    public ck1 a;
 
-    public ek1() {
+    public ek1(ck1 ck1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ck1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,23 +30,31 @@ public class ek1 implements zj1 {
                 return;
             }
         }
-        this.a = null;
+        this.a = ck1Var;
     }
 
-    @Override // com.baidu.tieba.zj1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a("OUID") : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.a = a.AbstractBinderC0189a.a(iBinder);
+            zj1 zj1Var = this.a.e;
+            if (zj1Var != null) {
+                zj1Var.a();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.zj1
-    public void a(Context context, ak1 ak1Var) {
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ak1Var) == null) {
-            dk1 dk1Var = new dk1(context);
-            this.a = dk1Var;
-            dk1Var.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            ck1 ck1Var = this.a;
+            ck1Var.a = null;
+            zj1 zj1Var = ck1Var.e;
+            if (zj1Var != null) {
+                zj1Var.a();
+            }
         }
     }
 }

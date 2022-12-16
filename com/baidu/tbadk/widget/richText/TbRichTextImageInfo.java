@@ -190,16 +190,16 @@ public class TbRichTextImageInfo extends OrmObject {
         this.l = pbContent.cdn_src_active;
     }
 
-    public String A() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public String B() {
+    public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -208,7 +208,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String C() {
+    public String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -217,7 +217,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String D() {
+    public String J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -226,7 +226,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public long E() {
+    public long K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -235,7 +235,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.longValue;
     }
 
-    public String F() {
+    public String L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -244,7 +244,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public boolean G() {
+    public boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -253,7 +253,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean H() {
+    public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -262,7 +262,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean I() {
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -271,7 +271,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean J() {
+    public boolean P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -280,10 +280,19 @@ public class TbRichTextImageInfo extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public int getHeight() {
+    public String getBigSrc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
@@ -292,7 +301,7 @@ public class TbRichTextImageInfo extends OrmObject {
     public long getOriginalSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.i;
         }
         return invokeV.longValue;
@@ -301,36 +310,27 @@ public class TbRichTextImageInfo extends OrmObject {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.d;
         }
         return invokeV.intValue;
     }
 
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void K(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.k = z;
         }
     }
 
-    public void L(String str) {
+    public void R(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.h = str;
         }
     }
 
-    public void M(String str) {
+    public void S(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.a = str;
@@ -339,14 +339,14 @@ public class TbRichTextImageInfo extends OrmObject {
 
     public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.e = i;
         }
     }
 
     public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.d = i;
         }
     }

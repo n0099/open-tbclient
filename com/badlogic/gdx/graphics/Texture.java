@@ -514,7 +514,7 @@ public class Texture extends p3 {
         }
         delete();
         if (this.i.a() && k.get(f1.a) != null) {
-            k.get(f1.a).j(this, true);
+            k.get(f1.a).i(this, true);
         }
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -168,7 +167,7 @@ public class ExtraInfo {
                     jSONObject.put("v1", this.a);
                 }
                 if (!TextUtils.isEmpty(this.b)) {
-                    jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.b);
+                    jSONObject.put("v2", this.b);
                 }
                 if (!TextUtils.isEmpty(this.c)) {
                     jSONObject.put("v3", this.c);

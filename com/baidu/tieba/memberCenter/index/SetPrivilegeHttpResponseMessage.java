@@ -77,6 +77,8 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public a getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

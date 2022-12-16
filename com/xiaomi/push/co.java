@@ -14,7 +14,7 @@ public class co {
     public static String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static SimpleDateFormat f178a;
+    public static SimpleDateFormat f201a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class co {
             }
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        f178a = simpleDateFormat;
+        f201a = simpleDateFormat;
         a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
@@ -49,7 +49,7 @@ public class co {
             hnVar.b(str);
             hnVar.a(true);
             hnVar.b(System.currentTimeMillis());
-            hnVar.g(bx.a(context).m215a());
+            hnVar.g(bx.a(context).m225a());
             hnVar.e("com.xiaomi.xmsf");
             hnVar.f("");
             hnVar.c("push_stat");

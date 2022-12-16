@@ -1,15 +1,7 @@
 package com.baidu.tieba;
-
-import android.widget.EditText;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface z69 {
-    void b(boolean z);
+    void a();
 
-    int f();
-
-    void l();
-
-    void n();
-
-    EditText p();
+    void b();
 }

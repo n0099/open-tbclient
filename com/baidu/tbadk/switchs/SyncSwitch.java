@@ -29,6 +29,7 @@ public class SyncSwitch {
     public static void initSyncSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            SwitchManager.getInstance().registerSwitch(TbBrowseModeSwitch.class);
             SwitchManager.getInstance().registerSwitch(GiftSwitch.class);
             SwitchManager.getInstance().registerSwitch(AccountsDataFromPassSwitch.class);
             SwitchManager.getInstance().registerSwitch(AdSdkSwitch.class);
@@ -91,7 +92,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterForumDetailEnableSwitch.class);
-            SwitchManager.getInstance().registerSwitch(FlutterMyTabEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterConcernForumEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterAttachSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterPersonCenterEnableSwitch.class);
@@ -121,7 +121,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(OpenStartSafeModeSwitch.class);
             SwitchManager.getInstance().registerSwitch(ResetSplashAdConfigSwitch.class);
             SwitchManager.getInstance().registerSwitch(SocketAddCommonParamSwitch.class);
-            SwitchManager.getInstance().registerSwitch(AsyncParseMessageSwitch.class);
             SwitchManager.getInstance().registerSwitch(DelayInitNightPluginSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImgUaSwitch.class);
             SwitchManager.getInstance().registerSwitch(BdNetTypeSwitch.class);
@@ -138,7 +137,9 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunSdkInitSwitch.class);
             SwitchManager.getInstance().registerSwitch(GifLibrarySwitch.class);
             SwitchManager.getInstance().registerSwitch(WorldCupEnableSwitch.class);
+            SwitchManager.getInstance().registerSwitch(DelayLoadUrlSwitch.class);
             SwitchManager.getInstance().registerSwitch(PraiseSwitch.class);
+            SwitchManager.getInstance().registerSwitch(WebViewTrackerEnableSwitch.class);
         }
     }
 }

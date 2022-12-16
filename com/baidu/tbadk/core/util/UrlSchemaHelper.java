@@ -55,6 +55,7 @@ public class UrlSchemaHelper {
     public static final String JUMP_TO_THIS_PAGE = "jump=open_in_this_page";
     public static final String JUMP_TO_VIDEO_SQUARE = "routertovideosquare:";
     public static final String MEMBER_CENTER_URL = "mo/q/hybrid/tbvip";
+    public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public static final String OPEN_PERSON_INFO = "open_personalCenter=1";
     public static final String PAY_MEMBER_PAGE = "/paywithnative";
     public static final String PAY_TBEAN_PAGE = "/buyTBeans";
@@ -162,6 +163,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_SUB_PB = "tieba.baidu.com/subp";
     public static final String SCHEMA_TYPE_SWAN = "tiebaclient://swan";
     public static final String SCHEMA_TYPE_SWAN_BAIDUBOXAPP = "baiduboxapp://swan";
+    public static final String SCHEMA_TYPE_SWAN_GAME = "tiebaclient://swangame";
     public static final String SCHEMA_TYPE_TBOWNEREMOJI = "/n/interact/tbowneremoji";
     public static final String SCHEMA_TYPE_TB_CLIENT = "tbclient://";
     public static final String SCHEMA_TYPE_TB_CLIENT_GAME_FRS_TAB = "tblaunch://tieba.baidu.com/f?";
@@ -174,6 +176,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_ZB = "zb:";
     public static final String SCHEMA_VIDEO_CREATE_CENTER = "com.baidu.tieba://unidispatch/video_create_center";
     public static final String SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX = "bdtiebalive://video/yylive/joinlive?";
+    public static final String SCHEME_POST_DETAIL_PAGE = "com.baidu.tieba://unidispatch/PostDetail";
     public static final String SCHEME_SWAN_GAME_CENTER = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/home/index?_baiduboxapp={\"from\":\"tieba\"}";
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";
     public static final String SCHEME_TYPE_ID_CARD = "tieba://idcard?";

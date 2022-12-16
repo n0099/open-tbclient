@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SnapshotConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class SnapshotConstant {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEVICE_APP_DB_INFO = "pre_d_db_info";
@@ -39,7 +39,7 @@ public class SnapshotConstant {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceFilePathConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEVICE_BUILD_CONFIG = "/system/build.prop";
@@ -64,7 +64,7 @@ public class SnapshotConstant {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ExtConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXT_FILE_PREFIX = "ext_";
@@ -85,7 +85,7 @@ public class SnapshotConstant {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LocalConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOCAL_PREFIX = "local_";
@@ -107,7 +107,7 @@ public class SnapshotConstant {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ProcessConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PROCESS_LOG_BASIC_DATA = "pre_p_log_basicdata";

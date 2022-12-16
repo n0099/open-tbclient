@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.http.Headers;
 import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.sdk.core.network.o;
@@ -123,7 +122,7 @@ public final class b {
                         if (responseCode == 200) {
                             cVar.XV = g.b(httpURLConnection2.getInputStream());
                             try {
-                                int optInt = new JSONObject(cVar.XV).optInt(TiebaStatic.LogFields.RESULT, -1);
+                                int optInt = new JSONObject(cVar.XV).optInt("result", -1);
                                 if (optInt == 1) {
                                     aVar.wV();
                                 } else {

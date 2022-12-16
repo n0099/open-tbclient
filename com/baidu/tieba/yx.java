@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class yx extends ax<tr4> {
+/* loaded from: classes7.dex */
+public class yx extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgMutiPicLayout f;
-    public tr4 g;
+    public vr4 g;
     public int h;
     public String i;
     public Context j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements pg<ImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class yx extends ax<tr4> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (cr4.c().g()) {
+                    if (dr4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -139,7 +139,7 @@ public class yx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
-                boolean g = cr4.c().g();
+                boolean g = dr4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -155,7 +155,7 @@ public class yx extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements pg<GifView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class yx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (cr4.c().g()) {
+                if (dr4.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -255,7 +255,7 @@ public class yx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.j);
-                boolean g = cr4.c().g();
+                boolean g = dr4.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     gifView.setAdjustViewBounds(false);
@@ -271,7 +271,7 @@ public class yx extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,11 +301,11 @@ public class yx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    x36.a(this.a.g.getThreadData().getId());
+                    s46.a(this.a.g.getThreadData().getId());
                     TextView textView = this.a.f.a;
                     TextView textView2 = this.a.f.b;
-                    x36.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    x36.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -345,22 +345,22 @@ public class yx extends ax<tr4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
-            this.f.setSubClickListener(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, h56Var) == null) {
+            this.f.setSubClickListener(h56Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: v */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
-            this.g = tr4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr4Var) == null) {
+            this.g = vr4Var;
             this.f.setFrom(this.i);
-            this.f.a(tr4Var);
+            this.f.a(vr4Var);
         }
     }
 

@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object a;
     public static String b = "PushTrackDatabase";
-    public static C0020e c;
+    public static C0034e c;
     @SuppressLint({"StaticFieldLeak"})
     public static e d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +266,7 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0020e extends SQLiteOpenHelper {
+    public static class C0034e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -330,7 +329,7 @@ public class e {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0020e(Context context, String str, int i) {
+        public C0034e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -482,7 +481,7 @@ public class e {
             }
         }
         this.e = context;
-        c = new C0020e(context, "push_track.db", 1);
+        c = new C0034e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
@@ -506,7 +505,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (c == null) {
-                c = new C0020e(context, "push_track.db", 1);
+                c = new C0034e(context, "push_track.db", 1);
             }
             try {
                 return c.getWritableDatabase();
@@ -630,7 +629,7 @@ public class e {
                     contentValues.put(a.d.name(), Long.valueOf(aVar.c));
                     contentValues.put(a.e.name(), aVar.d);
                     contentValues.put(a.f.name(), Long.valueOf(aVar.e));
-                    b2.insert(IMTrackDatabase.AckEnum.TABLE_NAME, null, contentValues);
+                    b2.insert("ack", null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
                     b2.close();
@@ -713,7 +712,7 @@ public class e {
                     contentValues.put(d.h.name(), Long.valueOf(dVar.g));
                     contentValues.put(d.i.name(), dVar.h);
                     contentValues.put(d.j.name(), Long.valueOf(dVar.i));
-                    b2.insert(IMTrackDatabase.DbEnum.TABLE_NAME, null, contentValues);
+                    b2.insert("db", null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
                     b2.close();
@@ -951,10 +950,10 @@ public class e {
                 }
                 try {
                     b2.delete("crash", null, null);
-                    b2.delete(IMTrackDatabase.DbEnum.TABLE_NAME, null, null);
+                    b2.delete("db", null, null);
                     b2.delete("connection", null, null);
                     b2.delete("request", null, null);
-                    b2.delete(IMTrackDatabase.AckEnum.TABLE_NAME, null, null);
+                    b2.delete("ack", null, null);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
                     b2.close();

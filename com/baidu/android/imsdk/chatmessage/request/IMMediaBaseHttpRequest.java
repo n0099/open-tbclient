@@ -12,11 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.TreeSet;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -29,7 +26,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public String getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     public IMMediaBaseHttpRequest() {
@@ -50,7 +47,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public boolean shouldAbort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (AccountManager.getMediaRole(this.mContext) && !AccountManager.isCuidLogin(this.mContext)) {
                 return false;
             }
@@ -59,34 +56,11 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            TreeSet<String> treeSet = new TreeSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                treeSet.add(keys.next());
-            }
-            for (String str : treeSet) {
-                sb.append(str);
-                sb.append("=");
-                sb.append(jSONObject.opt(str));
-            }
-            return getMd5(sb.toString());
-        }
-        return (String) invokeL.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
             hashMap.put("Cookie", "BDUSS=" + bduss);
@@ -98,7 +72,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public String getHostUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
                 if (readIntData != 1) {
@@ -110,7 +84,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
                     }
                     return Constants.URL_HTTP_QA;
                 }
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
+                return Constants.URL_HTTP_RD_8111;
             }
             return "https://pim.baidu.com/";
         }
@@ -120,7 +94,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public JSONObject putCommonParams(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
             jSONObject.put("appid", AccountManager.getAppid(this.mContext));
             jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());

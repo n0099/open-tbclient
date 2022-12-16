@@ -1,5 +1,6 @@
 package com.baidu.clientupdate.d;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public final class h {
             ruleInfo.mSize = jSONObject.optString("size");
             ruleInfo.mPatchDownUrl = jSONObject.optString("patch_downurl");
             ruleInfo.mPatchSize = jSONObject.optString("patch_size");
-            ruleInfo.mIconUrl = jSONObject.optString("iconurl");
+            ruleInfo.mIconUrl = jSONObject.optString(IMConstants.SHARE_ICON_URL);
             ruleInfo.mPackageName = jSONObject.optString("packagename");
             ruleInfo.mUpdateTime = jSONObject.optString("update_time");
             return ruleInfo;

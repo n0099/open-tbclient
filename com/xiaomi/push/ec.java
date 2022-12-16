@@ -14,7 +14,7 @@ public class ec {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f302a;
+    public String f325a;
     public String b;
     public String c;
     public String d;
@@ -40,10 +40,10 @@ public class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m304a() {
+    public String m314a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f302a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f325a : (String) invokeV.objValue;
     }
 
     public void a(int i) {
@@ -56,7 +56,7 @@ public class ec {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f302a = str;
+            this.f325a = str;
         }
     }
 

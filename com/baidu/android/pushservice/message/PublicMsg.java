@@ -330,7 +330,7 @@ public class PublicMsg implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00cf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

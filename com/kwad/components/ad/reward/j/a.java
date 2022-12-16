@@ -27,7 +27,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.kwad.components.ad.h.a implements com.kwad.components.core.g.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     public String uf;
     public boolean ug;
     public boolean uh;
-    public List<InterfaceC0555a> ui;
+    public List<InterfaceC0572a> ui;
     public final List<h.a> uj;
     public h.a uk;
 
     /* renamed from: com.kwad.components.ad.reward.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0555a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0572a {
         boolean handledOnResume();
     }
 
@@ -232,10 +232,10 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void a(InterfaceC0555a interfaceC0555a) {
+    public final void a(InterfaceC0572a interfaceC0572a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0555a) == null) {
-            this.ui.add(interfaceC0555a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0572a) == null) {
+            this.ui.add(interfaceC0572a);
         }
     }
 
@@ -255,10 +255,10 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void b(InterfaceC0555a interfaceC0555a) {
+    public final void b(InterfaceC0572a interfaceC0572a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0555a) == null) {
-            this.ui.remove(interfaceC0555a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0572a) == null) {
+            this.ui.remove(interfaceC0572a);
         }
     }
 
@@ -329,8 +329,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             loop0: while (true) {
-                for (InterfaceC0555a interfaceC0555a : this.ui) {
-                    z = z || interfaceC0555a.handledOnResume();
+                for (InterfaceC0572a interfaceC0572a : this.ui) {
+                    z = z || interfaceC0572a.handledOnResume();
                 }
             }
             if (!z && !this.hx) {

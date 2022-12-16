@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
@@ -140,7 +141,7 @@ public class g extends c {
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra("app_id", e);
                         intent.putExtra("baidu_message_secur_info", k);
-                        intent.putExtra("notify_id", b);
+                        intent.putExtra(Constants.EXTRA_NOTIFY_ID, b);
                         intent.putExtra("widget_badge_info", kVar.c());
                         if (!TextUtils.isEmpty(a3.mCustomContent)) {
                             try {

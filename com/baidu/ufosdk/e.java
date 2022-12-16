@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.hybrid.base.FeedbackTitleBar;
 import com.baidu.ufosdk.hybrid.base.WebLoaderActivity;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class e implements View.OnClickListener {
                 z = false;
                 if (z) {
                     webLoaderActivity.startActivity(a);
-                    webLoaderActivity.overridePendingTransition(com.baidu.tieba.R.anim.ufo_slide_in_from_right, com.baidu.tieba.R.anim.ufo_slide_out_to_left);
+                    webLoaderActivity.overridePendingTransition(com.baidu.tieba.R.anim.obfuscated_res_0x7f010148, com.baidu.tieba.R.anim.obfuscated_res_0x7f01014a);
                     return;
                 }
                 return;

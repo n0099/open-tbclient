@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,8 +127,8 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             str = "";
         }
         if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
-            jv4.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(jv4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+            kv4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(kv4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
         }
     }
 

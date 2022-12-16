@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ap extends w65 {
+public class ap extends x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b33), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,8 +34,8 @@ public class ap extends w65 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809f2;
-        this.e = R.drawable.obfuscated_res_0x7f08082d;
+        this.d = R.drawable.icon_pure_post_voice24;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
         this.i = false;
         this.j = true;
         this.n = 6;
@@ -44,7 +44,7 @@ public class ap extends w65 {
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.tieba.w65
+    @Override // com.baidu.tieba.x65
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class ap extends w65 {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f5);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

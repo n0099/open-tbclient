@@ -46,7 +46,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -1527,7 +1526,7 @@ public final class m {
             if (A(context)) {
                 return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + "v3" + deviceID).getBytes(), false);
             }
-            return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX + deviceID).getBytes(), false);
+            return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + "v2" + deviceID).getBytes(), false);
         }
         return (String) invokeL.objValue;
     }

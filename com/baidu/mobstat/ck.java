@@ -280,7 +280,7 @@ public class ck extends cj {
             byte a2 = a(cwVar.f());
             byte b = Byte.MIN_VALUE;
             if (cwVar.d()) {
-                i4 = -128;
+                i4 = com.alipay.sdk.encrypt.a.g;
             } else {
                 i4 = 0;
             }

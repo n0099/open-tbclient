@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
@@ -18,7 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.util.List;
+/* loaded from: classes5.dex */
 public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +73,7 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public V onCreateBottomViewHolder(ViewGroup viewGroup, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, viewGroup, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, viewGroup, t)) == null) {
             return null;
         }
         return (V) invokeLL.objValue;
@@ -79,7 +82,7 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public V onCreateContentViewHolder(ViewGroup viewGroup, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, viewGroup, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, viewGroup, t)) == null) {
             return null;
         }
         return (V) invokeLL.objValue;
@@ -88,7 +91,7 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public V onCreateExtendViewHolder(ViewGroup viewGroup, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, viewGroup, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, viewGroup, t)) == null) {
             return null;
         }
         return (V) invokeLL.objValue;
@@ -97,7 +100,7 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public V onCreateHeaderViewHolder(ViewGroup viewGroup, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, viewGroup, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, viewGroup, t)) == null) {
             return null;
         }
         return (V) invokeLL.objValue;
@@ -107,9 +110,15 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
 
     public abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
 
+    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t, @NonNull List<Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), viewGroup, v, t, list}) == null) {
+        }
+    }
+
     public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
         }
     }
 
@@ -227,37 +236,45 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
         return invokeI.booleanValue;
     }
 
+    public void notifyItemChanged(int i) {
+        co<xn> coVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (coVar = this.mAdapter) != null) {
+            coVar.notifyItemChanged(i);
+        }
+    }
+
     public void setAdapter(co<xn> coVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, coVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, coVar) == null) {
             this.mAdapter = coVar;
         }
     }
 
     public void setOnAdapterItemClickListener(ho hoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, hoVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, hoVar) == null) {
             this.mAdapterItemClickListener = hoVar;
         }
     }
 
     public void setOnAdapterItemLongClickListener(io ioVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, ioVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, ioVar) == null) {
             this.mAdapterItemLongClickListener = ioVar;
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, bdUniqueId) == null) {
             this.mPageId = bdUniqueId;
         }
     }
 
     public void setType(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, bdUniqueId) == null) {
             this.mType = bdUniqueId;
         }
     }
@@ -325,15 +342,23 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
                 }
             }
             View view3 = view2;
-            return onFillViewHolder(i, view3, viewGroup, t, (TypeAdapter.ViewHolder) view3.getTag());
+            return onFillViewHolder(i, view3, viewGroup, (ViewGroup) t, (T) ((TypeAdapter.ViewHolder) view3.getTag()));
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void notifyItemChanged(int i, @Nullable Object obj) {
+        co<xn> coVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048592, this, i, obj) == null) && (coVar = this.mAdapter) != null) {
+            coVar.notifyItemChanged(i, obj);
+        }
     }
 
     public V onCreateViewHolder(ViewGroup viewGroup, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, viewGroup, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, viewGroup, t)) == null) {
             return onCreateViewHolder(viewGroup);
         }
         return (V) invokeLL.objValue;
@@ -342,8 +367,8 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public View onFillBottomViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, t, v);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
         }
         return (View) invokeCommon.objValue;
     }
@@ -351,8 +376,8 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public View onFillContentViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, t, v);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
         }
         return (View) invokeCommon.objValue;
     }
@@ -360,8 +385,8 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public View onFillExtendViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, t, v);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
         }
         return (View) invokeCommon.objValue;
     }
@@ -369,23 +394,23 @@ public abstract class kn<T, V extends TypeAdapter.ViewHolder> {
     public View onFillHeaderViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, t, v);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
         }
         return (View) invokeCommon.objValue;
     }
 
     public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
-            onFillViewHolder(i, v.getView(), viewGroup, t, v);
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
+            onFillViewHolder(i, v.getView(), viewGroup, (ViewGroup) t, (T) v);
         }
     }
 
     public boolean setPreloadSize(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048608, this, i, i2, i3)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048611, this, i, i2, i3)) == null) {
             return this.mImagePreloadSizeData.c(i, i2, i3);
         }
         return invokeIII.booleanValue;

@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public interface gt6 {
-    void a(ro8 ro8Var, FrsViewData frsViewData);
-
-    View getView();
-
-    void onChangeSkinType(int i);
+    void a(int i, boolean z, int i2, boolean z2, ArrayList<xn> arrayList, boolean z3);
 }

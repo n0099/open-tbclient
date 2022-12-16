@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IConfigurations {
     String getAccountName();
 

@@ -16,35 +16,35 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj8;
-import com.baidu.tieba.bi7;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.ij8;
-import com.baidu.tieba.jj8;
+import com.baidu.tieba.am8;
+import com.baidu.tieba.bm8;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.setting.model.AboutModel;
+import com.baidu.tieba.sl8;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.w35;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.x35;
+import com.baidu.tieba.yk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aj8 a;
+    public sl8 a;
     public AboutModel b;
     public c c;
     public String d;
-    public ij8 e;
-    public jj8 f;
+    public am8 e;
+    public bm8 f;
     public int g;
 
-    /* loaded from: classes5.dex */
-    public class a implements dj8 {
+    /* loaded from: classes6.dex */
+    public class a implements vl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -67,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.dj8
+        @Override // com.baidu.tieba.vl8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -75,48 +75,46 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
                     this.a.finish();
-                } else if (i != 1) {
-                    if (i == 2) {
-                        this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
-                    } else if (i == 3) {
-                        qy4.k().u(SettingTextFunctionIntroView.h, true);
-                        sp4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f07b2), this.a.d, true, false, false);
-                    } else if (i == 4) {
-                        if (TbConfig.getDebugSwitch()) {
-                            str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_DEBUG_FILE;
-                        } else {
-                            str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE;
-                        }
-                        if (TbConfig.getDebugSwitch()) {
-                            fileDireciory = FileHelper.getFileDireciory(TbConfig.FATAL_ERROR_DEBUG_FILE);
-                        } else {
-                            fileDireciory = FileHelper.getFileDireciory(TbConfig.FATAL_ERROR_FILE);
-                        }
-                        FileHelper.copyFileByAbsolutelyPath(str, fileDireciory);
-                        FileHelper.CopyDir(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/newStat", FileHelper.getCacheDir() + "newStat", false);
-                    } else if (i == 5) {
-                        if (this.a.e == null) {
-                            AboutActivity aboutActivity = this.a;
-                            aboutActivity.e = new ij8(aboutActivity.getActivity());
-                            this.a.e.create(this.a.getPageContext());
-                        }
-                        this.a.e.show();
-                    } else if (i == 6) {
-                        if (!PermissionUtil.checkWriteExternalStorage(this.a)) {
-                            AboutActivity aboutActivity2 = this.a;
-                            PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.g);
-                            return;
-                        }
-                        this.a.I1();
+                } else if (i == 1) {
+                    this.a.E1();
+                } else if (i == 2) {
+                    this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
+                } else if (i == 3) {
+                    ry4.l().v(SettingTextFunctionIntroView.h, true);
+                    sp4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.d, true, false, false);
+                } else if (i == 4) {
+                    if (TbConfig.getDebugSwitch()) {
+                        str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_DEBUG_FILE;
+                    } else {
+                        str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE;
                     }
-                } else {
-                    this.a.F1();
+                    if (TbConfig.getDebugSwitch()) {
+                        fileDireciory = FileHelper.getFileDireciory(TbConfig.FATAL_ERROR_DEBUG_FILE);
+                    } else {
+                        fileDireciory = FileHelper.getFileDireciory(TbConfig.FATAL_ERROR_FILE);
+                    }
+                    FileHelper.copyFileByAbsolutelyPath(str, fileDireciory);
+                    FileHelper.CopyDir(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/newStat", FileHelper.getCacheDir() + "newStat", false);
+                } else if (i == 5) {
+                    if (this.a.e == null) {
+                        AboutActivity aboutActivity = this.a;
+                        aboutActivity.e = new am8(aboutActivity.getActivity());
+                        this.a.e.create(this.a.getPageContext());
+                    }
+                    this.a.e.show();
+                } else if (i == 6) {
+                    if (PermissionUtil.checkWriteExternalStorage(this.a)) {
+                        this.a.H1();
+                        return;
+                    }
+                    AboutActivity aboutActivity2 = this.a;
+                    PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.g);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends q9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,11 +144,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
                 return;
             }
-            this.a.G1(obj);
+            this.a.F1(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,20 +203,20 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         this.g = 1;
     }
 
-    public final void F1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bi7.b().a(true);
+            yk7.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.b.D();
-            aj8 aj8Var = this.a;
-            if (aj8Var != null) {
-                aj8Var.B();
+            this.b.K();
+            sl8 sl8Var = this.a;
+            if (sl8Var != null) {
+                sl8Var.B();
             }
         }
     }
@@ -228,22 +226,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            J1();
+            I1();
             AboutModel aboutModel = this.b;
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            aj8 aj8Var = this.a;
-            if (aj8Var != null) {
-                aj8Var.C();
+            sl8 sl8Var = this.a;
+            if (sl8Var != null) {
+                sl8Var.C();
             }
-            ij8 ij8Var = this.e;
-            if (ij8Var != null) {
-                ij8Var.dismiss();
+            am8 am8Var = this.e;
+            if (am8Var != null) {
+                am8Var.dismiss();
             }
-            jj8 jj8Var = this.f;
-            if (jj8Var != null) {
-                jj8Var.i();
+            bm8 bm8Var = this.f;
+            if (bm8Var != null) {
+                bm8Var.i();
                 this.f = null;
             }
         }
@@ -254,9 +252,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            aj8 aj8Var = this.a;
-            if (aj8Var != null) {
-                aj8Var.I(i);
+            sl8 sl8Var = this.a;
+            if (sl8Var != null) {
+                sl8Var.J(i);
             }
         }
     }
@@ -266,52 +264,52 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new jj8(this);
-            aj8 aj8Var = new aj8(this, new a(this));
-            this.a = aj8Var;
-            aj8Var.G();
-            H1();
+            this.f = new bm8(this);
+            sl8 sl8Var = new sl8(this, new a(this));
+            this.a = sl8Var;
+            sl8Var.G();
+            G1();
         }
     }
 
-    public final void G1(Object obj) {
-        w35 w35Var;
+    public final void F1(Object obj) {
+        x35 x35Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            aj8 aj8Var = this.a;
-            if (aj8Var != null) {
-                aj8Var.C();
+            sl8 sl8Var = this.a;
+            if (sl8Var != null) {
+                sl8Var.C();
             }
             if (obj != null) {
-                w35Var = (w35) obj;
+                x35Var = (x35) obj;
             } else {
-                w35Var = null;
+                x35Var = null;
             }
-            if (w35Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(w35Var.u());
+            if (x35Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(x35Var.u());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (w35Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (w35Var.u().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), w35Var.u(), w35Var.j())));
+                if (x35Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (x35Var.u().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), x35Var.u(), x35Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), w35Var.u(), w35Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), x35Var.u(), x35Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                aj8 aj8Var2 = this.a;
-                if (aj8Var2 != null) {
-                    aj8Var2.G();
+                sl8 sl8Var2 = this.a;
+                if (sl8Var2 != null) {
+                    sl8Var2.G();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c81));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0cb8));
         }
     }
 
-    public final void H1() {
+    public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.c = new c(this, null);
@@ -321,14 +319,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    public final void I1() {
+    public final void H1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.f.d()) {
             this.f.g();
         }
     }
 
-    public final void J1() {
+    public final void I1() {
         c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cVar = this.c) != null) {
@@ -341,9 +339,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            aj8 aj8Var = this.a;
-            if (aj8Var != null) {
-                aj8Var.G();
+            sl8 sl8Var = this.a;
+            if (sl8Var != null) {
+                sl8Var.G();
             }
         }
     }
@@ -353,9 +351,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) && i == this.g) {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
-                I1();
+                H1();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f1632);
+                showToast(R.string.write_external_storage_permission_denied_fun_disable);
             }
         }
     }

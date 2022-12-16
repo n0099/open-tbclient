@@ -1,138 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.k93;
-import com.baidu.tieba.o32;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zq1 extends c63 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class zq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
 
-    /* loaded from: classes6.dex */
-    public class a implements yi3<i93<k93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ o32 d;
-        public final /* synthetic */ zq1 e;
-
-        public a(zq1 zq1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, o32 o32Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368495, "Lcom/baidu/tieba/zq1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq1Var, callbackHandler, unitedSchemeEntity, str, o32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = zq1Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-            this.d = o32Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yi3
-        /* renamed from: b */
-        public void a(i93<k93.e> i93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i93Var) == null) {
-                if (!d93.h(i93Var)) {
-                    d93.p(i93Var, this.a, this.b);
-                } else {
-                    this.e.k(this.c, this.d, this.a, this.b);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948368495, "Lcom/baidu/tieba/zq1;");
+                return;
             }
         }
+        boolean z = ok1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq1(c53 c53Var) {
-        super(c53Var, "/swanAPI/openAdLandingPage");
+    public zq1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = i2;
+        this.f = i3;
+        this.g = z;
     }
 
-    @Override // com.baidu.tieba.c63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
-        InterceptResult invokeLLLL;
+    public ys2 a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
-            if (c63.b) {
-                Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String o = o73.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                f12.i("AdLanding", "adLanding: url is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            o32 V = sp2.U().V();
-            if (V == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals(o73.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
-                k(o, V, callbackHandler, unitedSchemeEntity);
-                return true;
-            } else {
-                f43Var.e0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, V));
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                ys2 ys2Var = new ys2();
+                ys2Var.j = "SwanAdPlayer";
+                ys2Var.b = "SwanAdPlayer";
+                ys2Var.o = true;
+                ys2Var.k = false;
+                if (!this.g) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ys2Var.x = z;
+                ys2Var.I = false;
+                ys2Var.l = this.a;
+                ys2Var.y = this.b;
+                ys2Var.c = this.c;
+                ku2 ku2Var = new ku2(0, 0, this.d, this.e);
+                ys2Var.h = ku2Var;
+                ku2Var.i(true);
+                ys2Var.m = this.f;
+                if (this.g) {
+                    ys2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+                }
+                return ys2.h(jSONObject, ys2Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j(fu2 fu2Var, o32 o32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fu2Var, o32Var) == null) {
-            f12.i("AdLanding", "openAdLanding: page url=" + fu2Var.c);
-            o32.b i = o32Var.i("adLanding");
-            i.n(o32.g, o32.i);
-            i.k("adLanding", fu2Var).b();
-        }
-    }
-
-    public void k(String str, o32 o32Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, o32Var, callbackHandler, unitedSchemeEntity) == null) {
-            j(fu2.d(str, str), o32Var);
-            f12.i("AdLanding", "open adLanding page success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-        }
+        return (ys2) invokeV.objValue;
     }
 }

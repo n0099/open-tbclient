@@ -36,15 +36,6 @@ public class ConcernPageSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public DataRes getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.resultData;
-        }
-        return (DataRes) invokeV.objValue;
-    }
-
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
     @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
@@ -66,5 +57,16 @@ public class ConcernPageSocketResMessage extends SocketResponsedMessage {
             return userlikeResIdl;
         }
         return invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public DataRes getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

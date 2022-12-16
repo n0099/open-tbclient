@@ -43,18 +43,18 @@ public class as implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this.a) {
-                this.a.f60a = new Messenger(iBinder);
+                this.a.f83a = new Messenger(iBinder);
                 this.a.c = false;
-                list = this.a.f63a;
+                list = this.a.f86a;
                 for (Message message : list) {
                     try {
-                        messenger = this.a.f60a;
+                        messenger = this.a.f83a;
                         messenger.send(message);
                     } catch (RemoteException e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
-                list2 = this.a.f63a;
+                list2 = this.a.f86a;
                 list2.clear();
             }
         }
@@ -64,7 +64,7 @@ public class as implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f60a = null;
+            this.a.f83a = null;
             this.a.c = false;
         }
     }

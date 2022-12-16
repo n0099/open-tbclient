@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class yk6 {
+/* loaded from: classes7.dex */
+public class yk6 extends SparseArray<il6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m45 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
+    public BdUniqueId a;
 
-    public yk6(FrsActivity frsActivity) {
+    public yk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,69 +27,65 @@ public class yk6 {
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
+        this.a = null;
     }
 
-    public void a() {
-        m45 m45Var;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (m45Var = this.a) != null) {
-            m45Var.q();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                il6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.D(null);
+                    valueAt.k();
+                }
+            }
         }
     }
 
-    public Date b(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
-            } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
-            }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                il6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
                 }
-            } else {
-                this.d = true;
             }
-            return date;
         }
-        return (Date) invokeL.objValue;
     }
 
-    public void c(String str) {
-        FrsActivity frsActivity;
+    public void a(int i, il6 il6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date b = b(str);
-            if (!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() && this.d) {
-                boolean z = false;
-                if (n45.g(TbadkCoreApplication.getInst(), 0)) {
-                    FrsActivity frsActivity2 = this.b;
-                    if (frsActivity2 != null && frsActivity2.S0() != null) {
-                        z = this.b.S0().B;
-                    }
-                    HashMap hashMap = new HashMap();
-                    if (z) {
-                        hashMap.put("view_params_key_style", "short");
-                    }
-                    m45 m45Var = this.a;
-                    if (m45Var != null) {
-                        m45Var.q();
-                    }
-                    this.a = n45.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                    this.c.put(str, b);
-                    TbSingleton.getInstance().setHasShowTip(this.c);
-                    return;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, il6Var) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            put(i, il6Var);
+        }
+    }
+
+    public il6 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return get(i);
+        }
+        return (il6) invokeI.objValue;
+    }
+
+    public void e(ml6 ml6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ml6Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                il6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.D(ml6Var);
                 }
             }
-            yi.R(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0f9e);
         }
     }
 }

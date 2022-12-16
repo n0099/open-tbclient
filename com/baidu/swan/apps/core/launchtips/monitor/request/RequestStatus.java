@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.core.launchtips.monitor.request;
 
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ public final class RequestStatus {
             }
         }
         STATUS_SEND = new RequestStatus("STATUS_SEND", 0, "send");
-        STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, "ok");
+        STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, DnsModel.MSG_OK);
         STATUS_FAILED = new RequestStatus("STATUS_FAILED", 2, "failRate");
         STATUS_UNKNOWN = new RequestStatus("STATUS_UNKNOWN", 3, "unknown");
         STATUS_SLOW = new RequestStatus("STATUS_SLOW", 4, "slow");

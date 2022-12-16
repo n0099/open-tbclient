@@ -6,7 +6,7 @@ import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 import com.kwad.sdk.collector.model.jni.UploadEntryNative;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppStatusNative {
     public static native String[] analyseTaskGetPathSuffixSet(AnalyseTaskNative analyseTaskNative);
 

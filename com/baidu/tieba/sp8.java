@@ -1,163 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class sp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh a;
+    public String a;
     public String b;
-    public boolean c;
+    public String c;
+    public String d;
+    public ArrayList<sp8> e;
 
-    public sp8(String str) {
+    public sp8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = false;
-        e(str, false);
-    }
-
-    public void a() {
-        vp8 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long e = this.a.e();
-            if (e > 3000) {
-                up8 up8Var = c.f;
-                up8Var.a += e;
-                up8Var.b++;
-                tp8.b(c, 10);
             }
         }
     }
 
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        vp8 c;
-        String str2;
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            up8 up8Var = c.d;
-            if (up8Var == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
             }
-            up8Var.b++;
-            if (z2) {
-                up8Var.a += j2;
-                up8Var.d += j;
-            } else {
-                up8Var.c++;
-            }
-        } else {
-            up8 up8Var2 = c.e;
-            if (up8Var2 == null) {
-                return;
-            }
-            up8Var2.b++;
-            if (z2) {
-                up8Var2.a += j3;
-                up8Var2.d += j;
-            } else {
-                up8Var2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            tp8.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                fh fhVar = new fh("dbg");
-                fhVar.b("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<sp8> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    sp8 sp8Var = new sp8();
+                    sp8Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(sp8Var);
                 }
-                fhVar.b(TiebaStatic.LogFields.RESULT, str2);
-                if (z) {
-                    str3 = "1";
-                }
-                fhVar.b("isHttp", str3);
-                fhVar.b("timeCost", String.valueOf(j2));
-                fhVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                fhVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                fhVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", fhVar);
+                this.e = arrayList;
             }
-        }
-    }
-
-    public final vp8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return tp8.e(this.b, d(), this.c);
-        }
-        return (vp8) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
-            }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
-        }
-    }
-
-    public void e(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new fh("dbg");
-            tp8.c(str, d(), z);
         }
     }
 }

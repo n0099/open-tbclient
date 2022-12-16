@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import javax.crypto.ShortBufferException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface e00 {
     int a(int i);
 

@@ -350,7 +350,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(null, com.baidu.tieba.R.attr.lottieAnimationViewStyle);
+        init(null, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049c);
     }
 
     @Override // android.view.View
@@ -401,7 +401,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(attributeSet, com.baidu.tieba.R.attr.lottieAnimationViewStyle);
+        init(attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049c);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {

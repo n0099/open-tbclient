@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.kuaishou.weapon.p0.u;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -104,7 +105,7 @@ public class AdapterHelper implements OpReorderer.Callback {
                     }
                     return u.B;
                 }
-                return "add";
+                return StickerDataChangeType.ADD;
             }
             return (String) invokeV.objValue;
         }

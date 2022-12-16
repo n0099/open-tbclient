@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mn2;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.r23;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public int r;
     public Scroller s;
     public int t;
-    public r23<T> u;
+    public q23<T> u;
 
     /* loaded from: classes3.dex */
     public interface h<V extends View> {
@@ -480,14 +480,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
         }
-        v = pk1.a;
+        v = ok1.a;
     }
 
     private boolean getNgWebViewHeightSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            mn2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+            ln2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
             return false;
         }
         return invokeV.booleanValue;
@@ -533,13 +533,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (LoadingLayout) invokeV.objValue;
     }
 
-    public r23<T> getRefreshableFactory() {
+    public q23<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.u;
         }
-        return (r23) invokeV.objValue;
+        return (q23) invokeV.objValue;
     }
 
     public T getRefreshableView() {
@@ -753,13 +753,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBase(Context context, r23<T> r23Var, HEADERTYPE headertype) {
+    public PullToRefreshBase(Context context, q23<T> q23Var, HEADERTYPE headertype) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, r23Var, headertype};
+            Object[] objArr = {context, q23Var, headertype};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -782,7 +782,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.o = iLoadingLayout$State;
         this.r = -1;
         this.t = -1;
-        this.u = r23Var;
+        this.u = q23Var;
         this.a = headertype;
         m(context, null);
     }

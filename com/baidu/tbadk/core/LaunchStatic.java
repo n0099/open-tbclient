@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core;
 
 import android.content.Intent;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -8,11 +9,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.NovelWebViewActivity;
 import com.baidu.tbadk.browser.ShareWebActivity;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
@@ -25,29 +27,28 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.cf7;
 import com.baidu.tieba.dx4;
-import com.baidu.tieba.f95;
+import com.baidu.tieba.g95;
+import com.baidu.tieba.ht8;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.iq8;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.kg7;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.nq4;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.rc5;
+import com.baidu.tieba.mc5;
+import com.baidu.tieba.oq4;
+import com.baidu.tieba.ow4;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.ub5;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.v97;
+import com.baidu.tieba.ta7;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.wallet.WalletStaticInit;
 import com.baidu.tieba.wp4;
-import com.baidu.tieba.yb7;
+import com.baidu.tieba.yc7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +94,7 @@ public class LaunchStatic {
                     intent.putExtra("uid", data.get("uid"));
                     TbadkCoreApplication.getInst().getContext().startService(intent);
                     return null;
-                } else if (IntentConfig.STOP.equals(data)) {
+                } else if ("stop".equals(data)) {
                     TbadkCoreApplication.getInst().getContext().stopService(intent);
                     return null;
                 } else {
@@ -190,19 +191,20 @@ public class LaunchStatic {
         b();
         d();
         c();
-        iq8.a();
-        cf7.a();
-        v97.a();
+        ht8.a();
+        kg7.a();
+        ta7.a();
         ImMemoryCacheRegister.l();
-        yb7.i();
+        yc7.i();
         wp4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        nw4.d();
+        ow4.d();
         dx4.a();
-        nq4.d();
+        oq4.d();
         a();
         e();
+        testTitans();
     }
 
     public static void d() {
@@ -211,9 +213,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            f95.d().f();
-            uo8.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, uo8.a(TbConfig.GET_PAY_CONFIG, 303039));
+            g95.d().f();
+            tr8.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, tr8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -244,10 +246,18 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
-                ub5.f().l(SyncDataEvent.class, new rc5());
+                mc5.f().l(SyncDataEvent.class, new jd5());
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Keep
+    public static void testTitans() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            BdLog.d("testTitans");
         }
     }
 
@@ -258,7 +268,7 @@ public class LaunchStatic {
             TbadkCoreApplication.getInst().RegisterIntent(LcUpdateDialogActivityConfig.class, LcUpdateDialogActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
             TbadkCoreApplication.getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
-            TbadkCoreApplication.getInst().RegisterIntent(TbWebViewActivityConfig.class, TbWebViewActivity.class);
+            TbadkCoreApplication.getInst().RegisterIntent(TbWebViewActivityConfig.class, TBWebViewActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(ShareWebActivityConfig.class, ShareWebActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(NovelWebViewActivityConfig.class, NovelWebViewActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(InitUserNameDialogActivityConfig.class, InitUserNameDialogActivity.class);

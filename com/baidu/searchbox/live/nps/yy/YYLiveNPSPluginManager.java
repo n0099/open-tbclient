@@ -214,7 +214,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -314,7 +314,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -414,7 +414,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -509,7 +509,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -604,7 +604,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -1035,10 +1035,10 @@ public class YYLiveNPSPluginManager {
                             if (this.val$showLoading) {
                                 if (i == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a65, 0);
+                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9b, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                 }
                             }
                             if (this.this$0.isDebug()) {
@@ -1204,7 +1204,7 @@ public class YYLiveNPSPluginManager {
                                             this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);
                                             this.this$1.this$0.pageFlow = null;
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -1359,7 +1359,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -1452,7 +1452,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });
@@ -1640,7 +1640,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a64, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a9a, 0);
                                     }
                                 }
                             });

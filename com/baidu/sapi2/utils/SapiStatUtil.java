@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.dto.PassNameValuePair;
@@ -16,11 +15,11 @@ import com.baidu.sapi2.stat.OneKeyLoginStat;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -256,7 +255,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeLL(65547, null, str, list) == null) {
             HashMap hashMap = new HashMap();
             buildStatExtraMap(hashMap, list);
-            if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
+            if (str.equals("v2")) {
                 StatService.onEvent("share_v2_click_other", hashMap);
             } else if (str.equals("v1")) {
                 StatService.onEvent("share_v1_click_other", hashMap);
@@ -269,7 +268,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("cuid", SapiUtils.getClientId(context));
-            hashMap.put(Config.DEVICE_PART, "android");
+            hashMap.put("device", "android");
             hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
             hashMap.put("success", str);
             StatService.onEvent("get_sms_check_code_from_clip", hashMap);
@@ -311,7 +310,7 @@ public class SapiStatUtil {
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("scene", str);
             }
-            hashMap.put(Config.DEVICE_PART, "android");
+            hashMap.put("device", "android");
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, list.size() + "");
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, TextUtils.join(",", arrayList));
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, TextUtils.join(",", arrayList2));
@@ -325,7 +324,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), shareStorage, list}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("cuid", SapiUtils.getClientId(context));
-            hashMap.put(Config.DEVICE_PART, "android");
+            hashMap.put("device", "android");
             hashMap.put("read_failure_count", i + "");
             hashMap.put("read_sp_count", i2 + "");
             hashMap.put("read_sd_count", i3 + "");
@@ -361,7 +360,7 @@ public class SapiStatUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, socialType) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("clientip", SapiUtils.getLocalIpAddress());
+            hashMap.put(DnsModel.CLIENTIP_KEY, SapiUtils.getLocalIpAddress());
             hashMap.put("client", "android");
             hashMap.put("social_type", socialType.getType() + "");
             if (SocialType.SINA_WEIBO_SSO == socialType) {

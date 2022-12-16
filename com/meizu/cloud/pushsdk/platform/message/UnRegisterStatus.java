@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -20,10 +19,10 @@ public class UnRegisterStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (jSONObject.isNull(TiebaStatic.LogFields.RESULT)) {
+        if (jSONObject.isNull("result")) {
             return;
         }
-        setIsUnRegisterSuccess(jSONObject.getBoolean(TiebaStatic.LogFields.RESULT));
+        setIsUnRegisterSuccess(jSONObject.getBoolean("result"));
     }
 
     public void setIsUnRegisterSuccess(boolean z) {

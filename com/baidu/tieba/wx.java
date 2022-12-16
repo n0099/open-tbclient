@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx extends ax<tr4> {
+public class wx extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public tr4 i;
+    public vr4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wx(Context context) {
@@ -45,10 +45,10 @@ public class wx extends ax<tr4> {
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
             this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
         } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) null, true);
+            this.f = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f091354);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09134f);
+        this.g = (ThreadLinkView) this.f.findViewById(R.id.link_thread_root);
+        this.h = (TextView) this.f.findViewById(R.id.link_seg_title);
     }
 
     @Override // com.baidu.tieba.ax
@@ -66,9 +66,9 @@ public class wx extends ax<tr4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            tr4 tr4Var = this.i;
-            if (tr4Var != null && tr4Var.getThreadData() != null) {
-                x36.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            vr4 vr4Var = this.i;
+            if (vr4Var != null && vr4Var.getThreadData() != null) {
+                s46.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -76,13 +76,13 @@ public class wx extends ax<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: s */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null) {
-                this.i = tr4Var;
-                ThreadData threadData = tr4Var.getThreadData();
-                x36.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null) {
+                this.i = vr4Var;
+                ThreadData threadData = vr4Var.getThreadData();
+                s46.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

@@ -30,7 +30,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -40,7 +40,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -64,9 +64,27 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         this.a = r9Var;
     }
 
-    public void A() {
+    public void G(PayRequestData payRequestData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, payRequestData) != null) || payRequestData == null) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);
+        httpMessage.addParam("order_id", payRequestData.getOrderId());
+        httpMessage.addParam(MemberPayActivityConfig.SCENE_ID, String.valueOf(payRequestData.getSceneId()));
+        httpMessage.addParam("open_id", payRequestData.getOpenId());
+        httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
+        httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
+        httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
+        httpMessage.addParam(a.m, payRequestData.getPassword());
+        httpMessage.addParam("bindid", payRequestData.getBindId());
+        httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
+        this.a.sendMessage(httpMessage);
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, TbConfig.SERVER_ADDRESS + "c/e/consume/getBuyForm");
             tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
@@ -74,9 +92,9 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void B() {
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_PAY, TbConfig.SERVER_ADDRESS + "c/c/encourage/consume/payOpenGoods");
             tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);
@@ -84,9 +102,9 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void C(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void J(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO);
@@ -103,24 +121,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam(MemberPayActivityConfig.PAY_TYPE, String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.a.sendMessage(httpMessage);
-    }
-
-    public void z(PayRequestData payRequestData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, payRequestData) != null) || payRequestData == null) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);
-        httpMessage.addParam("order_id", payRequestData.getOrderId());
-        httpMessage.addParam(MemberPayActivityConfig.SCENE_ID, String.valueOf(payRequestData.getSceneId()));
-        httpMessage.addParam("open_id", payRequestData.getOpenId());
-        httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
-        httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
-        httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
-        httpMessage.addParam(a.m, payRequestData.getPassword());
-        httpMessage.addParam("bindid", payRequestData.getBindId());
-        httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
         this.a.sendMessage(httpMessage);
     }
 }

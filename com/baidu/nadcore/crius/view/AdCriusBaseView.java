@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.render.CriusRender;
-import com.baidu.tieba.k81;
+import com.baidu.tieba.j81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -132,9 +132,9 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
             return;
         }
         this.b.removeAllViews();
-        k81 k81Var = (k81) ServiceManager.getService(k81.a);
-        if (k81Var != null) {
-            this.c = this.d.initCriusView(getContext(), t, k81Var.b(), z, k81Var.a());
+        j81 j81Var = (j81) ServiceManager.getService(j81.a);
+        if (j81Var != null) {
+            this.c = this.d.initCriusView(getContext(), t, j81Var.b(), z, j81Var.a());
         } else {
             this.c = this.d.initCriusView(getContext(), t, false, z, -1);
         }

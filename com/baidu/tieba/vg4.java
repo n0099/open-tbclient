@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vg4 extends of4 {
+public class vg4 extends mf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,20 +25,14 @@ public class vg4 extends of4 {
         }
     }
 
-    @Override // com.baidu.tieba.of4
-    public JSONObject d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mf4, com.baidu.tieba.pf4
+    public void b(JSONObject jSONObject, zb4 zb4Var, @Nullable zb4 zb4Var2, @Nullable zb4 zb4Var3) {
+        JSONObject optJSONObject;
+        sg4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("version", ug4.e().a());
-                jSONObject.put("base_info", jSONObject2);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, zb4Var, zb4Var2, zb4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = sg4.a(optJSONObject)) != null) {
+            tg4.e().i(a);
+            tg4.e().j(a.k);
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

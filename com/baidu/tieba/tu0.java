@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface tu0 {
-    void switchToFullStyle();
+    void cancel();
 
-    void switchToNormalStyle();
+    void doTask();
+
+    void start();
 }

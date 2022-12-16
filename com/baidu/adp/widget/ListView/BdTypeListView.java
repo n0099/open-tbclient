@@ -289,7 +289,7 @@ public class BdTypeListView extends BdListView implements Cdo<BdTypeListView> {
                         kn knVar = this.H.get(xnVar.getType());
                         if (knVar.getHeaderId() != null) {
                             qn qnVar = new qn();
-                            qnVar.h(knVar.getHeaderId());
+                            qnVar.g(knVar.getHeaderId());
                             if (xnVar instanceof BaseCardInfo) {
                                 qnVar.position = ((BaseCardInfo) xnVar).position;
                                 qnVar.setSupportType(BaseCardInfo.SupportType.TOP);
@@ -299,7 +299,7 @@ public class BdTypeListView extends BdListView implements Cdo<BdTypeListView> {
                         }
                         if (knVar.getContentId() != null) {
                             qn qnVar2 = new qn();
-                            qnVar2.h(knVar.getContentId());
+                            qnVar2.g(knVar.getContentId());
                             if (xnVar instanceof BaseCardInfo) {
                                 qnVar2.position = ((BaseCardInfo) xnVar).position;
                                 qnVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
@@ -309,7 +309,7 @@ public class BdTypeListView extends BdListView implements Cdo<BdTypeListView> {
                         }
                         if (knVar.getExtendId() != null) {
                             qn qnVar3 = new qn();
-                            qnVar3.h(knVar.getExtendId());
+                            qnVar3.g(knVar.getExtendId());
                             if (xnVar instanceof BaseCardInfo) {
                                 qnVar3.position = ((BaseCardInfo) xnVar).position;
                                 qnVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
@@ -319,7 +319,7 @@ public class BdTypeListView extends BdListView implements Cdo<BdTypeListView> {
                         }
                         if (knVar.getBottomId() != null) {
                             qn qnVar4 = new qn();
-                            qnVar4.h(knVar.getBottomId());
+                            qnVar4.g(knVar.getBottomId());
                             if (xnVar instanceof BaseCardInfo) {
                                 qnVar4.position = ((BaseCardInfo) xnVar).position;
                                 qnVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);

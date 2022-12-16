@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hq1;
-import com.baidu.tieba.n43;
+import com.baidu.tieba.gq1;
+import com.baidu.tieba.m43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISwanApkFetcher {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
     }
 
@@ -24,22 +24,22 @@ public interface ISwanApkFetcher {
 
     void F(@NonNull String str, @Nullable a aVar);
 
-    void d(@NonNull String str, @NonNull hq1 hq1Var);
+    void d(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void e(@NonNull String str, @NonNull hq1 hq1Var);
+    void e(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void f(@NonNull String str, @NonNull hq1 hq1Var);
+    void f(@NonNull String str, @NonNull gq1 gq1Var);
 
     void g(@NonNull String str, @Nullable a aVar);
 
-    void h(@NonNull String str, @NonNull hq1 hq1Var);
+    void h(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void j(@NonNull String str, @NonNull hq1 hq1Var);
+    void j(@NonNull String str, @NonNull gq1 gq1Var);
 
     void release();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FetchStates {
         public static final /* synthetic */ FetchStates[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -120,8 +120,8 @@ public interface ISwanApkFetcher {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class b extends n43 implements ISwanApkFetcher {
+    /* loaded from: classes3.dex */
+    public static class b extends m43 implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,23 +143,23 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull hq1 hq1Var) {
+        public void d(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hq1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull hq1 hq1Var) {
+        public void e(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, hq1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(@NonNull String str, @NonNull hq1 hq1Var) {
+        public void f(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, hq1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, gq1Var) == null) {
             }
         }
 
@@ -171,16 +171,16 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void h(@NonNull String str, @NonNull hq1 hq1Var) {
+        public void h(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, hq1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void j(@NonNull String str, @NonNull hq1 hq1Var) {
+        public void j(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, hq1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, gq1Var) == null) {
             }
         }
 

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.util.f;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -351,7 +352,7 @@ public final class MultiDexExtractor implements Closeable {
                         if (z) {
                             str = "succeeded";
                         } else {
-                            str = "failed";
+                            str = f.j;
                         }
                         sb.append(str);
                         sb.append(" '");

@@ -24,12 +24,12 @@ public interface cd extends IInterface {
 
         /* renamed from: com.baidu.mobstat.cd$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0117a implements cd {
+        public static class C0131a implements cd {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0117a(IBinder iBinder) {
+            public C0131a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public interface cd extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof cd)) {
                     return (cd) queryLocalInterface;
                 }
-                return new C0117a(iBinder);
+                return new C0131a(iBinder);
             }
             return (cd) invokeL.objValue;
         }

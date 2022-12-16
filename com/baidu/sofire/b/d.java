@@ -42,7 +42,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public static d d;
@@ -54,14 +54,14 @@ public class d implements SharedPreferences.OnSharedPreferenceChangeListener {
     public com.baidu.sofire.j.a b;
     public com.baidu.sofire.c.a c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ d b;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public class d implements SharedPreferences.OnSharedPreferenceChangeListener {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Comparator<ApkInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

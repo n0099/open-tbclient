@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DATA_WRITE_DB = 0x7f0f000e;
@@ -29,11 +29,11 @@ public final class R {
         public static final int DOWNLOAD_SUCCESS = 0x7f0f001c;
         public static final int INSTALL_ERROR = 0x7f0f001f;
         public static final int INSTALL_SUCCESS = 0x7f0f0020;
-        public static final int META_ERROR_CONNECTION = 0x7f0f0032;
-        public static final int META_ERROR_FATAL = 0x7f0f0033;
-        public static final int META_ERROR_NETWORK = 0x7f0f0034;
-        public static final int META_ERROR_PARAMS = 0x7f0f0035;
-        public static final int META_ERROR_RESPONSE = 0x7f0f0036;
+        public static final int META_ERROR_CONNECTION = 0x7f0f0033;
+        public static final int META_ERROR_FATAL = 0x7f0f0034;
+        public static final int META_ERROR_NETWORK = 0x7f0f0035;
+        public static final int META_ERROR_PARAMS = 0x7f0f0036;
+        public static final int META_ERROR_RESPONSE = 0x7f0f0037;
         public static final int app_name = 0x7f0f029e;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.ImagesContract;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,8 +100,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
             iError.onError(1, "资源不存在", null);
         } else if (TextUtils.isEmpty(aN.xL)) {
             iError.onError(1, "资源id不存在", null);
-        } else if (ImagesContract.LOCAL.equals(aN.xL)) {
-            iCallbackWith.run(ImagesContract.LOCAL);
+        } else if ("local".equals(aN.xL)) {
+            iCallbackWith.run("local");
         } else if (TextUtils.isEmpty(aN.xM)) {
             iError.onError(1, "编码不正确", null);
         } else {

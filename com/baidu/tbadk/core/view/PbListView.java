@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ln;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,9 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class PbListView extends ln {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: D */
-    public static final int new_pic_emotion_03 = 2131234436;
+    public static final int D = 2131234476;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -168,7 +166,7 @@ public class PbListView extends ln {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.l = new_pic_emotion_03;
+        this.l = D;
         this.n = 0;
         this.o = null;
         this.p = null;
@@ -191,6 +189,13 @@ public class PbListView extends ln {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.v.setVisibility(8);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.v.getLayoutParams();
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
@@ -198,96 +203,96 @@ public class PbListView extends ln {
         }
     }
 
-    public void B() {
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.v.setVisibility(0);
         }
     }
 
-    public void L() {
+    public void M() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && 8 != this.x.getVisibility()) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && 8 != this.x.getVisibility()) {
             this.x.setVisibility(8);
         }
     }
 
-    public void Q() {
+    public void R() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.x.setVisibility(0);
             this.v.setVisibility(0);
             this.p.setVisibility(0);
             this.f.setVisibility(0);
             this.g.setVisibility(0);
-            k();
+            l();
         }
     }
 
-    public void S() {
+    public void T() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.g.setVisibility(0);
-            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a71));
-            d(TbadkCoreApplication.getInst().getSkinType());
+            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0aa7));
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.ln
-    public void c() {
+    public void d() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (onClickListener = this.h) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (onClickListener = this.h) != null) {
             onClickListener.onClick(this.i);
         }
     }
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            E(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f0a1c));
-            f();
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            F(this.e.getResources().getString(R.string.list_no_more));
+            g();
         }
     }
 
-    public String h() {
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.o;
         }
         return (String) invokeV.objValue;
     }
 
-    public Boolean i() {
+    public Boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return Boolean.valueOf(this.z);
         }
         return (Boolean) invokeV.objValue;
     }
 
-    public int j() {
+    public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.i.getVisibility();
         }
         return invokeV.intValue;
     }
 
-    public void k() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             this.j.setVisibility(8);
         }
     }
 
-    public boolean n() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             ProgressBar progressBar = this.g;
             if (progressBar == null || progressBar.getVisibility() != 0) {
                 return false;
@@ -297,83 +302,76 @@ public class PbListView extends ln {
         return invokeV.booleanValue;
     }
 
-    public boolean o() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return this.m;
         }
         return invokeV.booleanValue;
     }
 
-    public void t() {
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             this.i.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 
-    public void x() {
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.v.getLayoutParams();
             layoutParams.height = yi.g(this.e, R.dimen.obfuscated_res_0x7f070198);
             this.v.setLayoutParams(layoutParams);
         }
     }
 
-    public void z() {
+    public void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            this.v.setVisibility(8);
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.t = i;
         }
     }
 
-    public void D(View.OnClickListener onClickListener) {
+    public void E(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.h = onClickListener;
         }
     }
 
-    public void E(String str) {
+    public void F(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            F(str, this.d);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            G(str, this.d);
         }
     }
 
-    public void G(int i) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.s = i;
         }
     }
 
-    public void I(int i) {
+    public void J(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.f.setTextSize(0, yi.g(this.e, i));
-        }
-    }
-
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.i.setVisibility(i);
         }
     }
 
     public void N(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.i.setVisibility(i);
+        }
+    }
+
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.j.getLayoutParams());
             layoutParams.height = i;
             this.j.setLayoutParams(layoutParams);
@@ -381,10 +379,10 @@ public class PbListView extends ln {
         }
     }
 
-    public void R(int i) {
+    public void S(int i) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048593, this, i) != null) || (linearLayout = this.x) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048594, this, i) != null) || (linearLayout = this.x) == null) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
@@ -393,80 +391,80 @@ public class PbListView extends ln {
         this.x.setVisibility(0);
     }
 
-    public void e(int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             int dimension = (int) this.e.getResources().getDimension(R.dimen.tbds156);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.topMargin = dimension;
             this.k.setLayoutParams(layoutParams);
-            N(dimension);
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            SkinManager.setBackgroundResource(this.p, i);
+            O(dimension);
         }
     }
 
     public void q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            SkinManager.setBackgroundResource(this.p, i);
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.B = i;
         }
     }
 
-    public void r(boolean z) {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
             this.w = z;
         }
     }
 
-    public void s(int i) {
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.v.getLayoutParams();
             layoutParams.height = i;
             this.v.setLayoutParams(layoutParams);
         }
     }
 
-    public void u(int i) {
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.p.getLayoutParams());
             layoutParams.height = i;
             this.p.setLayoutParams(layoutParams);
         }
     }
 
-    public void v(boolean z) {
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             this.y = z;
         }
     }
 
-    public void w(boolean z) {
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
             this.z = z;
         }
     }
 
-    public void y(int i) {
+    public void z(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             this.u = i;
         }
     }
 
-    public void F(String str, int i) {
+    public void G(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
             this.o = str;
             this.f.setText(str);
             this.m = false;
@@ -475,27 +473,27 @@ public class PbListView extends ln {
             layoutParams.height = i;
             layoutParams.bottomMargin = 0;
             this.p.setLayoutParams(layoutParams);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void H(String str, int i) {
+    public void I(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
             this.o = str;
             this.f.setText(str);
             this.m = true;
             this.k.setVisibility(0);
-            this.l = new_pic_emotion_03;
-            d(TbadkCoreApplication.getInst().getSkinType());
-            e(i);
+            this.l = D;
+            e(TbadkCoreApplication.getInst().getSkinType());
+            f(i);
             this.C = false;
         }
     }
 
-    public void J(String str, int i) {
+    public void K(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
             this.o = str;
             this.f.setText(str);
             this.m = true;
@@ -503,13 +501,13 @@ public class PbListView extends ln {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.topMargin = i;
             this.k.setLayoutParams(layoutParams);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void K(String str, @DrawableRes int i, int i2) {
+    public void L(String str, @DrawableRes int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, str, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048587, this, str, i, i2) == null) {
             this.o = str;
             this.f.setText(str);
             this.m = true;
@@ -523,13 +521,13 @@ public class PbListView extends ln {
             layoutParams2.height = -2;
             layoutParams2.bottomMargin = this.c;
             this.p.setLayoutParams(layoutParams2);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void O() {
+    public void P() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             if (this.z) {
                 this.p.setVisibility(8);
                 this.f.setVisibility(8);
@@ -538,13 +536,13 @@ public class PbListView extends ln {
                 this.f.setVisibility(0);
                 this.p.setVisibility(0);
             }
-            f();
+            g();
         }
     }
 
-    public void P() {
+    public void Q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.g.setVisibility(0);
             if (this.z) {
                 this.p.setVisibility(8);
@@ -553,21 +551,21 @@ public class PbListView extends ln {
                 return;
             }
             this.f.setVisibility(0);
-            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a71));
+            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0aa7));
         }
     }
 
-    public void l() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             this.m = false;
             this.k.setVisibility(8);
-            k();
+            l();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
             layoutParams.height = this.d;
             layoutParams.bottomMargin = 0;
             this.p.setLayoutParams(layoutParams);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -575,25 +573,25 @@ public class PbListView extends ln {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d065b, (ViewGroup) null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             this.i = inflate;
-            this.p = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091887);
-            this.q = (RelativeLayout) this.i.findViewById(R.id.obfuscated_res_0x7f09181b);
-            this.r = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f09181d);
+            this.p = (LinearLayout) inflate.findViewById(R.id.pb_more_view);
+            this.q = (RelativeLayout) this.i.findViewById(R.id.pb_check_more);
+            this.r = (EMTextView) this.i.findViewById(R.id.pb_check_more_text);
             this.q.setVisibility(8);
-            this.f = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091884);
-            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091705);
+            this.f = (TextView) this.i.findViewById(R.id.pb_more_text);
+            this.k = (ImageView) this.i.findViewById(R.id.no_data_image);
             if (this.y) {
                 this.p.setVisibility(0);
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091b07);
-            this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091896);
-            this.j = this.i.findViewById(R.id.obfuscated_res_0x7f090900);
-            this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091886);
-            qw4 d = qw4.d(this.r);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091b72);
+            this.v = (ImageView) this.i.findViewById(R.id.pb_more_view_top_line);
+            this.j = this.i.findViewById(R.id.empty_view);
+            this.x = (LinearLayout) this.i.findViewById(R.id.pb_more_top_extra_view);
+            rw4 d = rw4.d(this.r);
             d.z(R.dimen.T_X12);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0107);
@@ -603,26 +601,26 @@ public class PbListView extends ln {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void d(int i) {
+    public void e(int i) {
         int color;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             int i4 = this.A;
             if (i4 != -1) {
                 i = i4;
             }
             String charSequence = this.f.getText().toString();
             boolean z = false;
-            if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0e21))) {
+            if (charSequence.equals(this.e.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a71))) {
+            } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0aa7))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a1c)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a1a)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f1265)) && !this.w) {
-                if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a1d))) {
+            } else if (!charSequence.equals(this.e.getText(R.string.list_no_more)) && !charSequence.equals(this.e.getText(R.string.list_has_no_more)) && !charSequence.equals(this.e.getText(R.string.sub_pb_list_no_more)) && !this.w) {
+                if (charSequence.equals(this.e.getText(R.string.list_no_more_new))) {
                     color = SkinManager.getColor(i, (int) R.color.CAM_X0110);
-                } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a19)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0fd4))) {
+                } else if (!charSequence.equals(this.e.getText(R.string.list_click_load_more)) && !charSequence.equals(this.e.getText(R.string.really_great))) {
                     color = 0;
                 } else {
                     color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
@@ -658,9 +656,9 @@ public class PbListView extends ln {
         }
     }
 
-    public void f() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.g.setVisibility(8);
             if (this.o != null) {
                 if (this.z) {
@@ -675,15 +673,15 @@ public class PbListView extends ln {
                     this.f.setText(this.o);
                 }
             } else {
-                this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0e21));
+                this.f.setText(this.e.getText(R.string.pb_load_more));
             }
-            d(TbadkCoreApplication.getInst().getSkinType());
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void m(int i) {
+    public void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.j.getLayoutParams());
             layoutParams.height = i;
             this.j.setLayoutParams(layoutParams);

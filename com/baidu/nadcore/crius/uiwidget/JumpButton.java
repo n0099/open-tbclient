@@ -82,7 +82,7 @@ public class JumpButton extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setGravity(17);
-            setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070551));
+            setTextSize(getResources().getDimensionPixelSize(R.dimen.nad_dimens_12dp));
         }
     }
 }

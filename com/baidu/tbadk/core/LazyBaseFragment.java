@@ -29,9 +29,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int r1();
+    public abstract void A1(View view2, Bundle bundle);
 
-    public abstract void t1(View view2, Bundle bundle);
+    public abstract int y1();
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -41,12 +41,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0193a implements Runnable {
+        public class RunnableC0205a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0193a(a aVar) {
+            public RunnableC0205a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.s1();
+                    this.a.a.z1();
                 }
             }
         }
@@ -103,9 +103,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (hc.b().c()) {
-                    this.a.s1();
+                    this.a.z1();
                 } else {
-                    this.a.a.post(new RunnableC0193a(this));
+                    this.a.a.post(new RunnableC0205a(this));
                 }
             }
         }
@@ -133,7 +133,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             if (MainTabFragmentIdleSwitch.isOn()) {
                 registerListener(this.f);
@@ -146,20 +146,20 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0581, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0914cd);
+                View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
                 this.d = viewStub;
-                viewStub.setLayoutResource(r1());
+                viewStub.setLayoutResource(y1());
                 if (this.c) {
-                    s1();
+                    z1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(r1(), viewGroup, false);
-            t1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(y1(), viewGroup, false);
+            A1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;
@@ -168,21 +168,21 @@ public abstract class LazyBaseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPrimary();
             if (isPrimary() && !this.b && getView() != null) {
-                s1();
+                z1();
             }
         }
     }
 
-    public synchronized void s1() {
+    public synchronized void z1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    t1(this.d.inflate(), this.e);
+                    A1(this.d.inflate(), this.e);
                 }
             }
         }

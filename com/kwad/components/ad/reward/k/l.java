@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.l;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class l extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,20 +49,20 @@ public final class l extends d implements View.OnClickListener {
         }
         this.vf = dialogFragment;
         this.nf = aVar;
-        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0447, viewGroup, false);
+        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0456, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f091124);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091129);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f091128);
-            this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091127);
-            this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f091125);
-            this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f091126);
-            this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f091183);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091188);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f091187);
+            this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091186);
+            this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f091184);
+            this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f091185);
+            this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f091189);
             this.vy.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.vB.setOnClickListener(this);
@@ -73,7 +73,7 @@ public final class l extends d implements View.OnClickListener {
     public final void a(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c48));
+            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c70));
             String title = cVar.getTitle();
             if (this.eQ != null && title != null) {
                 SpannableString spannableString = new SpannableString(title);

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ey extends cx implements sx<qt4>, tx {
+public class ey extends cx implements sx<rt4>, tx {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class ey extends cx implements sx<qt4>, tx {
         h(-1);
         NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(tbPageContext);
         this.e = nEGFeedBackView;
-        nEGFeedBackView.setId(R.id.obfuscated_res_0x7f090793);
+        nEGFeedBackView.setId(R.id.decor_item_right_id);
         g(this.e);
         l(align);
     }
@@ -108,14 +108,14 @@ public class ey extends cx implements sx<qt4>, tx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: o */
-    public void a(qt4 qt4Var) {
+    public void a(rt4 rt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qt4Var) == null) {
-            if (qt4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, rt4Var) == null) {
+            if (rt4Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(qt4Var);
+            this.e.setData(rt4Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
@@ -208,25 +208,25 @@ public class ey extends cx implements sx<qt4>, tx {
             layoutParams3.rightMargin = g2;
             layoutParams3.bottomMargin = g3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
             this.e.setPadding(g, g, g, g);
             this.e.setLayoutParams(layoutParams3);
         }
         this.f = align;
     }
 
-    public void m(tr4 tr4Var) {
+    public void m(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) && tr4Var != null && tr4Var.getNegFeedBackData() != null) {
-            if (tr4Var.getNegFeedBackData().h() <= 0 && tr4Var.getThreadData() != null) {
-                if (!tr4Var.showCardBottomOpWeight() && !tr4Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) && vr4Var != null && vr4Var.getNegFeedBackData() != null) {
+            if (vr4Var.getNegFeedBackData().h() <= 0 && vr4Var.getThreadData() != null) {
+                if (!vr4Var.showCardBottomOpWeight() && !vr4Var.isFromFrs()) {
                     l(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (tr4Var.isSupportTop()) {
+                } else if (vr4Var.isSupportTop()) {
                     t(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (tr4Var.isSupportBottom()) {
+                } else if (vr4Var.isSupportBottom()) {
                     oy oyVar = this.d;
                     if (oyVar != null) {
-                        oyVar.n(this);
+                        oyVar.o(this);
                     }
                 } else {
                     l(Align.ALIGN_RIGHT_TOP);
@@ -234,7 +234,7 @@ public class ey extends cx implements sx<qt4>, tx {
             } else if (this.g) {
                 k();
             } else {
-                p(tr4Var);
+                p(vr4Var);
             }
         }
     }
@@ -268,10 +268,10 @@ public class ey extends cx implements sx<qt4>, tx {
         }
     }
 
-    public final void p(tr4 tr4Var) {
+    public final void p(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tr4Var) == null) {
-            if (tr4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vr4Var) == null) {
+            if (vr4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -297,7 +297,7 @@ public class ey extends cx implements sx<qt4>, tx {
             layoutParams2.rightMargin = g2;
             layoutParams2.topMargin = g3;
             i(layoutParams2);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
             this.e.setPadding(g, g, g, g);
             this.e.setLayoutParams(layoutParams2);
         }

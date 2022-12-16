@@ -8,8 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic;
@@ -33,6 +36,25 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
                 return;
             }
         }
+    }
+
+    private String getExtJson(ChatUser chatUser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, chatUser)) == null) {
+            if (chatUser == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (chatUser.getHasSpecialIdentity() == 0 && chatUser.getSubscribe() != 1 && chatUser.getSubscribe() != 3) {
+                    jSONObject.put("stranger", 1);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
@@ -93,7 +115,7 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
         ChatUser chatUser;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) && (chatUser = (ChatUser) obj) != null) {
-            updateChatRecord(chatObject, chatUser.getUserName(), i, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity());
+            updateChatRecord(chatObject, chatUser.getUserName(), i, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity(), getExtJson(chatUser));
         }
     }
 }

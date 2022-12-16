@@ -66,16 +66,16 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f0905ec;
-        public static final int centerCrop = 0x7f0905f0;
-        public static final int centerInside = 0x7f0905f1;
-        public static final int fitBottomStart = 0x7f0909f2;
-        public static final int fitCenter = 0x7f0909f3;
-        public static final int fitEnd = 0x7f0909f4;
-        public static final int fitStart = 0x7f0909f5;
-        public static final int fitXY = 0x7f0909f7;
-        public static final int focusCrop = 0x7f090a35;
-        public static final int none = 0x7f091723;
+        public static final int center = 0x7f0905ed;
+        public static final int centerCrop = 0x7f0905f1;
+        public static final int centerInside = 0x7f0905f2;
+        public static final int fitBottomStart = 0x7f090a0c;
+        public static final int fitCenter = 0x7f090a0d;
+        public static final int fitEnd = 0x7f090a0e;
+        public static final int fitStart = 0x7f090a0f;
+        public static final int fitXY = 0x7f090a11;
+        public static final int focusCrop = 0x7f090a50;
+        public static final int none = 0x7f09178a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -212,7 +211,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                         obj = key.toString();
                     }
                     sb.append(obj);
-                    sb.append('=');
+                    sb.append(com.alipay.sdk.encrypt.a.h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -316,15 +315,15 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             String str3 = null;
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ParamableElem.DIVIDE_PARAM)) != null) {
+                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ";")) != null) {
                     if (parseKVString.containsKey(str)) {
                         str3 = parseKVString.get(str);
                     }
                     parseKVString.put(str, str2);
-                    addHeader("Cookie", map2KVString(ParamableElem.DIVIDE_PARAM, parseKVString));
+                    addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + '=' + str2 + WebvttCueParser.CHAR_SEMI_COLON);
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.h + str2 + WebvttCueParser.CHAR_SEMI_COLON);
             }
             return null;
         }

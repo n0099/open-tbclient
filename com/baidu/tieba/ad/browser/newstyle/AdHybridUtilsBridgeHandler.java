@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.qj0;
+import com.baidu.tieba.pj0;
 import com.baidu.tieba.vx4;
 import com.baidu.tieba.xx4;
 import com.baidu.tieba.yi;
@@ -55,8 +55,8 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = qj0.c().h(false);
-            String e = qj0.c().e(false);
+            String h = pj0.c().h(false);
+            String e = pj0.c().e(false);
             int l = yi.l(getContext());
             int j = yi.j(getContext());
             String str = String.valueOf(l) + "," + String.valueOf(j);

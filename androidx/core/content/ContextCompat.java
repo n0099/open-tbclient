@@ -69,6 +69,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
@@ -123,7 +124,7 @@ public class ContextCompat {
                 SERVICES.put(JobScheduler.class, "jobscheduler");
                 SERVICES.put(LauncherApps.class, "launcherapps");
                 SERVICES.put(MediaProjectionManager.class, "media_projection");
-                SERVICES.put(MediaSessionManager.class, "media_session");
+                SERVICES.put(MediaSessionManager.class, TableDefine.DB_TABLE_MEDIA_SESSION);
                 SERVICES.put(RestrictionsManager.class, "restrictions");
                 SERVICES.put(TelecomManager.class, "telecom");
                 SERVICES.put(TvInputManager.class, "tv_input");

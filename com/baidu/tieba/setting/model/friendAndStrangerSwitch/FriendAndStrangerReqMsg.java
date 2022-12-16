@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FriendAndStrangerReqMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_ALL = 3;
@@ -50,6 +50,6 @@ public class FriendAndStrangerReqMsg extends HttpMessage {
             return;
         }
         this.mMaskType = i;
-        addParam("maskType", i);
+        addParam(MASK_TYPE, i);
     }
 }

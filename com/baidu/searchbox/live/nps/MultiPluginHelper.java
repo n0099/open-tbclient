@@ -11,7 +11,7 @@ import com.baidu.nps.pm.SubBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tieba.t91;
+import com.baidu.tieba.s91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +257,7 @@ public class MultiPluginHelper {
                     log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                     return 3;
                 }
-                int c = t91.b().c("com.baidu.searchbox.livenps");
+                int c = s91.b().c("com.baidu.searchbox.livenps");
                 if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                     log("installLivenps：" + bundleByType.getVersionCode());
                     log("installLivenps.livenpsHostMinVersion：" + c);

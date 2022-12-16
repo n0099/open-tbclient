@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ky extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,11 +45,30 @@ public class ky extends hx {
         v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    public final boolean w(tr4 tr4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sx
+    /* renamed from: y */
+    public void a(vr4 vr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr4Var) == null) {
+            if (!x(vr4Var) && vr4Var != null && vr4Var.getThreadData() != null && !w(vr4Var) && ListUtils.getCount(vr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(vr4Var.getThreadData().getGoodsDataList()) == 1) {
+                if (vr4Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((p56) ListUtils.getItem(vr4Var.getThreadData().getLinkDataList(), 0));
+                } else if (vr4Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((p56) ListUtils.getItem(vr4Var.getThreadData().getGoodsDataList(), 0));
+                }
+                this.h.setVisibility(0);
+                return;
+            }
+            this.h.setVisibility(8);
+        }
+    }
+
+    public final boolean w(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().isVideoThreadType() && vr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -71,38 +90,19 @@ public class ky extends hx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.h.b();
+            this.h.d();
         }
     }
 
-    public final boolean x(tr4 tr4Var) {
+    public final boolean x(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getPollData() != null && vr4Var.getThreadData().getPollData().getOptions() != null && vr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
-    /* renamed from: y */
-    public void a(tr4 tr4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
-            if (!x(tr4Var) && tr4Var != null && tr4Var.getThreadData() != null && !w(tr4Var) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) == 1) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) == 1) && ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) == 1))) {
-                if (tr4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((u46) ListUtils.getItem(tr4Var.getThreadData().getLinkDataList(), 0));
-                } else if (tr4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((u46) ListUtils.getItem(tr4Var.getThreadData().getGoodsDataList(), 0));
-                }
-                this.h.setVisibility(0);
-                return;
-            }
-            this.h.setVisibility(8);
-        }
     }
 }

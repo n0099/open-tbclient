@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.wrappers.Wrappers;
@@ -82,14 +83,14 @@ public class WorkSourceUtil {
         zza = Process.myUid();
         Method method6 = null;
         try {
-            method = WorkSource.class.getMethod("add", Integer.TYPE);
+            method = WorkSource.class.getMethod(StickerDataChangeType.ADD, Integer.TYPE);
         } catch (Exception unused) {
             method = null;
         }
         zzb = method;
         if (PlatformVersion.isAtLeastJellyBeanMR2()) {
             try {
-                method2 = WorkSource.class.getMethod("add", Integer.TYPE, String.class);
+                method2 = WorkSource.class.getMethod(StickerDataChangeType.ADD, Integer.TYPE, String.class);
             } catch (Exception unused2) {
             }
             zzc = method2;

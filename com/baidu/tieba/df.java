@@ -4,15 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface df<T> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         void a(String str, T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c<T> extends df<T> {
         void b();
 
@@ -39,7 +39,7 @@ public interface df<T> {
 
     void remove(String str);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

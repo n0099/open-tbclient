@@ -72,7 +72,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BaiduIdentityManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CSRC = "csrc";
@@ -150,7 +150,7 @@ public final class BaiduIdentityManager {
     }
 
     /* renamed from: com.baidu.searchbox.util.BaiduIdentityManager$3  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$browser$BrowserType;
         public static /* synthetic */ Interceptable $ic;

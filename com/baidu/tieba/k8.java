@@ -10,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.IOException;
 import java.util.Arrays;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k8 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] c;
@@ -763,7 +762,7 @@ public class k8 implements Appendable, CharSequence {
             }
             if (i >= 10000) {
                 if (i >= 1000000000) {
-                    q(c[(int) ((i % 10000000000L) / C.NANOS_PER_SECOND)]);
+                    q(c[(int) ((i % 10000000000L) / 1000000000)]);
                 }
                 if (i >= 100000000) {
                     q(c[(i % 1000000000) / 100000000]);
@@ -839,11 +838,11 @@ public class k8 implements Appendable, CharSequence {
                 if (j >= 10000000000L) {
                     q(c[(int) ((j % 100000000000L) / 10000000000L)]);
                 }
-                if (j >= C.NANOS_PER_SECOND) {
-                    q(c[(int) ((j % 10000000000L) / C.NANOS_PER_SECOND)]);
+                if (j >= 1000000000) {
+                    q(c[(int) ((j % 10000000000L) / 1000000000)]);
                 }
                 if (j >= 100000000) {
-                    q(c[(int) ((j % C.NANOS_PER_SECOND) / 100000000)]);
+                    q(c[(int) ((j % 1000000000) / 100000000)]);
                 }
                 if (j >= 10000000) {
                     q(c[(int) ((j % 100000000) / 10000000)]);

@@ -14,7 +14,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
     public Handler mHandler;
 
     @KsJson
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3445790097441569428L;
@@ -40,7 +40,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         public double widthRation;
 
         @KsJson
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class KSAdJSCornerModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1503191931449786332L;
@@ -93,7 +93,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(VideoPosition videoPosition);
     }

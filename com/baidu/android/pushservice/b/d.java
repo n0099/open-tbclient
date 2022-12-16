@@ -18,7 +18,6 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -794,7 +793,7 @@ public class d extends b {
             long b2 = i.b(this.a, "cloud_update_config_time", 0) * 24 * 3600 * 1000;
             long j2 = 0;
             if (b2 <= 0) {
-                b2 = ImagesInvalidService.FILE_VALID_TIME;
+                b2 = 259200000;
             }
             if (m.o(this.a) && PushSettings.k(this.a) && !m(this.a)) {
                 if (!TextUtils.isEmpty(m.z(this.a))) {

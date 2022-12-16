@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import android.net.http.Headers;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,19 +35,19 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Http2Codec implements HttpCodec {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ByteString CONNECTION;
-    public static final ByteString ENCODING;
-    public static final ByteString HOST;
-    public static final List<ByteString> HTTP_2_SKIPPED_REQUEST_HEADERS;
-    public static final List<ByteString> HTTP_2_SKIPPED_RESPONSE_HEADERS;
-    public static final ByteString KEEP_ALIVE;
-    public static final ByteString PROXY_CONNECTION;
-    public static final ByteString TE;
-    public static final ByteString TRANSFER_ENCODING;
-    public static final ByteString UPGRADE;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String CONNECTION = "connection";
+    public static final String ENCODING = "encoding";
+    public static final String HOST = "host";
+    public static final List<String> HTTP_2_SKIPPED_REQUEST_HEADERS;
+    public static final List<String> HTTP_2_SKIPPED_RESPONSE_HEADERS;
+    public static final String KEEP_ALIVE = "keep-alive";
+    public static final String PROXY_CONNECTION = "proxy-connection";
+    public static final String TE = "te";
+    public static final String TRANSFER_ENCODING = "transfer-encoding";
+    public static final String UPGRADE = "upgrade";
     public transient /* synthetic */ FieldHolder $fh;
     public final Interceptor.Chain chain;
     public final Http2Connection connection;
@@ -56,7 +55,7 @@ public final class Http2Codec implements HttpCodec {
     public Http2Stream stream;
     public final StreamAllocation streamAllocation;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,17 +138,8 @@ public final class Http2Codec implements HttpCodec {
                 return;
             }
         }
-        CONNECTION = ByteString.encodeUtf8("connection");
-        HOST = ByteString.encodeUtf8("host");
-        KEEP_ALIVE = ByteString.encodeUtf8("keep-alive");
-        PROXY_CONNECTION = ByteString.encodeUtf8(Headers.PROXY_CONNECTION);
-        TRANSFER_ENCODING = ByteString.encodeUtf8(Headers.TRANSFER_ENCODING);
-        TE = ByteString.encodeUtf8("te");
-        ENCODING = ByteString.encodeUtf8("encoding");
-        ByteString encodeUtf8 = ByteString.encodeUtf8("upgrade");
-        UPGRADE = encodeUtf8;
-        HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, encodeUtf8, Header.TARGET_METHOD, Header.TARGET_PATH, Header.TARGET_SCHEME, Header.TARGET_AUTHORITY);
-        HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, UPGRADE);
+        HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade", Header.TARGET_METHOD_UTF8, Header.TARGET_PATH_UTF8, Header.TARGET_SCHEME_UTF8, Header.TARGET_AUTHORITY_UTF8);
+        HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade");
     }
 
     public Http2Codec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation, Http2Connection http2Connection) {
@@ -183,7 +173,7 @@ public final class Http2Codec implements HttpCodec {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, request)) == null) {
-            okhttp3.Headers headers = request.headers();
+            Headers headers = request.headers();
             ArrayList arrayList = new ArrayList(headers.size() + 4);
             arrayList.add(new Header(Header.TARGET_METHOD, request.method()));
             arrayList.add(new Header(Header.TARGET_PATH, RequestLine.requestPath(request.url())));
@@ -195,7 +185,7 @@ public final class Http2Codec implements HttpCodec {
             int size = headers.size();
             for (int i = 0; i < size; i++) {
                 ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i).toLowerCase(Locale.US));
-                if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8)) {
+                if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8.utf8())) {
                     arrayList.add(new Header(encodeUtf8, headers.value(i)));
                 }
             }
@@ -204,28 +194,20 @@ public final class Http2Codec implements HttpCodec {
         return (List) invokeL.objValue;
     }
 
-    public static Response.Builder readHttp2HeadersList(List<Header> list, Protocol protocol) throws IOException {
+    public static Response.Builder readHttp2HeadersList(Headers headers, Protocol protocol) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, protocol)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, headers, protocol)) == null) {
             Headers.Builder builder = new Headers.Builder();
-            int size = list.size();
+            int size = headers.size();
             StatusLine statusLine = null;
             for (int i = 0; i < size; i++) {
-                Header header = list.get(i);
-                if (header == null) {
-                    if (statusLine != null && statusLine.code == 100) {
-                        builder = new Headers.Builder();
-                        statusLine = null;
-                    }
-                } else {
-                    ByteString byteString = header.name;
-                    String utf8 = header.value.utf8();
-                    if (byteString.equals(Header.RESPONSE_STATUS)) {
-                        statusLine = StatusLine.parse("HTTP/1.1 " + utf8);
-                    } else if (!HTTP_2_SKIPPED_RESPONSE_HEADERS.contains(byteString)) {
-                        Internal.instance.addLenient(builder, byteString.utf8(), utf8);
-                    }
+                String name = headers.name(i);
+                String value = headers.value(i);
+                if (name.equals(Header.RESPONSE_STATUS_UTF8)) {
+                    statusLine = StatusLine.parse("HTTP/1.1 " + value);
+                } else if (!HTTP_2_SKIPPED_RESPONSE_HEADERS.contains(name)) {
+                    Internal.instance.addLenient(builder, name, value);
                 }
             }
             if (statusLine != null) {
@@ -288,7 +270,7 @@ public final class Http2Codec implements HttpCodec {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            Response.Builder readHttp2HeadersList = readHttp2HeadersList(this.stream.takeResponseHeaders(), this.protocol);
+            Response.Builder readHttp2HeadersList = readHttp2HeadersList(this.stream.takeHeaders(), this.protocol);
             if (z && Internal.instance.code(readHttp2HeadersList) == 100) {
                 return null;
             }

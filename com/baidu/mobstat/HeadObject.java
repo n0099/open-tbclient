@@ -313,7 +313,7 @@ public class HeadObject {
                     } else {
                         obj10 = this.t;
                     }
-                    jSONObject.put(Config.DEVICE_NAME, obj10);
+                    jSONObject.put("dn", obj10);
                     if (this.l == null) {
                         obj11 = "";
                     } else {

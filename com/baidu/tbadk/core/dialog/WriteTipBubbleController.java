@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c66;
+import com.baidu.tieba.x66;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public c66 b;
+    public x66 b;
     public b c;
 
     /* loaded from: classes3.dex */
@@ -154,10 +154,10 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        c66 c66Var;
+        x66 x66Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c66Var = this.b) != null) {
-            c66Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (x66Var = this.b) != null) {
+            x66Var.h();
         }
     }
 
@@ -165,9 +165,9 @@ public class WriteTipBubbleController {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !xi.isEmpty(str) && !xi.isEmpty(str2)) {
             if (this.b == null) {
-                c66 c66Var = new c66(this.a, view2);
-                this.b = c66Var;
-                c66Var.L(R.drawable.pic_post_findlink);
+                x66 x66Var = new x66(this.a, view2);
+                this.b = x66Var;
+                x66Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);
@@ -198,7 +198,7 @@ public class WriteTipBubbleController {
                 int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 int dimensionPixelSize6 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                 int dimensionPixelSize7 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X006);
-                this.b.L(R.drawable.obfuscated_res_0x7f0802ee);
+                this.b.L(R.drawable.bg_tip_blue_down);
                 this.b.v(1);
                 this.b.o(16);
                 this.b.l(2);

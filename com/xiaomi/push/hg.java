@@ -17,10 +17,10 @@ public class hg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f466a;
+    public final Context f489a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, hh> f467a;
+    public Map<String, hh> f490a;
 
     public hg(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class hg {
                 return;
             }
         }
-        this.f467a = new HashMap();
-        this.f466a = context;
+        this.f490a = new HashMap();
+        this.f489a = context;
     }
 
     public static hg a(Context context) {
@@ -82,11 +82,11 @@ public class hg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hh hhVar = this.f467a.get("UPLOADER_PUSH_CHANNEL");
+            hh hhVar = this.f490a.get("UPLOADER_PUSH_CHANNEL");
             if (hhVar != null) {
                 return hhVar;
             }
-            hh hhVar2 = this.f467a.get("UPLOADER_HTTP");
+            hh hhVar2 = this.f490a.get("UPLOADER_HTTP");
             if (hhVar2 != null) {
                 return hhVar2;
             }
@@ -96,10 +96,10 @@ public class hg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, hh> m395a() {
+    public Map<String, hh> m405a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f467a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f490a : (Map) invokeV.objValue;
     }
 
     public void a(hh hhVar, String str) {
@@ -110,7 +110,7 @@ public class hg {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m395a().put(str, hhVar);
+                m405a().put(str, hhVar);
             }
         }
     }
@@ -120,7 +120,7 @@ public class hg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hnVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m99a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bz.a(hnVar, false)) {
                 return false;
@@ -129,7 +129,7 @@ public class hg {
                     hnVar.f(com.xiaomi.push.service.bz.a());
                 }
                 hnVar.g(str);
-                com.xiaomi.push.service.ca.a(this.f466a, hnVar);
+                com.xiaomi.push.service.ca.a(this.f489a, hnVar);
                 return true;
             }
         }
@@ -139,6 +139,6 @@ public class hg {
     public boolean a(String str, String str2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f466a.getPackageName(), this.f466a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f489a.getPackageName(), this.f489a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
     }
 }

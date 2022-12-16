@@ -12,7 +12,7 @@ public class a implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ NetworkStatusReceiver f1002a;
+    public final /* synthetic */ NetworkStatusReceiver f1025a;
 
     public a(NetworkStatusReceiver networkStatusReceiver, Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f1002a = networkStatusReceiver;
+        this.f1025a = networkStatusReceiver;
         this.a = context;
     }
 
@@ -37,7 +37,7 @@ public class a implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1002a.a(this.a);
+            this.f1025a.a(this.a);
         }
     }
 }

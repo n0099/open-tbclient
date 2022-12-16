@@ -120,7 +120,7 @@ public final class AsyncLayoutInflater {
         public int resid;
 
         /* renamed from: view  reason: collision with root package name */
-        public View f1026view;
+        public View f1049view;
 
         public InflateRequest() {
             Interceptable interceptable = $ic;
@@ -219,7 +219,7 @@ public final class AsyncLayoutInflater {
                 try {
                     InflateRequest take = this.mQueue.take();
                     try {
-                        take.f1026view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
+                        take.f1049view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
                     } catch (RuntimeException e) {
                         Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
                     }
@@ -248,7 +248,7 @@ public final class AsyncLayoutInflater {
                 inflateRequest.inflater = null;
                 inflateRequest.parent = null;
                 inflateRequest.resid = 0;
-                inflateRequest.f1026view = null;
+                inflateRequest.f1049view = null;
                 this.mRequestPool.release(inflateRequest);
             }
         }
@@ -298,10 +298,10 @@ public final class AsyncLayoutInflater {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
                     InflateRequest inflateRequest = (InflateRequest) message.obj;
-                    if (inflateRequest.f1026view == null) {
-                        inflateRequest.f1026view = this.this$0.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
+                    if (inflateRequest.f1049view == null) {
+                        inflateRequest.f1049view = this.this$0.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
                     }
-                    inflateRequest.callback.onInflateFinished(inflateRequest.f1026view, inflateRequest.resid, inflateRequest.parent);
+                    inflateRequest.callback.onInflateFinished(inflateRequest.f1049view, inflateRequest.resid, inflateRequest.parent);
                     this.this$0.mInflateThread.releaseRequest(inflateRequest);
                     return true;
                 }

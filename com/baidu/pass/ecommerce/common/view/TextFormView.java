@@ -73,9 +73,9 @@ public class TextFormView extends FrameLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.layout_sapi_sdk_common_text_form, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.sapi_sdk_common_title_tv);
-            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.sapi_sdk_common_bottom_line);
+            View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d050d, (ViewGroup) this, true);
+            this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de2);
+            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ddd);
             this.mTextView.setText(this.mTextStr);
             View view2 = this.mBottomLine;
             if (this.mIsShowBottomLine) {
@@ -90,8 +90,8 @@ public class TextFormView extends FrameLayout {
     public void setDarkMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mTextView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.sapi_sdk_addr_edit_input_text_dark_color));
-            this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+            this.mTextView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060974));
+            this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06096e));
         }
     }
 }

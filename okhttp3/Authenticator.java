@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Authenticator {
     public static final Authenticator NONE = new Authenticator() { // from class: okhttp3.Authenticator.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // okhttp3.Authenticator
-        public Request authenticate(Route route, Response response) {
+        public Request authenticate(@Nullable Route route, Response response) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, route, response)) == null) {
@@ -39,5 +39,5 @@ public interface Authenticator {
     };
 
     @Nullable
-    Request authenticate(Route route, Response response) throws IOException;
+    Request authenticate(@Nullable Route route, Response response) throws IOException;
 }

@@ -1,14 +1,14 @@
 package com.baidu.searchbox.looper.ioc;
 
-import com.baidu.tieba.jf1;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.if1;
+import com.baidu.tieba.un8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class ILooperNeedContext_LooperRuntime_Provider implements jf1 {
+/* loaded from: classes3.dex */
+public class ILooperNeedContext_LooperRuntime_Provider implements if1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class ILooperNeedContext_LooperRuntime_Provider implements jf1 {
         }
     }
 
-    @Override // com.baidu.tieba.jf1
+    @Override // com.baidu.tieba.if1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xk8() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new un8() : invokeV.objValue;
     }
 }

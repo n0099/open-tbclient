@@ -25,13 +25,13 @@ import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc7;
+import com.baidu.tieba.cd7;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
 import com.baidu.tieba.pz4;
-import com.baidu.tieba.qw4;
 import com.baidu.tieba.qz4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0310a implements View.OnClickListener {
+        public class View$OnClickListenerC0314a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0310a(a aVar) {
+            public View$OnClickListenerC0314a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,12 +125,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07b7);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f07c4);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.dialog_ok, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0310a(this)));
-                tBAlertBuilder.g();
-                tBAlertBuilder.h(false);
-                tBAlertBuilder.w();
+                tBAlertBuilder.v(R.string.game_back_tip);
+                tBAlertBuilder.m(R.string.game_play_confirm_order);
+                tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0314a(this)));
+                tBAlertBuilder.i();
+                tBAlertBuilder.j(false);
+                tBAlertBuilder.y();
             }
         }
     }
@@ -198,12 +198,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 1));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07b7);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f07c5);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.dialog_ok, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                tBAlertBuilder.g();
-                tBAlertBuilder.h(false);
-                tBAlertBuilder.w();
+                tBAlertBuilder.v(R.string.game_back_tip);
+                tBAlertBuilder.m(R.string.game_play_confuse_order);
+                tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.i();
+                tBAlertBuilder.j(false);
+                tBAlertBuilder.y();
             }
         }
     }
@@ -815,7 +815,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            qw4.d(this.a).v(R.color.CAM_X0105);
+            rw4.d(this.a).v(R.color.CAM_X0105);
         }
     }
 
@@ -895,7 +895,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return cc7.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return cd7.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -903,27 +903,27 @@ public final class GamePlayCardMsgView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a6, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.msg_card_game_play_view, this);
             setOrientation(1);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915b4);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915ad);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915ae);
+            this.a = (EMTextView) findViewById(R.id.msg_card_title);
+            this.b = (EMTextView) findViewById(R.id.msg_card_hint);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.msg_card_inner_img);
             this.c = tbImageView;
             setStrokeWith(tbImageView);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915b3);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915b2);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915b1);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915b0);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915af);
+            this.e = (EMTextView) findViewById(R.id.msg_card_inner_title);
+            this.d = (EMTextView) findViewById(R.id.msg_card_inner_order_price);
+            this.f = (EMTextView) findViewById(R.id.msg_card_inner_order_point);
+            this.g = (EMTextView) findViewById(R.id.msg_card_inner_order_num);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.msg_card_inner_ll);
             this.h = linearLayout;
-            qw4 d2 = qw4.d(linearLayout);
+            rw4 d2 = rw4.d(linearLayout);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0204);
-            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915a9);
-            this.m = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915a8);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915aa);
-            this.j = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0915ab);
-            this.k = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0915ac);
+            this.l = (LinearLayout) findViewById(R.id.msg_card_bottom_ll);
+            this.m = (EMTextView) findViewById(R.id.msg_card_bottom_hint);
+            this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
+            this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
+            this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
             pz4 pz4Var = new pz4();
             pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
             this.j.setConfig(pz4Var);

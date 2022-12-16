@@ -31,7 +31,6 @@ import com.bytedance.pangle.res.PluginResources;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.util.HashSet;
@@ -142,7 +141,7 @@ public final class c {
                         if (a12 > 20 || a12 < 0) {
                             sb.append("isInstall cost:");
                             sb.append(a12);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         }
                         String b = com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion());
                         if (!new File(b).exists()) {
@@ -154,14 +153,14 @@ public final class c {
                         if (a13 > 20 || a13 < 0) {
                             sb.append("getSourceFile cost:");
                             sb.append(a13);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         }
                         File file = new File(com.bytedance.pangle.c.c.d(plugin.mPkgName, plugin.getVersion()));
                         long a14 = a11.a("getNativeLibraryDir");
                         if (a14 > 20 || a14 < 0) {
                             sb.append("getNativeLibraryDir cost:");
                             sb.append(a14);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         }
                         File file2 = new File(file.getParentFile(), "dalvik-cache");
                         if (!file2.exists()) {
@@ -171,7 +170,7 @@ public final class c {
                         if (a15 > 20 || a15 < 0) {
                             sb.append("dalvikCacheDirTime cost:");
                             sb.append(a15);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         }
                         if (Build.VERSION.SDK_INT < 31 && (Build.VERSION.SDK_INT != 30 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
                             z = false;
@@ -223,14 +222,14 @@ public final class c {
                             if (a2 <= 20 || a2 < 0) {
                                 sb.append("classloader cost:");
                                 sb.append(a2);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(b, 15);
                             a3 = a11.a("getPackageInfo");
                             if (a3 <= 20 || a3 < 0) {
                                 sb.append("getPackageInfo cost:");
                                 sb.append(a3);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             plugin.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName);
                             ApplicationInfo applicationInfo = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
@@ -248,14 +247,14 @@ public final class c {
                             if (a4 <= 20 || a4 < 0) {
                                 sb.append("setApplication cost:");
                                 sb.append(a4);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             plugin.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo), str);
                             a5 = a11.a("makeResources");
                             if (a5 <= 20 || a5 < 0) {
                                 sb.append("makeResources cost:");
                                 sb.append(a5);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks(plugin) { // from class: com.bytedance.pangle.plugin.c.2
                                 public static /* synthetic */ Interceptable $ic;
@@ -321,7 +320,7 @@ public final class c {
                             if (a6 <= 20 || a6 < 0) {
                                 sb.append("resolveActivityServices cost:");
                                 sb.append(a6);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             activityInfoArr2 = packageArchiveInfo.receivers;
                             if (activityInfoArr2 != null) {
@@ -338,7 +337,7 @@ public final class c {
                             if (a7 <= 20 || a7 < 0) {
                                 sb.append("resolveReceiver cost:");
                                 sb.append(a7);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             providerInfoArr = packageArchiveInfo.providers;
                             if (providerInfoArr != null) {
@@ -355,7 +354,7 @@ public final class c {
                             if (a8 <= 20 || a8 < 0) {
                                 sb.append("resolveProvider cost:");
                                 sb.append(a8);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             if (plugin.pluginProvider != null && plugin.pluginProvider.size() > 0) {
                                 ContentProviderManager.getInstance().installContentProviders(plugin.pluginProvider.values(), plugin);
@@ -364,7 +363,7 @@ public final class c {
                             if (a9 <= 20 || a9 < 0) {
                                 sb.append("installProvider cost:");
                                 sb.append(a9);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
                                 ZeusApplication zeusApplication = (ZeusApplication) plugin.mClassLoader.loadClass(packageArchiveInfo.applicationInfo.className).newInstance();
@@ -375,7 +374,7 @@ public final class c {
                             if (a10 <= 20 || a10 < 0) {
                                 sb.append("makeApplication cost:");
                                 sb.append(a10);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
                             return true;
@@ -390,14 +389,14 @@ public final class c {
                         }
                         sb.append("classloader cost:");
                         sb.append(a2);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(b, 15);
                         a3 = a11.a("getPackageInfo");
                         if (a3 <= 20) {
                         }
                         sb.append("getPackageInfo cost:");
                         sb.append(a3);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         plugin.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName);
                         ApplicationInfo applicationInfo2 = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
                         plugin.mHostApplicationInfoHookSomeField = applicationInfo2;
@@ -413,14 +412,14 @@ public final class c {
                         }
                         sb.append("setApplication cost:");
                         sb.append(a4);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         plugin.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo), str);
                         a5 = a11.a("makeResources");
                         if (a5 <= 20) {
                         }
                         sb.append("makeResources cost:");
                         sb.append(a5);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks(plugin) { // from class: com.bytedance.pangle.plugin.c.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -470,7 +469,7 @@ public final class c {
                         }
                         sb.append("resolveActivityServices cost:");
                         sb.append(a6);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         activityInfoArr2 = packageArchiveInfo.receivers;
                         if (activityInfoArr2 != null) {
                         }
@@ -479,7 +478,7 @@ public final class c {
                         }
                         sb.append("resolveReceiver cost:");
                         sb.append(a7);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         providerInfoArr = packageArchiveInfo.providers;
                         if (providerInfoArr != null) {
                         }
@@ -488,7 +487,7 @@ public final class c {
                         }
                         sb.append("resolveProvider cost:");
                         sb.append(a8);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         if (plugin.pluginProvider != null) {
                             ContentProviderManager.getInstance().installContentProviders(plugin.pluginProvider.values(), plugin);
                         }
@@ -497,7 +496,7 @@ public final class c {
                         }
                         sb.append("installProvider cost:");
                         sb.append(a9);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
                         }
                         a10 = a11.a("makeApplication");
@@ -505,14 +504,14 @@ public final class c {
                         }
                         sb.append("makeApplication cost:");
                         sb.append(a10);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
                         return true;
                     }
                 } catch (Throwable th) {
                     sb.append("loadPluginInternal ");
                     sb.append(th.getMessage());
-                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    sb.append(";");
                     ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] ", str, th);
                     return false;
                 }

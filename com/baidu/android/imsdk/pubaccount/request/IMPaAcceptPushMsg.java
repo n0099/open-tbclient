@@ -2,12 +2,10 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,13 +68,12 @@ public class IMPaAcceptPushMsg extends Message {
                 jSONObject.put("method", 105);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                jSONObject.put("pa_uid", this.mPaId);
+                jSONObject.put(Constants.EXTRA_PAUID_TYPE, this.mPaId);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 jSONObject.put("is_accept_msg", this.mAcceptPush);
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "buildBody:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -99,7 +96,6 @@ public class IMPaAcceptPushMsg extends Message {
                     PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);
                 } catch (Exception e) {
                     LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             super.handleMessageResult(context, jSONObject, i, str);

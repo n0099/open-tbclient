@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
+import protobuf.ApkDetail;
 /* loaded from: classes4.dex */
 public class ApkDetailPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -37,34 +37,10 @@ public class ApkDetailPojo extends OrmObject {
         }
     }
 
-    public static ApkDetailPojo A(ApkDetail apkDetail) {
+    public static ApkDetailPojo G(ApkDetail apkDetail) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, apkDetail)) == null) {
-            if (apkDetail == null) {
-                return null;
-            }
-            ApkDetailPojo apkDetailPojo = new ApkDetailPojo();
-            apkDetailPojo.developer = apkDetail.developer;
-            apkDetailPojo.publisher = apkDetail.publisher;
-            apkDetailPojo.version = apkDetail.version;
-            apkDetailPojo.versionCode = apkDetail.version_code;
-            apkDetailPojo.updateTime = apkDetail.update_time;
-            apkDetailPojo.size = apkDetail.size;
-            apkDetailPojo.needNetwork = apkDetail.need_network;
-            apkDetailPojo.needInnerBuy = apkDetail.need_inner_buy;
-            apkDetailPojo.authorityUrl = apkDetail.authority_url;
-            apkDetailPojo.privacyUrl = apkDetail.privacy_url;
-            apkDetailPojo.pkgSource = apkDetail.pkg_source;
-            return apkDetailPojo;
-        }
-        return (ApkDetailPojo) invokeL.objValue;
-    }
-
-    public static ApkDetailPojo z(protobuf.ApkDetail apkDetail) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, apkDetail)) == null) {
             if (apkDetail == null) {
                 return null;
             }
@@ -80,6 +56,30 @@ public class ApkDetailPojo extends OrmObject {
             apkDetailPojo.authorityUrl = apkDetail.authorityUrl;
             apkDetailPojo.privacyUrl = apkDetail.privacyUrl;
             apkDetailPojo.pkgSource = apkDetail.pkgSource;
+            return apkDetailPojo;
+        }
+        return (ApkDetailPojo) invokeL.objValue;
+    }
+
+    public static ApkDetailPojo H(tbclient.ApkDetail apkDetail) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, apkDetail)) == null) {
+            if (apkDetail == null) {
+                return null;
+            }
+            ApkDetailPojo apkDetailPojo = new ApkDetailPojo();
+            apkDetailPojo.developer = apkDetail.developer;
+            apkDetailPojo.publisher = apkDetail.publisher;
+            apkDetailPojo.version = apkDetail.version;
+            apkDetailPojo.versionCode = apkDetail.version_code;
+            apkDetailPojo.updateTime = apkDetail.update_time;
+            apkDetailPojo.size = apkDetail.size;
+            apkDetailPojo.needNetwork = apkDetail.need_network;
+            apkDetailPojo.needInnerBuy = apkDetail.need_inner_buy;
+            apkDetailPojo.authorityUrl = apkDetail.authority_url;
+            apkDetailPojo.privacyUrl = apkDetail.privacy_url;
+            apkDetailPojo.pkgSource = apkDetail.pkg_source;
             return apkDetailPojo;
         }
         return (ApkDetailPojo) invokeL.objValue;

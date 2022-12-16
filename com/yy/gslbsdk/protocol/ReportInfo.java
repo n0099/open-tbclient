@@ -26,7 +26,7 @@ public class ReportInfo {
     public int tt;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1091view;
+    public String f1116view;
 
     public ReportInfo() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class ReportInfo {
             }
         }
         this.host = null;
-        this.f1091view = null;
+        this.f1116view = null;
         this.netInfo = null;
         this.stats0 = null;
         this.stats1 = null;
@@ -151,7 +151,7 @@ public class ReportInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f1091view;
+            return this.f1116view;
         }
         return (String) invokeV.objValue;
     }
@@ -229,7 +229,7 @@ public class ReportInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f1091view = str;
+            this.f1116view = str;
         }
     }
 }

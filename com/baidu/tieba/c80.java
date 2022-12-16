@@ -1,31 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.HandlerThread;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.IMListener;
-import com.baidu.android.imsdk.IMManager;
-import com.baidu.android.imsdk.account.ILoginListener;
-import com.baidu.android.imsdk.account.LoginManager;
-import com.baidu.android.imsdk.chatmessage.request.IMSendMsg;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.internal.IMConnection;
-import com.baidu.android.imsdk.internal.IMSDK;
-import com.baidu.android.imsdk.internal.ListenerManager;
-import com.baidu.android.imsdk.internal.MessageFactory;
-import com.baidu.android.imsdk.internal.NotifyMessageHandler;
-import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.ubc.MessageUbc;
-import com.baidu.android.imsdk.ubc.UBCConstants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,155 +12,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class c80 {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler c;
-    public static final HandlerThread d;
-    public static volatile boolean e;
-    public static volatile Map<Long, Message> f;
-    public static volatile Map<Long, MessageUbc> g;
-    public static volatile c80 h;
-    public static Context i;
+    public static final ConcurrentHashMap<Integer, ResponsedMessage<?>> a;
+    public static final ConcurrentHashMap<Integer, b> b;
+    public static final ConcurrentHashMap<Integer, Integer> c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public q80 b;
 
-    public final boolean i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == 55 : invokeI.booleanValue;
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(ResponsedMessage<?> responsedMessage);
+
+        void b();
     }
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public static class a extends HttpClient.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Intent a;
-        public final /* synthetic */ c80 b;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ HttpMessage f;
 
-        public a(c80 c80Var, Intent intent) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask, int i, HttpMessage httpMessage2) {
+            super(httpMessage, httpMessageTask);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c80Var, intent};
+                Object[] objArr = {httpMessage, httpMessageTask, Integer.valueOf(i), httpMessage2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = c80Var;
-            this.a = intent;
+            this.e = i;
+            this.f = httpMessage2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.j(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements q80 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c80 a;
-
-        public b(c80 c80Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c80Var;
-        }
-
-        @Override // com.baidu.tieba.q80
-        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
-            MessageUbc messageUbc;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
-                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
-                int i2 = (j2 > 231L ? 1 : (j2 == 231L ? 0 : -1));
-                if (i2 == 0) {
-                    NotifyMessageHandler.handleRtcReport("begin", new String(bArr));
-                }
-                if (i == 0) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(new String(bArr));
-                        int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
-                        String optString = jSONObject.optString("msg", "");
-                        if (this.a.i((int) j2)) {
-                            synchronized (c80.f) {
-                                messageUbc = (MessageUbc) c80.g.get(Long.valueOf(j3));
-                                c80.g.remove(Long.valueOf(j3));
-                            }
-                            if (messageUbc != null) {
-                                p70.d().f(messageUbc.generateUBCData(String.valueOf(optInt), optString), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
-                            }
-                        }
-                        if (j2 == 96) {
-                            NotifyMessageHandler.handleDeliverMessage(c80.i.getApplicationContext(), jSONObject);
-                            return;
-                        } else if (j2 == 196) {
-                            NotifyMessageHandler.handleMcastMessage(c80.i.getApplicationContext(), jSONObject);
-                            return;
-                        } else if (j2 == 197) {
-                            NotifyMessageHandler.handleConfigMessage(c80.i.getApplicationContext(), jSONObject);
-                            return;
-                        } else if (j2 == 226) {
-                            NotifyMessageHandler.handleMediaNotifyMessage(c80.i.getApplicationContext(), jSONObject);
-                            return;
-                        } else if (i2 == 0) {
-                            NotifyMessageHandler.handleRtcNotifyMessage(c80.i, jSONObject);
-                            return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
+                synchronized (c80.class) {
+                    c80.c.remove(Integer.valueOf(this.e));
+                    if (responsedMessageArr != null && responsedMessageArr.length > 0) {
+                        b bVar = (b) c80.b.remove(Integer.valueOf(this.e));
+                        if (bVar != null) {
+                            bVar.a(responsedMessageArr[0]);
                         } else {
-                            LogUtils.d("IMServiceImpl", "key :" + j3 + "response :" + jSONObject.toString());
-                            synchronized (c80.f) {
-                                if (c80.f != null && c80.f.containsKey(Long.valueOf(j3))) {
-                                    ((Message) c80.f.get(Long.valueOf(j3))).handleMessageResult(c80.i, jSONObject, optInt, optString);
-                                    c80.f.remove(Long.valueOf(j3));
-                                }
-                            }
-                            return;
+                            c80.a.put(Integer.valueOf(this.f.getCmd()), responsedMessageArr[0]);
                         }
-                    } catch (JSONException e) {
-                        LogUtils.e("IMServiceImpl", "handle response e :", e);
-                        synchronized (c80.f) {
-                            if (c80.f != null && c80.f.containsKey(Long.valueOf(j3))) {
-                                ((Message) c80.f.get(Long.valueOf(j3))).handleMessageResult(c80.i, null, -1, "");
-                                c80.f.remove(Long.valueOf(j3));
-                            }
-                            return;
-                        }
-                    }
-                }
-                synchronized (c80.f) {
-                    if (c80.f != null && c80.f.containsKey(Long.valueOf(j3))) {
-                        ((Message) c80.f.get(Long.valueOf(j3))).handleMessageResult(c80.i, null, i, str);
-                        c80.f.remove(Long.valueOf(j3));
                     }
                 }
             }
@@ -201,29 +93,10 @@ public class c80 {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
-        d = handlerThread;
-        handlerThread.start();
-        c = new Handler(d.getLooper());
-        e = true;
-        f = new LinkedHashMap();
-        g = new LinkedHashMap();
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                LogUtils.d("IMServiceImpl", "isSmallFlow :" + e);
-                IMManager.init(i.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(i.getApplicationContext()));
-                if (e) {
-                    k();
-                } else if (!IMSDK.getInstance(i.getApplicationContext()).init()) {
-                    IMConnection.getInstance(i).disconnectedByPeer();
-                }
-            } catch (Exception unused) {
-            }
-        }
+        a = new ConcurrentHashMap<>();
+        b = new ConcurrentHashMap<>();
+        c = new ConcurrentHashMap<>();
+        d = BdUniqueId.gen();
     }
 
     public c80() {
@@ -231,174 +104,40 @@ public class c80 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new AtomicInteger();
-        this.b = new b(this);
-        h();
     }
 
-    public final void k() {
+    public static synchronized void d(int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231};
-            for (int i2 = 0; i2 < 5; i2++) {
-                l(2, Integer.valueOf(iArr[i2]).intValue());
-            }
-            l(3, 196);
-        }
-    }
-
-    public void f(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
-            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
-        }
-    }
-
-    public final void l(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            p80 p80Var = new p80();
-            p80Var.a = i2;
-            p80Var.b = i3;
-            m80.c(p80Var, this.b);
-        }
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            synchronized (f) {
-                if (f == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bVar) == null) {
+            synchronized (c80.class) {
+                if (c.containsKey(Integer.valueOf(i))) {
+                    b.put(Integer.valueOf(i), bVar);
                     return;
                 }
-                for (Message message : f.values()) {
-                    if (message != null) {
-                        message.handleMessageResult(context, null, -1, "");
-                    }
+                if (a.containsKey(Integer.valueOf(i))) {
+                    bVar.a(a.remove(Integer.valueOf(i)));
+                } else {
+                    bVar.b();
                 }
             }
         }
     }
 
-    public static c80 g(Context context) {
-        InterceptResult invokeL;
+    public static synchronized void e(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (h == null) {
-                synchronized (c80.class) {
-                    if (h == null) {
-                        i = context.getApplicationContext();
-                        h = new c80();
-                    }
-                }
-            }
-            return h;
-        }
-        return (c80) invokeL.objValue;
-    }
-
-    public void j(@NonNull Intent intent) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + e);
-            if (intent == null) {
-                intent = new Intent();
-                LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
-            }
-            if (e) {
-                try {
-                    int intExtra = intent.getIntExtra("method", -1);
-                    int intExtra2 = intent.getIntExtra("service_id", -1);
-                    if (intExtra != -1 && intExtra2 != -1) {
-                        if (intExtra == 50 || intExtra == 201) {
-                            k();
-                        }
-                        Message createNewMessage = MessageFactory.getInstance().createNewMessage(i, intExtra, intent);
-                        if (createNewMessage != null) {
-                            if (intExtra == 50) {
-                                boolean z = false;
-                                synchronized (f) {
-                                    LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f.keySet());
-                                    Iterator<Long> it = f.keySet().iterator();
-                                    while (it.hasNext()) {
-                                        if (it.next().longValue() % 100 == 50) {
-                                            z = true;
-                                        }
-                                    }
-                                }
-                                if (z || LoginManager.getInstance(i.getApplicationContext()).isIMLogined()) {
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append("cur state is ");
-                                    if (z) {
-                                        str = "logining";
-                                    } else {
-                                        str = "loggined";
-                                    }
-                                    sb.append(str);
-                                    sb.append(" , abandon other 50");
-                                    LogUtils.d("IMServiceImpl", sb.toString());
-                                    return;
-                                }
-                            }
-                            createNewMessage.isSending(true);
-                            BLCPRequest bLCPRequest = new BLCPRequest();
-                            bLCPRequest.a = intExtra2;
-                            long type = createNewMessage.getType();
-                            bLCPRequest.b = type;
-                            if (intExtra2 == 3 && type == 55) {
-                                bLCPRequest.b = 185L;
-                            }
-                            bLCPRequest.c = createNewMessage.getBody().getBytes();
-                            bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                            long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6));
-                            sb2.append(this.a.incrementAndGet());
-                            bLCPRequest.d = j + (Long.valueOf(sb2.toString()).longValue() * 1000);
-                            synchronized (f) {
-                                if (i((int) bLCPRequest.b) && (createNewMessage instanceof IMSendMsg)) {
-                                    g.put(Long.valueOf(bLCPRequest.d), new MessageUbc(i, ((IMSendMsg) createNewMessage).getChatMsg(), UBCConstants.BCSEND_UBCID));
-                                }
-                                f.put(Long.valueOf(bLCPRequest.d), createNewMessage);
-                                LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + f.keySet().toString());
-                            }
-                            if (intExtra == 50) {
-                                new IMTrack.RequestBuilder(i.getApplicationContext()).method("send").requestId("2").errorCode(50L).ext("" + bLCPRequest.d).aliasId(501112L).build();
-                            }
-                            m80.c(bLCPRequest, this.b);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } catch (Exception e2) {
-                    LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
-                    return;
-                }
-            }
-            try {
-                if (!IMSDK.getInstance(i.getApplicationContext()).handleOnStart(intent)) {
-                    IMConnection.getInstance(i).disconnectedByPeer();
-                }
-            } catch (Exception e3) {
-                LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
-                if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
-                    IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
-                    if (removeListener instanceof ILoginListener) {
-                        ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(i));
-                    }
-                } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
-                    ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpMessage, httpMessageTask) == null) {
+            synchronized (c80.class) {
+                if (httpMessage != null && httpMessageTask != null) {
+                    int cmd = httpMessage.getCmd();
+                    c.put(Integer.valueOf(cmd), 0);
+                    new a(httpMessage, httpMessageTask, cmd, httpMessage).execute(new HttpMessage[0]);
                 }
             }
         }

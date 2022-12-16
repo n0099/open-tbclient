@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SystemEvent extends VideoEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_BATTERY_CHANGED = "system_event_battery_changed";

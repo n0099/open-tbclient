@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.bdtask.utils.UniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ju {
     void a(String str);
 

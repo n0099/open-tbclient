@@ -2,7 +2,6 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +71,7 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
                 for (Map.Entry<String, Object> entry : this.params.entrySet()) {
                     jSONObject.put(entry.getKey(), entry.getValue().toString());
                 }
-                jSONObject2.put(TiebaStatic.LogFields.RESULT, jSONObject);
+                jSONObject2.put("result", jSONObject);
                 if (this.recogResult != null) {
                     jSONObject2.put("retCode", this.recogResult.getResultCode());
                     jSONObject2.put("retMsg", this.recogResult.getResultMsg());

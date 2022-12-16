@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.impl.cookie.DateUtils;
 import org.apache.http.impl.cookie.NetscapeDraftSpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpDate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final DateFormat[] BROWSER_COMPATIBLE_DATE_FORMATS;

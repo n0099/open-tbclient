@@ -2,7 +2,6 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -23,7 +22,7 @@ public class d {
         if (str.equals("v1")) {
             return new j(context, a, downloadInfo.getTargetFilePath());
         }
-        if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
+        if (str.equals("v2")) {
             return new k(context, a, file.getAbsolutePath());
         }
         if (str.equals("v3")) {
@@ -64,7 +63,7 @@ public class d {
         }
         if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v1")) {
             aVar2 = new j(context, aVar, b);
-        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
+        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v2")) {
             aVar2 = new k(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v3")) {
             aVar2 = new l(context, aVar, b);

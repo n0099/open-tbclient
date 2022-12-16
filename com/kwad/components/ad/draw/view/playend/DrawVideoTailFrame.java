@@ -30,7 +30,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,21 +123,21 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0427, this);
-            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f091253);
-            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091090);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091097);
-            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091098);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091094);
-            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f09108f);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091093);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0436, this);
+            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b2);
+            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910f2);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f7);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f9);
+            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910fa);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910f5);
             this.cB = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(15);
-            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ee);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ed);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910df);
+            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114d);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f09114c);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09113e);
         }
     }
 
@@ -285,7 +285,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0577a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.components.core.c.a.a.a(new a.C0594a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DrawVideoTailFrame cF;

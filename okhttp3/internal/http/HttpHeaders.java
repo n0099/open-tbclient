@@ -1,6 +1,7 @@
 package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.EOFException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import okhttp3.Challenge;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -23,12 +25,15 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
-/* loaded from: classes8.dex */
+import okio.Buffer;
+import okio.ByteString;
+import org.apache.commons.codec.binary4util.BaseNCodec;
+import org.apache.http.message.BasicHeaderValueFormatter;
+/* loaded from: classes9.dex */
 public final class HttpHeaders {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Pattern PARAMETER;
-    public static final String QUOTED_STRING = "\"([^\"]*)\"";
-    public static final String TOKEN = "([^ \"=]*)";
+    public static /* synthetic */ Interceptable $ic;
+    public static final ByteString QUOTED_STRING_DELIMITERS;
+    public static final ByteString TOKEN_DELIMITERS;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +49,8 @@ public final class HttpHeaders {
                 return;
             }
         }
-        PARAMETER = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+        QUOTED_STRING_DELIMITERS = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
+        TOKEN_DELIMITERS = ByteString.encodeUtf8("\t ,=");
     }
 
     public HttpHeaders() {
@@ -82,7 +88,7 @@ public final class HttpHeaders {
     public static long stringToLong(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (str == null) {
                 return -1L;
             }
@@ -98,7 +104,7 @@ public final class HttpHeaders {
     public static Set<String> varyFields(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, response)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, response)) == null) {
             return varyFields(response.headers());
         }
         return (Set) invokeL.objValue;
@@ -107,7 +113,7 @@ public final class HttpHeaders {
     public static Headers varyHeaders(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, response)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, response)) == null) {
             return varyHeaders(response.networkResponse().request().headers(), response.headers());
         }
         return (Headers) invokeL.objValue;
@@ -147,10 +153,41 @@ public final class HttpHeaders {
         return invokeL.booleanValue;
     }
 
+    public static String readQuotedString(Buffer buffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, buffer)) == null) {
+            if (buffer.readByte() == 34) {
+                Buffer buffer2 = new Buffer();
+                while (true) {
+                    long indexOfElement = buffer.indexOfElement(QUOTED_STRING_DELIMITERS);
+                    if (indexOfElement == -1) {
+                        return null;
+                    }
+                    if (buffer.getByte(indexOfElement) == 34) {
+                        buffer2.write(buffer, indexOfElement);
+                        buffer.readByte();
+                        return buffer2.readUtf8();
+                    } else if (buffer.size() == indexOfElement + 1) {
+                        return null;
+                    } else {
+                        buffer2.write(buffer, indexOfElement);
+                        buffer.readByte();
+                        buffer2.write(buffer, 1L);
+                    }
+                }
+            } else {
+                throw new IllegalArgumentException();
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
     public static Set<String> varyFields(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, headers)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, headers)) == null) {
             Set<String> emptySet = Collections.emptySet();
             int size = headers.size();
             for (int i = 0; i < size; i++) {
@@ -169,38 +206,90 @@ public final class HttpHeaders {
         return (Set) invokeL.objValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0081, code lost:
+        continue;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0081, code lost:
+        continue;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void parseChallengeHeader(List<Challenge> list, Buffer buffer) {
+        String readToken;
+        int skipAll;
+        String readToken2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65543, null, list, buffer) != null) {
+            return;
+        }
+        while (true) {
+            String str = null;
+            while (true) {
+                if (str == null) {
+                    skipWhitespaceAndCommas(buffer);
+                    str = readToken(buffer);
+                    if (str == null) {
+                        return;
+                    }
+                }
+                boolean skipWhitespaceAndCommas = skipWhitespaceAndCommas(buffer);
+                readToken = readToken(buffer);
+                if (readToken == null) {
+                    if (!buffer.exhausted()) {
+                        return;
+                    }
+                    list.add(new Challenge(str, Collections.emptyMap()));
+                    return;
+                }
+                skipAll = skipAll(buffer, BaseNCodec.PAD_DEFAULT);
+                boolean skipWhitespaceAndCommas2 = skipWhitespaceAndCommas(buffer);
+                if (skipWhitespaceAndCommas || (!skipWhitespaceAndCommas2 && !buffer.exhausted())) {
+                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    int skipAll2 = skipAll + skipAll(buffer, BaseNCodec.PAD_DEFAULT);
+                    while (true) {
+                        if (readToken == null) {
+                            readToken = readToken(buffer);
+                            if (skipWhitespaceAndCommas(buffer)) {
+                                break;
+                            }
+                            skipAll2 = skipAll(buffer, BaseNCodec.PAD_DEFAULT);
+                        }
+                        if (skipAll2 == 0) {
+                            break;
+                        } else if (skipAll2 > 1 || skipWhitespaceAndCommas(buffer)) {
+                            return;
+                        } else {
+                            if (!buffer.exhausted() && buffer.getByte(0L) == 34) {
+                                readToken2 = readQuotedString(buffer);
+                            } else {
+                                readToken2 = readToken(buffer);
+                            }
+                            if (readToken2 == null || ((String) linkedHashMap.put(readToken, readToken2)) != null) {
+                                return;
+                            }
+                            if (!skipWhitespaceAndCommas(buffer) && !buffer.exhausted()) {
+                                return;
+                            }
+                            readToken = null;
+                        }
+                    }
+                    list.add(new Challenge(str, linkedHashMap));
+                    str = readToken;
+                }
+            }
+            list.add(new Challenge(str, Collections.singletonMap(null, readToken + repeat(a.h, skipAll))));
+        }
+    }
+
     public static List<Challenge> parseChallenges(Headers headers, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, headers, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, headers, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (String str2 : headers.values(str)) {
-                int indexOf = str2.indexOf(32);
-                if (indexOf != -1) {
-                    String substring = str2.substring(0, indexOf);
-                    Matcher matcher = PARAMETER.matcher(str2);
-                    String str3 = null;
-                    String str4 = null;
-                    while (matcher.find(indexOf)) {
-                        if (str2.regionMatches(true, matcher.start(1), "realm", 0, 5)) {
-                            str3 = matcher.group(3);
-                        } else if (str2.regionMatches(true, matcher.start(1), "charset", 0, 7)) {
-                            str4 = matcher.group(3);
-                        }
-                        if (str3 != null && str4 != null) {
-                            break;
-                        }
-                        indexOf = matcher.end();
-                    }
-                    if (str3 != null) {
-                        Challenge challenge = new Challenge(substring, str3);
-                        if (str4 != null) {
-                            if (str4.equalsIgnoreCase("UTF-8")) {
-                                challenge = challenge.withCharset(Util.UTF_8);
-                            }
-                        }
-                        arrayList.add(challenge);
-                    }
+            for (int i = 0; i < headers.size(); i++) {
+                if (str.equalsIgnoreCase(headers.name(i))) {
+                    parseChallengeHeader(arrayList, new Buffer().writeUtf8(headers.value(i)));
                 }
             }
             return arrayList;
@@ -208,10 +297,24 @@ public final class HttpHeaders {
         return (List) invokeLL.objValue;
     }
 
+    public static int skipAll(Buffer buffer, byte b) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{buffer, Byte.valueOf(b)})) == null) {
+            int i = 0;
+            while (!buffer.exhausted() && buffer.getByte(0L) == b) {
+                i++;
+                buffer.readByte();
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
+    }
+
     public static int parseSeconds(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
             try {
                 long parseLong = Long.parseLong(str);
                 if (parseLong > 2147483647L) {
@@ -228,11 +331,22 @@ public final class HttpHeaders {
         return invokeLI.intValue;
     }
 
+    public static String repeat(char c, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            char[] cArr = new char[i];
+            Arrays.fill(cArr, c);
+            return new String(cArr);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
     public static int skipWhitespace(String str, int i) {
         char charAt;
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, str, i)) == null) {
             while (i < str.length() && ((charAt = str.charAt(i)) == ' ' || charAt == '\t')) {
                 i++;
             }
@@ -241,9 +355,50 @@ public final class HttpHeaders {
         return invokeLI.intValue;
     }
 
+    public static String readToken(Buffer buffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, buffer)) == null) {
+            try {
+                long indexOfElement = buffer.indexOfElement(TOKEN_DELIMITERS);
+                if (indexOfElement == -1) {
+                    indexOfElement = buffer.size();
+                }
+                if (indexOfElement != 0) {
+                    return buffer.readUtf8(indexOfElement);
+                }
+                return null;
+            } catch (EOFException unused) {
+                throw new AssertionError();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean skipWhitespaceAndCommas(Buffer buffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, buffer)) == null) {
+            boolean z = false;
+            while (!buffer.exhausted()) {
+                byte b = buffer.getByte(0L);
+                if (b == 44) {
+                    buffer.readByte();
+                    z = true;
+                } else if (b != 32 && b != 9) {
+                    break;
+                } else {
+                    buffer.readByte();
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static void receiveHeaders(CookieJar cookieJar, HttpUrl httpUrl, Headers headers) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65545, null, cookieJar, httpUrl, headers) != null) || cookieJar == CookieJar.NO_COOKIES) {
+        if ((interceptable != null && interceptable.invokeLLL(65548, null, cookieJar, httpUrl, headers) != null) || cookieJar == CookieJar.NO_COOKIES) {
             return;
         }
         List<Cookie> parseAll = Cookie.parseAll(httpUrl, headers);
@@ -256,7 +411,7 @@ public final class HttpHeaders {
     public static int skipUntil(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, str, i, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65551, null, str, i, str2)) == null) {
             while (i < str.length() && str2.indexOf(str.charAt(i)) == -1) {
                 i++;
             }
@@ -268,7 +423,7 @@ public final class HttpHeaders {
     public static Headers varyHeaders(Headers headers, Headers headers2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, headers, headers2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, headers, headers2)) == null) {
             Set<String> varyFields = varyFields(headers2);
             if (varyFields.isEmpty()) {
                 return new Headers.Builder().build();
@@ -289,7 +444,7 @@ public final class HttpHeaders {
     public static boolean varyMatches(Response response, Headers headers, Request request) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, response, headers, request)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, response, headers, request)) == null) {
             for (String str : varyFields(response)) {
                 if (!Util.equal(headers.values(str), request.headers(str))) {
                     return false;

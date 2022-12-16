@@ -32,6 +32,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public int mFilterType;
     public String mKey;
+    public int mState;
     public int mSubBusiness;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -71,7 +72,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
 
     private void generateUser(List<ChatSession> list, JSONObject jSONObject, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65537, this, list, jSONObject, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65538, this, list, jSONObject, i, i2) == null) {
             ChatSession chatSession = new ChatSession();
             chatSession.setContacter(jSONObject.optLong("uk", -1L));
             long optLong = jSONObject.optLong("timestamp", -1L);
@@ -84,10 +85,33 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 chatSession.setShield(1);
             } else if (i3 == 3) {
                 LogUtils.d(TAG, "generateUser mSubBusiness = 3");
+                chatSession.setDisturb(jSONObject.optInt("ability", 0));
             }
             chatSession.setChatType(i);
             list.add(chatSession);
         }
+    }
+
+    public IMGetShieldAndTopListRequest(Context context, String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+        this.mKey = str;
+        this.mSubBusiness = i;
+        this.mFilterType = i2;
+        this.mState = i3;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -108,6 +132,17 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("uk", uk);
                 jSONObject.put("sub_business", this.mSubBusiness);
                 jSONObject.put("timestamp", currentTimeMillis);
+                if (this.mSubBusiness == 3) {
+                    jSONObject.put("ability", this.mState);
+                }
+                if (this.mSubBusiness == 1) {
+                    JSONArray jSONArray = new JSONArray();
+                    jSONArray.put(6);
+                    jSONArray.put(7);
+                    jSONArray.put(8);
+                    jSONArray.put(9);
+                    jSONObject.put("sub_business_list", jSONArray);
+                }
                 jSONObject.put("business_filter", this.mFilterType);
                 jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
                 StringBuilder sb = new StringBuilder();
@@ -147,16 +182,20 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 if (this.mFilterType == 1) {
                     ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2, arrayList3);
                 }
-            } else if (i2 == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
-                IGetDisturbListListener iGetDisturbListListener = (IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey);
-                int intValue = ((Integer) transErrorCode.first).intValue();
-                String str2 = (String) transErrorCode.second;
-                if (bArr == null) {
-                    str = null;
-                } else {
-                    str = new String(bArr);
+            } else if (i2 == 3) {
+                if (this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
+                    IGetDisturbListListener iGetDisturbListListener = (IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey);
+                    int intValue = ((Integer) transErrorCode.first).intValue();
+                    String str2 = (String) transErrorCode.second;
+                    if (bArr == null) {
+                        str = null;
+                    } else {
+                        str = new String(bArr);
+                    }
+                    iGetDisturbListListener.onDisturbList(intValue, str2, str);
+                } else if (this.mFilterType == 2) {
+                    ShieldAndTopManager.getInstance(this.mContext).onMsgDisturbListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList3);
                 }
-                iGetDisturbListListener.onDisturbList(intValue, str2, str);
             }
         }
     }
@@ -205,7 +244,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             int i7 = this.mSubBusiness;
             if (i7 == 1) {
                 int i8 = this.mFilterType;
-                if (i8 != 1 && i8 != 0) {
+                if (i8 != 1 && i8 != 0 && i8 != 3) {
                     if (i8 == 2) {
                         ShieldAndTopManager.getInstance(this.mContext).onNotifyShieldListResult(i2, str, arrayList2, this.mKey);
                         return;
@@ -217,8 +256,12 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 if (this.mFilterType == 1) {
                     ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(i2, str, arrayList, arrayList2, arrayList3);
                 }
-            } else if (i7 == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
-                ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(i, str, str2);
+            } else if (i7 == 3) {
+                if (this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
+                    ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(i, str, str2);
+                } else if (this.mFilterType == 2) {
+                    ShieldAndTopManager.getInstance(this.mContext).onMsgDisturbListResult(i2, str, arrayList3);
+                }
             }
         }
     }

@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.is1;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,29 +15,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nu1 extends lu1 {
+public class nu1 extends ku1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.is1
+    @Override // com.baidu.tieba.hs1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BrightnessApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements is1.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu1 a;
+        public final /* synthetic */ Context a;
 
-        public a(nu1 nu1Var) {
+        public a(nu1 nu1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nu1Var};
+                Object[] objArr = {nu1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,41 +47,31 @@ public class nu1 extends lu1 {
                     return;
                 }
             }
-            this.a = nu1Var;
+            this.a = context;
         }
 
-        @Override // com.baidu.tieba.is1.b
-        public fw1 a(f43 f43Var) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f43Var)) == null) {
-                float a = de3.c().a(f43Var.w());
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", a);
-                    return new fw1(0, jSONObject);
-                } catch (JSONException e) {
-                    this.a.p("json put data fail", e, false);
-                    return fw1.c();
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !w33.d()) {
+                w33.f(this.a, R.string.obfuscated_res_0x7f0f0407).G();
             }
-            return (fw1) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nu1(@NonNull gs1 gs1Var) {
-        super(gs1Var);
+    public nu1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gs1Var};
+            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gs1) newInitContext.callArgs[0]);
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,13 +79,50 @@ public class nu1 extends lu1 {
         }
     }
 
-    public fw1 y() {
+    @SuppressLint({"KotlinPropertyAccess"})
+    public ew1 x() {
         InterceptResult invokeV;
+        String charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getBrightness", false);
-            return k(true, new a(this));
+            q("#getClipboardData", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                CharSequence a2 = zh3.b(getContext()).a();
+                if (TextUtils.isEmpty(a2)) {
+                    charSequence = "";
+                } else {
+                    charSequence = a2.toString();
+                }
+                jSONObject.put("data", charSequence);
+                return new ew1(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getClipboardData json put data fail", e, false);
+                return new ew1(1001, "JSONException");
+            }
         }
-        return (fw1) invokeV.objValue;
+        return (ew1) invokeV.objValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public ew1 y(String str) {
+        InterceptResult invokeL;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<ew1, JSONObject> s = s(str);
+            ew1 ew1Var = (ew1) s.first;
+            if (!ew1Var.isSuccess()) {
+                return ew1Var;
+            }
+            zh3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+            e43 q = d43.K().q();
+            if (q != null && (w = q.w()) != null) {
+                yh3.f0(new a(this, w), 200L);
+            }
+            return ew1.f();
+        }
+        return (ew1) invokeL.objValue;
     }
 }

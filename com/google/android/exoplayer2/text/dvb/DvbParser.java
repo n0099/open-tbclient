@@ -9,6 +9,7 @@ import android.graphics.Region;
 import android.util.Log;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1101,8 +1102,8 @@ public final class DvbParser {
                     readBits2 = 255;
                 }
                 double d = readBits3;
-                double d2 = i3 - 128;
-                double d3 = readBits - 128;
+                double d2 = i3 + a.g;
+                double d3 = readBits + a.g;
                 iArr[readBits5] = getColor((byte) (255 - (readBits2 & 255)), Util.constrainValue((int) (d + (1.402d * d2)), 0, 255), Util.constrainValue((int) ((d - (0.34414d * d3)) - (d2 * 0.71414d)), 0, 255), Util.constrainValue((int) (d + (d3 * 1.772d)), 0, 255));
                 i6 = i2;
                 readBits4 = readBits4;

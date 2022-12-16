@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface rq1 {
-    void a(h32 h32Var);
+    qq1 a();
 
-    void b(h32 h32Var);
+    pq1 b();
 }

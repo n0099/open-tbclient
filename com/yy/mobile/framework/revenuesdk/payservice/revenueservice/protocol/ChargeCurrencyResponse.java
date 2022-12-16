@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -47,7 +45,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = RevenueServerConst.ChargeCurrencyResponse;
+        this.cmd = 2022;
         parserResponse(str);
     }
 
@@ -64,7 +62,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
                         this.usedChannel = jSONObject.optInt("usedChannel");
-                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                        this.result = jSONObject.optInt("result");
                         this.message = jSONObject.optString("message");
                         this.orderId = jSONObject.optString("orderId");
                         this.payUrl = jSONObject.optString("payUrl");

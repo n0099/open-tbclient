@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij7;
+import com.baidu.tieba.fm7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView o;
+    public TbImageView n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BazhuHeadView(Context context) {
@@ -93,10 +93,10 @@ public class BazhuHeadView extends HeadPendantView {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
             }
             TbImageView tbImageView = new TbImageView(getContext());
-            this.o = tbImageView;
+            this.n = tbImageView;
             tbImageView.setDefaultBgResource(0);
-            this.o.setDefaultResource(0);
-            this.o.setImageDrawable(null);
+            this.n.setDefaultResource(0);
+            this.n.setImageDrawable(null);
             int g3 = yi.g(getContext(), R.dimen.tbds115);
             int g4 = yi.g(getContext(), R.dimen.tbds34);
             int g5 = yi.g(getContext(), R.dimen.tbds154);
@@ -104,8 +104,8 @@ public class BazhuHeadView extends HeadPendantView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g3, g4);
             layoutParams.topMargin = g5;
             layoutParams.leftMargin = g6;
-            this.o.setLayoutParams(layoutParams);
-            this.o.setVisibility(8);
+            this.n.setLayoutParams(layoutParams);
+            this.n.setVisibility(8);
         }
     }
 
@@ -113,7 +113,7 @@ public class BazhuHeadView extends HeadPendantView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.o;
+            return this.n;
         }
         return (TbImageView) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class BazhuHeadView extends HeadPendantView {
                 int g3 = yi.g(getContext(), R.dimen.tbds26);
                 int g4 = yi.g(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(g);
-                getHeadView().setBorderColor(ij7.b("#FCD442"));
+                getHeadView().setBorderColor(fm7.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
                 layoutParams.leftMargin = g3;
@@ -139,7 +139,7 @@ public class BazhuHeadView extends HeadPendantView {
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g5, g5));
-            TbImageView tbImageView = this.o;
+            TbImageView tbImageView = this.n;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);
             }
@@ -153,11 +153,11 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 0) {
-                this.o.setVisibility(8);
+                this.n.setVisibility(8);
                 return;
             }
-            this.o.setImageResource(i);
-            this.o.setVisibility(0);
+            this.n.setImageResource(i);
+            this.n.setVisibility(0);
         }
     }
 

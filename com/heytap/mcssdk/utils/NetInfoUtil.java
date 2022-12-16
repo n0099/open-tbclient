@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_CLASS_2_G = 1;

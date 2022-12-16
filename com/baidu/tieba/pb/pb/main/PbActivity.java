@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ao;
-import com.baidu.tieba.fw4;
 import com.baidu.tieba.fx4;
-import com.baidu.tieba.g18;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.gw4;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.ix4;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.t18;
+import com.baidu.tieba.l48;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.y38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class PbActivity extends AbsPbActivity {
     public int f1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f8 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -152,7 +152,7 @@ public class PbActivity extends AbsPbActivity {
         }
         this.v = false;
         this.w = false;
-        this.x = PriorityOrganizer.n();
+        this.x = PriorityOrganizer.h();
     }
 
     @NonNull
@@ -171,7 +171,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
             this.w = false;
-            hw4.n(fw4.o);
+            iw4.o(gw4.o);
         }
     }
 
@@ -182,7 +182,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.w = true;
-            hw4.o(this, fw4.o);
+            iw4.p(this, gw4.o);
         }
     }
 
@@ -221,9 +221,9 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdTypeRecyclerView) == null) && !this.v && j1() != null) {
             this.v = true;
-            if (j1() != null && j1().R1() == 7) {
+            if (j1() != null && j1().k1() == 7) {
                 i2 = 2;
-            } else if (j1() != null && j1().z2()) {
+            } else if (j1() != null && j1().S1()) {
                 i2 = 1;
             } else {
                 i2 = 3;
@@ -236,20 +236,20 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void C1(int i, t18 t18Var) {
+    public void C1(int i, l48 l48Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, t18Var) == null) && !this.v && j1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, l48Var) == null) && !this.v && j1() != null) {
             int i2 = 1;
             this.v = true;
-            if (j1() != null && j1().R1() == 7) {
+            if (j1() != null && j1().k1() == 7) {
                 i2 = 2;
-            } else if (j1() == null || !j1().z2()) {
+            } else if (j1() == null || !j1().S1()) {
                 i2 = 3;
             }
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            t18Var.j2(new b(this, i, i2));
+            l48Var.j2(new b(this, i, i2));
         }
     }
 
@@ -260,7 +260,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new g18(this));
+            registerListener(new y38(this));
             y1();
         }
     }
@@ -278,9 +278,9 @@ public class PbActivity extends AbsPbActivity {
             } else {
                 z = false;
             }
-            String q = qy4.k().q(qy4.o("key_reaction_guide_show_pb_strategy"), "");
+            String r = ry4.l().r(ry4.p("key_reaction_guide_show_pb_strategy"), "");
             int i = 0;
-            for (String str : q.split(",")) {
+            for (String str : r.split(",")) {
                 if ("1".equals(str)) {
                     i = (int) (i + Math.pow(2.0d, 0.0d));
                 }
@@ -296,32 +296,32 @@ public class PbActivity extends AbsPbActivity {
             }
             if (i == 0) {
                 if (z) {
-                    qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 3);
-                    qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                    ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 3);
+                    ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
                     return;
                 }
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 1);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 1);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "1,");
             } else if (i == 1) {
                 if (z) {
-                    qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 3);
-                    qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                    ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 3);
+                    ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
                     return;
                 }
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 2);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 2);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "2,");
             } else if (i == 4) {
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 1);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "1,");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 1);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "1,");
             } else if (i == 5) {
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 2);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "2,");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 2);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "2,");
             } else if (i == 3) {
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 3);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "3,");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 3);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
             } else if (i == 7) {
-                qy4.k().w(qy4.o("key_reaction_guide_show_number_pb"), 4);
-                qy4.k().y(qy4.o("key_reaction_guide_show_pb_strategy"), q + "4");
+                ry4.l().x(ry4.p("key_reaction_guide_show_number_pb"), 4);
+                ry4.l().z(ry4.p("key_reaction_guide_show_pb_strategy"), r + "4");
             }
         }
     }

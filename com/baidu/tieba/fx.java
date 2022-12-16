@@ -67,7 +67,7 @@ public class fx extends cx implements sx<ThreadData>, tx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.e.d();
+            this.e.f();
         }
     }
 }

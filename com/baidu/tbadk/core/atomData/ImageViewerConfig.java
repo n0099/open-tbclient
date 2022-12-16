@@ -13,14 +13,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.dy4;
 import com.baidu.tieba.ey4;
-import com.baidu.tieba.gi5;
+import com.baidu.tieba.fy4;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,6 +71,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String KEY_FPS_IMAGE_FROM = "HomeToImgBrowser";
     public static final String KEY_FPS_IMAGE_PAGE = "image";
     public static final String KEY_FPS_IMAGE_TYPE = "tran";
+    public static final String KEY_IS_BROWSE_MODE = "key_is_browse_mode";
     public static final String KEY_PROFILE_VIRTUAL_IMAGE_INFO = "key_profile_virtual_image_info";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
@@ -480,13 +482,14 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, gi5.c());
-        if (dy4.a() != null && dy4.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, dy4.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, yi5.c());
+        if (ey4.a() != null && ey4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, ey4.a().a);
         }
-        if (ey4.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, ey4.b().a());
+        if (fy4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, fy4.b().a());
         }
+        intent.putExtra(KEY_IS_BROWSE_MODE, PermissionUtil.isBrowseMode());
     }
 
     public /* synthetic */ ImageViewerConfig(Context context, Builder builder, a aVar) {

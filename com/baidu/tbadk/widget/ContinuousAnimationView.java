@@ -65,31 +65,31 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
@@ -230,6 +230,16 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         init();
     }
 
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            addAnimatorListener(new a(this));
+            setAnimation(R.raw.lottie_common_pull_refresh);
+            loop(true);
+            setFrame(0);
+        }
+    }
+
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void a() {
         Interceptable interceptable = $ic;
@@ -262,20 +272,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            addAnimatorListener(new a(this));
-            setAnimation(R.raw.lottie_common_pull_refresh);
-            loop(true);
-            setFrame(0);
-        }
-    }
-
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.h) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.h) {
             this.i = true;
         }
     }
@@ -283,7 +283,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (isAnimating()) {
                 cancelAnimation();
             }

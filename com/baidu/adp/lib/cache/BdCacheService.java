@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.cache;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
@@ -32,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
@@ -206,7 +208,7 @@ public class BdCacheService extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public static BdCacheService i(String str) {
+    public static BdCacheService j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -215,16 +217,13 @@ public class BdCacheService extends CustomMessageListener {
         return (BdCacheService) invokeL.objValue;
     }
 
-    public void j(df<?> dfVar) {
+    public boolean l(df<?> dfVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, dfVar) == null) && (dfVar instanceof df.c)) {
-            df.c cVar = (df.c) dfVar;
-            synchronized (cVar) {
-                String j = cVar.j();
-                cVar.b();
-                this.e.remove(j);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, dfVar)) == null) {
+            return m(dfVar, true);
         }
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -232,13 +231,13 @@ public class BdCacheService extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String databaseFile;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.d)) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.d)) {
             this.e.clear();
             this.f.clear();
         }
     }
 
-    public static BdCacheService k() {
+    public static BdCacheService n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -254,10 +253,10 @@ public class BdCacheService extends CustomMessageListener {
         return (BdCacheService) invokeV.objValue;
     }
 
-    public z9 e() {
+    public z9 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.c == null) {
                 this.c = new z9(new af(getContext(), this.d));
             }
@@ -266,12 +265,12 @@ public class BdCacheService extends CustomMessageListener {
         return (z9) invokeV.objValue;
     }
 
-    public hf f() {
+    public hf g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.a == null) {
-                this.a = new hf(getContext(), e());
+                this.a = new hf(getContext(), f());
             }
             return this.a;
         }
@@ -291,21 +290,49 @@ public class BdCacheService extends CustomMessageListener {
         return (Context) invokeV.objValue;
     }
 
-    public boolean h() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    public synchronized df<byte[]> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Iterator<String> it = this.e.keySet().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!TextUtils.isEmpty(str)) {
+                    if (!TextUtils.isEmpty(next) && next.endsWith(str) && m(this.e.get(next), false)) {
+                        it.remove();
+                    }
+                } else if (m(this.e.get(next), false)) {
+                    it.remove();
+                }
+            }
+            Iterator<String> it2 = this.f.keySet().iterator();
+            while (it2.hasNext()) {
+                String next2 = it2.next();
+                if (!TextUtils.isEmpty(str)) {
+                    if (!TextUtils.isEmpty(next2) && next2.endsWith(str) && k(this.f.get(next2), false)) {
+                        it2.remove();
+                    }
+                } else if (k(this.f.get(next2), false)) {
+                    it2.remove();
+                }
+            }
+        }
+    }
+
+    public synchronized df<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         InterceptResult invokeLLLI;
         we b;
         ue<?> seVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
             synchronized (this) {
                 df<byte[]> dfVar = this.f.get(str);
                 if (dfVar != null) {
@@ -320,24 +347,24 @@ public class BdCacheService extends CustomMessageListener {
                     b = xe.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    seVar = new te(e());
+                    seVar = new te(f());
                     z = false;
                 } else {
-                    seVar = new se(e(), "cache_kv_bshare");
+                    seVar = new se(f(), "cache_kv_bshare");
                 }
-                seVar.r(b, g(seVar, str, "blob", i));
-                return b(str, new bf(seVar, b, z));
+                seVar.r(b, h(seVar, str, "blob", i));
+                return c(str, new bf(seVar, b, z));
             }
         }
         return (df) invokeLLLI.objValue;
     }
 
-    public synchronized df<String> c(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+    public synchronized df<String> d(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         InterceptResult invokeLLLI;
         we b;
         ue<?> cif;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
             synchronized (this) {
                 df<String> dfVar = this.e.get(str);
                 if (dfVar != null) {
@@ -352,27 +379,27 @@ public class BdCacheService extends CustomMessageListener {
                     b = xe.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    cif = new jf(e());
+                    cif = new jf(f());
                     z = false;
                 } else {
-                    cif = new Cif(e(), "cache_kv_tshare");
+                    cif = new Cif(f(), "cache_kv_tshare");
                 }
-                cif.r(b, g(cif, str, "text", i));
-                return d(str, new bf(cif, b, z));
+                cif.r(b, h(cif, str, "text", i));
+                return e(str, new bf(cif, b, z));
             }
         }
         return (df) invokeLLLI.objValue;
     }
 
-    public synchronized String g(ue<?> ueVar, String str, String str2, int i) {
+    public synchronized String h(ue<?> ueVar, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048582, this, ueVar, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, ueVar, str, str2, i)) == null) {
             synchronized (this) {
                 int g = ueVar.g();
-                hf f = f();
-                ze b = f.b(str);
+                hf g2 = g();
+                ze b = g2.b(str);
                 if (b == null) {
                     b = new ze();
                     b.a = str;
@@ -381,14 +408,14 @@ public class BdCacheService extends CustomMessageListener {
                     b.c = i;
                     b.f = System.currentTimeMillis();
                     b.b = ueVar.l(str);
-                    f.a(b);
+                    g2.a(b);
                 } else if (str2.equalsIgnoreCase(b.d)) {
                     b.c = i;
                     b.f = System.currentTimeMillis();
                     if (g != b.e) {
                         ueVar.k(str, b.b, g, b.e);
                     }
-                    f.a(b);
+                    g2.a(b);
                 } else {
                     throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + b.d);
                 }
@@ -399,11 +426,11 @@ public class BdCacheService extends CustomMessageListener {
         return (String) invokeLLLI.objValue;
     }
 
-    public synchronized df<byte[]> b(String str, cf<byte[]> cfVar) {
+    public synchronized df<byte[]> c(String str, cf<byte[]> cfVar) {
         InterceptResult invokeLL;
         ef ffVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cfVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cfVar)) == null) {
             synchronized (this) {
                 df<byte[]> dfVar = this.f.get(str);
                 if (dfVar != null) {
@@ -412,7 +439,7 @@ public class BdCacheService extends CustomMessageListener {
                     }
                     return dfVar;
                 }
-                if (h()) {
+                if (i()) {
                     ffVar = new ef(str, cfVar);
                 } else {
                     ffVar = new ff(str, cfVar);
@@ -425,11 +452,11 @@ public class BdCacheService extends CustomMessageListener {
         return (df) invokeLL.objValue;
     }
 
-    public synchronized df<String> d(String str, cf<String> cfVar) {
+    public synchronized df<String> e(String str, cf<String> cfVar) {
         InterceptResult invokeLL;
         ef ffVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, cfVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, cfVar)) == null) {
             synchronized (this) {
                 df<String> dfVar = this.e.get(str);
                 if (dfVar != null) {
@@ -438,7 +465,7 @@ public class BdCacheService extends CustomMessageListener {
                     }
                     return dfVar;
                 }
-                if (h()) {
+                if (i()) {
                     ffVar = new ef(str, cfVar);
                 } else {
                     ffVar = new ff(str, cfVar);
@@ -449,5 +476,45 @@ public class BdCacheService extends CustomMessageListener {
             }
         }
         return (df) invokeLL.objValue;
+    }
+
+    public boolean k(df<byte[]> dfVar, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, dfVar, z)) == null) {
+            if (dfVar instanceof df.c) {
+                df.c cVar = (df.c) dfVar;
+                synchronized (cVar) {
+                    String j = cVar.j();
+                    cVar.b();
+                    if (z) {
+                        this.f.remove(j);
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public boolean m(df<?> dfVar, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, dfVar, z)) == null) {
+            if (dfVar instanceof df.c) {
+                df.c cVar = (df.c) dfVar;
+                synchronized (cVar) {
+                    String j = cVar.j();
+                    cVar.b();
+                    if (z) {
+                        this.e.remove(j);
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

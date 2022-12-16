@@ -241,11 +241,11 @@ public class n1 implements i7 {
             synchronized (this) {
                 String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
                 if (this.h.b > 0) {
-                    m1 f = this.h.f();
-                    if (f.b.a.equals(replace)) {
+                    m1 first = this.h.first();
+                    if (first.b.a.equals(replace)) {
                         this.m.e("Unload (from tasks): " + replace);
-                        f.l = true;
-                        f.e();
+                        first.l = true;
+                        first.e();
                         return;
                     }
                 }
@@ -264,16 +264,16 @@ public class n1 implements i7 {
                 }
                 if (i != -1) {
                     this.k--;
-                    j1 i2 = this.f.i(i);
+                    j1 h = this.f.h(i);
                     this.m.e("Unload (from queue): " + replace);
-                    if (c != null && i2.c != null && i2.c.a != null) {
-                        i2.c.a.a(this, i2.a, i2.b);
+                    if (c != null && h.c != null && h.c.a != null) {
+                        h.c.a.a(this, h.a, h.b);
                     }
                 } else if (c != null) {
                     a c2 = this.a.c(c).c(replace);
-                    int i3 = c2.b - 1;
-                    c2.b = i3;
-                    if (i3 <= 0) {
+                    int i2 = c2.b - 1;
+                    c2.b = i2;
+                    if (i2 <= 0) {
                         this.m.e("Unload (dispose): " + replace);
                         if (c2.a instanceof i7) {
                             ((i7) c2.a).dispose();
@@ -359,21 +359,21 @@ public class n1 implements i7 {
         l1.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            j1 i = this.f.i(0);
-            if (v(i.a)) {
-                this.m.a("Already loaded: " + i);
-                a c = this.a.c(this.b.c(i.a)).c(i.a);
+            j1 h = this.f.h(0);
+            if (v(h.a)) {
+                this.m.a("Already loaded: " + h);
+                a c = this.a.c(this.b.c(h.a)).c(h.a);
                 c.b = c.b + 1;
-                s(i.a);
-                l1 l1Var = i.c;
+                s(h.a);
+                l1 l1Var = h.c;
                 if (l1Var != null && (aVar = l1Var.a) != null) {
-                    aVar.a(this, i.a, i.b);
+                    aVar.a(this, h.a, h.b);
                 }
                 this.j++;
                 return;
             }
-            this.m.e("Loading: " + i);
-            f(i);
+            this.m.e("Loading: " + h);
+            f(h);
         }
     }
 

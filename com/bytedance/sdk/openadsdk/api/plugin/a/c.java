@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.api.plugin.a;
 
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class c {
 
     public static String a(String str, String str2) {
         if (str != null) {
-            String[] split = str.split(ParamableElem.DIVIDE_PARAM, 0);
+            String[] split = str.split(";", 0);
             for (int i = 1; i < split.length; i++) {
                 String[] split2 = split[i].trim().split("=", 0);
                 if (split2.length == 2 && split2[0].equals("charset")) {
@@ -89,35 +88,30 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0083 */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x007b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x007a, code lost:
         if (r5 != null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007c, code lost:
         r5.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0089, code lost:
         if (r5 == null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x008d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
         return null;
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v0 */
-    /* JADX WARN: Type inference failed for: r0v1, types: [javax.net.ssl.HttpsURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String a(boolean z, String str, byte[] bArr) {
         HttpsURLConnection httpsURLConnection;
-        ?? r0 = 0;
+        HttpsURLConnection httpsURLConnection2 = null;
         try {
+            URL url = new URL(str);
+            HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
+            httpsURLConnection = (HttpsURLConnection) url.openConnection();
             try {
-                URL url = new URL(str);
-                HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
-                httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
                     httpsURLConnection.setConnectTimeout(5000);
                     httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.plugin.a.a.a);
@@ -149,10 +143,10 @@ public class c {
                 }
             } catch (Throwable th) {
                 th = th;
-                r0 = str;
-                if (r0 != 0) {
+                httpsURLConnection2 = httpsURLConnection;
+                if (httpsURLConnection2 != null) {
                     try {
-                        r0.disconnect();
+                        httpsURLConnection2.disconnect();
                     } catch (Exception unused2) {
                     }
                 }
@@ -163,7 +157,7 @@ public class c {
             httpsURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
-            if (r0 != 0) {
+            if (httpsURLConnection2 != null) {
             }
             throw th;
         }

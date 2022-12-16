@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.go5;
+import com.baidu.tieba.bp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public go5 g0;
+    public bp5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -960,11 +960,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(go5.b bVar) {
-        go5 go5Var;
+    public void setEventListener(bp5.b bVar) {
+        bp5 bp5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (go5Var = this.g0) != null) {
-            go5Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (bp5Var = this.g0) != null) {
+            bp5Var.f(bVar);
         }
     }
 
@@ -3056,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new go5(this);
+            this.g0 = new bp5(this);
         }
     }
 

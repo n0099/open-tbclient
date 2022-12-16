@@ -28,15 +28,15 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HG;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.core.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0581a {
+    /* loaded from: classes8.dex */
+    public static final class C0598a {
         public static /* synthetic */ Interceptable $ic;
         public static final a HH;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class a {
     public static a og() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0581a.HH : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0598a.HH : (a) invokeV.objValue;
     }
 
     public final void O(@NonNull AdTemplate adTemplate) {

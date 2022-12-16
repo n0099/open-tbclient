@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at4;
-import com.baidu.tieba.ig8;
+import com.baidu.tieba.aj8;
+import com.baidu.tieba.ct4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public at4 l;
+    public ct4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -166,11 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public void setBannerData(at4 at4Var) {
+    public void setBannerData(ct4 ct4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, at4Var) == null) {
-            this.l = at4Var;
-            ig8.f(at4Var.g, this.f, at4Var.h, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, ct4Var) == null) {
+            this.l = ct4Var;
+            aj8.f(ct4Var.g, this.f, ct4Var.h, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -266,15 +266,15 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0136, this);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090446);
+            Button button = (Button) findViewById(R.id.btn_close);
             this.c = button;
             button.setOnClickListener(this.o);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090332);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.banner_image);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923b1);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090336);
+            this.f = (TbImageView) findViewById(R.id.tv_advert);
+            View findViewById = findViewById(R.id.banner_mask);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
         }

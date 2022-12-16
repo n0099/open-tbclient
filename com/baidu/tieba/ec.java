@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ec {
     boolean a(Bitmap bitmap, Canvas canvas);
 

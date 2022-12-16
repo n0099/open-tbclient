@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.tieba.df;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cf<T> {
     T a(String str, String str2);
 

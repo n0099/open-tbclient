@@ -31,7 +31,7 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void d(boolean z);
+        void h(boolean z);
     }
 
     /* loaded from: classes4.dex */
@@ -198,11 +198,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07df, (ViewGroup) null));
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091712);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091710);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091711);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091714);
+            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07f3, (ViewGroup) null));
+            this.b = (ImageView) findViewById(R.id.no_network_icon);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091777);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091778);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09177b);
         }
     }
 
@@ -210,7 +210,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setImageResource(this.b, R.drawable.icon_error);
-            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091713), R.drawable.bg_no_network);
+            SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
             if (i != 1 && i != 4) {
                 this.c.setTextColor(-14277082);
                 this.d.setTextColor(-5065030);
@@ -263,7 +263,7 @@ public class ShutDownValidateTipView extends FrameLayout {
             setVisibility(0);
             startAnimation(alphaAnimation);
             for (int i = 0; i < this.f.size(); i++) {
-                this.f.get(i).d(false);
+                this.f.get(i).h(false);
             }
         } else if (getVisibility() != 8) {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -272,7 +272,7 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation2.setAnimationListener(new b(this));
             startAnimation(alphaAnimation2);
             for (int i2 = 0; i2 < this.f.size(); i2++) {
-                this.f.get(i2).d(true);
+                this.f.get(i2).h(true);
             }
         }
     }

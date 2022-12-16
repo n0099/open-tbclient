@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import java.io.File;
+/* loaded from: classes7.dex */
 public interface yr2 {
-    void c();
+    void a(File file);
 
-    void e();
-
-    void g();
+    void b(String str);
 }

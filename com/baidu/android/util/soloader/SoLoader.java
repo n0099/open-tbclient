@@ -100,8 +100,6 @@ public final class SoLoader implements NoProGuard {
         this.sb = new StringBuilder();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
-    /* JADX WARN: Multi-variable type inference failed */
     private void addLocalSoLibraryDirectory(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
@@ -110,7 +108,7 @@ public final class SoLoader implements NoProGuard {
             arrayList.add(new File(context.getFilesDir(), "lib"));
             for (int i = 0; i < arrayList.size(); i++) {
                 if (!soSources.contains(arrayList.get(i))) {
-                    soSources.add(arrayList.get(i));
+                    soSources.add((File) arrayList.get(i));
                 }
             }
         }
@@ -693,13 +691,13 @@ public final class SoLoader implements NoProGuard {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, this, context, str, iCallingSoLoader)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (loadLibrary(iCallingSoLoader, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
-                    return true;
-                }
-                return loadInternalFromLocal(context, str, iCallingSoLoader);
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            throw new IllegalArgumentException("load so library argument error,soName is null.");
+            if (loadLibrary(iCallingSoLoader, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
+                return true;
+            }
+            return loadInternalFromLocal(context, str, iCallingSoLoader);
         }
         return invokeLLL.booleanValue;
     }

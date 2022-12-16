@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes4.dex */
 public class h30 {
@@ -326,7 +325,7 @@ public class h30 {
             if (r17.h == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
-            r2[r6] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
+            r2[r6] = 13;
             r6 = r6 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x00e1, code lost:
@@ -385,7 +384,7 @@ public class h30 {
                     if (i9 == 0) {
                         if (this.h) {
                             i7 = 5;
-                            bArr3[4] = StrictLineReader.CR;
+                            bArr3[4] = 13;
                         } else {
                             i7 = 4;
                         }
@@ -436,7 +435,7 @@ public class h30 {
                                 }
                                 if (this.g) {
                                     if (this.h) {
-                                        bArr3[i5] = StrictLineReader.CR;
+                                        bArr3[i5] = 13;
                                         i5++;
                                     }
                                     i6 = i5 + 1;
@@ -473,7 +472,7 @@ public class h30 {
                                 }
                                 if (this.g) {
                                     if (this.h) {
-                                        bArr3[i24] = StrictLineReader.CR;
+                                        bArr3[i24] = 13;
                                         i24++;
                                     }
                                     bArr3[i24] = 10;
@@ -482,7 +481,7 @@ public class h30 {
                                 i5 = i24;
                             } else if (this.g && i5 > 0 && i9 != 19) {
                                 if (this.h) {
-                                    bArr3[i5] = StrictLineReader.CR;
+                                    bArr3[i5] = 13;
                                     i5++;
                                 }
                                 i6 = i5 + 1;

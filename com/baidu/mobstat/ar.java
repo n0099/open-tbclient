@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +107,7 @@ public class ar {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("sv");
             if (jSONObject != null) {
                 int optInt = jSONObject.optInt("close");
-                String optString = jSONObject.optString("area");
+                String optString = jSONObject.optString(DnsModel.AREA_KEY);
                 String optString2 = jSONObject.optString("duration");
                 if (optInt != 0) {
                     z = true;

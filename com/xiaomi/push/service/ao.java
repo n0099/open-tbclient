@@ -11,17 +11,17 @@ public class ao {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f901a;
+    public long f924a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f902a;
+    public boolean f925a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f903b;
+    public long f926b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f904b;
+    public boolean f927b;
     public long c;
     public long d;
 

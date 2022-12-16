@@ -1,88 +1,80 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class mw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final mw4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
-        Object obj;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987071, "Lcom/baidu/tieba/mw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947987071, "Lcom/baidu/tieba/mw4;");
+                return;
+            }
+        }
+        a = new mw4();
+    }
+
+    public mw4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                Iterator<T> it = list2.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), dialogStrategiesData.getDialogName())) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData2 = (DialogStrategiesData) obj;
-                if (dialogStrategiesData2 != null) {
-                    DialogStrategiesData.StrategiesConfigData c = c(dialogStrategiesData2, "FREQUENCE_STRATEGY");
-                    boolean z = false;
-                    if (c != null && d(c, c(dialogStrategiesData, "FREQUENCE_STRATEGY"))) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void a(String json) {
+        boolean z;
+        List entityList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            String g = hw4.g();
+            df<String> i = kv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g);
+            if (i != null) {
+                String str = i.get(g);
+                if (str != null) {
+                    if (str.length() > 0) {
                         z = true;
+                    } else {
+                        z = false;
                     }
-                    if (z) {
-                        kw4 kw4Var = kw4.a;
-                        String dialogName = dialogStrategiesData.getDialogName();
-                        Intrinsics.checkNotNullExpressionValue(dialogName, "ori.dialogName");
-                        kw4Var.b(dialogName);
+                    if (!z) {
+                        str = null;
+                    }
+                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
+                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
+                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
+                        nw4.b(entityList, entityList2);
                     }
                 }
+                i.a(g, json);
             }
         }
-    }
-
-    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
-        InterceptResult invokeLL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
-            Iterator<T> it = dialogStrategy.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
-                        break;
-                    }
-                } else {
-                    obj = null;
-                    break;
-                }
-            }
-            return (DialogStrategiesData.StrategiesConfigData) obj;
-        }
-        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
-    }
-
-    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
-            if (strategiesConfigData2 != null) {
-                if (Intrinsics.areEqual(strategiesConfigData.A().get("startTimestamp"), strategiesConfigData2.A().get("startTimestamp")) && Intrinsics.areEqual(strategiesConfigData.A().get("endTimestamp"), strategiesConfigData2.A().get("endTimestamp"))) {
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

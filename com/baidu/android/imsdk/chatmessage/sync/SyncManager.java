@@ -84,4 +84,16 @@ public class SyncManager {
             }
         }
     }
+
+    public static synchronized void unRegisterSyncStateListener(ISyncStateListener iSyncStateListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, iSyncStateListener) == null) {
+            synchronized (SyncManager.class) {
+                if (iSyncStateListener == null) {
+                    return;
+                }
+                sSyncStateListeners.remove(iSyncStateListener);
+            }
+        }
+    }
 }

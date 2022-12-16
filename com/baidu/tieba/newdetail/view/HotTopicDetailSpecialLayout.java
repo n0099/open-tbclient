@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.vs7;
-import com.baidu.tieba.ws7;
+import com.baidu.tieba.tv7;
+import com.baidu.tieba.uv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
             }
         }
         this.z = 3;
-        G();
+        K();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
             }
         }
         this.z = 3;
-        G();
+        K();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,20 +85,20 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
             }
         }
         this.z = 3;
-        G();
+        K();
     }
 
-    public void F(TbPageContext tbPageContext) {
+    public void J(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new vs7(tbPageContext));
-            arrayList.add(new ws7(tbPageContext));
+            arrayList.add(new tv7(tbPageContext));
+            arrayList.add(new uv7(tbPageContext));
             a(arrayList);
         }
     }
 
-    public void H(int i) {
+    public void L(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.z != i) {
             getListAdapter().notifyDataSetChanged();
@@ -106,7 +106,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         }
     }
 
-    public final void G() {
+    public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setLayoutManager(new LinearLayoutManager(getContext()));

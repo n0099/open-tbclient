@@ -96,7 +96,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements r05
         pz4 pz4Var = new pz4();
         pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(pz4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
     }
 
     @Override // com.baidu.tieba.r05
@@ -158,13 +158,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements r05
                 pz4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(pz4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 pz4 pz4Var2 = new pz4();
                 pz4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(pz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

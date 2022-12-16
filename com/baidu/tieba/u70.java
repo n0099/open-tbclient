@@ -36,8 +36,8 @@ public class u70 {
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         c = availableProcessors;
-        d = Math.max(4, Math.min(availableProcessors - 1, 4));
-        e = (c * 3) + 1;
+        d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        e = (c * 2) + 1;
     }
 
     public u70() {
@@ -57,8 +57,7 @@ public class u70 {
         ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
         this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(false);
-        Executors.newSingleThreadExecutor();
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
     public static u70 a() {
@@ -77,7 +76,7 @@ public class u70 {
         return (u70) invokeV.objValue;
     }
 
-    public final boolean b(Runnable runnable) {
+    public boolean b(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
@@ -85,7 +84,7 @@ public class u70 {
                 this.a.submit(runnable);
                 return true;
             } catch (Throwable th) {
-                y70.b("UBCTaskManager", "Exception ", th);
+                z70.b("UBCTaskManager", "Exception ", th);
                 return false;
             }
         }

@@ -17,7 +17,7 @@ import java.io.Serializable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class NotificationLite {
     public static final /* synthetic */ NotificationLite[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public final class NotificationLite {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NotificationLite.Complete" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class DisposableNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7482590109178395495L;
@@ -80,7 +80,7 @@ public final class NotificationLite {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ErrorNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8759979445933046293L;
@@ -136,7 +136,7 @@ public final class NotificationLite {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SubscriptionNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1322257508628817540L;

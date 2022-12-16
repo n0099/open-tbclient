@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,17 +68,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f44);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a42);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09218c);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092196);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2d);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9f);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aab);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091aad);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.f = (EMTextView) view2.findViewById(R.id.text_title);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f88);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f79);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            qw4.d(this.h).s(R.array.Mask_X003);
-            qw4 d = qw4.d(view2);
+            rw4.d(this.h).s(R.array.Mask_X003);
+            rw4 d = rw4.d(view2);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -179,7 +179,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08dd, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08f3, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;
@@ -189,7 +189,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-            qw4 d = qw4.d(forumViewHolder.e);
+            rw4 d = rw4.d(forumViewHolder.e);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
         }
@@ -241,7 +241,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else if (!xi.isEmpty(videoItemData.abstext)) {
                 forumViewHolder.f.setText(videoItemData.abstext);
             } else {
-                forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d5c));
+                forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));
             }
         }
     }
@@ -279,7 +279,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else {
                 sb.append("00");
             }
-            qw4 d = qw4.d(forumViewHolder.d);
+            rw4 d = rw4.d(forumViewHolder.d);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             forumViewHolder.d.setText(sb.toString());

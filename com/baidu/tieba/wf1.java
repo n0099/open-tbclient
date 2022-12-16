@@ -1,21 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.OperationApplicationException;
 import android.content.UriMatcher;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Binder;
 import android.os.Bundle;
-import android.os.CancellationSignal;
-import android.os.ParcelFileDescriptor;
-import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,176 +12,129 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class wf1 {
+public class wf1 extends vf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentProvider a;
-    public final int b;
-    public final int c;
 
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.vf1
+    public int delete(int i, Uri uri, String str, String[] strArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public String getType(int i, Uri uri) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
             return null;
         }
-        return (Bundle) invokeLLL.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.vf1
+    public Uri insert(int i, Uri uri, ContentValues contentValues) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
+            return null;
+        }
+        return (Uri) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public abstract int delete(int i, Uri uri, String str, String[] strArr);
-
-    public abstract void f(UriMatcher uriMatcher, String str);
-
-    public abstract String getType(int i, Uri uri);
-
-    public void i(Configuration configuration) {
+    @Override // com.baidu.tieba.vf1
+    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
+            return 0;
         }
+        return invokeCommon.intValue;
     }
 
-    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
-
-    public abstract boolean j();
-
-    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
-
-    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
-
-    public wf1(int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wf1() {
+        super(0, 100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = i2;
     }
 
-    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vf1
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            int size = arrayList.size();
-            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
-            for (int i = 0; i < size; i++) {
-                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
+            if ("_get_service_handler".equals(str)) {
+                return of1.a();
             }
-            return contentProviderResultArr;
+            return null;
         }
-        return (ContentProviderResult[]) invokeL.objValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public void b(ContentProvider contentProvider) {
+    @Override // com.baidu.tieba.vf1
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
-            this.a = contentProvider;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) {
+            return "_get_service_handler".equals(str);
         }
+        return invokeLLL.booleanValue;
     }
 
-    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
-            int length = contentValuesArr.length;
-            for (ContentValues contentValues : contentValuesArr) {
-                insert(i, uri, contentValues);
-            }
-            return length;
-        }
-        return invokeILL.intValue;
-    }
-
-    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
-            m(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeILL.objValue;
-    }
-
-    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
-            throw new FileNotFoundException("No files supported by provider at " + uri);
-        }
-        return (ParcelFileDescriptor) invokeILL.objValue;
-    }
-
+    @Override // com.baidu.tieba.vf1
     public void e(Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, uri, i) != null) || Binder.getCallingUid() == Process.myUid()) {
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, uri, i) != null) || i == 3) {
             return;
         }
-        throw new SecurityException();
+        super.e(uri, i);
     }
 
-    public final int g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vf1
+    public void f(UriMatcher uriMatcher, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
+            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
         }
-        return invokeV.intValue;
     }
 
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+    @Override // com.baidu.tieba.vf1
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
-            k(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeCommon.objValue;
-    }
-
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return query(i, uri, strArr, str, strArr2, str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
+            if (i == 1) {
+                return new pf1(of1.a());
+            }
+            return null;
         }
         return (Cursor) invokeCommon.objValue;
     }

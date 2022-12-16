@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,12 +16,12 @@ public class s15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = qy4.k().q("scheme_white_list", null);
-            if (StringUtils.isNull(q)) {
+            String r = ry4.l().r("scheme_white_list", null);
+            if (StringUtils.isNull(r)) {
                 return null;
             }
             try {
-                return b(new JSONArray(q));
+                return b(new JSONArray(r));
             } catch (Exception unused) {
                 return null;
             }
@@ -53,9 +53,9 @@ public class s15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
             if (jSONArray == null) {
-                qy4.k().y("scheme_white_list", "");
+                ry4.l().z("scheme_white_list", "");
             } else {
-                qy4.k().y("scheme_white_list", jSONArray.toString());
+                ry4.l().z("scheme_white_list", jSONArray.toString());
             }
         }
     }

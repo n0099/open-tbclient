@@ -8,7 +8,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.ai;
@@ -394,7 +393,7 @@ public class f {
         this.c.setFirstDownload(false);
         if (!this.c.isIgnoreDataVerify() && this.c.getCurBytes() != this.c.getTotalBytes()) {
             com.ss.android.socialbase.downloader.c.a.b(a, this.c.getErrorBytesLog());
-            a(new com.ss.android.socialbase.downloader.exception.f(ARPMessageType.MSG_TYPE_VIDEO_STOP, "current bytes is not equals to total bytes, bytes changed with process : " + this.c.getByteInvalidRetryStatus()));
+            a(new com.ss.android.socialbase.downloader.exception.f(1027, "current bytes is not equals to total bytes, bytes changed with process : " + this.c.getByteInvalidRetryStatus()));
         } else if (this.c.getCurBytes() <= 0) {
             com.ss.android.socialbase.downloader.c.a.b(a, this.c.getErrorBytesLog());
             a(new com.ss.android.socialbase.downloader.exception.f(1026, "curBytes is 0, bytes changed with process : " + this.c.getByteInvalidRetryStatus()));

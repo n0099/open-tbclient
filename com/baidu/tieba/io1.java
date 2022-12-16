@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.g32;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import android.content.Context;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface io1 {
-    int a();
+    void a(String str, String str2);
 
-    VideoPlayerFactory b();
+    File b(Context context, String str);
 
-    int c();
+    JSONObject c(Context context, String str);
 
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(g32.c cVar);
+    void d();
 }

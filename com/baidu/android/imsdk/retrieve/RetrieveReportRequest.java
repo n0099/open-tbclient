@@ -99,6 +99,7 @@ public class RetrieveReportRequest extends BaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest
     public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl5;
+import com.baidu.tieba.xl5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public cl5 i;
+    public xl5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -179,9 +179,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            cl5 cl5Var = this.i;
-            if (cl5Var != null) {
-                cl5Var.A();
+            xl5 xl5Var = this.i;
+            if (xl5Var != null) {
+                xl5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -244,9 +244,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            cl5 cl5Var = this.i;
-            if (cl5Var != null) {
-                cl5Var.onDestroy();
+            xl5 xl5Var = this.i;
+            if (xl5Var != null) {
+                xl5Var.onDestroy();
             }
         }
     }
@@ -318,9 +318,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            cl5 cl5Var = new cl5(context, this.h, this);
-            this.i = cl5Var;
-            this.b.setContentViewTop(cl5Var);
+            xl5 xl5Var = new xl5(context, this.h, this);
+            this.i = xl5Var;
+            this.b.setContentViewTop(xl5Var);
         }
     }
 
@@ -338,9 +338,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            cl5 cl5Var = this.i;
-            if (cl5Var != null) {
-                cl5Var.z(str, false);
+            xl5 xl5Var = this.i;
+            if (xl5Var != null) {
+                xl5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -358,11 +358,11 @@ public class FloatWebLayout extends FrameLayout {
     public final void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ab, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f092013);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091692);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092011);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
+            LayoutInflater.from(context).inflate(R.layout.layout_float_web_view, (ViewGroup) this, true);
+            this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
+            this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
+            this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fd);
             h(context);
             g(context);
             f(context);
@@ -375,12 +375,12 @@ public class FloatWebLayout extends FrameLayout {
     public final void g(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d04aa, (View.OnClickListener) null);
-            this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090327);
-            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09067a);
-            this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905fe);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a32, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08062e, R.color.CAM_X0105, null);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.layout_float_web_navigationbar, (View.OnClickListener) null);
+            this.e = (ImageView) addCustomView.findViewById(R.id.back_iv);
+            this.f = (ImageView) addCustomView.findViewById(R.id.close_iv);
+            this.g = (TextView) addCustomView.findViewById(R.id.center_text);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));
             this.f.setOnClickListener(new b(this));

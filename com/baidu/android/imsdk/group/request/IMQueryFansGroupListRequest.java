@@ -2,9 +2,7 @@ package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
-import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -19,7 +17,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +114,11 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                                 groupInfo.setCreateTime(jSONObject2.optLong("create_time"));
                                 groupInfo.setState(jSONObject2.optInt("status"));
                                 groupInfo.setGroupVerify(jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY));
+                                groupInfo.setAuditState(jSONObject2.optInt("group_audit", 0));
                                 groupInfo.setLocalInfoVersion(System.currentTimeMillis());
+                                groupInfo.setHasNotice(jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE, 0));
+                                groupInfo.setNoticeExt(jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT));
+                                groupInfo.setWelcomeJsonTxt(jSONObject2.optString("group_welcome_message_info"));
                                 arrayList.add(groupInfo);
                                 if (!dBGroupTableManager.isExistGroupTable(this.this$0.mContext, valueOf)) {
                                     GroupInfoDAOImpl.createGroup(this.this$0.mContext, valueOf);
@@ -132,7 +133,6 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
@@ -176,13 +176,13 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateGroupSession(long j, String str, String str2) {
-        ChatSession chatRecordByContacter;
+        ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) != null) {
-            if (!TextUtils.equals(str, chatRecordByContacter.getName()) || !TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {
-                chatRecordByContacter.setName(str);
-                chatRecordByContacter.setIconUrl(str2);
-                ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecordByContacter);
+        if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(1, j)) != null) {
+            if (!TextUtils.equals(str, chatRecord.getName()) || !TextUtils.equals(str2, chatRecord.getIconUrl())) {
+                chatRecord.setName(str);
+                chatRecord.setIconUrl(str2);
+                ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecord);
             }
         }
     }

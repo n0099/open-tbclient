@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ix extends ax<tr4> {
+/* loaded from: classes5.dex */
+public class ix extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -34,7 +34,7 @@ public class ix extends ax<tr4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public tr4 h;
+    public vr4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -47,7 +47,7 @@ public class ix extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class ix extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,10 +152,10 @@ public class ix extends ax<tr4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01c4, (ViewGroup) null, true);
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b9);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090af2);
+                this.g = (TextView) inflate.findViewById(R.id.video_seg_title);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
                 this.j = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
@@ -206,10 +206,10 @@ public class ix extends ax<tr4> {
 
     @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        tr4 tr4Var;
+        vr4 vr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (tr4Var = this.h) != null && tr4Var.getThreadData() != null) {
-            x36.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (vr4Var = this.h) != null && vr4Var.getThreadData() != null) {
+            s46.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }
@@ -233,11 +233,11 @@ public class ix extends ax<tr4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) {
             int l = yi.l(TbadkCoreApplication.getInst());
             if (l != this.k) {
                 int l2 = yi.l(TbadkCoreApplication.getInst());
@@ -248,9 +248,9 @@ public class ix extends ax<tr4> {
                 r = i / 3;
                 this.k = l;
             }
-            this.h = tr4Var;
-            if (tr4Var != null && tr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(tr4Var.getThreadData());
+            this.h = vr4Var;
+            if (vr4Var != null && vr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.j.setData(vr4Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

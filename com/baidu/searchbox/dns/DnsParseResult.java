@@ -1,6 +1,9 @@
 package com.baidu.searchbox.dns;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,6 +27,7 @@ public class DnsParseResult {
     public static final int SUBTYPE_CACHE_ERROR = 1004;
     public static final int SUBTYPE_CACHE_EXPIRE = 1003;
     public static final int SUBTYPE_CACHE_EXPIRE_DEFAULT = 1007;
+    public static final int SUBTYPE_CACHE_EXPIRE_USE = 2009;
     public static final int SUBTYPE_CACHE_HIT = 2001;
     public static final int SUBTYPE_CACHE_HIT_DEFAULT = 2003;
     public static final int SUBTYPE_CACHE_HIT_PREFETCH = 1001;
@@ -39,9 +43,14 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL = 0;
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public List<String> l;
+    public int addressType;
+    public String area;
+    public String clientIp;
+    public String httpdnsIp;
+    public boolean idcToBgp;
+    public List<String> ipList;
     public int stackType;
+    public int subType;
     public int type;
 
     public DnsParseResult(List<String> list, int i, int i2, int i3) {
@@ -60,21 +69,67 @@ public class DnsParseResult {
             }
         }
         this.stackType = 0;
+        this.idcToBgp = false;
         if (list != null && !list.isEmpty()) {
-            this.l = Collections.unmodifiableList(list);
+            this.ipList = Collections.unmodifiableList(list);
         } else {
-            this.l = null;
+            this.ipList = null;
         }
         this.type = i;
-        this.k = i2;
+        this.subType = i2;
         this.stackType = i3;
+    }
+
+    public int getAddressType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.addressType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.area;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getClientIp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.clientIp;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getHttpdnsIp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.httpdnsIp;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean getIdcToBgp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.idcToBgp;
+        }
+        return invokeV.booleanValue;
     }
 
     public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.ipList;
         }
         return (List) invokeV.objValue;
     }
@@ -82,7 +137,7 @@ public class DnsParseResult {
     public int getStackType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.stackType;
         }
         return invokeV.intValue;
@@ -91,8 +146,8 @@ public class DnsParseResult {
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.subType;
         }
         return invokeV.intValue;
     }
@@ -100,22 +155,38 @@ public class DnsParseResult {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.type;
         }
         return invokeV.intValue;
     }
 
+    public void setHttpdnsInfo(String str, String str2, String str3, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.area = str;
+            this.clientIp = str2;
+            this.httpdnsIp = str3;
+            this.addressType = i;
+            this.idcToBgp = z;
+        }
+    }
+
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.type);
-                jSONObject.put("subType", this.k);
-                jSONObject.put("ipList", new JSONArray((Collection) this.l));
+                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, this.subType);
+                jSONObject.put("ipList", new JSONArray((Collection) this.ipList));
                 jSONObject.put("stackType", this.stackType);
+                jSONObject.put(DnsModel.AREA_KEY, this.area);
+                jSONObject.put("clientIp", this.clientIp);
+                jSONObject.put(DnsModel.HTTPDNSIP_KEY, this.httpdnsIp);
+                jSONObject.put(DnsModel.ADDRESSTYPE_KEY, this.addressType);
+                jSONObject.put(DnsModel.IDCTOBGP_KEY, this.idcToBgp);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

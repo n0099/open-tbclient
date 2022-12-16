@@ -2,13 +2,13 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.qc7;
-import com.baidu.tieba.zb7;
+import com.baidu.tieba.pd7;
+import com.baidu.tieba.zc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
             this.changedList = new HashMap<>();
             for (UserData userData : list) {
-                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = zb7.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
+                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = zc7.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
                     boolean z = false;
                     boolean z2 = true;
                     if (!TextUtils.isEmpty(userData.getName_show()) && !userData.getName_show().equals(g.getNameShow())) {
@@ -74,23 +74,23 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                         g.setIsFriend(userData.getRelation());
                         z = true;
                     }
-                    it4 it4Var = new it4();
-                    it4Var.b(userData);
+                    IMUserExtraData iMUserExtraData = new IMUserExtraData();
+                    iMUserExtraData.setUserData(userData);
                     if (g.getImUserExtraData() == null) {
-                        g.setImUserExtraData(it4Var);
+                        g.setImUserExtraData(iMUserExtraData);
                     } else {
-                        String c = it4Var.c();
-                        String c2 = g.getImUserExtraData().c();
-                        if (c != null && !c.equals(c2)) {
-                            g.setImUserExtraData(it4Var);
+                        String json = iMUserExtraData.toJson();
+                        String json2 = g.getImUserExtraData().toJson();
+                        if (json != null && !json.equals(json2)) {
+                            g.setImUserExtraData(iMUserExtraData);
                         } else {
                             z2 = z;
                         }
                     }
                     if (z2) {
                         this.changedList.put(userData.getUserId(), g);
-                        zb7.f().k(g);
-                        ImMessageCenterPojo i = qc7.o().i(g.getGid(), 2);
+                        zc7.f().k(g);
+                        ImMessageCenterPojo i = pd7.o().i(g.getGid(), 2);
                         if (i != null) {
                             i.setNameShow(g.getNameShow());
                             i.setGroup_head(g.getGroup_head());

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r3 extends p3 {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Application, b7<r3>> j;
@@ -80,7 +80,7 @@ public class r3 extends p3 {
             }
             this.i = s3Var;
             a();
-            f1.g.O(35866, 0, s3Var.b(), s3Var.getWidth(), s3Var.getHeight(), s3Var.d(), 0, s3Var.b(), s3Var.e(), null);
+            f1.g.O(35866, 0, s3Var.b(), s3Var.getWidth(), s3Var.getHeight(), s3Var.getDepth(), 0, s3Var.b(), s3Var.d(), null);
             if (!s3Var.isPrepared()) {
                 s3Var.prepare();
             }

@@ -3,7 +3,6 @@ package com.ss.android.socialbase.appdownloader.b;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes8.dex */
 public class a {
     public static final String a;
@@ -25,7 +24,7 @@ public class a {
             sb.append(Build.VERSION.RELEASE);
         }
         if (z || z3) {
-            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(";");
             if (z) {
                 sb.append(" ");
                 sb.append(Build.MODEL);

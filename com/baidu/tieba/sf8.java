@@ -1,489 +1,448 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.cyberplayer.sdk.CyberVideoView;
+import com.baidu.searchbox.player.BDPlayerConfig;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.UniversalPlayer;
+import com.baidu.searchbox.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.PlayerEventTrigger;
+import com.baidu.searchbox.player.helper.OrientationHelper;
+import com.baidu.searchbox.player.helper.SimpleStyleSwitchHelper;
+import com.baidu.searchbox.player.interfaces.OnSnapShotFrameListener;
+import com.baidu.searchbox.player.kernel.AbsVideoKernel;
+import com.baidu.searchbox.player.layer.BaseKernelLayer;
+import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
+import com.baidu.searchbox.player.ubc.CoreStatPlugin;
+import com.baidu.searchbox.player.ubc.DurationStatPlugin;
+import com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.bn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public class sf8 implements xo5 {
+/* loaded from: classes6.dex */
+public class sf8 extends UniversalPlayer implements jf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public cp5 b;
-    public eg8 c;
-    public kn d;
-    public kn e;
-    public kn f;
-    public kn g;
-    public kn h;
+    public int a;
+    public IUbcPlayerStatusFetcher b;
 
-    @Override // com.baidu.tieba.xo5
-    public void a(int i) {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public int getPlayerStageType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 24;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void onAudioFocusChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ap5
-    public void b(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements IUbcPlayerStatusFetcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sf8 a;
+
+        public a(sf8 sf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sf8Var;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public int getCurrentPosition() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.getPosition();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public String getKernelLogId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.mKernelLayer != null) {
+                    return this.a.mKernelLayer.getKernelLogId();
+                }
+                return "";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public float getLaunchSpeedScore() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return bn0.a.a().getLaunchSpeedScore();
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public int getPlayType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+                return invokeV.intValue;
+            }
+            return this.a.a;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public String getPlayUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a.getVideoUrl();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public String getSessionId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.a.mVideoTask.sessionId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public float getStaticDeviceScore() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return bn0.a.a().getStaticDeviceScore();
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+        public String getTraceId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.a.mVideoTask.traceId;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public sf8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sf8(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
+        super(context, baseKernelLayer);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, baseKernelLayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BaseKernelLayer) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new a(this);
+        this.mLayerContainer.setClickable(false);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sf8(@Nullable Context context, @Nullable String str) {
+        super(context, "", str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new a(this);
+        this.mLayerContainer.setClickable(false);
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            BaseKernelLayer playerKernelLayer = getPlayerKernelLayer();
+            if (playerKernelLayer != null) {
+                str2 = playerKernelLayer.getVideoUrl();
+            } else {
+                str2 = null;
+            }
+            if (xi.isEquals(str, str2) && PlayerStatus.isActiveStatus(playerKernelLayer.getStatus())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setupKernelLayer(@Nullable BaseKernelLayer baseKernelLayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, baseKernelLayer) == null) {
+            super.setupKernelLayer(g(this, baseKernelLayer));
         }
     }
 
-    @Override // com.baidu.tieba.xo5
-    public List<Integer> d() {
+    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void setupLayers(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
+            this.mKernelLayer.setAcceptVolumeChange(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setupPlugin(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, context) == null) {
+            super.setupPlugin(context);
+            addPlugin(new CoreStatPlugin());
+            addPlugin(new DurationStatPlugin());
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void doPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.doPlay();
+            this.mProgressHelper.start();
+        }
+    }
+
+    public void h() {
+        PlayerEventTrigger playerEventTrigger;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (playerEventTrigger = getPlayerEventTrigger()) != null) {
+            playerEventTrigger.ignoreInfoEventFilter(true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Integer.valueOf(AdvertAppInfo.z.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.w.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.A.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.B.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.C.getId()));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView)) {
+                return ((CyberVideoView) this.mKernelLayer.getContentView()).isPlaying();
+            }
+            return super.isPlaying();
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xo5
-    public void e(List<wo5> list, String str, String str2, String str3, String str4, boolean z, int i) {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onCompletion() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{list, str, str2, str3, str4, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || hj7.e(list)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onCompletion();
+            this.mProgressHelper.cancel();
         }
-        Set<xn> a = sh8.a("FRS");
-        if (a == null) {
-            a = new HashSet();
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onSeekComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onSeekComplete();
+            this.mProgressHelper.start();
         }
-        HashSet hashSet = new HashSet();
-        for (wo5 wo5Var : list) {
-            if (wo5Var != null) {
-                Object a2 = wo5Var.a();
-                for (xn xnVar : a) {
-                    if (a2 != null && wo5Var.c() == 3 && (a2 instanceof AdvertAppInfo) && xnVar != null && (xnVar instanceof AdvertAppInfo) && a2.hashCode() == xnVar.hashCode()) {
-                        ((AdvertAppInfo) a2).i = ((AdvertAppInfo) xnVar).i;
-                    }
-                }
-                if (a2 != null && wo5Var.c() == 3 && (a2 instanceof AdvertAppInfo)) {
-                    AdvertAppInfo advertAppInfo = (AdvertAppInfo) a2;
-                    if (advertAppInfo.i == null) {
-                        yr4 yr4Var = new yr4();
-                        advertAppInfo.i = yr4Var;
-                        yr4Var.a = "FRS";
-                        String.valueOf(z);
-                        yr4 yr4Var2 = advertAppInfo.i;
-                        yr4Var2.b = i;
-                        yr4Var2.c = str;
-                        yr4Var2.d = str2;
-                        yr4Var2.e = str3;
-                        yr4Var2.f = str4;
-                        yr4Var2.g = advertAppInfo.g;
-                        yr4Var2.h = false;
-                        hashSet.add(advertAppInfo);
-                    }
-                }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.pause();
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.release();
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.resume();
+            this.mProgressHelper.start();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            if (isPause()) {
+                resume();
+            } else {
+                super.start();
             }
         }
-        a.addAll(hashSet);
-        sh8.b("FRS", a);
     }
 
-    @Override // com.baidu.tieba.xo5
-    public TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj) {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.stop();
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    public final BaseKernelLayer g(BDVideoPlayer bDVideoPlayer, BaseKernelLayer baseKernelLayer) {
         InterceptResult invokeLL;
-        kn knVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, viewGroup, obj)) == null) {
-            if (!(obj instanceof AdvertAppInfo)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayer, baseKernelLayer)) == null) {
+            if (baseKernelLayer == null) {
+                baseKernelLayer = getReuseHelper().getValidCache(bDVideoPlayer, bDVideoPlayer.getKLayerCacheKey());
             }
-            BdUniqueId type = ((AdvertAppInfo) obj).getType();
-            if (type == AdvertAppInfo.z) {
-                knVar = this.e;
-            } else if (type == AdvertAppInfo.w) {
-                knVar = this.d;
-            } else if (type == AdvertAppInfo.A) {
-                knVar = this.f;
-            } else if (type == AdvertAppInfo.B) {
-                knVar = this.g;
-            } else if (type == AdvertAppInfo.C) {
-                knVar = this.h;
+            if (baseKernelLayer == null) {
+                return new BaseKernelLayer(AbsVideoKernel.CYBER_PLAYER);
+            }
+            return baseKernelLayer;
+        }
+        return (BaseKernelLayer) invokeLL.objValue;
+    }
+
+    public boolean k(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, onSnapShotFrameListener, f)) == null) {
+            try {
+                if (this.mKernelLayer == null) {
+                    return false;
+                }
+                return this.mKernelLayer.takeSnapshotAsync(onSnapShotFrameListener, f);
+            } catch (OutOfMemoryError unused) {
+                return false;
+            }
+        }
+        return invokeLF.booleanValue;
+    }
+
+    public void i(wf8 wf8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, wf8Var) != null) || wf8Var == null) {
+            return;
+        }
+        this.a = wf8Var.f;
+        updateStatisticsContent(new BDVideoPlayerUbcContent.Builder().extLog(wf8Var.a).url(wf8Var.b).id(wf8Var.c).from(wf8Var.d).page(wf8Var.e).playerStatusFetcher(this.b).build());
+    }
+
+    @Override // com.baidu.searchbox.player.UniversalPlayer
+    public void initHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mProgressHelper = new tf8(this);
+            if (PermissionUtil.isBrowseMode()) {
+                this.mOrientationHelper = null;
+                this.mIsEnableOrientation = false;
+                this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
+                return;
+            }
+            OrientationHelper orientationHelper = new OrientationHelper(BDPlayerConfig.getAppContext(), 3);
+            this.mOrientationHelper = orientationHelper;
+            if (orientationHelper.canDetectOrientation()) {
+                this.mIsEnableOrientation = true;
+                this.mOrientationHelper.disable();
+                this.mOrientationHelper.setListener(new UniversalPlayer.OrientationChangeCallBack(this));
+            }
+            this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
+        }
+    }
+
+    public void j(float f, float f2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            boolean z2 = true;
+            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
+            if (i == 0 && f2 == 0.0f) {
+                z = true;
             } else {
-                knVar = null;
+                z = false;
             }
-            if (knVar == null) {
-                return null;
-            }
-            return knVar.onCreateViewHolder(viewGroup, obj);
-        }
-        return (TypeAdapter.ViewHolder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ap5
-    /* renamed from: q */
-    public void f(cp5 cp5Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, cp5Var, str) == null) {
-            this.b = cp5Var;
-            if (cp5Var != null && (cp5Var.a() instanceof eg8)) {
-                this.c = (eg8) this.b.a();
-                this.d = new mg8(this.c, AdvertAppInfo.w);
-                this.e = new ng8(this.c, AdvertAppInfo.z, str);
-                this.f = new ng8(this.c, AdvertAppInfo.A, str);
-                this.g = new ng8(this.c, AdvertAppInfo.B, str);
-                this.h = new ng8(this.c, AdvertAppInfo.C, str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xo5
-    public void i(List<wo5> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, list, i) != null) || hj7.e(this.a)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (Object obj : this.a) {
-            if (obj instanceof AdvertAppInfo) {
-                hj7.a(arrayList, (AdvertAppInfo) obj);
-            }
-        }
-        Iterator<wo5> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next().c() == 3) {
-                it.remove();
-            }
-        }
-        int i2 = hj7.i(list);
-        int i3 = 0;
-        int i4 = 0;
-        for (wo5 wo5Var : list) {
-            if (wo5Var.c() == 1) {
-                i4++;
-            }
-        }
-        int i5 = hj7.i(arrayList);
-        if (i5 < 1) {
-            return;
-        }
-        int i6 = i2 - i4;
-        HashSet hashSet = new HashSet();
-        int i7 = 0;
-        while (i7 < i5) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) hj7.d(arrayList, i7);
-            advertAppInfo.j = "FRS";
-            int n = advertAppInfo.n();
-            if (n != 0) {
-                uh8.h(advertAppInfo, i, n);
-                if (n != 28 && n != 31) {
-                    advertAppInfo.c = -1001;
-                }
-                i7++;
-                i3 = 0;
-            }
-            if (advertAppInfo.getType() == null) {
-                uh8.h(advertAppInfo, i, 100);
+            setGlobalMuteMode(z);
+            if (i == 0 && f2 == 0.0f) {
+                abandonAudioFocus();
             } else {
-                int e = (xg.e(advertAppInfo.f, i3) + i4) - 1;
-                if (hashSet.contains(Integer.valueOf(e))) {
-                    uh8.h(advertAppInfo, i, 29);
-                } else if (e < 0) {
-                    uh8.h(advertAppInfo, i, 33);
-                } else if (e >= i2 && i6 > 3) {
-                    uh8.i(advertAppInfo, i, 2, e, i2);
-                } else {
-                    wo5 wo5Var2 = new wo5();
-                    wo5Var2.d(advertAppInfo);
-                    wo5Var2.e(advertAppInfo.getType().getId());
-                    wo5Var2.f(3);
-                    if (advertAppInfo.h()) {
-                        if (ig8.i(advertAppInfo.p) && lo5.a().p()) {
-                            uh8.h(advertAppInfo, i, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
-                            hashSet.add(Integer.valueOf(e));
-                            if (e < i2) {
-                                hj7.b(list, wo5Var2, e);
-                            } else if (e == i2) {
-                                hj7.a(list, wo5Var2);
-                            }
-                        }
-                    } else if (advertAppInfo.l()) {
-                        hashSet.add(Integer.valueOf(e));
-                        if (e < i2) {
-                            hj7.b(list, wo5Var2, e);
-                        } else if (e == i2) {
-                            hj7.a(list, wo5Var2);
-                        }
-                    } else {
-                        uh8.h(advertAppInfo, i, 21);
-                    }
-                }
+                requestAudioFocus();
             }
-            i7++;
-            i3 = 0;
-        }
-    }
-
-    @Override // com.baidu.tieba.xo5
-    public void k(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // com.baidu.tieba.xo5
-    public View m(int i, View view2, ViewGroup viewGroup, Object obj) {
-        InterceptResult invokeCommon;
-        kn knVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
-            if (!(obj instanceof AdvertAppInfo)) {
-                return null;
-            }
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
-            BdUniqueId type = advertAppInfo.getType();
-            if (type == AdvertAppInfo.z) {
-                knVar = this.e;
-            } else if (type == AdvertAppInfo.w) {
-                knVar = this.d;
-            } else if (type == AdvertAppInfo.A) {
-                knVar = this.f;
-            } else if (type == AdvertAppInfo.B) {
-                knVar = this.g;
-            } else if (type == AdvertAppInfo.C) {
-                knVar = this.h;
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView) && ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer() != null) {
+                ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer().setVolume(f, f2);
             } else {
-                knVar = null;
-            }
-            if (knVar == null) {
-                return null;
-            }
-            return knVar.getView(i, view2, viewGroup, advertAppInfo);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.xo5
-    public void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, viewHolder, obj}) != null) || !(obj instanceof AdvertAppInfo)) {
-            return;
-        }
-        kn knVar = null;
-        BdUniqueId type = ((AdvertAppInfo) obj).getType();
-        if (type == AdvertAppInfo.z) {
-            knVar = this.e;
-        } else if (type == AdvertAppInfo.w) {
-            knVar = this.d;
-        } else if (type == AdvertAppInfo.A) {
-            knVar = this.f;
-        } else if (type == AdvertAppInfo.B) {
-            knVar = this.g;
-        } else if (type == AdvertAppInfo.C) {
-            knVar = this.h;
-        }
-        if (knVar != null) {
-            knVar.onFillViewHolder(i, viewGroup, viewHolder, obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.xo5
-    public void o(List<wo5> list, List<wo5> list2, boolean z, int i) {
-        ArrayList arrayList;
-        int i2;
-        int i3;
-        int e;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{list, list2, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || hj7.e(this.a)) {
-            return;
-        }
-        ArrayList arrayList2 = new ArrayList();
-        for (Object obj : this.a) {
-            if (obj instanceof AdvertAppInfo) {
-                hj7.a(arrayList2, (AdvertAppInfo) obj);
-            }
-        }
-        Iterator<wo5> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next().c() == 3) {
-                it.remove();
-            }
-        }
-        int i4 = hj7.i(list);
-        int i5 = 0;
-        int i6 = 0;
-        for (wo5 wo5Var : list) {
-            if (wo5Var.c() == 1) {
-                i6++;
-            }
-        }
-        int i7 = hj7.i(arrayList2);
-        if (i7 < 1) {
-            return;
-        }
-        int i8 = 9;
-        if (hj7.i(arrayList2) > 1 && (e = (xg.e(((AdvertAppInfo) hj7.d(arrayList2, 1)).f, 0) - xg.e(((AdvertAppInfo) hj7.d(arrayList2, 0)).f, 0)) - 1) > 0) {
-            i8 = e;
-        }
-        int e2 = xg.e(((AdvertAppInfo) hj7.d(arrayList2, 0)).f, 0) - 1;
-        int i9 = i4 - i6;
-        HashSet hashSet = new HashSet();
-        int i10 = 0;
-        while (i10 < i7) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) hj7.d(arrayList2, i10);
-            advertAppInfo.j = "SMART_FRS";
-            int n = advertAppInfo.n();
-            if (n != 0) {
-                uh8.h(advertAppInfo, i, n);
-                if (n != 28 && n != 31) {
-                    advertAppInfo.c = -1001;
-                }
-                arrayList = arrayList2;
-                i10++;
-                arrayList2 = arrayList;
-                i5 = 0;
-            }
-            if (advertAppInfo.getType() == null) {
-                uh8.h(advertAppInfo, i, 100);
-                arrayList = arrayList2;
-                i10++;
-                arrayList2 = arrayList;
-                i5 = 0;
-            } else {
-                int e3 = xg.e(advertAppInfo.f, i5);
-                int i11 = (e3 + i6) - 1;
-                if (i11 >= 0 && !hashSet.contains(Integer.valueOf(i11)) && i11 <= i4) {
-                    if (e3 > (i9 - i8) + e2 && z) {
-                        if (!hj7.e(list2)) {
-                            int i12 = hj7.i(list2);
-                            int i13 = (i8 - ((i9 - e3) + 1)) - 1;
-                            int i14 = 0;
-                            while (i14 < i12 && i14 < i13) {
-                                arrayList = arrayList2;
-                                if (((wo5) hj7.d(list2, i14)).a() instanceof AdvertAppInfo) {
-                                    i3 = 0;
-                                    break;
-                                } else {
-                                    i14++;
-                                    arrayList2 = arrayList;
-                                }
-                            }
-                            arrayList = arrayList2;
-                            i3 = 1;
-                            i2 = i3 ^ 1;
-                        } else {
-                            arrayList = arrayList2;
-                            if (lo5.a().o()) {
-                                i2 = 36;
-                            }
-                        }
-                    } else {
-                        arrayList = arrayList2;
-                    }
-                    i2 = 0;
-                } else {
-                    arrayList = arrayList2;
-                    if (i11 > i4) {
-                        uh8.i(advertAppInfo, i, 2, i11, i4);
-                        i10++;
-                        arrayList2 = arrayList;
-                        i5 = 0;
-                    } else if (i11 < 0) {
-                        i2 = 33;
-                    } else {
-                        i2 = 29;
-                    }
-                }
-                if (i2 != 0) {
-                    uh8.h(advertAppInfo, i, i2);
-                    i10++;
-                    arrayList2 = arrayList;
-                    i5 = 0;
-                } else {
-                    wo5 wo5Var2 = new wo5();
-                    wo5Var2.d(advertAppInfo);
-                    wo5Var2.e(advertAppInfo.getType().getId());
-                    wo5Var2.f(3);
-                    if (advertAppInfo.h()) {
-                        if (ig8.i(advertAppInfo.p) && lo5.a().p()) {
-                            uh8.h(advertAppInfo, i, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
-                            hashSet.add(Integer.valueOf(i11));
-                            if (i11 < i4) {
-                                hj7.b(list, wo5Var2, i11);
-                            } else if (i11 == i4) {
-                                hj7.a(list, wo5Var2);
-                            }
-                        }
-                    } else if (advertAppInfo.l()) {
-                        hashSet.add(Integer.valueOf(i11));
-                        if (i11 < i4) {
-                            hj7.b(list, wo5Var2, i11);
-                        } else if (i11 == i4) {
-                            hj7.a(list, wo5Var2);
-                        }
-                    }
-                    i10++;
-                    arrayList2 = arrayList;
-                    i5 = 0;
-                }
+                mute((i == 0 && f2 == 0.0f) ? false : false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xo5
-    public void p(String str) {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public boolean onError(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            kn knVar = this.e;
-            if (knVar instanceof ng8) {
-                ((ng8) knVar).K(str);
-            }
-            kn knVar2 = this.f;
-            if (knVar2 instanceof ng8) {
-                ((ng8) knVar2).K(str);
-            }
-            kn knVar3 = this.g;
-            if (knVar3 instanceof ng8) {
-                ((ng8) knVar3).K(str);
-            }
-            kn knVar4 = this.h;
-            if (knVar4 instanceof ng8) {
-                ((ng8) knVar4).K(str);
-            }
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i, i2, obj)) == null) {
+            this.mProgressHelper.cancel();
+            return super.onError(i, i2, obj);
         }
+        return invokeIIL.booleanValue;
     }
 }

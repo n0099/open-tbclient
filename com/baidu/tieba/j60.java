@@ -23,7 +23,7 @@ import okhttp3.Dns;
 import okhttp3.EventListener;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j60 implements CallFactory.CallFactoryProducer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class j60 implements CallFactory.CallFactoryProducer {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements CallFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,12 +58,12 @@ public class j60 implements CallFactory.CallFactoryProducer {
         public final /* synthetic */ j60 c;
 
         /* renamed from: com.baidu.tieba.j60$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0318a implements q60 {
+        /* loaded from: classes5.dex */
+        public class C0322a implements q60 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0318a(a aVar, Request request) {
+            public C0322a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class j60 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new l60(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0318a(this, e));
+                        Dns a = this.c.d.a(e, new C0322a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new n60(a));
                     }
@@ -140,7 +140,7 @@ public class j60 implements CallFactory.CallFactoryProducer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static List<Class<? extends Interceptor>> o;

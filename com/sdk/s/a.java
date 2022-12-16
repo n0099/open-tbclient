@@ -53,7 +53,7 @@ public class a extends com.sdk.i.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append('=');
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.h);
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append('&');
                     }

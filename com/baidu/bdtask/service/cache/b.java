@@ -70,12 +70,12 @@ public final class b {
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0076b implements Runnable {
+    public static final class RunnableC0090b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0076b(b bVar) {
+        public RunnableC0090b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,7 +190,7 @@ public final class b {
             }
             this.b.b();
             this.b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
-            ExecutorUtilsExt.postOnSerial(new RunnableC0076b(this), "storageSync");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0090b(this), "storageSync");
         }
     }
 

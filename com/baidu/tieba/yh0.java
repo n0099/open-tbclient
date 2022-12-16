@@ -1,326 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.LruCache;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
-public class yh0 {
+/* loaded from: classes7.dex */
+public class yh0<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static volatile yh0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, zh0<?>> a;
-    public final ai0 b;
-    public final String c;
+    public T a;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d<T> {
-        <D> T a(D d);
-
-        T b(byte[] bArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements d<Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(yh0 yh0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yh0.d
-        /* renamed from: d */
-        public <D> Bitmap a(D d) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
-                if (d instanceof Bitmap) {
-                    return (Bitmap) d;
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
-        @Override // com.baidu.tieba.yh0.d
-        /* renamed from: c */
-        public Bitmap b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-                if (bArr != null) {
-                    try {
-                        if (bArr.length != 0) {
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                            options.inPurgeable = true;
-                            options.inInputShareable = true;
-                            return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
-                        }
-                    } catch (Throwable unused) {
-                    }
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ai0.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ c b;
-        public final /* synthetic */ yh0 c;
-
-        @Override // com.baidu.tieba.ai0.e
-        public void b(String str, zh0<File> zh0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, zh0Var) == null) {
-            }
-        }
-
-        public b(yh0 yh0Var, String str, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh0Var, str, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yh0Var;
-            this.a = str;
-            this.b = cVar;
-        }
-
-        @Override // com.baidu.tieba.ai0.e
-        public void a(String str, zh0<File> zh0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, zh0Var) == null) && this.a.equals(str)) {
-                this.b.a();
-                this.c.b.n(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.ai0.e
-        public void c(String str, zh0<File> zh0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, zh0Var) == null) && this.a.equals(str)) {
-                this.b.b();
-                this.c.b.n(this);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330024, "Lcom/baidu/tieba/yh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948330024, "Lcom/baidu/tieba/yh0;");
-                return;
-            }
-        }
-        d = Pattern.compile("[^a-zA-Z0-9]");
-    }
-
-    public yh0(Context context, int i, int i2) {
+    public yh0(T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        File cacheDir = context.getCacheDir();
-        this.c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
-        this.a = new LruCache<>(i);
-        this.b = ai0.l(this.c, i2);
+        this.a = t;
     }
 
-    public String c(String str) {
-        InterceptResult invokeL;
+    public boolean d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String b2 = b(str);
-            return this.c + b2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public zh0<?> e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            zh0<?> g = g(str);
-            if (g != null) {
-                return g;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            if (!(this.a instanceof File) || System.currentTimeMillis() - ((File) this.a).lastModified() <= j) {
+                return false;
             }
-            return f(str);
+            return true;
         }
-        return (zh0) invokeL.objValue;
+        return invokeJ.booleanValue;
     }
 
-    public final zh0<File> f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.b.i(str);
-        }
-        return (zh0) invokeL.objValue;
-    }
-
-    public final zh0<?> g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (zh0) invokeL.objValue;
-    }
-
-    @Nullable
-    public Bitmap h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (Bitmap) i(str, new a(this));
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.length() >= 160) {
-                return r31.b(str, false);
-            }
-            return d.matcher(str).replaceAll("").trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static yh0 d() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (yh0.class) {
-                    if (e == null) {
-                        e = new yh0(aj0.b(), 6, 50000000);
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (yh0) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public final <T> T i(String str, d<T> dVar) {
-        InterceptResult invokeLL;
+    public Class<?> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, dVar)) == null) {
-            zh0<?> e2 = e(b(str));
-            if (e2 != null) {
-                if (File.class.equals(e2.c())) {
-                    return dVar.b(e2.b());
-                }
-                if (Byte.TYPE.equals(e2.c())) {
-                    return null;
-                }
-                return dVar.a(e2.a());
-            }
-            if (!this.b.e) {
-                File file = new File(c(str));
-                if (file.exists()) {
-                    return dVar.b(new zh0(file).b());
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getClass();
         }
-        return (T) invokeLL.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    public void j(String str, Bitmap bitmap) {
+    public byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bitmap) == null) {
-            k(str, new zh0<>(bitmap), true, null);
-        }
-    }
-
-    public final void k(String str, zh0<?> zh0Var, boolean z, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, zh0Var, Boolean.valueOf(z), cVar}) == null) {
-            try {
-                String b2 = b(str);
-                if (z) {
-                    this.a.put(b2, zh0Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                return byteArrayOutputStream.toByteArray();
+            } else if (t instanceof File) {
+                return p31.g((File) t);
+            } else {
+                if (t instanceof byte[]) {
+                    return (byte[]) t;
                 }
-                File file = new File(this.b.j() + b2);
-                if (cVar != null) {
-                    this.b.e(new b(this, b2, cVar));
-                }
-                this.b.q(zh0Var.b(), new zh0<>(file));
-            } catch (Throwable unused) {
+                return null;
             }
         }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        boolean delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                if (!((Bitmap) t).isRecycled()) {
+                    ((Bitmap) this.a).recycle();
+                }
+            } else if (t instanceof File) {
+                delete = ((File) t).delete();
+                this.a = null;
+                return delete;
+            }
+            delete = true;
+            this.a = null;
+            return delete;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                return ((Bitmap) t).getByteCount();
+            }
+            if (t instanceof File) {
+                return (int) ((File) t).length();
+            }
+            if (t instanceof byte[]) {
+                return ((byte[]) t).length;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

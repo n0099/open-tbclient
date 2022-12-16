@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface z79 {
-    boolean a(int i);
+    void a(b89 b89Var, int i, String str);
 }

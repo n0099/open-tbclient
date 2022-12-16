@@ -27,9 +27,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void C0();
+        void q1();
 
-        void r1();
+        void y0();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,15 +123,15 @@ public class RecordLayout extends RelativeLayout {
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) > this.b && Math.abs(rawX) > this.d) {
                         if (rawX > 0) {
-                            this.f.r1();
+                            this.f.q1();
                         } else {
-                            this.f.C0();
+                            this.f.y0();
                         }
                     } else if (Math.abs(rawX) > yi.l(getContext()) * 0.5d) {
                         if (rawX > 0) {
-                            this.f.r1();
+                            this.f.q1();
                         } else {
-                            this.f.r1();
+                            this.f.q1();
                         }
                     }
                     this.a.clear();

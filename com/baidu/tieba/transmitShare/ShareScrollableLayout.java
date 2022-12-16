@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zv8;
+import com.baidu.tieba.bz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ShareScrollableLayout extends LinearLayout implements zv8 {
+public class ShareScrollableLayout extends LinearLayout implements bz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -27,7 +27,7 @@ public class ShareScrollableLayout extends LinearLayout implements zv8 {
     public int b;
     public int c;
 
-    @Override // com.baidu.tieba.zv8
+    @Override // com.baidu.tieba.bz8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -57,7 +57,7 @@ public class ShareScrollableLayout extends LinearLayout implements zv8 {
         d();
     }
 
-    @Override // com.baidu.tieba.zv8
+    @Override // com.baidu.tieba.bz8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -115,7 +115,7 @@ public class ShareScrollableLayout extends LinearLayout implements zv8 {
         d();
     }
 
-    @Override // com.baidu.tieba.zv8
+    @Override // com.baidu.tieba.bz8
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -146,7 +146,7 @@ public class ShareScrollableLayout extends LinearLayout implements zv8 {
         }
     }
 
-    @Override // android.view.ViewGroup, com.baidu.tieba.zv8
+    @Override // android.view.ViewGroup, com.baidu.tieba.bz8
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -155,7 +155,7 @@ public class ShareScrollableLayout extends LinearLayout implements zv8 {
         }
     }
 
-    @Override // com.baidu.tieba.zv8
+    @Override // com.baidu.tieba.bz8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {

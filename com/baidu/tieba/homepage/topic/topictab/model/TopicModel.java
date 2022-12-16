@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.q77;
+import com.baidu.tieba.o87;
 import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q77 a;
+    public o87 a;
     public qb b;
     public qb c;
     public boolean d;
@@ -24,23 +24,44 @@ public class TopicModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void A(q77 q77Var) {
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q77Var) == null) {
-            this.a = q77Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                o87 o87Var = this.a;
+                if (o87Var != null) {
+                    o87Var.e0(-1, null);
+                }
+            } else if (this.d) {
+            } else {
+                cancelLoadData();
+                RequestGetTopicListMessage requestGetTopicListMessage = new RequestGetTopicListMessage();
+                requestGetTopicListMessage.setCallFrom("topic_tab");
+                requestGetTopicListMessage.setTag(this.unique_id);
+                if (MessageManager.getInstance().sendMessage(requestGetTopicListMessage)) {
+                    this.d = true;
+                }
+            }
+        }
+    }
+
+    public void H(o87 o87Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o87Var) == null) {
+            this.a = o87Var;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
             this.b.setTag(bdUniqueId);
             registerListener(this.b);
@@ -53,7 +74,7 @@ public class TopicModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -62,31 +83,10 @@ public class TopicModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterListener(this.c);
             this.d = false;
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                q77 q77Var = this.a;
-                if (q77Var != null) {
-                    q77Var.j(-1, null);
-                }
-            } else if (this.d) {
-            } else {
-                cancelLoadData();
-                RequestGetTopicListMessage requestGetTopicListMessage = new RequestGetTopicListMessage();
-                requestGetTopicListMessage.setCallFrom("topic_tab");
-                requestGetTopicListMessage.setTag(this.unique_id);
-                if (MessageManager.getInstance().sendMessage(requestGetTopicListMessage)) {
-                    this.d = true;
-                }
-            }
         }
     }
 }

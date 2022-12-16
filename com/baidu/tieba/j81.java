@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface j81 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "crius");
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    Object a(JSONObject jSONObject);
+    int a();
 
-    x81<View> b(@NonNull Context context);
+    boolean b();
 }

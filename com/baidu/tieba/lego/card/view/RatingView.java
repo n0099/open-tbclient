@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RatingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public a b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,15 +146,15 @@ public class RatingView extends LinearLayout {
                 }
                 int intValue = valueOf.intValue() >> 1;
                 for (int i = 0; i < intValue; i++) {
-                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080ac9)));
+                    addView(b(SkinManager.getDrawable(R.drawable.icon_star_full)));
                 }
                 int i2 = 5 - intValue;
                 if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aca)));
+                    addView(b(SkinManager.getDrawable(R.drawable.icon_star_half)));
                     i2--;
                 }
                 for (int i3 = 0; i3 < i2; i3++) {
-                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080ac8)));
+                    addView(b(SkinManager.getDrawable(R.drawable.icon_star_empty)));
                 }
             }
         }

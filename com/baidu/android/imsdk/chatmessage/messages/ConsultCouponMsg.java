@@ -1,10 +1,8 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -236,30 +234,10 @@ public class ConsultCouponMsg extends NormalMsg {
         }
     }
 
-    public boolean updateStatus(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, context, i)) == null) {
-            this.mCouponStatus = i;
-            try {
-                JSONObject jSONObject = new JSONObject(getMsgContent());
-                if (jSONObject.has("status")) {
-                    jSONObject.put("status", i);
-                }
-                setMsgContentFromServer(jSONObject.toString());
-                return ChatMsgManager.updateChatMsg(context, this);
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "updateStatus", e);
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mImg);
             parcel.writeString(this.mTitle);

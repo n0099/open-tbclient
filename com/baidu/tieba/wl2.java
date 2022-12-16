@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class wl2 extends zh2<qm2> {
+public class wl2 extends yh2<pm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zh2
+    @Override // com.baidu.tieba.yh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pause" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     public wl2() {
@@ -36,13 +36,26 @@ public class wl2 extends zh2<qm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zh2
+    @Override // com.baidu.tieba.yh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull qm2 qm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pm2 pm2Var) {
+        Object obj;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qm2Var) == null) {
-            qm2Var.pause();
-            d(qm2Var, command.what, null, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pm2Var) != null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
+        } else {
+            f = Float.MIN_VALUE;
+        }
+        if (f != Float.MIN_VALUE) {
+            pm2Var.setSpeed(f);
+            String str = command.what;
+            d(pm2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

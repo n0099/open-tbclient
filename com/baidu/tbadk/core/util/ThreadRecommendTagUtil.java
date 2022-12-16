@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h05;
-import com.baidu.tieba.ow4;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.qq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,16 +50,16 @@ public class ThreadRecommendTagUtil {
                 if (!isElementValid(themeColorInfo.night)) {
                     return 0;
                 }
-                return rn8.f(themeColorInfo.night.common_color);
+                return qq8.f(themeColorInfo.night.common_color);
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (!isElementValid(themeColorInfo.dark)) {
                     return 0;
                 }
-                return rn8.f(themeColorInfo.dark.common_color);
+                return qq8.f(themeColorInfo.dark.common_color);
             } else if (!isElementValid(themeColorInfo.day)) {
                 return 0;
             } else {
-                return rn8.f(themeColorInfo.day.common_color);
+                return qq8.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;
@@ -89,7 +89,7 @@ public class ThreadRecommendTagUtil {
                 int color3 = getColor(threadData.getThreadRecommendTagData().getBoundaryColor());
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-                float[] z = ow4.z(R.string.J_X04);
+                float[] z = pw4.z(R.string.J_X04);
                 h05.b bVar = new h05.b();
                 bVar.v(z[0]);
                 bVar.y(R.dimen.T_X10);
@@ -105,7 +105,7 @@ public class ThreadRecommendTagUtil {
                     bVar.r(UtilHelper.getDimenPixelSize(R.dimen.L_X02));
                     bVar.t(UtilHelper.getDimenPixelSize(R.dimen.L_X01));
                     bVar.q(color3);
-                    bVar.p(ow4.b(R.string.A_X04));
+                    bVar.p(pw4.b(R.string.A_X04));
                 }
                 bVar.o(color2);
                 spannableStringBuilder.setSpan(bVar.n(), 0, text.length(), 33);

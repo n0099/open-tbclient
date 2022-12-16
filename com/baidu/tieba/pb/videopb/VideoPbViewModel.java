@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.c58;
-import com.baidu.tieba.ks4;
+import com.baidu.tieba.h08;
+import com.baidu.tieba.ms4;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.px7;
+import com.baidu.tieba.u78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c58 a;
+    public u78 a;
     public PbModel b;
     public int c;
 
@@ -39,7 +39,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new c58();
+        this.a = new u78();
         this.c = 0;
     }
 
@@ -52,22 +52,22 @@ public class VideoPbViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public px7 c() {
+    public h08 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a.b();
         }
-        return (px7) invokeV.objValue;
+        return (h08) invokeV.objValue;
     }
 
-    public px7 d() {
+    public h08 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a.c();
         }
-        return (px7) invokeV.objValue;
+        return (h08) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -218,21 +218,21 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void p(boolean z) {
-        ks4 ks4Var;
+        ms4 ms4Var;
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && this.a.g().getValue() != null) {
-            px7 c1 = this.b.c1(this.a.g().getValue());
-            if (c1 != null) {
+            h08 v0 = this.b.v0(this.a.g().getValue());
+            if (v0 != null) {
                 this.a.k().addLast(this.a.b());
-                this.a.o(c1);
+                this.a.o(v0);
                 ThreadData threadData = null;
-                if (!ListUtils.isEmpty(c1.f())) {
-                    ks4Var = c1.f().get(0);
+                if (!ListUtils.isEmpty(v0.f())) {
+                    ms4Var = v0.f().get(0);
                 } else {
-                    ks4Var = null;
+                    ms4Var = null;
                 }
-                this.a.w(ks4Var);
+                this.a.w(ms4Var);
                 if (this.a.k().getLast() != null) {
                     threadData = this.a.k().getLast().Q();
                 }
@@ -243,79 +243,79 @@ public class VideoPbViewModel extends ViewModel {
                 } else {
                     i = 22;
                 }
-                pbModel.y3(i);
-                this.b.O2(c1);
+                pbModel.S2(i);
+                this.b.h2(v0);
                 this.a.s(true);
             }
         }
     }
 
     public void q() {
-        px7 pollLast;
-        ks4 ks4Var;
+        h08 pollLast;
+        ms4 ms4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (pollLast = this.a.k().pollLast()) != null) {
             this.a.o(pollLast);
             ThreadData threadData = null;
             if (!ListUtils.isEmpty(pollLast.f())) {
-                ks4Var = pollLast.f().get(0);
+                ms4Var = pollLast.f().get(0);
             } else {
-                ks4Var = null;
+                ms4Var = null;
             }
-            this.a.w(ks4Var);
+            this.a.w(ms4Var);
             if (this.a.k().peekLast() != null) {
                 threadData = this.a.k().peekLast().Q();
             }
             this.a.y(threadData);
-            this.b.O2(pollLast);
+            this.b.h2(pollLast);
             this.a.s(true);
         }
     }
 
     public void r(ThreadData threadData) {
-        px7 c1;
-        ks4 ks4Var;
+        h08 v0;
+        ms4 ms4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) && threadData != null && (c1 = this.b.c1(threadData)) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) && threadData != null && (v0 = this.b.v0(threadData)) != null) {
             this.a.k().addLast(this.a.b());
-            this.a.o(c1);
+            this.a.o(v0);
             ThreadData threadData2 = null;
-            if (!ListUtils.isEmpty(c1.f())) {
-                ks4Var = c1.f().get(0);
+            if (!ListUtils.isEmpty(v0.f())) {
+                ms4Var = v0.f().get(0);
             } else {
-                ks4Var = null;
+                ms4Var = null;
             }
-            this.a.w(ks4Var);
+            this.a.w(ms4Var);
             if (this.a.k().getLast() != null) {
                 threadData2 = this.a.k().getLast().Q();
             }
             this.a.y(threadData2);
-            this.b.y3(20);
-            this.b.O2(c1);
+            this.b.S2(20);
+            this.b.h2(v0);
             this.a.s(true);
         }
     }
 
-    public void s(px7 px7Var, int i) {
+    public void s(h08 h08Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048594, this, px7Var, i) == null) && i >= this.c) {
+        if ((interceptable == null || interceptable.invokeLI(1048594, this, h08Var, i) == null) && i >= this.c) {
             this.c = i;
-            this.a.p(px7Var);
-            if (px7Var != null) {
-                c58 c58Var = this.a;
+            this.a.p(h08Var);
+            if (h08Var != null) {
+                u78 u78Var = this.a;
                 boolean z = true;
-                if (px7Var.s() != 1 && !px7Var.l0()) {
+                if (h08Var.s() != 1 && !h08Var.l0()) {
                     z = false;
                 }
-                c58Var.q(z);
+                u78Var.q(z);
             }
         }
     }
 
-    public void t(px7 px7Var, int i) {
+    public void t(h08 h08Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048595, this, px7Var, i) == null) && i == 3) {
-            this.a.o(px7Var);
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, h08Var, i) == null) && i == 3) {
+            this.a.o(h08Var);
         }
     }
 }

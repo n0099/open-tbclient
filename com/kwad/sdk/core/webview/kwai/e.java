@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.webview.kwai;
 
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
@@ -22,7 +21,7 @@ public final class e implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, TiebaStatic.LogFields.RESULT, this.result);
+        r.putValue(jSONObject, "result", this.result);
         r.putValue(jSONObject, GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.agk);
         return jSONObject;
     }

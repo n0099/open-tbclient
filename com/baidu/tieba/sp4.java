@@ -29,16 +29,15 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.er4;
+import com.baidu.tieba.ir4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.Base64Encoder;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class sp4 {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -198,7 +197,7 @@ public class sp4 {
             if (cookie == null) {
                 return "";
             }
-            for (String str : cookie.split(ParamableElem.DIVIDE_PARAM)) {
+            for (String str : cookie.split(";")) {
                 if (str.contains("BAIDUID=")) {
                     return str.trim().substring(8);
                 }
@@ -210,7 +209,7 @@ public class sp4 {
 
     public static void g(Context context) {
         CookieManager cookieManager;
-        er4.b bVar;
+        ir4.b bVar;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
@@ -225,13 +224,13 @@ public class sp4 {
                 return;
             }
             cookieManager.setAcceptCookie(true);
-            if (er4.b() != null) {
-                bVar = er4.b().c(TbadkCoreApplication.getCurrentBduss());
+            if (ir4.b() != null) {
+                bVar = ir4.b().c(TbadkCoreApplication.getCurrentBduss());
             } else {
                 bVar = null;
             }
             if (bVar != null) {
-                String a2 = ir4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                String a2 = hr4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a2)) {
                     sb.append("STOKEN=");
@@ -253,20 +252,20 @@ public class sp4 {
                     BdLog.e(e);
                 }
             }
-            cookieManager.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ";");
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             if (!TextUtils.isEmpty(cuidGalaxy2)) {
                 str = new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes()));
             } else {
                 str = "";
             }
-            cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "TBBRAND=" + aj.g() + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie(".baidu.com", "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ParamableElem.DIVIDE_PARAM + "HttpOnly");
+            cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ";");
+            cookieManager.setCookie(".baidu.com", "TBBRAND=" + aj.g() + ";");
+            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ";");
+            cookieManager.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ";");
+            cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ";");
+            cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ";");
+            cookieManager.setCookie(".baidu.com", "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ";HttpOnly");
             try {
                 if (Build.VERSION.SDK_INT >= 21) {
                     CookieManager.getInstance().flush();

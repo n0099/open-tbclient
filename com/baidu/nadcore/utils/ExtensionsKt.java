@@ -9,8 +9,8 @@ import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.n31;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,7 +68,7 @@ public final class ExtensionsKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            return n31.c.a(context, i);
+            return m31.c.a(context, i);
         }
         return invokeIL.intValue;
     }
@@ -93,22 +93,22 @@ public final class ExtensionsKt {
     @ColorInt
     public static final int e(String toColor, @ColorRes int i) {
         InterceptResult invokeLI;
-        Integer m698constructorimpl;
+        Integer m708constructorimpl;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, toColor, i)) == null) {
             Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
             try {
                 Result.Companion companion = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+                m708constructorimpl = Result.m708constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
+                m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
             }
-            Integer valueOf = Integer.valueOf(ContextCompat.getColor(aj0.b(), i));
-            if (Result.m704isFailureimpl(m698constructorimpl)) {
-                m698constructorimpl = valueOf;
+            Integer valueOf = Integer.valueOf(ContextCompat.getColor(zi0.b(), i));
+            if (Result.m714isFailureimpl(m708constructorimpl)) {
+                m708constructorimpl = valueOf;
             }
-            return ((Number) m698constructorimpl).intValue();
+            return ((Number) m708constructorimpl).intValue();
         }
         return invokeLI.intValue;
     }

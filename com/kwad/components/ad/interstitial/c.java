@@ -23,7 +23,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class c {
     public m<com.kwad.components.core.k.a, AdResultData> fr;
 
     /* renamed from: com.kwad.components.ad.interstitial.c$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass1 extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static c fA;
@@ -212,7 +212,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void onInterstitialAdLoad(@Nullable List<AdTemplate> list);
     }
@@ -325,11 +325,11 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, bVar}) == null) || this.fq) {
             return;
         }
-        SceneImpl m84clone = sceneImpl.m84clone();
+        SceneImpl m85clone = sceneImpl.m85clone();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        m84clone.setAdStyle(16);
-        m84clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m84clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
+        m85clone.setAdStyle(16);
+        m85clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m85clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
     }
 
     public final void release() {

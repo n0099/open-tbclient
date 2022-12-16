@@ -1,5 +1,5 @@
 package com.kwad.sdk.api.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements IKsAdLabel {
     public int a;
     public int b;

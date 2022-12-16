@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class kx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tr4 h;
+    public vr4 h;
     public ForumEnterLayout i;
     public final View.OnClickListener j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,12 +86,12 @@ public class kx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
-            this.h = tr4Var;
-            this.i.setSourceForPb(this.a.i());
-            this.i.setData(tr4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) {
+            this.h = vr4Var;
+            this.i.setSourceForPb(this.a.j());
+            this.i.setData(vr4Var);
         }
     }
 

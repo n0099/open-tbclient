@@ -17,7 +17,7 @@ public class gm extends gn {
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f436b;
+    public boolean f459b;
     public String c;
     public String d;
     public String e;
@@ -49,7 +49,7 @@ public class gm extends gn {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f436b = false;
+        this.f459b = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +77,7 @@ public class gm extends gn {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f436b = false;
+        this.f459b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -86,7 +86,7 @@ public class gm extends gn {
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
         this.a = bundle.getBoolean("ext_msg_trans", false);
-        this.f436b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f459b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -137,7 +137,7 @@ public class gm extends gn {
             if (!TextUtils.isEmpty(this.k)) {
                 a.putString("ext_msg_fseq", this.k);
             }
-            if (this.f436b) {
+            if (this.f459b) {
                 a.putBoolean("ext_msg_encrypt", true);
             }
             if (!TextUtils.isEmpty(this.l)) {
@@ -151,7 +151,7 @@ public class gm extends gn {
     @Override // com.xiaomi.push.gn
     public String a() {
         InterceptResult invokeV;
-        gr m369a;
+        gr m379a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -219,7 +219,7 @@ public class gm extends gn {
                 sb.append(this.b);
                 sb.append("\"");
             }
-            if (this.f436b) {
+            if (this.f459b) {
                 sb.append(" s=\"1\"");
             }
             sb.append(">");
@@ -244,8 +244,8 @@ public class gm extends gn {
                 sb.append(this.c);
                 sb.append("</thread>");
             }
-            if ("error".equalsIgnoreCase(this.b) && (m369a = m369a()) != null) {
-                sb.append(m369a.m373a());
+            if ("error".equalsIgnoreCase(this.b) && (m379a = m379a()) != null) {
+                sb.append(m379a.m383a());
             }
             sb.append(o());
             sb.append("</message>");
@@ -295,7 +295,7 @@ public class gm extends gn {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f436b = z;
+            this.f459b = z;
         }
     }
 

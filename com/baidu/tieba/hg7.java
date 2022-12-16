@@ -1,63 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.text.SpannableStringBuilder;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import com.google.android.material.badge.BadgeDrawable;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class hg7 extends fg7 implements wc5, cd5 {
+public class hg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xc5
-    public String getCacheKey() {
-        InterceptResult invokeV;
+    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
+        final boolean z3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public hg7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (i == 3) {
+                z3 = true;
+            } else {
+                z3 = false;
             }
+            ah.a().post(new Runnable() { // from class: com.baidu.tieba.uf7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        hg7.b(currentActivity, z, z2, z3, str);
+                    }
+                }
+            });
         }
     }
 
-    @Override // com.baidu.tieba.wc5
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            try {
-                initByProtobuf((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
+    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
+        int b;
+        if (activity != null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (z) {
+                boolean i = ry4.l().i("key_person_growth_share_switch", false);
+                if (z2 && !TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD) && !i && !z3) {
+                    ry4.l().v("key_person_growth_share_switch", true);
+                    BdToastData bdToastData = new BdToastData();
+                    if (TbadkCoreApplication.getCurrentMemberType() > 0) {
+                        bdToastData.setIconType(5);
+                    } else {
+                        bdToastData.setIconType(4);
+                    }
+                    ArrayList arrayList = new ArrayList(1);
+                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
+                    contentBean.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.im_share_success_info_ug));
+                    arrayList.add(contentBean);
+                    String userGrowthWeight = TbSingleton.getInstance().getUserGrowthWeight(UserGrowthTaskRequestMessage.SHARE_THREAD);
+                    if (userGrowthWeight != null) {
+                        if (TbadkCoreApplication.getCurrentMemberType() > 0 && (b = qm9.b(userGrowthWeight, -1)) >= 0) {
+                            userGrowthWeight = (b * 2) + "";
+                        }
+                        spannableStringBuilder.append((CharSequence) BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX).append((CharSequence) userGrowthWeight);
+                        BdToastData.ContentBean contentBean2 = new BdToastData.ContentBean();
+                        contentBean2.setHasColor(1);
+                        contentBean2.setText(spannableStringBuilder.toString());
+                        arrayList.add(contentBean2);
+                    }
+                    bdToastData.setContent(arrayList);
+                    BdToastHelper.toast(bdToastData);
+                    MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SHARE_THREAD));
+                    return;
+                }
+                spannableStringBuilder.append((CharSequence) str);
+            } else {
+                spannableStringBuilder.append((CharSequence) str);
             }
+            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).i();
         }
-        return invokeL.booleanValue;
     }
 }

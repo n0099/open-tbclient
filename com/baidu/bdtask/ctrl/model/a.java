@@ -46,18 +46,18 @@ import org.json.JSONObject;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock c;
-    public static final C0072a d;
+    public static final C0086a d;
     public transient /* synthetic */ FieldHolder $fh;
     public SubTaskState a;
     public PriorityQueue<SubTaskState> b;
 
     /* renamed from: com.baidu.bdtask.ctrl.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0072a {
+    public static final class C0086a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0072a() {
+        public C0086a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public final class a {
             return (ReentrantLock) invokeV.objValue;
         }
 
-        public /* synthetic */ C0072a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0086a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -98,7 +98,7 @@ public final class a {
                 return;
             }
         }
-        d = new C0072a(null);
+        d = new C0086a(null);
         c = new ReentrantLock(true);
     }
 

@@ -1,298 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.t59;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class i69 extends t69<j79> implements w69 {
+public class i69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public WriteImageGridView g;
-    @Nullable
-    public t59 h;
-    @NonNull
-    public final j89 i;
-    public final t59.b j;
 
-    @Override // com.baidu.tieba.y69
-    public void e(@NonNull WriteData writeData) {
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
+        return (long[]) invokeCommon.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements t59.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i69 a;
+    public static l69 b(n69 n69Var, d69 d69Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, n69Var, d69Var)) == null) {
+            if (n69Var == null || d69Var == null || n69Var.e == null) {
+                return null;
+            }
+            long[] a = a(n69Var.b, n69Var.a);
+            MultiMediaData multiMediaData = n69Var.e;
+            l69 l69Var = new l69();
+            l69Var.e = new ArrayList();
+            l69Var.a = multiMediaData.path;
+            l69Var.c = n69Var.c;
+            l69Var.d = n69Var.d;
+            l69Var.b = multiMediaData.rotation;
+            for (int i = 0; i < n69Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                f69 f69Var = new f69();
+                f69Var.a = y59.b(multiMediaData.path, j, multiMediaData.type);
+                f69Var.b = multiMediaData.path;
+                f69Var.f = i;
+                f69Var.g = multiMediaData.type;
+                f69Var.h = n69Var.c;
+                f69Var.i = n69Var.d;
+                f69Var.j = d69Var;
+                f69Var.d = j;
+                f69Var.c = multiMediaData.rotation;
+                l69Var.e.add(f69Var);
+            }
+            return l69Var;
+        }
+        return (l69) invokeLL.objValue;
+    }
 
-        public a(i69 i69Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i69Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<l69> c(m69 m69Var, d69 d69Var) {
+        InterceptResult invokeLL;
+        List<f69> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, m69Var, d69Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (m69Var == null || d69Var == null || m69Var.b <= 0 || rm9.e(m69Var.e) || rm9.e(m69Var.f)) {
+                return null;
+            }
+            long[] a = a(m69Var.b, m69Var.a);
+            ArrayList arrayList = new ArrayList();
+            l69 l69Var = null;
+            for (int i = 0; i < m69Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(m69Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) rm9.c(m69Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        l69Var = new l69();
+                        l69Var.e = new ArrayList();
+                        l69Var.a = multiMediaData2.path;
+                        l69Var.c = m69Var.c;
+                        l69Var.d = m69Var.d;
+                        l69Var.b = multiMediaData2.rotation;
+                        arrayList.add(l69Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) rm9.c(m69Var.e, findInputIndexInSegments), j) * 1000;
+                    f69 f69Var = new f69();
+                    f69Var.a = y59.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    f69Var.b = multiMediaData2.path;
+                    f69Var.f = i;
+                    f69Var.g = multiMediaData2.type;
+                    f69Var.h = m69Var.c;
+                    f69Var.i = m69Var.d;
+                    f69Var.d = multiMediaDataSeekTime;
+                    f69Var.j = d69Var;
+                    f69Var.c = multiMediaData2.rotation;
+                    if (l69Var != null && (list = l69Var.e) != null) {
+                        list.add(f69Var);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
             }
-            this.a = i69Var;
+            return arrayList;
         }
-
-        @Override // com.baidu.tieba.t59.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.x(new int[]{10, 34});
-            }
-        }
-
-        @Override // com.baidu.tieba.t59.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.b != null) {
-                    this.a.b.i();
-                }
-                i69 i69Var = this.a;
-                i69Var.y(i69Var.d);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i69(TbPageContext<?> tbPageContext, @NonNull j89 j89Var) {
-        super(tbPageContext, j79.class);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, j89Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.j = new a(this);
-        this.i = j89Var;
-        j89Var.c(this);
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-            this.i.d(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.w69
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            u(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.w69
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            u(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void onChangeSkinType(int i) {
-        t59 t59Var;
-        s59 s59Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (t59Var = this.h) != null && (s59Var = t59Var.d) != null) {
-            s59Var.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            this.i.o(bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.w69
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.e == null) {
-            return;
-        }
-        F(str);
-    }
-
-    @Override // com.baidu.tieba.w69
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || this.e == null) {
-            return;
-        }
-        F(str);
-    }
-
-    public final void F(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.b != null && this.h != null && this.e != null) {
-            this.i.g().parseJson(str);
-            this.i.g().updateQuality();
-            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
-            j79 j79Var = (j79) this.d;
-            if (this.h.o().getVisibility() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            j79Var.a = z;
-            y(this.d);
-            this.b.w();
-            this.b.i();
-        }
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void r(l65 l65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, l65Var) == null) {
-            super.r(l65Var);
-            if (this.b != null && this.e != null && this.h != null && l65Var.a == 24) {
-                Object obj = l65Var.c;
-                if (!(obj instanceof f25)) {
-                    return;
-                }
-                f25 f25Var = (f25) obj;
-                if (EmotionGroupType.isSendAsPic(f25Var.getType()) && this.i.b(this.b, f25Var) != null) {
-                    this.b.i();
-                    this.b.x(new int[]{10, 34});
-                    this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void a(@NonNull WriteData writeData) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) && this.h != null && writeData.getWriteImagesInfo() != null) {
-            this.i.r(writeData.getWriteImagesInfo());
-            WriteData writeData2 = this.e;
-            if (writeData2 != null) {
-                writeData2.setWriteImagesInfo(writeData.getWriteImagesInfo());
-                this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
-            }
-            j79 j79Var = (j79) this.d;
-            if (this.h.o().getVisibility() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            j79Var.a = z;
-            y(this.d);
-        }
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d();
-            this.i.q(this);
-            t59 t59Var = this.h;
-            if (t59Var != null) {
-                t59Var.n();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            WriteImageGridView writeImageGridView = this.g;
-            if (writeImageGridView != null && writeImageGridView.getVisibility() == 0 && this.i.g().size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            this.i.m(i, i2, intent);
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04b2, viewGroup, false);
-            this.c = inflate;
-            this.g = (WriteImageGridView) inflate.findViewById(R.id.obfuscated_res_0x7f092704);
-            t59 t59Var = new t59(this.a, this.c);
-            this.h = t59Var;
-            t59Var.r(this.j);
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                this.h.q(writeData.getDisableAudioMessage(), this.e.getFirstDir(), this.e.getSecondDir(), this.e.getPrefixData(), this.e.getStatisticFrom(), this.e.isVoiceEnable());
-                if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.e.getFrom())) {
-                    this.h.s(false);
-                } else {
-                    this.h.t(true);
-                }
-                if (this.e.getType() == 14) {
-                    this.h.p(true);
-                }
-            }
-            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
-            return this.c;
-        }
-        return (View) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

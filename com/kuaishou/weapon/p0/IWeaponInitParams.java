@@ -1,5 +1,5 @@
 package com.kuaishou.weapon.p0;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IWeaponInitParams {
     String getAppKey();
 

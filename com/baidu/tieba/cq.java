@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cq {
     void a(long j, long j2);
 
@@ -19,7 +19,7 @@ public interface cq {
 
     void onStart();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements cq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

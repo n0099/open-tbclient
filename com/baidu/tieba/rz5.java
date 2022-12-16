@@ -1,81 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class rz5 extends BaseAdapter {
+/* loaded from: classes6.dex */
+public class rz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public List<ThreadData> b;
+    public r9 a;
+    public final List<kn> b;
+    public BdTypeMultiColumnListView c;
+    public sz5 d;
+    public vz5 e;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TbImageView b;
-        public AlaCardBottomUserInfoLayout c;
-        public RelativeLayout d;
-        public TextView e;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
-            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901cf);
-            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901d1);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901d0);
-        }
-    }
-
-    public rz5(TbPageContext<?> tbPageContext) {
+    public rz5(r9 r9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {r9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,86 +34,42 @@ public class rz5 extends BaseAdapter {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.b = new ArrayList();
+        this.a = r9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ThreadData getItem(int i) {
-        InterceptResult invokeI;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<ThreadData> list = this.b;
-            if (list == null || i < 0 || i > list.size()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return (ThreadData) invokeI.objValue;
-    }
-
-    public void b(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new sz5((TbPageContext) this.a, yz5.b);
+            this.e = new vz5((TbPageContext) this.a, yz5.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void b(hw5 hw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hw5Var) == null) {
+            sz5 sz5Var = this.d;
+            if (sz5Var != null) {
+                sz5Var.u(hw5Var);
             }
-            return this.b.size();
+            vz5 vz5Var = this.e;
+            if (vz5Var != null) {
+                vz5Var.u(hw5Var);
+            }
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        AlaInfoData threadAlaInfo;
+    public void c(List<xn> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null);
-                aVar = new a(view2);
-                aVar.b.setIsRound(true);
-                aVar.b.setDrawBorder(false);
-                aVar.b.setAutoChangeStyle(true);
-                aVar.b.setGifIconSupport(false);
-                int l = (yi.l(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
-                int i2 = (l * 16) / 9;
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
-                layoutParams.height = l;
-                layoutParams.width = i2;
-                aVar.d.setLayoutParams(layoutParams);
-                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
-                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
-                view2.setLayoutParams(layoutParams2);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            ThreadData item = getItem(i);
-            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
-                return null;
-            }
-            aVar.b.K(threadAlaInfo.cover, 10, false);
-            aVar.c.setData(item);
-            aVar.c.setUserHeadImgVisible(8);
-            aVar.e.setText(item.getTitle());
-            aVar.c.onChangeSkinType(this.a);
-            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
         }
-        return (View) invokeILL.objValue;
     }
 }

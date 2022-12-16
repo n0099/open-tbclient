@@ -1,50 +1,82 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.AdWebActivity;
-import com.baidu.nadcore.webview.AdWebActivityStandard;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.d61;
+import com.baidu.tieba.c61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes5.dex */
-public class q51 extends ki0 {
+public class q51 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ki0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948042716, "Lcom/baidu/tieba/q51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948042716, "Lcom/baidu/tieba/q51;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements d61.b {
+    public static class a implements c61.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ HashMap b;
-        public final /* synthetic */ si0 c;
-        public final /* synthetic */ oi0 d;
-        public final /* synthetic */ q51 e;
+        public final /* synthetic */ c61.b a;
 
-        public a(q51 q51Var, Context context, HashMap hashMap, si0 si0Var, oi0 oi0Var) {
+        /* renamed from: com.baidu.tieba.q51$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0417a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0417a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                c61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        public a(c61.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q51Var, context, hashMap, si0Var, oi0Var};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,94 +86,44 @@ public class q51 extends ki0 {
                     return;
                 }
             }
-            this.e = q51Var;
-            this.a = context;
-            this.b = hashMap;
-            this.c = si0Var;
-            this.d = oi0Var;
+            this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.d61.b
+        @Override // com.baidu.tieba.c61.b
         public void a() {
-            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean g = q51.g(this.a, this.b);
-                q51 q51Var = this.e;
-                si0 si0Var = this.c;
-                oi0 oi0Var = this.d;
-                if (g) {
-                    i = 0;
-                } else {
-                    i = 1001;
-                }
-                q51Var.c(si0Var, oi0Var, i, g);
+                int unused = q51.a = 3;
+                nj0.b(new RunnableC0417a(this));
             }
         }
     }
 
-    public q51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean g(Context context, @NonNull HashMap<String, String> hashMap) {
+    public static int b(Context context, c61.b bVar) {
         InterceptResult invokeLL;
-        Class cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, hashMap)) == null) {
-            if (og0.a) {
-                t21.a().showToast(context, "启动SDK Webview");
-            }
-            if (!m51.a.b(hashMap, 0)) {
-                return false;
-            }
-            if ("1".equals(hashMap.remove("newbrowser"))) {
-                cls = AdWebActivityStandard.class;
-            } else {
-                cls = AdWebActivity.class;
-            }
-            Intent intent = new Intent(context, cls);
-            intent.putExtra("map", hashMap);
-            return h31.d(context, intent);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ki0
-    public boolean b(@NonNull Context context, @NonNull oi0 oi0Var, @Nullable Map<String, Object> map, @Nullable si0 si0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oi0Var, map, si0Var)) == null) {
-            super.b(context, oi0Var, map, si0Var);
-            HashMap<String, String> d = oi0Var.d();
-            int b = r51.b(context.getApplicationContext(), new a(this, context, d, si0Var, oi0Var));
-            int i = 0;
-            if (4 != b && b != 0) {
-                if (2 != b && 1 != b) {
-                    boolean g = g(context, d);
-                    if (!g) {
-                        i = 1001;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
+            if (3 != a && 4 != a) {
+                int a2 = v51.j().a(context, new a(bVar));
+                if (3 != a2 && 1 != a2 && 2 != a2) {
+                    if (a2 == 0 || 4 == a2) {
+                        try {
+                            l51.a.c(context, v51.i(), 0);
+                            if (bVar != null) {
+                                bVar.a();
+                            }
+                            a = 3;
+                        } catch (Throwable unused) {
+                            a = 4;
+                        }
                     }
-                    c(si0Var, oi0Var, i, g);
+                    return a;
                 }
-                return true;
+                a = a2;
+                return a;
             }
-            c(si0Var, oi0Var, 1001, false);
-            if (!og0.a) {
-                return true;
-            }
-            throw new IllegalStateException("web app init failed, state=" + b);
+            return a;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.intValue;
     }
 }

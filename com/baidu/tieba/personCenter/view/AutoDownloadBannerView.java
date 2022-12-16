@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax4;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.iq4;
 import com.baidu.tieba.ww4;
 import com.baidu.tieba.xw4;
 import com.baidu.tieba.yi;
@@ -29,7 +29,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public Context a;
     public DownloadFlowView<ApkDownloadInfoData> b;
     public List<ApkDownloadInfoData> c;
-    public hq4 d;
+    public iq4 d;
 
     /* loaded from: classes5.dex */
     public class a extends ww4 {
@@ -61,8 +61,8 @@ public class AutoDownloadBannerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 xw4 xw4Var = new xw4();
-                xw4Var.c(R.drawable.obfuscated_res_0x7f0806a4);
-                xw4Var.g(R.drawable.obfuscated_res_0x7f0806a3);
+                xw4Var.c(R.drawable.icon_banner_download_unselect);
+                xw4Var.g(R.drawable.icon_banner_download_select);
                 xw4Var.d(81);
                 xw4Var.e(R.dimen.M_H_X005);
                 xw4Var.h(R.dimen.tbds10);
@@ -205,10 +205,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(hq4 hq4Var) {
+    public void setIWindowChangedListener(iq4 iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hq4Var) == null) {
-            this.d = hq4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, iq4Var) == null) {
+            this.d = iq4Var;
         }
     }
 

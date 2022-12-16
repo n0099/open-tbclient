@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w84 extends r84<rq2> {
+public class w84 extends q84<qq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +29,7 @@ public class w84 extends r84<rq2> {
                 return;
             }
         }
-        boolean z = pk1.a;
+        boolean z = ok1.a;
     }
 
     public w84() {
@@ -56,45 +55,37 @@ public class w84 extends r84<rq2> {
         return (w84) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r84
-    public boolean b(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.q84
+    public boolean b(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, rq2Var, oq2Var, f43Var, jSONObject)) == null) {
-            return e(context, rq2Var, oq2Var, f43Var, jSONObject);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
+            return e(context, qq2Var, nq2Var, e43Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, rq2 rq2Var, oq2 oq2Var, f43 f43Var, JSONObject jSONObject) {
+    public final boolean e(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rq2Var, oq2Var, f43Var, jSONObject)) == null) {
-            f12.i("map", "GetRegionAction start");
-            nq1 A = sp2.U().A(rq2Var.c);
-            if (!(A instanceof lq1)) {
-                f12.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
+            e12.i("map", "GetScaleAction start");
+            mq1 A = rp2.U().A(qq2Var.c);
+            if (!(A instanceof kq1)) {
+                e12.c("map", "WebViewManager is null");
                 return false;
             }
-            p94 d = o84.b().c((lq1) A).d(rq2Var.b);
+            o94 d = n84.b().c((kq1) A).d(qq2Var.b);
             if (d == null) {
-                f12.c("map", "can not find map by id " + rq2Var.b);
+                e12.c("map", "can not find map by id " + qq2Var.b);
                 return false;
             }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
+                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            f12.i("map", "GetRegionAction end");
+            e12.i("map", "GetScaleAction end");
             return true;
         }
         return invokeLLLLL.booleanValue;

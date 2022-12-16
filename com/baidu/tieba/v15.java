@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.pt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class v15 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public qq8.c c;
+    public pt8.c c;
 
     /* loaded from: classes6.dex */
     public static class a extends c {
@@ -125,7 +125,7 @@ public class v15 {
         return (v15) invokeL.objValue;
     }
 
-    public void g(qq8.c cVar) {
+    public void g(pt8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.c = cVar;
@@ -168,13 +168,13 @@ public class v15 {
         return (String) invokeV.objValue;
     }
 
-    public qq8.c f() {
+    public pt8.c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (qq8.c) invokeV.objValue;
+        return (pt8.c) invokeV.objValue;
     }
 
     public int getType() {

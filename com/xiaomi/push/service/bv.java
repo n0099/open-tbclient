@@ -24,17 +24,17 @@ public class bv {
     public static bv a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f951a;
+    public static String f974a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public ao.b f952a;
+    public ao.b f975a;
 
     /* renamed from: a  reason: collision with other field name */
-    public dw.a f953a;
+    public dw.a f976a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<a> f954a;
+    public List<a> f977a;
 
     /* loaded from: classes8.dex */
     public static abstract class a {
@@ -97,7 +97,7 @@ public class bv {
                 return;
             }
         }
-        this.f954a = new ArrayList();
+        this.f977a = new ArrayList();
     }
 
     public static bv a() {
@@ -107,25 +107,25 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m648a() {
+    public static synchronized String m658a() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (bv.class) {
-                if (f951a == null) {
-                    SharedPreferences sharedPreferences = com.xiaomi.push.v.m687a().getSharedPreferences("XMPushServiceConfig", 0);
+                if (f974a == null) {
+                    SharedPreferences sharedPreferences = com.xiaomi.push.v.m697a().getSharedPreferences("XMPushServiceConfig", 0);
                     String string = sharedPreferences.getString("DeviceUUID", null);
-                    f951a = string;
+                    f974a = string;
                     if (string == null) {
-                        String a2 = com.xiaomi.push.j.a(com.xiaomi.push.v.m687a(), false);
-                        f951a = a2;
+                        String a2 = com.xiaomi.push.j.a(com.xiaomi.push.v.m697a(), false);
+                        f974a = a2;
                         if (a2 != null) {
-                            sharedPreferences.edit().putString("DeviceUUID", f951a).commit();
+                            sharedPreferences.edit().putString("DeviceUUID", f974a).commit();
                         }
                     }
                 }
-                str = f951a;
+                str = f974a;
             }
             return str;
         }
@@ -134,16 +134,16 @@ public class bv {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f953a == null) {
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f976a == null) {
             d();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f952a == null) {
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f975a == null) {
             bw bwVar = new bw(this);
-            this.f952a = bwVar;
+            this.f975a = bwVar;
             gz.a(bwVar);
         }
     }
@@ -178,17 +178,17 @@ public class bv {
         }
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.v.m687a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.v.m697a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f953a = dw.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f976a = dw.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     r2 = bufferedInputStream;
                 } catch (Exception e2) {
                     e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.m89a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m99a("load config failure: " + e.getMessage());
                     r2 = bufferedInputStream;
                     com.xiaomi.push.ab.a((Closeable) r2);
-                    if (this.f953a != null) {
+                    if (this.f976a != null) {
                     }
                 }
             } catch (Throwable th2) {
@@ -206,8 +206,8 @@ public class bv {
             throw th;
         }
         com.xiaomi.push.ab.a((Closeable) r2);
-        if (this.f953a != null) {
-            this.f953a = new dw.a();
+        if (this.f976a != null) {
+            this.f976a = new dw.a();
         }
     }
 
@@ -216,26 +216,26 @@ public class bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
-                if (this.f953a != null) {
-                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.v.m687a().openFileOutput("XMCloudCfg", 0));
+                if (this.f976a != null) {
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.v.m697a().openFileOutput("XMCloudCfg", 0));
                     com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                    this.f953a.a(a2);
-                    a2.m216a();
+                    this.f976a.a(a2);
+                    a2.m226a();
                     bufferedOutputStream.close();
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("save config failure: " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m99a("save config failure: " + e.getMessage());
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m651a() {
+    public int m661a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
-            dw.a aVar = this.f953a;
+            dw.a aVar = this.f976a;
             if (aVar != null) {
                 return aVar.c();
             }
@@ -245,22 +245,22 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dw.a m652a() {
+    public dw.a m662a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b();
-            return this.f953a;
+            return this.f976a;
         }
         return (dw.a) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m653a() {
+    public synchronized void m663a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f954a.clear();
+                this.f977a.clear();
             }
         }
     }
@@ -269,11 +269,11 @@ public class bv {
         a[] aVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (bVar.m286d() && bVar.d() > m651a()) {
+            if (bVar.m296d() && bVar.d() > m661a()) {
                 c();
             }
             synchronized (this) {
-                aVarArr = (a[]) this.f954a.toArray(new a[this.f954a.size()]);
+                aVarArr = (a[]) this.f977a.toArray(new a[this.f977a.size()]);
             }
             for (a aVar : aVarArr) {
                 aVar.a(bVar);
@@ -285,7 +285,7 @@ public class bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             synchronized (this) {
-                this.f954a.add(aVar);
+                this.f977a.add(aVar);
             }
         }
     }

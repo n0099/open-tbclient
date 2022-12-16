@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface CookieManager {
     public static final CookieManager WEBKIT_COOKIES = new CookieManager() { // from class: com.baidu.searchbox.network.outback.cookie.CookieManager.1
         public static /* synthetic */ Interceptable $ic;

@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,8 +42,7 @@ public class ig {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
-        uBCManager.onEvent(HttpConfig.UBC_HTTP_ID, b.toString());
-        uBCManager.onEvent("5607", b.toString());
+        uBCManager.onEvent("94", b.toString());
     }
 
     public JSONObject b() {

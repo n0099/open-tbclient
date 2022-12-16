@@ -12,6 +12,8 @@ public class ux3 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
+    public int c;
+    public long d;
 
     public ux3() {
         Interceptable interceptable = $ic;
@@ -34,6 +36,8 @@ public class ux3 {
             ux3 ux3Var = new ux3();
             ux3Var.a = jSONObject.optInt("state");
             ux3Var.b = jSONObject.optString("msg");
+            ux3Var.c = jSONObject.optInt("switch_open");
+            ux3Var.d = jSONObject.optLong("heartbeat_time");
             return ux3Var;
         }
         return (ux3) invokeL.objValue;
@@ -43,7 +47,7 @@ public class ux3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
         }
         return (String) invokeV.objValue;
     }

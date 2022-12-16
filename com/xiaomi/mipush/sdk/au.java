@@ -14,7 +14,7 @@ public final class au {
     public static final au a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ au[] f67a;
+    public static final /* synthetic */ au[] f90a;
     public static final au b;
     public static final au c;
     public static final au d;
@@ -42,7 +42,7 @@ public final class au {
         e = new au("UPLOAD_COS_TOKEN", 4);
         au auVar = new au("UPLOAD_FTOS_TOKEN", 5);
         f = auVar;
-        f67a = new au[]{a, b, c, d, e, auVar};
+        f90a = new au[]{a, b, c, d, e, auVar};
     }
 
     public au(String str, int i) {
@@ -73,6 +73,6 @@ public final class au {
     public static au[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (au[]) f67a.clone() : (au[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (au[]) f90a.clone() : (au[]) invokeV.objValue;
     }
 }

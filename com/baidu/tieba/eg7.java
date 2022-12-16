@@ -1,122 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
+import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.data.GamePlayOrderMsgData;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.ShareChatroomMsgData;
+import com.baidu.tieba.im.data.ShareForumMsgData;
+import com.baidu.tieba.im.data.ShareThreadMsgData;
+import com.baidu.tieba.im.data.SystemMsgData;
+import com.baidu.tieba.im.data.VoiceMsgData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import protobuf.ImShareChatroomInfo;
+import protobuf.MsgInfo;
+/* loaded from: classes4.dex */
 public class eg7 {
     public static /* synthetic */ Interceptable $ic;
-    public static eg7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HttpMessageListener a;
-    public long b;
-    public final Handler c;
-
-    /* loaded from: classes3.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(eg7 eg7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            dg7 msgData;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002500 || !(httpResponsedMessage instanceof MsgReminderHttpRespMessage) || (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) == null) {
-                return;
-            }
-            if (msgData.b() >= 0) {
-                m35.h0().Z(msgData.b());
-            }
-            if (msgData.e() >= 0) {
-                m35.h0().f0(msgData.e());
-            }
-            if (msgData.d() >= 0) {
-                m35.h0().c0(msgData.d());
-            }
-            if (msgData.a() >= 0) {
-                m35.h0().Y(msgData.a());
-            }
-            if (msgData.c() >= 0) {
-                m35.h0().a0(msgData.c());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eg7 a;
-
-        public b(eg7 eg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eg7Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int i = message.arg1;
-                this.a.b = System.currentTimeMillis();
-                boolean z = !MessageManager.getInstance().getSocketClient().u();
-                if (i == 2 || (z && BdNetTypeUtil.isNetWorkAvailable())) {
-                    this.a.h();
-                }
-                this.a.g(1, 600000L);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -131,97 +52,844 @@ public class eg7 {
                 return;
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
-        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+        Pattern.compile("(#\\([^#\\)\\(]+\\))");
     }
 
-    public eg7() {
+    public static boolean A(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean B(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String D(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return "";
+            }
+            return C(chatMessage.getMsgType(), chatMessage.getContent());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static MsgCacheData l(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, chatMessage)) == null) {
+            try {
+                MsgCacheData msgCacheData = new MsgCacheData();
+                msgCacheData.setRich_content(null);
+                return msgCacheData;
+            } catch (Exception unused) {
+                return null;
             }
         }
-        this.a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
-        this.b = 0L;
-        this.c = new b(this);
-        MessageManager.getInstance().registerListener(this.a);
+        return (MsgCacheData) invokeL.objValue;
     }
 
-    public void i() {
-        long j;
-        int i;
+    public static oc7 m(CommonMsgPojo commonMsgPojo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.b;
-            if (currentTimeMillis <= 0) {
-                currentTimeMillis = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, commonMsgPojo)) == null) {
+            if (commonMsgPojo == null || commonMsgPojo.getMsg_type() != 7) {
+                return null;
             }
-            if (currentTimeMillis >= 600000) {
-                i = 2;
-                j = 10000;
-            } else {
-                j = 600000 - currentTimeMillis;
-                i = 1;
+            return o(commonMsgPojo.getContent());
+        }
+        return (oc7) invokeL.objValue;
+    }
+
+    public static long q(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return -1L;
             }
-            g(i, j);
-            this.b = System.currentTimeMillis();
+            if (xg.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+                return chatMessage.getToUserId();
+            }
+            return chatMessage.getUserId();
         }
+        return invokeL.longValue;
     }
 
-    public final void g(int i, long j) {
+    public static boolean y(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtainMessage = this.c.obtainMessage(1);
-            obtainMessage.arg1 = i;
-            this.c.sendMessageDelayed(obtainMessage, j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 4) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static synchronized eg7 e() {
-        InterceptResult invokeV;
-        eg7 eg7Var;
+    public static boolean z(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            synchronized (eg7.class) {
-                if (d == null) {
-                    d = new eg7();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String C(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            ShareChatroomMsgData shareChatroomMsgData = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            int i3 = 0;
+            if (i != 1 && i != 30) {
+                if (i == 2) {
+                    if (DataExt.toMapList(str).get(0).get("meme_id") != null) {
+                        i3 = 1;
+                    }
+                    Application app = TbadkCoreApplication.getInst().getApp();
+                    if (i3 != 0) {
+                        i2 = R.string.last_msg_emotion;
+                    } else {
+                        i2 = R.string.last_msg_pic;
+                    }
+                    return app.getString(i2);
+                } else if (i == 3) {
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
+                } else {
+                    if (i == 32) {
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_thread_share);
+                    }
+                    if (i == 33) {
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_forum_share);
+                    }
+                    if (i == 37) {
+                        if (!StringUtils.isNull(str)) {
+                            try {
+                                shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(str, ShareChatroomMsgData.class);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_chatroom_share);
+                        if (shareChatroomMsgData != null) {
+                            return string + shareChatroomMsgData.getName();
+                        }
+                        return string;
+                    } else if (i == 11) {
+                        return a(str);
+                    } else {
+                        if (i == 23) {
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
+                        }
+                        if (i == 4) {
+                            try {
+                                JSONArray jSONArray = new JSONArray(str);
+                                if (jSONArray.length() > 0) {
+                                    String optString = jSONArray.getJSONObject(0).optString("face_name");
+                                    if (optString != null && optString.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
+                                        return PreferencesUtil.LEFT_MOUNT + optString.substring(2, optString.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
+                                    }
+                                    return optString;
+                                }
+                                return null;
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                                try {
+                                    String optString2 = new JSONObject(str).optString("face_name");
+                                    if (optString2 != null && optString2.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString2.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
+                                        return PreferencesUtil.LEFT_MOUNT + optString2.substring(2, optString2.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
+                                    }
+                                    return optString2;
+                                } catch (JSONException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                        } else if (i == 5) {
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_invite);
+                        } else {
+                            if (i == 6) {
+                                try {
+                                    return new JSONObject(str).optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                                } catch (JSONException e4) {
+                                    e4.printStackTrace();
+                                    return "";
+                                }
+                            } else if (i == 7) {
+                                String string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
+                                if (TextUtils.isEmpty(str)) {
+                                    return string2;
+                                }
+                                try {
+                                    JSONArray jSONArray2 = new JSONArray(str);
+                                    if (jSONArray2.length() > 0) {
+                                        while (i3 < jSONArray2.length()) {
+                                            String string3 = ((JSONObject) jSONArray2.get(i3)).getString("text");
+                                            if (!TextUtils.isEmpty(string3)) {
+                                                return string3;
+                                            }
+                                            i3++;
+                                        }
+                                    }
+                                    return string2;
+                                } catch (JSONException e5) {
+                                    e5.printStackTrace();
+                                    return string2;
+                                }
+                            } else if (i == 35) {
+                                String string4 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
+                                if (TextUtils.isEmpty(str)) {
+                                    return string4;
+                                }
+                                try {
+                                    JSONArray jSONArray3 = new JSONArray(str);
+                                    if (jSONArray3.length() > 0) {
+                                        while (i3 < jSONArray3.length()) {
+                                            String string5 = ((JSONObject) jSONArray3.get(i3)).getString("title");
+                                            if (!TextUtils.isEmpty(string5)) {
+                                                return string5;
+                                            }
+                                            i3++;
+                                        }
+                                    }
+                                    return string4;
+                                } catch (JSONException e6) {
+                                    e6.printStackTrace();
+                                    return string4;
+                                }
+                            } else if (i == 25) {
+                                if (TextUtils.isEmpty(str)) {
+                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
+                                }
+                                try {
+                                    JSONArray jSONArray4 = new JSONArray(str);
+                                    if (jSONArray4.length() <= 0) {
+                                        return "";
+                                    }
+                                    JSONObject optJSONObject = jSONArray4.optJSONObject(0);
+                                    String optString3 = optJSONObject.optString("nick_name");
+                                    String optString4 = optJSONObject.optString("caller_content");
+                                    int optInt = optJSONObject.optInt("remind_count");
+                                    int optInt2 = optJSONObject.optInt("msg_type");
+                                    if (optInt2 == 1) {
+                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_msg), optString3, optString4);
+                                    }
+                                    if (optInt2 == 3) {
+                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.urge_times_notify_default), Integer.valueOf(optInt));
+                                    }
+                                    return optString4;
+                                } catch (JSONException e7) {
+                                    e7.printStackTrace();
+                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
+                                }
+                            } else if (i == 9) {
+                                return i(str);
+                            } else {
+                                if (i != 34) {
+                                    return null;
+                                }
+                                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(str, GamePlayOrderMsgData.class);
+                                if (gamePlayOrderMsgData != null && !StringUtils.isNull(gamePlayOrderMsgData.getTitle())) {
+                                    return gamePlayOrderMsgData.getTitle();
+                                }
+                                return "[游戏组队消息]";
+                            }
+                        }
+                    }
                 }
-                eg7Var = d;
+            } else {
+                if (str.length() > 1 && str.charAt(0) == '[') {
+                    str2 = f(str);
+                } else {
+                    str2 = null;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                if (str == null) {
+                    return null;
+                }
+                return str;
             }
-            return eg7Var;
-        }
-        return (eg7) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.removeMessages(1);
+        } else {
+            return (String) invokeIL.objValue;
         }
     }
 
-    public void f() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = 0L;
-            d();
-            i();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_FAKE)) {
+                    return optString2;
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.kick_out_myself);
+                }
+                if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
+                    if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
+                        String optString3 = optJSONObject.optString("userId");
+                        String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                        if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.join_group_myself);
+                        }
+                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.join_group);
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
+                        if (optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount())) {
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.kick_out_myself);
+                        }
+                        return optString2;
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.join_group_myself);
+                    } else {
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP)) {
+                            return optString2;
+                        }
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON)) {
+                            return optString2;
+                        }
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG)) {
+                            return optString2;
+                        }
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
+                        }
+                    }
+                }
+                return optString2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void h() {
+    @Nullable
+    public static GamePlayOrderMsgData b(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 34) {
+                if (chatMessage.getObjContent() != null) {
+                    return (GamePlayOrderMsgData) chatMessage.getObjContent();
+                }
+                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), GamePlayOrderMsgData.class);
+                if (gamePlayOrderMsgData != null) {
+                    gamePlayOrderMsgData.setLast(!"expired".equals(chatMessage.getExtra()));
+                    chatMessage.setEncodeContent(gamePlayOrderMsgData.toEncodeContent());
+                }
+                chatMessage.setObjContent(gamePlayOrderMsgData);
+                return gamePlayOrderMsgData;
+            }
+            return null;
         }
+        return (GamePlayOrderMsgData) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ShareChatroomMsgData c(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, chatMessage)) == null) {
+            ShareChatroomMsgData shareChatroomMsgData = null;
+            if (chatMessage != null && chatMessage.getMsgType() == 37) {
+                if (chatMessage.getObjContent() instanceof ShareChatroomMsgData) {
+                    return (ShareChatroomMsgData) chatMessage.getObjContent();
+                }
+                try {
+                    shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(chatMessage.getContent(), ShareChatroomMsgData.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (shareChatroomMsgData != null) {
+                    chatMessage.setEncodeContent(shareChatroomMsgData.toEncodeContent());
+                }
+                chatMessage.setObjContent(shareChatroomMsgData);
+            }
+            return shareChatroomMsgData;
+        }
+        return (ShareChatroomMsgData) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ShareForumMsgData d(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 33) {
+                if (chatMessage.getObjContent() != null) {
+                    return (ShareForumMsgData) chatMessage.getObjContent();
+                }
+                ShareForumMsgData shareForumMsgData = (ShareForumMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareForumMsgData.class);
+                if (shareForumMsgData != null) {
+                    chatMessage.setEncodeContent(shareForumMsgData.toEncodeContent());
+                }
+                chatMessage.setObjContent(shareForumMsgData);
+                return shareForumMsgData;
+            }
+            return null;
+        }
+        return (ShareForumMsgData) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ShareThreadMsgData e(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, chatMessage)) == null) {
+            if (chatMessage != null && chatMessage.getMsgType() == 32) {
+                if (chatMessage.getObjContent() != null) {
+                    return (ShareThreadMsgData) chatMessage.getObjContent();
+                }
+                ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareThreadMsgData.class);
+                if (shareThreadMsgData != null) {
+                    chatMessage.setEncodeContent(shareThreadMsgData.toEncodeContent());
+                }
+                chatMessage.setObjContent(shareThreadMsgData);
+                return shareThreadMsgData;
+            }
+            return null;
+        }
+        return (ShareThreadMsgData) invokeL.objValue;
+    }
+
+    public static final String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() >= 2) {
+                    String optString = jSONArray.optString(0);
+                    if (1 == jSONArray.optInt(1)) {
+                        sb.append(TbadkCoreApplication.getInst().getString(R.string.last_msg_extra_share));
+                    }
+                    if (optString != null) {
+                        sb.append(optString);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null && !optJSONObject.isNull("type")) {
+                        int optInt = optJSONObject.optInt("type");
+                        if (optInt == 0) {
+                            sb.append(optJSONObject.opt("text"));
+                        } else if (optInt == 2) {
+                            sb.append(SmallTailInfo.EMOTION_PREFIX);
+                            sb.append(optJSONObject.opt("c"));
+                            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    }
+                }
+            } catch (Error e) {
+                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return null;
+            }
+            UserData userInfo = chatMessage.getUserInfo();
+            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserName())) {
+                str = chatMessage.getUserInfo().getUserName();
+            } else {
+                str = "";
+            }
+            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                return D(chatMessage);
+            }
+            if (chatMessage.getMsgType() == 11) {
+                return D(chatMessage);
+            }
+            if (chatMessage.getToUserId() != 0) {
+                return D(chatMessage);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                return str + ":" + D(chatMessage);
+            }
+            return D(chatMessage);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static VoiceMsgData r(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, chatMessage)) == null) {
+            VoiceMsgData voiceMsgData = null;
+            if (chatMessage == null || chatMessage.getMsgType() != 3) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (VoiceMsgData) chatMessage.getObjContent();
+            }
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
+                VoiceMsgData voiceMsgData2 = new VoiceMsgData();
+                chatMessage.setObjContent(voiceMsgData2);
+                return voiceMsgData2;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(content);
+                if (jSONArray.length() <= 0) {
+                    return null;
+                }
+                if (jSONArray.length() > 0) {
+                    try {
+                        voiceMsgData = (VoiceMsgData) OrmObject.objectWithJson(jSONArray.getJSONObject(0), VoiceMsgData.class);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                chatMessage.setObjContent(voiceMsgData);
+                return voiceMsgData;
+            } catch (Exception unused) {
+                return voiceMsgData;
+            }
+        }
+        return (VoiceMsgData) invokeL.objValue;
+    }
+
+    public static int h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
+            return context.getResources().getDimensionPixelSize(i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static String j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, str, z)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONArray(str).getJSONObject(0);
+                if (z) {
+                    str2 = "big_src";
+                } else {
+                    str2 = "src";
+                }
+                return jSONObject.optString(str2);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static String k(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65551, null, jSONObject, z)) == null) {
+            if (z) {
+                str = "big_src";
+            } else {
+                str = "src";
+            }
+            return jSONObject.optString(str);
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static oc7 n(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (split = str.split("_")) != null && split.length == 2) {
+                oc7 oc7Var = new oc7();
+                oc7Var.a = split[0];
+                oc7Var.b = split[1];
+                return oc7Var;
+            }
+            return null;
+        }
+        return (oc7) invokeL.objValue;
+    }
+
+    public static oc7 o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    return n(jSONArray.getJSONObject(0).optString("msg_src"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        return (oc7) invokeL.objValue;
+    }
+
+    public static boolean w(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return true;
+            }
+            String content = chatMessage.getContent();
+            if (!StringUtils.isJSONArray(content)) {
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(content);
+                if (jSONArray.length() <= 0) {
+                    return true;
+                }
+                if (((JSONObject) jSONArray.get(0)).optInt(SetImageWatermarkTypeReqMsg.SWITCH, -1) == 0) {
+                    return true;
+                }
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean x(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, chatMessage)) == null) {
+            try {
+                if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
+                    if (chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                        return true;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static SystemMsgData p(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        String optString;
+        String optString2;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+                optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (!TextUtils.isEmpty(optString) && optJSONObject != null) {
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
+                    SystemMsgData systemMsgData = new SystemMsgData();
+                    systemMsgData.setIsSelf(true);
+                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.kick_out_myself));
+                    return systemMsgData;
+                }
+                if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
+                    if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
+                        String optString3 = optJSONObject.optString("userId");
+                        String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                        SystemMsgData systemMsgData2 = new SystemMsgData();
+                        if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            systemMsgData2.setIsSelf(true);
+                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.join_group_myself));
+                        } else {
+                            systemMsgData2.setIsSelf(false);
+                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.join_group));
+                        }
+                        return systemMsgData2;
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
+                        String optString5 = optJSONObject.optString("userId");
+                        SystemMsgData systemMsgData3 = new SystemMsgData();
+                        if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            systemMsgData3.setIsSelf(true);
+                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.kick_out_myself));
+                        } else {
+                            systemMsgData3.setIsSelf(false);
+                            systemMsgData3.setContent(optString2);
+                        }
+                        return systemMsgData3;
+                    } else {
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
+                            SystemMsgData systemMsgData4 = new SystemMsgData();
+                            systemMsgData4.setIsSelf(true);
+                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.join_group_myself));
+                        } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
+                            SystemMsgData systemMsgData5 = new SystemMsgData();
+                            systemMsgData5.setIsSelf(true);
+                            systemMsgData5.setContent(optString2);
+                            return systemMsgData5;
+                        }
+                        return null;
+                    }
+                }
+                SystemMsgData systemMsgData6 = new SystemMsgData();
+                systemMsgData6.setIsSelf(true);
+                systemMsgData6.setContent(optString2);
+                return systemMsgData6;
+            }
+            return null;
+        }
+        return (SystemMsgData) invokeL.objValue;
+    }
+
+    public static boolean s(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo, @Nullable boolean z) {
+        InterceptResult invokeLLZ;
+        GamePlayOrderMsgData parseFromMsgInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65559, null, chatMessage, msgInfo, z)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 34 || (parseFromMsgInfo = GamePlayOrderMsgData.parseFromMsgInfo(msgInfo, z)) == null) {
+                return false;
+            }
+            parseFromMsgInfo.setHasRead(x(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(parseFromMsgInfo));
+            chatMessage.setObjContent(parseFromMsgInfo);
+            chatMessage.setEncodeContent(parseFromMsgInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean t(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ImShareChatroomInfo imShareChatroomInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 37 || (imShareChatroomInfo = msgInfo.shareChatroomInfo) == null) {
+                return false;
+            }
+            ShareChatroomMsgData b = ShareChatroomMsgData.Companion.b(imShareChatroomInfo);
+            b.setHasRead(x(chatMessage) ? 1 : 0);
+            chatMessage.setContent(OrmObject.jsonStrWithObject(b));
+            chatMessage.setObjContent(b);
+            chatMessage.setEncodeContent(b.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean u(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareForumMsgData ofImForumInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 33 || (ofImForumInfo = ShareForumMsgData.ofImForumInfo(msgInfo.forumInfo)) == null) {
+                return false;
+            }
+            ofImForumInfo.setHasRead(x(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImForumInfo));
+            chatMessage.setObjContent(ofImForumInfo);
+            chatMessage.setEncodeContent(ofImForumInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean v(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareThreadMsgData ofImShareThreadInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 32 || (ofImShareThreadInfo = ShareThreadMsgData.ofImShareThreadInfo(msgInfo.threadInfo)) == null) {
+                return false;
+            }
+            ofImShareThreadInfo.setHasRead(x(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImShareThreadInfo));
+            chatMessage.setObjContent(ofImShareThreadInfo);
+            chatMessage.setEncodeContent(ofImShareThreadInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

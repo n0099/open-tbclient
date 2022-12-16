@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -255,7 +255,7 @@ public class CardLiveLabelView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.m.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a42));
+                this.m.setText(this.b.getResources().getString(R.string.live_in));
             } else {
                 this.m.setText(str);
             }
@@ -269,7 +269,7 @@ public class CardLiveLabelView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.s.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a42));
+                this.s.setText(this.b.getResources().getString(R.string.live_in));
             } else {
                 this.s.setText(str);
             }
@@ -331,10 +331,10 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    qw4 d2 = qw4.d(this.c);
+                    rw4 d2 = rw4.d(this.c);
                     d2.n(R.string.J_X01);
                     d2.f(R.color.CAM_X0605);
-                    qw4 d3 = qw4.d(this.j);
+                    rw4 d3 = rw4.d(this.j);
                     d3.n(R.string.J_X07);
                     d3.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
@@ -352,15 +352,15 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0901f5);
-            this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090204);
-            this.o = this.x.findViewById(R.id.obfuscated_res_0x7f0901f8);
-            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090201);
-            this.p = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090202);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.obfuscated_res_0x7f0901f4);
+            this.k = (LinearLayout) this.x.findViewById(R.id.ala_live_lottie_bg);
+            this.n = (TextView) this.x.findViewById(R.id.ala_live_state_point);
+            this.o = this.x.findViewById(R.id.ala_live_lottie_view);
+            this.m = (TextView) this.x.findViewById(R.id.ala_live_state);
+            this.p = (TextView) this.x.findViewById(R.id.ala_live_state_desc);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.ala_live_lottie);
             this.l = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            SkinManager.setLottieAnimation(this.l, R.raw.obfuscated_res_0x7f110023);
+            SkinManager.setLottieAnimation(this.l, R.raw.lottie_ala_live);
             this.l.addOnAttachStateChangeListener(new b(this));
         }
     }
@@ -368,15 +368,15 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0901f5);
-            this.t = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090204);
-            this.u = this.x.findViewById(R.id.obfuscated_res_0x7f0901f8);
-            this.s = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090201);
-            this.v = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090202);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.obfuscated_res_0x7f0901f4);
+            this.q = (LinearLayout) this.x.findViewById(R.id.ala_live_lottie_bg);
+            this.t = (TextView) this.x.findViewById(R.id.ala_live_state_point);
+            this.u = this.x.findViewById(R.id.ala_live_lottie_view);
+            this.s = (TextView) this.x.findViewById(R.id.ala_live_state);
+            this.v = (TextView) this.x.findViewById(R.id.ala_live_state_desc);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.ala_live_lottie);
             this.r = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            SkinManager.setLottieAnimation(this.r, R.raw.obfuscated_res_0x7f110023);
+            SkinManager.setLottieAnimation(this.r, R.raw.lottie_ala_live);
             this.r.addOnAttachStateChangeListener(new a(this));
         }
     }
@@ -384,10 +384,10 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qw4 d2 = qw4.d(this.k);
+            rw4 d2 = rw4.d(this.k);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0605);
-            qw4 d3 = qw4.d(this.o);
+            rw4 d3 = rw4.d(this.o);
             d3.n(R.string.J_X07);
             d3.f(R.color.CAM_X0310);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
@@ -402,7 +402,7 @@ public class CardLiveLabelView extends RelativeLayout {
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0101);
-            qw4 d2 = qw4.d(this.q);
+            rw4 d2 = rw4.d(this.q);
             d2.n(R.string.J_X01);
             d2.p(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
         }
@@ -420,7 +420,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0495, this).findViewById(R.id.obfuscated_res_0x7f091cd4);
+            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091d41);
         }
     }
 
@@ -446,20 +446,20 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0901f5);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.obfuscated_res_0x7f0901f4);
+            this.c = (LinearLayout) this.x.findViewById(R.id.ala_live_lottie_bg);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.x.findViewById(R.id.ala_live_lottie);
             this.d = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             SkinManager.setLottieAnimation(this.d, R.raw.ala_live2);
             this.d.addOnAttachStateChangeListener(new c(this));
-            this.e = this.x.findViewById(R.id.obfuscated_res_0x7f091a38);
-            this.f = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091a37);
-            this.g = (RelativeLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0901f6);
-            this.h = (TBLottieAnimationView) this.x.findViewById(R.id.obfuscated_res_0x7f0901f7);
-            this.i = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090203);
-            this.j = this.x.findViewById(R.id.obfuscated_res_0x7f0901f9);
+            this.e = this.x.findViewById(R.id.play_count_line);
+            this.f = (TextView) this.x.findViewById(R.id.play_count);
+            this.g = (RelativeLayout) this.x.findViewById(R.id.ala_live_lottie_container_home);
+            this.h = (TBLottieAnimationView) this.x.findViewById(R.id.ala_live_lottie_home);
+            this.i = (TextView) this.x.findViewById(R.id.ala_live_state_home);
+            this.j = this.x.findViewById(R.id.ala_live_lottie_view_home);
             this.h.loop(true);
-            SkinManager.setLottieAnimation(this.h, R.raw.obfuscated_res_0x7f110023);
+            SkinManager.setLottieAnimation(this.h, R.raw.lottie_ala_live);
             this.h.addOnAttachStateChangeListener(new d(this));
             int i = this.a;
             if (i != 1) {
@@ -488,15 +488,15 @@ public class CardLiveLabelView extends RelativeLayout {
             if (i != 1 && i != 2) {
                 if (i != 3) {
                     if (i == 4) {
-                        this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0498, (ViewGroup) null, false);
+                        this.x = LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label_c, (ViewGroup) null, false);
                         k();
                     }
                 } else {
-                    this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0497, (ViewGroup) null, false);
+                    this.x = LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label_b, (ViewGroup) null, false);
                     j();
                 }
             } else {
-                this.x = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) null, false);
+                this.x = LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label_a, (ViewGroup) null, false);
                 i();
             }
             View view2 = this.x;

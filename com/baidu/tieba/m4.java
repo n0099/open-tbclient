@@ -237,7 +237,7 @@ public class m4 extends u1<u1.a> {
                     throw new GdxRuntimeException("Unknown vertex attribute '" + j + "', should be one of position, normal, uv, tangent or binormal");
                 }
             }
-            return (t3[]) b7Var.n(t3.class);
+            return (t3[]) b7Var.m(t3.class);
         }
         return (t3[]) invokeL.objValue;
     }
@@ -363,7 +363,7 @@ public class m4 extends u1<u1.a> {
                         throw new GdxRuntimeException("Not id given for mesh part");
                     }
                 }
-                x4Var.c = (y4[]) b7Var.n(y4.class);
+                x4Var.c = (y4[]) b7Var.m(y4.class);
                 w4Var.b.a(x4Var);
             }
         }

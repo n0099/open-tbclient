@@ -22,7 +22,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends com.kwad.components.ad.draw.kwai.a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     private void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0577a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0594a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c bs;
@@ -327,12 +327,12 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091089);
-            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
-            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f09108b);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09108c);
-            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f09108a);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091088);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910eb);
+            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ef);
+            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ed);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ee);
+            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ec);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910ea);
             this.bl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
         }

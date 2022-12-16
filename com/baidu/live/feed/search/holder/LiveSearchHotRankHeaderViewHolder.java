@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,10 +38,10 @@ public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
             return;
         }
         ImageView imageView = (ImageView) view2;
-        if ("day".equals(vc0.f().r())) {
-            i = R.drawable.obfuscated_res_0x7f080d4a;
+        if ("day".equals(uc0.f().r())) {
+            i = R.drawable.obfuscated_res_0x7f080d72;
         } else {
-            i = R.drawable.obfuscated_res_0x7f080d4b;
+            i = R.drawable.obfuscated_res_0x7f080d73;
         }
         imageView.setImageResource(i);
     }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -188,9 +188,9 @@ public final class a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09118d);
-            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09118f);
-            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09118e);
+            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0911ec);
+            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0911ee);
+            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f0911ed);
         }
     }
 

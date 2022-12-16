@@ -14,8 +14,8 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.ka0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.ja0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -230,10 +230,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054a, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d055a, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091383);
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0913e4);
         setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607a1));
         setOnClickListener(new a(this));
     }
@@ -246,10 +246,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (recyclerView = this.a) != null) {
-            ka0 ka0Var = ka0.a;
+            ja0 ja0Var = ja0.a;
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(ka0Var.c(context, this.d));
+            recyclerView.setBackgroundDrawable(ja0Var.c(context, this.d));
         }
     }
 
@@ -285,12 +285,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
             this.d = str;
             RecyclerView recyclerView = this.a;
             if (recyclerView != null) {
-                ka0 ka0Var = ka0.a;
+                ja0 ja0Var = ja0.a;
                 Context context = recyclerView.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                recyclerView.setBackgroundDrawable(ka0Var.c(context, str));
+                recyclerView.setBackgroundDrawable(ja0Var.c(context, str));
                 recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(ea0.b(recyclerView.getContext(), 14.0f)));
+                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(da0.b(recyclerView.getContext(), 14.0f)));
                 LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
                 liveExpandTabAdapter.i(new c(this, str));
                 this.b = liveExpandTabAdapter;

@@ -42,8 +42,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.rr6;
+import com.baidu.tieba.ms6;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.vy4;
@@ -155,7 +155,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null));
+                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0334, (ViewGroup) null));
                 dVar.b(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -336,19 +336,19 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
                 }
             }
             this.h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b8e);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba9);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setPageId(x9.a(view2.getContext()).getUniqueId());
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b8f);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b90);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b91);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b92);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8d);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b93);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090baa);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bab);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bac);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bad);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba8);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bae);
         }
 
         @SuppressLint({"ClickableViewAccessibility"})
@@ -373,18 +373,18 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b35);
-                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080824);
-                qw4 d = qw4.d(this.f);
+                SkinManager.setImageResource(this.b, R.drawable.icon_video26);
+                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080846);
+                rw4 d = rw4.d(this.f);
                 d.z(R.dimen.T_X12);
                 d.v(R.color.CAM_X0105);
-                qw4 d2 = qw4.d(this.e);
+                rw4 d2 = rw4.d(this.e);
                 d2.z(R.dimen.T_X09);
                 d2.v(R.color.CAM_X0101);
-                qw4 d3 = qw4.d(this.d);
+                rw4 d3 = rw4.d(this.d);
                 d3.z(R.dimen.T_X09);
                 d3.v(R.color.CAM_X0101);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08028f);
+                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f080291);
             }
         }
 
@@ -393,7 +393,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) != null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0739);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0741);
             spannableStringBuilder.insert(0, (CharSequence) string);
             int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
             int g2 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
@@ -558,10 +558,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
         c();
     }
 
-    public void setData(rr6 rr6Var) {
+    public void setData(ms6 ms6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rr6Var) == null) {
-            this.d = rr6Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ms6Var) == null) {
+            this.d = ms6Var.c();
             this.c.notifyDataSetChanged();
         }
     }
@@ -571,8 +571,8 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            qw4.d(this.a).v(R.color.CAM_X0105);
-            qw4 d2 = qw4.d(this);
+            rw4.d(this.a).v(R.color.CAM_X0105);
+            rw4 d2 = rw4.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -585,10 +585,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements tx {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f073a);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0742);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.tbds32), 0, 0);
-            qw4 d2 = qw4.d(this.a);
+            rw4 d2 = rw4.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             addView(this.a, layoutParams);

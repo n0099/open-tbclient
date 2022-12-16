@@ -24,7 +24,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends com.kwad.components.core.i.e implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static boolean iy;
@@ -86,12 +86,12 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
     private void h(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) {
-            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f091104);
-            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091105);
-            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091108);
-            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091109);
-            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091106);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091107);
+            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f091163);
+            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091164);
+            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091167);
+            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091168);
+            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091165);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091166);
             this.ix = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.it, this.eQ, this.iu, this.iv, this.iw, textView);
         }
@@ -111,7 +111,7 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d043d, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d044c, viewGroup, false);
             h(inflate);
             dT();
             return inflate;

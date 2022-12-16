@@ -82,10 +82,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                R(0, -1, 0, 1.0f, true, this.e.F());
+                R(0, -1, 0, 1.0f, true, this.e.G());
                 return;
             }
-            R(-2, -1, yi.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.F());
+            R(-2, -1, yi.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.G());
         }
     }
 
@@ -94,12 +94,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            boolean F = this.e.F();
+            boolean G = this.e.G();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f2 = layoutParams.weight;
             if (z) {
-                if (F) {
+                if (G) {
                     f = 1.0f;
                 } else {
                     f = 2.0f;
@@ -187,7 +187,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0669, (ViewGroup) this, true);
+            return LayoutInflater.from(context).inflate(R.layout.new_thread_comment_and_praise_info_layout, (ViewGroup) this, true);
         }
         return (View) invokeL.objValue;
     }
@@ -198,7 +198,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             super.q(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.J(true);
+            this.e.K(true);
         }
     }
 
@@ -210,7 +210,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             this.e.setVisibilityListener(this.s0);
             boolean U = U();
             if (T(U) || S(U)) {
-                this.e.x(U);
+                this.e.y(U);
                 Q(U());
             }
         }
@@ -285,7 +285,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            P(U(), this.e.F());
+            P(U(), this.e.G());
         }
     }
 }

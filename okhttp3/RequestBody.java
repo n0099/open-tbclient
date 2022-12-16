@@ -16,7 +16,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public abstract class RequestBody {
                     }
                 };
             }
-            throw new NullPointerException("content == null");
+            throw new NullPointerException("file == null");
         }
         return (RequestBody) invokeLL.objValue;
     }

@@ -104,7 +104,7 @@ public class h5 extends p1<g5, a> {
                         x7.b<String, i5<g5>> bVar = this.b.get(i);
                         if (bVar.a.equals(str)) {
                             i5Var = bVar.b;
-                            this.b.i(i);
+                            this.b.h(i);
                             break;
                         }
                         i++;

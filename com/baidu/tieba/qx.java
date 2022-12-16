@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class qx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HeadlinesAgreeCardView h;
-    public tr4 i;
+    public vr4 i;
     public int j;
     public final zy.b k;
     public az l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,19 +64,19 @@ public class qx extends hx {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr4 a;
+        public final /* synthetic */ vr4 a;
         public final /* synthetic */ qx b;
 
-        public b(qx qxVar, tr4 tr4Var) {
+        public b(qx qxVar, vr4 vr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qxVar, tr4Var};
+                Object[] objArr = {qxVar, vr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,7 +87,7 @@ public class qx extends hx {
                 }
             }
             this.b = qxVar;
-            this.a = tr4Var;
+            this.a = vr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -98,7 +98,7 @@ public class qx extends hx {
                     this.b.h.h();
                     return;
                 }
-                this.b.a.o(new zy.a(9));
+                this.b.a.p(new zy.a(9));
                 if (this.b.l != null) {
                     this.b.l.b();
                 }
@@ -106,7 +106,7 @@ public class qx extends hx {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements az {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,11 +191,11 @@ public class qx extends hx {
         }
     }
 
-    public final boolean A(tr4 tr4Var) {
+    public final boolean A(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null && tr4Var.getThreadData().getTaskInfoData().h() == 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getTaskInfoData() != null && vr4Var.getThreadData().getTaskInfoData().e() != null && vr4Var.getThreadData().getTaskInfoData().h() == 3) {
                 return true;
             }
             return false;
@@ -206,14 +206,14 @@ public class qx extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: B */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var) == null) {
-            this.i = tr4Var;
-            if (A(tr4Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr4Var) == null) {
+            this.i = vr4Var;
+            if (A(vr4Var)) {
                 this.h.setVisibility(0);
-                this.h.a(tr4Var);
-                this.h.setItemBtnClickListener(new b(this, tr4Var));
+                this.h.a(vr4Var);
+                this.h.setItemBtnClickListener(new b(this, vr4Var));
                 return;
             }
             this.h.setVisibility(8);
@@ -235,7 +235,7 @@ public class qx extends hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.l();
-            this.a.m(10, this.k);
+            this.a.n(10, this.k);
         }
     }
 

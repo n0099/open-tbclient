@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class HttpManager extends AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic;
@@ -87,5 +88,26 @@ public class HttpManager extends AbstractHttpManager {
             return httpManager2;
         }
         return (HttpManager) invokeL.objValue;
+    }
+
+    public static HttpManager newHttpManager(Context context, List<String> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, list)) == null) {
+            return newHttpManager(context, list, null);
+        }
+        return (HttpManager) invokeLL.objValue;
+    }
+
+    public static HttpManager newHttpManager(Context context, List<String> list, List<String> list2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, list, list2)) == null) {
+            HttpManager httpManager2 = new HttpManager(context);
+            httpManager2.openPreConnect(list, list2);
+            httpManager2.setHttpDnsEnable(getDefault(context).getHttpDnsEnable());
+            return httpManager2;
+        }
+        return (HttpManager) invokeLLL.objValue;
     }
 }

@@ -4,19 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
+import com.alipay.sdk.data.a;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
-import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.internal.IMSDK;
+import com.baidu.android.imsdk.media.MediaSessionManager;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.common.security.DeviceInfoIPCServiceManager;
-import com.baidu.tieba.c80;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -114,10 +112,8 @@ public class IMUserLoginByTokenMsg extends Message {
                 str2 = intent.getStringExtra(Constants.EXTRA_LOGIN_CFROM);
             }
             if (!TextUtils.isEmpty(token)) {
-                Utility.writeLoginFlag(context, "7Y", "new IMUserLoginByTokenMsg");
                 return new IMUserLoginByTokenMsg(context, token, booleanExtra, str, str2);
             }
-            Utility.writeLoginFlag(context, "7N", "IMUserLoginByTokenMsg return null");
             return null;
         }
         return (IMUserLoginByTokenMsg) invokeLL.objValue;
@@ -125,6 +121,7 @@ public class IMUserLoginByTokenMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void buildBody() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -134,13 +131,14 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject.put("device_id", this.mDeviceId);
                 jSONObject.put("account_type", this.mAccountType);
                 jSONObject.put("token", this.mToken);
+                jSONObject.put("client_id", AccountManagerImpl.getInstance(this.mContext).getXDClientId());
                 jSONObject.put("version", 4);
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
                 jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
                 jSONObject.put("tail", this.mTail);
-                jSONObject.put("timeout", this.mTimeout);
+                jSONObject.put(a.O, this.mTimeout);
                 if (!TextUtils.isEmpty(Utility.getLoginCookie(this.mContext))) {
                     jSONObject.put("cookie", Utility.getLoginCookie(this.mContext));
                 }
@@ -151,38 +149,47 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject2.put("appid", this.mAppid + "");
                 jSONObject2.put("from", this.mFrom);
                 jSONObject2.put("cfrom", this.cFrom);
+                if (this.mAccountType == 11) {
+                    jSONObject.put("client_id", AccountManagerImpl.getInstance(this.mContext).getXDClientId());
+                }
                 jSONObject.put(DeviceInfoIPCServiceManager.IPC_SERVICE_NAME, jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("rpc_retry_time", sRetrytimes);
                 jSONObject.put("rpc", jSONObject3.toString());
+                if (AccountManager.getMediaRole(this.mContext)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("user_type", i);
                 this.mBody = jSONObject.toString();
+                String str = this.TAG;
+                LogUtils.d(str, "buildBody :" + this.mBody);
             } catch (JSONException e) {
                 LogUtils.e(this.TAG, " IMUserLoginByTokenMsg buildBody", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
             if (i == 410) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = "-1";
+            System.currentTimeMillis();
             if (i == 0) {
                 try {
-                    Utility.writeLoginFlag(this.mContext, "17Y", "Read LoginMsg response");
                     sRetrytimes = 0;
                     LogUtils.d(this.TAG, "Logined");
-                    str2 = jSONObject.optString("logid", "-1");
+                    jSONObject.optString("logid", "-1");
                     long optLong = jSONObject.optLong("uk", -1L);
                     long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
                     int optInt = jSONObject.optInt("authority", -1);
-                    IMSDK.getInstance(this.mContext).setUk(optLong);
+                    AccountManager.setUK(this.mContext, optLong);
                     Utility.writeTriggerId(this.mContext, optLong2);
                     Utility.writeUK(this.mContext, optLong);
                     Utility.setCuidAuthority(this.mContext, optInt);
@@ -194,38 +201,33 @@ public class IMUserLoginByTokenMsg extends Message {
                     Utility.writeRestApiDisable(jSONObject.optInt("disable_restapi", 0));
                     Utility.setBdDnsEnable(this.mContext, jSONObject.optInt("bddns_enable", 1));
                     Utility.setConnType(this.mContext, jSONObject.optInt("conn_type", 0));
-                    Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
                     JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
                     if (optJSONArray != null) {
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 < optJSONArray.length()) {
-                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
-                                if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501100) {
-                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
-                                    break;
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                            if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501101) {
+                                AccountManagerImpl accountManagerImpl = AccountManagerImpl.getInstance(this.mContext);
+                                if (jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+                                    z = true;
+                                } else {
+                                    z = false;
                                 }
-                                i2++;
-                            } else {
-                                break;
+                                accountManagerImpl.setScreenStatis(z);
                             }
                         }
                     }
-                    if (!c80.e) {
-                        ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
-                    }
+                    AccountManagerImpl.getInstance(this.mContext).setBduid(jSONObject.optLong("bd_uid"));
+                    MediaSessionManager.getInstance(this.mContext).setMediaPaid(jSONObject.optLong(Constants.EXTRA_PAUID_TYPE));
                 } catch (Exception e) {
                     LogUtils.e(this.TAG, "handle login msg exception :", e);
                 }
-            } else if (110 != i && 7 != i && 23 != i) {
-                sRetrytimes++;
-            } else {
-                Utility.logout(this.mContext, null);
+            } else if (110 == i || 7 == i || 23 == i) {
+                Utility.logout(this.mContext, null, "login :" + i);
                 sRetrytimes = 0;
+            } else {
+                sRetrytimes++;
             }
-            super.handleMessageResult(context, jSONObject, i, str);
             AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
-            new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
         }
     }
 

@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class gt5 {
     public static /* synthetic */ Interceptable $ic;
-    public static gt5 h;
+    public static gt5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public boolean c;
-    public long d;
-    public SplashNativePolicy e;
-    public op4 f;
-    public final ArrayList<ht5> g;
 
     public gt5() {
         Interceptable interceptable = $ic;
@@ -45,358 +31,243 @@ public class gt5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-        this.d = -1L;
-        this.f = null;
-        this.g = new ArrayList<>();
-        this.a = qy4.k().l("splash_ad_strategy_key", 0);
-        m();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<ht5> it = this.g.iterator();
-            while (it.hasNext()) {
-                ht5 next = it.next();
-                if (next != null) {
-                    next.destroy();
-                }
-            }
-            this.g.clear();
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy != null) {
-                splashNativePolicy.releaseSplash();
-                this.e = null;
             }
         }
     }
 
-    public static gt5 d() {
+    public static gt5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (h == null) {
-                synchronized (gt5.class) {
-                    if (h == null) {
-                        h = new gt5();
-                    }
+            synchronized (gt5.class) {
+                if (a == null) {
+                    a = new gt5();
                 }
             }
-            return h;
+            return a;
         }
         return (gt5) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public boolean a(a45 a45Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<ht5> it = this.g.iterator();
-            while (it.hasNext()) {
-                ht5 next = it.next();
-                if (next != null && next.b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a45Var)) == null) {
+            SQLiteDatabase b = it5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && a45Var != null && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    ContentValues c = c(a45Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(a45Var.d())}) == 0) {
+                        b.insert("table_" + currentAccount, null, c);
+                    }
                     return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItem", new Object[0]);
                 }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void h() {
-        UBCManager uBCManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
-            uBCManager.onEvent("5088");
-        }
-    }
-
-    public void b() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Iterator<ht5> it = this.g.iterator();
-            while (it.hasNext()) {
-                ht5 next = it.next();
-                if (next instanceof qs5) {
-                    qs5 qs5Var = (qs5) next;
-                    boolean v = qs5Var.v();
-                    if (v && BearTimeoutTryShowSwitch.isOn()) {
-                        int i = 1;
-                        StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1);
-                        if (this.c) {
-                            i = 2;
-                        }
-                        StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                        if (!StringUtils.isNull(next.c())) {
-                            param2.param(TiebaStatic.Params.OBJ_TO, next.c());
-                        }
-                        param2.eventStat();
-                        qs5Var.t();
-                        return;
-                    }
-                    StatisticItem make = StatisticItem.make("fail_splash");
-                    if (v) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    make.param("obj_param1", str).eventStat();
-                }
-            }
-            op4 op4Var = this.f;
-            if (op4Var != null) {
-                op4Var.b("");
-            }
-        }
-    }
-
-    public final byte e(ht5 ht5Var) {
+    public final ContentValues c(a45 a45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ht5Var)) == null) {
-            if (ht5Var == null) {
-                return (byte) 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a45Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", a45Var.e());
+            contentValues.put("id", Long.valueOf(a45Var.d()));
+            contentValues.put("user_type", Integer.valueOf(a45Var.h()));
+            contentValues.put("portrait", a45Var.g());
+            contentValues.put("quanpin", a45Var.c());
+            contentValues.put("first_letter", a45Var.a());
+            contentValues.put("name_show", a45Var.f());
+            if (a45Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(a45Var.b().b()));
+                contentValues.put("location_distance", a45Var.b().a());
+                contentValues.put("location_time", Long.valueOf(a45Var.b().c()));
             }
-            String f = ht5Var.f();
-            char c = 65535;
-            int hashCode = f.hashCode();
-            if (hashCode != -1348168235) {
-                if (hashCode == 3019700 && f.equals("bear")) {
-                    c = 0;
-                }
-            } else if (f.equals("prologue_gd")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return (byte) 0;
-                }
-                return (byte) 5;
-            }
-            return (byte) 6;
+            return contentValues;
         }
-        return invokeL.byteValue;
+        return (ContentValues) invokeL.objValue;
     }
 
-    public final synchronized void f() {
+    public synchronized boolean b(bt5 bt5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bt5Var)) == null) {
             synchronized (this) {
-                if (!this.g.isEmpty()) {
-                    return;
-                }
-                rs5 rs5Var = new rs5(this.e);
-                qs5 qs5Var = new qs5(this.e);
-                this.g.clear();
-                if (bi5.w()) {
-                    this.g.add(rs5Var);
-                } else {
-                    BaseVM.m(27);
-                }
-                if (bi5.q()) {
-                    this.g.add(qs5Var);
-                }
-                if (qy4.k().h("key_is_jump_splash_ad", false)) {
-                    h();
-                    this.g.clear();
-                }
-            }
-        }
-    }
-
-    public void i(int i) {
-        op4 op4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (op4Var = this.f) != null) {
-            op4Var.a(i);
-        }
-    }
-
-    public void j(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = false;
-            f();
-            Iterator<ht5> it = this.g.iterator();
-            while (it.hasNext()) {
-                ht5 next = it.next();
-                if (i == 5 && (next instanceof rs5)) {
-                    if (mt5.g()) {
-                        BaseVM.m(29);
-                    } else {
-                        next.a();
-                        return;
-                    }
-                } else if (i == 6 && (next instanceof qs5)) {
-                    Iterator<ht5> it2 = this.g.iterator();
-                    while (it2.hasNext()) {
-                        ht5 next2 = it2.next();
-                        if (next2 instanceof rs5) {
-                            StatisticItem statisticItem = new StatisticItem("preload_bear");
-                            rs5 rs5Var = (rs5) next2;
-                            String str2 = "1";
-                            if (rs5Var.v()) {
-                                str = "1";
-                            } else {
-                                str = "0";
+                SQLiteDatabase b = it5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (b != null && bt5Var != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+                    b.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
+                    b.beginTransaction();
+                    try {
+                        for (ft5 ft5Var : bt5Var.a()) {
+                            for (a45 a45Var : ft5Var.a()) {
+                                ContentValues c = c(a45Var);
+                                b.insert("table_" + currentAccount, null, c);
                             }
-                            statisticItem.param("obj_param1", str);
-                            if (!rs5Var.w()) {
-                                str2 = "0";
-                            }
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                            TiebaStatic.log(statisticItem);
                         }
-                    }
-                    next.a();
-                    return;
-                }
-            }
-        }
-    }
-
-    public synchronized void k(rp4 rp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, rp4Var) == null) {
-            synchronized (this) {
-                this.b = false;
-                this.d = rp4Var.c();
-                this.f = rp4Var.a();
-                this.c = rp4Var.d();
-                if (this.e != null) {
-                    this.e.onSplashEvent(96);
-                }
-                f();
-                lt5.c();
-                Iterator<ht5> it = this.g.iterator();
-                while (it.hasNext()) {
-                    ht5 next = it.next();
-                    if ((next instanceof rs5) && mt5.g()) {
-                        BaseVM.m(29);
-                    } else {
-                        next.e(rp4Var);
+                        b.setTransactionSuccessful();
+                        b.endTransaction();
+                        return true;
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
+                        b.endTransaction();
+                        return false;
                     }
                 }
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public synchronized void l(boolean z) {
-        boolean z2;
+    public boolean d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            SQLiteDatabase b = it5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && j >= 0 && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    b.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
                 }
-                Iterator<ht5> it = this.g.iterator();
-                while (it.hasNext()) {
-                    ht5 next = it.next();
-                    if (next != null) {
-                        if (z) {
-                            z2 = next instanceof qs5;
-                        } else {
-                            z2 = next instanceof rs5;
-                        }
-                        if (z2 && next.d() == AdLoadState.SUCCEED) {
-                            int i = 1;
-                            this.b = true;
-                            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                            if (this.c) {
-                                i = 2;
-                            }
-                            StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                            if (!StringUtils.isNull(next.c())) {
-                                param2.param(TiebaStatic.Params.OBJ_TO, next.c());
-                            }
-                            param2.eventStat();
-                            if (String.valueOf((int) e(next)).equals(mt5.c)) {
-                                BaseVM.m(28);
-                            }
-                            vr8.a(MainTabScheduleStrategy.UNSCHEDULE);
-                            if (this.f != null) {
-                                String str = null;
-                                if (next instanceof rs5) {
-                                    str = ((rs5) next).k;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public synchronized List<a45> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = it5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList arrayList = new ArrayList();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = c45.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            a45 a45Var = new a45();
+                            a45Var.j(str);
+                            arrayList2.add(a45Var);
+                            String[] strArr2 = new String[1];
+                            strArr2[c] = str;
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    a45 a45Var2 = new a45();
+                                    a45Var2.j(str);
+                                    a45Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    a45Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    a45Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    a45Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    a45Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    a45Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    a45Var2.k(new b45(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(a45Var2);
                                 }
-                                this.f.c(str);
                             }
-                            next.show();
-                            if (this.f != null) {
-                                this.f.d(String.valueOf((int) e(next)));
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
                             }
-                            lt5.d(String.valueOf((int) e(next)));
-                            return;
+                            zi.a(cursor);
+                            i++;
+                            c = 0;
                         }
+                        b.setTransactionSuccessful();
+                        zi.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
+                        zi.a(cursor);
                     }
+                    b.endTransaction();
+                    return arrayList;
                 }
-                if (this.f != null) {
-                    this.f.b("");
-                }
+                return arrayList;
             }
         }
+        return (List) invokeV.objValue;
     }
 
-    public void m() {
+    public synchronized ArrayList<a45> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy == null) {
-                SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
-                this.e = splashNativePolicy2;
-                boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(bi5.u(), bi5.w(), bi5.v(), bi5.k(), bi5.l());
-                PrintStream printStream = System.out;
-                printStream.println("SplashPolicy init result = " + initSplashPolicy);
-                if (!initSplashPolicy) {
-                    this.e = null;
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = it5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList<a45> arrayList = new ArrayList<>();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = c45.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            a45 a45Var = new a45();
+                            a45Var.j(str);
+                            arrayList2.add(a45Var);
+                            String[] strArr2 = new String[2];
+                            strArr2[c] = str;
+                            strArr2[1] = "1";
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    a45 a45Var2 = new a45();
+                                    a45Var2.j(str);
+                                    a45Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    a45Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    a45Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    a45Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    a45Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    a45Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    a45Var2.k(new b45(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(a45Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            zi.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        zi.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
+                        zi.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
                 }
-                return;
-            }
-            boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(bi5.u(), bi5.w(), bi5.v(), bi5.k(), bi5.l());
-            PrintStream printStream2 = System.out;
-            printStream2.println("SplashPolicy update result = " + updateSplashConfig);
-            if (!updateSplashConfig) {
-                this.e = null;
+                return arrayList;
             }
         }
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.a = xg.e(jSONObject.optString("ad_sdk_priority"), 0);
-            qy4.k().w("splash_ad_strategy_key", this.a);
-            qy4.k().w("splash_origin_ad_strategy_key", xg.e(jSONObject.optString("ad_origin_config_switch"), 1));
-            JSONObject optJSONObject = jSONObject.optJSONObject("screen_fill_data_result");
-            if (optJSONObject != null) {
-                int e = xg.e(optJSONObject.optString("screen_fill_advertisement_first_switch", com.tencent.connect.common.Constants.DEFAULT_UIN), 1000);
-                int e2 = xg.e(optJSONObject.optString("screen_fill_advertisement_second_switch", "1400"), 1400);
-                int e3 = xg.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
-                int e4 = xg.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
-                int e5 = xg.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
-                qy4.k().w("key_splash_new_policy_bear_enable", e3);
-                qy4.k().w("key_splash_new_policy_plg_enable", e4);
-                qy4.k().w("key_splash_new_policy_plg_cpc_enable", e5);
-                qy4.k().w("key_splash_new_policy_first_timeout", e);
-                qy4.k().w("key_splash_new_policy_second_timeout", e2);
-            }
-            qs5.x(xg.e(jSONObject.optString("bear_sid_type"), 0));
-        }
+        return (ArrayList) invokeV.objValue;
     }
 }

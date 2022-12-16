@@ -29,13 +29,13 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ow4;
 import com.baidu.tieba.pw4;
 import com.baidu.tieba.pz4;
+import com.baidu.tieba.qq8;
 import com.baidu.tieba.qw4;
-import com.baidu.tieba.qy4;
 import com.baidu.tieba.qz4;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.wz4;
@@ -100,7 +100,7 @@ public class ItemCardHelper {
                 }
             }
             COMPLETED = new OrderTipStatus("COMPLETED", 0);
-            SUCCESS = new OrderTipStatus("SUCCESS", 1);
+            SUCCESS = new OrderTipStatus(com.alipay.security.mobile.module.http.model.c.p, 1);
             OrderTipStatus orderTipStatus = new OrderTipStatus("FAIL", 2);
             FAIL = orderTipStatus;
             $VALUES = new OrderTipStatus[]{COMPLETED, SUCCESS, orderTipStatus};
@@ -244,15 +244,15 @@ public class ItemCardHelper {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c4);
-        b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09b5);
-        c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c8);
-        d = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c5);
-        e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09b3);
-        f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09b4);
-        g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146f);
-        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1471);
-        i = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1470);
+        a = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order);
+        b = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
+        c = TbadkCoreApplication.getInst().getResources().getString(R.string.item_try_play);
+        d = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order_complete);
+        e = TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse);
+        f = TbadkCoreApplication.getInst().getResources().getString(R.string.item_coming_soon);
+        g = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_completed);
+        h = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_successs);
+        i = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_fail);
         n = new a(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
     }
 
@@ -267,8 +267,8 @@ public class ItemCardHelper {
                 } else if (styleConfig instanceof pz4) {
                     ((pz4) styleConfig).t(R.color.CAM_X0109);
                 }
-                if ((k.getTag(R.id.obfuscated_res_0x7f090fc9) instanceof wz4) && ((wz4) k.getTag(R.id.obfuscated_res_0x7f090fc9)).a() != null) {
-                    ((wz4) k.getTag(R.id.obfuscated_res_0x7f090fc9)).a().buttonName = d;
+                if ((k.getTag(R.id.item_data) instanceof wz4) && ((wz4) k.getTag(R.id.item_data)).a() != null) {
+                    ((wz4) k.getTag(R.id.item_data)).a().buttonName = d;
                 }
                 k.setConfig(styleConfig);
                 k.setText(d);
@@ -276,8 +276,8 @@ public class ItemCardHelper {
             }
             TextView textView = l;
             if (textView != null) {
-                if ((textView.getTag(R.id.obfuscated_res_0x7f090fc9) instanceof wz4) && ((wz4) l.getTag(R.id.obfuscated_res_0x7f090fc9)).a() != null) {
-                    ((wz4) l.getTag(R.id.obfuscated_res_0x7f090fc9)).a().buttonName = d;
+                if ((textView.getTag(R.id.item_data) instanceof wz4) && ((wz4) l.getTag(R.id.item_data)).a() != null) {
+                    ((wz4) l.getTag(R.id.item_data)).a().buttonName = d;
                 }
                 l.setText(d);
                 z(l, m);
@@ -412,7 +412,7 @@ public class ItemCardHelper {
             if ((b.equals(a2.buttonName) || c.equals(a2.buttonName)) && x(a2) && !o(a2)) {
                 a2.buttonName = e;
             }
-            textView.setTag(R.id.obfuscated_res_0x7f090fc9, wz4Var);
+            textView.setTag(R.id.item_data, wz4Var);
             return true;
         }
         return invokeLLL.booleanValue;
@@ -454,7 +454,7 @@ public class ItemCardHelper {
         int e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, bdUniqueId, view2, Integer.valueOf(i2), viewGroup}) == null) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090fc9);
+            Object tag = view2.getTag(R.id.item_data);
             if (!(tag instanceof wz4)) {
                 return;
             }
@@ -503,7 +503,7 @@ public class ItemCardHelper {
                 }
             }
             if (e.equals(str2)) {
-                Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f090fc4);
+                Object tag2 = view2.getTag(R.id.item_coming_soon);
                 if (tag2 instanceof Boolean) {
                     z2 = ((Boolean) tag2).booleanValue();
                 }
@@ -553,8 +553,8 @@ public class ItemCardHelper {
                 }
             }
             tBSpecificationBtn.setConfig(styleConfig);
-            tBSpecificationBtn.setTag(R.id.obfuscated_res_0x7f090fc9, wz4Var);
-            tBSpecificationBtn.setTag(R.id.obfuscated_res_0x7f090fc4, Boolean.valueOf(equals));
+            tBSpecificationBtn.setTag(R.id.item_data, wz4Var);
+            tBSpecificationBtn.setTag(R.id.item_coming_soon, Boolean.valueOf(equals));
             return true;
         }
         return invokeLL.booleanValue;
@@ -564,23 +564,23 @@ public class ItemCardHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, null, textView, str) == null) {
             m = str;
-            if (!(textView.getBackground() instanceof pw4)) {
+            if (!(textView.getBackground() instanceof qw4)) {
                 return;
             }
-            qw4 d2 = qw4.d(textView);
+            rw4 d2 = rw4.d(textView);
             if (!d.equals(textView.getText().toString()) && !f.equals(textView.getText().toString())) {
                 textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.n(R.string.J_X01);
                 d2.k(R.color.transparent);
-                d2.g(rn8.f(m));
+                d2.g(qq8.f(m));
             } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                textView.setTextColor(rn8.a(rn8.f(m), ow4.b(R.string.A_X01)));
+                textView.setTextColor(qq8.a(qq8.f(m), pw4.b(R.string.A_X01)));
                 d2.l(R.dimen.tbds1);
-                d2.t(rn8.a(rn8.f(m), ow4.b(R.string.A_X07)));
+                d2.t(qq8.a(qq8.f(m), pw4.b(R.string.A_X07)));
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0209);
             } else {
-                qw4.d(textView).v(R.color.CAM_X0103);
+                rw4.d(textView).v(R.color.CAM_X0103);
                 d2.l(R.dimen.tbds1);
                 d2.k(R.color.CAM_X0209);
                 d2.n(R.string.J_X01);
@@ -660,12 +660,12 @@ public class ItemCardHelper {
                 str = g;
             } else if (orderTipStatus == OrderTipStatus.SUCCESS) {
                 String simpleName = ((Activity) context).getClass().getSimpleName();
-                if (!"DownloadManagerActivity".equals(simpleName) && qy4.k().h("key_download_manager_first_toast", true)) {
-                    qy4.k().u("key_download_manager_first_toast", false);
+                if (!"DownloadManagerActivity".equals(simpleName) && ry4.l().i("key_download_manager_first_toast", true)) {
+                    ry4.l().v("key_download_manager_first_toast", false);
                     g(1, simpleName, j2);
                     ScreenTopToast screenTopToast = new ScreenTopToast(context);
-                    screenTopToast.m(context.getString(R.string.obfuscated_res_0x7f0f09c2));
-                    screenTopToast.k(context.getString(R.string.obfuscated_res_0x7f0f04fd));
+                    screenTopToast.m(context.getString(R.string.item_first_use_download_manager_toast));
+                    screenTopToast.k(context.getString(R.string.dialog_confirm_see));
                     screenTopToast.j(new b(simpleName, j2, context));
                     screenTopToast.n(viewGroup);
                     return;

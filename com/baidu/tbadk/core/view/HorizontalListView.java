@@ -649,12 +649,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         if (action != 2) {
                             SwipeBackLayout.c cVar = this.w;
                             if (cVar != null) {
-                                cVar.a0();
+                                cVar.Y();
                             }
                         } else {
                             SwipeBackLayout.c cVar2 = this.w;
                             if (cVar2 != null) {
-                                cVar2.F0();
+                                cVar2.E0();
                             }
                             j(motionEvent);
                             if (this.v) {
@@ -670,7 +670,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                             this.t = MotionEventCompat.getY(motionEvent, actionIndex);
                             SwipeBackLayout.c cVar3 = this.w;
                             if (cVar3 != null) {
-                                cVar3.F0();
+                                cVar3.E0();
                             }
                         }
                     }
@@ -679,7 +679,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.a0();
+                    cVar4.Y();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -704,12 +704,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     if (action != 2) {
                         SwipeBackLayout.c cVar = this.w;
                         if (cVar != null) {
-                            cVar.a0();
+                            cVar.Y();
                         }
                     } else {
                         SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
-                            cVar2.F0();
+                            cVar2.E0();
                         }
                         if (!this.v) {
                             j(motionEvent);
@@ -722,14 +722,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     this.v = false;
                     SwipeBackLayout.c cVar3 = this.w;
                     if (cVar3 != null) {
-                        cVar3.a0();
+                        cVar3.Y();
                     }
                 }
             } else {
                 this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.F0();
+                    cVar4.E0();
                 }
             }
             return super.onTouchEvent(motionEvent);

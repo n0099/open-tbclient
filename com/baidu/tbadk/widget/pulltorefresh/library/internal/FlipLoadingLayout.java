@@ -38,7 +38,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     public int getDefaultDrawableResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.obfuscated_res_0x7f080481 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.default_ptr_flip : invokeV.intValue;
     }
 
     /* loaded from: classes3.dex */

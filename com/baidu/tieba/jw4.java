@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public interface jw4 {
-    @NonNull
-    Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: DialogStrategy.java */
+/* loaded from: classes5.dex */
+public final /* synthetic */ class jw4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(@NonNull Map<String, Object> map);
+    @NonNull
+    public static ry4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ry4.l();
+        }
+        return (ry4) invokeV.objValue;
+    }
 }

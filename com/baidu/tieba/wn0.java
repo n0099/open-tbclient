@@ -1,162 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.co0;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import org.json.JSONException;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wn0 extends zf1<co0> {
+public final class wn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public String d;
+    public final String e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276208, "Lcom/baidu/tieba/wn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948276208, "Lcom/baidu/tieba/wn0;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof wn0) {
+                    wn0 wn0Var = (wn0) obj;
+                    return Intrinsics.areEqual(this.a, wn0Var.a) && Intrinsics.areEqual(this.b, wn0Var.b) && Intrinsics.areEqual(this.c, wn0Var.c) && Intrinsics.areEqual(this.d, wn0Var.d) && Intrinsics.areEqual(this.e, wn0Var.e);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.d;
+            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
+            String str5 = this.e;
+            return hashCode4 + (str5 != null ? str5.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "NadDialogButtonData(btnText=" + this.a + ", textColor=" + this.b + ", btnBackground=" + this.c + ", btnCmd=" + this.d + ", btnIcon=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements co0 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: com.baidu.tieba.wn0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0462a implements dr0<JSONObject> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ xp0 a;
-            public final /* synthetic */ co0.b b;
-            public final /* synthetic */ iq0 c;
-            public final /* synthetic */ a d;
-
-            @Override // com.baidu.tieba.cr0
-            public void c(Headers headers, InputStream inputStream, int i) throws Exception {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, inputStream, i) == null) {
-                }
-            }
-
-            public C0462a(a aVar, xp0 xp0Var, co0.b bVar, iq0 iq0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, xp0Var, bVar, iq0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.a = xp0Var;
-                this.b = bVar;
-                this.c = iq0Var;
-            }
-
-            @Override // com.baidu.tieba.cr0
-            public void a(Exception exc, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                    a11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_TOKEN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.a.f.d));
-                    this.b.onFail(exc);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.dr0
-            /* renamed from: f */
-            public JSONObject d(Headers headers, String str, int i) throws Exception {
-                InterceptResult invokeLLI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, headers, str, i)) == null) {
-                    return new JSONObject(str);
-                }
-                return (JSONObject) invokeLLI.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.dr0
-            /* renamed from: e */
-            public void b(Headers headers, JSONObject jSONObject, int i) {
-                JSONObject optJSONObject;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLI(1048580, this, headers, jSONObject, i) == null) {
-                    if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                        this.d.e(optJSONObject.optString("token"), this.a, this.c, this.b);
-                    } else {
-                        this.b.onFail(new IllegalArgumentException("data: null"));
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements vq {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ co0.b a;
-            public final /* synthetic */ xp0 b;
-
-            public b(a aVar, co0.b bVar, xp0 xp0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar, xp0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-                this.b = xp0Var;
-            }
-
-            @Override // com.baidu.tieba.vq
-            public void a(@NonNull TaskResponseData taskResponseData) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, taskResponseData) == null) {
-                    try {
-                        this.a.a(zn0.a(new JSONObject(taskResponseData.getUi().getExtra())));
-                    } catch (Exception e) {
-                        this.a.onFail(e);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.vq
-            public void onError(int i, @NonNull String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                    a11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_COIN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.b.f.d));
-                    this.a.onFail(new RuntimeException(str));
-                }
-            }
-        }
-
-        public a(wn0 wn0Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -167,92 +104,109 @@ public class wn0 extends zf1<co0> {
             }
         }
 
-        public final String d(@Nullable jq0 jq0Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final wn0 a(JSONObject jsonObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jq0Var)) == null) {
-                if (jq0Var != null && !TextUtils.isEmpty(jq0Var.a())) {
-                    return jq0Var.a();
-                }
-                return vn0.a().a();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                String optString = jsonObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                Intrinsics.checkNotNullExpressionValue(optString, "optString(\"button_text\")");
+                String optString2 = jsonObject.optString("button_text_color");
+                Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"button_text_color\")");
+                String optString3 = jsonObject.optString("button_image");
+                Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"button_image\")");
+                String optString4 = jsonObject.optString("button_cmd");
+                Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"button_cmd\")");
+                String optString5 = jsonObject.optString("button_icon");
+                Intrinsics.checkNotNullExpressionValue(optString5, "optString(\"button_icon\")");
+                return new wn0(optString, optString2, optString3, optString4, optString5);
             }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.co0
-        public void a(@NonNull xp0 xp0Var, @NonNull iq0 iq0Var, @NonNull co0.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, xp0Var, iq0Var, bVar) == null) {
-                String n = xp0Var.d().n();
-                if (!TextUtils.isEmpty(n)) {
-                    e(n, xp0Var, iq0Var, bVar);
-                    return;
-                }
-                wq0 a = sq0.b().a();
-                lr0 lr0Var = new lr0();
-                lr0Var.l(d(xp0Var.d()));
-                lr0Var.h(gr0.c);
-                lr0Var.d("User-Agent", aj0.c().a().h());
-                a.a(lr0Var, new C0462a(this, xp0Var, bVar, iq0Var));
-            }
-        }
-
-        @Nullable
-        public final JSONObject c(xp0 xp0Var, iq0 iq0Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xp0Var, iq0Var)) == null) {
-                try {
-                    jq0 d = xp0Var.d();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("id_from", d.g());
-                    jSONObject.put("logid", d.o());
-                    jSONObject.put("session_rewards", iq0Var.a());
-                    jSONObject.put("task_policy", d.i());
-                    return jSONObject;
-                } catch (JSONException unused) {
-                    return null;
-                }
-            }
-            return (JSONObject) invokeLL.objValue;
-        }
-
-        public final void e(String str, @NonNull xp0 xp0Var, @NonNull iq0 iq0Var, @NonNull co0.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, xp0Var, iq0Var, bVar) == null) {
-                String h = xp0Var.d().h();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(h)) {
-                    BDPTask.m.G(str, h, 0, c(xp0Var, iq0Var), new b(this, bVar, xp0Var));
-                    return;
-                }
-                bVar.onFail(new IllegalArgumentException("token: " + str + " taskId: " + h));
-            }
+            return (wn0) invokeL.objValue;
         }
     }
 
-    public wn0() {
+    public wn0(String btnText, String textColor, String btnBackground, String btnCmd, String btnIcon) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {btnText, textColor, btnBackground, btnCmd, btnIcon};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(btnText, "btnText");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(btnBackground, "btnBackground");
+        Intrinsics.checkNotNullParameter(btnCmd, "btnCmd");
+        Intrinsics.checkNotNullParameter(btnIcon, "btnIcon");
+        this.a = btnText;
+        this.b = textColor;
+        this.c = btnBackground;
+        this.d = btnCmd;
+        this.e = btnIcon;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf1
-    /* renamed from: a */
-    public co0 createService() throws ServiceNotFoundException {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            return this.c;
         }
-        return (co0) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.d = str;
+        }
     }
 }

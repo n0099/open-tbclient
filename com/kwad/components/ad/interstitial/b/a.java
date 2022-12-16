@@ -14,7 +14,7 @@ import com.kwad.components.ad.interstitial.b.c;
 import com.kwad.components.core.widget.ComplianceTextView;
 import com.kwad.components.core.widget.KsAutoCloseView;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -157,8 +157,8 @@ public final class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910ba);
-            this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910fe);
+            this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09111c);
+            this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f09115d);
         }
     }
 

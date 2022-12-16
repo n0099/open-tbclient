@@ -13,7 +13,7 @@ public final class jo extends jp {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f816a;
+    public byte[] f839a;
     public int b;
 
     public jo() {
@@ -47,7 +47,7 @@ public final class jo extends jp {
                 i2 = b;
             }
             if (i2 > 0) {
-                System.arraycopy(this.f816a, this.a, bArr, i, i2);
+                System.arraycopy(this.f839a, this.a, bArr, i, i2);
                 a(i2);
             }
             return i2;
@@ -82,7 +82,7 @@ public final class jo extends jp {
     public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f816a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f839a : (byte[]) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jp
@@ -96,7 +96,7 @@ public final class jo extends jp {
     public void b(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
-            this.f816a = bArr;
+            this.f839a = bArr;
             this.a = i;
             this.b = i + i2;
         }

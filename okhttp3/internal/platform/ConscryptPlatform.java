@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.util.List;
@@ -16,8 +17,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import org.conscrypt.Conscrypt;
-import org.conscrypt.OpenSSLProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ConscryptPlatform extends Platform {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,12 @@ public class ConscryptPlatform extends Platform {
         }
     }
 
-    public static Platform buildIfSupported() {
+    public static ConscryptPlatform buildIfSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                Class.forName("org.conscrypt.ConscryptEngineSocket");
+                Class.forName("org.conscrypt.Conscrypt");
                 if (!Conscrypt.isAvailable()) {
                     return null;
                 }
@@ -50,14 +50,14 @@ public class ConscryptPlatform extends Platform {
                 return null;
             }
         }
-        return (Platform) invokeV.objValue;
+        return (ConscryptPlatform) invokeV.objValue;
     }
 
     private Provider getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return new OpenSSLProvider();
+            return Conscrypt.newProviderBuilder().provideTrustManager().build();
         }
         return (Provider) invokeV.objValue;
     }
@@ -68,9 +68,13 @@ public class ConscryptPlatform extends Platform {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return SSLContext.getInstance("TLS", getProvider());
+                return SSLContext.getInstance("TLSv1.3", getProvider());
             } catch (NoSuchAlgorithmException e) {
-                throw new IllegalStateException("No TLS provider", e);
+                try {
+                    return SSLContext.getInstance("TLS", getProvider());
+                } catch (NoSuchAlgorithmException unused) {
+                    throw new IllegalStateException("No TLS provider", e);
+                }
             }
         }
         return (SSLContext) invokeV.objValue;
@@ -99,7 +103,7 @@ public class ConscryptPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
             if (Conscrypt.isConscrypt(sSLSocket)) {
@@ -115,6 +119,7 @@ public class ConscryptPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

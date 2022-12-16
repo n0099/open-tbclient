@@ -4,21 +4,21 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qc8;
-import com.baidu.tieba.qj7;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.if8;
+import com.baidu.tieba.nm7;
+import com.baidu.tieba.pi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements qc8 {
+/* loaded from: classes6.dex */
+public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements if8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xf8 a;
+    public pi8 a;
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements qc8
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardAppLegoViewHolder(qj7<?> qj7Var) {
-        super((View) qj7Var);
+    public CardAppLegoViewHolder(nm7<?> nm7Var) {
+        super((View) nm7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qj7Var};
+            Object[] objArr = {nm7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,17 +49,17 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements qc8
     }
 
     public void a(int i) {
-        xf8 xf8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (xf8Var = this.a) != null) {
-            xf8Var.autoPlay(i);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (pi8Var = this.a) != null) {
+            pi8Var.autoPlay(i);
         }
     }
 
-    public void d(xf8 xf8Var) {
+    public void d(pi8 pi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xf8Var) == null) {
-            this.a = xf8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pi8Var) == null) {
+            this.a = pi8Var;
         }
     }
 
@@ -67,8 +67,8 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements qc8
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var != null && xf8Var.canPlay()) {
+            pi8 pi8Var = this.a;
+            if (pi8Var != null && pi8Var.canPlay()) {
                 return true;
             }
             return false;
@@ -80,100 +80,100 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements qc8
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return -2;
             }
-            return xf8Var.getPlayStatus();
+            return pi8Var.getPlayStatus();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return 0;
             }
-            return (int) xf8Var.getCurrentPosition();
+            return (int) pi8Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return "";
             }
-            return xf8Var.getPlayUrl();
+            return pi8Var.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return null;
             }
-            return xf8Var.getVideoContainer();
+            return pi8Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return false;
             }
-            return xf8Var.isPlayStarted();
+            return pi8Var.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            xf8 xf8Var = this.a;
-            if (xf8Var == null) {
+            pi8 pi8Var = this.a;
+            if (pi8Var == null) {
                 return false;
             }
-            return xf8Var.isPlaying();
+            return pi8Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public void startPlay() {
-        xf8 xf8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (xf8Var = this.a) != null) {
-            xf8Var.startPlay();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (pi8Var = this.a) != null) {
+            pi8Var.startPlay();
         }
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public void stopPlay() {
-        xf8 xf8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (xf8Var = this.a) != null) {
-            xf8Var.stopPlay();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (pi8Var = this.a) != null) {
+            pi8Var.stopPlay();
         }
     }
 }

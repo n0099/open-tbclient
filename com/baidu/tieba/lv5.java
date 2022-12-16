@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class lv5 {
+public class lv5 implements up3 {
     public static /* synthetic */ Interceptable $ic;
-    public static lv5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
 
     public lv5() {
         Interceptable interceptable = $ic;
@@ -32,46 +33,43 @@ public class lv5 {
         }
     }
 
-    public static lv5 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wp3
+    public void a(b53 b53Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (lv5.class) {
-                    if (b == null) {
-                        b = new lv5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (lv5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, b53Var) == null) && b53Var != null) {
+            b53Var.b(new nv5(b53Var));
+            b53Var.b(new gv5(b53Var));
+            b53Var.b(new ul3(b53Var));
+            b53Var.b(new wl3(b53Var));
+            b53Var.b(new yl3(b53Var));
+            b53Var.b(new s63(b53Var));
+            b53Var.b(new t63(b53Var));
+            b53Var.b(new t83(b53Var));
+            b53Var.b(new zl3(b53Var));
+            b53Var.b(new wq1(b53Var));
+            b53Var.b(new kv5(b53Var));
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.wp3
+    @Nullable
+    public Map<String, Object> b(@NonNull fs1 fs1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(fs1Var);
         }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wp3
+    @Nullable
+    public Map<String, Object> c(@NonNull fs1 fs1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(fs1Var);
         }
-        this.a.clear();
+        return (Map) invokeL.objValue;
     }
 }

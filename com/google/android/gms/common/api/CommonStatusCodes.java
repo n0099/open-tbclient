@@ -1,6 +1,7 @@
 package com.google.android.gms.common.api;
 
 import androidx.annotation.NonNull;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +59,7 @@ public class CommonStatusCodes {
                 case -1:
                     return "SUCCESS_CACHE";
                 case 0:
-                    return "SUCCESS";
+                    return c.p;
                 case 1:
                 case 9:
                 case 11:

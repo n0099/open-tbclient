@@ -15,7 +15,7 @@ import com.kwad.sdk.api.proxy.IComponentProxy;
 import java.io.File;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Loader {
     public static final /* synthetic */ boolean a = !Loader.class.desiredAssertionStatus();
     public IKsAdSDK RJ;
@@ -24,7 +24,7 @@ public class Loader {
     public AtomicBoolean RM;
     public volatile Context b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final Loader RN = new Loader((byte) 0);
     }

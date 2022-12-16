@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,25 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.List;
-/* loaded from: classes4.dex */
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes5.dex */
 public final class kq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean f;
+    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mq2 a;
-    public final List<lq2> b;
-    public Boolean c;
-    public lq2 d;
+    public final String a;
+    public final int b;
+    public final int c;
+    public final String d;
+    public final Object e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public mq2 a;
-        public List<lq2> b;
-        public RuntimeException c;
+        public String a;
+        public int b;
+        public int c;
+        public String d;
+        public Object e;
+        public RuntimeException f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,82 +51,128 @@ public final class kq2 {
             }
         }
 
-        @SuppressLint({"BDThrowableCheck"})
-        public a a(@NonNull List<lq2> list) {
-            InterceptResult invokeL;
+        public Exception d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                if (list.contains(null)) {
-                    this.c = new IllegalArgumentException("branches contains null value");
-                    if (!kq2.e) {
-                        this.b = null;
-                        return this;
-                    }
-                    throw this.c;
-                }
-                for (lq2 lq2Var : list) {
-                    if (lq2Var.c() + 0 > 100) {
-                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
-                        if (!kq2.e) {
-                            this.b = null;
-                            return this;
-                        }
-                        throw this.c;
-                    }
-                }
-                this.b = Collections.unmodifiableList(list);
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.f;
             }
-            return (a) invokeL.objValue;
+            return (Exception) invokeV.objValue;
         }
 
         @Nullable
         @SuppressLint({"BDThrowableCheck"})
-        public kq2 b() {
+        public kq2 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.c != null) {
-                    if (!kq2.e) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f != null) {
+                    if (!kq2.f) {
                         return null;
                     }
-                    throw this.c;
+                    throw this.f;
                 } else if (this.a == null) {
-                    this.c = new IllegalStateException("testSwitch == null");
-                    if (!kq2.e) {
+                    this.f = new IllegalStateException("sid == null");
+                    if (!kq2.f) {
                         return null;
                     }
-                    throw this.c;
+                    throw this.f;
                 } else {
-                    List<lq2> list = this.b;
-                    if (list == null) {
-                        this.c = new IllegalStateException("branches == null");
-                        if (!kq2.e) {
-                            return null;
-                        }
-                        throw this.c;
-                    }
-                    for (lq2 lq2Var : list) {
-                        if (!mq2.c(this.a.f(), lq2Var.e)) {
-                            this.c = new IllegalStateException("branch valueType error");
-                            if (!kq2.e) {
+                    synchronized (a.class) {
+                        if (kq2.g.contains(this.a)) {
+                            this.f = new IllegalStateException("sid has been occupied");
+                            if (!kq2.f) {
                                 return null;
                             }
-                            throw this.c;
+                            throw this.f;
+                        } else if (this.e == null) {
+                            this.f = new IllegalStateException("switchValue == null");
+                            if (!kq2.f) {
+                                return null;
+                            }
+                            throw this.f;
+                        } else {
+                            kq2.g.add(this.a);
+                            return new kq2(this);
                         }
                     }
-                    return new kq2(this);
                 }
             }
             return (kq2) invokeV.objValue;
         }
 
-        public a c(@NonNull mq2 mq2Var) {
+        public a b(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mq2Var)) == null) {
-                this.a = mq2Var;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.d = str;
                 return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(@NonNull Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                this.e = obj;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.b = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a c(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i >= 0 && i <= 100) {
+                    this.c = i;
+                    return this;
+                }
+                this.f = new IllegalArgumentException("flow must in [0, 100]");
+                if (!kq2.f) {
+                    this.c = 0;
+                    return this;
+                }
+                throw this.f;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a e(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.f = new IllegalArgumentException("sid must not be empty");
+                    if (!kq2.f) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.f;
+                } else if (str.contains("-")) {
+                    this.f = new IllegalArgumentException("sid must not contain '-'");
+                    if (!kq2.f) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.f;
+                } else {
+                    this.a = str;
+                    return this;
+                }
             }
             return (a) invokeL.objValue;
         }
@@ -139,17 +191,36 @@ public final class kq2 {
                 return;
             }
         }
-        e = pk1.a;
+        f = ok1.a;
+        g = new HashSet();
     }
 
-    @NonNull
-    public mq2 c() {
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (mq2) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public Object e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.objValue;
     }
 
     public kq2(a aVar) {
@@ -167,33 +238,23 @@ public final class kq2 {
                 return;
             }
         }
-        this.c = Boolean.FALSE;
         this.a = aVar.a;
         this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.e = aVar.e;
     }
 
-    @Nullable
-    public synchronized lq2 b() {
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.c.booleanValue()) {
-                    return this.d;
-                }
-                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
-                this.c = Boolean.TRUE;
-                for (int i = 0; i < this.b.size(); i++) {
-                    lq2 lq2Var = this.b.get(i);
-                    currentTimeMillis -= lq2Var.c();
-                    if (currentTimeMillis < 0) {
-                        this.d = lq2Var;
-                        return lq2Var;
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (f) {
+                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
             }
+            return super.toString();
         }
-        return (lq2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

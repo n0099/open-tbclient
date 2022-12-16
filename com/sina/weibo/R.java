@@ -12,11 +12,11 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int retry_btn_default = 0x7f081022;
-        public static final int retry_btn_press = 0x7f081023;
-        public static final int retry_btn_selector = 0x7f081024;
-        public static final int weibosdk_common_shadow_top = 0x7f0812de;
-        public static final int weibosdk_empty_failed = 0x7f0812df;
+        public static final int retry_btn_default = 0x7f08104c;
+        public static final int retry_btn_press = 0x7f08104d;
+        public static final int retry_btn_selector = 0x7f08104e;
+        public static final int weibosdk_common_shadow_top = 0x7f081308;
+        public static final int weibosdk_empty_failed = 0x7f081309;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {

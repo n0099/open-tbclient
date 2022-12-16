@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +67,7 @@ public final class a {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                int optInt = jSONObject.optInt("result");
                 String optString = jSONObject.optString("data");
                 if ((optInt == 0 || optInt == 30002) && !TextUtils.isEmpty(optString)) {
                     String c = cn.com.chinatelecom.gateway.lib.a.a.c(optString, str2);
@@ -127,7 +126,7 @@ public final class a {
                 String a2 = a(h.a((String) list.get(i), network), str);
                 try {
                     JSONObject jSONObject = TextUtils.isEmpty(a2) ? null : new JSONObject(a2);
-                    if (jSONObject != null && jSONObject.getInt(TiebaStatic.LogFields.RESULT) == 0) {
+                    if (jSONObject != null && jSONObject.getInt("result") == 0) {
                         return a2;
                     }
                 } catch (Exception e) {
@@ -165,7 +164,7 @@ public final class a {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                int optInt = jSONObject.optInt("result");
                 String optString = jSONObject.optString("data");
                 if (optInt == 0 && !TextUtils.isEmpty(optString)) {
                     String c = cn.com.chinatelecom.gateway.lib.a.a.c(optString, str2);

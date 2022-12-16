@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MediaType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;

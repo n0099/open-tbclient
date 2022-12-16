@@ -9,8 +9,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.uu8;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.wx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,37 +85,36 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
-            }
-            this.a.d = false;
-            if (responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof SetPersonalCardHttpResponse;
-            if (!z && !(responsedMessage instanceof SetPersonalCardSocketResponse)) {
-                return;
-            }
-            if (responsedMessage.getError() == 0) {
-                this.a.G(true);
-            } else {
-                this.a.G(false);
-            }
-            if (z) {
-                SetPersonalCardHttpResponse setPersonalCardHttpResponse = (SetPersonalCardHttpResponse) responsedMessage;
-                this.a.setCardId(setPersonalCardHttpResponse.getCardId());
-                this.a.setType(setPersonalCardHttpResponse.getType());
-            } else if (responsedMessage instanceof SetPersonalCardSocketResponse) {
-                SetPersonalCardSocketResponse setPersonalCardSocketResponse = (SetPersonalCardSocketResponse) responsedMessage;
-                this.a.setCardId(setPersonalCardSocketResponse.getCardId());
-                this.a.setType(setPersonalCardSocketResponse.getType());
-            }
-            if (this.a.e != null) {
-                int i = uu8.b;
-                if (responsedMessage.getError() == uu8.c) {
-                    i = uu8.a;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.d = false;
+                if (responsedMessage == null) {
+                    return;
                 }
-                this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
+                boolean z = responsedMessage instanceof SetPersonalCardHttpResponse;
+                if (!z && !(responsedMessage instanceof SetPersonalCardSocketResponse)) {
+                    return;
+                }
+                if (responsedMessage.getError() == 0) {
+                    this.a.N(true);
+                } else {
+                    this.a.N(false);
+                }
+                if (z) {
+                    SetPersonalCardHttpResponse setPersonalCardHttpResponse = (SetPersonalCardHttpResponse) responsedMessage;
+                    this.a.setCardId(setPersonalCardHttpResponse.getCardId());
+                    this.a.setType(setPersonalCardHttpResponse.getType());
+                } else if (responsedMessage instanceof SetPersonalCardSocketResponse) {
+                    SetPersonalCardSocketResponse setPersonalCardSocketResponse = (SetPersonalCardSocketResponse) responsedMessage;
+                    this.a.setCardId(setPersonalCardSocketResponse.getCardId());
+                    this.a.setType(setPersonalCardSocketResponse.getType());
+                }
+                if (this.a.e != null) {
+                    int i = wx8.b;
+                    if (responsedMessage.getError() == wx8.c) {
+                        i = wx8.a;
+                    }
+                    this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
+                }
             }
         }
     }
@@ -136,19 +135,19 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        uo8.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        uo8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        tr8.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        tr8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public void E(b bVar) {
+    public void L(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void G(boolean z) {
+    public void N(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.c = z;
@@ -169,7 +168,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         }
     }
 
-    public void F(long j, int i) {
+    public void M(long j, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) != null) || this.d) {
             return;

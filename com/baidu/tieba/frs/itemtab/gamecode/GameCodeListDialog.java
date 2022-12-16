@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vr6;
+import com.baidu.tieba.qs6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -75,7 +75,7 @@ public class GameCodeListDialog extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921640 && this.a.a != null) {
-                this.a.a.b((vr6) customResponsedMessage.getData());
+                this.a.a.b((qs6) customResponsedMessage.getData());
             }
         }
     }
@@ -318,8 +318,8 @@ public class GameCodeListDialog extends FrameLayout {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
         addView(this.a, layoutParams);
-        this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b8);
-        this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b9);
+        this.c = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_enter);
+        this.d = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_exit);
         this.c.setDuration(330L);
         this.d.setDuration(330L);
         this.e = new AlphaAnimation(0.0f, 1.0f);

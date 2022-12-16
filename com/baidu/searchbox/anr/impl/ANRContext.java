@@ -12,7 +12,7 @@ import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.nf1;
+import com.baidu.tieba.mf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class ANRContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppNotResponding");
                     }
-                    nf1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+                    mf1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
                     if (iANRUploadList != null && iANRUploadList.getList() != null && aNRInfo != null) {
                         if (AppConfig.isDebug()) {
                             Log.i(BlockMonitor.TAG, "ANRInfo = " + aNRInfo.getStackTrace());

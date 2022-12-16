@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ty extends ax<tr4> {
+public class ty extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class ty extends ax<tr4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public tr4 j;
+    public vr4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -64,9 +64,9 @@ public class ty extends ax<tr4> {
                     this.a.h().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                x36.a(id);
+                s46.a(id);
                 this.a.w(id);
-                this.a.a.o(new zy.a(1));
+                this.a.a.p(new zy.a(1));
             }
         }
     }
@@ -110,29 +110,29 @@ public class ty extends ax<tr4> {
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
             this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c0, (ViewGroup) null, false);
+            this.f = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921de);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921d0);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f0917a0);
+        this.g = (TextView) this.f.findViewById(R.id.thread_card_title);
+        this.h = (TextView) this.f.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.original_thread_view);
         this.i = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.l);
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, m46Var) == null) {
-            super.p(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h56Var) == null) {
+            super.p(h56Var);
         }
     }
 
     public final void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            x36.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            x36.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(x36.k(str));
+            s46.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            s46.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(s46.k(str));
         }
     }
 
@@ -171,13 +171,13 @@ public class ty extends ax<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: v */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) && tr4Var != null && tr4Var.getThreadData() != null) {
-            this.j = tr4Var;
-            ThreadCardUtils.setTitle(this.g, tr4Var.getThreadData(), this.k);
-            ThreadCardUtils.setAbstract(this.h, this.g, tr4Var.getThreadData(), m, this.k);
-            this.i.i(tr4Var.getThreadData().originalThreadData);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) && vr4Var != null && vr4Var.getThreadData() != null) {
+            this.j = vr4Var;
+            ThreadCardUtils.setTitle(this.g, vr4Var.getThreadData(), this.k);
+            ThreadCardUtils.setAbstract(this.h, this.g, vr4Var.getThreadData(), m, this.k);
+            this.i.i(vr4Var.getThreadData().originalThreadData);
         }
     }
 }

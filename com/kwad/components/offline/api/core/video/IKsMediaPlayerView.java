@@ -1,8 +1,8 @@
 package com.kwad.components.offline.api.core.video;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IKsMediaPlayerView {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface VideoViewClickListener {
         void onClickRootView();
 

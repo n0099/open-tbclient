@@ -1,13 +1,11 @@
 package com.baidu.android.imsdk.box;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.DefaultConfig;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +115,6 @@ public class BoxConfig extends DefaultConfig {
                 return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
             } catch (Exception e) {
                 LogUtils.e("BoxConfig", "parseTokenToChatObject", e);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }

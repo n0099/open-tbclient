@@ -91,15 +91,15 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements r
                 pz4Var.t(R.color.CAM_X0109);
                 setConfig(pz4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 pz4 pz4Var2 = new pz4();
                 pz4Var2.r(R.color.CAM_X0302);
-                pz4Var2.i(R.drawable.obfuscated_res_0x7f080936, 0, TBSpecificationButtonConfig.IconType.SVG);
+                pz4Var2.i(R.drawable.obfuscated_res_0x7f080958, 0, TBSpecificationButtonConfig.IconType.SVG);
                 pz4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
                 setConfig(pz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sw4;
+import com.baidu.tieba.tw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -244,8 +244,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.f;
             float f3 = this.h;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (sw4.b(charSequence)) {
-                sw4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (tw4.b(charSequence)) {
+                tw4.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.i;

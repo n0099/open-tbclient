@@ -29,7 +29,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ShareCompat {
@@ -521,7 +520,7 @@ public final class ShareCompat {
                     } else {
                         sb.append("&#");
                         sb.append((int) charAt);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                     }
                     i++;
                 }

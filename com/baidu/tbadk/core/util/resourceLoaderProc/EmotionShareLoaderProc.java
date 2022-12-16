@@ -25,7 +25,7 @@ public class EmotionShareLoaderProc implements ug<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public EmotionShare m44decodeToResource(byte[] bArr, Object... objArr) {
+    public EmotionShare m45decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {

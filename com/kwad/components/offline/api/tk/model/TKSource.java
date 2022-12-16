@@ -3,7 +3,7 @@ package com.kwad.components.offline.api.tk.model;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public @interface TKSource {
     public static final int CACHE = 2;
     public static final int ONLINE = 3;

@@ -305,7 +305,7 @@ public class w7<K> implements Iterable<b<K>> {
                         length = i;
                     } else {
                         sb.append(k);
-                        sb.append('=');
+                        sb.append(com.alipay.sdk.encrypt.a.h);
                         sb.append(iArr[i]);
                         break;
                     }
@@ -322,7 +322,7 @@ public class w7<K> implements Iterable<b<K>> {
                 if (k2 != null) {
                     sb.append(str);
                     sb.append(k2);
-                    sb.append('=');
+                    sb.append(com.alipay.sdk.encrypt.a.h);
                     sb.append(iArr[i2]);
                 }
                 i = i2;

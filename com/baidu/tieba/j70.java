@@ -23,13 +23,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ProbeTB;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class j70 implements u60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +84,7 @@ public final class j70 implements u60 {
                 sb.append(headers.name(i));
                 sb.append(":");
                 sb.append(headers.value(i));
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
             }
             return sb.toString();
         }

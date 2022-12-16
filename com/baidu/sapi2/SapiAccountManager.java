@@ -48,7 +48,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.ci1;
+import com.baidu.tieba.bi1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -455,7 +455,7 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             checkInitialization();
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_V2);
+            ShareLoginStat.GetShareListStat.statExtMap.put("api_name", ShareLoginStat.GetShareListStat.VALUE_API_NAME_V2);
             List<ShareStorage.StorageModel> v2ShareModelList = ShareLoginModel.getInstance().getV2ShareModelList(str);
             ShareLoginStat.GetShareListStat.upload();
             return v2ShareModelList;
@@ -486,7 +486,7 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048589, this, j, shareModelCallback) == null) {
             checkInitialization();
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
+            ShareLoginStat.GetShareListStat.statExtMap.put("api_name", ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
             ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelCallback) { // from class: com.baidu.sapi2.SapiAccountManager.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -677,7 +677,7 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048608, this, z) == null) && (sapiConfiguration2 = getSapiConfiguration()) != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            ci1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            bi1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
@@ -935,7 +935,7 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048590, this, j, shareModelResultCallback) == null) {
             checkInitialization();
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
+            ShareLoginStat.GetShareListStat.statExtMap.put("api_name", ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
             ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelResultCallback) { // from class: com.baidu.sapi2.SapiAccountManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

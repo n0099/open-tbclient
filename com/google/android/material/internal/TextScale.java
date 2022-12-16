@@ -41,7 +41,7 @@ public class TextScale extends Transition {
     private void captureValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, transitionValues) == null) {
-            View view2 = transitionValues.f1028view;
+            View view2 = transitionValues.f1051view;
             if (view2 instanceof TextView) {
                 transitionValues.values.put(PROPNAME_SCALE, Float.valueOf(((TextView) view2).getScaleX()));
             }
@@ -70,10 +70,10 @@ public class TextScale extends Transition {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
-            if (transitionValues == null || transitionValues2 == null || !(transitionValues.f1028view instanceof TextView)) {
+            if (transitionValues == null || transitionValues2 == null || !(transitionValues.f1051view instanceof TextView)) {
                 return null;
             }
-            View view2 = transitionValues2.f1028view;
+            View view2 = transitionValues2.f1051view;
             if (!(view2 instanceof TextView)) {
                 return null;
             }

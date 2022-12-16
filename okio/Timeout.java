@@ -1,6 +1,7 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Timeout {
     public static /* synthetic */ Interceptable $ic;
     public static final Timeout NONE;
@@ -174,7 +175,8 @@ public class Timeout {
                 }
                 return;
             }
-            throw new InterruptedIOException("thread interrupted");
+            Thread.currentThread().interrupt();
+            throw new InterruptedIOException("interrupted");
         }
     }
 
@@ -220,8 +222,9 @@ public class Timeout {
                 if (j < timeoutNanos) {
                     return;
                 }
-                throw new InterruptedIOException("timeout");
+                throw new InterruptedIOException(a.O);
             } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
                 throw new InterruptedIOException("interrupted");
             }
         }

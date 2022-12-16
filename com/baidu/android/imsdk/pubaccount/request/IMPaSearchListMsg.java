@@ -2,12 +2,10 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,7 +70,6 @@ public class IMPaSearchListMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "buildBody:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -93,7 +90,7 @@ public class IMPaSearchListMsg extends Message {
                             try {
                                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                                 PaInfo paInfo = new PaInfo();
-                                paInfo.setPaId(jSONObject2.optLong("pa_uid"));
+                                paInfo.setPaId(jSONObject2.optLong(Constants.EXTRA_PAUID_TYPE));
                                 paInfo.setNickName(jSONObject2.optString("pa_nickname"));
                                 paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
                                 paInfo.setDescription("");
@@ -104,7 +101,6 @@ public class IMPaSearchListMsg extends Message {
                             } catch (Exception e2) {
                                 e = e2;
                                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                                 super.handleMessageResult(context, jSONObject, i, str);
                                 PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
                             }

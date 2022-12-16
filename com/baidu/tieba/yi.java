@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
@@ -42,7 +44,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class yi {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -50,14 +52,14 @@ public class yi {
     public static int c;
     public static int d;
     public static Toast e;
-    public static c f;
+    public static d f;
     public static String g;
     public static Handler h;
     public static Runnable i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface c {
+    /* loaded from: classes7.dex */
+    public interface d {
         void createToastView(boolean z);
 
         View getToastContentView();
@@ -71,7 +73,7 @@ public class yi {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Double.valueOf(d2)})) == null) ? (d2 * 3.141592653589793d) / 180.0d : invokeCommon.doubleValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,8 +101,35 @@ public class yi {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -110,7 +139,7 @@ public class yi {
         public final /* synthetic */ int e;
         public final /* synthetic */ View f;
 
-        public b(View view2, int i, int i2, int i3, int i4, View view3) {
+        public c(View view2, int i, int i2, int i3, int i4, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,13 +215,13 @@ public class yi {
         return invokeV.booleanValue;
     }
 
-    public static c x() {
+    public static d x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
             return f;
         }
-        return (c) invokeV.objValue;
+        return (d) invokeV.objValue;
     }
 
     public static void A(Context context) {
@@ -261,7 +290,7 @@ public class yi {
     public static int[] s(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             int[] iArr = new int[2];
             if (context == null) {
                 return iArr;
@@ -278,7 +307,7 @@ public class yi {
         InterceptResult invokeL;
         DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, activity)) == null) {
             DisplayMetrics displayMetrics2 = null;
             try {
                 displayMetrics = new DisplayMetrics();
@@ -327,8 +356,8 @@ public class yi {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = 65570;
-            InterceptResult invokeV = interceptable.invokeV(65570, null);
+            r2 = 65571;
+            InterceptResult invokeV = interceptable.invokeV(65571, null);
             if (invokeV != null) {
                 return (String) invokeV.objValue;
             }
@@ -373,8 +402,8 @@ public class yi {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = 65571;
-            InterceptResult invokeV = interceptable.invokeV(65571, null);
+            r2 = 65572;
+            InterceptResult invokeV = interceptable.invokeV(65572, null);
             if (invokeV != null) {
                 return (String) invokeV.objValue;
             }
@@ -413,7 +442,7 @@ public class yi {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
                 if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
                     for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
@@ -437,7 +466,7 @@ public class yi {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
             try {
                 if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
                     for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
@@ -468,17 +497,17 @@ public class yi {
         return invokeL.booleanValue;
     }
 
-    public static void K(c cVar) {
+    public static void K(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, cVar) == null) {
-            f = cVar;
+        if (interceptable == null || interceptable.invokeL(65547, null, dVar) == null) {
+            f = dVar;
         }
     }
 
     public static float i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
             if (!a) {
                 A(context);
             }
@@ -490,7 +519,7 @@ public class yi {
     public static int j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             if (!a) {
                 A(context);
             }
@@ -502,7 +531,7 @@ public class yi {
     public static int l(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             if (!a) {
                 A(context);
             }
@@ -514,7 +543,7 @@ public class yi {
     public static String r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -546,23 +575,23 @@ public class yi {
         return invokeLL.floatValue;
     }
 
-    public static void L(Context context, int i2) {
+    public static void M(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, context, i2) == null) {
-            M(context, context.getResources().getString(i2));
+        if (interceptable == null || interceptable.invokeLI(65549, null, context, i2) == null) {
+            N(context, context.getResources().getString(i2));
         }
     }
 
-    public static void M(Context context, String str) {
+    public static void N(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            Q(str, PrintHelper.MAX_PRINT_SIZE, false);
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) {
+            R(str, PrintHelper.MAX_PRINT_SIZE, false);
         }
     }
 
-    public static void N(Context context, View view2) {
+    public static void O(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65551, null, context, view2) == null) {
             try {
                 ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view2, 0);
             } catch (Throwable th) {
@@ -571,31 +600,31 @@ public class yi {
         }
     }
 
-    public static void O(Context context, int i2) {
+    public static void P(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, null, context, i2) == null) {
-            P(context, context.getResources().getString(i2));
+        if ((interceptable == null || interceptable.invokeLI(65552, null, context, i2) == null) && context != null) {
+            Q(context, context.getResources().getString(i2));
         }
     }
 
-    public static void P(Context context, String str) {
+    public static void Q(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
-            Q(str, 2000, false);
+        if (interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) {
+            R(str, 2000, false);
         }
     }
 
-    public static void R(Context context, int i2) {
+    public static void S(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65554, null, context, i2) == null) {
-            Q(context.getResources().getString(i2), 2000, true);
+        if (interceptable == null || interceptable.invokeLI(65555, null, context, i2) == null) {
+            R(context.getResources().getString(i2), 2000, true);
         }
     }
 
     public static int d(Context context, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65559, null, context, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65560, null, context, f2)) == null) {
             if (!a) {
                 A(context);
             }
@@ -607,7 +636,7 @@ public class yi {
     public static int e(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, context, str)) == null) {
             if (context != null && context.getResources() != null && !TextUtils.isEmpty(str)) {
                 return context.getResources().getIdentifier(str, "color", context.getPackageName());
             }
@@ -619,7 +648,7 @@ public class yi {
     public static Field f(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, obj, str)) == null) {
             for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
                 try {
                     Field declaredField = cls.getDeclaredField(str);
@@ -637,7 +666,7 @@ public class yi {
     public static int g(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, context, i2)) == null) {
             return context.getResources().getDimensionPixelSize(i2);
         }
         return invokeLI.intValue;
@@ -646,7 +675,7 @@ public class yi {
     public static int k(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65566, null, context, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65567, null, context, z)) == null) {
             if (!a || z) {
                 A(context);
             }
@@ -658,7 +687,7 @@ public class yi {
     public static int m(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65568, null, context, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65569, null, context, z)) == null) {
             if (!a || z) {
                 A(context);
             }
@@ -667,18 +696,65 @@ public class yi {
         return invokeLZ.intValue;
     }
 
-    public static void Q(String str, int i2, boolean z) {
+    public static ProgressDialog L(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            b bVar = new b();
+            if (str != null) {
+                return ProgressDialog.show(context, "", str, true, false, bVar);
+            }
+            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f0038), true, false, bVar);
+        }
+        return (ProgressDialog) invokeLL.objValue;
+    }
+
+    public static int w(Paint paint, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, paint, str)) == null) {
+            if (str == null || str.length() <= 0) {
+                return 0;
+            }
+            int length = str.length();
+            float[] fArr = new float[length];
+            paint.getTextWidths(str, fArr);
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                i2 += (int) Math.ceil(fArr[i3]);
+            }
+            return i2;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void z(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65582, null, context, view2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            if (view2.getWindowToken() == null) {
+                return;
+            }
+            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 2);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
+    }
+
+    public static void R(String str, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
             h.removeCallbacks(i);
             if (e != null && Build.VERSION.SDK_INT < 28) {
-                c cVar = f;
-                if (cVar != null) {
-                    cVar.createToastView(z);
+                d dVar = f;
+                if (dVar != null) {
+                    dVar.createToastView(z);
                 }
                 if (!str.equals(g)) {
-                    c cVar2 = f;
-                    if (cVar2 != null && cVar2.getToastContentView() != null) {
+                    d dVar2 = f;
+                    if (dVar2 != null && dVar2.getToastContentView() != null) {
                         f.setToastString(str);
                         e.setView(f.getToastContentView());
                     } else {
@@ -698,12 +774,12 @@ public class yi {
                 if (toast != null) {
                     toast.cancel();
                 }
-                c cVar3 = f;
-                if (cVar3 != null) {
-                    cVar3.createToastView(z);
+                d dVar3 = f;
+                if (dVar3 != null) {
+                    dVar3.createToastView(z);
                 }
-                c cVar4 = f;
-                if (cVar4 != null && cVar4.getToastContentView() != null) {
+                d dVar4 = f;
+                if (dVar4 != null && dVar4.getToastContentView() != null) {
                     Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
                     e = toast2;
                     ij.a(toast2);
@@ -735,10 +811,10 @@ public class yi {
         }
     }
 
-    public static String S(String str, String str2) {
+    public static String T(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, str2)) == null) {
             if (str != null && str2 != null) {
                 if (str.indexOf("?") < 0) {
                     str = str + "?";
@@ -754,19 +830,19 @@ public class yi {
 
     public static void b(Context context, View view2, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int d2 = d(context, i2);
             int d3 = d(context, i3);
             int d4 = d(context, i4);
             int d5 = d(context, i5);
             View view3 = (View) view2.getParent();
-            view3.post(new b(view2, d4, d2, d5, d3, view3));
+            view3.post(new c(view2, d4, d2, d5, d3, view3));
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65558, null) == null) && BdBaseApplication.getInst().isDebugMode()) {
+        if ((interceptable == null || interceptable.invokeV(65559, null) == null) && BdBaseApplication.getInst().isDebugMode()) {
             if (!E()) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -787,7 +863,7 @@ public class yi {
     public static double h(double d2, double d3, double d4, double d5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
             double I = I(d2);
             double I2 = I(d4);
             return Math.round(((Math.asin(Math.sqrt(Math.pow(Math.sin((I - I2) / 2.0d), 2.0d) + ((Math.cos(I) * Math.cos(I2)) * Math.pow(Math.sin((I(d3) - I(d5)) / 2.0d), 2.0d)))) * 2.0d) * 6378.137d) * 10000.0d) / 10000.0d;
@@ -798,7 +874,7 @@ public class yi {
     public static int[] n(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65569, null, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65570, null, i2, i3, i4, i5)) == null) {
             if (i2 > 0 && i3 > 0 && i4 > 0 && i5 > 0) {
                 int[] iArr = new int[2];
                 if (i3 > i5) {
@@ -822,7 +898,7 @@ public class yi {
     public static int u(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, activity)) == null) {
             Rect rect = new Rect();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
             int i2 = rect.top;
@@ -861,7 +937,7 @@ public class yi {
     public static String v(TextPaint textPaint, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65577, null, textPaint, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65578, null, textPaint, str, i2)) == null) {
             CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i2, TextUtils.TruncateAt.END);
             if (ellipsize != null) {
                 return ellipsize.toString();
@@ -869,39 +945,5 @@ public class yi {
             return null;
         }
         return (String) invokeLLI.objValue;
-    }
-
-    public static int w(Paint paint, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, paint, str)) == null) {
-            if (str == null || str.length() <= 0) {
-                return 0;
-            }
-            int length = str.length();
-            float[] fArr = new float[length];
-            paint.getTextWidths(str, fArr);
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 += (int) Math.ceil(fArr[i3]);
-            }
-            return i2;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static void z(Context context, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65581, null, context, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            if (view2.getWindowToken() == null) {
-                return;
-            }
-            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 2);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
     }
 }

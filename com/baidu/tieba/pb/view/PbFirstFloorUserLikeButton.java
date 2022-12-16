@@ -102,8 +102,8 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+            this.o = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
             setTextSize(R.dimen.T_X08);
             setText(this.p);
             pz4 pz4Var = new pz4();

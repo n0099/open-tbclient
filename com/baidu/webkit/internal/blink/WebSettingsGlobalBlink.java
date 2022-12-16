@@ -33,7 +33,6 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -50,7 +49,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -3986,7 +3985,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             try {
                 String host = new URL(str).getHost();
                 if (GetCloudSettingsValue("smart_detector_white_hosts") != null) {
-                    String[] split = GetCloudSettingsValue("smart_detector_white_hosts").split(ParamableElem.DIVIDE_PARAM);
+                    String[] split = GetCloudSettingsValue("smart_detector_white_hosts").split(";");
                     for (int i = 0; i < split.length; i++) {
                         if (!"".equals(split[i]) && host.indexOf(split[i]) >= 0) {
                             Log.d(LOGTAG, "url : " + str + " match white host: " + split[i]);

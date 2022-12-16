@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cs2 {
-    void a(int i);
+    void onMove(int i, int i2);
 }

@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.DialogInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.l45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class dw4 extends aw4 {
+/* loaded from: classes4.dex */
+public class dw4 extends bw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity c;
-    public TBAlertBuilder d;
-    public DialogInterface.OnDismissListener e;
+    public final HotEventData c;
+    public j35 d;
 
-    public abstract void g(TBAlertBuilder tBAlertBuilder);
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public abstract void i();
-
-    /* loaded from: classes3.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    /* loaded from: classes4.dex */
+    public class a implements l45.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dw4 a;
@@ -50,27 +41,23 @@ public abstract class dw4 extends aw4 {
             this.a = dw4Var;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.l45.d
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.h();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.c();
-                if (this.a.e != null) {
-                    this.a.e.onDismiss(dialogInterface);
-                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dw4(Activity activity) {
+    public dw4(Activity activity, HotEventData hotEventData) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {activity, hotEventData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,28 +68,35 @@ public abstract class dw4 extends aw4 {
                 return;
             }
         }
-        this.c = activity;
+        this.c = hotEventData;
     }
 
-    @Override // com.baidu.tieba.aw4
+    @Override // com.baidu.tieba.bw4
     public void b() {
-        TBAlertBuilder tBAlertBuilder;
+        j35 j35Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
-            tBAlertBuilder.dismiss();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (j35Var = this.d) != null) {
+            j35Var.m();
         }
     }
 
-    @Override // com.baidu.tieba.aw4
+    @Override // com.baidu.tieba.bw4
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
-            this.d = tBAlertBuilder;
-            tBAlertBuilder.q(new a(this));
-            g(this.d);
-            this.d.w();
-            i();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = l45.g(this.c, new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.bw4
+    public void d(@NonNull bw4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (iw4.l()) {
+                aVar.a(false);
+            } else {
+                aVar.a(true);
+            }
         }
     }
 }

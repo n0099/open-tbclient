@@ -82,19 +82,17 @@ public class AcceleratorNetModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003524 && (httpResponsedMessage instanceof GetAcceleratorInfoRespondedMessage)) {
-                    if (httpResponsedMessage.getError() != 0 && this.a.a != null) {
-                        this.a.a.b();
-                        this.a.b = false;
-                        return;
-                    }
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003524 || !(httpResponsedMessage instanceof GetAcceleratorInfoRespondedMessage)) {
+                    this.a.b = false;
+                } else if (httpResponsedMessage.getError() != 0 && this.a.a != null) {
+                    this.a.a.b();
+                    this.a.b = false;
+                } else {
                     if (this.a.a != null) {
                         this.a.a.a(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
                     }
                     this.a.b = false;
-                    return;
                 }
-                this.a.b = false;
             }
         }
     }
@@ -127,7 +125,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         }
     }
 
-    public void B(int i) {
+    public void I(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b) {
             return;
@@ -138,7 +136,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public void C(b bVar) {
+    public void J(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

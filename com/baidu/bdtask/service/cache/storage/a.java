@@ -22,7 +22,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public abstract class a implements nu {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock c;
-    public static final C0077a d;
+    public static final C0091a d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public final Map<String, Object> b;
@@ -31,11 +31,11 @@ public abstract class a implements nu {
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0077a {
+    public static final class C0091a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0077a() {
+        public C0091a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public abstract class a implements nu {
             return (ReentrantLock) invokeV.objValue;
         }
 
-        public /* synthetic */ C0077a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0091a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -76,7 +76,7 @@ public abstract class a implements nu {
                 return;
             }
         }
-        d = new C0077a(null);
+        d = new C0091a(null);
         c = new ReentrantLock(true);
     }
 

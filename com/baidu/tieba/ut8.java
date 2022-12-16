@@ -1,58 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class ut8 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public gu4 b;
+public interface ut8 {
+    void a(xt8 xt8Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ut8(MainTabActivity mainTabActivity, as8 as8Var) {
-        super(2921333);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, as8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
-    }
+    VideoFinishResult b(String str, int i) throws IOException;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            return;
-        }
-        if (this.b == null && !(customResponsedMessage.getData() instanceof gu4)) {
-            return;
-        }
-        if (customResponsedMessage.getData() != null) {
-            this.b = (gu4) customResponsedMessage.getData();
-        }
-        if (this.b != null && TbadkCoreApplication.isLogin()) {
-            yr8 yr8Var = this.a.v;
-            gu4 gu4Var = this.b;
-            yr8Var.j(gu4Var.a, gu4Var.b, gu4Var.c);
-        }
-    }
+    void cancel();
 }

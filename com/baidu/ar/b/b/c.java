@@ -13,7 +13,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
     public int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f1032cn;
+    public FramePixels f1056cn;
 
     public c(int i, FramePixels framePixels) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             }
         }
         this.cI = i;
-        this.f1032cn = framePixels;
+        this.f1056cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
@@ -42,7 +42,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             if (com.baidu.ar.b.a.as().c(this.cI)) {
                 try {
                     com.baidu.ar.b.a.as().a(this.cI, true);
-                    return e(this.f1032cn);
+                    return e(this.f1056cn);
                 } finally {
                     com.baidu.ar.b.a.as().a(this.cI, false);
                 }

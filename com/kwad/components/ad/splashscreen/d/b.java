@@ -19,7 +19,7 @@ import com.kwad.components.ad.splashscreen.f;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,8 +86,8 @@ public final class b implements com.kwad.sdk.widget.c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091223);
-        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091226);
+        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091282);
+        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091285);
         this.zT = new com.kwad.sdk.widget.f(this.zP.getContext(), this.zP, this);
         this.zP.getContext();
         a(e.a(this.mAdTemplate, this.mAdInfo, this.mApkDownloadHelper, 4));
@@ -190,7 +190,7 @@ public final class b implements com.kwad.sdk.widget.c {
             }
             if (this.zO == null) {
                 ViewStub viewStub = this.zM;
-                this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f091224) : this.zM.inflate());
+                this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f091283) : this.zM.inflate());
                 g(this.zO);
             }
             ViewGroup viewGroup = this.zO;

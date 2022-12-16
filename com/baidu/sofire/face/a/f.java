@@ -58,7 +58,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallback, ISecurityCallback, com.baidu.sofire.face.a.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -135,20 +135,20 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0171a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0183a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0171a(a aVar) {
+            public RunnableC0183a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
                     f fVar7 = this.a;
                     if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0171a(this));
+                        activity3.runOnUiThread(new RunnableC0183a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.n.a()) {
                         this.a.a(-15);
@@ -386,13 +386,13 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -566,13 +566,13 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class l implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -692,7 +692,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -728,7 +728,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -771,7 +771,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -869,13 +869,13 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     }
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0172f implements Runnable {
+    /* loaded from: classes3.dex */
+    public class RunnableC0184f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0172f(f fVar) {
+        public RunnableC0184f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -918,7 +918,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Camera.ErrorCallback, Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -977,7 +977,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1033,7 +1033,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class i implements IDetectStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1102,7 +1102,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class j implements ILivenessStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1172,7 +1172,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class k implements ILivenessViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2056,7 +2056,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             try {
                 Activity activity = this.b;
                 if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0172f(this));
+                    activity.runOnUiThread(new RunnableC0184f(this));
                 }
             } catch (Throwable unused) {
             }

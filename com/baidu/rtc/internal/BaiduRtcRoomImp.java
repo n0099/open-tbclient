@@ -16,7 +16,6 @@ import android.view.Surface;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.CommonDefine;
@@ -40,12 +39,12 @@ import com.baidu.rtc.logreport.RtcLogReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.d;
 import com.baidu.tieba.g10;
-import com.baidu.tieba.kz9;
+import com.baidu.tieba.t2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1075,7 +1074,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mWebSocketChannel.setSDK(Constraints.sdkVersion());
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
-        this.rootEglBase = kz9.a();
+        this.rootEglBase = t2a.a();
         int i3 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;
@@ -2272,7 +2271,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                     JSONObject jSONObject = new JSONObject(string);
                     String optString = jSONObject.optString("mediaServerIP");
                     jSONObject.optString("mediaServerPort");
-                    String optString2 = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                    String optString2 = jSONObject.optString("roomId");
                     if (!optString.isEmpty()) {
                         roomInfo.MediaServerURL = "ws://" + optString + ":8188/janus";
                         roomInfo.RoomID = optString2;
@@ -2365,7 +2364,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 jSONObject.put("env", this.mQualityMonitorEnv);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
                 if (this.mWebSocketChannel != null) {
-                    jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                    jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
                 }
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("userId", this.mUserId);
@@ -2627,7 +2626,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             jSONObject.put("env", this.mQualityMonitorEnv);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
             if (this.mWebSocketChannel != null) {
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
             }
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put("userId", this.mUserId);
@@ -2721,7 +2720,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             jSONObject.put("env", this.mQualityMonitorEnv);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
             if (this.mWebSocketChannel != null) {
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
             }
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put("userId", this.mUserId);
@@ -2743,13 +2742,13 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
             jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
-            jSONObject2.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
+            jSONObject2.put("device", RtcLogReport.getDeviceModel());
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
             jSONObject.put("env", this.mQualityMonitorEnv);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
             if (this.mWebSocketChannel != null) {
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
             }
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put("userId", this.mUserId);
@@ -2845,7 +2844,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             jSONObject.put("env", this.mQualityMonitorEnv);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
             if (j > 0) {
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, j);
+                jSONObject.put("roomId", j);
             }
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put("userId", this.mUserId);
@@ -2905,7 +2904,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                         jSONObject.put("env", this.mQualityMonitorEnv);
                         jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
                         if (this.mWebSocketChannel != null) {
-                            jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                            jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
                         }
                         jSONObject.put("timestamp", System.currentTimeMillis());
                         jSONObject.put("userId", this.mUserId);
@@ -3544,7 +3543,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         if (interceptable == null || interceptable.invokeL(1048631, this, bigInteger) == null) {
             BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
             if (baiduRtcRoomDelegate != null) {
-                baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, "ok");
+                baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, DnsModel.MSG_OK);
             }
             this.mPublisherHandle = bigInteger;
             ErrorInfoReport.getInstance().setPublishHandleId(this.mPublisherHandle.longValue());

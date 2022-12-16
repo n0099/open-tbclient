@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +44,7 @@ public class PtokenStat {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(Config.DEVICE_PART, "android");
+        hashMap.put("device", "android");
         hashMap.put("sys_version", Build.VERSION.RELEASE);
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {

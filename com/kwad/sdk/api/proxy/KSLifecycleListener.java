@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface KSLifecycleListener {
     @Keep
     void onActivityCreated(Activity activity, Bundle bundle);

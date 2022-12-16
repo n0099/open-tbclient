@@ -39,7 +39,7 @@ public class o9<T> extends p9<T> {
         inflate.setTag(this);
     }
 
-    public View j(int i) {
+    public View g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {

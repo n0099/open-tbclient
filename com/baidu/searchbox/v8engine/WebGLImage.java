@@ -22,7 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebGLImage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -63,7 +63,7 @@ public class WebGLImage {
 
     public native boolean nativeLoadAsset(long j, Bitmap bitmap);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CanvasResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

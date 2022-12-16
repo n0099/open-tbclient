@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pa5;
 import com.baidu.tieba.qa5;
 import com.baidu.tieba.ra5;
-import com.baidu.tieba.wa5;
+import com.baidu.tieba.sa5;
+import com.baidu.tieba.xa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class WriteThreadDelegateStatic extends pa5 {
+public class WriteThreadDelegateStatic extends qa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class WriteThreadDelegateStatic extends pa5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((ra5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            ((sa5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
         }
     }
 
@@ -91,20 +91,20 @@ public class WriteThreadDelegateStatic extends pa5 {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    @Override // com.baidu.tieba.pa5
-    public qa5 a() {
+    @Override // com.baidu.tieba.qa5
+    public ra5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qa5 qa5Var = new qa5();
-            qa5Var.a = new WriteThreadFragment();
-            qa5Var.e = 9;
-            qa5Var.d = R.drawable.obfuscated_res_0x7f080802;
-            qa5Var.h = wa5.d().c(AlbumActivityConfig.FROM_WRITE);
-            qa5Var.i = qa5.j;
-            return qa5Var;
+            ra5 ra5Var = new ra5();
+            ra5Var.a = new WriteThreadFragment();
+            ra5Var.e = 9;
+            ra5Var.d = R.drawable.icon_mask_home_publish;
+            ra5Var.h = xa5.d().c(AlbumActivityConfig.FROM_WRITE);
+            ra5Var.i = ra5.j;
+            return ra5Var;
         }
-        return (qa5) invokeV.objValue;
+        return (ra5) invokeV.objValue;
     }
 
     public WriteThreadDelegateStatic() {
@@ -121,7 +121,7 @@ public class WriteThreadDelegateStatic extends pa5 {
         }
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

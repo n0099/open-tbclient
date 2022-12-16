@@ -132,7 +132,7 @@ public class WDownLoadService extends Service {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f1616), getString(R.string.obfuscated_res_0x7f0f1616), 0);
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f1652), getString(R.string.obfuscated_res_0x7f0f1652), 0);
                 c(info);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -155,7 +155,7 @@ public class WDownLoadService extends Service {
                 if (Build.VERSION.SDK_INT >= 26) {
                     notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f0812ed).setTicker(str).setContentText(str2).build();
+                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f081317).setTicker(str).setContentText(str2).build();
                     if (i > 0 && i <= 100) {
                         builder.setProgress(100, i, false);
                     } else {
@@ -174,8 +174,8 @@ public class WDownLoadService extends Service {
                 return;
             }
             NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f0812ed);
-            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0812ed));
+            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f081317);
+            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081317));
             builder2.setContentTitle(str);
             if (i > 0 && i < 100) {
                 builder2.setProgress(100, i, false);

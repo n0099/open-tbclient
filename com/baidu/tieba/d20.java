@@ -43,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d20 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loki-native-NativeCrashHandler";
@@ -97,7 +97,7 @@ public class d20 {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = of1.b();
+        this.mProcessName = nf1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             initKITKAT();
@@ -124,7 +124,7 @@ public class d20 {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = of1.b();
+        this.mProcessName = nf1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         this.mForwardingHandlerSupplier = supplier;
     }

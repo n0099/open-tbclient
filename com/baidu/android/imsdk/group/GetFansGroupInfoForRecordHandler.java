@@ -16,6 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic = null;
@@ -122,7 +124,9 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
                                     GroupInfo groupInfo = (GroupInfo) this.val$object.get(0);
                                     groupInfo.setMarkTop(getShieldAndTopResult.getMarkTop());
                                     groupInfo.setMarkTopTime(getShieldAndTopResult.getMarkTopTime());
+                                    groupInfo.setDisturb(getShieldAndTopResult.getDisturbStatus());
                                     GroupInfoDAOImpl.updateGroupMarkTop(this.this$1.this$0.mContext, Utility.getLongByString(groupInfo.getGroupId(), 0L), getShieldAndTopResult.getMarkTop(), getShieldAndTopResult.getMarkTopTime());
+                                    GroupInfoDAOImpl.updateGroupDoNotDisturb(this.this$1.this$0.mContext, Utility.getLongByString(groupInfo.getGroupId(), 0L), getShieldAndTopResult.getDisturbStatus());
                                 }
                                 this.this$1.val$callBack.onSuccess(57, 1, this.val$object.get(0));
                             }
@@ -141,6 +145,14 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
         }
         LogUtils.d(TAG, "updateChatRecord " + obj.toString());
         GroupInfo groupInfo = (GroupInfo) obj;
-        updateChatRecord(chatObject, groupInfo.getGroupName(), i, groupInfo.getHeadUrl(), 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
+        String groupName = groupInfo.getGroupName();
+        String headUrl = groupInfo.getHeadUrl();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("disturb", groupInfo.getDisturb());
+        } catch (JSONException unused) {
+            LogUtils.e(TAG, "json put is error !");
+        }
+        updateChatRecord(chatObject, groupName, i, headUrl, 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "", jSONObject.toString());
     }
 }

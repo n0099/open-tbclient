@@ -21,7 +21,7 @@ public final class BuildConfig {
     public static final String LIBRARY_PACKAGE_NAME = "com.fun.ad.sdk";
     public static final String PLUGIN_RC = null;
     public static final String REPORT_DOMAIN = "https://rpe.xdplt.com";
-    public static final int VERSION_CODE = 10216;
+    public static final int VERSION_CODE = 10303;
     public static final String VERSION_NAME = "4.6.10.13";
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -9,12 +9,12 @@ public class aj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) {
-            return view2.canScrollVertically(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            return view2.hasOverlappingRendering();
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 }

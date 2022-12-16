@@ -6,6 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -225,6 +226,14 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         }
     }
 
+    @Override // com.baidu.tieba.co
+    public void notifyItemChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            notifyDataSetChanged();
+        }
+    }
+
     public void f(ViewGroup viewGroup, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
@@ -301,5 +310,13 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
             return view3;
         }
         return (View) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.co
+    public void notifyItemChanged(int i, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, obj) == null) {
+            notifyDataSetChanged();
+        }
     }
 }

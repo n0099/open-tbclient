@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +28,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public static final String TAG = "FansGroupAtMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AtData> mAtDataList;
+    public String mOperation;
     public String mText;
 
     /* loaded from: classes.dex */
@@ -264,11 +266,20 @@ public class FansGroupAtMsg extends NormalMsg {
         return (ArrayList) invokeV.objValue;
     }
 
+    public String getOperation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mOperation;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mText;
         }
         return (String) invokeV.objValue;
@@ -277,7 +288,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mText;
         }
         return (String) invokeV.objValue;
@@ -328,13 +339,14 @@ public class FansGroupAtMsg extends NormalMsg {
             this.mAtDataList = arrayList;
             parcel.readTypedList(arrayList, AtData.CREATOR);
         }
+        this.mOperation = parcel.readString();
     }
 
     public boolean isGroupAtUserById(String str) {
         InterceptResult invokeL;
         ArrayList<AtData> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             if (!isMsgRead() && (arrayList = this.mAtDataList) != null && arrayList.size() != 0 && !TextUtils.isEmpty(str)) {
                 Iterator<AtData> it = this.mAtDataList.iterator();
                 while (it.hasNext()) {
@@ -359,7 +371,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             String jsonContent = getJsonContent();
             if (TextUtils.isEmpty(jsonContent)) {
                 return false;
@@ -367,9 +379,10 @@ public class FansGroupAtMsg extends NormalMsg {
             try {
                 JSONObject jSONObject = new JSONObject(jsonContent);
                 this.mText = jSONObject.optString("text");
+                this.mOperation = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
                 JSONArray optJSONArray = jSONObject.optJSONArray("at_data");
-                int length = optJSONArray.length();
-                if (length > 0) {
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
                     this.mAtDataList = new ArrayList<>(length);
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
@@ -395,14 +408,14 @@ public class FansGroupAtMsg extends NormalMsg {
 
     public void setDataList(ArrayList<AtData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
             this.mAtDataList = arrayList;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.mText = str;
         }
     }
@@ -410,7 +423,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public boolean setJsonContent(String str, ArrayList<AtData> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, arrayList)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, arrayList)) == null) {
             if (TextUtils.isEmpty(str) || arrayList == null) {
                 return false;
             }
@@ -443,7 +456,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public void writeToParcel(Parcel parcel, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mText);
             ArrayList<AtData> arrayList = this.mAtDataList;
@@ -456,6 +469,7 @@ public class FansGroupAtMsg extends NormalMsg {
             if (i2 > 0) {
                 parcel.writeTypedList(this.mAtDataList);
             }
+            parcel.writeString(this.mOperation);
         }
     }
 }

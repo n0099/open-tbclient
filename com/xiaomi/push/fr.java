@@ -32,10 +32,10 @@ public final class fr extends fl {
 
     @Override // com.xiaomi.push.fl
     /* renamed from: a */
-    public ByteBuffer mo336a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo346a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m339a().length == 0 ? byteBuffer : super.mo336a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m349a().length == 0 ? byteBuffer : super.mo346a(byteBuffer) : (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.fl
@@ -43,7 +43,7 @@ public final class fr extends fl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m339a().length == 0) {
+            if (m349a().length == 0) {
                 return 0;
             }
             return super.c();

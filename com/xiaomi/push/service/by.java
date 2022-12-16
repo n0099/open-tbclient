@@ -36,14 +36,14 @@ public class by implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                concurrentHashMap = this.a.f959a;
+                concurrentHashMap = this.a.f982a;
                 for (bx.a aVar : concurrentHashMap.values()) {
                     aVar.run();
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("Sync job exception :" + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m99a("Sync job exception :" + e.getMessage());
             }
-            this.a.f960a = false;
+            this.a.f983a = false;
         }
     }
 }

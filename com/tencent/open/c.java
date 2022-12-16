@@ -17,7 +17,6 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,13 +40,13 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0711a {
+public class c extends com.tencent.open.b implements a.InterfaceC0731a {
     public static /* synthetic */ Interceptable $ic;
     public static Toast c;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public IUiListener e;
-    public C0712c f;
+    public C0732c f;
     public Handler g;
     public com.tencent.open.b.a h;
     public com.tencent.open.b.b i;
@@ -191,7 +190,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0712c extends DefaultUiListener {
+    public static class C0732c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -200,7 +199,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
         public String d;
         public IUiListener e;
 
-        public C0712c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0732c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -286,16 +285,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-        public C0712c b;
+        public C0732c b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, C0712c c0712c, Looper looper) {
+        public d(c cVar, C0732c c0732c, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, c0712c, looper};
+                Object[] objArr = {cVar, c0732c, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -307,7 +306,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
                 }
             }
             this.a = cVar;
-            this.b = c0712c;
+            this.b = c0732c;
         }
 
         @Override // android.os.Handler
@@ -356,7 +355,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
         }
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0712c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0732c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this, this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -440,7 +439,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
             WeakReference<Context> weakReference = this.j;
             if (weakReference != null && weakReference.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.j.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+                settings.setDatabasePath(this.j.get().getApplicationContext().getDir("databases", 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new b(this, null), "sdk_js_if");
@@ -482,7 +481,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0711a
+    @Override // com.tencent.open.b.a.InterfaceC0731a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -499,7 +498,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0711a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0711a
+    @Override // com.tencent.open.b.a.InterfaceC0731a
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o52 extends g52<JSONObject, fw1> {
+public class o52 extends f52<JSONObject, ew1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,41 +29,35 @@ public class o52 extends g52<JSONObject, fw1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k52
+    @Override // com.baidu.tieba.j52
     @NonNull
     /* renamed from: c */
-    public fw1 a(@NonNull JSONObject jSONObject) {
+    public ew1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new fw1(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new fw1(202, "data is required");
-            }
-            String optString = optJSONObject.optString("status");
-            if (TextUtils.isEmpty(optString)) {
-                return new fw1(202, "status is required");
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
+            if (b()) {
+                if (f52.a) {
+                    e12.b("Api-HandleException", "has triggered fmp before remove skeleton");
                 }
-            } else if (optString.equals("0")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return new fw1(202, "status value is invalid");
+                return new ew1(0);
+            } else if (jSONObject == null) {
+                return new ew1(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new ew1(202, "data is required");
                 }
-                new e52().d();
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new ew1(202, "path is required");
+                }
+                d52 d52Var = new d52();
+                d52Var.g(optString);
+                d52Var.e();
+                return new ew1(0);
             }
-            return new fw1(0);
         }
-        return (fw1) invokeL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

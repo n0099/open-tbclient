@@ -23,21 +23,21 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc7;
-import com.baidu.tieba.ib7;
+import com.baidu.tieba.cd7;
+import com.baidu.tieba.gc7;
+import com.baidu.tieba.ik5;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.imMessageCenter.im.view.GameContactsView;
 import com.baidu.tieba.imMessageCenter.im.view.GamePersonalChatTitleView;
-import com.baidu.tieba.l65;
 import com.baidu.tieba.m65;
-import com.baidu.tieba.oj5;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.sf7;
-import com.baidu.tieba.sj5;
+import com.baidu.tieba.mj5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.n65;
+import com.baidu.tieba.pi7;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ti5;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -59,8 +59,8 @@ public class GamePersonalChatView extends PersonalChatView {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public ib7 C;
-    public m65 D;
+    public gc7 C;
+    public n65 D;
     public final GamePersonalChatActivity r;
     public boolean s;
     public GameContactsView t;
@@ -72,7 +72,7 @@ public class GamePersonalChatView extends PersonalChatView {
     public String z;
 
     /* loaded from: classes4.dex */
-    public class a implements ti5<Void> {
+    public class a implements mj5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -98,7 +98,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ti5
+        @Override // com.baidu.tieba.mj5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class GamePersonalChatView extends PersonalChatView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921708 && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
-                this.a.l0(hashMap);
+                this.a.k0(hashMap);
                 this.a.t0(hashMap);
                 Integer num = (Integer) hashMap.get("imShowType");
                 if (num == null) {
@@ -229,10 +229,10 @@ public class GamePersonalChatView extends PersonalChatView {
                             this.a.u0();
                             return;
                         }
-                        this.a.m0();
+                        this.a.l0();
                         return;
                     }
-                    List<ib7> h = ib7.h(hashMap);
+                    List<gc7> h = gc7.h(hashMap);
                     if (!h.isEmpty()) {
                         this.a.q0(h);
                         return;
@@ -309,20 +309,20 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.imMessageCenter.im.view.GameContactsView.a
-        public void a(View view2, ib7 ib7Var, int i) {
+        public void a(View view2, gc7 gc7Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, ib7Var, i) != null) || ib7Var == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, gc7Var, i) != null) || gc7Var == null) {
                 return;
             }
-            this.a.C = ib7Var;
+            this.a.C = gc7Var;
             if (i != 3) {
-                this.a.u.h(ib7Var);
+                this.a.u.h(gc7Var);
                 this.a.r.K = false;
-                this.a.v0(ib7Var);
-                sf7.h(this.a.B, this.a.A, ib7Var.d(), ib7Var.b(), ib7Var.e());
+                this.a.v0(gc7Var);
+                pi7.h(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
             }
             if (i != 1) {
-                sf7.e(this.a.B, this.a.A, ib7Var.d(), ib7Var.b(), ib7Var.e());
+                pi7.e(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
             }
         }
     }
@@ -352,18 +352,18 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.imMessageCenter.im.view.GamePersonalChatTitleView.b
-        public void a(@NonNull ib7 ib7Var) {
+        public void a(@NonNull gc7 gc7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ib7Var) == null) {
-                sf7.a(this.a.B, this.a.A, ib7Var.d(), ib7Var.b(), ib7Var.e());
-                if (ib7Var.e()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, gc7Var) == null) {
+                pi7.a(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
+                if (gc7Var.e()) {
                     if (this.a.r.a1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.a1().sendTextMessage(this.a.z);
                         return;
                     }
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, ib7Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, gc7Var));
             }
         }
     }
@@ -399,9 +399,9 @@ public class GamePersonalChatView extends PersonalChatView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object obj;
-            ib7 g;
+            gc7 g;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = ib7.g(obj)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = gc7.g(obj)) == null) {
                 return;
             }
             if (this.a.t.b(g)) {
@@ -467,7 +467,7 @@ public class GamePersonalChatView extends PersonalChatView {
     }
 
     /* loaded from: classes4.dex */
-    public class j implements m65 {
+    public class j implements n65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePersonalChatView a;
@@ -490,18 +490,18 @@ public class GamePersonalChatView extends PersonalChatView {
             this.a = gamePersonalChatView;
         }
 
-        @Override // com.baidu.tieba.m65
-        public void B(l65 l65Var) {
+        @Override // com.baidu.tieba.n65
+        public void A(m65 m65Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, l65Var) == null) && l65Var != null && this.a.C != null) {
-                int i = l65Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, m65Var) == null) && m65Var != null && this.a.C != null) {
+                int i = m65Var.a;
                 if (i == 14) {
-                    sf7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    pi7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                     return;
                 }
                 int i2 = 1;
                 if (i == 63) {
-                    Object obj = l65Var.c;
+                    Object obj = m65Var.c;
                     if (obj instanceof Boolean) {
                         boolean booleanValue = ((Boolean) obj).booleanValue();
                         String str = this.a.B;
@@ -511,10 +511,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        sf7.f(str, str2, b, e, i2);
+                        pi7.f(str, str2, b, e, i2);
                     }
                 } else if (i == 62) {
-                    Object obj2 = l65Var.c;
+                    Object obj2 = m65Var.c;
                     if (obj2 instanceof Boolean) {
                         boolean booleanValue2 = ((Boolean) obj2).booleanValue();
                         String str3 = this.a.B;
@@ -524,10 +524,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        sf7.c(str3, str4, b2, e2, i2);
+                        pi7.c(str3, str4, b2, e2, i2);
                     }
                 } else if (i == 64) {
-                    sf7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    pi7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                 }
             }
         }
@@ -569,7 +569,7 @@ public class GamePersonalChatView extends PersonalChatView {
     }
 
     /* loaded from: classes4.dex */
-    public class l extends oj5<Void> {
+    public class l extends ik5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -593,13 +593,13 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oj5
+        @Override // com.baidu.tieba.ik5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return cc7.w().a(this.a);
+                return cd7.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }
@@ -677,7 +677,7 @@ public class GamePersonalChatView extends PersonalChatView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.t.c();
-            m0();
+            l0();
         }
     }
 
@@ -723,12 +723,12 @@ public class GamePersonalChatView extends PersonalChatView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            qw4.d(this.t).f(R.color.CAM_X0204);
+            rw4.d(this.t).f(R.color.CAM_X0204);
             this.u.g();
         }
     }
 
-    public final void q0(@NonNull List<ib7> list) {
+    public final void q0(@NonNull List<gc7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.t.a(list);
@@ -744,7 +744,7 @@ public class GamePersonalChatView extends PersonalChatView {
         this.t.e(((MemoryChangedMessage) customResponsedMessage).getData());
     }
 
-    public final void l0(HashMap hashMap) {
+    public final void k0(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && (hashMap.get("imTopMargin") instanceof Integer)) {
             Integer num = (Integer) hashMap.get("imTopMargin");
@@ -755,7 +755,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    public final void m0() {
+    public final void l0() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.originListContainer.getVisibility() != 0) {
             return;
@@ -771,7 +771,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         GamePersonalChatActivity gamePersonalChatActivity = this.r;
         yi.z(gamePersonalChatActivity, gamePersonalChatActivity.getCurrentFocus());
-        this.mTool.A(new l65(5, -1, null));
+        this.mTool.B(new m65(5, -1, null));
     }
 
     public final void o0() {
@@ -779,7 +779,7 @@ public class GamePersonalChatView extends PersonalChatView {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             FragmentManager supportFragmentManager = ((AbsMsglistView) this).mContext.getSupportFragmentManager();
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-            Fragment findFragmentById = supportFragmentManager.findFragmentById(R.id.obfuscated_res_0x7f090a30);
+            Fragment findFragmentById = supportFragmentManager.findFragmentById(R.id.flutter_page_container);
             if (findFragmentById == null) {
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921707, Fragment.class, new FlutterOpenData(((AbsMsglistView) this).mContext, null, this.w));
                 if (runTask != null) {
@@ -793,7 +793,7 @@ public class GamePersonalChatView extends PersonalChatView {
             }
             Fragment fragment = this.v;
             if (fragment != null) {
-                beginTransaction.add(R.id.obfuscated_res_0x7f090a30, fragment);
+                beginTransaction.add(R.id.flutter_page_container, fragment);
             }
             beginTransaction.commit();
         }
@@ -821,18 +821,18 @@ public class GamePersonalChatView extends PersonalChatView {
             if (navigationBar != null) {
                 navigationBar.setVisibility(8);
             }
-            GamePersonalChatTitleView gamePersonalChatTitleView = (GamePersonalChatTitleView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090ca6);
+            GamePersonalChatTitleView gamePersonalChatTitleView = (GamePersonalChatTitleView) this.mRootView.findViewById(R.id.game_title_container);
             this.u = gamePersonalChatTitleView;
             gamePersonalChatTitleView.setVisibility(0);
-            GameContactsView gameContactsView = (GameContactsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090c86);
+            GameContactsView gameContactsView = (GameContactsView) this.mRootView.findViewById(R.id.game_contacts_view);
             this.t = gameContactsView;
             gameContactsView.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mListMain.getLayoutParams();
-            layoutParams.addRule(1, R.id.obfuscated_res_0x7f090c86);
+            layoutParams.addRule(1, R.id.game_contacts_view);
             this.mListMain.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.viewHeader.getLayoutParams();
-            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f090ca6);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f090c86);
+            layoutParams2.addRule(3, R.id.game_title_container);
+            layoutParams2.addRule(1, R.id.game_contacts_view);
             this.viewHeader.setLayoutParams(layoutParams2);
             this.mNetworkView.b();
             RoundRelativeLayout roundRelativeLayout = this.originListContainer;
@@ -842,7 +842,7 @@ public class GamePersonalChatView extends PersonalChatView {
             layoutParams3.height = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070749);
             layoutParams3.addRule(12);
             this.originListContainer.setLayoutParams(layoutParams3);
-            View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09237f);
+            View findViewById = this.mRootView.findViewById(R.id.transpant_view);
             this.x = findViewById;
             findViewById.setVisibility(8);
             this.originListContainer.setVisibility(8);
@@ -896,18 +896,18 @@ public class GamePersonalChatView extends PersonalChatView {
                 str3 = (String) hashMap2.get("order_area");
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07bc), str4));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c5), str4));
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ba), str));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c3), str));
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07bb), str2));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c4), str2));
                 }
                 if (!TextUtils.isEmpty(str3)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07b8), str3));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c1), str3));
                 }
-                sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07b9));
+                sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c2));
                 this.z = sb.toString();
             }
         }
@@ -923,21 +923,21 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         if (!TextUtils.isEmpty(str3)) {
         }
-        sb2.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07b9));
+        sb2.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c2));
         this.z = sb2.toString();
     }
 
-    public final void v0(@NonNull ib7 ib7Var) {
+    public final void v0(@NonNull gc7 gc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ib7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, gc7Var) == null) {
             UserData userData = new UserData();
-            userData.setPortrait(ib7Var.a());
-            userData.setName_show(ib7Var.c());
-            userData.setUserId(ib7Var.d());
-            userData.setUserIdLong(xg.g(ib7Var.d(), 0L));
+            userData.setPortrait(gc7Var.a());
+            userData.setName_show(gc7Var.c());
+            userData.setUserId(gc7Var.d());
+            userData.setUserIdLong(xg.g(gc7Var.d(), 0L));
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            sj5.c(new l(this, linkedList), new a(this, userData));
+            mk5.c(new l(this, linkedList), new a(this, userData));
         }
     }
 }

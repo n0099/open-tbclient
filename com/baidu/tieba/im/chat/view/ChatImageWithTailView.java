@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.h95;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,14 +32,15 @@ public class ChatImageWithTailView extends LinearLayout {
     public LinearLayout e;
     public ImageView f;
     public TextView g;
+    public boolean h;
 
     /* loaded from: classes4.dex */
-    public class a implements g95 {
+    public class a implements h95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatImageWithTailView a;
 
-        @Override // com.baidu.tieba.g95
+        @Override // com.baidu.tieba.h95
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -64,16 +65,16 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a = chatImageWithTailView;
         }
 
-        @Override // com.baidu.tieba.g95
+        @Override // com.baidu.tieba.h95
         public void onLoadFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.h) {
                 this.a.a.setVisibility(8);
                 this.a.e.setVisibility(0);
             }
         }
 
-        @Override // com.baidu.tieba.g95
+        @Override // com.baidu.tieba.h95
         public void onLoadSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -101,7 +102,8 @@ public class ChatImageWithTailView extends LinearLayout {
                 return;
             }
         }
-        c(context);
+        this.h = true;
+        d(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,51 +125,59 @@ public class ChatImageWithTailView extends LinearLayout {
                 return;
             }
         }
-        c(context);
+        this.h = true;
+        d(context);
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.h = z;
+        }
     }
 
     public void setFromSource(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, textView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, textView) == null) {
             this.d = textView;
         }
     }
 
     public void setIcon(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tbImageView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, tbImageView) == null) {
             this.c = tbImageView;
         }
     }
 
     public void setImage(GifView gifView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, gifView) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gifView) == null) {
             this.a = gifView;
         }
     }
 
     public void setIsSupportNight(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.c.setAutoChangeStyle(z);
         }
     }
 
     public void setTail(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, linearLayout) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, linearLayout) == null) {
             this.b = linearLayout;
         }
     }
 
-    public void c(Context context) {
+    public void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d3, this);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f090f22);
+            LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
+            GifView gifView = (GifView) findViewById(R.id.img_msgitem_image_new);
             this.a = gifView;
-            gifView.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f0550));
+            gifView.setContentDescription(getContext().getString(R.string.editor_image));
             this.a.setDrawerType(1);
             this.a.setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0203));
@@ -177,19 +187,19 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a.setRadiusById(R.string.J_X05);
             this.a.setShowStaticDrawable(false);
             this.a.setLoadCallback(new a(this));
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f5e);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092110);
+            this.b = (LinearLayout) findViewById(R.id.small_tail);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
             this.c = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
+            tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
             this.c.setAutoChangeStyle(false);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09061c);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e41);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c7);
-            qw4 d = qw4.d(this.e);
+            this.d = (TextView) findViewById(R.id.tail_game_from);
+            this.e = (LinearLayout) findViewById(R.id.chat_img_error_holder);
+            this.f = (ImageView) findViewById(R.id.ic_chat_img_error);
+            this.g = (TextView) findViewById(R.id.tv_chat_img_error);
+            rw4 d = rw4.d(this.e);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0205);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080981, R.color.CAM_X0203, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.icon_pure_im_image_failed, R.color.CAM_X0203, null);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0110);
         }
     }
@@ -197,7 +207,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public TextView getFromSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
         return (TextView) invokeV.objValue;
@@ -206,7 +216,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public TbImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
         return (TbImageView) invokeV.objValue;
@@ -215,7 +225,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public GifView getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return (GifView) invokeV.objValue;
@@ -224,7 +234,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public LinearLayout getTail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.b;
         }
         return (LinearLayout) invokeV.objValue;

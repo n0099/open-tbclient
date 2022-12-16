@@ -26,6 +26,7 @@ public class GoodsMsg extends NormalMsg {
     public List<String> mAllImgs;
     public double mCoupon;
     public String mEvent;
+    public int mGoodsTemplateType;
     public int mId;
     public String mImage;
     public String mJumpName;
@@ -120,10 +121,19 @@ public class GoodsMsg extends NormalMsg {
         return (String) invokeV.objValue;
     }
 
-    public int getId() {
+    public int getGoodsTemplateType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mGoodsTemplateType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mId;
         }
         return invokeV.intValue;
@@ -132,7 +142,7 @@ public class GoodsMsg extends NormalMsg {
     public String getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mImage;
         }
         return (String) invokeV.objValue;
@@ -141,7 +151,7 @@ public class GoodsMsg extends NormalMsg {
     public String getJumpName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mJumpName;
         }
         return (String) invokeV.objValue;
@@ -150,7 +160,7 @@ public class GoodsMsg extends NormalMsg {
     public String getOriginPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mOriginPrice;
         }
         return (String) invokeV.objValue;
@@ -159,7 +169,7 @@ public class GoodsMsg extends NormalMsg {
     public double getPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mPrice;
         }
         return invokeV.doubleValue;
@@ -169,7 +179,7 @@ public class GoodsMsg extends NormalMsg {
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return "[好货来袭]" + this.mTitle;
         }
         return (String) invokeV.objValue;
@@ -178,7 +188,7 @@ public class GoodsMsg extends NormalMsg {
     public int getSales() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mSales;
         }
         return invokeV.intValue;
@@ -187,7 +197,7 @@ public class GoodsMsg extends NormalMsg {
     public String getSchema() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mSchema;
         }
         return (String) invokeV.objValue;
@@ -196,7 +206,7 @@ public class GoodsMsg extends NormalMsg {
     public String getShopName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mShopName;
         }
         return (String) invokeV.objValue;
@@ -205,7 +215,7 @@ public class GoodsMsg extends NormalMsg {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mTitle;
         }
         return (String) invokeV.objValue;
@@ -227,6 +237,7 @@ public class GoodsMsg extends NormalMsg {
         this.mSales = -1;
         this.mCoupon = -1.0d;
         this.mAllImgs = new ArrayList();
+        this.mGoodsTemplateType = 0;
         setMsgType(29);
     }
 
@@ -251,6 +262,7 @@ public class GoodsMsg extends NormalMsg {
         this.mSales = -1;
         this.mCoupon = -1.0d;
         this.mAllImgs = new ArrayList();
+        this.mGoodsTemplateType = 0;
         this.mTitle = parcel.readString();
         this.mImage = parcel.readString();
         this.mPrice = parcel.readDouble();
@@ -262,6 +274,7 @@ public class GoodsMsg extends NormalMsg {
         this.mJumpName = parcel.readString();
         this.mEvent = parcel.readString();
         this.mOriginPrice = parcel.readString();
+        this.mGoodsTemplateType = parcel.readInt();
         parcel.readList(this.mAllImgs, String.class.getClassLoader());
     }
 
@@ -284,22 +297,23 @@ public class GoodsMsg extends NormalMsg {
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         InterceptResult invokeV;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(getJsonContent());
-                LogUtils.d(TAG, "parse goods msg " + getJsonContent());
-                this.mTitle = jSONObject.getString("title");
-                this.mImage = jSONObject.getString("image");
+                String jsonContent = getJsonContent();
+                JSONObject jSONObject = new JSONObject(jsonContent);
+                LogUtils.d(TAG, "parse goods msg " + jsonContent);
+                this.mTitle = jSONObject.optString("title");
+                this.mImage = jSONObject.optString("image");
                 this.mAllImgs.clear();
                 this.mAllImgs.add(this.mImage);
-                if (jSONObject.has("more_image")) {
-                    JSONArray jSONArray = jSONObject.getJSONArray("more_image");
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        this.mAllImgs.add(jSONArray.getString(i));
+                if (jSONObject.has("more_image") && (optJSONArray = jSONObject.optJSONArray("more_image")) != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.mAllImgs.add(optJSONArray.optString(i));
                     }
                 }
-                this.mPrice = jSONObject.getDouble("price");
+                this.mPrice = jSONObject.optDouble("price");
                 this.mSales = jSONObject.optInt("sales", -1);
                 this.mCoupon = getCouponFromJson(jSONObject);
                 this.mSchema = jSONObject.optString("slink", "");
@@ -308,6 +322,7 @@ public class GoodsMsg extends NormalMsg {
                 this.mJumpName = jSONObject.optString("des_source");
                 this.mEvent = jSONObject.optString("event");
                 this.mOriginPrice = jSONObject.optString("origin_price");
+                this.mGoodsTemplateType = jSONObject.optInt("template_type");
                 return true;
             } catch (JSONException e) {
                 LogUtils.e(TAG, "parseJsonString JSONException", e);
@@ -320,7 +335,7 @@ public class GoodsMsg extends NormalMsg {
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mImage);
@@ -333,6 +348,7 @@ public class GoodsMsg extends NormalMsg {
             parcel.writeString(this.mJumpName);
             parcel.writeString(this.mEvent);
             parcel.writeString(this.mOriginPrice);
+            parcel.writeInt(this.mGoodsTemplateType);
             parcel.writeList(this.mAllImgs);
         }
     }

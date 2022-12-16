@@ -9,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.UnsupportedEncodingException;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
@@ -25,7 +24,7 @@ public class d {
     public static final /* synthetic */ boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +50,7 @@ public class d {
         public abstract boolean a(byte[] bArr, int i, int i2, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] f;
@@ -237,7 +236,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int j = 19;
@@ -307,7 +306,7 @@ public class d {
             if (r17.h == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:32:0x00db, code lost:
-            r2[r6] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
+            r2[r6] = 13;
             r6 = r6 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00e0, code lost:
@@ -372,7 +371,7 @@ public class d {
                 if (i10 == 0) {
                     if (this.h) {
                         i8 = 5;
-                        bArr3[4] = StrictLineReader.CR;
+                        bArr3[4] = 13;
                     } else {
                         i8 = 4;
                     }
@@ -414,7 +413,7 @@ public class d {
                             }
                             if (this.g) {
                                 if (this.h) {
-                                    bArr3[i5] = StrictLineReader.CR;
+                                    bArr3[i5] = 13;
                                     i5++;
                                 }
                                 i6 = i5 + 1;
@@ -459,7 +458,7 @@ public class d {
                             }
                             if (this.g) {
                                 if (this.h) {
-                                    bArr3[i25] = StrictLineReader.CR;
+                                    bArr3[i25] = 13;
                                     i25++;
                                 }
                                 i6 = i25 + 1;
@@ -480,7 +479,7 @@ public class d {
                         } else {
                             if (this.g && i5 > 0 && i10 != 19) {
                                 if (this.h) {
-                                    bArr3[i5] = StrictLineReader.CR;
+                                    bArr3[i5] = 13;
                                     i5++;
                                 }
                                 i6 = i5 + 1;

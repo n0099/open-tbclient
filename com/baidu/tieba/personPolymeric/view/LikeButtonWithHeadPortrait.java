@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de5;
 import com.baidu.tieba.r05;
+import com.baidu.tieba.ve5;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -167,9 +167,9 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements r05 {
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
             if (!this.e) {
                 Context context = getContext();
-                if ((context instanceof Activity) && (context instanceof de5)) {
+                if ((context instanceof Activity) && (context instanceof ve5)) {
                     String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                    List<String> currentPageSourceKeyList = ((de5) context).getCurrentPageSourceKeyList();
+                    List<String> currentPageSourceKeyList = ((ve5) context).getCurrentPageSourceKeyList();
                     if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !xi.isEmpty(stringExtra)) {
                         TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
                     }
@@ -205,13 +205,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements r05 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0904, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090d5f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d091a, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090daf);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090457);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0925f3);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c85);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090458);
+            this.c = findViewById(R.id.obfuscated_res_0x7f092667);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091cf0);
         }
     }
 

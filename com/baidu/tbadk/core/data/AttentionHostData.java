@@ -45,7 +45,7 @@ public class AttentionHostData implements Serializable {
             this.uid = jSONObject.optString("uid");
             this.portrait = jSONObject.optString("portrait");
             this.likeStatus = jSONObject.optInt("like_status", 0);
-            this.isGod = jSONObject.optBoolean("is_god", false);
+            this.isGod = jSONObject.optBoolean(IMUserExtraData.KEY_IS_GOD, false);
         } catch (Throwable unused) {
         }
     }
@@ -72,7 +72,7 @@ public class AttentionHostData implements Serializable {
                 jSONObject.put("uid", this.uid);
                 jSONObject.put("portrait", this.portrait);
                 jSONObject.put("like_status", this.likeStatus);
-                jSONObject.put("is_god", this.isGod);
+                jSONObject.put(IMUserExtraData.KEY_IS_GOD, this.isGod);
                 return jSONObject.toString();
             } catch (Throwable unused) {
                 return null;

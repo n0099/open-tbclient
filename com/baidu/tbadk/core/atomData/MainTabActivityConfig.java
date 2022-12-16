@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String ACTIVITY_NAME = "MainTabActivity";
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
     public static boolean ENTER_FORUM_TAB_AVAIBLE = true;
     public static final String EXIT_APP = "exit_app";
     public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
-    public static boolean IS_INDICATOR_BOTTOM = true;
     public static boolean IS_MAIN_TAB_SPLASH_SHOW = false;
     public static final String IS_NEW_USER = "is_new_user";
     public static final String MAIN_TAB = "main_tab";
@@ -72,15 +72,6 @@ public class MainTabActivityConfig extends IntentConfig {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    public static void toExitApp(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(context);
-            mainTabActivityConfig.getIntent().putExtra(EXIT_APP, true);
-            mainTabActivityConfig.start();
         }
     }
 

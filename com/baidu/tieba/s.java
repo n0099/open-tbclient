@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface s {
     boolean a(Context context, File file);
 

@@ -74,7 +74,7 @@ public class DBOperationFactory {
                 synchronized (sDbOperatioContainer) {
                     LogUtils.e(TAG, "dbname : " + str);
                     if (!sDbOperatioContainer.containsKey(str)) {
-                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 50));
+                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 77));
                         DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                         dBGroupTableManager.init(dBOperation);
                         dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
@@ -87,8 +87,8 @@ public class DBOperationFactory {
         return (DBOperation) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0044, code lost:
-        if (r0 != r2) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0045, code lost:
+        if (r8 != r2) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -112,12 +112,22 @@ public class DBOperationFactory {
                     }
                     sUk = uk;
                     sAppid = appid;
-                    return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
+                    String path = context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("dbName :");
+                    sb.append(path);
+                    LogUtils.d(TAG, sb.toString());
+                    return getDbOperation(context, path);
                 }
                 closeDb(context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + sUk + "_" + sAppid + ".db").getPath());
                 sUk = uk;
                 sAppid = appid;
-                return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
+                String path2 = context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath();
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("dbName :");
+                sb2.append(path2);
+                LogUtils.d(TAG, sb2.toString());
+                return getDbOperation(context, path2);
             }
             LogUtils.d(TAG, "UK OR appid Not initialize!");
             if (i == 0) {

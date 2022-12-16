@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ox7;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.g08;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,17 +42,17 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09181f);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091cb4);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242b);
+        this.b = view2.findViewById(R.id.pb_child_title_top_line);
+        this.c = (ViewGroup) view2.findViewById(R.id.rl_pb_child_title_area);
+        TextView textView = (TextView) view2.findViewById(R.id.tv_pb_child_title);
         this.d = textView;
-        qw4.d(textView).A(R.string.F_X02);
+        rw4.d(textView).A(R.string.F_X02);
     }
 
-    public void a(ox7 ox7Var) {
+    public void a(g08 g08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ox7Var) == null) {
-            this.d.setText(ox7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, g08Var) == null) {
+            this.d.setText(g08Var.b());
         }
     }
 

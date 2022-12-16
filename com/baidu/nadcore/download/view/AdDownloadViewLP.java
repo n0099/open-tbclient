@@ -19,9 +19,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.mk0;
-import com.baidu.tieba.n31;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements fl0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
@@ -50,7 +50,7 @@ public class AdDownloadViewLP extends View implements fl0<AdDownloadViewLP> {
     public float o;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
     @NonNull
     public AdDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -222,15 +222,15 @@ public class AdDownloadViewLP extends View implements fl0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (n31.c.e(getContext()) * n31.c.h(R.dimen.obfuscated_res_0x7f07051e));
-        layoutParams.height = (int) (n31.c.c(getContext()) * n31.c.h(R.dimen.obfuscated_res_0x7f07051c));
+        layoutParams.width = (int) (m31.c.e(getContext()) * m31.c.h(R.dimen.nad_default_round_width_size));
+        layoutParams.height = (int) (m31.c.c(getContext()) * m31.c.h(R.dimen.nad_default_round_height_size));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);
@@ -327,15 +327,15 @@ public class AdDownloadViewLP extends View implements fl0<AdDownloadViewLP> {
         }
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void update(String str, @NonNull mk0 mk0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, mk0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, lk0Var) == null) {
             this.l = str;
-            if (mk0Var.c == AdDownloadStatus.DOWNLOADING) {
+            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
                 this.l = "已下载 : " + this.l;
             }
-            setProgress((int) mk0Var.i);
+            setProgress((int) lk0Var.i);
             postInvalidate();
         }
     }
@@ -507,8 +507,8 @@ public class AdDownloadViewLP extends View implements fl0<AdDownloadViewLP> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070553));
-            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083c));
+            o(getContext().getResources().getDimensionPixelSize(R.dimen.nad_dimens_16dp));
+            m(getContext().getResources().getColor(R.color.nad_download_button_color));
             n(-1);
             l(true);
             k(true);

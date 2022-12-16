@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes5.dex */
 public interface jo1 {
-    void a(String str, String str2);
-
-    File b(Context context, String str);
-
-    JSONObject c(Context context, String str);
-
-    void d();
+    InputStream a(InputStream inputStream) throws IOException;
 }

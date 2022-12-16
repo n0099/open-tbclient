@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.q16;
-import com.baidu.tieba.t16;
-import com.baidu.tieba.w16;
+import com.baidu.tieba.ka5;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.o26;
+import com.baidu.tieba.r26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,16 +31,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public w16 a;
+    public r26 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public ja5 c;
-    public q16 d;
+    public ka5 c;
+    public l26 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
-    public w16.c g;
+    public r26.c g;
 
     /* loaded from: classes3.dex */
-    public class a implements q16.h {
+    public class a implements l26.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -63,13 +63,13 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.q16.h
-        public void a(boolean z, t16 t16Var) {
+        @Override // com.baidu.tieba.l26.h
+        public void a(boolean z, o26 o26Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, t16Var) != null) || !z) {
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, o26Var) != null) || !z) {
                 return;
             }
-            this.a.u1();
+            this.a.B1();
         }
     }
 
@@ -103,13 +103,13 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (interceptable != null && interceptable.invokeILL(1048576, this, i, str, obj) != null) {
                 return;
             }
-            this.a.m();
+            this.a.n();
             if (i != 0 && !StringUtils.isNull(str)) {
                 if (this.a.a != null) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        this.a.a.h(R.drawable.pic_live_empty04, R.string.obfuscated_res_0x7f0f0237, false, null);
+                        this.a.a.h(R.drawable.pic_live_empty04, R.string.obfuscated_res_0x7f0f023a, false, null);
                     } else {
-                        this.a.a.h(R.drawable.pic_live_empty03, R.string.obfuscated_res_0x7f0f0238, true, this.a.f);
+                        this.a.a.h(R.drawable.pic_live_empty03, R.string.obfuscated_res_0x7f0f023b, true, this.a.f);
                     }
                     this.a.a.g(null, null);
                 }
@@ -155,24 +155,24 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     AlaAchievementMarkFragment alaAchievementMarkFragment = this.a;
-                    alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.obfuscated_res_0x7f0f0cbc));
+                    alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.no_network_guide));
                     return;
                 }
-                this.a.u1();
+                this.a.B1();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class d implements w16.c {
+    public class d implements r26.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
 
-        @Override // com.baidu.tieba.w16.c
-        public void a(t16 t16Var) {
+        @Override // com.baidu.tieba.r26.c
+        public void a(o26 o26Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t16Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, o26Var) == null) {
             }
         }
 
@@ -208,23 +208,33 @@ public class AlaAchievementMarkFragment extends AbsFragment {
                 return;
             }
         }
-        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f01ef);
+        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f01f2);
+    }
+
+    public final void B1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b == null) {
+                this.b = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.e);
+            }
+            this.b.I();
+        }
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsFragment
     public String getTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return h;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void m() {
-        w16 w16Var;
+    public final void n() {
+        r26 r26Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && (w16Var = this.a) != null && w16Var.c() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c != null && (r26Var = this.a) != null && r26Var.c() != null) {
             this.c.dettachView(this.a.c());
         }
     }
@@ -232,38 +242,28 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel = this.b;
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            q16 q16Var = this.d;
-            if (q16Var != null) {
-                q16Var.p();
+            l26 l26Var = this.d;
+            if (l26Var != null) {
+                l26Var.p();
             }
-            m();
+            n();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
                 TiebaStatic.log("c13334");
             }
-        }
-    }
-
-    public final void u1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.b == null) {
-                this.b = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.e);
-            }
-            this.b.B();
         }
     }
 
@@ -288,11 +288,24 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            ja5 ja5Var = this.c;
-            if (ja5Var != null) {
-                ja5Var.onChangeSkinType();
+            ka5 ka5Var = this.c;
+            if (ka5Var != null) {
+                ka5Var.onChangeSkinType();
+            }
+        }
+    }
+
+    public final void C1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.c == null) {
+                this.c = new ka5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
+            }
+            r26 r26Var = this.a;
+            if (r26Var != null && r26Var.c() != null) {
+                this.c.attachView(this.a.c(), false);
             }
         }
     }
@@ -302,26 +315,13 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new w16(getPageContext(), this.g);
-            v1();
-            u1();
-            this.d = new q16(getPageContext(), new a(this));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            this.a = new r26(getPageContext(), this.g);
+            C1();
+            B1();
+            this.d = new l26(getPageContext(), new a(this));
             return this.a.c();
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public final void v1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.c == null) {
-                this.c = new ja5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
-            }
-            w16 w16Var = this.a;
-            if (w16Var != null && w16Var.c() != null) {
-                this.c.attachView(this.a.c(), false);
-            }
-        }
     }
 }

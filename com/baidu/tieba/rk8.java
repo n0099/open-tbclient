@@ -1,27 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class rk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qk8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    public static synchronized qk8 a() {
-        InterceptResult invokeV;
-        qk8 qk8Var;
+    public rk8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (rk8.class) {
-                if (a == null) {
-                    a = new qk8();
-                }
-                qk8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return qk8Var;
         }
-        return (qk8) invokeV.objValue;
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
+    }
+
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
+            }
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public sk8 b(ck8 ck8Var, sk8 sk8Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck8Var, sk8Var)) == null) {
+            if (ck8Var == null) {
+                return sk8Var;
+            }
+            String str = ck8Var.a;
+            if (str == null) {
+                return sk8Var;
+            }
+            if (sk8Var != null && a(str, sk8Var.a)) {
+                return sk8Var;
+            }
+            ViewGroup viewGroup = this.c;
+            if (viewGroup == null) {
+                return null;
+            }
+            viewGroup.removeAllViews();
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(ck8Var.a)) {
+                if (this.a == 2) {
+                    return new qk8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08ff, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                }
+                return new ok8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0888, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+            } else if (!"apk_download".equals(ck8Var.a)) {
+                return null;
+            } else {
+                if (this.a == 2) {
+                    return new pk8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08fe, this.c, true), "apk_download");
+                }
+                return new nk8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0887, this.c, true), "apk_download");
+            }
+        }
+        return (sk8) invokeLL.objValue;
     }
 }

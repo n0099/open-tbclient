@@ -1,190 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import com.baidu.tieba.pb.pb.main.PbListAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
-public class l38 {
+/* loaded from: classes5.dex */
+public class l38 extends y28<m38, PbListAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<xn> a;
-    public final RelateRecThreadListModel b;
-    public t18 c;
-    public PbModel d;
-    public boolean e;
-    public List<xn> f;
-    public final eq4 g;
+    public h08 g;
 
-    /* loaded from: classes4.dex */
-    public class a implements eq4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l38 a;
-
-        public a(l38 l38Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l38Var;
-        }
-
-        @Override // com.baidu.tieba.eq4
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.Z0() != null) {
-                this.a.c.Z0().O();
-            }
-        }
-
-        @Override // com.baidu.tieba.eq4
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    px7 S1 = this.a.d.S1();
-                    if (S1.l() != null) {
-                        str = S1.l().getFirst_class();
-                    } else {
-                        str = "";
-                    }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.Z0() != null) {
-                            this.a.c.Z0().w(S1.t());
-                            this.a.c.Z0().O();
-                            if (S1.t()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", S1.m());
-                                statisticItem.param("fname", S1.n());
-                                statisticItem.param("tid", S1.S());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<xn> b = m38.b(list, str, this.a.d.R1());
-                    this.a.a.addAll(b);
-                    S1.S0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    S1.P0(intValue);
-                }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.P3();
-                }
-                if (this.a.c.Z0() != null && this.a.c.Z0().o() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.Z0().l();
-                }
-            }
-        }
-    }
-
-    public l38(a58 a58Var, BdUniqueId bdUniqueId, t18 t18Var, PbModel pbModel) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l38(s78 s78Var) {
+        super(s78Var, m38.o);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a58Var, bdUniqueId, t18Var, pbModel};
+            Object[] objArr = {s78Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((s78) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = t18Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(a58Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.G(this.g);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: u */
+    public PbListAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.m2()) || this.d.S1() == null) {
-                return false;
-            }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.S1().e0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.S1().l() != null) {
-                forumId = this.d.S1().l().getId();
-            }
-            long g = xg.g(forumId, 0L);
-            long g2 = xg.g(this.d.m2(), 0L);
-            int h2 = this.d.h2();
-            String g22 = this.d.g2();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.F(g, g2, 1, h2, g22);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fe, (ViewGroup) null), this.a.R());
         }
-        return invokeV.booleanValue;
+        return (PbListAlaRecommendVH) invokeL.objValue;
     }
 
-    public void e() {
+    public void w(h08 h08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
+        if (interceptable == null || interceptable.invokeL(1048580, this, h08Var) == null) {
+            this.g = h08Var;
         }
     }
 
-    public void f(t18 t18Var, PbModel pbModel) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.y28, com.baidu.tieba.kn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m38 m38Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t18Var, pbModel) == null) {
-            this.c = t18Var;
-            this.d = pbModel;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m38Var, pbListAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) m38Var, (m38) pbListAlaRecommendVH);
+            if (m38Var == null) {
+                return null;
+            }
+            pbListAlaRecommendVH.b(m38Var);
+            pbListAlaRecommendVH.g(this.g);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

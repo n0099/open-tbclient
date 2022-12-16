@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.d59;
+import com.baidu.tieba.m89;
 import com.baidu.tieba.uy4;
 import com.baidu.tieba.wy4;
 import com.baidu.tieba.xg;
@@ -33,7 +33,7 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public d59 c;
+    public m89 c;
     public BaseWebView d;
     public View e;
     public uy4 f;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(d59 d59Var) {
+    public void setPresenter(m89 m89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d59Var) == null) {
-            this.c = d59Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m89Var) == null) {
+            this.c = m89Var;
             this.i = false;
         }
     }
@@ -198,15 +198,15 @@ public class NewVcodeView {
             newVcodeActivity.setActivityBgTransparent();
             newVcodeActivity.setSwipeBackEnabled(false);
             if (this.b == xg.e("6", 0)) {
-                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d066c);
+                newVcodeActivity.setContentView(R.layout.new_vcode_center_activity);
             } else {
-                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d066b);
+                newVcodeActivity.setContentView(R.layout.new_vcode_activity);
             }
-            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091aa4);
+            View findViewById = newVcodeActivity.findViewById(R.id.post_thread_loading_view);
             this.e = findViewById;
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09076d);
+            TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1168));
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11a0));
             wy4 wy4Var = new wy4();
             this.h = wy4Var;
             wy4Var.a = 1000L;
@@ -214,7 +214,7 @@ public class NewVcodeView {
                 return true;
             }
             try {
-                this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916e2);
+                this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
                 if (this.b != xg.e("6", 0)) {
                     UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.d, 1.2631578f);
                 }
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cb8);
                             this.a.a.finish();
                         }
                     }

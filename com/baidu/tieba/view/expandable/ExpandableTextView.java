@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import com.baidu.tieba.tn5;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.ym5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,8 +47,8 @@ public class ExpandableTextView extends RelativeLayout {
     public e l;
     public boolean m;
     public ViewTreeObserver.OnGlobalLayoutListener n;
-    public ym5 o;
-    public ym5 p;
+    public tn5 o;
+    public tn5 p;
     public View.OnClickListener q;
 
     /* loaded from: classes6.dex */
@@ -150,10 +150,10 @@ public class ExpandableTextView extends RelativeLayout {
                 int lineCount2 = layout.getLineCount();
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.h.getLayoutParams();
                 if (this.a.h.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
-                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f090978);
+                    layoutParams.addRule(3, R.id.expandable_view_title);
                     layoutParams.addRule(8, 0);
                 } else {
-                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f090978);
+                    layoutParams.addRule(8, R.id.expandable_view_title);
                     layoutParams.addRule(3, 0);
                 }
                 this.a.h.setLayoutParams(layoutParams);
@@ -162,10 +162,10 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends ym5 {
+    public class b extends tn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView h;
+        public final /* synthetic */ ExpandableTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ExpandableTextView expandableTextView, int i, String str) {
@@ -186,24 +186,24 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.h = expandableTextView;
+            this.i = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.ym5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.h.q();
+            this.i.q();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c extends ym5 {
+    public class c extends tn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView h;
+        public final /* synthetic */ ExpandableTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ExpandableTextView expandableTextView, int i, String str) {
@@ -224,16 +224,16 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.h = expandableTextView;
+            this.i = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.ym5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.h.r();
+            this.i.r();
         }
     }
 
@@ -505,20 +505,20 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            qw4.d(this.g).y(R.array.S_O_X001);
+            rw4.d(this.g).y(R.array.S_O_X001);
         }
     }
 
     public final void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092d, this);
-            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f090978);
+            LayoutInflater.from(context).inflate(R.layout.widget_expandable_text_view, this);
+            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
             this.g = spannableClickTextView;
             spannableClickTextView.setTextSize(0, TbConfig.getContentSize());
             this.g.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
             this.g.setCustomMovementMethod();
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090979);
+            TextView textView = (TextView) findViewById(R.id.expandable_view_title_up);
             this.h = textView;
             textView.setOnClickListener(this.q);
             yi.g(context, R.dimen.tbfontsize42);

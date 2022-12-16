@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p46;
-import com.baidu.tieba.q46;
+import com.baidu.tieba.k56;
+import com.baidu.tieba.l56;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -164,7 +164,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && view2.getId() == R.id.obfuscated_res_0x7f090237) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && view2.getId() == R.id.ala_recommend_list_more) {
             c(null);
         }
     }
@@ -190,11 +190,11 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(q46 q46Var) {
+    public void setData(l56 l56Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, q46Var) == null) && q46Var != null && !ListUtils.isEmpty(q46Var.c())) {
-            this.g = q46Var.c();
-            this.h = q46Var.f();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, l56Var) == null) && l56Var != null && !ListUtils.isEmpty(l56Var.c())) {
+            this.g = l56Var.c();
+            this.h = l56Var.f();
             e();
         }
     }
@@ -209,13 +209,13 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d010b, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.ala_recommend_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090239);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090237);
+            this.d = (TextView) findViewById(R.id.ala_recommend_list_more_text);
+            View findViewById = findViewById(R.id.ala_recommend_list_more);
             this.c = findViewById;
             findViewById.setOnClickListener(this);
-            this.e = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090235);
+            this.e = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
             AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
             this.f = alaRecommendListAdapter;
             this.e.setAdapter(alaRecommendListAdapter);
@@ -233,7 +233,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(p46.d("c13624", p46.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+            TiebaStatic.log(k56.d("c13624", k56.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
@@ -89,6 +90,9 @@ public class b15 implements ug<z05> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), rgVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
+            }
             DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             diskFileOperate.setSubFolder(false);
@@ -104,8 +108,8 @@ public class b15 implements ug<z05> {
             }
             String desPath = diskFileOperate.getDesPath();
             z05 z05Var = new z05();
-            z05Var.a = str;
-            z05Var.b = desPath;
+            z05Var.h(str);
+            z05Var.i(desPath);
             return z05Var;
         }
         return (z05) invokeCommon.objValue;
@@ -117,10 +121,11 @@ public class b15 implements ug<z05> {
     public z05 getFromRemote(String str, String str2, int i, int i2, rg rgVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
+        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), rgVar, objArr})) == null) {
             int i3 = 1;
-            String str4 = null;
+            String str5 = null;
             if (objArr.length == 1) {
                 str3 = String.valueOf(objArr[0]);
             } else {
@@ -131,20 +136,28 @@ public class b15 implements ug<z05> {
             if (rgVar != null) {
                 rgVar.a = webClient;
             }
-            String str5 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-            if (!TextUtils.isEmpty(str3)) {
-                str5 = str5 + "&play_from=" + str3;
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
+                }
             }
-            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str5);
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
             if (!webClient.IsRequestSuccess()) {
-                z05Var.c = 3;
-                z05Var.d = qj.a(R.string.obfuscated_res_0x7f0f0c81);
+                z05Var.f(3);
+                z05Var.g(qj.a(R.string.obfuscated_res_0x7f0f0cb8));
                 return z05Var;
             } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
-                if (str == null) {
+                if (str4 == null) {
                     i3 = 5;
                 } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
-                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
                     diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
                     diskFileOperate.setSubFolder(false);
                     diskFileOperate.setData(downloadCommonBytes);
@@ -155,7 +168,7 @@ public class b15 implements ug<z05> {
                     }
                     diskFileOperate.call();
                     if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
-                        str4 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
                         i3 = 0;
                     } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
                         i3 = 2;
@@ -164,16 +177,16 @@ public class b15 implements ug<z05> {
                     i3 = 6;
                 }
                 if (i3 == 0) {
-                    z05Var.b = str4;
-                    z05Var.a = str;
+                    z05Var.i(str5);
+                    z05Var.h(str4);
                 } else {
-                    z05Var.c = i3;
-                    z05Var.d = z05.a(i3);
+                    z05Var.f(i3);
+                    z05Var.g(z05.a(i3));
                 }
                 return z05Var;
             } else {
-                z05Var.c = 4;
-                z05Var.d = qj.a(R.string.obfuscated_res_0x7f0f15c0);
+                z05Var.f(4);
+                z05Var.g(qj.a(R.string.voice_cache_error_no_file));
                 return z05Var;
             }
         }

@@ -7,12 +7,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String APPLICATION_ID = "com.baidu.android.imsdk";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
-    public static final String FLAVOR = "";
+    public static final String LIBRARY_PACKAGE_NAME = "com.baidu.android.imsdk";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "7.4.0";
+    public static final String VERSION_NAME = "10.0.1";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

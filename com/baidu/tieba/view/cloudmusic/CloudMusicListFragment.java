@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e29;
-import com.baidu.tieba.f29;
-import com.baidu.tieba.g29;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.i29;
-import com.baidu.tieba.ne6;
+import com.baidu.tieba.if6;
+import com.baidu.tieba.n59;
+import com.baidu.tieba.o59;
+import com.baidu.tieba.p59;
+import com.baidu.tieba.q59;
+import com.baidu.tieba.r59;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,18 +36,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class CloudMusicListFragment extends BaseFragment implements BdListView.q, f29, h29.c {
+public class CloudMusicListFragment extends BaseFragment implements BdListView.q, o59, q59.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public h29 b;
-    public e29 c;
+    public q59 b;
+    public n59 c;
     public CloudMusicData.MusicTagList d;
     public PbListView e;
     public int f;
     public NoDataView g;
     public int h;
-    public g29 i;
+    public p59 i;
     public TbMusicData j;
     public CustomMessageListener k;
 
@@ -117,7 +117,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    yi.O(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c81);
+                    yi.P(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0cb8);
                 } else {
                     this.a.c.b(this.a.b.getItem(i), i);
                 }
@@ -146,30 +146,30 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            e29 e29Var = this.c;
-            if (e29Var != null) {
-                e29Var.a();
+            n59 n59Var = this.c;
+            if (n59Var != null) {
+                n59Var.a();
             }
-            i29.b().c();
+            r59.b().c();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroyView();
             this.c.c();
         }
     }
 
-    public boolean s() {
+    public boolean t() {
         InterceptResult invokeV;
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             BdListView bdListView = this.a;
             if (bdListView == null || bdListView.getFirstVisiblePosition() != 0 || (childAt = this.a.getChildAt(0)) == null || childAt.getTop() != 0) {
                 return false;
@@ -179,7 +179,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         return invokeV.booleanValue;
     }
 
-    public static CloudMusicListFragment s1(CloudMusicData.MusicTagList musicTagList) {
+    public static CloudMusicListFragment z1(CloudMusicData.MusicTagList musicTagList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, musicTagList)) == null) {
@@ -192,34 +192,60 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         return (CloudMusicListFragment) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.f29
-    public void N0(int i) {
+    public void A1(p59 p59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, p59Var) == null) {
+            this.i = p59Var;
+        }
+    }
+
+    public void B1(TbMusicData tbMusicData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMusicData) == null) {
+            this.j = tbMusicData;
+        }
+    }
+
+    @Override // com.baidu.tieba.o59
+    public void C0(CloudMusicData.MusicTagList musicTagList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicTagList) == null) {
+            this.d = musicTagList;
+            q59 q59Var = this.b;
+            if (q59Var != null) {
+                q59Var.b(musicTagList.music_list);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.o59
+    public void R0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.b.f(i, true);
         }
     }
 
-    @Override // com.baidu.tieba.f29
-    public void a0(e29 e29Var) {
+    @Override // com.baidu.tieba.o59
+    public void c0(n59 n59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e29Var) == null) {
-            this.c = e29Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, n59Var) == null) {
+            this.c = n59Var;
         }
     }
 
-    @Override // com.baidu.tieba.f29
-    public void h0(int i) {
+    @Override // com.baidu.tieba.o59
+    public void k0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.b.f(i, false);
         }
     }
 
-    @Override // com.baidu.tieba.f29
-    public void l(boolean z) {
+    @Override // com.baidu.tieba.o59
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
                 this.g.setVisibility(0);
             } else {
@@ -231,115 +257,131 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             this.mSkinType = i;
-            this.e.d(i);
+            this.e.e(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
 
-    public void t1(g29 g29Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, g29Var) == null) {
-            this.i = g29Var;
-        }
-    }
-
     @Override // com.baidu.adp.widget.ListView.BdListView.q
-    public void u(BdListView bdListView) {
+    public void w(BdListView bdListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bdListView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdListView) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                yi.O(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c81);
+                yi.P(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0cb8);
                 return;
             }
-            e29 e29Var = this.c;
-            if (e29Var != null && this.h != 0) {
-                e29Var.e(this.f);
+            n59 n59Var = this.c;
+            if (n59Var != null && this.h != 0) {
+                n59Var.e(this.f);
             }
         }
     }
 
-    public void u1(TbMusicData tbMusicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tbMusicData) == null) {
-            this.j = tbMusicData;
-        }
-    }
-
-    @Override // com.baidu.tieba.f29
-    public void x0(CloudMusicData.MusicTagList musicTagList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, musicTagList) == null) {
-            this.d = musicTagList;
-            h29 h29Var = this.b;
-            if (h29Var != null) {
-                h29Var.b(musicTagList.music_list);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.f29
-    public void A(boolean z) {
+    @Override // com.baidu.tieba.o59
+    public void D(boolean z) {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (pbListView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (pbListView = this.e) != null) {
             if (z) {
-                if (pbListView.b().getParent() == null) {
+                if (pbListView.c().getParent() == null) {
                     this.a.setNextPage(this.e);
                 }
-                this.e.Q();
-                this.e.S();
+                this.e.R();
+                this.e.T();
                 return;
             }
-            pbListView.f();
+            pbListView.g();
             this.a.setNextPage(null);
         }
     }
 
-    @Override // com.baidu.tieba.f29
-    public void f0(int i) {
+    @Override // com.baidu.tieba.o59
+    public void i0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.b.f(i, false);
             if (getPageContext() != null && getPageContext().getPageActivity() != null) {
-                yi.O(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0518);
+                yi.P(getPageContext().getPageActivity(), R.string.download_error);
             }
         }
     }
 
-    @Override // com.baidu.tieba.f29
-    public void C() {
+    @Override // com.baidu.tieba.o59
+    public void K() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             PbListView pbListView = this.e;
             if (pbListView != null) {
-                if (pbListView.b().getParent() == null) {
+                if (pbListView.c().getParent() == null) {
                     this.a.setNextPage(this.e);
                 }
-                this.e.E(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0406));
-                this.e.f();
+                this.e.F(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f040c));
+                this.e.g();
             }
             this.h = 0;
         }
     }
 
-    @Override // com.baidu.tieba.h29.c
-    public void i1(View view2, String str, int i) {
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        n59 n59Var;
+        CloudMusicData.MusicTagList.Page page;
+        TbMusicData tbMusicData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, view2, str, i) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02dc, viewGroup, false);
+            this.d = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09068e);
+            q59 q59Var = new q59(getPageContext());
+            this.b = q59Var;
+            this.a.setAdapter((ListAdapter) q59Var);
+            this.a.setExOnSrollToBottomListener(this);
+            this.a.setDivider(null);
+            this.b.e(this);
+            q59 q59Var2 = this.b;
+            if (q59Var2 != null && (tbMusicData = this.j) != null) {
+                q59Var2.d(tbMusicData.id);
+            }
+            PbListView pbListView = new PbListView(getPageContext().getPageActivity());
+            this.e = pbListView;
+            pbListView.a();
+            this.e.r(R.color.CAM_X0201);
+            this.e.e(TbadkCoreApplication.getInst().getSkinType());
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            this.g = a2;
+            a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            CloudMusicData.MusicTagList musicTagList = this.d;
+            if (musicTagList != null && (n59Var = this.c) != null && (page = musicTagList.page) != null) {
+                this.f = musicTagList.tag_id;
+                this.h = page.has_more;
+                n59Var.d(musicTagList);
+            }
+            this.a.setOnItemClickListener(new b(this));
+            registerListener(this.k);
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.q59.c
+    public void p1(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048591, this, view2, str, i) == null) {
             Intent intent = new Intent();
             intent.putExtra(CloudMusicActivityConfig.MUSIC_RESOURCE, str);
-            h29 h29Var = this.b;
-            if (h29Var != null && h29Var.getItem(i) != null) {
+            q59 q59Var = this.b;
+            if (q59Var != null && q59Var.getItem(i) != null) {
                 intent.putExtra(CloudMusicActivityConfig.MUSIC_ID, StringUtils.string(Integer.valueOf(this.b.getItem(i).music_id)));
                 TbMusicData tbMusicData = new TbMusicData();
                 tbMusicData.id = String.valueOf(this.b.getItem(i).music_id);
@@ -348,57 +390,15 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 tbMusicData.url = this.b.getItem(i).resource;
                 tbMusicData.icon = this.b.getItem(i).image;
                 tbMusicData.type = 2;
-                tbMusicData.localPath = ne6.h().g(tbMusicData.url);
+                tbMusicData.localPath = if6.h().g(tbMusicData.url);
                 intent.putExtra(CloudMusicActivityConfig.MUSIC_DATA, tbMusicData);
             }
-            g29 g29Var = this.i;
-            if (g29Var != null) {
-                g29Var.X(intent);
+            p59 p59Var = this.i;
+            if (p59Var != null) {
+                p59Var.W(intent);
             }
             getPageContext().getPageActivity().setResult(-1, intent);
             getPageContext().getPageActivity().finish();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        e29 e29Var;
-        CloudMusicData.MusicTagList.Page page;
-        TbMusicData tbMusicData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d7, viewGroup, false);
-            this.d = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09067e);
-            h29 h29Var = new h29(getPageContext());
-            this.b = h29Var;
-            this.a.setAdapter((ListAdapter) h29Var);
-            this.a.setExOnSrollToBottomListener(this);
-            this.a.setDivider(null);
-            this.b.e(this);
-            h29 h29Var2 = this.b;
-            if (h29Var2 != null && (tbMusicData = this.j) != null) {
-                h29Var2.d(tbMusicData.id);
-            }
-            PbListView pbListView = new PbListView(getPageContext().getPageActivity());
-            this.e = pbListView;
-            pbListView.a();
-            this.e.q(R.color.CAM_X0201);
-            this.e.d(TbadkCoreApplication.getInst().getSkinType());
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c9d), null);
-            this.g = a2;
-            a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList musicTagList = this.d;
-            if (musicTagList != null && (e29Var = this.c) != null && (page = musicTagList.page) != null) {
-                this.f = musicTagList.tag_id;
-                this.h = page.has_more;
-                e29Var.d(musicTagList);
-            }
-            this.a.setOnItemClickListener(new b(this));
-            registerListener(this.k);
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da6;
-import com.baidu.tieba.ha6;
-import com.baidu.tieba.ia6;
-import com.baidu.tieba.ja6;
+import com.baidu.tieba.cb6;
+import com.baidu.tieba.db6;
+import com.baidu.tieba.eb6;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.ya6;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class EasterEggBridge implements zp8 {
+/* loaded from: classes4.dex */
+public class EasterEggBridge implements ys8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -26,7 +26,7 @@ public class EasterEggBridge implements zp8 {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<da6> mListener;
+    public List<ya6> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -42,36 +42,36 @@ public class EasterEggBridge implements zp8 {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new ia6());
-        addListener(new ja6());
-        addListener(new ha6());
+        addListener(new db6());
+        addListener(new eb6());
+        addListener(new cb6());
     }
 
-    public void addListener(da6 da6Var) {
-        List<da6> list;
+    public void addListener(ya6 ya6Var) {
+        List<ya6> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, da6Var) == null) && da6Var != null && (list = this.mListener) != null) {
-            list.add(da6Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ya6Var) == null) && ya6Var != null && (list = this.mListener) != null) {
+            list.add(ya6Var);
         }
     }
 
-    public void removeListener(da6 da6Var) {
-        List<da6> list;
+    public void removeListener(ya6 ya6Var) {
+        List<ya6> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, da6Var) == null) && da6Var != null && (list = this.mListener) != null) {
-            list.remove(da6Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ya6Var) == null) && ya6Var != null && (list = this.mListener) != null) {
+            list.remove(ya6Var);
         }
     }
 
     public void clearListener() {
-        List<da6> list;
+        List<ya6> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mListener) != null) {
             list.clear();
         }
     }
 
-    @Override // com.baidu.tieba.zp8
+    @Override // com.baidu.tieba.ys8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -84,9 +84,9 @@ public class EasterEggBridge implements zp8 {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (da6 da6Var : this.mListener) {
-                        if (trim.equals(da6Var.b())) {
-                            da6Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
+                    for (ya6 ya6Var : this.mListener) {
+                        if (trim.equals(ya6Var.b())) {
+                            ya6Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }
                 } catch (JSONException unused) {

@@ -14,7 +14,7 @@ import java.util.List;
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0677a> c;
+    public final List<InterfaceC0694a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0677a {
+    public interface InterfaceC0694a {
         @MainThread
         void b();
 
@@ -135,7 +135,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0677a) obj).b();
+                ((InterfaceC0694a) obj).b();
             }
         }
     }
@@ -146,12 +146,12 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0677a) obj).c();
+                ((InterfaceC0694a) obj).c();
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
     public boolean b() {
         int i = this.f;
         int i2 = i;
@@ -208,19 +208,19 @@ public class a {
         }
     }
 
-    public void b(InterfaceC0677a interfaceC0677a) {
+    public void b(InterfaceC0694a interfaceC0694a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0677a);
+            this.c.remove(interfaceC0694a);
         }
     }
 
-    public void a(InterfaceC0677a interfaceC0677a) {
-        if (interfaceC0677a == null) {
+    public void a(InterfaceC0694a interfaceC0694a) {
+        if (interfaceC0694a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0677a)) {
-                this.c.add(interfaceC0677a);
+            if (!this.c.contains(interfaceC0694a)) {
+                this.c.add(interfaceC0694a);
             }
         }
     }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface h23 {
-    void handleHide();
+    int getHeight();
 
-    void handleShow();
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

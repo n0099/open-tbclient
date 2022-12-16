@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class yy extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,19 +20,19 @@ public class yy extends hx {
     public int i;
     public VoteView j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr4 a;
+        public final /* synthetic */ vr4 a;
         public final /* synthetic */ yy b;
 
-        public a(yy yyVar, tr4 tr4Var) {
+        public a(yy yyVar, vr4 vr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yyVar, tr4Var};
+                Object[] objArr = {yyVar, vr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class yy extends hx {
                 }
             }
             this.b = yyVar;
-            this.a = tr4Var;
+            this.a = vr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -80,13 +80,13 @@ public class yy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: z */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tr4Var) == null) {
-            if (y(tr4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, vr4Var) == null) {
+            if (y(vr4Var)) {
                 this.j.setVisibility(0);
-                this.j.setThreadData(tr4Var.getThreadData());
-                this.j.setOnItemClickListener(new a(this, tr4Var));
+                this.j.setThreadData(vr4Var.getThreadData());
+                this.j.setOnItemClickListener(new a(this, vr4Var));
                 return;
             }
             this.j.setVisibility(8);
@@ -126,11 +126,11 @@ public class yy extends hx {
         }
     }
 
-    public final boolean y(tr4 tr4Var) {
+    public final boolean y(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0 && !tr4Var.getThreadData().isVideoThreadType()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getPollData() != null && vr4Var.getThreadData().getPollData().getOptions() != null && vr4Var.getThreadData().getPollData().getOptions().size() > 0 && !vr4Var.getThreadData().isVideoThreadType()) {
                 return true;
             }
             return false;

@@ -273,7 +273,7 @@ public class o4 extends u1<b> {
                     break;
                 }
                 if (b7Var2.get(i8).d < 1) {
-                    this.g.i(i8);
+                    this.g.h(i8);
                     i8--;
                 }
                 i8++;
@@ -399,7 +399,7 @@ public class o4 extends u1<b> {
                 y4Var.b = sArr;
                 y4Var.c = 4;
                 x4 x4Var = new x4();
-                x4Var.a = (t3[]) b7Var4.n(t3.class);
+                x4Var.a = (t3[]) b7Var4.m(t3.class);
                 x4Var.b = fArr;
                 x4Var.c = new y4[]{y4Var};
                 w4Var.d.a(z4Var);

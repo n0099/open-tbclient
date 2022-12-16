@@ -6,23 +6,18 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h17;
-import com.baidu.tieba.j25;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.h27;
+import com.baidu.tieba.k25;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,85 +26,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NewHotTipLabelView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener b;
-    public CustomMessageListener c;
+    public a b;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NewHotTipLabelView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(NewHotTipLabelView newHotTipLabelView, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {newHotTipLabelView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = newHotTipLabelView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.b(TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NewHotTipLabelView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(NewHotTipLabelView newHotTipLabelView, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {newHotTipLabelView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = newHotTipLabelView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                String o = qy4.o("key_new_hot_topic_update_time");
-                j25 hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig();
-                if (hotNotifyConfig != null && h17.b(4320000L) && h17.a(hotNotifyConfig.b(), o)) {
-                    this.a.setData(hotNotifyConfig);
-                }
-            }
-        }
+    public interface a {
+        void onShow();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,9 +51,36 @@ public class NewHotTipLabelView extends EMTextView {
                 return;
             }
         }
-        this.b = new a(this, 2001304);
-        this.c = new b(this, 2001371);
         a();
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i != 1 && i != 4) {
+                setBackground(SkinManager.getDrawable(R.drawable.icon_mask_hot_point_bubble));
+            } else {
+                setBackground(SkinManager.getDrawable(R.drawable.icon_mask_hot_point_bubble_n));
+            }
+            rw4 d = rw4.d(this);
+            d.v(R.color.CAM_X0310);
+            d.z(R.dimen.T_X10);
+            d.A(R.string.F_X01);
+        }
+    }
+
+    public void setData(k25 k25Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, k25Var) != null) || k25Var == null) {
+            return;
+        }
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(k25Var.a(), 6, "");
+        if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0cbe);
+        }
+        setText(cutChineseAndEnglishWithSuffix);
+        setVisibility(0);
+        this.b.onShow();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -154,8 +102,6 @@ public class NewHotTipLabelView extends EMTextView {
                 return;
             }
         }
-        this.b = new a(this, 2001304);
-        this.c = new b(this, 2001371);
         a();
     }
 
@@ -178,8 +124,6 @@ public class NewHotTipLabelView extends EMTextView {
                 return;
             }
         }
-        this.b = new a(this, 2001304);
-        this.c = new b(this, 2001371);
         a();
     }
 
@@ -193,44 +137,14 @@ public class NewHotTipLabelView extends EMTextView {
             setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds14));
             b(TbadkApplication.getInst().getSkinType());
             setVisibility(8);
-            MessageManager.getInstance().registerListener(this.b);
-            MessageManager.getInstance().registerListener(this.c);
         }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i != 1 && i != 4) {
-                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080805));
-            } else {
-                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080806));
-            }
-            qw4 d = qw4.d(this);
-            d.v(R.color.CAM_X0310);
-            d.z(R.dimen.T_X10);
-            d.A(R.string.F_X01);
-        }
-    }
-
-    public void setData(j25 j25Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, j25Var) != null) || j25Var == null) {
-            return;
-        }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(j25Var.a(), 6, "");
-        if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0c87);
-        }
-        setText(cutChineseAndEnglishWithSuffix);
-        setVisibility(0);
     }
 
     public void c() {
-        j25 hotNotifyConfig;
+        k25 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            h17.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            h27.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 
@@ -239,14 +153,19 @@ public class NewHotTipLabelView extends EMTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.c);
-            MessageManager.getInstance().unRegisterListener(this.b);
+        }
+    }
+
+    public void setHotTipCallBack(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
     public void setView(ViewGroup viewGroup, float f, float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2)}) != null) || viewGroup == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2)}) != null) || viewGroup == null) {
             return;
         }
         viewGroup.removeView(this);

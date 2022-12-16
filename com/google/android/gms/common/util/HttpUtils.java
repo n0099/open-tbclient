@@ -1,6 +1,7 @@
 package com.google.android.gms.common.util;
 
 import androidx.annotation.NonNull;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +72,7 @@ public class HttpUtils {
             String rawQuery = uri.getRawQuery();
             if (rawQuery != null && rawQuery.length() > 0) {
                 emptyMap = new HashMap<>();
-                zzx zzc2 = zzx.zzc(zzo.zzb('='));
+                zzx zzc2 = zzx.zzc(zzo.zzb(a.h));
                 for (String str3 : zzx.zzc(zzo.zzb('&')).zzb().zzd(rawQuery)) {
                     List<String> zzf = zzc2.zzf(str3);
                     if (!zzf.isEmpty() && zzf.size() <= 2) {

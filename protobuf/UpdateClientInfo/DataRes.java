@@ -23,6 +23,8 @@ public final class DataRes extends Message {
     public static final List<Integer> DEFAULT_HEARTBEATINTERVAL;
     public static final Long DEFAULT_ISUSERAVAILABLE;
     public transient /* synthetic */ FieldHolder $fh;
+    @ProtoField(tag = 7)
+    public final ClientConfig clientConfig;
     @ProtoField(tag = 5)
     public final ConfigVersion configVersion;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
@@ -46,6 +48,7 @@ public final class DataRes extends Message {
     public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public ClientConfig clientConfig;
         public ConfigVersion configVersion;
         public List<GroupInfo> groupInfo;
         public List<Integer> heartbeatInterval;
@@ -94,6 +97,7 @@ public final class DataRes extends Message {
             this.heartbeatInterval = Message.copyOf(dataRes.heartbeatInterval);
             this.configVersion = dataRes.configVersion;
             this.isUserAvailable = dataRes.isUserAvailable;
+            this.clientConfig = dataRes.clientConfig;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -163,11 +167,11 @@ public final class DataRes extends Message {
             Long l = builder.isUserAvailable;
             if (l == null) {
                 this.isUserAvailable = DEFAULT_ISUSERAVAILABLE;
-                return;
             } else {
                 this.isUserAvailable = l;
-                return;
             }
+            this.clientConfig = builder.clientConfig;
+            return;
         }
         this.groupInfo = Message.immutableCopyOf(builder.groupInfo);
         this.userInfo = builder.userInfo;
@@ -175,6 +179,7 @@ public final class DataRes extends Message {
         this.heartbeatInterval = Message.immutableCopyOf(builder.heartbeatInterval);
         this.configVersion = builder.configVersion;
         this.isUserAvailable = builder.isUserAvailable;
+        this.clientConfig = builder.clientConfig;
     }
 
     public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {

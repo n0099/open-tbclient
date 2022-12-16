@@ -70,7 +70,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
-        this(toolbar, z, R.string.obfuscated_res_0x7f0f0039, R.drawable.obfuscated_res_0x7f080074);
+        this(toolbar, z, R.string.obfuscated_res_0x7f0f003a, R.drawable.obfuscated_res_0x7f080074);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

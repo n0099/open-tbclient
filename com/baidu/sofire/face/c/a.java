@@ -13,18 +13,18 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sofire.face.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0173a implements Comparator<Camera.Size> {
+    /* loaded from: classes3.dex */
+    public static class C0185a implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0173a() {
+        public C0185a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public final class a {
                 return new Point(640, 480);
             }
             ArrayList arrayList = new ArrayList(supportedPreviewSizes);
-            Collections.sort(arrayList, new C0173a());
+            Collections.sort(arrayList, new C0185a());
             int i = point.x;
             int i2 = point.y;
             if (i > i2) {

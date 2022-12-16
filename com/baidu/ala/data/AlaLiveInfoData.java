@@ -2,10 +2,10 @@ package com.baidu.ala.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,7 +136,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.user_name = jSONObject.optString("user_name");
         this.user_nickname = jSONObject.optString("user_nickname");
         this.group_id = jSONObject.optLong("group_id");
-        this.last_msg_id = jSONObject.optLong("last_msg_id");
+        this.last_msg_id = jSONObject.optLong(TableDefine.BusiSessionColumns.COLUMN_LAST_MSG_ID);
         this.session_id = jSONObject.optString("session_id");
         this.description = jSONObject.optString("description");
         this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
@@ -156,7 +156,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.close_type = jSONObject.optInt("close_type");
         this.close_reason = jSONObject.optString("close_reason");
         this.backstage_type = jSONObject.optInt("backstage_type");
-        this.share_url = jSONObject.optString(PbChosenActivityConfig.KEY_SHARE_URL);
+        this.share_url = jSONObject.optString("share_url");
         this.forum_id = jSONObject.optLong("forum_id");
         this.forum_name = jSONObject.optString("forum_name");
         this.media_pic = jSONObject.optString("media_pic");

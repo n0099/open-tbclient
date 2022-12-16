@@ -8,17 +8,17 @@ import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
-import com.baidu.tieba.aq0;
-import com.baidu.tieba.di0;
+import com.baidu.tieba.ci0;
+import com.baidu.tieba.cq0;
 import com.baidu.tieba.dq0;
-import com.baidu.tieba.eq0;
+import com.baidu.tieba.jp0;
 import com.baidu.tieba.kp0;
-import com.baidu.tieba.lp0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.p01;
-import com.baidu.tieba.pp0;
-import com.baidu.tieba.tp0;
-import com.baidu.tieba.vp0;
+import com.baidu.tieba.mp0;
+import com.baidu.tieba.o01;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.sp0;
+import com.baidu.tieba.up0;
+import com.baidu.tieba.zp0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,26 +44,26 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final tp0 f;
+    public final sp0 f;
     @Nullable
-    public final kp0 g;
+    public final jp0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final eq0 i;
+    public final dq0 i;
     @Nullable
-    public final aq0 j;
+    public final zp0 j;
     @Nullable
-    public final List<vp0> k;
+    public final List<up0> k;
     @Nullable
-    public final lp0 l;
+    public final kp0 l;
     @Nullable
-    public pp0 m;
+    public op0 m;
     public int n;
     @NonNull
     public List<String> o;
-    public dq0 p;
-    public di0 q;
+    public cq0 p;
+    public ci0 q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -175,19 +175,19 @@ public class AdBaseModel {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdBaseModel(@NonNull tp0 tp0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        this(tp0Var, jSONObject, false);
+    public AdBaseModel(@NonNull sp0 sp0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        this(sp0Var, jSONObject, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tp0Var, jSONObject};
+            Object[] objArr = {sp0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((tp0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((sp0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -195,18 +195,18 @@ public class AdBaseModel {
         }
     }
 
-    public AdBaseModel(@NonNull tp0 tp0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
-        kp0 a;
+    public AdBaseModel(@NonNull sp0 sp0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+        jp0 a;
         AdOperator a2;
         boolean z2;
-        eq0 c;
+        dq0 c;
         int length;
         int length2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tp0Var, jSONObject, Boolean.valueOf(z)};
+            Object[] objArr = {sp0Var, jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -218,20 +218,20 @@ public class AdBaseModel {
         }
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = tp0Var.b;
+        String str = sp0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
         if (optJSONObject == null) {
             a = null;
         } else {
-            a = kp0.a(optJSONObject);
+            a = jp0.a(optJSONObject);
         }
         this.g = a;
-        this.f = tp0Var;
-        this.j = aq0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
-        this.k = vp0.a(jSONObject.optJSONArray("prefetch_video"));
-        this.l = lp0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
-        this.m = pp0.a(jSONObject.optJSONObject("enhance"));
-        np0.a(jSONObject.optJSONObject("interaction"));
+        this.f = sp0Var;
+        this.j = zp0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
+        this.k = up0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = kp0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = op0.a(jSONObject.optJSONObject("enhance"));
+        mp0.a(jSONObject.optJSONObject("interaction"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         if (optJSONObject2 == null) {
             a2 = null;
@@ -249,7 +249,7 @@ public class AdBaseModel {
         if (optJSONObject3 == null) {
             c = null;
         } else {
-            c = eq0.c(optJSONObject3);
+            c = dq0.c(optJSONObject3);
         }
         this.i = (c == null || !c.k) ? null : c;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
@@ -264,7 +264,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    p01.b(this.e, new MonitorUrl(optString, optString2));
+                    o01.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -279,28 +279,28 @@ public class AdBaseModel {
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString("word");
                 if (!TextUtils.isEmpty(optString3)) {
-                    p01.b(this.o, optString3);
+                    o01.b(this.o, optString3);
                 }
             }
         }
-        aq0 aq0Var = this.j;
-        if (aq0Var != null) {
-            aq0Var.d(this);
+        zp0 zp0Var = this.j;
+        if (zp0Var != null) {
+            zp0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable dq0 dq0Var) {
-        List<vp0> list;
+    public void a(@Nullable cq0 cq0Var) {
+        List<up0> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dq0Var) == null) {
-            this.p = dq0Var;
-            if (dq0Var == null || dq0Var.c) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cq0Var) == null) {
+            this.p = cq0Var;
+            if (cq0Var == null || cq0Var.c) {
                 this.f.b();
             }
-            if ((dq0Var == null || dq0Var.d) && (list = this.k) != null && list.size() > 0) {
-                for (vp0 vp0Var : this.k) {
-                    vp0Var.b();
+            if ((cq0Var == null || cq0Var.d) && (list = this.k) != null && list.size() > 0) {
+                for (up0 up0Var : this.k) {
+                    up0Var.b();
                 }
             }
         }

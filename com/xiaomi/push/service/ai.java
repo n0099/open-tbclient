@@ -20,7 +20,7 @@ public final class ai extends bx.a {
     public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ t f888a;
+    public final /* synthetic */ t f911a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(String str, long j, XMPushService xMPushService, t tVar) {
@@ -42,7 +42,7 @@ public final class ai extends bx.a {
             }
         }
         this.a = xMPushService;
-        this.f888a = tVar;
+        this.f911a = tVar;
     }
 
     @Override // com.xiaomi.push.service.bx.a
@@ -56,12 +56,12 @@ public final class ai extends bx.a {
             }
             bxVar.a("GAID", Config.GAID, a2);
             ii iiVar = new ii();
-            iiVar.b(this.f888a.d);
-            iiVar.c(ht.g.f506a);
+            iiVar.b(this.f911a.d);
+            iiVar.c(ht.g.f529a);
             iiVar.a(bd.a());
             iiVar.a(new HashMap());
-            iiVar.m481a().put(Config.GAID, a2);
-            byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f888a.d, iiVar, hj.i));
+            iiVar.m491a().put(Config.GAID, a2);
+            byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f911a.d, iiVar, hj.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);
         }

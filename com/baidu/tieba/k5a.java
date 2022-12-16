@@ -1,110 +1,148 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class k5a {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
+import java.util.Queue;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
+/* loaded from: classes5.dex */
+public class k5a implements i3a {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Queue<Object> a;
+    public volatile Object b;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+    static {
+        InterceptResult invokeClinit;
+        int i;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865458, "Lcom/baidu/tieba/k5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947865458, "Lcom/baidu/tieba/k5a;");
+                return;
+            }
+        }
+        if (j5a.c()) {
+            i = 16;
+        } else {
+            i = 128;
+        }
+        String property = System.getProperty("rx.ring-buffer.size");
+        if (property != null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    return 0;
-                }
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+                i = Integer.parseInt(property);
+            } catch (NumberFormatException e) {
+                PrintStream printStream = System.err;
+                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e.getMessage());
             }
         }
-        return invokeV.intValue;
+        c = i;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public k5a() {
+        this(new p5a(c), c);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!g()) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return f("ro.build.version.emui", "");
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public k5a(Queue<Object> queue, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!j()) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {queue, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
         }
-        return (String) invokeV.objValue;
+        this.a = queue;
     }
 
-    public static String e() {
+    public k5a(boolean z, int i) {
+        Queue<Object> k6aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        if (z) {
+            k6aVar = new c6a<>(i);
+        } else {
+            k6aVar = new k6a<>(i);
+        }
+        this.a = k6aVar;
+    }
+
+    public static k5a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!l()) {
-                return "";
+            if (y6a.b()) {
+                return new k5a(true, c);
             }
-            return f("ro.miui.ui.version.name", "");
+            return new k5a();
         }
-        return (String) invokeV.objValue;
+        return (k5a) invokeV.objValue;
     }
 
-    public static boolean g() {
+    public static k5a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a() > 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (y6a.b()) {
+                return new k5a(false, c);
             }
-            return false;
+            return new k5a();
         }
-        return invokeV.booleanValue;
+        return (k5a) invokeV.objValue;
     }
 
-    public static boolean h() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b().contains("EmotionUI_3.0")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String b = b();
-            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Queue<Object> queue = this.a;
+            if (queue != null && !queue.isEmpty()) {
                 return false;
             }
             return true;
@@ -112,90 +150,122 @@ public class k5a {
         return invokeV.booleanValue;
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c().toLowerCase().contains("flyme");
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
+            this.b = NotificationLite.b();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean l() {
+    public Object h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String e = e();
-            if (e.isEmpty()) {
-                return false;
-            }
-            try {
-                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
                 }
+                Object peek = queue.peek();
+                Object obj = this.b;
+                if (peek == null && obj != null && queue.peek() == null) {
+                    peek = obj;
+                }
+                return peek;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
+                }
+                Object poll = queue.poll();
+                Object obj = this.b;
+                if (poll == null && obj != null && queue.peek() == null) {
+                    this.b = null;
+                    poll = obj;
+                }
+                return poll;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i3a
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null) {
                 return true;
-            } catch (NumberFormatException unused) {
-                return false;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean n() {
-        InterceptResult invokeV;
+    public synchronized void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return "OPPO".equals(Build.MANUFACTURER);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
-            } catch (Exception unused) {
-                return str2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean k() {
-        InterceptResult invokeV;
-        int intValue;
+    @Override // com.baidu.tieba.i3a
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String d = d();
-            if (d.isEmpty()) {
-                return false;
-            }
-            try {
-                if (d.toLowerCase().contains("os")) {
-                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
-                } else {
-                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            j();
+        }
+    }
+
+    public Object c(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return NotificationLite.e(obj);
+        }
+        return invokeL.objValue;
+    }
+
+    public boolean d(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return NotificationLite.f(obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(Object obj) throws MissingBackpressureException {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                z = true;
+                z2 = false;
+                if (queue != null) {
+                    z2 = !queue.offer(NotificationLite.h(obj));
+                    z = false;
                 }
-                if (intValue < 4) {
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
             }
+            if (!z) {
+                if (!z2) {
+                    return;
+                }
+                throw new MissingBackpressureException();
+            }
+            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
         }
-        return invokeV.booleanValue;
     }
 }

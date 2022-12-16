@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +34,7 @@ public class WorkCreateAutherData implements Serializable {
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.authDesc = jSONObject.optString("auth_desc");
+        this.authDesc = jSONObject.optString(IMUserExtraData.KEY_AUTH_DESC);
     }
 
     public void parseProto(WorkCreatorInfo workCreatorInfo) {

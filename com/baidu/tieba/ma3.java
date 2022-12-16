@@ -1,159 +1,201 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.ubc.Flow;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ma3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static la3 a(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Flow d = lj4.d(str);
-            if (g()) {
-                obj = mn2.A0().beginFlow(str);
-            } else {
-                obj = null;
-            }
-            return new la3(obj, d);
-        }
-        return (la3) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
 
-    public static void b(@NonNull la3 la3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, la3Var) == null) {
-            if (g()) {
-                mn2.A0().b(la3Var.b());
+        public a(ma3 ma3Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma3Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Flow a = la3Var.a();
-            if (a != null) {
-                a.cancel();
-            }
+            this.a = jSONObject;
         }
-    }
 
-    public static void c(@NonNull la3 la3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, la3Var) == null) {
-            if (g()) {
-                mn2.A0().c(la3Var.b());
-            }
-            Flow a = la3Var.a();
-            if (a != null) {
-                a.end();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                la3.k("777", this.a);
+                e12.k("SwanAppBusinessUbc", this.a.toString());
             }
         }
     }
 
-    public static void d(@NonNull la3 la3Var, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, la3Var, str, str2) == null) {
-            if (g()) {
-                mn2.A0().a(la3Var.b(), str, str2);
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ma3 a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Flow a = la3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2);
+            this.a = new ma3(null);
+            this.c = String.valueOf(i);
+            this.b = "swan";
+        }
+
+        public b h(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.h = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public void m() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.a.b(this);
             }
         }
     }
 
-    public static void i(String str, String str2, JSONObject jSONObject) {
+    public ma3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                mn2.A0().f(str, jSONObject);
-            }
-            lj4.l(str2, jSONObject);
-        }
-    }
-
-    public static void e(@NonNull la3 la3Var, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{la3Var, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                mn2.A0().g(la3Var.b(), str, str2, j);
-            }
-            Flow a = la3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2, j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void f(@NonNull la3 la3Var, String str) {
+    public /* synthetic */ ma3(a aVar) {
+        this();
+    }
+
+    public final void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, la3Var, str) == null) {
-            if (g()) {
-                mn2.A0().h(la3Var.b(), str);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (!TextUtils.isEmpty(bVar.b)) {
+                jSONObject.put("from", bVar.b);
             }
-            Flow a = la3Var.a();
-            if (a != null) {
-                a.setValueWithDuration(str);
+            if (!TextUtils.isEmpty(bVar.c)) {
+                jSONObject.put("type", bVar.c);
+            }
+            if (!TextUtils.isEmpty(bVar.e)) {
+                jSONObject.put("value", bVar.e);
+            }
+            if (!TextUtils.isEmpty(bVar.d)) {
+                jSONObject.put("source", bVar.d);
+            }
+            if (!TextUtils.isEmpty(bVar.f)) {
+                jSONObject.put("page", bVar.f);
+            }
+            boolean isEmpty = TextUtils.isEmpty(bVar.g);
+            boolean isEmpty2 = TextUtils.isEmpty(bVar.h);
+            if (!isEmpty || !isEmpty2) {
+                JSONObject jSONObject2 = new JSONObject();
+                if (!isEmpty) {
+                    jSONObject2.put("appid", bVar.g);
+                }
+                if (!isEmpty2) {
+                    jSONObject2.put("info", bVar.h);
+                }
+                jSONObject.put("ext", jSONObject2);
+            }
+            yg3.k(new a(this, jSONObject), "SwanAppBusinessUbcRunnable");
+        } catch (JSONException e) {
+            if (ok1.a) {
+                e.printStackTrace();
             }
         }
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                mn2.A0().i(str, str2);
-            }
-            lj4.h(str, str2);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                mn2.A0().d(str, map);
-            }
-            lj4.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                mn2.A0().f(str, jSONObject);
-            }
-            lj4.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            mn2.A0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            mn2.A0().f(str, jSONObject);
-        }
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return mn2.A0().e();
-        }
-        return invokeV.booleanValue;
     }
 }

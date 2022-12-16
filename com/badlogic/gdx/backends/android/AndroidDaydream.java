@@ -401,7 +401,7 @@ public class AndroidDaydream extends DreamService implements h2 {
             f1.d = getFiles();
             f1.b = getGraphics();
             getNet();
-            this.input.I0();
+            this.input.M0();
             r2 r2Var = this.graphics;
             if (r2Var != null) {
                 r2Var.q();
@@ -546,7 +546,7 @@ public class AndroidDaydream extends DreamService implements h2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, h1Var) == null) {
             synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.j(h1Var, true);
+                this.lifecycleListeners.i(h1Var, true);
             }
         }
     }

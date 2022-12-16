@@ -8,6 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -816,7 +817,7 @@ public class yf {
                     this.a.f(agVar);
                     try {
                         igVar.b = 0;
-                        igVar.c = "ok";
+                        igVar.c = DnsModel.MSG_OK;
                         if (this.d <= 0) {
                             xfVar4 = this.b;
                         }
@@ -1057,19 +1058,19 @@ public class yf {
                     igVar = igVar2;
                     agVar = agVar2;
                     i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0c81;
+                    i13 = R.string.obfuscated_res_0x7f0f0cb8;
                 } catch (SocketException e9) {
                     e = e9;
                     i9 = i16;
                     igVar = igVar2;
                     agVar = agVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0c81;
+                    i11 = R.string.obfuscated_res_0x7f0f0cb8;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i9 = i16;
                     igVar = igVar2;
                     agVar = agVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0c81;
+                    i10 = R.string.obfuscated_res_0x7f0f0cb8;
                 }
                 if (this.a.c().b != 200) {
                     agVar = agVar2;
@@ -1090,7 +1091,7 @@ public class yf {
                                 igVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0c81;
+                                i13 = R.string.obfuscated_res_0x7f0f0cb8;
                                 if (i12 >= i8) {
                                     z3 = true;
                                 } else {
@@ -1123,7 +1124,7 @@ public class yf {
                                     } else {
                                         z3 = false;
                                     }
-                                    agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                                    agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                                     BdLog.e(th.getMessage());
                                     this.a.e(agVar);
                                     igVar.b = -10;
@@ -1148,7 +1149,7 @@ public class yf {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0c81;
+                            i11 = R.string.obfuscated_res_0x7f0f0cb8;
                             this.a.c().c = -12;
                             dg c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1168,7 +1169,7 @@ public class yf {
                             i14 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0c81;
+                            i10 = R.string.obfuscated_res_0x7f0f0cb8;
                             this.a.c().c = -13;
                             dg c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1207,11 +1208,11 @@ public class yf {
                     agVar = agVar2;
                     try {
                         igVar.b = 0;
-                        igVar.c = "ok";
+                        igVar.c = DnsModel.MSG_OK;
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0c81;
+                        i13 = R.string.obfuscated_res_0x7f0f0cb8;
                         if (i12 >= i8) {
                         }
                         this.a.c().c = -14;
@@ -1236,7 +1237,7 @@ public class yf {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i12 >= i8) {
                         }
-                        agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                        agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                         BdLog.e(th.getMessage());
                         this.a.e(agVar);
                         igVar.b = -10;
@@ -1425,19 +1426,19 @@ public class yf {
                     igVar = igVar2;
                     agVar = agVar2;
                     i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0c81;
+                    i13 = R.string.obfuscated_res_0x7f0f0cb8;
                 } catch (SocketException e9) {
                     e = e9;
                     i9 = i16;
                     igVar = igVar2;
                     agVar = agVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0c81;
+                    i11 = R.string.obfuscated_res_0x7f0f0cb8;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i9 = i16;
                     igVar = igVar2;
                     agVar = agVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0c81;
+                    i10 = R.string.obfuscated_res_0x7f0f0cb8;
                 }
                 if (this.a.c().b != 200) {
                     agVar = agVar2;
@@ -1458,7 +1459,7 @@ public class yf {
                                 igVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0c81;
+                                i13 = R.string.obfuscated_res_0x7f0f0cb8;
                                 if (i12 >= i8) {
                                     z3 = true;
                                 } else {
@@ -1491,7 +1492,7 @@ public class yf {
                                     } else {
                                         z3 = false;
                                     }
-                                    agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                                    agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                                     BdLog.e(th.getMessage());
                                     this.a.e(agVar);
                                     igVar.b = -10;
@@ -1516,7 +1517,7 @@ public class yf {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0c81;
+                            i11 = R.string.obfuscated_res_0x7f0f0cb8;
                             this.a.c().c = -12;
                             dg c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1536,7 +1537,7 @@ public class yf {
                             i14 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0c81;
+                            i10 = R.string.obfuscated_res_0x7f0f0cb8;
                             this.a.c().c = -13;
                             dg c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1575,11 +1576,11 @@ public class yf {
                     agVar = agVar2;
                     try {
                         igVar.b = 0;
-                        igVar.c = "ok";
+                        igVar.c = DnsModel.MSG_OK;
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0c81;
+                        i13 = R.string.obfuscated_res_0x7f0f0cb8;
                         if (i12 >= i8) {
                         }
                         this.a.c().c = -14;
@@ -1604,7 +1605,7 @@ public class yf {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i12 >= i8) {
                         }
-                        agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                        agVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                         BdLog.e(th.getMessage());
                         this.a.e(agVar);
                         igVar.b = -10;

@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes4.dex */
-public interface hu6 {
-    void a(Context context, lu6 lu6Var);
+public interface hu6 extends nu6 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    int b();
+    void b(@NonNull ThemeElement themeElement);
 
-    View getView();
+    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
 
-    void setData(List<el6> list);
+    @NonNull
+    lu6 e();
+
+    void f(boolean z);
+
+    int l(@NonNull LogicField logicField);
 }

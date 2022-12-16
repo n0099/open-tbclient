@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public abstract class ki0 {
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class ki0 implements if1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
 
     public ki0() {
         Interceptable interceptable = $ic;
@@ -32,28 +25,27 @@ public abstract class ki0 {
         }
     }
 
-    @CallSuper
-    public boolean b(@NonNull Context context, @NonNull oi0 oi0Var, @Nullable Map<String, Object> map, @Nullable si0 si0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.if1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oi0Var, map, si0Var)) == null) {
-            b11.b((String) r01.b(oi0Var.d(), "charge_url"));
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new sg0());
+            arrayList.add(new tg0());
+            arrayList.add(new ug0());
+            arrayList.add(new vg0());
+            arrayList.add(new wg0());
+            arrayList.add(new xg0());
+            arrayList.add(new zg0());
+            arrayList.add(new th0());
+            arrayList.add(new do0());
+            arrayList.add(new eo0());
+            arrayList.add(new jo0());
+            arrayList.add(new p51());
+            arrayList.add(new tr5());
+            return arrayList;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void c(si0 si0Var, @Nullable oi0 oi0Var, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{si0Var, oi0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            xi0.b(si0Var, oi0Var, i, z);
-        }
-    }
-
-    public void d(si0 si0Var, @Nullable oi0 oi0Var, @Nullable String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{si0Var, oi0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            xi0.c(si0Var, oi0Var, str, i, z);
-        }
+        return invokeV.objValue;
     }
 }

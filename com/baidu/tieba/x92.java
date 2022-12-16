@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x92 implements w92 {
+public class x92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final q92 b;
-
-    @Override // com.baidu.tieba.w92
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,62 +26,51 @@ public class x92 implements w92 {
                 return;
             }
         }
-        c = pk1.a;
+        a = ok1.a;
     }
 
-    @Override // com.baidu.tieba.w92
-    public q92 a() {
+    @NonNull
+    public static v92 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            v92 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
         }
-        return (q92) invokeV.objValue;
+        return (v92) invokeV.objValue;
     }
 
-    public x92(int i) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ln2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
             }
+            return 0;
         }
-        this.a = i >= 20 ? Math.min(i, 300) : 20;
-        this.b = new t92(10);
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w92
-    public boolean c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static v92 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("LocalLruStrategy", "prelink url - " + str3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new t92();
             }
-            r92 a = this.b.a(str2, str3);
-            boolean z = true;
-            if (a == null) {
-                if (c) {
-                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
-                }
-                return true;
+            if (i > 0) {
+                return new w92(i);
             }
-            if (System.currentTimeMillis() - a.b < this.a * 1000) {
-                z = false;
+            if (i == -1) {
+                return new u92();
             }
-            if (c) {
-                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
-            }
-            return z;
+            return new t92();
         }
-        return invokeLLL.booleanValue;
+        return (v92) invokeI.objValue;
     }
 }

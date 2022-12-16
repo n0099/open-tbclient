@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.voyager.impl.IVoyagerCallback;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IVoyagerService extends IInterface {
     void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException;
 
@@ -23,7 +23,7 @@ public interface IVoyagerService extends IInterface {
 
     void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerService";
@@ -40,7 +40,7 @@ public interface IVoyagerService extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class Proxy implements IVoyagerService {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerService sDefaultImpl;
@@ -307,7 +307,7 @@ public interface IVoyagerService extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Default implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

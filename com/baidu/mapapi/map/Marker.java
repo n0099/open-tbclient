@@ -205,7 +205,7 @@ public final class Marker extends Overlay {
             if (arrayList != null && arrayList.size() > 0) {
                 a(this.s, bundle);
             }
-            bundle2.putBundle("param", bundle);
+            bundle2.putBundle(Constants.EXTRA_PARAM, bundle);
             return bundle;
         }
         return (Bundle) invokeL.objValue;

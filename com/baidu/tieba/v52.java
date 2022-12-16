@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class v52 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,36 +30,41 @@ public class v52 {
                 return;
             }
         }
-        a = pk1.a;
-        b = new AtomicInteger(0);
+        a = ok1.a;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public v52(c32 c32Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("localDebug")) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c32Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = b.getAndIncrement();
-            String str = "localDebug";
-            if (andIncrement >= 1) {
-                str = "localDebug" + andIncrement;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (a) {
-                Log.i("DaemonIdGenerator", "next daemon id - " + str);
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
             }
-            return str;
+            int i = 0;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                rp2.U().y(new he2(str, str2), false);
+            } else {
+                i = 202;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

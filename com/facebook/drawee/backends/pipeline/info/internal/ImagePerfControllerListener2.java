@@ -210,7 +210,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageI
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, extras) == null) {
             long now = this.mClock.now();
-            extras.f1069view.size();
+            extras.f1094view.size();
             this.mImagePerfState.setExtraData(extras);
             this.mImagePerfState.setControllerFinalImageSetTimeMs(now);
             this.mImagePerfState.setImageRequestEndTimeMs(now);

@@ -13,8 +13,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qu4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.ru4;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,10 +23,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HeadlinesAgreeRewardItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int c;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public EMTextView b;
@@ -43,7 +45,21 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
                 return;
             }
         }
-        c = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
+        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setBorderWidth(d);
+            this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+            this.a.setIsRound(true);
+            this.a.setDrawBorder(true);
+            this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.a.setPlaceHolder(1);
+            rw4.d(this.b).v(R.color.CAM_X0105);
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,11 +86,12 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) this, true);
-            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d8b);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d8c);
+            LayoutInflater.from(context).inflate(R.layout.headlines_agree_rewards_item, (ViewGroup) this, true);
+            this.a = (HeadImageView) findViewById(R.id.headlines_agree_reward_icon);
+            this.b = (EMTextView) findViewById(R.id.headlines_agree_reward_name);
             setOrientation(1);
             setGravity(1);
+            setPadding(c, getPaddingTop(), c, getPaddingBottom());
         }
     }
 
@@ -121,26 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void b() {
+    public void setData(ru4 ru4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setBorderWidth(c);
-            this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            this.a.setIsRound(true);
-            this.a.setDrawBorder(true);
-            this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.a.setPlaceHolder(1);
-            qw4.d(this.b).v(R.color.CAM_X0105);
-        }
-    }
-
-    public void setData(qu4 qu4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu4Var) != null) || qu4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ru4Var) != null) || ru4Var == null) {
             return;
         }
         b();
-        this.a.K(qu4Var.a(), 10, false);
-        this.b.setText(qu4Var.b());
+        this.a.K(ru4Var.a(), 10, false);
+        this.b.setText(ru4Var.b());
     }
 }

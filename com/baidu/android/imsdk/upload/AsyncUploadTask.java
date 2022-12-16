@@ -8,7 +8,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
@@ -64,6 +63,19 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
             }
         }
         TAG = AsyncUploadTask.class.getSimpleName();
+    }
+
+    private void notifyFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            try {
+                if (this.mListener != null) {
+                    this.mListener.onFinished(this.mType, this.mRemoteUrl);
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "notifyFinished", e);
+            }
+        }
     }
 
     public String showTime() {
@@ -207,21 +219,6 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 }
             } catch (Exception e) {
                 LogUtils.e(TAG, "notifyFailed", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            }
-        }
-    }
-
-    private void notifyFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            try {
-                if (this.mListener != null) {
-                    this.mListener.onFinished(this.mType, this.mRemoteUrl);
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "notifyFinished", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

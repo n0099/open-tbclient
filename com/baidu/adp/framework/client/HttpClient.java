@@ -108,14 +108,14 @@ public class HttpClient extends la<HttpMessage, HttpMessageTask> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:119:0x01e5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:119:0x01e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:127:? A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x0177  */
-        /* JADX WARN: Removed duplicated region for block: B:54:0x0194  */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x01d3  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x0275  */
-        /* JADX WARN: Removed duplicated region for block: B:85:0x0284  */
-        /* JADX WARN: Removed duplicated region for block: B:89:0x02e7 A[Catch: Exception -> 0x02f9, TRY_LEAVE, TryCatch #2 {Exception -> 0x02f9, blocks: (B:87:0x02e1, B:89:0x02e7), top: B:111:0x02e1 }] */
+        /* JADX WARN: Removed duplicated region for block: B:53:0x0178  */
+        /* JADX WARN: Removed duplicated region for block: B:54:0x0195  */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x01d4  */
+        /* JADX WARN: Removed duplicated region for block: B:82:0x0276  */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x0285  */
+        /* JADX WARN: Removed duplicated region for block: B:89:0x02e8 A[Catch: Exception -> 0x02fa, TRY_LEAVE, TryCatch #2 {Exception -> 0x02fa, blocks: (B:87:0x02e2, B:89:0x02e8), top: B:111:0x02e2 }] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         /*
@@ -285,7 +285,7 @@ public class HttpClient extends la<HttpMessage, HttpMessageTask> {
                             j3 = j9;
                             j5 = j2;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.error_unkown_try_again));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05d4));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
@@ -312,7 +312,7 @@ public class HttpClient extends la<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.error_unkown_try_again));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05d4));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }

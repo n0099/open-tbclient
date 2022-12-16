@@ -4,6 +4,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +45,7 @@ public class Utils {
                 hashMap.put("clientid", clientId);
                 hashMap.put("clientfrom", "native");
                 hashMap.put("zid", isAccountManager.getCurrentZid(confignation.context));
-                hashMap.put("clientip", confignation.clientIp);
+                hashMap.put(DnsModel.CLIENTIP_KEY, confignation.clientIp);
                 hashMap.put("appid", confignation.appId);
                 hashMap.put("tpl", confignation.tpl);
                 hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));

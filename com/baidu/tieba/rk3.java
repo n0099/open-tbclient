@@ -1,27 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class rk3 {
+/* loaded from: classes6.dex */
+public class rk3 implements qn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Map<String, String> b;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(rk3 rk3Var);
-
-        void b(rk3 rk3Var);
-
-        void onFinish();
-
-        void onStart();
-    }
 
     public rk3() {
         Interceptable interceptable = $ic;
@@ -34,6 +21,14 @@ public class rk3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.qn1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            dl3.i(context);
         }
     }
 }

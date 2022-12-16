@@ -23,7 +23,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.w;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class f extends c {
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void aj(int i);
     }
@@ -139,7 +139,7 @@ public final class f extends c {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0584a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0601a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
@@ -226,8 +226,8 @@ public final class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f091122);
-            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126f);
+            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f091181);
+            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ce);
             this.Fv.setBackgroundColor(0);
         }
     }

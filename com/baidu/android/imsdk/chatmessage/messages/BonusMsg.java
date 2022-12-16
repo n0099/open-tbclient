@@ -178,6 +178,7 @@ public class BonusMsg extends NormalMsg {
         return invokeV.intValue;
     }
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -357,6 +358,7 @@ public class BonusMsg extends NormalMsg {
         }
     }
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public void setSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {

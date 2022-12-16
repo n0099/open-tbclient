@@ -50,27 +50,36 @@ public class MediaPojo extends OrmObject {
         }
     }
 
-    public int getType() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.type;
-        }
-        return invokeV.intValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.srcPic;
         }
         return (String) invokeV.objValue;
     }
 
-    public void A(Media media) {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, media) != null) || media == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
+    }
+
+    public void H(Media media) {
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
+        int intValue5;
+        long longValue;
+        int intValue6;
+        int intValue7;
+        double doubleValue;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, media) != null) || media == null) {
             return;
         }
         this.type = media.type.intValue();
@@ -82,19 +91,83 @@ public class MediaPojo extends OrmObject {
         this.vhsrc = media.vhsrc;
         this.srcPic = media.srcPic;
         this.text = media.text;
-        this.width = media.width.intValue();
-        this.height = media.height.intValue();
+        Integer num = media.width;
+        int i = 0;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
+        }
+        this.width = intValue;
+        Integer num2 = media.height;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
+        }
+        this.height = intValue2;
         this.bsize = media.bsize;
-        this.duringTime = media.duringTime.intValue();
-        this.eType = media.eType.intValue();
+        Integer num3 = media.duringTime;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
+        }
+        this.duringTime = intValue3;
+        Integer num4 = media.eType;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
+        }
+        this.eType = intValue4;
         this.originPic = media.originPic;
-        this.originSize = media.originSize.intValue();
-        this.postId = media.postId.longValue();
+        Integer num5 = media.originSize;
+        if (num5 == null) {
+            intValue5 = 0;
+        } else {
+            intValue5 = num5.intValue();
+        }
+        this.originSize = intValue5;
+        Long l = media.postId;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
+        }
+        this.postId = longValue;
         this.dynamicPic = media.dynamicPic;
-        this.isLongPic = media.isLongPic.intValue();
-        this.showOriginalBtn = media.showOriginalBtn.intValue();
-        this.isBlockedPic = media.isBlockedPic.intValue();
-        this.wthMidLoc = media.wthMidLoc.doubleValue();
-        this.hthMidLoc = media.hthMidLoc.doubleValue();
+        Integer num6 = media.isLongPic;
+        if (num6 == null) {
+            intValue6 = 0;
+        } else {
+            intValue6 = num6.intValue();
+        }
+        this.isLongPic = intValue6;
+        Integer num7 = media.showOriginalBtn;
+        if (num7 == null) {
+            intValue7 = 0;
+        } else {
+            intValue7 = num7.intValue();
+        }
+        this.showOriginalBtn = intValue7;
+        Integer num8 = media.isBlockedPic;
+        if (num8 != null) {
+            i = num8.intValue();
+        }
+        this.isBlockedPic = i;
+        Double d = media.wthMidLoc;
+        double d2 = 0.0d;
+        if (d == null) {
+            doubleValue = 0.0d;
+        } else {
+            doubleValue = d.doubleValue();
+        }
+        this.wthMidLoc = doubleValue;
+        Double d3 = media.hthMidLoc;
+        if (d3 != null) {
+            d2 = d3.doubleValue();
+        }
+        this.hthMidLoc = d2;
     }
 }

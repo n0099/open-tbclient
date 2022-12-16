@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.qc7;
+import com.baidu.tieba.pd7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -106,7 +106,7 @@ public class ValidateModel {
             if (BdBaseApplication.getInst().isDebugMode() && !yi.E()) {
                 return;
             }
-            ImMessageCenterPojo i = qc7.o().i(str, 1);
+            ImMessageCenterPojo i = pd7.o().i(str, 1);
             if (i != null) {
                 str2 = i.getGroup_name();
             } else {

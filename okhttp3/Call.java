@@ -1,10 +1,11 @@
 package okhttp3;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+import okio.Timeout;
+/* loaded from: classes9.dex */
 public interface Call extends Cloneable {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Factory {
         Call newCall(Request request);
     }
@@ -22,4 +23,6 @@ public interface Call extends Cloneable {
     boolean isExecuted();
 
     Request request();
+
+    Timeout timeout();
 }

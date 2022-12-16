@@ -196,18 +196,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.c = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076f, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0780, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090efd);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907b4), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907b5), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090497), (int) R.color.CAM_X0302);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f58);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907cc), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907cd), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090498), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c17);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090674);
-            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f080933);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c3f);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
+            SkinManager.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
             tbImageView2.setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f090497).setOnClickListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f090498).setOnClickListener(new b(this));
         }
     }
 }

@@ -22,7 +22,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, ksScene)) == null) {
-            b bVar = (b) a(new com.kwad.sdk.d.b<b>(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.1
+            b bVar = (b) a(new com.kwad.sdk.d.b<b>(new a.C0599a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;
@@ -367,7 +367,7 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, ksScene)) == null) {
-            com.kwad.components.ad.kwai.a aVar = (com.kwad.components.ad.kwai.a) a(new com.kwad.sdk.d.b<com.kwad.components.ad.kwai.a>(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.2
+            com.kwad.components.ad.kwai.a aVar = (com.kwad.components.ad.kwai.a) a(new com.kwad.sdk.d.b<com.kwad.components.ad.kwai.a>(new a.C0599a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;

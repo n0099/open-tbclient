@@ -21,9 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class CardGroupDividerView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e */
-    public static final int CAM_X0204 = 2131099693;
+    public static final int e = 2131099693;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public TextView b;
@@ -63,7 +61,7 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.d = CAM_X0204;
+        this.d = e;
         a();
     }
 
@@ -86,7 +84,7 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.d = CAM_X0204;
+        this.d = e;
         a();
     }
 
@@ -109,7 +107,7 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.d = CAM_X0204;
+        this.d = e;
         a();
     }
 
@@ -139,10 +137,10 @@ public class CardGroupDividerView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0182, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f090518);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090519);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090404);
+            LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
+            this.a = findViewById(R.id.card_divider_top_margin);
+            this.b = (TextView) findViewById(R.id.card_divider_tv);
+            this.c = findViewById(R.id.bottom_line);
             b();
         }
     }

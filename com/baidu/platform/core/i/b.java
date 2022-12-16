@@ -1,6 +1,7 @@
 package com.baidu.platform.core.i;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -13,7 +14,6 @@ import com.baidu.mapapi.search.weather.WeatherSearchForecasts;
 import com.baidu.mapapi.search.weather.WeatherSearchLocation;
 import com.baidu.mapapi.search.weather.WeatherSearchRealTime;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -158,7 +158,7 @@ public class b extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, jSONObject, weatherResult)) == null) {
             weatherResult.status = jSONObject.optInt("status");
-            JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+            JSONObject optJSONObject = jSONObject.optJSONObject("result");
             if (optJSONObject == null) {
                 return false;
             }
@@ -211,7 +211,7 @@ public class b extends com.baidu.platform.base.d {
                 jSONObject3 = jSONObject2;
                 if (jSONObject3 == null) {
                     WeatherSearchForecasts weatherSearchForecasts = new WeatherSearchForecasts();
-                    weatherSearchForecasts.setDate(jSONObject3.optString("date"));
+                    weatherSearchForecasts.setDate(jSONObject3.optString(GfhKeyValue.TYPE_DATE));
                     weatherSearchForecasts.setHighestTemp(jSONObject3.optInt("high"));
                     weatherSearchForecasts.setLowestTemp(jSONObject3.optInt(Config.EXCEPTION_MEMORY_LOW));
                     weatherSearchForecasts.setPhenomenonDay(jSONObject3.optString("text_day"));

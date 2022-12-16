@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.i.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             FrameLayout frameLayout = this.bS;
             com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
             bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-            this.bb.a((b.InterfaceC0539b) null);
+            this.bb.a((b.InterfaceC0556b) null);
         }
     }
 
@@ -89,7 +89,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091153);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b2);
         }
     }
 

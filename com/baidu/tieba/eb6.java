@@ -1,16 +1,23 @@
 package com.baidu.tieba;
 
+import android.webkit.JsPromptResult;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class eb6 implements hd5 {
+/* loaded from: classes4.dex */
+public class eb6 implements ya6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
+
+    @Override // com.baidu.tieba.ya6
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+    }
 
     public eb6() {
         Interceptable interceptable = $ic;
@@ -22,6 +29,18 @@ public class eb6 implements hd5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ya6
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                xa6.f().i(str2, str3);
+            } catch (Throwable unused) {
+                xa6.f().e();
             }
         }
     }

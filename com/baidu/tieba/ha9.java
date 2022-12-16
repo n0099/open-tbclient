@@ -1,30 +1,48 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.AutoChangeLineView;
-import com.baidu.tieba.write.write.work.selectview.SelectTagView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class ha9 implements AutoChangeLineView.b {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ ha9 a = new ha9();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ha9<D> {
+    void a(@NonNull WriteData writeData);
 
-    private /* synthetic */ ha9() {
-    }
+    void c(WriteData writeData);
 
-    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
-    public final CharSequence a(TextView textView, int i, Object obj) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
-            String str = (String) obj;
-            SelectTagView.d(textView, i, str);
-            return str;
-        }
-        return (CharSequence) invokeLIL.objValue;
-    }
+    void d();
+
+    void e(@NonNull WriteData writeData);
+
+    boolean g();
+
+    void h(@Nullable String str, @NonNull WriteData writeData);
+
+    void j(@NonNull ja9 ja9Var);
+
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<ha9<?>> list);
+
+    void r(m65 m65Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

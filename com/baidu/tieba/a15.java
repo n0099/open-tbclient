@@ -43,27 +43,27 @@ public class a15 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             z05 z05Var = new z05();
             if (str == null) {
-                z05Var.c = 6;
-                z05Var.d = z05.a(6);
+                z05Var.f(6);
+                z05Var.g(z05.a(z05Var.b()));
                 return z05Var;
             }
             if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                z05Var.c = 7;
-                z05Var.d = z05.a(7);
+                z05Var.f(7);
+                z05Var.g(z05.a(z05Var.b()));
                 return z05Var;
             }
             String b = fj.b(FileHelper.GetStreamFromTmpFile(str));
             if (b == null) {
-                z05Var.c = 5;
-                z05Var.d = z05.a(5);
+                z05Var.f(5);
+                z05Var.g(z05.a(z05Var.b()));
             } else {
                 String filePath = FileHelper.getFilePath(b, 1, true);
                 if (FileHelper.renameTo(str, filePath)) {
-                    z05Var.b = filePath;
-                    z05Var.a = b;
+                    z05Var.i(filePath);
+                    z05Var.h(b);
                 } else {
-                    z05Var.c = 1;
-                    z05Var.d = z05.a(1);
+                    z05Var.f(1);
+                    z05Var.g(z05.a(z05Var.b()));
                 }
             }
             return z05Var;

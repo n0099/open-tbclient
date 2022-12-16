@@ -48,18 +48,18 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             }
         }
         Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.T0());
-        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.S0());
-        bundle.putString("key_empty_view_text", personPostActivity.R0());
+        bundle.putString("key_uid", personPostActivity.R0());
+        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.Q0());
+        bundle.putString("key_empty_view_text", personPostActivity.P0());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.c.I1(personPostActivity);
+        this.c.O1(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
         this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.b.H1(personPostActivity);
-        this.b.G1(personPostActivity);
+        this.b.N1(personPostActivity);
+        this.b.M1(personPostActivity);
         this.a = new int[]{0, 1};
     }
 

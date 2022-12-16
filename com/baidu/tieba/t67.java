@@ -1,36 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class t67 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xn> a;
-    public int b;
-    public boolean c;
-    public int d;
-    public hs4 e;
-    public ft4 f;
+public interface t67 {
+    boolean a();
 
-    public t67() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = true;
-        this.d = 1;
-    }
+    void b();
+
+    void c(BdUniqueId bdUniqueId);
+
+    void destory();
+
+    List<ThreadData> m();
+
+    void refresh();
+
+    void x(String str, String str2, int i);
 }

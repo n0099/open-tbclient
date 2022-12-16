@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oq4;
+import com.baidu.tieba.pq4;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oq4 a;
+    public pq4 a;
     public final qb b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,26 +76,21 @@ public class ClientConfigModel extends BdBaseModel {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (!this.a.C(responsedMessage)) {
+                if (!this.a.J(responsedMessage)) {
                     if (this.a.a != null) {
                         this.a.a.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
-                        if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
-                            if (this.a.a != null) {
-                                this.a.a.onError("");
-                                return;
-                            }
-                            return;
-                        }
-                        this.a.D(((ClientConfigSocketResponse) responsedMessage).getData());
-                        return;
+                    if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
+                        this.a.K(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                    } else if (responsedMessage instanceof ClientConfigSocketResponse) {
+                        this.a.K(((ClientConfigSocketResponse) responsedMessage).getData());
+                    } else if (this.a.a != null) {
+                        this.a.a.onError("");
                     }
-                    this.a.D(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c81);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cb8);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
@@ -108,13 +103,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, oq4 oq4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, pq4 pq4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, oq4Var};
+            Object[] objArr = {bdBaseFragmentActivity, pq4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,11 +122,11 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = oq4Var;
+        this.a = pq4Var;
         registerListener(aVar);
     }
 
-    public final boolean C(ResponsedMessage<?> responsedMessage) {
+    public final boolean J(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) {
@@ -143,24 +138,24 @@ public class ClientConfigModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public final void D(DataRes dataRes) {
+    public final void K(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes == null) {
                 if (this.a != null) {
-                    this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0497));
+                    this.a.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            oq4 oq4Var = this.a;
-            if (oq4Var != null) {
-                oq4Var.a(dataRes);
+            pq4 pq4Var = this.a;
+            if (pq4Var != null) {
+                pq4Var.a(dataRes);
             }
         }
     }
 
-    public void E(String str) {
+    public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

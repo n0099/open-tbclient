@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes8.dex */
 public final class f {
@@ -286,7 +287,7 @@ public final class f {
         return i;
     }
 
-    public final boolean a(String str, int i, a.C0619a c0619a) {
+    public final boolean a(String str, int i, a.C0636a c0636a) {
         HttpURLConnection httpURLConnection;
         com.kwad.sdk.core.e.b.d("HttpProxyCacheServer", "preloadSync preloadUrl " + str);
         if (cB(str)) {
@@ -303,7 +304,7 @@ public final class f {
                 httpURLConnection.setReadTimeout(120000);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setDoInput(true);
-                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
                 httpURLConnection.setRequestProperty("BrowserUa", o.tD());
@@ -325,7 +326,7 @@ public final class f {
                     th = th;
                     bufferedInputStream = bufferedInputStream2;
                     try {
-                        c0619a.Qd = Log.getStackTraceString(th);
+                        c0636a.Qd = Log.getStackTraceString(th);
                         com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                         com.kwad.sdk.core.e.b.e("HttpProxyCacheServer", "downloadUrlToStream file crash", th);
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);

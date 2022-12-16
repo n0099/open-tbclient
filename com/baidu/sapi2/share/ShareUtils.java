@@ -13,6 +13,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Toast;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -751,7 +752,7 @@ public final class ShareUtils {
                             } else {
                                 str2 = "1";
                             }
-                            hashMap.put("timeout", str2);
+                            hashMap.put(a.O, str2);
                             hashMap.put("status", "0");
                             StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
                             if (ShareUtils.isRequestShareFromCloudTimeOut) {
@@ -805,7 +806,7 @@ public final class ShareUtils {
                             } else {
                                 str2 = "0";
                             }
-                            hashMap.put("timeout", str2);
+                            hashMap.put(a.O, str2);
                             hashMap.put("status", "1");
                             StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
                             if (ShareUtils.isRequestShareFromCloudTimeOut) {

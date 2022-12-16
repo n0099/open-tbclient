@@ -83,7 +83,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             setGravity(16);
             pz4 pz4Var = new pz4();
             pz4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            pz4Var.i(R.drawable.obfuscated_res_0x7f08061b, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            pz4Var.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
             pz4Var.h(R.color.CAM_X0110);
             pz4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             pz4Var.m(yi.g(getContext(), R.dimen.M_W_X004), yi.g(getContext(), R.dimen.M_W_X004));
@@ -94,7 +94,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             tBSpecificationBtn.setConfig(pz4Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0552));
+            this.a.setText(getContext().getString(R.string.editor_location));
             addView(this.a, new LinearLayout.LayoutParams(-2, yi.g(getContext(), R.dimen.tbds62)));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -144,9 +144,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 }
                 this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
             } else if (i == 1) {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a87));
+                this.a.setText(getContext().getString(R.string.location_loading));
             } else {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a8d));
+                this.a.setText(getContext().getString(R.string.location_where_are_you));
             }
             this.a.a = Integer.valueOf(i);
         }

@@ -11,11 +11,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fb9;
+import com.baidu.tieba.oe9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TNWebViewClient extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,28 +69,28 @@ public class TNWebViewClient extends WebViewClient {
                 return null;
             }
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            fb9 fb9Var = new fb9(new URL(webResourceRequest.getUrl().toString()), this.a);
-            fb9Var.setRequestMethod(webResourceRequest.getMethod());
+            oe9 oe9Var = new oe9(new URL(webResourceRequest.getUrl().toString()), this.a);
+            oe9Var.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {
                 for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                    fb9Var.setRequestProperty(entry.getKey(), entry.getValue());
+                    oe9Var.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             CookieManager cookieManager = CookieManager.getInstance();
             String cookie = cookieManager.getCookie(webResourceRequest.getUrl().toString());
             if (!TextUtils.isEmpty(cookie)) {
-                fb9Var.setRequestProperty("Cookie", cookie);
+                oe9Var.setRequestProperty("Cookie", cookie);
             }
-            int responseCode = fb9Var.getResponseCode();
+            int responseCode = oe9Var.getResponseCode();
             if (responseCode >= 100 && responseCode <= 599 && (responseCode <= 299 || responseCode >= 400)) {
-                String headerField = fb9Var.getHeaderField("Set-Cookie");
+                String headerField = oe9Var.getHeaderField("Set-Cookie");
                 if (!TextUtils.isEmpty(headerField)) {
-                    cookieManager.setCookie(fb9Var.getURL().toString(), headerField);
+                    cookieManager.setCookie(oe9Var.getURL().toString(), headerField);
                 }
-                String headerField2 = fb9Var.getHeaderField("Content-Type");
+                String headerField2 = oe9Var.getHeaderField("Content-Type");
                 String str3 = "UTF-8";
-                if (headerField2 == null || (length = (split = headerField2.split(ParamableElem.DIVIDE_PARAM)).length) <= 0) {
+                if (headerField2 == null || (length = (split = headerField2.split(";")).length) <= 0) {
                     str = "UTF-8";
                     str2 = headerField2;
                 } else {
@@ -105,7 +104,7 @@ public class TNWebViewClient extends WebViewClient {
                     str = str3;
                     str2 = str4;
                 }
-                Map<String, List<String>> headerFields = fb9Var.getHeaderFields();
+                Map<String, List<String>> headerFields = oe9Var.getHeaderFields();
                 if (headerFields != null) {
                     HashMap hashMap = new HashMap();
                     for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
@@ -119,10 +118,10 @@ public class TNWebViewClient extends WebViewClient {
                         }
                         hashMap.put(entry2.getKey(), sb.toString());
                     }
-                    if (!TextUtils.isEmpty(fb9Var.getResponseMessage())) {
-                        return new WebResourceResponse(str2, str, fb9Var.getResponseCode(), fb9Var.getResponseMessage(), hashMap, fb9Var.getInputStream());
+                    if (!TextUtils.isEmpty(oe9Var.getResponseMessage())) {
+                        return new WebResourceResponse(str2, str, oe9Var.getResponseCode(), oe9Var.getResponseMessage(), hashMap, oe9Var.getInputStream());
                     }
-                    return new WebResourceResponse(str2, str, fb9Var.getInputStream());
+                    return new WebResourceResponse(str2, str, oe9Var.getInputStream());
                 }
                 return null;
             }

@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRAINTENT = "extra_intent";
+    public static final String IS_DEAL_INTENT = "is_deal_intent";
     public static boolean IS_HOT_SPLASH_SHOW = false;
     public static boolean isFirst = true;
     public transient /* synthetic */ FieldHolder $fh;

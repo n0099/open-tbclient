@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.d.j;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class a implements j {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context context = this.mContext;
             if (context != null) {
-                t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f09f0), 0L);
+                t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f0a23), 0L);
                 return true;
             }
             return true;

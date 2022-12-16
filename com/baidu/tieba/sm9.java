@@ -1,24 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ft9;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Comparator;
-/* compiled from: lambda */
-/* loaded from: classes5.dex */
-public final /* synthetic */ class sm9 implements Comparator {
+/* loaded from: classes6.dex */
+public class sm9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ sm9 a = new sm9();
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ sm9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948156362, "Lcom/baidu/tieba/sm9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948156362, "Lcom/baidu/tieba/sm9;");
+        }
     }
 
-    @Override // java.util.Comparator
-    public final int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ft9.b.h((Double) obj, (Double) obj2) : invokeLL.intValue;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, str2);
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
+            Log.e(str, str2);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
+            Log.w(str, str2);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c(LogUtils.TAG, str);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            e(LogUtils.TAG, str);
+        }
     }
 }

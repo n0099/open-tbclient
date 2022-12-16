@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class yt extends tt<TaskGuideData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public final class yt extends tt<TaskGuideData> {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-                tt a = this.a.a("ui");
-                String optString = jSONObject.optString("ui");
+                tt a = this.a.a(TaskUIData.key);
+                String optString = jSONObject.optString(TaskUIData.key);
                 Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
                 TaskUIData taskUIData = (TaskUIData) a.a(optString);
                 if (taskUIData != null) {

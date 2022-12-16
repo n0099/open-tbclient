@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.x95;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,6 +39,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public boolean needImageParallel;
     public int originalImgIndex;
     public int originalImgViewIndex;
+    public int source;
 
     public WriteImagesInfo() {
         Interceptable interceptable = $ic;
@@ -117,10 +118,19 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         return invokeV.intValue;
     }
 
+    public int getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.source;
+        }
+        return invokeV.intValue;
+    }
+
     public boolean isEnableChooseOriginalImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.isEnableChooseOriginalImg;
         }
         return invokeV.booleanValue;
@@ -129,7 +139,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public boolean isFromQRCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.isFromQRCode;
         }
         return invokeV.booleanValue;
@@ -138,7 +148,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public boolean isOriginalImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.isOriginalImg;
         }
         return invokeV.booleanValue;
@@ -147,7 +157,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             LinkedList<ImageFileInfo> linkedList = this.chosedFiles;
             if (linkedList == null) {
                 return 0;
@@ -160,7 +170,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public String toJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             JSONObject json = toJson();
             if (json != null) {
                 return json.toString();
@@ -192,6 +202,29 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.maxImagesAllowed = i;
     }
 
+    public WriteImagesInfo(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mIsFromIm = false;
+        this.isOriginalImg = false;
+        this.isEnableChooseOriginalImg = true;
+        this.isFromQRCode = false;
+        this.maxImagesAllowed = i;
+        this.source = i2;
+    }
+
     public void addChooseFile(ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, imageFileInfo) == null) {
@@ -213,6 +246,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.chosedFiles = writeImagesInfo.chosedFiles;
         this.isOriginalImg = writeImagesInfo.isOriginalImg;
         this.isEnableChooseOriginalImg = writeImagesInfo.isEnableChooseOriginalImg;
+        this.source = writeImagesInfo.source;
     }
 
     public ImageFileInfo getImageInfoAt(int i) {
@@ -230,7 +264,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || xi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || xi.isEmpty(str)) {
             return;
         }
         try {
@@ -242,50 +276,57 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void setChosedFiles(LinkedList<ImageFileInfo> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, linkedList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, linkedList) == null) {
             this.chosedFiles = linkedList;
         }
     }
 
     public void setFromQRCode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.isFromQRCode = z;
         }
     }
 
     public void setLastAlbumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.lastAlbumId = str;
         }
     }
 
     public void setMaxImagesAllowed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.maxImagesAllowed = i;
         }
     }
 
     public void setOriginalImg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.isOriginalImg = z;
         }
     }
 
     public void setOriginalImgIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.originalImgIndex = i;
         }
     }
 
     public void setOriginalImgViewIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.originalImgViewIndex = i;
+        }
+    }
+
+    public void setSource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.source = i;
         }
     }
 
@@ -307,7 +348,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         InterceptResult invokeL;
         LinkedList<ImageFileInfo> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imageFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, imageFileInfo)) == null) {
             if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (linkedList = this.chosedFiles) != null && linkedList.size() != 0) {
                 Iterator<ImageFileInfo> it = this.chosedFiles.iterator();
                 while (it.hasNext()) {
@@ -324,13 +365,14 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048592, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.lastAlbumId = jSONObject.optString("lastAlbumId", null);
         this.mIsFromIm = jSONObject.optBoolean("isIm", false);
         this.isFromQRCode = jSONObject.optBoolean("isFromQRCode", false);
         this.maxImagesAllowed = jSONObject.optInt("maxImagesAllowed");
+        this.source = jSONObject.optInt("source");
         this.isOriginalImg = jSONObject.optBoolean("isOriginalImg");
         this.isEnableChooseOriginalImg = jSONObject.optBoolean("isEnableChooseOriginalImg");
         this.originalImgIndex = jSONObject.optInt("originalImgIndex");
@@ -350,10 +392,11 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("maxImagesAllowed", this.maxImagesAllowed);
+                jSONObject.put("source", this.source);
                 jSONObject.put("isOriginalImg", this.isOriginalImg);
                 jSONObject.put("isEnableChooseOriginalImg", this.isEnableChooseOriginalImg);
                 if (this.lastAlbumId != null) {
@@ -386,12 +429,12 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public void updateQuality() {
         LinkedList<ImageFileInfo> chosedFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (chosedFiles = getChosedFiles()) != null && chosedFiles.size() != 0) {
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (chosedFiles = getChosedFiles()) != null && chosedFiles.size() != 0) {
             Iterator<ImageFileInfo> descendingIterator = chosedFiles.descendingIterator();
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(x95.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+                    next.addPersistAction(y95.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

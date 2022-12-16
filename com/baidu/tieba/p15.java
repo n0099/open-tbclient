@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.bj7;
+import com.baidu.tieba.yl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p15 implements bj7 {
+public class p15 implements yl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -35,7 +35,7 @@ public class p15 implements bj7 {
     public String m;
     public int n;
     public String o;
-    public bj7.a p;
+    public yl7.a p;
     public int q;
     public String r;
 
@@ -71,14 +71,14 @@ public class p15 implements bj7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bj7
-    public bj7.a getParallelCharge() {
+    @Override // com.baidu.tieba.yl7
+    public yl7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (bj7.a) invokeV.objValue;
+        return (yl7.a) invokeV.objValue;
     }
 
     public boolean a() {
@@ -135,7 +135,7 @@ public class p15 implements bj7 {
         this.m = jSONObject.optString("ext_info");
         this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
         this.r = jSONObject.optString("display_ad_icon");
-        bj7.a aVar = new bj7.a();
+        yl7.a aVar = new yl7.a();
         this.p = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
         this.p.c = f(d(jSONObject, "show_urls"));

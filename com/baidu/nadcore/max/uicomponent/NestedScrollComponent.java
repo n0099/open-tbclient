@@ -19,25 +19,25 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
+import com.baidu.tieba.ai0;
 import com.baidu.tieba.bi0;
-import com.baidu.tieba.ci0;
-import com.baidu.tieba.cp0;
-import com.baidu.tieba.fq0;
-import com.baidu.tieba.ji0;
+import com.baidu.tieba.bp0;
+import com.baidu.tieba.eq0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.lo0;
+import com.baidu.tieba.m31;
 import com.baidu.tieba.mo0;
-import com.baidu.tieba.n31;
 import com.baidu.tieba.no0;
 import com.baidu.tieba.oo0;
+import com.baidu.tieba.p01;
 import com.baidu.tieba.po0;
-import com.baidu.tieba.q01;
-import com.baidu.tieba.qo0;
+import com.baidu.tieba.ro0;
 import com.baidu.tieba.so0;
-import com.baidu.tieba.to0;
+import com.baidu.tieba.vo0;
+import com.baidu.tieba.wh0;
 import com.baidu.tieba.wo0;
-import com.baidu.tieba.xh0;
-import com.baidu.tieba.xo0;
-import com.baidu.tieba.yi0;
+import com.baidu.tieba.xi0;
+import com.baidu.tieba.yo0;
 import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,38 +57,38 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy d;
-    public fq0 e;
+    public eq0 e;
     public ValueAnimator f;
     public boolean g;
-    public bi0 h;
+    public ai0 h;
     public final Lazy i;
     public final WebViewContainer.c j;
     public final WebViewContainer.d k;
 
-    public final NestedScrollComponent$nestedScrollService$2.a x() {
+    public final NestedScrollComponent$nestedScrollService$2.a w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (NestedScrollComponent$nestedScrollService$2.a) this.i.getValue() : (NestedScrollComponent$nestedScrollService$2.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? (NestedScrollComponent$nestedScrollService$2.a) this.i.getValue() : (NestedScrollComponent$nestedScrollService$2.a) invokeV.objValue;
     }
 
-    public final WebViewContainer y() {
+    public final WebViewContainer x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (WebViewContainer) this.d.getValue() : (WebViewContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (WebViewContainer) this.d.getValue() : (WebViewContainer) invokeV.objValue;
     }
 
     /* loaded from: classes2.dex */
     public static final class a implements WebViewContainer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap0 a;
+        public final /* synthetic */ zo0 a;
 
-        public a(ap0 ap0Var) {
+        public a(zo0 zo0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ap0Var};
+                Object[] objArr = {zo0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,7 +98,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                     return;
                 }
             }
-            this.a = ap0Var;
+            this.a = zo0Var;
         }
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.WebViewContainer.b
@@ -108,8 +108,8 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             AbsContainer b;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ap0 ap0Var = this.a;
-                if (ap0Var != null && (b = ap0Var.b()) != null) {
+                zo0 zo0Var = this.a;
+                if (zo0Var != null && (b = zo0Var.b()) != null) {
                     i = b.k();
                 } else {
                     i = -1;
@@ -155,20 +155,20 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 if (z) {
-                    int topMargin = this.a.y().getTopMargin();
-                    zo0 zo0Var = (zo0) this.a.j().p(zo0.class);
-                    if (zo0Var != null) {
-                        i = zo0Var.getVideoHeight();
+                    int topMargin = this.a.x().getTopMargin();
+                    yo0 yo0Var = (yo0) this.a.b().j(yo0.class);
+                    if (yo0Var != null) {
+                        i = yo0Var.getVideoHeight();
                     } else {
                         i = 0;
                     }
                     if (topMargin <= i) {
-                        this.a.C(false);
+                        this.a.B(false);
                         return true;
                     }
                 }
-                if (!z && this.a.y().getTopMargin() >= this.a.y().getMinTopMargin()) {
-                    this.a.C(true);
+                if (!z && this.a.x().getTopMargin() >= this.a.x().getMinTopMargin()) {
+                    this.a.B(true);
                     return true;
                 }
                 return false;
@@ -209,22 +209,22 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             FrameLayout h;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                zo0 zo0Var = (zo0) this.a.j().p(zo0.class);
-                if (zo0Var != null && (h = zo0Var.h()) != null) {
+                yo0 yo0Var = (yo0) this.a.b().j(yo0.class);
+                if (yo0Var != null && (h = yo0Var.h()) != null) {
                     f = h.getY();
                 } else {
                     f = 0.0f - i2;
                 }
-                zo0 zo0Var2 = (zo0) this.a.j().p(zo0.class);
-                if (zo0Var2 != null) {
-                    i3 = zo0Var2.getVideoHeight();
+                yo0 yo0Var2 = (yo0) this.a.b().j(yo0.class);
+                if (yo0Var2 != null) {
+                    i3 = yo0Var2.getVideoHeight();
                 } else {
                     i3 = 0;
                 }
                 float f2 = i3;
                 float min = Math.min(Math.max(f, 0.0f - f2), 0.0f);
-                this.a.w((f2 - nestedScrollComponent.y().getTopMargin()) / (i3 - this.a.y().getMinTopMargin()));
-                this.a.j().k(new mo0(NestedEvent.MOVE_VIEW, min, i3, this.a.y().getTopMargin(), this.a.y().getMinTopMargin()));
+                this.a.t((f2 - nestedScrollComponent.x().getTopMargin()) / (i3 - this.a.x().getMinTopMargin()));
+                this.a.b().d(new lo0(NestedEvent.MOVE_VIEW, min, i3, this.a.x().getTopMargin(), this.a.x().getMinTopMargin()));
             }
         }
     }
@@ -263,23 +263,23 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             }
             this.g = nestedScrollComponent;
             this.h = z;
-            zo0 zo0Var = (zo0) nestedScrollComponent.j().p(zo0.class);
-            if (zo0Var != null) {
-                i2 = zo0Var.getVideoHeight();
+            yo0 yo0Var = (yo0) nestedScrollComponent.b().j(yo0.class);
+            if (yo0Var != null) {
+                i2 = yo0Var.getVideoHeight();
             } else {
                 i2 = 0;
             }
             this.a = i2;
             if (z) {
-                topMargin = i2 - nestedScrollComponent.y().getTopMargin();
+                topMargin = i2 - nestedScrollComponent.x().getTopMargin();
             } else {
-                topMargin = nestedScrollComponent.y().getTopMargin() - nestedScrollComponent.y().getMinTopMargin();
+                topMargin = nestedScrollComponent.x().getTopMargin() - nestedScrollComponent.x().getMinTopMargin();
             }
             this.c = topMargin;
             this.d = z2 ? topMargin : i;
-            this.e = nestedScrollComponent.y().getTopMargin();
-            zo0 zo0Var2 = (zo0) nestedScrollComponent.j().p(zo0.class);
-            if (zo0Var2 != null && (h = zo0Var2.h()) != null) {
+            this.e = nestedScrollComponent.x().getTopMargin();
+            yo0 yo0Var2 = (yo0) nestedScrollComponent.b().j(yo0.class);
+            if (yo0Var2 != null && (h = yo0Var2.h()) != null) {
                 f = h.getY();
             } else {
                 f = 0.0f;
@@ -299,16 +299,16 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                         int i = (int) (this.d * (floatValue - this.b));
                         this.f += i;
                         this.e += i;
-                        this.g.y().scrollBy(0, -i);
-                        this.g.y().setTopMargin(this.e);
+                        this.g.x().scrollBy(0, -i);
+                        this.g.x().setTopMargin(this.e);
                     } else {
                         int i2 = (int) (this.d * (floatValue - this.b));
                         this.f -= i2;
                         this.e -= i2;
-                        this.g.y().scrollBy(0, i2);
-                        this.g.y().setTopMargin(this.e);
+                        this.g.x().scrollBy(0, i2);
+                        this.g.x().setTopMargin(this.e);
                     }
-                    this.g.j().k(new mo0(NestedEvent.MOVE_VIEW, this.f, this.a, this.g.y().getTopMargin(), this.g.y().getMinTopMargin()));
+                    this.g.b().d(new lo0(NestedEvent.MOVE_VIEW, this.f, this.a, this.g.x().getTopMargin(), this.g.x().getMinTopMargin()));
                     this.b = floatValue;
                     return;
                 }
@@ -353,11 +353,11 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 Intrinsics.checkNotNullParameter(animation, "animation");
                 if (!this.b) {
-                    this.a.w(0.0f);
-                    this.a.j().k(new no0(NestedEvent.SCROLL_FINISH));
+                    this.a.t(0.0f);
+                    this.a.b().d(new mo0(NestedEvent.SCROLL_FINISH));
                     return;
                 }
-                this.a.B(this.c, this.d);
+                this.a.A(this.c, this.d);
             }
         }
     }
@@ -429,28 +429,28 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             double d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                int topMargin = this.a.y().getTopMargin();
-                zo0 zo0Var = (zo0) this.a.j().p(zo0.class);
+                int topMargin = this.a.x().getTopMargin();
+                yo0 yo0Var = (yo0) this.a.b().j(yo0.class);
                 boolean z2 = false;
-                if (zo0Var != null) {
-                    i = zo0Var.getVideoHeight();
+                if (yo0Var != null) {
+                    i = yo0Var.getVideoHeight();
                 } else {
                     i = 0;
                 }
-                if (topMargin != this.a.y().getMinTopMargin() && topMargin != i) {
+                if (topMargin != this.a.x().getMinTopMargin() && topMargin != i) {
                     if (z) {
                         d = 0.8d;
                     } else {
                         d = 0.2d;
                     }
-                    if ((this.a.y().getTopMargin() * 1.0d) / (i * 1.0d) >= d) {
+                    if ((this.a.x().getTopMargin() * 1.0d) / (i * 1.0d) >= d) {
                         z2 = true;
                     }
-                    this.a.j().k(new oo0(NestedEvent.SCROLL_UP, z));
-                    this.a.C(z2);
+                    this.a.b().d(new no0(NestedEvent.SCROLL_UP, z));
+                    this.a.B(z2);
                     return;
                 }
-                this.a.B(!z, false);
+                this.a.A(!z, false);
             }
         }
     }
@@ -474,26 +474,17 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         this.k = new g(this);
     }
 
-    public final void A(qo0 qo0Var) {
+    public final void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qo0Var) == null) {
-            if (cp0.$EnumSwitchMapping$3[qo0Var.getType().ordinal()] == 1) {
-                this.g = true;
-            }
-        }
-    }
-
-    public final void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             D(z, false, false);
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void g(ViewGroup parent) {
+    public void C(ViewGroup parent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, parent) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             parent.post(new f(this, parent));
         }
@@ -502,7 +493,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
             super.onNewIntent(intent);
             L(intent);
@@ -510,10 +501,19 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         }
     }
 
+    public final void y(oo0 oo0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, oo0Var) == null) {
+            if (bp0.$EnumSwitchMapping$2[oo0Var.getType().ordinal()] == 1) {
+                this.g = true;
+            }
+        }
+    }
+
     public final void z(po0 po0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, po0Var) == null) {
-            if (cp0.$EnumSwitchMapping$2[po0Var.getType().ordinal()] == 1) {
+            if (bp0.$EnumSwitchMapping$3[po0Var.getType().ordinal()] == 1) {
                 this.g = true;
             }
         }
@@ -526,33 +526,33 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void B(boolean z, boolean z2) {
+    public final void A(boolean z, boolean z2) {
         int i;
         String str;
         float topMargin;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                j().k(new no0(NestedEvent.UP_SHOW_VIDEO));
+                b().d(new mo0(NestedEvent.UP_SHOW_VIDEO));
             } else {
-                j().k(new no0(NestedEvent.UP_SHOW_WEB));
+                b().d(new mo0(NestedEvent.UP_SHOW_WEB));
             }
-            zo0 zo0Var = (zo0) j().p(zo0.class);
-            if (zo0Var != null) {
-                i = zo0Var.getVideoHeight();
+            yo0 yo0Var = (yo0) b().j(yo0.class);
+            if (yo0Var != null) {
+                i = yo0Var.getVideoHeight();
             } else {
                 i = 0;
             }
             if (z) {
-                y().scrollBy(0, -(i - y().getTopMargin()));
-                y().setTopMargin(i);
-                w(0.0f);
+                x().scrollBy(0, -(i - x().getTopMargin()));
+                x().setTopMargin(i);
+                t(0.0f);
             } else {
                 this.g = true;
-                y().scrollBy(0, y().getTopMargin() - y().getMinTopMargin());
-                y().setTopMargin(y().getMinTopMargin());
-                wo0 wo0Var = (wo0) j().p(wo0.class);
-                if (wo0Var != null) {
+                x().scrollBy(0, x().getTopMargin() - x().getMinTopMargin());
+                x().setTopMargin(x().getMinTopMargin());
+                vo0 vo0Var = (vo0) b().j(vo0.class);
+                if (vo0Var != null) {
                     String str2 = ClogBuilder.LogType.VIDEO_LP_VIDEO_HIDE.type;
                     Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.VIDEO_LP_VIDEO_HIDE.type");
                     if (z2) {
@@ -560,60 +560,60 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                     } else {
                         str = "1";
                     }
-                    wo0Var.c(str2, "", str);
+                    vo0Var.c(str2, "", str);
                 }
-                w(1.0f);
+                t(1.0f);
             }
             if (z) {
                 topMargin = 0.0f;
             } else {
-                topMargin = y().getTopMargin() - y().getMinTopMargin();
+                topMargin = x().getTopMargin() - x().getMinTopMargin();
             }
-            j().k(new mo0(NestedEvent.MOVE_VIEW, topMargin, i, y().getTopMargin(), y().getMinTopMargin()));
+            b().d(new lo0(NestedEvent.MOVE_VIEW, topMargin, i, x().getTopMargin(), x().getMinTopMargin()));
         }
     }
 
     public final void D(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            fq0 fq0Var = this.e;
-            if (fq0Var != null && fq0Var.e()) {
+            eq0 eq0Var = this.e;
+            if (eq0Var != null && eq0Var.e()) {
                 return;
             }
             J(z, z2, z3);
         }
     }
 
-    public final void E(so0 so0Var) {
+    public final void E(ro0 ro0Var) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, so0Var) == null) {
-            int i = cp0.$EnumSwitchMapping$1[so0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048580, this, ro0Var) == null) {
+            int i = bp0.$EnumSwitchMapping$1[ro0Var.getType().ordinal()];
             boolean z = true;
             if (i != 1) {
                 if (i == 2) {
-                    bi0 bi0Var = this.h;
+                    ai0 ai0Var = this.h;
                     Map<String, String> map2 = null;
-                    if (bi0Var != null) {
-                        map = bi0Var.c;
+                    if (ai0Var != null) {
+                        map = ai0Var.c;
                     } else {
                         map = null;
                     }
-                    bi0 bi0Var2 = this.h;
-                    if (bi0Var2 != null) {
-                        map2 = bi0Var2.b;
+                    ai0 ai0Var2 = this.h;
+                    if (ai0Var2 != null) {
+                        map2 = ai0Var2.b;
                     }
-                    String a2 = ci0.a("leftslide", map, map2, "");
+                    String a2 = bi0.a("leftslide", map, map2, "");
                     if (a2 != null && a2.length() != 0) {
                         z = false;
                     }
                     if (!z) {
-                        ji0.c(a2, getContext());
-                        wo0 wo0Var = (wo0) j().p(wo0.class);
-                        if (wo0Var != null) {
+                        ii0.c(a2, getContext());
+                        vo0 vo0Var = (vo0) b().j(vo0.class);
+                        if (vo0Var != null) {
                             String str = ClogBuilder.LogType.FREE_CLICK.type;
                             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                            wo0Var.a(str, "leftslide");
+                            vo0Var.a(str, "leftslide");
                             return;
                         }
                         return;
@@ -622,41 +622,41 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 }
                 return;
             }
-            t();
+            n();
         }
     }
 
-    public final void F(to0 to0Var) {
+    public final void F(so0 so0Var) {
         AbsContainer b2;
         View i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, to0Var) == null) {
-            ap0 ap0Var = (ap0) j().p(ap0.class);
-            if (cp0.$EnumSwitchMapping$0[to0Var.getType().ordinal()] == 1) {
-                y().setInterceptScrollLister(new a(ap0Var));
-                if (ap0Var != null && (b2 = ap0Var.b()) != null && (i = b2.i()) != null) {
-                    xh0.e(i);
-                    y().addView(i, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || interceptable.invokeL(1048581, this, so0Var) == null) {
+            zo0 zo0Var = (zo0) b().j(zo0.class);
+            if (bp0.$EnumSwitchMapping$0[so0Var.getType().ordinal()] == 1) {
+                x().setInterceptScrollLister(new a(zo0Var));
+                if (zo0Var != null && (b2 = zo0Var.b()) != null && (i = b2.i()) != null) {
+                    wh0.e(i);
+                    x().addView(i, new FrameLayout.LayoutParams(-1, -1));
                 }
             }
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(yi0 event) {
+    public void o(xi0 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, event) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            super.b(event);
+            super.o(event);
             String a2 = event.a();
-            if (Intrinsics.areEqual(a2, to0.class.getSimpleName())) {
-                F((to0) event);
-            } else if (Intrinsics.areEqual(a2, so0.class.getSimpleName())) {
-                E((so0) event);
+            if (Intrinsics.areEqual(a2, so0.class.getSimpleName())) {
+                F((so0) event);
+            } else if (Intrinsics.areEqual(a2, ro0.class.getSimpleName())) {
+                E((ro0) event);
+            } else if (Intrinsics.areEqual(a2, oo0.class.getSimpleName())) {
+                y((oo0) event);
             } else if (Intrinsics.areEqual(a2, po0.class.getSimpleName())) {
                 z((po0) event);
-            } else if (Intrinsics.areEqual(a2, qo0.class.getSimpleName())) {
-                A((qo0) event);
             }
         }
     }
@@ -668,10 +668,10 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
         AbsContainer b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) {
-            viewGroup.addView(y(), new FrameLayout.LayoutParams(-1, -1));
-            ap0 ap0Var = (ap0) j().p(ap0.class);
+            viewGroup.addView(x(), new FrameLayout.LayoutParams(-1, -1));
+            zo0 zo0Var = (zo0) b().j(zo0.class);
             FrameLayout.LayoutParams layoutParams2 = null;
-            if (ap0Var != null && (b2 = ap0Var.b()) != null) {
+            if (zo0Var != null && (b2 = zo0Var.b()) != null) {
                 view2 = b2.i();
             } else {
                 view2 = null;
@@ -688,28 +688,28 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             if (layoutParams3 == null) {
                 layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
             }
-            zo0 zo0Var = (zo0) j().p(zo0.class);
-            if (zo0Var != null) {
-                i = zo0Var.getVideoHeight();
+            yo0 yo0Var = (yo0) b().j(yo0.class);
+            if (yo0Var != null) {
+                i = yo0Var.getVideoHeight();
             } else {
                 i = 0;
             }
             layoutParams3.topMargin = i;
             layoutParams3.height = viewGroup.getMeasuredHeight();
-            y().setTopMargin(i);
-            y().setTopLimit(i);
-            fq0 fq0Var = this.e;
-            if (fq0Var != null && fq0Var.e()) {
-                y().setStyle(2);
+            x().setTopMargin(i);
+            x().setTopLimit(i);
+            eq0 eq0Var = this.e;
+            if (eq0Var != null && eq0Var.e()) {
+                x().setStyle(2);
             } else {
-                y().setStyle(3);
+                x().setStyle(3);
             }
             if (view2 != null) {
                 view2.setLayoutParams(layoutParams3);
             }
-            ap0 ap0Var2 = (ap0) j().p(ap0.class);
-            if (ap0Var2 != null) {
-                ap0Var2.e(8);
+            zo0 zo0Var2 = (zo0) b().j(zo0.class);
+            if (zo0Var2 != null) {
+                zo0Var2.e(8);
             }
         }
     }
@@ -717,63 +717,63 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            y().setClipChildren(false);
-            y().setLayerType(2, null);
-            y().setOnScrollChangeListener(this.j);
-            y().setOnUpListener(this.k);
-            y().setHandleTopYMove(true);
-            y().setMinFlingVelocity(400);
-            y().setUpYVelocityRatio(3.5f);
-            y().setInterceptFlingListener(new b(this));
-            y().setMinTopMargin(n31.c.a(getContext(), 49.0f));
+            x().setClipChildren(false);
+            x().setLayerType(2, null);
+            x().setOnScrollChangeListener(this.j);
+            x().setOnUpListener(this.k);
+            x().setHandleTopYMove(true);
+            x().setMinFlingVelocity(400);
+            x().setUpYVelocityRatio(3.5f);
+            x().setInterceptFlingListener(new b(this));
+            x().setMinTopMargin(m31.c.a(getContext(), 49.0f));
         }
     }
 
-    public final void t() {
+    public final void n() {
         int i;
-        zo0 zo0Var;
+        yo0 yo0Var;
         int i2;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && !this.g) {
-            fq0 fq0Var = this.e;
-            if (fq0Var != null) {
-                i = fq0Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.g) {
+            eq0 eq0Var = this.e;
+            if (eq0Var != null) {
+                i = eq0Var.a();
             } else {
                 i = 0;
             }
-            if (i <= 0 || (zo0Var = (zo0) j().p(zo0.class)) == null || !zo0Var.k()) {
+            if (i <= 0 || (yo0Var = (yo0) b().j(yo0.class)) == null || !yo0Var.k()) {
                 return;
             }
-            int l = zo0Var.l();
-            fq0 fq0Var2 = this.e;
-            if (fq0Var2 != null) {
-                i2 = fq0Var2.a();
+            int l = yo0Var.l();
+            eq0 eq0Var2 = this.e;
+            if (eq0Var2 != null) {
+                i2 = eq0Var2.a();
             } else {
                 i2 = 0;
             }
             if (l < i2) {
                 return;
             }
-            bi0 bi0Var = this.h;
+            ai0 ai0Var = this.h;
             Map<String, String> map2 = null;
-            if (bi0Var != null) {
-                map = bi0Var.c;
+            if (ai0Var != null) {
+                map = ai0Var.c;
             } else {
                 map = null;
             }
-            bi0 bi0Var2 = this.h;
-            if (bi0Var2 != null) {
-                map2 = bi0Var2.b;
+            ai0 ai0Var2 = this.h;
+            if (ai0Var2 != null) {
+                map2 = ai0Var2.b;
             }
-            String a2 = ci0.a("postplay", map, map2, "");
+            String a2 = bi0.a("postplay", map, map2, "");
             Intrinsics.checkNotNullExpressionValue(a2, "AreaChargeUtil.area2Cmd(… adAreaInfo?.mCmdMap, \"\")");
             if (!TextUtils.isEmpty(a2)) {
                 if (TextUtils.equals(a2, "AD_IMMERSIVE_VIDEO_SCROLL")) {
                     D(false, true, true);
                     return;
                 }
-                ji0.c(a2, getContext());
+                ii0.c(a2, getContext());
                 this.g = true;
             }
         }
@@ -793,28 +793,28 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void d() {
+    public void onRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.d();
-            j().s(xo0.class, x());
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onRelease();
+            q();
+        }
+    }
+
+    public final void q() {
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (valueAnimator = this.f) != null) {
+            valueAnimator.cancel();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void onRelease() {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onRelease();
-            v();
-        }
-    }
-
-    public final void v() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (valueAnimator = this.f) != null) {
-            valueAnimator.cancel();
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            super.r();
+            b().m(wo0.class, w());
         }
     }
 
@@ -830,7 +830,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             } else {
                 z4 = false;
             }
-            v();
+            q();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
             if (ofFloat != null) {
@@ -871,25 +871,25 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 }
                 String str2 = str;
                 if (!TextUtils.isEmpty(str2)) {
-                    this.e = fq0.f.a(q01.c(str2));
+                    this.e = eq0.f.a(p01.c(str2));
                 }
-                this.h = bi0.a(hashMap);
+                this.h = ai0.a(hashMap);
             }
         }
     }
 
-    public final void w(float f2) {
+    public final void t(float f2) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            String c2 = xh0.c(0.6f * f2, "000000");
+        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
+            String c2 = wh0.c(0.6f * f2, "000000");
             Intrinsics.checkNotNullExpressionValue(c2, "AdUtil.getOpacityColor(currentOpacity, \"000000\")");
             if (f2 > 0.5d) {
-                i = R.color.obfuscated_res_0x7f060857;
+                i = R.color.nad_max_webview_visivle_bg_color;
             } else {
-                i = R.color.obfuscated_res_0x7f060856;
+                i = R.color.nad_max_webview_invisivle_bg_color;
             }
-            y().setBackgroundColor(xh0.d(c2, i));
+            x().setBackgroundColor(wh0.d(c2, i));
         }
     }
 }

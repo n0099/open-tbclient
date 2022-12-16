@@ -1,6 +1,5 @@
 package com.kwad.sdk.pngencrypt;
 
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -66,6 +65,6 @@ public final class n {
     }
 
     public static byte[] yx() {
-        return new byte[]{-119, 80, 78, 71, StrictLineReader.CR, 10, 26, 10};
+        return new byte[]{-119, 80, 78, 71, 13, 10, 26, 10};
     }
 }

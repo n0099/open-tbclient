@@ -28,13 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import com.google.android.exoplayer2.C;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r2 extends a1 implements GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean w;
@@ -77,7 +76,7 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +110,7 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends Graphics.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +212,7 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v3 */
     public void u(boolean z) {
         ?? r5;
@@ -597,12 +596,12 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
             if (z4) {
                 h8<h1> lifecycleListeners = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners) {
-                    h1[] p = lifecycleListeners.p();
+                    h1[] o = lifecycleListeners.o();
                     int i = lifecycleListeners.b;
                     for (int i2 = 0; i2 < i; i2++) {
-                        p[i2].resume();
+                        o[i2].resume();
                     }
-                    lifecycleListeners.q();
+                    lifecycleListeners.p();
                 }
                 this.d.getApplicationListener().resume();
                 f1.a.log("AndroidGraphics", "resumed");
@@ -620,17 +619,17 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.getInput().Q0();
+                this.d.getInput().W0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }
             if (z2) {
                 h8<h1> lifecycleListeners2 = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners2) {
-                    h1[] p2 = lifecycleListeners2.p();
+                    h1[] o2 = lifecycleListeners2.o();
                     int i4 = lifecycleListeners2.b;
                     for (int i5 = 0; i5 < i4; i5++) {
-                        p2[i5].pause();
+                        o2[i5].pause();
                     }
                 }
                 this.d.getApplicationListener().pause();
@@ -639,16 +638,16 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
             if (z3) {
                 h8<h1> lifecycleListeners3 = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners3) {
-                    h1[] p3 = lifecycleListeners3.p();
+                    h1[] o3 = lifecycleListeners3.o();
                     int i6 = lifecycleListeners3.b;
                     for (int i7 = 0; i7 < i6; i7++) {
-                        p3[i7].dispose();
+                        o3[i7].dispose();
                     }
                 }
                 this.d.getApplicationListener().dispose();
                 f1.a.log("AndroidGraphics", "destroyed");
             }
-            if (nanoTime - this.k > C.NANOS_PER_SECOND) {
+            if (nanoTime - this.k > 1000000000) {
                 this.m = 0;
                 this.k = nanoTime;
             }

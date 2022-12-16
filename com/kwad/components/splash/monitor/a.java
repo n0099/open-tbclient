@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a QH;

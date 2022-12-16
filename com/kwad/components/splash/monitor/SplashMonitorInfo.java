@@ -11,7 +11,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.List;
 @KsJson
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_BACKUP_FAILED = 4;

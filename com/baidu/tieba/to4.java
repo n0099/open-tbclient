@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class to4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String b;
+    public AlaUserInfoData a;
+    public int b;
     public boolean c;
 
     public to4() {

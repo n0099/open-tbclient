@@ -4,15 +4,14 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.xk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumRulesEditDispatcher implements fi8 {
+public class ForumRulesEditDispatcher implements xk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,11 +29,11 @@ public class ForumRulesEditDispatcher implements fi8 {
         }
     }
 
-    @Override // com.baidu.tieba.fi8
+    @Override // com.baidu.tieba.xk8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, jSONObject.optString(TbTitleActivityConfig.FORUM_ID), jSONObject.optString("forumName"), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, "", 0, 25052)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, jSONObject.optString("forumId"), jSONObject.optString("forumName"), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, "", 0, 25052)));
         }
     }
 }

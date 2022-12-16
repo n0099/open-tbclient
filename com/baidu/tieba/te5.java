@@ -1,76 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class te5 extends ye5 {
+public class te5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public se5 b;
-    public boolean c;
-    public boolean d;
+    public TbPageTag a;
+    public TbPageTag b;
 
-    public te5() {
+    public te5(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, tbPageTag, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = tbPageTag;
+        c(intent);
     }
 
-    public int b() {
+    public TbPageTag a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            se5 se5Var = this.b;
-            if (se5Var != null) {
-                return se5Var.b();
-            }
-            return -1;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (TbPageTag) invokeV.objValue;
     }
 
-    public void c() {
-        se5 se5Var;
-        df5 df5Var;
+    public TbPageTag b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (se5Var = this.b) != null && se5Var.b() >= 0 && (df5Var = (df5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            df5Var.e(this);
-            this.d = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (TbPageTag) invokeV.objValue;
     }
 
-    public void e() {
-        se5 se5Var;
+    public final void c(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (se5Var = this.b) != null) {
-            se5Var.d();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new se5();
-                }
-                this.b.c();
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
+            this.a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
         }
     }
 }

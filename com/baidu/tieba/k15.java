@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +63,9 @@ public class k15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             if (jSONObject != null) {
-                qy4.k().y("praise_abtest_switch_json", jSONObject.toString());
+                ry4.l().z("praise_abtest_switch_json", jSONObject.toString());
             } else {
-                qy4.k().y("praise_abtest_switch_json", "");
+                ry4.l().z("praise_abtest_switch_json", "");
             }
         }
     }

@@ -1,128 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class it6 {
+public class it6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<FrsModelController> a;
+    public MvcHttpResponsedMessage<ar8> b;
+    public MvcHttpMessage<FrsRequestData, ar8> c;
+    public MvcNetMessage<FrsRequestData, ar8> d;
+    public hr8 e;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    public it6() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, so8 so8Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, so8Var) != null) || so8Var == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        to8 to8Var = so8Var.f;
-        if (to8Var != null) {
-            pt5.b(to8Var.b, to8Var.c, "1191003700000000", to8Var.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(so8Var.d)) {
-                str = so8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = so8Var.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        hv6.a(tbPageContext, so8Var.e);
     }
 
-    public static void c(so8 so8Var) {
-        int i;
-        String str;
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, so8Var) != null) || so8Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
+            }
+            frsModelController.K0(this.b, this.c, this.d);
+            hr8 hr8Var = this.e;
+            if (hr8Var != null) {
+                hr8Var.b();
+            }
+            return false;
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", so8Var.g);
-        if (so8Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", so8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        to8 to8Var = so8Var.f;
-        if (to8Var != null) {
-            str = to8Var.c;
-        } else {
-            str = so8Var.d;
-        }
-        to8 to8Var2 = so8Var.f;
-        if (to8Var2 != null) {
-            String str2 = to8Var2.a;
-        } else {
-            String str3 = so8Var.c;
-        }
-        statisticItem.param("obj_name", so8Var.c);
-        statisticItem.param("obj_param1", so8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(so8Var.i, 1));
+        return invokeV.booleanValue;
     }
 
-    public static void d(so8 so8Var) {
-        int i;
-        String str;
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, so8Var) != null) || so8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", so8Var.g);
-        if (so8Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+    }
+
+    public void b(hr8 hr8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hr8Var) == null) {
+            this.e = hr8Var;
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", so8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        to8 to8Var = so8Var.f;
-        if (to8Var != null) {
-            str = to8Var.c;
-        } else {
-            str = so8Var.d;
+    }
+
+    public void c(MvcHttpMessage<FrsRequestData, ar8> mvcHttpMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
         }
-        to8 to8Var2 = so8Var.f;
-        if (to8Var2 != null) {
-            String str2 = to8Var2.a;
-        } else {
-            String str3 = so8Var.c;
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, ar8> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
         }
-        statisticItem.param("obj_name", so8Var.c);
-        statisticItem.param("obj_param1", so8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(so8Var.i, 0));
+    }
+
+    public void e(MvcHttpResponsedMessage<ar8> mvcHttpResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
+        }
     }
 }

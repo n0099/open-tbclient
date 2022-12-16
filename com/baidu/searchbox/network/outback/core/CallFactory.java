@@ -1,8 +1,8 @@
 package com.baidu.searchbox.network.outback.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface CallFactory {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CallFactoryProducer {
         String getEngineName();
 

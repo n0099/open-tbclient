@@ -10,7 +10,7 @@ import com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StyleTemplate extends BaseOfflineCompoJsonParse<StyleTemplate> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6279192768068169498L;

@@ -79,19 +79,19 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
                 }
             }
             this.mItemView = view2;
-            this.mLlAddressItem = (RelativeLayout) view2.findViewById(R.id.sapi_sdk_rl_address_item);
-            this.mTvCityCategory = (TextView) view2.findViewById(R.id.sapi_sdk_tv_address_category);
-            this.mTvAddressPy = (TextView) view2.findViewById(R.id.sapi_sdk_tv_address_py);
-            this.mTvAddressName = (TextView) view2.findViewById(R.id.sapi_sdk_tv_address_name);
-            this.mTvAddressHot = (TextView) view2.findViewById(R.id.sapi_sdk_tv_address_hot);
-            this.mLlHotGroup = (LinearLayout) view2.findViewById(R.id.sapi_sdk_ll_address_hot_group);
-            this.mTvAddressChecked = (ImageView) view2.findViewById(R.id.sapi_sdk_tv_address_check);
+            this.mLlAddressItem = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e33);
+            this.mTvCityCategory = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e4e);
+            this.mTvAddressPy = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e52);
+            this.mTvAddressName = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e51);
+            this.mTvAddressHot = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e50);
+            this.mLlHotGroup = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e10);
+            this.mTvAddressChecked = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e4f);
             Resources resources = view2.getContext().getResources();
             if (z) {
-                this.mTvAddressHot.setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_item_address_py_text_dark_color));
-                this.mTvCityCategory.setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_item_address_py_text_dark_color));
-                this.mTvAddressPy.setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_item_address_py_text_dark_color));
-                this.mTvAddressName.setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_item_address_text_dark_color));
+                this.mTvAddressHot.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a06));
+                this.mTvCityCategory.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a06));
+                this.mTvAddressPy.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a06));
+                this.mTvAddressName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a0a));
             }
         }
     }
@@ -167,30 +167,30 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
             for (int i = 0; i < size; i++) {
                 LinearLayout linearLayout2 = new LinearLayout(this.mContext);
                 linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-                linearLayout2.setPadding((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0, (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0);
+                linearLayout2.setPadding((int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070619), 0, (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070619), 0);
                 for (int i2 = 0; i2 < 4; i2++) {
                     AddressBean addressBean = list.get((i * 4) + i2);
                     if (addressBean != null) {
                         TextView textView = new TextView(this.mContext);
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_width), (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_height));
-                        layoutParams.bottomMargin = (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_top_margin);
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070618), (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070616));
+                        layoutParams.bottomMargin = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070617);
                         textView.setLayoutParams(layoutParams);
                         textView.setTextSize(1, 13.0f);
                         textView.setClickable(true);
                         if (addressBean.isHotSelected) {
                             if (this.isDarkMode) {
-                                textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_dialog_address_nearby_city_bg_selected_dark));
-                                textView.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_hot_city_text_selected_dark));
+                                textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b6));
+                                textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609ff));
                             } else {
-                                textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_dialog_address_nearby_city_bg_selected));
-                                textView.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_hot_city_text_selected));
+                                textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b5));
+                                textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
                             }
                         } else if (this.isDarkMode) {
-                            textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_dialog_address_nearby_city_dark_bg));
-                            textView.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_hot_city_text_dark));
+                            textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b7));
+                            textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609fd));
                         } else {
-                            textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_dialog_address_nearby_city_bg));
-                            textView.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_hot_city_text));
+                            textView.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b4));
+                            textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609fc));
                         }
                         textView.setGravity(17);
                         textView.setText(addressBean.name);
@@ -290,21 +290,21 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
             String str4 = this.mEntity.selectedId;
             if (str4 != null && str4.equals(addressBean.id)) {
                 if (this.isDarkMode) {
-                    addressSelectorHolder.mLlAddressItem.setBackgroundColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_selected_dark_bg));
-                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_address_selected_text_dark_color));
+                    addressSelectorHolder.mLlAddressItem.setBackgroundColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a0e));
+                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a08));
                 } else {
-                    addressSelectorHolder.mLlAddressItem.setBackgroundColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_selected_bg));
-                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_address_selected_text_color));
+                    addressSelectorHolder.mLlAddressItem.setBackgroundColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a0d));
+                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a07));
                 }
                 addressSelectorHolder.mTvAddressChecked.setVisibility(0);
-                addressSelectorHolder.mTvAddressChecked.setColorFilter(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_address_selected_text_color));
+                addressSelectorHolder.mTvAddressChecked.setColorFilter(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a07));
             } else {
                 if (this.isDarkMode) {
-                    addressSelectorHolder.mLlAddressItem.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_addr_selector_item_bg_dark));
-                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_address_text_dark_color));
+                    addressSelectorHolder.mLlAddressItem.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08108c));
+                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a0a));
                 } else {
-                    addressSelectorHolder.mLlAddressItem.setBackground(this.mContext.getResources().getDrawable(R.drawable.sapi_sdk_addr_selector_item_bg));
-                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_item_address_text_color));
+                    addressSelectorHolder.mLlAddressItem.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08108b));
+                    addressSelectorHolder.mTvAddressName.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a09));
                 }
                 addressSelectorHolder.mTvAddressChecked.setVisibility(8);
             }
@@ -460,7 +460,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new AddressSelectorHolder(LayoutInflater.from(this.mContext).inflate(R.layout.layout_sapi_sdk_item_address_selector, viewGroup, false), this.isDarkMode);
+            return new AddressSelectorHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d051b, viewGroup, false), this.isDarkMode);
         }
         return (AddressSelectorHolder) invokeLI.objValue;
     }

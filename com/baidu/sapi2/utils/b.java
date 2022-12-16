@@ -36,12 +36,12 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0141a implements Runnable {
+        public class RunnableC0155a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0141a(a aVar) {
+            public RunnableC0155a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.post(new RunnableC0141a(this));
+                this.a.post(new RunnableC0155a(this));
             }
         }
     }
@@ -115,16 +115,16 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d050e, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09046f);
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(R.id.btn_retry);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dad)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dac)).setImageResource(R.drawable.obfuscated_res_0x7f0810a4);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08106f);
+                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e18)).setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
+                ((TextView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_no_network_tv_color));
+                ((ImageView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_iv)).setImageResource(R.drawable.sapi_sdk_icon_connection_failed_dark);
+                button.setBackgroundResource(R.drawable.sapi_sdk_btn_gray);
                 Resources resources = context.getResources();
                 if (resources != null) {
-                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a3c));
+                    button.setTextColor(resources.getColorStateList(R.color.sapi_sdk_text_white));
                 }
             }
             button.setOnClickListener(new a(webView, inflate));
@@ -197,7 +197,7 @@ public class b {
             try {
                 ProgressBar progressBar = new ProgressBar(context, null, 16842872);
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
+                progressBar.setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
                 sapiWebView.setProgressBar(progressBar);
             } catch (Throwable th) {
                 Log.e(th);

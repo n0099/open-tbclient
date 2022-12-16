@@ -1,15 +1,183 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public interface fl5 {
-    void a();
+public class fl5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static fl5 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, el5> a;
 
-    void b(int i, int i2, int i3, int i4);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947767994, "Lcom/baidu/tieba/fl5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947767994, "Lcom/baidu/tieba/fl5;");
+        }
+    }
 
-    Context getContext();
+    /* loaded from: classes4.dex */
+    public class a implements zs8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xs8 a;
+        public final /* synthetic */ WebView b;
 
-    boolean post(Runnable runnable);
+        public a(fl5 fl5Var, xs8 xs8Var, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fl5Var, xs8Var, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xs8Var;
+            this.b = webView;
+        }
 
-    boolean removeCallbacks(Runnable runnable);
+        @Override // com.baidu.tieba.zs8
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
+                xs8 xs8Var = this.a;
+                if (xs8Var != null) {
+                    return xs8Var.b(this.b, str, jsPromptResult);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public fl5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public static fl5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (fl5.class) {
+                    if (b == null) {
+                        b = new fl5();
+                    }
+                }
+            }
+            return b;
+        }
+        return (fl5) invokeV.objValue;
+    }
+
+    public el5 a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (this.a.size() >= 8) {
+                e();
+            }
+            el5 el5Var = new el5();
+            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
+            bridgeWebView.setBackgroundColor(R.color.transparent);
+            gl5.b(bridgeWebView);
+            xs8 xs8Var = new xs8();
+            xs8Var.a(new CommonTbJsBridge(context, bridgeWebView));
+            zp4 zp4Var = new zp4();
+            zp4Var.b(new a(this, xs8Var, bridgeWebView));
+            bridgeWebView.setWebChromeClient(zp4Var);
+            el5Var.a = bridgeWebView;
+            el5Var.b = str;
+            el5Var.c = 0;
+            this.a.put(str, el5Var);
+            return el5Var;
+        }
+        return (el5) invokeLL.objValue;
+    }
+
+    public el5 c(Activity activity, String str) {
+        InterceptResult invokeLL;
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
+            el5 el5Var = this.a.get(str);
+            if (el5Var != null && (webView = el5Var.a) != null) {
+                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
+                this.a.remove(str);
+                return el5Var;
+            }
+            return null;
+        }
+        return (el5) invokeLL.objValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = 0;
+            String str = null;
+            for (String str2 : this.a.keySet()) {
+                el5 el5Var = this.a.get(str2);
+                if (el5Var != null) {
+                    if (el5Var.d < j) {
+                        str = el5Var.b;
+                    }
+                    j = el5Var.d;
+                }
+            }
+            if (str != null) {
+                this.a.remove(str);
+            }
+        }
+    }
 }

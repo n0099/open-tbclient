@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommandMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";

@@ -16,7 +16,7 @@ import com.kwad.components.core.m.l;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IActivityProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends IActivityProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENTS_TAG = "android:fragments";

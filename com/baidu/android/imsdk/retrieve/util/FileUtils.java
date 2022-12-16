@@ -1,5 +1,11 @@
 package com.baidu.android.imsdk.retrieve.util;
 
+import android.content.Context;
+import android.os.Environment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,6 +29,15 @@ public class FileUtils {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static boolean isExternalStorageWritable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Environment.getExternalStorageState().equals("mounted");
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean deleteFile(File file) {
@@ -51,5 +66,28 @@ public class FileUtils {
             return z & file.delete();
         }
         return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static File getExternalFilesDir(@NonNull Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            return context.getExternalFilesDir(str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static File getRecommendedExternalStorageDir(@NonNull Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (Utility.isAndroidQAndAbove()) {
+                return getExternalFilesDir(context, str);
+            }
+            return new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + str);
+        }
+        return (File) invokeLL.objValue;
     }
 }

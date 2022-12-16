@@ -11,10 +11,10 @@ public class cb {
     public static int a = 200;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f159a = 52428800;
+    public static long f182a = 52428800;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f160a = "MessageInfo.db";
+    public static String f183a = "MessageInfo.db";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

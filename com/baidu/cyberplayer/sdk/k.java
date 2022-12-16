@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -869,7 +868,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            CyberLog.i("MediaPlayerImpl", IntentConfig.STOP);
+            CyberLog.i("MediaPlayerImpl", "stop");
             MediaPlayer mediaPlayer = this.b;
             if (mediaPlayer != null) {
                 this.v = -1L;

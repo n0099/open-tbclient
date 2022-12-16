@@ -238,7 +238,7 @@ public class FaceBuyModel extends BdBaseModel {
         this.b = null;
     }
 
-    public void G(String str) {
+    public void N(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             c cVar = new c(this, null);
@@ -248,7 +248,7 @@ public class FaceBuyModel extends BdBaseModel {
         }
     }
 
-    public void H(String str) {
+    public void O(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b == null) {
             b bVar = new b(this, null);

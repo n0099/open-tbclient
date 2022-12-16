@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface yn5<T> {
-    int a();
-
-    T getItem(int i);
+/* loaded from: classes7.dex */
+public interface yn5 {
+    boolean a(int i);
 }

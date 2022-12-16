@@ -39,11 +39,10 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.baidu.sofire.rp.receiver.Receiver;
-import com.baidu.tieba.ei1;
+import com.baidu.tieba.di1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.gms.common.internal.ImagesContract;
 import com.tencent.open.SocialConstants;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.BufferedReader;
@@ -70,7 +69,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
@@ -1166,7 +1165,7 @@ public class a {
                         inputStream = context.getAssets().open("sofire_local.cfg");
                         try {
                             properties.load(inputStream);
-                            str = properties.getProperty(ImagesContract.LOCAL);
+                            str = properties.getProperty("local");
                         } catch (IOException unused) {
                         } catch (Throwable th) {
                             th = th;
@@ -1717,10 +1716,10 @@ public class a {
         return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0053 A[Catch: all -> 0x0093, TryCatch #0 {all -> 0x0093, blocks: (B:15:0x003c, B:18:0x004b, B:20:0x0053, B:22:0x005f, B:26:0x006b, B:30:0x0075, B:34:0x0088, B:35:0x008d, B:32:0x007f), top: B:44:0x003c }] */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0074  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x007d  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0088 A[Catch: all -> 0x0093, TryCatch #0 {all -> 0x0093, blocks: (B:15:0x003c, B:18:0x004b, B:20:0x0053, B:22:0x005f, B:26:0x006b, B:30:0x0075, B:34:0x0088, B:35:0x008d, B:32:0x007f), top: B:44:0x003c }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0054 A[Catch: all -> 0x0094, TryCatch #0 {all -> 0x0094, blocks: (B:15:0x003c, B:18:0x004c, B:20:0x0054, B:22:0x0060, B:26:0x006c, B:30:0x0076, B:34:0x0089, B:35:0x008e, B:32:0x0080), top: B:44:0x003c }] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0089 A[Catch: all -> 0x0094, TryCatch #0 {all -> 0x0094, blocks: (B:15:0x003c, B:18:0x004c, B:20:0x0054, B:22:0x0060, B:26:0x006c, B:30:0x0076, B:34:0x0089, B:35:0x008e, B:32:0x0080), top: B:44:0x003c }] */
     /* JADX WARN: Removed duplicated region for block: B:44:0x003c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1936,7 +1935,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(ei1.a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(di1.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }

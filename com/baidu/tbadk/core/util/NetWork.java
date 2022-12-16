@@ -20,16 +20,16 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import com.baidu.tieba.dy6;
+import com.baidu.tieba.az6;
 import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.fy4;
 import com.baidu.tieba.gr4;
+import com.baidu.tieba.gy4;
 import com.baidu.tieba.h15;
 import com.baidu.tieba.i15;
+import com.baidu.tieba.kc5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.mt4;
-import com.baidu.tieba.sb5;
+import com.baidu.tieba.nt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -351,13 +351,13 @@ public class NetWork {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 b = TbadkCoreApplication.getCurrentBduss();
             } else {
-                b = sb5.b();
+                b = kc5.b();
             }
             BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, b);
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 f = TbadkCoreApplication.getInst().getTbs();
             } else {
-                f = sb5.f();
+                f = kc5.f();
             }
             BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, f);
             if (b != null) {
@@ -389,13 +389,13 @@ public class NetWork {
         }
     }
 
-    private mt4 login(String str, String str2) {
+    private nt4 login(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    fy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    gy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -416,32 +416,32 @@ public class NetWork {
                     this.mNetLogin.getNetContext().getRequest().mRequestGzip = true;
                     String postNetData = this.mNetLogin.postNetData();
                     if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        mt4 mt4Var = new mt4();
-                        mt4Var.d(postNetData);
-                        String userId = mt4Var.c().getUserId();
+                        nt4 nt4Var = new nt4();
+                        nt4Var.d(postNetData);
+                        String userId = nt4Var.c().getUserId();
                         if (userId != null && userId.length() > 0) {
                             AccountData accountData = new AccountData();
-                            accountData.setAccount(mt4Var.c().getUserName());
-                            if (mt4Var.c().getPassword() != null) {
-                                accountData.setPassword(mt4Var.c().getPassword());
+                            accountData.setAccount(nt4Var.c().getUserName());
+                            if (nt4Var.c().getPassword() != null) {
+                                accountData.setPassword(nt4Var.c().getPassword());
                             } else {
                                 accountData.setPassword(str2);
                             }
-                            accountData.setID(mt4Var.c().getUserId());
-                            accountData.setBDUSS(mt4Var.c().getBDUSS());
-                            accountData.setPortrait(mt4Var.c().getPortrait());
+                            accountData.setID(nt4Var.c().getUserId());
+                            accountData.setBDUSS(nt4Var.c().getBDUSS());
+                            accountData.setPortrait(nt4Var.c().getPortrait());
                             accountData.setIsActive(1);
-                            if (mt4Var.a() != null) {
-                                accountData.setTbs(mt4Var.a().getTbs());
+                            if (nt4Var.a() != null) {
+                                accountData.setTbs(nt4Var.a().getTbs());
                             }
-                            accountData.setGrowthSwitch(mt4Var.b());
+                            accountData.setGrowthSwitch(nt4Var.b());
                             gr4.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            fy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            gy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return mt4Var;
+                            return nt4Var;
                         }
-                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c81);
+                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0cb8);
                         return null;
                     } else if (this.mNetLogin.isNetSuccess()) {
                         int serverErrorCode = this.mNetLogin.getServerErrorCode();
@@ -456,7 +456,7 @@ public class NetWork {
             }
             return null;
         }
-        return (mt4) invokeLL.objValue;
+        return (nt4) invokeLL.objValue;
     }
 
     private String process(int i, boolean z) {
@@ -528,7 +528,7 @@ public class NetWork {
                         ReloginManager.g().f(null);
                         return null;
                     }
-                    mt4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
+                    nt4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
                     removeAccount(currentAccountObj);
                     if (login == null) {
                         if (this.mNetLogin != null) {
@@ -544,7 +544,7 @@ public class NetWork {
                     return null;
                 }
             }
-            dy6.b(this);
+            az6.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;

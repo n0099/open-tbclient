@@ -48,6 +48,7 @@ import com.baidu.searchbox.task.sync.appcreate.InitDebugTask;
 import com.baidu.searchbox.task.sync.appcreate.InitDiskStatTask;
 import com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask;
 import com.baidu.searchbox.task.sync.appcreate.InitGlobalDataTask;
+import com.baidu.searchbox.task.sync.appcreate.InitIMSdkTask;
 import com.baidu.searchbox.task.sync.appcreate.InitIMTask;
 import com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask;
 import com.baidu.searchbox.task.sync.appcreate.InitLokiTask;
@@ -79,7 +80,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -213,6 +214,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 }
             } else if (i == 3) {
                 arrayList.add(new InitMaintabFragmentTask());
+                arrayList.add(new InitIMSdkTask());
                 arrayList.add(new InitEmotionsTask());
                 arrayList.add(new InitDiskStatTask());
                 arrayList.add(new InitFlutterNpsPluginTask());

@@ -7,8 +7,8 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.x93;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.w93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,8 +57,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = pk1.a;
-        sUbcImpl = new x93();
+        DEBUG = ok1.a;
+        sUbcImpl = new w93();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 

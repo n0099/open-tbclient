@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.exceptionhandler.api;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ExceptionHandler {
     public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("logsystem", "exceptionhandler");
 

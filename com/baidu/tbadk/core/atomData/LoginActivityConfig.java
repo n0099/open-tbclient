@@ -10,7 +10,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.fy4;
+import com.baidu.tieba.gy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +27,7 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String CUSTOM_LOGIN_CSS_URL = "custom_login_css_url";
     public static final String IS_FROM_AIAPP = "is_from_aiapp";
     public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
+    public static final int JUMP_TO_GROUPCHAT = 2;
     public static final int JUMP_TO_MAINTAB = 1;
     public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
     public static final String SCHEME = "scheme";
@@ -69,7 +70,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        fy4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        gy4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -182,37 +183,47 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
-    public void setFrom(String str) {
+    public void setBackScheme(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            getIntent().putExtra(IntentConfig.BACK_SCHEME, str);
+        }
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             getIntent().putExtra("from", str);
         }
     }
 
     public void setFromDialog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             getIntent().putExtra("fromDialog", str);
         }
     }
 
     public void setIsFromAiapp(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             getIntent().putExtra(IS_FROM_AIAPP, z);
         }
     }
 
-    public void setJumpToAfterDestroy(int i) {
+    public LoginActivityConfig setJumpToAfterDestroy(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             getIntent().putExtra(JUMP_AFTER_DESTROY, i);
+            return this;
         }
+        return (LoginActivityConfig) invokeI.objValue;
     }
 
     public void setJumpUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         getIntent().putExtra(LoginDialogActivityConfig.HOME_OPERATE_JUMP_URL, str);
@@ -220,23 +231,28 @@ public class LoginActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void setLoginListener(ILoginListener iLoginListener) {
+    public LoginActivityConfig setLoginListener(ILoginListener iLoginListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, iLoginListener) == null) && iLoginListener != null) {
-            getIntent().putExtra("login_dialog_login_listener", iLoginListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iLoginListener)) == null) {
+            if (iLoginListener != null) {
+                getIntent().putExtra("login_dialog_login_listener", iLoginListener);
+            }
+            return this;
         }
+        return (LoginActivityConfig) invokeL.objValue;
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             getIntent().putExtra("url", str);
         }
     }
 
     public void setMinePageStatisticParams(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_KEY, str);
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, str2);
         }
@@ -244,7 +260,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setThirdPartyLoginForResult(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
             getIntent().putExtra("social_type", i);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);

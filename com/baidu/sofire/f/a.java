@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.F;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,23 +18,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0167a a;
+    public C0179a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0167a extends SQLiteOpenHelper {
+    /* loaded from: classes3.dex */
+    public class C0179a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0167a(a aVar, Context context) {
+        public C0179a(a aVar, Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,7 +93,7 @@ public class a {
             }
         }
         this.c = context;
-        this.a = new C0167a(this, context);
+        this.a = new C0179a(this, context);
         a();
     }
 
@@ -329,7 +328,7 @@ public class a {
             if (z) {
                 str = "(d < (" + currentTimeMillis + "-f*3600000) and f!= 0)";
             } else {
-                str = "d<=" + (currentTimeMillis - ImagesInvalidService.FILE_VALID_TIME);
+                str = "d<=" + (currentTimeMillis - 259200000);
             }
             String str2 = str;
             Cursor cursor = null;

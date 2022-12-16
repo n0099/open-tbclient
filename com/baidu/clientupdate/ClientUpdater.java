@@ -31,7 +31,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class ClientUpdater {
     public static /* synthetic */ Interceptable $ic;
     public static ClientUpdater e;
@@ -139,7 +139,7 @@ public final class ClientUpdater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x01b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x01b3, code lost:
         if (r0 != null) goto L36;
      */
     /*

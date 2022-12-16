@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -40,7 +41,7 @@ import java.util.Set;
 import javax.crypto.Cipher;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "de.robv.android.xposed.XposedHelpers";
@@ -185,7 +186,7 @@ public class p0 {
                 if (a4) {
                     a2 = true;
                 }
-                boolean a5 = a(MessageDigest.class, "update", byte[].class);
+                boolean a5 = a(MessageDigest.class, StickerDataChangeType.UPDATE, byte[].class);
                 jSONObject.put("2", a5 ? 1 : 0);
                 if (a5) {
                     a2 = true;

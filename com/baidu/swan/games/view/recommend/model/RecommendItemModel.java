@@ -2,7 +2,6 @@ package com.baidu.swan.games.view.recommend.model;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 public class RecommendItemModel implements NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName(GameGuideConfigInfo.KEY_APP_KEY)
+    @SerializedName("app_key")
     public String appKey;
     @SerializedName("app_name")
     public String appName;

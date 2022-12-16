@@ -8,129 +8,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class u4a {
+public final class u4a implements d3a {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient b;
-    public static volatile u4a c;
-    public static String d;
+    public static final d3a g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, List<Cookie>> a;
+    public long a;
+    public d3a b;
+    public boolean c;
+    public long d;
+    public long e;
+    public d3a f;
 
     /* loaded from: classes6.dex */
-    public class a implements CookieJar {
+    public static class a implements d3a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u4a a;
 
-        public a(u4a u4aVar) {
+        @Override // com.baidu.tieba.d3a
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = u4aVar;
-        }
-
-        @Override // okhttp3.CookieJar
-        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
-                if (list == null) {
-                    return new ArrayList();
-                }
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.a.a.put(httpUrl.host(), list);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v4a a;
-        public final /* synthetic */ Request b;
-
-        public b(u4a u4aVar, v4a v4aVar, Request request) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u4aVar, v4aVar, request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v4aVar;
-            this.b = request;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                boolean isCanceled = call.isCanceled();
-                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.a.a(this.b, isCanceled, iOException);
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) != null) {
-                return;
-            }
-            String unused = u4a.d = response.body().string();
-            try {
-                this.a.b(u4a.d);
-                RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + u4a.d);
-            } catch (Exception e) {
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
-                e.printStackTrace();
             }
         }
     }
@@ -148,25 +60,7 @@ public class u4a {
                 return;
             }
         }
-        MediaType.parse("application/json;charset=utf-8");
-        MediaType.parse("application/octet-stream");
-        MediaType.parse("text/x-markdown;charset=utf-8");
-    }
-
-    public static u4a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (u4a.class) {
-                    if (c == null) {
-                        c = new u4a();
-                    }
-                }
-            }
-            return c;
-        }
-        return (u4a) invokeV.objValue;
+        g = new a();
     }
 
     public u4a() {
@@ -179,120 +73,160 @@ public class u4a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new x4a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
-        cookieJar.dns(w4a.c());
-        b = cookieJar.build();
-        RLog.info("HttpCore", "HttpCore -- init");
     }
 
-    public static String i(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (map == null) {
-                new HashMap();
-            } else {
-                boolean z = true;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (z && !str.contains("?")) {
-                        z = false;
-                        sb.append("?");
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                d3a d3aVar = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && d3aVar == null) {
+                    this.c = false;
+                    return;
+                }
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
                     } else {
-                        sb.append("&");
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
                     }
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        sb.append(" ");
+                }
+                if (d3aVar != null) {
+                    if (d3aVar == g) {
+                        this.b = null;
                     } else {
-                        sb.append(entry.getValue());
+                        this.b = d3aVar;
+                        d3aVar.request(j3);
                     }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
-            OkHttpClient okHttpClient = b;
-            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
-                for (Call call : b.dispatcher().queuedCalls()) {
-                    if (g.equals(call.request().tag())) {
-                        RLog.info("HttpCore", "cancel queued call:" + call);
-                        call.cancel();
-                    }
-                }
-                for (Call call2 : b.dispatcher().runningCalls()) {
-                    if (g.equals(call2.request().tag())) {
-                        RLog.info("HttpCore", "cancel running call:" + call2);
-                        call2.cancel();
-                    }
-                }
-                return;
-            }
-            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
-        }
-    }
-
-    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, v4a v4aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), v4aVar})) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
-            if (map == null) {
-                map = new HashMap<>();
-            }
-            FormBody.Builder builder = new FormBody.Builder();
-            h(map, builder);
-            FormBody build = builder.build();
-            String i4 = i(str, null);
-            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
-            Request.Builder url = new Request.Builder().url(i4);
-            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
-            try {
-                b.newCall(build2).enqueue(new b(this, v4aVar, build2));
-            } catch (Exception e) {
-                e.printStackTrace();
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
-            }
-            return d;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public String g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return "payhttp:appId=" + i + "&userchanel=" + i2;
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void h(Map<String, String> map, FormBody.Builder builder) {
-        String value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                if (entry.getValue() == null) {
-                    value = "";
                 } else {
-                    value = entry.getValue();
+                    d3a d3aVar2 = this.b;
+                    if (d3aVar2 != null && i != 0) {
+                        d3aVar2.request(j);
+                    }
                 }
-                builder.add(key, value);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n > 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.baidu.tieba.d3a
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return;
+                }
+                synchronized (this) {
+                    if (this.c) {
+                        this.d += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a + j;
+                        if (j2 < 0) {
+                            j2 = Long.MAX_VALUE;
+                        }
+                        this.a = j2;
+                        d3a d3aVar = this.b;
+                        if (d3aVar != null) {
+                            d3aVar.request(j);
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(d3a d3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d3aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (d3aVar == null) {
+                        d3aVar = g;
+                    }
+                    this.f = d3aVar;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = d3aVar;
+                    if (d3aVar != null) {
+                        d3aVar.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
             }
         }
     }

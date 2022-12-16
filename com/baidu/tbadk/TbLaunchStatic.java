@@ -4,9 +4,8 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tieba.ee7;
-import com.baidu.tieba.fe7;
-import com.baidu.tieba.ge7;
+import com.baidu.tieba.hf7;
+import com.baidu.tieba.if7;
 import com.baidu.tieba.im.chat.GroupMsgImageActivity;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
@@ -16,7 +15,8 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.w97;
+import com.baidu.tieba.jf7;
+import com.baidu.tieba.ua7;
 import com.baidu.tieba.wxapi.WXEntryActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,17 +73,17 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            w97.b(202004, ResponseDelSystemMessage.class, false);
-            w97.b(103112, ResponseRemoveMembersMessage.class, false);
-            w97.b(202001, ResponseCommitGroupMessage.class, false);
-            w97.b(103111, ResponseAddGroupUserMessage.class, false);
-            w97.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-            w97.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            w97.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            w97.b(103104, ResponseDismissGroupMessage.class, false);
-            w97.a(2001142, ee7.class);
-            w97.a(2001145, ge7.class);
-            w97.a(2001148, fe7.class);
+            ua7.b(202004, ResponseDelSystemMessage.class, false);
+            ua7.b(103112, ResponseRemoveMembersMessage.class, false);
+            ua7.b(202001, ResponseCommitGroupMessage.class, false);
+            ua7.b(103111, ResponseAddGroupUserMessage.class, false);
+            ua7.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
+            ua7.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            ua7.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            ua7.b(103104, ResponseDismissGroupMessage.class, false);
+            ua7.a(2001142, hf7.class);
+            ua7.a(2001145, jf7.class);
+            ua7.a(2001148, if7.class);
         }
     }
 }

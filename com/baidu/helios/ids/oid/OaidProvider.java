@@ -44,12 +44,12 @@ public class OaidProvider extends k50 {
 
         /* renamed from: com.baidu.helios.ids.oid.OaidProvider$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0098a implements Runnable {
+        public class RunnableC0112a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0098a(a aVar) {
+            public RunnableC0112a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class OaidProvider extends k50 {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                this.b.b.d.submit(new RunnableC0098a(this));
+                this.b.b.d.submit(new RunnableC0112a(this));
             }
         }
     }

@@ -18,10 +18,10 @@ public class b extends al.a {
     public ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<XMPushService> f919a;
+    public WeakReference<XMPushService> f942a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f920a;
+    public boolean f943a;
 
     public b(ii iiVar, WeakReference<XMPushService> weakReference, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class b extends al.a {
                 return;
             }
         }
-        this.f920a = false;
+        this.f943a = false;
         this.a = iiVar;
-        this.f919a = weakReference;
-        this.f920a = z;
+        this.f942a = weakReference;
+        this.f943a = z;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -57,15 +57,15 @@ public class b extends al.a {
         WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f942a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
         this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m480a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m490a());
         try {
             String c = this.a.c();
-            xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f920a);
+            xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f943a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }

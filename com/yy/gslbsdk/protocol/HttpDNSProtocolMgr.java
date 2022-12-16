@@ -2,16 +2,15 @@ package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.dns.cache.DnsCacheHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.kuaishou.weapon.p0.u;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
-import com.yy.gslbsdk.db.ResultTB;
 import com.yy.gslbsdk.network.HTTPMgr;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
@@ -88,7 +87,7 @@ public class HttpDNSProtocolMgr {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("seq_id", j);
-                    jSONObject.put("version", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                    jSONObject.put("version", "v2");
                     JSONArray jSONArray = new JSONArray();
                     for (String str : strArr) {
                         jSONArray.put(str);
@@ -175,7 +174,7 @@ public class HttpDNSProtocolMgr {
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    JSONArray jSONArray = jSONObject.getJSONArray(DnsCacheHelper.DIR_NAME);
                     int i2 = 0;
                     while (i2 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
@@ -183,7 +182,7 @@ public class HttpDNSProtocolMgr {
                         dnsInfo.setView(jSONObject.getString("v"));
                         dnsInfo.setUip(jSONObject.getString("u"));
                         dnsInfo.setHost(jSONObject2.getString("name"));
-                        dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
+                        dnsInfo.setTtl(Math.max(jSONObject2.getInt("ttl"), GlobalTools.sMinSecondTTL));
                         LinkedList<String> linkedList = new LinkedList<>();
                         if (!jSONObject2.isNull(str3)) {
                             JSONArray jSONArray2 = jSONObject2.getJSONArray(str3);

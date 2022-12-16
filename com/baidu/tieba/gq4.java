@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface gq4 {
-    void a();
-
-    void onCancelClick();
+public interface gq4<T> {
+    void a(T t);
 }

@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.ss.android.download.api.config.r;
 import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.download.api.download.DownloadModel;
@@ -47,7 +46,7 @@ public class a {
     public static void a(com.ss.android.downloadlib.addownload.b.g gVar, com.ss.android.downloadlib.addownload.b.e eVar, boolean z) {
         String a = l.a(gVar.b(), "open_market");
         JSONObject jSONObject = new JSONObject();
-        l.a(jSONObject, "ttdownloader_type", UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
+        l.a(jSONObject, "ttdownloader_type", "backup");
         int type = gVar.getType();
         if (type != 5) {
             if (type == 6) {

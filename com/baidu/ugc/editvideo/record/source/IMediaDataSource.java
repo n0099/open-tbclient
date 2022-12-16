@@ -6,10 +6,10 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycle;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IMediaDataSource extends IMediaLifeCycle {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface IPlayerDataSource extends IMediaDataSource, IMediaLifeCycle {
         void addIPlayerDataSourceView(IDataSourceView.IPlayerDataSourceView iPlayerDataSourceView);
 

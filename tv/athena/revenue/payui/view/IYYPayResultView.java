@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.o7a;
-import com.baidu.tieba.p8a;
+import com.baidu.tieba.uaa;
+import com.baidu.tieba.xaa;
+import com.baidu.tieba.yba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +19,11 @@ import java.util.List;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends p8a {
+public interface IYYPayResultView extends yba {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(l7a l7aVar);
+        void a(uaa uaaVar);
 
         void b();
 
@@ -153,9 +153,9 @@ public interface IYYPayResultView extends p8a {
         public AbsViewEventHandler b;
         public WindowParams c;
         public List<SplitRecordItem> d;
-        public l7a e;
+        public uaa e;
         public PayFlowType f;
-        public o7a g;
+        public xaa g;
         public IPayCallback<CurrencyChargeMessage> h;
         public boolean i;
         public IYYPayWayView.b j;

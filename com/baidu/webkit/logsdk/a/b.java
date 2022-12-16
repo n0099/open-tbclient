@@ -503,11 +503,11 @@ public class b implements Handler.Callback {
                                     edit.putInt(DpStatConstants.KEY_NET_LEVEL, (parseInt < 0 || parseInt > 3) ? 3 : 3);
                                 }
                             }
-                            if (jSONObject.has("timeout")) {
-                                String string3 = jSONObject.getString("timeout");
+                            if (jSONObject.has(com.alipay.sdk.data.a.O)) {
+                                String string3 = jSONObject.getString(com.alipay.sdk.data.a.O);
                                 if (!TextUtils.isEmpty(string3)) {
                                     double parseDouble = Double.parseDouble(string3) * 8.64E7d;
-                                    edit.putLong("timeout", (long) ((parseDouble < 3.456E8d || parseDouble > 2.592E9d) ? 6.048E8d : 6.048E8d));
+                                    edit.putLong(com.alipay.sdk.data.a.O, (long) ((parseDouble < 3.456E8d || parseDouble > 2.592E9d) ? 6.048E8d : 6.048E8d));
                                 }
                             }
                             if (jSONObject.has("filesize")) {
@@ -584,7 +584,7 @@ public class b implements Handler.Callback {
                     z = true;
                     if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
                     }
-                    if (jSONObject.has("timeout")) {
+                    if (jSONObject.has(com.alipay.sdk.data.a.O)) {
                     }
                     if (jSONObject.has("filesize")) {
                     }

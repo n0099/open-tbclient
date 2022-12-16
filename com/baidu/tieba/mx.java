@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mx extends ax<tr4> {
+public class mx extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout f;
-    public tr4 g;
+    public vr4 g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -80,13 +80,13 @@ public class mx extends ax<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: t */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, tr4Var) == null) && (cardForumHeadLayout = this.f) != null && tr4Var != null) {
-            this.g = tr4Var;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) && (cardForumHeadLayout = this.f) != null && vr4Var != null) {
+            this.g = vr4Var;
             cardForumHeadLayout.setOnClickListener();
-            this.f.setData(tr4Var.getThreadData());
+            this.f.setData(vr4Var.getThreadData());
         }
     }
 
@@ -105,7 +105,7 @@ public class mx extends ax<tr4> {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (cardForumHeadLayout = this.f) != null) {
-            cardForumHeadLayout.d();
+            cardForumHeadLayout.f();
         }
     }
 }

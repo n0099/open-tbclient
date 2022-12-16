@@ -14,7 +14,7 @@ public final class q {
     public static final q a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ q[] f826a;
+    public static final /* synthetic */ q[] f849a;
     public static final q b;
     public static final q c;
     public static final q d;
@@ -40,7 +40,7 @@ public final class q {
         d = new q("Russia", 3);
         q qVar = new q("India", 4);
         e = qVar;
-        f826a = new q[]{a, b, c, d, qVar};
+        f849a = new q[]{a, b, c, d, qVar};
     }
 
     public q(String str, int i) {
@@ -71,6 +71,6 @@ public final class q {
     public static q[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (q[]) f826a.clone() : (q[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (q[]) f849a.clone() : (q[]) invokeV.objValue;
     }
 }

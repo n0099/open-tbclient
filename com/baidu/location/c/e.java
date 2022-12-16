@@ -68,7 +68,7 @@ public class e {
     public long I;
     public long J;
     public long K;
-    public HandlerC0104e M;
+    public HandlerC0118e M;
     public long O;
     public long P;
     public a R;
@@ -440,13 +440,13 @@ public class e {
 
     /* renamed from: com.baidu.location.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC0104e extends Handler {
+    public static class HandlerC0118e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<e> a;
         public e b;
 
-        public HandlerC0104e(e eVar) {
+        public HandlerC0118e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1278,7 +1278,7 @@ public class e {
                         this.g = (LocationManager) serviceContext.getSystemService("location");
                     } catch (Exception unused) {
                     }
-                    this.M = new HandlerC0104e(this);
+                    this.M = new HandlerC0118e(this);
                 }
             }
         }

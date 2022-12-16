@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class y14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pb2 a;
+    public String a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    public y14(pb2 pb2Var) {
+    public y14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pb2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,48 +32,87 @@ public class y14 {
                 return;
             }
         }
-        this.a = pb2Var;
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = false;
+        this.d = false;
     }
 
-    public void b(String str) {
+    public boolean a(lw1 lw1Var) throws JSTypeMismatchException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lw1Var)) == null) {
+            try {
+                this.a = lw1Var.B("defaultValue");
+                this.b = lw1Var.q("maxLength");
+                this.c = lw1Var.l("multiple");
+                this.d = lw1Var.l("confirmHold");
+                String B = lw1Var.B("confirmType");
+                char c = 65535;
+                switch (B.hashCode()) {
+                    case -906336856:
+                        if (B.equals("search")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                        if (B.equals("go")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3089282:
+                        if (B.equals("done")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3377907:
+                        if (B.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3526536:
+                        if (B.equals("send")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c != 4) {
+                                    this.e = 6;
+                                    this.f = "done";
+                                } else {
+                                    this.e = 4;
+                                    this.f = "send";
+                                }
+                            } else {
+                                this.e = 2;
+                                this.f = "go";
+                            }
+                        } else {
+                            this.e = 3;
+                            this.f = "search";
+                        }
+                    } else {
+                        this.e = 5;
+                        this.f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    }
+                } else {
+                    this.e = 6;
+                    this.f = "done";
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            a(str, "keyboardcomplete");
         }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardinput");
-        }
-    }
-
-    public final void a(String str, String str2) {
-        pb2 pb2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && (pb2Var = this.a) != null && pb2Var.n() != null && this.a.n().hasEventListener(str2)) {
-            a24 a24Var = new a24();
-            a24Var.value = str;
-            JSEvent jSEvent = new JSEvent(str2);
-            jSEvent.data = a24Var;
-            this.a.n().dispatchEvent(jSEvent);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.entity;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pg9;
+import com.baidu.tieba.yj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.bean.MusicData;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class EffectInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class EffectInfo implements Serializable {
     public int type;
     public File unzipFile;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class EffectMusicData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return (EffectInfo) new pg9().b(str, EffectInfo.class);
+                return (EffectInfo) new yj9().b(str, EffectInfo.class);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -146,7 +146,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return new pg9().a(effectInfo);
+                return new yj9().a(effectInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

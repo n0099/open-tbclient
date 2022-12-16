@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.a.a;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FeedType {
     public static final /* synthetic */ FeedType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

@@ -42,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f1035io;
+    public byte[] f1059io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -58,7 +58,7 @@ public class SegAR extends c {
     public float vh;
 
     /* renamed from: vi  reason: collision with root package name */
-    public float f1036vi;
+    public float f1060vi;
     public float vj;
     public float vk;
     public float vl;
@@ -173,7 +173,7 @@ public class SegAR extends c {
         this.vf = 0;
         this.vg = 0.0f;
         this.vh = 0.0f;
-        this.f1036vi = 0.0f;
+        this.f1060vi = 0.0f;
         this.vj = 0.0f;
         this.vk = 0.0f;
         this.vl = 0.0f;
@@ -181,7 +181,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f1035io = null;
+        this.f1059io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -221,7 +221,7 @@ public class SegAR extends c {
             hashMap3.put("hairTopPos", Float.valueOf(this.vm));
             hashMap3.put("hairBottomPos", Float.valueOf(this.vn));
             hashMap3.put("hairTop", new Vector4f(this.vj, this.vk, this.vl, 1.0f));
-            hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1036vi, 1.0f));
+            hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1060vi, 1.0f));
             return hashMap3;
         }
         return (HashMap) invokeL.objValue;
@@ -462,7 +462,7 @@ public class SegAR extends c {
             this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
             this.vg = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
             this.vh = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
-            this.f1036vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
+            this.f1060vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
             this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
             this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
             this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
@@ -660,9 +660,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f1035io = gd.gc();
+                                    this.vA.f1059io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f1035io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f1059io == null) {
                                         return;
                                     }
                                     j jVar = new j();

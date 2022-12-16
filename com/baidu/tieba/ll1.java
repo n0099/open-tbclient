@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.uw2;
-/* loaded from: classes4.dex */
+import java.net.MalformedURLException;
+/* loaded from: classes5.dex */
 public interface ll1 {
-    void a(String str, uw2.k kVar);
+    String a();
+
+    boolean b();
+
+    String c(String str) throws MalformedURLException;
 }

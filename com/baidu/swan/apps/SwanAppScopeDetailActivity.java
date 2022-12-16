@@ -10,13 +10,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh3;
-import com.baidu.tieba.mn2;
-import com.baidu.tieba.mq1;
-import com.baidu.tieba.oq1;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.q52;
-import com.baidu.tieba.wh3;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.lq1;
+import com.baidu.tieba.nq1;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.p52;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,17 +24,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean q;
     public transient /* synthetic */ FieldHolder $fh;
-    public mq1 m;
+    public lq1 m;
     public String n;
     public int o;
     public int p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b extends q52 {
+    /* loaded from: classes3.dex */
+    public class b extends p52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppScopeDetailActivity c;
@@ -91,13 +91,13 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             this.c = swanAppScopeDetailActivity;
         }
 
-        @Override // com.baidu.tieba.q52, com.baidu.tieba.t52
+        @Override // com.baidu.tieba.p52, com.baidu.tieba.s52
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.d(str);
                 if (!TextUtils.isEmpty(str)) {
-                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092263)).setText(str);
+                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922d4)).setText(str);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        q = pk1.a;
+        q = ok1.a;
     }
 
     public SwanAppScopeDetailActivity() {
@@ -168,26 +168,26 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            mq1 mq1Var = this.m;
-            if (mq1Var != null) {
-                mq1Var.destroy();
+            lq1 lq1Var = this.m;
+            if (lq1Var != null) {
+                lq1Var.destroy();
                 this.m = null;
             }
             this.n = null;
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.mq1] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.lq1] */
     public final void B() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.n)) {
             return;
         }
-        oq1 c = mn2.F0().c(this);
+        nq1 c = ln2.F0().c(this);
         c.Y(new b(this));
         this.m = c.r();
         c.loadUrl(this.n);
-        c.j((FrameLayout) findViewById(R.id.obfuscated_res_0x7f0926aa), this.m.covertToView());
+        c.j((FrameLayout) findViewById(R.id.webview_container), this.m.covertToView());
     }
 
     public void C(Intent intent) {
@@ -195,7 +195,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) != null) || intent == null) {
             return;
         }
-        this.n = eh3.h(intent, "url");
+        this.n = dh3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
@@ -209,14 +209,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.vh4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.uh4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             D(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d084c);
-            wh3.a(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d0860);
+            vh3.a(this);
             C(getIntent());
             A();
             B();

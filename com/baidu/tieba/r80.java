@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r80 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 3;
@@ -26,19 +27,19 @@ public class r80 {
     public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(String str, boolean z);
 
         void b(String str, d dVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void a(int i, String str, String str2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -52,8 +53,8 @@ public class r80 {
         }
 
         /* renamed from: com.baidu.tieba.r80$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0415a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC0423a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -61,19 +62,19 @@ public class r80 {
             public final /* synthetic */ d c;
 
             /* renamed from: com.baidu.tieba.r80$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class C0416a extends TimerTask {
+            /* loaded from: classes6.dex */
+            public class C0424a extends TimerTask {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AtomicBoolean a;
-                public final /* synthetic */ RunnableC0415a b;
+                public final /* synthetic */ RunnableC0423a b;
 
-                public C0416a(RunnableC0415a runnableC0415a, AtomicBoolean atomicBoolean) {
+                public C0424a(RunnableC0423a runnableC0423a, AtomicBoolean atomicBoolean) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0415a, atomicBoolean};
+                        Object[] objArr = {runnableC0423a, atomicBoolean};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -83,7 +84,7 @@ public class r80 {
                             return;
                         }
                     }
-                    this.b = runnableC0415a;
+                    this.b = runnableC0423a;
                     this.a = atomicBoolean;
                 }
 
@@ -91,21 +92,21 @@ public class r80 {
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        m90.a("DNSUrlProvider", "bddns > bdDnsIps is null");
+                        l90.a("DNSUrlProvider", "bddns > bdDnsIps is null");
                         d dVar = this.b.c;
                         if (dVar != null) {
                             dVar.a(8007, "bddns timeout :", "bddns timeout, bdDnsIps is null");
                             r80.f(true);
                             b c = r80.c(r80.b);
-                            RunnableC0415a runnableC0415a = this.b;
-                            c.b(runnableC0415a.a, runnableC0415a.c);
+                            RunnableC0423a runnableC0423a = this.b;
+                            c.b(runnableC0423a.a, runnableC0423a.c);
                         }
                         this.a.set(true);
                     }
                 }
             }
 
-            public RunnableC0415a(a aVar, String str, Timer timer, d dVar) {
+            public RunnableC0423a(a aVar, String str, Timer timer, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,24 +130,24 @@ public class r80 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    m90.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
+                    l90.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    this.b.schedule(new C0416a(this, atomicBoolean), 10000L);
+                    this.b.schedule(new C0424a(this, atomicBoolean), 10000L);
                     DnsHelper dnsHelper = new DnsHelper(r80.b);
                     dnsHelper.setHttpDnsState(false, null, false, true);
                     r80.j(dnsHelper.getIpList(this.a));
                     List<String> list = r80.c;
                     if (list != null && list.size() > 0) {
-                        m90.a("DNSUrlProvider", "bddns > bdDnsIps = " + r80.c);
+                        l90.a("DNSUrlProvider", "bddns > bdDnsIps = " + r80.c);
                         String str = r80.c.get(0);
                         if (this.c != null && !atomicBoolean.get()) {
-                            this.c.a(0, "ok", str);
+                            this.c.a(0, DnsModel.MSG_OK, str);
                             if (r80.c.size() > 1) {
                                 r80.d++;
                                 r80.f(false);
                             }
                         }
-                        m90.a("DNSUrlProvider", "bddns > return ip = " + str);
+                        l90.a("DNSUrlProvider", "bddns > return ip = " + str);
                         this.b.cancel();
                     }
                 }
@@ -193,12 +194,12 @@ public class r80 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
                 try {
-                    m90.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
+                    l90.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
                     if (r80.c != null && r80.c.size() > 0) {
                         if (r80.d < r80.c.size()) {
                             if (dVar != null) {
-                                dVar.a(0, "ok", r80.c.get(r80.d));
-                                m90.a("DNSUrlProvider", "retry bddns > return ip = " + r80.c.get(r80.d));
+                                dVar.a(0, DnsModel.MSG_OK, r80.c.get(r80.d));
+                                l90.a("DNSUrlProvider", "retry bddns > return ip = " + r80.c.get(r80.d));
                             }
                             r80.d++;
                             return;
@@ -207,9 +208,9 @@ public class r80 {
                         r80.c(r80.b).b(str, dVar);
                         return;
                     }
-                    h90.a(r80.b).b(new RunnableC0415a(this, str, new Timer(), dVar));
+                    i90.a(r80.b).b(new RunnableC0423a(this, str, new Timer(), dVar));
                 } catch (Throwable unused) {
-                    m90.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
+                    l90.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
                     r80.f(true);
                     r80.c(r80.b).b(str, dVar);
                 }
@@ -217,7 +218,7 @@ public class r80 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
         public static c a;
@@ -264,16 +265,16 @@ public class r80 {
         public void b(String str, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                m90.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
+                l90.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
                 if (dVar != null) {
                     r80.i();
-                    dVar.a(0, "ok", str);
+                    dVar.a(0, DnsModel.MSG_OK, str);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class e implements b {
         public static /* synthetic */ Interceptable $ic;
         public static e a;
@@ -324,11 +325,11 @@ public class r80 {
         public void b(String str, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                m90.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
+                l90.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
                 try {
-                    g90 g90Var = new g90(r80.b);
-                    g90Var.a(dVar);
-                    f90.e(g90Var, g90Var);
+                    h90 h90Var = new h90(r80.b);
+                    h90Var.a(dVar);
+                    g90.d().e(h90Var, h90Var);
                 } catch (Exception unused) {
                     r80.f(true);
                     r80.c(r80.b).b(str, dVar);
@@ -375,7 +376,7 @@ public class r80 {
                 c.clear();
                 a = 3;
             } catch (Exception e2) {
-                m90.c("DNSUrlProvider", "resetBdDns exception", e2);
+                l90.c("DNSUrlProvider", "resetBdDns exception", e2);
             }
         }
     }
@@ -399,7 +400,7 @@ public class r80 {
             b = context.getApplicationContext();
             int a2 = k90.a(context);
             if (a2 != 1 && a2 != 2) {
-                if (n90.c(context) && a == 2) {
+                if (m90.c(context) && a == 2) {
                     return a.c(context);
                 }
                 if (a == 3) {
@@ -436,7 +437,7 @@ public class r80 {
                     a = 0;
                 }
             }
-            m90.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
+            l90.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
             return a;
         }
         return invokeZ.intValue;
@@ -473,8 +474,8 @@ public class r80 {
                 }
             }
             if (arrayList.size() + arrayList2.size() > 0) {
-                int f = n90.f(b);
-                m90.b("DNSUrlProvider", "getIpPriority :" + f + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
+                int f = m90.f(b);
+                l90.b("DNSUrlProvider", "getIpPriority :" + f + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
                 if (f != 1) {
                     if (f != 2) {
                         if (f != 4) {

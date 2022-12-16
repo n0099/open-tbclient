@@ -72,7 +72,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str2 = HonorSSOLoginActivity.o;
                 Log.i(str2, "silentSignIn onFail :" + exc.getMessage());
                 HonorSSOLoginActivity honorSSOLoginActivity = this.a;
-                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f10b5));
+                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.sapi_sdk_glory_login_fail));
             }
         }
     }
@@ -153,7 +153,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10c9);
+            setTitleText(R.string.sapi_sdk_title_login_glory);
             try {
                 e();
             } catch (Exception e) {
@@ -196,7 +196,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f10c1));
+                a(-204, getString(R.string.sapi_sdk_third_error_glory));
             } else if (this.sapiWebView == null) {
             } else {
                 SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -215,7 +215,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str = o;
                 Log.i(str, "doFrontLogin Exception: " + e.getMessage());
                 e.printStackTrace();
-                a(-202, getString(R.string.obfuscated_res_0x7f0f10b5));
+                a(-202, getString(R.string.sapi_sdk_glory_login_fail));
             }
         }
     }
@@ -254,12 +254,12 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                     b(signInAccountInfo.getAuthorizationCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f10b5));
+                a(-202, getString(R.string.sapi_sdk_glory_login_fail));
                 String str3 = o;
                 Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f10c1));
+            a(-202, getString(R.string.sapi_sdk_third_error_glory));
         }
     }
 }

@@ -35,7 +35,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
     public static PowerManager.WakeLock a;

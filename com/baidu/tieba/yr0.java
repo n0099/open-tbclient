@@ -1,29 +1,17 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface yr0 {
-    void a(int i);
+    void mute(boolean z);
 
-    void onBufferEnd();
+    void pause();
 
-    void onBufferStart();
+    void resume();
 
-    void onEnd(int i);
+    void setLooping(boolean z);
 
-    void onError(int i, int i2, String str);
+    void setVideoScalingMode(int i);
 
-    void onInfo(int i, int i2);
+    void start();
 
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    void stop();
 }

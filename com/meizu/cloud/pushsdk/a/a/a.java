@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.ByteArrayOutputStream;
@@ -142,7 +141,7 @@ public class a {
             return null;
         }
         try {
-            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(string, 2)));
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(string, 2)));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;

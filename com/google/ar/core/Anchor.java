@@ -64,7 +64,7 @@ public class Anchor {
             }
             NONE = new CloudAnchorState(HlsPlaylistParser.METHOD_NONE, 0, 0);
             TASK_IN_PROGRESS = new CloudAnchorState("TASK_IN_PROGRESS", 1, 1);
-            SUCCESS = new CloudAnchorState("SUCCESS", 2, 2);
+            SUCCESS = new CloudAnchorState(com.alipay.security.mobile.module.http.model.c.p, 2, 2);
             ERROR_INTERNAL = new CloudAnchorState("ERROR_INTERNAL", 3, -1);
             ERROR_NOT_AUTHORIZED = new CloudAnchorState("ERROR_NOT_AUTHORIZED", 4, -2);
             ERROR_SERVICE_UNAVAILABLE = new CloudAnchorState("ERROR_SERVICE_UNAVAILABLE", 5, -3);

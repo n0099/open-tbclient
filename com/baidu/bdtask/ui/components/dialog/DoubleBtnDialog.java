@@ -22,7 +22,7 @@ public final class DoubleBtnDialog extends a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07b1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.sdk_activity_dialog_two_btn : invokeV.intValue;
     }
 
     public DoubleBtnDialog() {
@@ -46,13 +46,13 @@ public final class DoubleBtnDialog extends a {
             super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e6);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907e7);
+                TextView btn = (TextView) findViewById(R.id.dialog_positive_btn);
+                ImageView btnImage = (ImageView) findViewById(R.id.dialog_positive_btn_image);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
                 b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new DoubleBtnDialog$initExtraView$1(this, a));
-                TextView cancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e4);
-                ImageView cancelBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907e5);
+                TextView cancelBtn = (TextView) findViewById(R.id.dialog_negative_btn);
+                ImageView cancelBtnImage = (ImageView) findViewById(R.id.dialog_negative_btn_image);
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtn, "cancelBtn");
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtnImage, "cancelBtnImage");
                 b(cancelBtn, cancelBtnImage, a.getCancelBtnTxt(), a.getCancelBtnTxtColor(), a.getCancelBtnBgUrl(), new DoubleBtnDialog$initExtraView$2(this, a));

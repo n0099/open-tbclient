@@ -12,7 +12,7 @@ public class b implements Runnable {
     public final /* synthetic */ EventClientReport a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ a f27a;
+    public final /* synthetic */ a f50a;
 
     public b(a aVar, EventClientReport eventClientReport) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f27a = aVar;
+        this.f50a = aVar;
         this.a = eventClientReport;
     }
 
@@ -37,7 +37,7 @@ public class b implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27a.b(this.a);
+            this.f50a.b(this.a);
         }
     }
 }

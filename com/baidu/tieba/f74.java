@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f74 extends c74 {
+public class f74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements xi3<q93> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f74 a;
+        public final /* synthetic */ b a;
 
-        public a(f74 f74Var) {
+        public a(f74 f74Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f74Var};
+                Object[] objArr = {f74Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -32,51 +37,45 @@ public class f74 extends c74 {
                     return;
                 }
             }
-            this.a = f74Var;
+            this.a = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xi3
+        /* renamed from: b */
+        public void a(q93 q93Var) {
+            JSONObject jSONObject;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || z64.b() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q93Var) == null) {
+                if (q93Var != null && (jSONObject = q93Var.g) != null) {
+                    e12.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(q93Var.g);
+                    return;
+                }
+                this.a.a(null);
             }
-            this.a.a = new UserInfoButton(z64.b(), this.a);
-            this.a.a.setType(this.a.type);
-            this.a.a.setButtonText(this.a.text);
-            this.a.a.setImageUrl(this.a.image);
-            this.a.a.setApiButtonStyle(this.a.style);
-            this.a.y();
-            this.a.J();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f74(JsObject jsObject, pb2 pb2Var) {
-        super(jsObject, pb2Var);
+    public f74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject, pb2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((JsObject) objArr2[0], (pb2) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        zh3.e0(new a(this));
     }
 
-    public final void J() {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !c54.d()) {
-            z44.l("Button shows early.");
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null || rp2.U().getActivity() == null) {
+            return;
         }
+        q93.B(rp2.U().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

@@ -1,25 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: TabBarLogic.java */
 /* loaded from: classes5.dex */
-public class ou6 {
+public final /* synthetic */ class ou6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static hu6 a(int i) {
-        InterceptResult invokeI;
+    @NonNull
+    public static qu6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new mu6();
-                }
-                return new nu6();
-            }
-            return new mu6();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new pu6();
         }
-        return (hu6) invokeI.objValue;
+        return (qu6) invokeV.objValue;
+    }
+
+    @ColorInt
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SkinManager.getColor(R.color.CAM_X0107);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        }
+        return invokeV.intValue;
     }
 }

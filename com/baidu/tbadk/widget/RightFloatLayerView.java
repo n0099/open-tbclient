@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj7;
-import com.baidu.tieba.ig8;
+import com.baidu.tieba.aj8;
+import com.baidu.tieba.mk8;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.uh8;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.zl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -512,11 +512,11 @@ public class RightFloatLayerView extends RelativeLayout {
     public void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0650, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a0f);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a0);
-            SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080606);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a15);
+            LayoutInflater.from(context).inflate(R.layout.new_float_view, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.float_layer_feedback_picture);
+            this.b = (TextView) findViewById(R.id.layer_ad_lable_icon_layout);
+            SkinManager.setImageResource(this.a, R.drawable.ic_icon_popup_close_n);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.float_layer_logo_picture);
             this.c = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.c.setEvent(new e(this));
@@ -611,7 +611,7 @@ public class RightFloatLayerView extends RelativeLayout {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            uh8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
+            mk8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
         }
     }
 
@@ -653,7 +653,7 @@ public class RightFloatLayerView extends RelativeLayout {
             if (m()) {
                 return false;
             }
-            return !StringHelper.isTaday(qy4.k().m("key_tab_right_float_layer_view", 0L));
+            return !StringHelper.isTaday(ry4.l().n("key_tab_right_float_layer_view", 0L));
         }
         return invokeV.booleanValue;
     }
@@ -680,7 +680,7 @@ public class RightFloatLayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.c.invalidate();
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080606, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
         }
     }
@@ -713,7 +713,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void setHomePbFloatLastCloseTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            qy4.k().x("key_tab_right_float_layer_view", System.currentTimeMillis());
+            ry4.l().y("key_tab_right_float_layer_view", System.currentTimeMillis());
         }
     }
 
@@ -760,7 +760,7 @@ public class RightFloatLayerView extends RelativeLayout {
             String str = p15Var.l;
             String str2 = p15Var.o;
             String str3 = p15Var.m;
-            int a2 = ig8.a(getContext(), str, str2, str3, null);
+            int a2 = aj8.a(getContext(), str, str2, str3, null);
             t(str3, 2);
             v(str3, a2);
             x(p15Var);
@@ -820,7 +820,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void s(p15 p15Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, p15Var) == null) {
-            cj7.b(p15Var);
+            zl7.b(p15Var);
         }
     }
 
@@ -877,7 +877,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void x(p15 p15Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, p15Var) == null) {
-            cj7.d(p15Var);
+            zl7.d(p15Var);
         }
     }
 
@@ -960,7 +960,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void t(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) {
-            uh8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            mk8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 }

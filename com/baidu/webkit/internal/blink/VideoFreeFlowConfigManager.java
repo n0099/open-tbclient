@@ -12,9 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIRECT = "DIRECT";
@@ -34,7 +33,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public byte[] mListLock;
     public ArrayList<a> mPacRulesList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                                 String str3 = this.c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
-                                    String[] split2 = trim2.split(ParamableElem.DIVIDE_PARAM);
+                                    String[] split2 = trim2.split(";");
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
                                         this.e = split2[0];
                                     }

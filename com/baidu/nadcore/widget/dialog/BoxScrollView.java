@@ -90,7 +90,7 @@ public class BoxScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070527) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052e)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070520);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.nad_dialog_message_margin_bottom) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.nad_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(R.dimen.nad_dialog_btns_height);
         }
         return invokeV.intValue;
     }

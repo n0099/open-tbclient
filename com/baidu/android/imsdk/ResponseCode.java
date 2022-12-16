@@ -11,10 +11,13 @@ public interface ResponseCode {
     public static final int DEL_MSG_FAIL = 1006;
     public static final int ERROR_BDUSS_EXPIRE = 8;
     public static final int ERROR_FETCH_LENGTH_OVER = 1024;
+    public static final int ERROR_GET_PA_FROM_DB = 1025;
+    public static final int ERROR_GET_SESSION = 1030;
     public static final int ERROR_LOGIN_CALL_BACKEND_FAILED = 4005;
     public static final int ERROR_LOGIN_INVALID_REQUEST = 4003;
     public static final int ERROR_LOGIN_LOGIN_FAILED = 4004;
     public static final int ERROR_LOGIN_STATE = 4001;
+    public static final int ERROR_SEND_MSG_BDUSS_EXPIRE = 1506;
     public static final int FILE_NOT_FOUND = 1007;
     public static final int FRIEND_GROUP_UPDATED = 610;
     public static final int HTTP_IOEXCEPTION_ERROR = 1012;
@@ -22,6 +25,7 @@ public interface ResponseCode {
     public static final int INTERNAL_ERROR = 1003;
     public static final int JSON_PARSE_EXCEPTION = 1010;
     public static final int LCP_STATE_CONNECTING = 8010;
+    public static final int LCP_TIME_OUT = 8004;
     public static final int MCASAT_SEND_MSG_BLOCKLIST = 22;
     public static final int MCASAT_SEND_MSG_COLSE_ROOM = 1314;
     public static final int MCASAT_SEND_MSG_CONFILTER = 1203;

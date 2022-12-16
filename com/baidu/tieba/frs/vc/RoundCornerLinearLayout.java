@@ -24,9 +24,7 @@ import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class RoundCornerLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: f */
-    public static final int white_alpha100 = 2131101815;
+    public static final int f = 2131101815;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
     public Shape b;
@@ -82,8 +80,8 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 shape.draw(canvas, this.c);
             }
             RectF rectF = this.e;
-            float f = this.a;
-            canvas.drawRoundRect(rectF, f, f, this.d);
+            float f2 = this.a;
+            canvas.drawRoundRect(rectF, f2, f2, this.d);
             if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveCount);
             }
@@ -146,9 +144,9 @@ public class RoundCornerLinearLayout extends LinearLayout {
             Paint paint2 = new Paint();
             this.d = paint2;
             paint2.setAntiAlias(true);
-            this.d.setColor(getResources().getColor(white_alpha100));
+            this.d.setColor(getResources().getColor(f));
             this.d.setStyle(Paint.Style.FILL);
-            this.d.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(white_alpha100));
+            this.d.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(f));
             this.d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
             this.e = new RectF();
             this.a = getResources().getDimension(R.dimen.tbds20);
@@ -178,30 +176,30 @@ public class RoundCornerLinearLayout extends LinearLayout {
                     } else {
                         paddingRight = getPaddingRight();
                     }
-                    float f = 1.0f;
+                    float f2 = 1.0f;
                     if (getPaddingTop() <= 0) {
                         paddingTop = 1.0f;
                     } else {
                         paddingTop = getPaddingTop();
                     }
                     if (getPaddingBottom() > 0) {
-                        f = getPaddingBottom();
+                        f2 = getPaddingBottom();
                     }
-                    RectF rectF = new RectF(paddingLeft, paddingTop, paddingRight, f);
+                    RectF rectF = new RectF(paddingLeft, paddingTop, paddingRight, f2);
                     float[] fArr2 = new float[8];
                     Arrays.fill(fArr2, this.a);
                     this.b = new RoundRectShape(fArr, rectF, fArr2);
-                    this.e.set(paddingLeft, paddingTop, getWidth() - paddingRight, getHeight() - f);
+                    this.e.set(paddingLeft, paddingTop, getWidth() - paddingRight, getHeight() - f2);
                 }
                 this.b.resize(getWidth(), getHeight());
             }
         }
     }
 
-    public void setRadius(float f) {
+    public void setRadius(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.a = f;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
+            this.a = f2;
         }
     }
 }

@@ -290,11 +290,11 @@ public class ScreenTopToast extends LinearLayout {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a8, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091e15);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e16);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e14);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091e13);
+            LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+            this.b = (TextView) findViewById(R.id.screen_top_toast_title);
+            this.c = (TextView) findViewById(R.id.screen_top_toast_content);
+            this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
             this.d.setConfig(new oz4());
             f();
             h();
@@ -304,7 +304,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
+            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c0);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));

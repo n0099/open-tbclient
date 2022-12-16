@@ -83,7 +83,7 @@ public class LoginComfirmButton extends TextView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081106));
+            setBackground(this.a.getResources().getDrawable(R.drawable.selector_pass_quick_login_dialog_btn_bg));
         }
     }
 }

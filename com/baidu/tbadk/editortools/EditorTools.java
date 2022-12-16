@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.l65;
 import com.baidu.tieba.m65;
-import com.baidu.tieba.q65;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.n65;
 import com.baidu.tieba.r65;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.s65;
-import com.baidu.tieba.u65;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.t65;
+import com.baidu.tieba.v65;
 import com.baidu.tieba.x65;
+import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,16 +47,16 @@ public class EditorTools extends LinearLayout {
     public EditorDesk b;
     public View c;
     public View d;
-    public List<w65> e;
-    public SparseArray<m65> f;
-    public SparseArray<HashSet<m65>> g;
+    public List<x65> e;
+    public SparseArray<n65> f;
+    public SparseArray<HashSet<n65>> g;
     public SparseArray<HashSet<Integer>> h;
     public int i;
     public boolean j;
     public int k;
     public int l;
     public boolean m;
-    public LinkedList<s65> n;
+    public LinkedList<t65> n;
     public boolean o;
     public boolean p;
     public Context q;
@@ -74,7 +74,7 @@ public class EditorTools extends LinearLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -82,13 +82,13 @@ public class EditorTools extends LinearLayout {
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
         }
     }
 
     public void setShouldShowMorePopTip(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
         }
     }
 
@@ -120,7 +120,7 @@ public class EditorTools extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.x(view2);
+                this.a.y(view2);
             }
         }
     }
@@ -159,7 +159,7 @@ public class EditorTools extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements Comparator<w65> {
+    public class c implements Comparator<x65> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorTools a;
@@ -185,11 +185,11 @@ public class EditorTools extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(w65 w65Var, w65 w65Var2) {
+        public int compare(x65 x65Var, x65 x65Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, w65Var, w65Var2)) == null) {
-                return w65Var.l - w65Var2.l;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, x65Var, x65Var2)) == null) {
+                return x65Var.l - x65Var2.l;
             }
             return invokeLL.intValue;
         }
@@ -258,12 +258,12 @@ public class EditorTools extends LinearLayout {
         this.x = new a(this);
         this.z = new b(this);
         this.A = new ArrayList();
-        r(context);
+        s(context);
     }
 
-    public final void r(Context context) {
+    public final void s(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, context) == null) {
             this.q = context;
             this.e = new LinkedList();
             this.f = new SparseArray<>();
@@ -276,67 +276,74 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void C(boolean z) {
+    public void D(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.a.y(z);
         }
     }
 
-    public void D(boolean z) {
+    public void E(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.a.z(z);
         }
     }
 
-    public void d(w65 w65Var) {
+    public void d(x65 x65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, w65Var) != null) || w65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, x65Var) != null) || x65Var == null) {
             return;
         }
-        this.e.add(w65Var);
+        this.e.add(x65Var);
     }
 
     public void h(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.A.clear();
             this.A.addAll(list);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010044, this));
         }
     }
 
-    public s65 m(int i) {
+    public final void m(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048596, this, i) == null) && i == 5) {
+            B(new m65(74, 0, null));
+        }
+    }
+
+    public t65 n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            s65 q = this.a.q(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            t65 q = this.a.q(i);
             if (q != null) {
                 return q;
             }
             return this.b.l(i);
         }
-        return (s65) invokeI.objValue;
+        return (t65) invokeI.objValue;
     }
 
-    public w65 n(int i) {
+    public x65 o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            for (w65 w65Var : this.e) {
-                if (w65Var.c == i) {
-                    return w65Var;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            for (x65 x65Var : this.e) {
+                if (x65Var.c == i) {
+                    return x65Var;
                 }
             }
             return null;
         }
-        return (w65) invokeI.objValue;
+        return (x65) invokeI.objValue;
     }
 
     public void setBackgroundColorId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             this.k = i;
             if (i != 0) {
                 setBackgroundColor(getContext().getResources().getColor(i));
@@ -346,21 +353,21 @@ public class EditorTools extends LinearLayout {
 
     public void setBarBackgroundColorId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.a.setBackgroundColorId(i);
         }
     }
 
     public void setBarLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.a.setBarLauncherEnabled(z);
         }
     }
 
     public void setBarLauncherType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.t = i;
             this.a.setBarLauncherType(i);
         }
@@ -368,7 +375,7 @@ public class EditorTools extends LinearLayout {
 
     public void setBarMaxLauCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             if (i < 0) {
                 i = 0;
             }
@@ -378,70 +385,70 @@ public class EditorTools extends LinearLayout {
 
     public void setClearEbPadding(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
             this.u = z;
         }
     }
 
     public void setDeskBackgroundColorId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             this.b.setBackgroundColorId(i);
         }
     }
 
     public void setDeskLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
             this.b.setDeskLauncherEnabled(z);
         }
     }
 
     public void setFid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
             this.s = j;
         }
     }
 
     public void setHideBigEmotion(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             this.o = z;
         }
     }
 
     public void setIsFromPb(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
             this.p = z;
         }
     }
 
     public void setMoreButtonAtEnd(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
             this.j = z;
         }
     }
 
     public void setMoreDeskBgColorId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             this.l = i;
         }
     }
 
     public void setMoreVipIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
             this.w = z;
         }
     }
 
     public void setOnCancelClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, onClickListener) == null) {
             this.y = onClickListener;
             c();
         }
@@ -449,83 +456,218 @@ public class EditorTools extends LinearLayout {
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.r = str;
         }
     }
 
-    public void A(l65 l65Var) {
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.w(this.x);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.a.p();
+            this.b.i();
+        }
+    }
+
+    public List<x65> getAllTools() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<Integer> getCollectTools() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.A;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getFid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.s;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.r;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            k(true, true);
+        }
+    }
+
+    public void l() {
+        x65 o;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (o = o(3)) != null) {
+            y65 y65Var = o.m;
+            if (y65Var instanceof View) {
+                View view2 = (View) y65Var;
+                view2.requestFocus();
+                yi.O(getContext(), view2);
+            }
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            r();
+            setVisibility(8);
+            q();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.FALSE));
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            this.b.n();
+            this.a.n(null);
+        }
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return this.p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            return this.b.s();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            if (getVisibility() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            this.a.n(null);
+        }
+    }
+
+    public void B(m65 m65Var) {
         HashSet<Integer> hashSet;
         int i;
-        w65 n;
-        x65 x65Var;
+        x65 o;
+        y65 y65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, l65Var) != null) || l65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m65Var) != null) || m65Var == null) {
             return;
         }
-        int i2 = l65Var.a;
+        int i2 = m65Var.a;
         if (i2 == 2) {
             boolean z = false;
-            s65 q = this.a.q(l65Var.b);
+            t65 q = this.a.q(m65Var.b);
             if (q == null) {
-                q = this.b.l(l65Var.b);
+                q = this.b.l(m65Var.b);
                 z = true;
             }
             if (q == null) {
-                Iterator<s65> it = this.n.iterator();
+                Iterator<t65> it = this.n.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    s65 next = it.next();
-                    if (next.getToolId() == l65Var.b) {
+                    t65 next = it.next();
+                    if (next.getToolId() == m65Var.b) {
                         q = next;
                         break;
                     }
                 }
             }
             if (q != null) {
-                q.B(l65Var);
-                if (z && (n = n(2)) != null && (x65Var = n.m) != null) {
-                    x65Var.B(l65Var);
+                q.A(m65Var);
+                if (z && (o = o(2)) != null && (y65Var = o.m) != null) {
+                    y65Var.A(m65Var);
                 }
             }
         } else if (i2 == 5) {
             this.a.n(null);
             this.b.g();
         } else {
-            int i3 = l65Var.b;
+            int i3 = m65Var.b;
             if (i3 > 0) {
-                m65 m65Var = this.f.get(i3);
-                if (m65Var != null) {
-                    int i4 = l65Var.a;
-                    if (i4 != 19 && i4 != 20 && (i = l65Var.b) != 27) {
+                n65 n65Var = this.f.get(i3);
+                if (n65Var != null) {
+                    int i4 = m65Var.a;
+                    if (i4 != 19 && i4 != 20 && (i = m65Var.b) != 27) {
                         this.a.o(i);
                     }
-                    w65 n2 = n(l65Var.b);
-                    if (n2 != null && n2.n == 5) {
+                    x65 o2 = o(m65Var.b);
+                    if (o2 != null && o2.n == 5) {
+                        r();
                         q();
-                        p();
                     } else {
-                        this.b.h(l65Var.b);
+                        this.b.h(m65Var.b);
                     }
-                    m65Var.B(l65Var);
+                    n65Var.A(m65Var);
                 }
             } else if (i3 <= 0) {
                 if (i3 < 0 && (hashSet = this.h.get(i2)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        m65 m65Var2 = this.f.get(it2.next().intValue());
-                        if (m65Var2 != null) {
-                            m65Var2.B(l65Var);
+                        n65 n65Var2 = this.f.get(it2.next().intValue());
+                        if (n65Var2 != null) {
+                            n65Var2.A(m65Var);
                         }
                     }
                 }
-                HashSet<m65> hashSet2 = this.g.get(l65Var.a);
+                HashSet<n65> hashSet2 = this.g.get(m65Var.a);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
-                    Iterator<m65> it3 = hashSet2.iterator();
+                    Iterator<n65> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
-                        it3.next().B(l65Var);
+                        it3.next().A(m65Var);
                     }
                 }
             }
@@ -536,13 +678,13 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void B(int[] iArr, int i, m65 m65Var) {
+    public void C(int[] iArr, int i, n65 n65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i, m65Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, iArr, i, n65Var) == null) {
             int i2 = 0;
             if (i == 0) {
                 if (iArr != null && iArr.length != 0) {
-                    HashSet<m65> hashSet = this.g.get(iArr[0]);
+                    HashSet<n65> hashSet = this.g.get(iArr[0]);
                     if (hashSet == null) {
                         hashSet = new HashSet<>();
                         int length = iArr.length;
@@ -551,10 +693,10 @@ public class EditorTools extends LinearLayout {
                             i2++;
                         }
                     }
-                    hashSet.add(m65Var);
+                    hashSet.add(n65Var);
                 }
             } else if (i > 0) {
-                this.f.put(i, m65Var);
+                this.f.put(i, n65Var);
                 if (iArr != null && iArr.length > 0) {
                     int length2 = iArr.length;
                     while (i2 < length2) {
@@ -572,13 +714,13 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void b(w65 w65Var) {
+    public void b(x65 x65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, w65Var) != null) || w65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, x65Var) != null) || x65Var == null) {
             return;
         }
-        d(w65Var);
-        s65 i = i(w65Var, 1);
+        d(x65Var);
+        t65 i = i(x65Var, 1);
         i.hide();
         EditorBar editorBar = this.a;
         if (editorBar != null) {
@@ -589,15 +731,15 @@ public class EditorTools extends LinearLayout {
         invalidate();
     }
 
-    public void w(int i) {
+    public void x(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
             SkinManager.setBackgroundColor(this, this.k, i);
             this.a.v(i);
             this.b.t(i);
             View view2 = this.c;
             if (view2 != null) {
-                qw4 d2 = qw4.d(view2);
+                rw4 d2 = rw4.d(view2);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
             }
@@ -606,7 +748,7 @@ public class EditorTools extends LinearLayout {
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View view2 = this.d;
             if (view2 == null || view2.getParent() != null) {
                 View view3 = new View(getContext());
@@ -623,12 +765,12 @@ public class EditorTools extends LinearLayout {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View view2 = this.c;
             if (view2 == null || view2.getParent() != null) {
                 View view3 = new View(getContext());
                 this.c = view3;
-                qw4 d2 = qw4.d(view3);
+                rw4 d2 = rw4.d(view3);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
                 this.c.setLayoutParams(new RelativeLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.L_X01)));
@@ -638,91 +780,92 @@ public class EditorTools extends LinearLayout {
     }
 
     public void f() {
-        List<w65> list;
-        q65 q65Var;
-        u65 u65Var;
+        List<x65> list;
+        r65 r65Var;
+        v65 v65Var;
         int i;
-        x65 x65Var;
+        y65 y65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (list = this.e) != null && list.size() != 0) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (list = this.e) != null && list.size() != 0) {
             g();
             LinkedList linkedList = new LinkedList();
             boolean z = false;
-            for (w65 w65Var : this.e) {
-                if (w65Var.d > 0) {
-                    linkedList.add(w65Var);
+            for (x65 x65Var : this.e) {
+                if (x65Var.d > 0) {
+                    linkedList.add(x65Var);
                 }
-                x65 x65Var2 = w65Var.m;
-                if (x65Var2 != null) {
-                    x65Var2.setToolId(w65Var.c);
-                    w65Var.m.setEditorTools(this);
-                    int i2 = w65Var.n;
+                y65 y65Var2 = x65Var.m;
+                if (y65Var2 != null) {
+                    y65Var2.setToolId(x65Var.c);
+                    x65Var.m.setEditorTools(this);
+                    int i2 = x65Var.n;
                     if (i2 == 6) {
-                        this.b.e(w65Var.m);
+                        this.b.e(x65Var.m);
                     } else if (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5 || i2 == 8) {
-                        this.a.k(w65Var.m, w65Var.n, !w65Var.o);
-                        if (w65Var.n == 5 && n(1) == null) {
+                        this.a.k(x65Var.m, x65Var.n, !x65Var.o);
+                        if (x65Var.n == 5 && o(1) == null) {
                             z = true;
                         }
                     }
-                    B(w65Var.p, w65Var.c, w65Var.m);
+                    C(x65Var.p, x65Var.c, x65Var.m);
                 }
             }
             Collections.sort(linkedList, new c(this));
             if (linkedList.size() > this.i) {
                 if (this.p) {
-                    u65Var = new u65(getContext(), true);
+                    v65Var = new v65(getContext(), true);
                 } else {
                     Context context = getContext();
                     if (this.w) {
-                        i = R.drawable.obfuscated_res_0x7f080701;
+                        i = R.drawable.icon_editor_tool_vip;
                     } else {
                         i = -1;
                     }
-                    u65Var = new u65(context, i);
+                    v65Var = new v65(context, i);
                 }
                 int i3 = this.l;
-                if (i3 > 0 && (x65Var = u65Var.m) != null && (x65Var instanceof CommonTabHost)) {
-                    ((CommonTabHost) x65Var).setBackgroundColorId(i3);
+                if (i3 > 0 && (y65Var = v65Var.m) != null && (y65Var instanceof CommonTabHost)) {
+                    ((CommonTabHost) y65Var).setBackgroundColorId(i3);
                 }
-                if (!qy4.k().h("key_write_more_tool_point", false)) {
-                    u65Var.q = true;
+                if (!ry4.l().i("key_write_more_tool_point", false)) {
+                    v65Var.q = true;
                 } else {
-                    u65Var.q = false;
+                    v65Var.q = false;
                 }
-                d(u65Var);
-                u65Var.m.setToolId(u65Var.c);
-                u65Var.m.setEditorTools(this);
-                B(u65Var.p, u65Var.c, u65Var.m);
-                this.b.e(u65Var.m);
+                d(v65Var);
+                v65Var.m.setToolId(v65Var.c);
+                v65Var.m.setEditorTools(this);
+                C(v65Var.p, v65Var.c, v65Var.m);
+                this.b.e(v65Var.m);
                 if (this.j) {
-                    linkedList.add(this.i, u65Var);
+                    linkedList.add(this.i, v65Var);
                 } else {
-                    linkedList.add(0, u65Var);
+                    linkedList.add(0, v65Var);
                 }
             }
             int i4 = this.i + 1;
             Iterator it = linkedList.iterator();
             int i5 = 0;
             while (it.hasNext()) {
-                w65 w65Var2 = (w65) it.next();
+                x65 x65Var2 = (x65) it.next();
                 if (i5 < i4) {
-                    this.a.j(i(w65Var2, 1));
+                    this.a.j(i(x65Var2, 1));
                 } else {
-                    this.b.d(i(w65Var2, 2));
+                    this.b.d(i(x65Var2, 2));
                 }
                 i5++;
             }
             if (z) {
-                if (this.t == 7) {
-                    q65Var = new q65(7);
+                int i6 = this.t;
+                if (i6 != 7 && i6 != 9) {
+                    r65Var = new r65(-1);
                 } else {
-                    q65Var = new q65(-1);
+                    r65Var = new r65(7);
                 }
-                d(q65Var);
-                s65 i6 = i(q65Var, 1);
-                i6.hide();
-                this.a.i(0, i6);
+                d(r65Var);
+                t65 i7 = i(r65Var, 1);
+                i7.hide();
+                this.a.i(0, i7);
             }
             this.a.l();
             this.b.f();
@@ -734,7 +877,7 @@ public class EditorTools extends LinearLayout {
             if (this.p || this.u) {
                 this.a.setPadding(0, 0, 0, 0);
             }
-            q();
+            r();
             removeAllViews();
             if (this.a.getBarLauncherType() != 4) {
                 e();
@@ -745,175 +888,40 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.p();
-            this.b.i();
-        }
-    }
-
-    public List<w65> getAllTools() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<Integer> getCollectTools() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.A;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long getFid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.s;
-        }
-        return invokeV.longValue;
-    }
-
-    public String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.r;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            k(true, true);
-        }
-    }
-
-    public void l() {
-        w65 n;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (n = n(3)) != null) {
-            x65 x65Var = n.m;
-            if (x65Var instanceof View) {
-                View view2 = (View) x65Var;
-                view2.requestFocus();
-                yi.N(getContext(), view2);
-            }
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            q();
-            setVisibility(8);
-            p();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.FALSE));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.b.n();
-            this.a.n(null);
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return this.p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return this.b.s();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            if (getVisibility() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            this.a.n(null);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            this.a.w(this.x);
-        }
-    }
-
-    public final s65 i(w65 w65Var, int i) {
+    public final t65 i(x65 x65Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, w65Var, i)) == null) {
-            s65 a2 = r65.a(getContext(), w65Var, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, x65Var, i)) == null) {
+            t65 a2 = s65.a(getContext(), x65Var, i);
             if (a2 instanceof View) {
-                ((View) a2).setContentDescription(w65Var.b);
+                ((View) a2).setContentDescription(x65Var.b);
             }
             if (a2 instanceof BLauncher) {
                 ((View) a2).setOnClickListener(this.x);
             }
             return a2;
         }
-        return (s65) invokeLI.objValue;
+        return (t65) invokeLI.objValue;
     }
 
     public void k(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                for (w65 w65Var : this.e) {
-                    if (w65Var != null) {
-                        x65 x65Var = w65Var.m;
-                        if ((x65Var instanceof View) && ((View) x65Var).getVisibility() == 0 && !w65Var.o) {
-                            w65Var.m.display();
+                for (x65 x65Var : this.e) {
+                    if (x65Var != null) {
+                        y65 y65Var = x65Var.m;
+                        if ((y65Var instanceof View) && ((View) y65Var).getVisibility() == 0 && !x65Var.o) {
+                            x65Var.m.display();
                         }
                     }
                 }
             }
             if (this.m) {
                 this.m = false;
-                q();
+                r();
             }
-            if (!u() && z) {
+            if (!v() && z) {
                 ah.a().postDelayed(this.z, 200L);
             }
             setVisibility(0);
@@ -921,10 +929,10 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void p() {
+    public void q() {
         View currentFocus;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             ah.a().removeCallbacks(this.z);
             boolean z = false;
             if ((getContext() instanceof Activity) && (currentFocus = ((Activity) getContext()).getCurrentFocus()) != null) {
@@ -932,71 +940,72 @@ public class EditorTools extends LinearLayout {
                 yi.z(getContext(), currentFocus);
             }
             if (!z) {
-                w65 n = n(3);
-                if (n != null && (n.m instanceof View)) {
-                    yi.z(getContext(), (View) n.m);
+                x65 o = o(3);
+                if (o != null && (o.m instanceof View)) {
+                    yi.z(getContext(), (View) o.m);
                 }
-                w65 n2 = n(28);
-                if (n2 != null && (n2.m instanceof View)) {
-                    yi.z(getContext(), (View) n2.m);
+                x65 o2 = o(28);
+                if (o2 != null && (o2.m instanceof View)) {
+                    yi.z(getContext(), (View) o2.m);
                 }
             }
         }
     }
 
-    public void setActionListener(int i, m65 m65Var) {
+    public void setActionListener(int i, n65 n65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048603, this, i, m65Var) == null) {
-            B(new int[]{i}, 0, m65Var);
+        if (interceptable == null || interceptable.invokeIL(1048604, this, i, n65Var) == null) {
+            C(new int[]{i}, 0, n65Var);
         }
     }
 
     public void setToolEnabled(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && !this.a.x(z, i)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && !this.a.x(z, i)) {
             this.b.v(z, i);
         }
     }
 
-    public void setActionListener(int[] iArr, m65 m65Var) {
+    public void setActionListener(int[] iArr, n65 n65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, iArr, m65Var) == null) {
-            B(iArr, 0, m65Var);
+        if (interceptable == null || interceptable.invokeLL(1048605, this, iArr, n65Var) == null) {
+            C(iArr, 0, n65Var);
         }
     }
 
-    public void x(View view2) {
-        s65 s65Var;
+    public void y(View view2) {
+        t65 t65Var;
         int toolId;
-        w65 n;
+        x65 o;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048628, this, view2) == null) && (view2 instanceof s65) && (n = n((toolId = (s65Var = (s65) view2).getToolId()))) != null && n.a()) {
-            A(new l65(31, 0, Integer.valueOf(s65Var.getToolId())));
-            this.a.n(n);
-            if (s65Var.getToolId() == 2 && !qy4.k().h("key_write_more_tool_point", false)) {
-                qy4.k().u("key_write_more_tool_point", true);
-                s65Var.i0();
+        if ((interceptable == null || interceptable.invokeL(1048630, this, view2) == null) && (view2 instanceof t65) && (o = o((toolId = (t65Var = (t65) view2).getToolId()))) != null && o.a()) {
+            m(toolId);
+            B(new m65(31, 0, Integer.valueOf(t65Var.getToolId())));
+            this.a.n(o);
+            if (t65Var.getToolId() == 2 && !ry4.l().i("key_write_more_tool_point", false)) {
+                ry4.l().v("key_write_more_tool_point", true);
+                t65Var.g0();
             }
-            if (s65Var.getToolId() == 1) {
-                s65Var.hide();
+            if (t65Var.getToolId() == 1) {
+                t65Var.hide();
                 j();
-                A(new l65(1, 3, null));
-            } else if (n.m == null) {
-                int[] iArr = n.p;
+                B(new m65(1, 3, null));
+            } else if (o.m == null) {
+                int[] iArr = o.p;
                 if (iArr != null && iArr.length > 0) {
-                    A(new l65(iArr[0], -1, null));
+                    B(new m65(iArr[0], -1, null));
                 }
             } else {
-                A(new l65(1, toolId, null));
+                B(new m65(1, toolId, null));
             }
             if (this.t == 7) {
-                if (s65Var.getToolId() == 6 && !this.v) {
+                if (t65Var.getToolId() == 6 && !this.v) {
                     this.v = true;
-                    A(new l65(63, 0, true));
+                    B(new m65(63, 0, true));
                 }
-                if (s65Var.getToolId() == 1 && this.v) {
+                if (t65Var.getToolId() == 1 && this.v) {
                     this.v = false;
-                    A(new l65(63, 0, false));
+                    B(new m65(63, 0, false));
                 }
             }
         }

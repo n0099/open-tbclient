@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.android.pushservice.h.b.a.a;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -215,13 +216,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C0040a.C0041a.C0042a e = a.C0040a.C0041a.e();
+            a.C0054a.C0055a.C0056a e = a.C0054a.C0055a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C0040a.C0041a build = e.a(str).build();
+            a.C0054a.C0055a build = e.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C0040a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C0054a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -274,7 +275,7 @@ public class b {
                 public void onResponse(Call call, Response response) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                        String str2 = "ok";
+                        String str2 = DnsModel.MSG_OK;
                         int i = 0;
                         try {
                             if (response.body() != null) {
@@ -284,7 +285,7 @@ public class b {
                             }
                         } catch (IOException unused) {
                         } catch (Throwable th) {
-                            this.a.a(i, "ok");
+                            this.a.a(i, DnsModel.MSG_OK);
                             throw th;
                         }
                         this.a.a(i, str2);

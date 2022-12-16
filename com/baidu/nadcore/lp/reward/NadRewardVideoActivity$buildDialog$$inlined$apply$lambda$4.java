@@ -1,7 +1,7 @@
 package com.baidu.nadcore.lp.reward;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ji0;
+import com.baidu.tieba.ii0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public final class NadRewardVideoActivity$buildDialog$$inlined$apply$lambda$4 ex
     public final void invoke2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !NadRewardVideoActivity.z1(this.this$0).e()) {
-            ji0.b(NadRewardVideoActivity.z1(this.this$0).c());
+            ii0.b(NadRewardVideoActivity.z1(this.this$0).c());
         }
     }
 }
